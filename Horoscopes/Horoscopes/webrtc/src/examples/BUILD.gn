@@ -24,6 +24,8 @@ group("examples") {
   if (is_android) {
     public_deps += [
       ":AppRTCMobile",
+      ":AppRTCMobileTest",
+      ":AppRTCMobileTestStubbedVideoIO",
     ]
   }
 
@@ -256,6 +258,7 @@ if (is_ios || (is_mac && target_cpu != "x86")) {
       deps += [ ":AppRTCMobile_ios_frameworks" ]
     } else {
       public_deps = [
+        "../sdk:peerconnection_objc",
       ]
     }
     libs = [ "QuartzCore.framework" ]
@@ -287,7 +290,7 @@ if (is_ios || (is_mac && target_cpu != "x86")) {
       deps = [
         ":AppRTCMobile_ios_frameworks",
         ":apprtc_common",
-#      ":apprtc_signaling",
+        ":apprtc_signaling",
       ]
     }
 
@@ -299,13 +302,13 @@ if (is_ios || (is_mac && target_cpu != "x86")) {
 
       info_plist = "objc/AppRTCMobile/ios/Info.plist"
 
-#     configs += [ "..:common_config" ]
-#      public_configs = [ "..:common_inherited_config" ]
+      configs += [ "..:common_config" ]
+      public_configs = [ "..:common_inherited_config" ]
 
       deps = [
-#       ":AppRTCMobile_ios_bundle_data",
+        ":AppRTCMobile_ios_bundle_data",
         ":AppRTCMobile_ios_frameworks",
-#":AppRTCMobile_lib",
+        ":AppRTCMobile_lib",
       ]
 
       if (target_cpu == "x86") {
@@ -315,11 +318,10 @@ if (is_ios || (is_mac && target_cpu != "x86")) {
 
     bundle_data("AppRTCMobile_ios_frameworks") {
       public_deps = [
-#   "../sdk:framework_objc+link",
+        "../sdk:framework_objc+link",
       ]
       sources = [
-"objc/AppRTCMobile/ios/main_empty.m",
-# "$root_build_dir/WebRTC.framework",
+        "$root_build_dir/WebRTC.framework",
       ]
       outputs = [
         "{{bundle_resources_dir}}/Frameworks/{{source_file_part}}",
@@ -365,7 +367,7 @@ if (is_ios || (is_mac && target_cpu != "x86")) {
       configs += [ "..:common_objc" ]
       deps = [
         ":apprtc_common",
-#":apprtc_signaling",
+        ":apprtc_signaling",
         "../sdk:ui_objc",
       ]
     }

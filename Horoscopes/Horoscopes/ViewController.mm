@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "rtc_base/logging.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    LOG(LS_ERROR) << "!";
     // Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -8,11 +8,98 @@
 
 /* Begin PBXBuildFile section */
 		4B0FD3721FA06C96006378B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3711FA06C96006378B6 /* AppDelegate.m */; };
-		4B0FD3751FA06C96006378B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3741FA06C96006378B6 /* ViewController.m */; };
+		4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3741FA06C96006378B6 /* ViewController.mm */; };
 		4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3791FA06C96006378B6 /* Assets.xcassets */; };
 		4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */; };
 		4B0FD3801FA06C96006378B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD37F1FA06C96006378B6 /* main.m */; };
+		C301AC291FA24E97001A0ED7 /* platform_thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD21FA24E94001A0ED7 /* platform_thread.o */; };
+		C301AC2A1FA24E97001A0ED7 /* sequenced_task_checker_impl.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD31FA24E94001A0ED7 /* sequenced_task_checker_impl.o */; };
+		C301AC2B1FA24E97001A0ED7 /* socketstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD41FA24E94001A0ED7 /* socketstream.o */; };
+		C301AC2C1FA24E97001A0ED7 /* openssldigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD51FA24E94001A0ED7 /* openssldigest.o */; };
+		C301AC2D1FA24E97001A0ED7 /* managers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD61FA24E94001A0ED7 /* managers.o */; };
+		C301AC2E1FA24E97001A0ED7 /* stream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD71FA24E94001A0ED7 /* stream.o */; };
+		C301AC2F1FA24E97001A0ED7 /* stringutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD81FA24E94001A0ED7 /* stringutils.o */; };
+		C301AC301FA24E97001A0ED7 /* task_queue_posix.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABD91FA24E94001A0ED7 /* task_queue_posix.o */; };
+		C301AC311FA24E97001A0ED7 /* messagehandler.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABDA1FA24E94001A0ED7 /* messagehandler.o */; };
+		C301AC321FA24E97001A0ED7 /* thread_checker_impl.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABDB1FA24E94001A0ED7 /* thread_checker_impl.o */; };
+		C301AC331FA24E97001A0ED7 /* timestampaligner.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABDC1FA24E94001A0ED7 /* timestampaligner.o */; };
+		C301AC341FA24E97001A0ED7 /* ratelimiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABDD1FA24E94001A0ED7 /* ratelimiter.o */; };
+		C301AC351FA24E97001A0ED7 /* weak_ptr.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABDE1FA24E94001A0ED7 /* weak_ptr.o */; };
+		C301AC361FA24E97001A0ED7 /* event_tracer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABDF1FA24E94001A0ED7 /* event_tracer.o */; };
+		C301AC371FA24E97001A0ED7 /* event.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE01FA24E94001A0ED7 /* event.o */; };
+		C301AC381FA24E97001A0ED7 /* logsinks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE11FA24E94001A0ED7 /* logsinks.o */; };
+		C301AC391FA24E97001A0ED7 /* bufferqueue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE21FA24E94001A0ED7 /* bufferqueue.o */; };
+		C301AC3A1FA24E97001A0ED7 /* asyncinvoker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE31FA24E95001A0ED7 /* asyncinvoker.o */; };
+		C301AC3B1FA24E97001A0ED7 /* signalthread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE41FA24E95001A0ED7 /* signalthread.o */; };
+		C301AC3C1FA24E97001A0ED7 /* sslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE51FA24E95001A0ED7 /* sslstreamadapter.o */; };
+		C301AC3D1FA24E97001A0ED7 /* rtccertificategenerator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE61FA24E95001A0ED7 /* rtccertificategenerator.o */; };
+		C301AC3E1FA24E97001A0ED7 /* opensslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE71FA24E95001A0ED7 /* opensslidentity.o */; };
+		C301AC3F1FA24E97001A0ED7 /* socketaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE81FA24E95001A0ED7 /* socketaddress.o */; };
+		C301AC401FA24E97001A0ED7 /* socketaddresspair.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABE91FA24E95001A0ED7 /* socketaddresspair.o */; };
+		C301AC411FA24E97001A0ED7 /* thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABEA1FA24E95001A0ED7 /* thread.o */; };
+		C301AC421FA24E97001A0ED7 /* thread_darwin.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABEB1FA24E95001A0ED7 /* thread_darwin.o */; };
+		C301AC431FA24E97001A0ED7 /* sslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABEC1FA24E95001A0ED7 /* sslidentity.o */; };
+		C301AC441FA24E97001A0ED7 /* base64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABED1FA24E95001A0ED7 /* base64.o */; };
+		C301AC451FA24E97001A0ED7 /* random.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABEE1FA24E95001A0ED7 /* random.o */; };
+		C301AC461FA24E97001A0ED7 /* location.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABEF1FA24E95001A0ED7 /* location.o */; };
+		C301AC471FA24E97001A0ED7 /* noop.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF01FA24E95001A0ED7 /* noop.o */; };
+		C301AC481FA24E97001A0ED7 /* bitbuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF11FA24E95001A0ED7 /* bitbuffer.o */; };
+		C301AC491FA24E97001A0ED7 /* crc32.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF21FA24E96001A0ED7 /* crc32.o */; };
+		C301AC4A1FA24E97001A0ED7 /* nullsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF31FA24E96001A0ED7 /* nullsocketserver.o */; };
+		C301AC4B1FA24E97001A0ED7 /* managers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF41FA24E96001A0ED7 /* managers.o */; };
+		C301AC4C1FA24E97001A0ED7 /* file_posix.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF51FA24E96001A0ED7 /* file_posix.o */; };
+		C301AC4D1FA24E97001A0ED7 /* helpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF61FA24E96001A0ED7 /* helpers.o */; };
+		C301AC4E1FA24E97001A0ED7 /* checks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF71FA24E96001A0ED7 /* checks.o */; };
+		C301AC4F1FA24E97001A0ED7 /* bitrateallocationstrategy.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF81FA24E96001A0ED7 /* bitrateallocationstrategy.o */; };
+		C301AC501FA24E97001A0ED7 /* messagequeue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABF91FA24E96001A0ED7 /* messagequeue.o */; };
+		C301AC511FA24E97001A0ED7 /* openssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABFA1FA24E96001A0ED7 /* openssladapter.o */; };
+		C301AC521FA24E97001A0ED7 /* rate_statistics.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABFB1FA24E96001A0ED7 /* rate_statistics.o */; };
+		C301AC531FA24E97001A0ED7 /* socketadapters.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABFC1FA24E96001A0ED7 /* socketadapters.o */; };
+		C301AC541FA24E97001A0ED7 /* asyncresolverinterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABFD1FA24E96001A0ED7 /* asyncresolverinterface.o */; };
+		C301AC551FA24E97001A0ED7 /* proxyinfo.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABFE1FA24E96001A0ED7 /* proxyinfo.o */; };
+		C301AC561FA24E97001A0ED7 /* network.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301ABFF1FA24E96001A0ED7 /* network.o */; };
+		C301AC571FA24E97001A0ED7 /* fileutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC001FA24E96001A0ED7 /* fileutils.o */; };
+		C301AC581FA24E97001A0ED7 /* asyncudpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC011FA24E96001A0ED7 /* asyncudpsocket.o */; };
+		C301AC591FA24E97001A0ED7 /* nethelpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC021FA24E96001A0ED7 /* nethelpers.o */; };
+		C301AC5A1FA24E97001A0ED7 /* task_queue_gcd.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC031FA24E96001A0ED7 /* task_queue_gcd.o */; };
+		C301AC5B1FA24E97001A0ED7 /* timeutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC041FA24E96001A0ED7 /* timeutils.o */; };
+		C301AC5C1FA24E97001A0ED7 /* copyonwritebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC051FA24E96001A0ED7 /* copyonwritebuffer.o */; };
+		C301AC5D1FA24E97001A0ED7 /* criticalsection.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC061FA24E96001A0ED7 /* criticalsection.o */; };
+		C301AC5E1FA24E97001A0ED7 /* stringencode.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC071FA24E96001A0ED7 /* stringencode.o */; };
+		C301AC5F1FA24E97001A0ED7 /* ipaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC081FA24E96001A0ED7 /* ipaddress.o */; };
+		C301AC601FA24E97001A0ED7 /* ratetracker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC091FA24E96001A0ED7 /* ratetracker.o */; };
+		C301AC611FA24E97001A0ED7 /* exp_filter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC0A1FA24E96001A0ED7 /* exp_filter.o */; };
+		C301AC621FA24E97001A0ED7 /* physicalsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC0B1FA24E96001A0ED7 /* physicalsocketserver.o */; };
+		C301AC631FA24E97001A0ED7 /* pathutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC0C1FA24E96001A0ED7 /* pathutils.o */; };
+		C301AC641FA24E97001A0ED7 /* ifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC0D1FA24E96001A0ED7 /* ifaddrs_converter.o */; };
+		C301AC651FA24E97001A0ED7 /* platform_file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC0E1FA24E96001A0ED7 /* platform_file.o */; };
+		C301AC661FA24E97001A0ED7 /* cryptstring.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC0F1FA24E96001A0ED7 /* cryptstring.o */; };
+		C301AC671FA24E97001A0ED7 /* sslfingerprint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC101FA24E96001A0ED7 /* sslfingerprint.o */; };
+		C301AC681FA24E97001A0ED7 /* httpcommon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC111FA24E96001A0ED7 /* httpcommon.o */; };
+		C301AC691FA24E97001A0ED7 /* logging.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC121FA24E96001A0ED7 /* logging.o */; };
+		C301AC6A1FA24E97001A0ED7 /* filerotatingstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC131FA24E96001A0ED7 /* filerotatingstream.o */; };
+		C301AC6B1FA24E97001A0ED7 /* messagedigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC141FA24E96001A0ED7 /* messagedigest.o */; };
+		C301AC6C1FA24E97001A0ED7 /* networkmonitor.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC151FA24E96001A0ED7 /* networkmonitor.o */; };
+		C301AC6D1FA24E97001A0ED7 /* bytebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC161FA24E97001A0ED7 /* bytebuffer.o */; };
+		C301AC6E1FA24E97001A0ED7 /* race_checker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC171FA24E97001A0ED7 /* race_checker.o */; };
+		C301AC6F1FA24E97001A0ED7 /* sigslot.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC181FA24E97001A0ED7 /* sigslot.o */; };
+		C301AC701FA24E97001A0ED7 /* string_to_number.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC191FA24E97001A0ED7 /* string_to_number.o */; };
+		C301AC711FA24E97001A0ED7 /* asyncsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC1A1FA24E97001A0ED7 /* asyncsocket.o */; };
+		C301AC721FA24E97001A0ED7 /* opensslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC1B1FA24E97001A0ED7 /* opensslstreamadapter.o */; };
+		C301AC731FA24E97001A0ED7 /* rate_limiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC1C1FA24E97001A0ED7 /* rate_limiter.o */; };
+		C301AC741FA24E97001A0ED7 /* transformadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC1D1FA24E97001A0ED7 /* transformadapter.o */; };
+		C301AC751FA24E97001A0ED7 /* asyncpacketsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC1E1FA24E97001A0ED7 /* asyncpacketsocket.o */; };
+		C301AC761FA24E97001A0ED7 /* unixfilesystem.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC1F1FA24E97001A0ED7 /* unixfilesystem.o */; };
+		C301AC771FA24E97001A0ED7 /* file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC201FA24E97001A0ED7 /* file.o */; };
+		C301AC781FA24E97001A0ED7 /* histogram_percentile_counter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC211FA24E97001A0ED7 /* histogram_percentile_counter.o */; };
+		C301AC791FA24E97001A0ED7 /* macifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC221FA24E97001A0ED7 /* macifaddrs_converter.o */; };
+		C301AC7A1FA24E97001A0ED7 /* rtccertificate.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC231FA24E97001A0ED7 /* rtccertificate.o */; };
+		C301AC7B1FA24E97001A0ED7 /* httpbase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC241FA24E97001A0ED7 /* httpbase.o */; };
+		C301AC7C1FA24E97001A0ED7 /* ssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC251FA24E97001A0ED7 /* ssladapter.o */; };
+		C301AC7D1FA24E97001A0ED7 /* asynctcpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC261FA24E97001A0ED7 /* asynctcpsocket.o */; };
+		C301AC7E1FA24E97001A0ED7 /* flags.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC271FA24E97001A0ED7 /* flags.o */; };
+		C301AC7F1FA24E97001A0ED7 /* optionsfile.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C301AC281FA24E97001A0ED7 /* optionsfile.o */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +107,99 @@
 		4B0FD3701FA06C96006378B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4B0FD3711FA06C96006378B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4B0FD3731FA06C96006378B6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4B0FD3741FA06C96006378B6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4B0FD3741FA06C96006378B6 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		4B0FD3771FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B0FD3791FA06C96006378B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B0FD37C1FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B0FD37E1FA06C96006378B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B0FD37F1FA06C96006378B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C301ABD21FA24E94001A0ED7 /* platform_thread.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = platform_thread.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/platform_thread.o; sourceTree = SOURCE_ROOT; };
+		C301ABD31FA24E94001A0ED7 /* sequenced_task_checker_impl.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = sequenced_task_checker_impl.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/sequenced_task_checker/sequenced_task_checker_impl.o; sourceTree = SOURCE_ROOT; };
+		C301ABD41FA24E94001A0ED7 /* socketstream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = socketstream.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/socketstream.o; sourceTree = SOURCE_ROOT; };
+		C301ABD51FA24E94001A0ED7 /* openssldigest.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = openssldigest.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/openssldigest.o; sourceTree = SOURCE_ROOT; };
+		C301ABD61FA24E94001A0ED7 /* managers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = managers.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/managers.o; sourceTree = SOURCE_ROOT; };
+		C301ABD71FA24E94001A0ED7 /* stream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = stream.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/stream.o; sourceTree = SOURCE_ROOT; };
+		C301ABD81FA24E94001A0ED7 /* stringutils.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = stringutils.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/stringutils.o; sourceTree = SOURCE_ROOT; };
+		C301ABD91FA24E94001A0ED7 /* task_queue_posix.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = task_queue_posix.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_task_queue_impl/task_queue_posix.o; sourceTree = SOURCE_ROOT; };
+		C301ABDA1FA24E94001A0ED7 /* messagehandler.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = messagehandler.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/messagehandler.o; sourceTree = SOURCE_ROOT; };
+		C301ABDB1FA24E94001A0ED7 /* thread_checker_impl.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = thread_checker_impl.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/thread_checker_impl.o; sourceTree = SOURCE_ROOT; };
+		C301ABDC1FA24E94001A0ED7 /* timestampaligner.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = timestampaligner.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/timestampaligner.o; sourceTree = SOURCE_ROOT; };
+		C301ABDD1FA24E94001A0ED7 /* ratelimiter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ratelimiter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ratelimiter.o; sourceTree = SOURCE_ROOT; };
+		C301ABDE1FA24E94001A0ED7 /* weak_ptr.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = weak_ptr.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/weak_ptr/weak_ptr.o; sourceTree = SOURCE_ROOT; };
+		C301ABDF1FA24E94001A0ED7 /* event_tracer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = event_tracer.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/event_tracer.o; sourceTree = SOURCE_ROOT; };
+		C301ABE01FA24E94001A0ED7 /* event.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = event.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/event.o; sourceTree = SOURCE_ROOT; };
+		C301ABE11FA24E94001A0ED7 /* logsinks.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = logsinks.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/logsinks.o; sourceTree = SOURCE_ROOT; };
+		C301ABE21FA24E94001A0ED7 /* bufferqueue.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = bufferqueue.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/bufferqueue.o; sourceTree = SOURCE_ROOT; };
+		C301ABE31FA24E95001A0ED7 /* asyncinvoker.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = asyncinvoker.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/asyncinvoker.o; sourceTree = SOURCE_ROOT; };
+		C301ABE41FA24E95001A0ED7 /* signalthread.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = signalthread.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/signalthread.o; sourceTree = SOURCE_ROOT; };
+		C301ABE51FA24E95001A0ED7 /* sslstreamadapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = sslstreamadapter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/sslstreamadapter.o; sourceTree = SOURCE_ROOT; };
+		C301ABE61FA24E95001A0ED7 /* rtccertificategenerator.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rtccertificategenerator.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/rtccertificategenerator.o; sourceTree = SOURCE_ROOT; };
+		C301ABE71FA24E95001A0ED7 /* opensslidentity.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = opensslidentity.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/opensslidentity.o; sourceTree = SOURCE_ROOT; };
+		C301ABE81FA24E95001A0ED7 /* socketaddress.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = socketaddress.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/socketaddress.o; sourceTree = SOURCE_ROOT; };
+		C301ABE91FA24E95001A0ED7 /* socketaddresspair.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = socketaddresspair.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/socketaddresspair.o; sourceTree = SOURCE_ROOT; };
+		C301ABEA1FA24E95001A0ED7 /* thread.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = thread.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/thread.o; sourceTree = SOURCE_ROOT; };
+		C301ABEB1FA24E95001A0ED7 /* thread_darwin.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = thread_darwin.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_objc/thread_darwin.o; sourceTree = SOURCE_ROOT; };
+		C301ABEC1FA24E95001A0ED7 /* sslidentity.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = sslidentity.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/sslidentity.o; sourceTree = SOURCE_ROOT; };
+		C301ABED1FA24E95001A0ED7 /* base64.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = base64.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/base64.o; sourceTree = SOURCE_ROOT; };
+		C301ABEE1FA24E95001A0ED7 /* random.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = random.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/random.o; sourceTree = SOURCE_ROOT; };
+		C301ABEF1FA24E95001A0ED7 /* location.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = location.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/location.o; sourceTree = SOURCE_ROOT; };
+		C301ABF01FA24E95001A0ED7 /* noop.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = noop.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base/noop.o; sourceTree = SOURCE_ROOT; };
+		C301ABF11FA24E95001A0ED7 /* bitbuffer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = bitbuffer.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/bitbuffer.o; sourceTree = SOURCE_ROOT; };
+		C301ABF21FA24E96001A0ED7 /* crc32.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = crc32.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/crc32.o; sourceTree = SOURCE_ROOT; };
+		C301ABF31FA24E96001A0ED7 /* nullsocketserver.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = nullsocketserver.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/nullsocketserver.o; sourceTree = SOURCE_ROOT; };
+		C301ABF41FA24E96001A0ED7 /* managers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = managers.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/managers.o; sourceTree = SOURCE_ROOT; };
+		C301ABF51FA24E96001A0ED7 /* file_posix.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = file_posix.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/file_posix.o; sourceTree = SOURCE_ROOT; };
+		C301ABF61FA24E96001A0ED7 /* helpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = helpers.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/helpers.o; sourceTree = SOURCE_ROOT; };
+		C301ABF71FA24E96001A0ED7 /* checks.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = checks.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/checks.o; sourceTree = SOURCE_ROOT; };
+		C301ABF81FA24E96001A0ED7 /* bitrateallocationstrategy.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = bitrateallocationstrategy.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/bitrateallocationstrategy.o; sourceTree = SOURCE_ROOT; };
+		C301ABF91FA24E96001A0ED7 /* messagequeue.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = messagequeue.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/messagequeue.o; sourceTree = SOURCE_ROOT; };
+		C301ABFA1FA24E96001A0ED7 /* openssladapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = openssladapter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/openssladapter.o; sourceTree = SOURCE_ROOT; };
+		C301ABFB1FA24E96001A0ED7 /* rate_statistics.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rate_statistics.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/rate_statistics.o; sourceTree = SOURCE_ROOT; };
+		C301ABFC1FA24E96001A0ED7 /* socketadapters.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = socketadapters.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/socketadapters.o; sourceTree = SOURCE_ROOT; };
+		C301ABFD1FA24E96001A0ED7 /* asyncresolverinterface.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = asyncresolverinterface.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/asyncresolverinterface.o; sourceTree = SOURCE_ROOT; };
+		C301ABFE1FA24E96001A0ED7 /* proxyinfo.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = proxyinfo.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/proxyinfo.o; sourceTree = SOURCE_ROOT; };
+		C301ABFF1FA24E96001A0ED7 /* network.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = network.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/network.o; sourceTree = SOURCE_ROOT; };
+		C301AC001FA24E96001A0ED7 /* fileutils.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = fileutils.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/fileutils.o; sourceTree = SOURCE_ROOT; };
+		C301AC011FA24E96001A0ED7 /* asyncudpsocket.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = asyncudpsocket.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/asyncudpsocket.o; sourceTree = SOURCE_ROOT; };
+		C301AC021FA24E96001A0ED7 /* nethelpers.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = nethelpers.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/nethelpers.o; sourceTree = SOURCE_ROOT; };
+		C301AC031FA24E96001A0ED7 /* task_queue_gcd.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = task_queue_gcd.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_task_queue_impl/task_queue_gcd.o; sourceTree = SOURCE_ROOT; };
+		C301AC041FA24E96001A0ED7 /* timeutils.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = timeutils.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/timeutils.o; sourceTree = SOURCE_ROOT; };
+		C301AC051FA24E96001A0ED7 /* copyonwritebuffer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = copyonwritebuffer.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/copyonwritebuffer.o; sourceTree = SOURCE_ROOT; };
+		C301AC061FA24E96001A0ED7 /* criticalsection.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = criticalsection.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/criticalsection.o; sourceTree = SOURCE_ROOT; };
+		C301AC071FA24E96001A0ED7 /* stringencode.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = stringencode.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/stringencode.o; sourceTree = SOURCE_ROOT; };
+		C301AC081FA24E96001A0ED7 /* ipaddress.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ipaddress.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ipaddress.o; sourceTree = SOURCE_ROOT; };
+		C301AC091FA24E96001A0ED7 /* ratetracker.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ratetracker.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/ratetracker.o; sourceTree = SOURCE_ROOT; };
+		C301AC0A1FA24E96001A0ED7 /* exp_filter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = exp_filter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_numerics/exp_filter.o; sourceTree = SOURCE_ROOT; };
+		C301AC0B1FA24E96001A0ED7 /* physicalsocketserver.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = physicalsocketserver.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/physicalsocketserver.o; sourceTree = SOURCE_ROOT; };
+		C301AC0C1FA24E96001A0ED7 /* pathutils.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = pathutils.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/pathutils.o; sourceTree = SOURCE_ROOT; };
+		C301AC0D1FA24E96001A0ED7 /* ifaddrs_converter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ifaddrs_converter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ifaddrs_converter.o; sourceTree = SOURCE_ROOT; };
+		C301AC0E1FA24E96001A0ED7 /* platform_file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = platform_file.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/platform_file.o; sourceTree = SOURCE_ROOT; };
+		C301AC0F1FA24E96001A0ED7 /* cryptstring.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = cryptstring.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/cryptstring.o; sourceTree = SOURCE_ROOT; };
+		C301AC101FA24E96001A0ED7 /* sslfingerprint.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = sslfingerprint.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/sslfingerprint.o; sourceTree = SOURCE_ROOT; };
+		C301AC111FA24E96001A0ED7 /* httpcommon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = httpcommon.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/httpcommon.o; sourceTree = SOURCE_ROOT; };
+		C301AC121FA24E96001A0ED7 /* logging.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = logging.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/logging.o; sourceTree = SOURCE_ROOT; };
+		C301AC131FA24E96001A0ED7 /* filerotatingstream.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = filerotatingstream.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/filerotatingstream.o; sourceTree = SOURCE_ROOT; };
+		C301AC141FA24E96001A0ED7 /* messagedigest.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = messagedigest.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/messagedigest.o; sourceTree = SOURCE_ROOT; };
+		C301AC151FA24E96001A0ED7 /* networkmonitor.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = networkmonitor.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/networkmonitor.o; sourceTree = SOURCE_ROOT; };
+		C301AC161FA24E97001A0ED7 /* bytebuffer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = bytebuffer.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/bytebuffer.o; sourceTree = SOURCE_ROOT; };
+		C301AC171FA24E97001A0ED7 /* race_checker.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = race_checker.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/race_checker.o; sourceTree = SOURCE_ROOT; };
+		C301AC181FA24E97001A0ED7 /* sigslot.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = sigslot.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/sigslot.o; sourceTree = SOURCE_ROOT; };
+		C301AC191FA24E97001A0ED7 /* string_to_number.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = string_to_number.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/string_to_number.o; sourceTree = SOURCE_ROOT; };
+		C301AC1A1FA24E97001A0ED7 /* asyncsocket.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = asyncsocket.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/asyncsocket.o; sourceTree = SOURCE_ROOT; };
+		C301AC1B1FA24E97001A0ED7 /* opensslstreamadapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = opensslstreamadapter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/opensslstreamadapter.o; sourceTree = SOURCE_ROOT; };
+		C301AC1C1FA24E97001A0ED7 /* rate_limiter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rate_limiter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/rate_limiter.o; sourceTree = SOURCE_ROOT; };
+		C301AC1D1FA24E97001A0ED7 /* transformadapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = transformadapter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/transformadapter.o; sourceTree = SOURCE_ROOT; };
+		C301AC1E1FA24E97001A0ED7 /* asyncpacketsocket.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = asyncpacketsocket.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/asyncpacketsocket.o; sourceTree = SOURCE_ROOT; };
+		C301AC1F1FA24E97001A0ED7 /* unixfilesystem.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = unixfilesystem.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/unixfilesystem.o; sourceTree = SOURCE_ROOT; };
+		C301AC201FA24E97001A0ED7 /* file.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = file.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/file.o; sourceTree = SOURCE_ROOT; };
+		C301AC211FA24E97001A0ED7 /* histogram_percentile_counter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = histogram_percentile_counter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/histogram_percentile_counter.o; sourceTree = SOURCE_ROOT; };
+		C301AC221FA24E97001A0ED7 /* macifaddrs_converter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = macifaddrs_converter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/macifaddrs_converter.o; sourceTree = SOURCE_ROOT; };
+		C301AC231FA24E97001A0ED7 /* rtccertificate.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rtccertificate.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/rtccertificate.o; sourceTree = SOURCE_ROOT; };
+		C301AC241FA24E97001A0ED7 /* httpbase.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = httpbase.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/httpbase.o; sourceTree = SOURCE_ROOT; };
+		C301AC251FA24E97001A0ED7 /* ssladapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ssladapter.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ssladapter.o; sourceTree = SOURCE_ROOT; };
+		C301AC261FA24E97001A0ED7 /* asynctcpsocket.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = asynctcpsocket.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/asynctcpsocket.o; sourceTree = SOURCE_ROOT; };
+		C301AC271FA24E97001A0ED7 /* flags.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = flags.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/flags.o; sourceTree = SOURCE_ROOT; };
+		C301AC281FA24E97001A0ED7 /* optionsfile.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = optionsfile.o; path = Horoscopes/webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/optionsfile.o; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +207,93 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C301AC741FA24E97001A0ED7 /* transformadapter.o in Frameworks */,
+				C301AC671FA24E97001A0ED7 /* sslfingerprint.o in Frameworks */,
+				C301AC5E1FA24E97001A0ED7 /* stringencode.o in Frameworks */,
+				C301AC6E1FA24E97001A0ED7 /* race_checker.o in Frameworks */,
+				C301AC511FA24E97001A0ED7 /* openssladapter.o in Frameworks */,
+				C301AC4F1FA24E97001A0ED7 /* bitrateallocationstrategy.o in Frameworks */,
+				C301AC571FA24E97001A0ED7 /* fileutils.o in Frameworks */,
+				C301AC521FA24E97001A0ED7 /* rate_statistics.o in Frameworks */,
+				C301AC301FA24E97001A0ED7 /* task_queue_posix.o in Frameworks */,
+				C301AC6B1FA24E97001A0ED7 /* messagedigest.o in Frameworks */,
+				C301AC631FA24E97001A0ED7 /* pathutils.o in Frameworks */,
+				C301AC5C1FA24E97001A0ED7 /* copyonwritebuffer.o in Frameworks */,
+				C301AC481FA24E97001A0ED7 /* bitbuffer.o in Frameworks */,
+				C301AC6C1FA24E97001A0ED7 /* networkmonitor.o in Frameworks */,
+				C301AC7D1FA24E97001A0ED7 /* asynctcpsocket.o in Frameworks */,
+				C301AC411FA24E97001A0ED7 /* thread.o in Frameworks */,
+				C301AC491FA24E97001A0ED7 /* crc32.o in Frameworks */,
+				C301AC651FA24E97001A0ED7 /* platform_file.o in Frameworks */,
+				C301AC3D1FA24E97001A0ED7 /* rtccertificategenerator.o in Frameworks */,
+				C301AC781FA24E97001A0ED7 /* histogram_percentile_counter.o in Frameworks */,
+				C301AC5F1FA24E97001A0ED7 /* ipaddress.o in Frameworks */,
+				C301AC471FA24E97001A0ED7 /* noop.o in Frameworks */,
+				C301AC591FA24E97001A0ED7 /* nethelpers.o in Frameworks */,
+				C301AC431FA24E97001A0ED7 /* sslidentity.o in Frameworks */,
+				C301AC381FA24E97001A0ED7 /* logsinks.o in Frameworks */,
+				C301AC2F1FA24E97001A0ED7 /* stringutils.o in Frameworks */,
+				C301AC441FA24E97001A0ED7 /* base64.o in Frameworks */,
+				C301AC701FA24E97001A0ED7 /* string_to_number.o in Frameworks */,
+				C301AC2C1FA24E97001A0ED7 /* openssldigest.o in Frameworks */,
+				C301AC561FA24E97001A0ED7 /* network.o in Frameworks */,
+				C301AC541FA24E97001A0ED7 /* asyncresolverinterface.o in Frameworks */,
+				C301AC461FA24E97001A0ED7 /* location.o in Frameworks */,
+				C301AC6A1FA24E97001A0ED7 /* filerotatingstream.o in Frameworks */,
+				C301AC321FA24E97001A0ED7 /* thread_checker_impl.o in Frameworks */,
+				C301AC3F1FA24E97001A0ED7 /* socketaddress.o in Frameworks */,
+				C301AC5D1FA24E97001A0ED7 /* criticalsection.o in Frameworks */,
+				C301AC341FA24E97001A0ED7 /* ratelimiter.o in Frameworks */,
+				C301AC2D1FA24E97001A0ED7 /* managers.o in Frameworks */,
+				C301AC761FA24E97001A0ED7 /* unixfilesystem.o in Frameworks */,
+				C301AC4A1FA24E97001A0ED7 /* nullsocketserver.o in Frameworks */,
+				C301AC351FA24E97001A0ED7 /* weak_ptr.o in Frameworks */,
+				C301AC7C1FA24E97001A0ED7 /* ssladapter.o in Frameworks */,
+				C301AC391FA24E97001A0ED7 /* bufferqueue.o in Frameworks */,
+				C301AC7E1FA24E97001A0ED7 /* flags.o in Frameworks */,
+				C301AC451FA24E97001A0ED7 /* random.o in Frameworks */,
+				C301AC691FA24E97001A0ED7 /* logging.o in Frameworks */,
+				C301AC611FA24E97001A0ED7 /* exp_filter.o in Frameworks */,
+				C301AC6D1FA24E97001A0ED7 /* bytebuffer.o in Frameworks */,
+				C301AC7B1FA24E97001A0ED7 /* httpbase.o in Frameworks */,
+				C301AC401FA24E97001A0ED7 /* socketaddresspair.o in Frameworks */,
+				C301AC3E1FA24E97001A0ED7 /* opensslidentity.o in Frameworks */,
+				C301AC4E1FA24E97001A0ED7 /* checks.o in Frameworks */,
+				C301AC5B1FA24E97001A0ED7 /* timeutils.o in Frameworks */,
+				C301AC2A1FA24E97001A0ED7 /* sequenced_task_checker_impl.o in Frameworks */,
+				C301AC771FA24E97001A0ED7 /* file.o in Frameworks */,
+				C301AC4C1FA24E97001A0ED7 /* file_posix.o in Frameworks */,
+				C301AC291FA24E97001A0ED7 /* platform_thread.o in Frameworks */,
+				C301AC421FA24E97001A0ED7 /* thread_darwin.o in Frameworks */,
+				C301AC2B1FA24E97001A0ED7 /* socketstream.o in Frameworks */,
+				C301AC311FA24E97001A0ED7 /* messagehandler.o in Frameworks */,
+				C301AC621FA24E97001A0ED7 /* physicalsocketserver.o in Frameworks */,
+				C301AC3A1FA24E97001A0ED7 /* asyncinvoker.o in Frameworks */,
+				C301AC751FA24E97001A0ED7 /* asyncpacketsocket.o in Frameworks */,
+				C301AC551FA24E97001A0ED7 /* proxyinfo.o in Frameworks */,
+				C301AC661FA24E97001A0ED7 /* cryptstring.o in Frameworks */,
+				C301AC4D1FA24E97001A0ED7 /* helpers.o in Frameworks */,
+				C301AC681FA24E97001A0ED7 /* httpcommon.o in Frameworks */,
+				C301AC6F1FA24E97001A0ED7 /* sigslot.o in Frameworks */,
+				C301AC3C1FA24E97001A0ED7 /* sslstreamadapter.o in Frameworks */,
+				C301AC361FA24E97001A0ED7 /* event_tracer.o in Frameworks */,
+				C301AC5A1FA24E97001A0ED7 /* task_queue_gcd.o in Frameworks */,
+				C301AC531FA24E97001A0ED7 /* socketadapters.o in Frameworks */,
+				C301AC371FA24E97001A0ED7 /* event.o in Frameworks */,
+				C301AC641FA24E97001A0ED7 /* ifaddrs_converter.o in Frameworks */,
+				C301AC4B1FA24E97001A0ED7 /* managers.o in Frameworks */,
+				C301AC721FA24E97001A0ED7 /* opensslstreamadapter.o in Frameworks */,
+				C301AC731FA24E97001A0ED7 /* rate_limiter.o in Frameworks */,
+				C301AC7A1FA24E97001A0ED7 /* rtccertificate.o in Frameworks */,
+				C301AC601FA24E97001A0ED7 /* ratetracker.o in Frameworks */,
+				C301AC331FA24E97001A0ED7 /* timestampaligner.o in Frameworks */,
+				C301AC501FA24E97001A0ED7 /* messagequeue.o in Frameworks */,
+				C301AC791FA24E97001A0ED7 /* macifaddrs_converter.o in Frameworks */,
+				C301AC581FA24E97001A0ED7 /* asyncudpsocket.o in Frameworks */,
+				C301AC3B1FA24E97001A0ED7 /* signalthread.o in Frameworks */,
+				C301AC7F1FA24E97001A0ED7 /* optionsfile.o in Frameworks */,
+				C301AC2E1FA24E97001A0ED7 /* stream.o in Frameworks */,
+				C301AC711FA24E97001A0ED7 /* asyncsocket.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +303,7 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
+				C301ABD11FA24E61001A0ED7 /* webrtc_o */,
 				4B0FD36F1FA06C96006378B6 /* Horoscopes */,
 				4B0FD36E1FA06C96006378B6 /* Products */,
 			);
@@ -61,7 +323,7 @@
 				4B0FD3701FA06C96006378B6 /* AppDelegate.h */,
 				4B0FD3711FA06C96006378B6 /* AppDelegate.m */,
 				4B0FD3731FA06C96006378B6 /* ViewController.h */,
-				4B0FD3741FA06C96006378B6 /* ViewController.m */,
+				4B0FD3741FA06C96006378B6 /* ViewController.mm */,
 				4B0FD3761FA06C96006378B6 /* Main.storyboard */,
 				4B0FD3791FA06C96006378B6 /* Assets.xcassets */,
 				4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */,
@@ -71,6 +333,100 @@
 			path = Horoscopes;
 			sourceTree = "<group>";
 		};
+		C301ABD11FA24E61001A0ED7 /* webrtc_o */ = {
+			isa = PBXGroup;
+			children = (
+				C301ABE31FA24E95001A0ED7 /* asyncinvoker.o */,
+				C301AC1E1FA24E97001A0ED7 /* asyncpacketsocket.o */,
+				C301ABFD1FA24E96001A0ED7 /* asyncresolverinterface.o */,
+				C301AC1A1FA24E97001A0ED7 /* asyncsocket.o */,
+				C301AC261FA24E97001A0ED7 /* asynctcpsocket.o */,
+				C301AC011FA24E96001A0ED7 /* asyncudpsocket.o */,
+				C301ABED1FA24E95001A0ED7 /* base64.o */,
+				C301ABF11FA24E95001A0ED7 /* bitbuffer.o */,
+				C301ABF81FA24E96001A0ED7 /* bitrateallocationstrategy.o */,
+				C301ABE21FA24E94001A0ED7 /* bufferqueue.o */,
+				C301AC161FA24E97001A0ED7 /* bytebuffer.o */,
+				C301ABF71FA24E96001A0ED7 /* checks.o */,
+				C301AC051FA24E96001A0ED7 /* copyonwritebuffer.o */,
+				C301ABF21FA24E96001A0ED7 /* crc32.o */,
+				C301AC061FA24E96001A0ED7 /* criticalsection.o */,
+				C301AC0F1FA24E96001A0ED7 /* cryptstring.o */,
+				C301ABDF1FA24E94001A0ED7 /* event_tracer.o */,
+				C301ABE01FA24E94001A0ED7 /* event.o */,
+				C301AC0A1FA24E96001A0ED7 /* exp_filter.o */,
+				C301ABF51FA24E96001A0ED7 /* file_posix.o */,
+				C301AC201FA24E97001A0ED7 /* file.o */,
+				C301AC131FA24E96001A0ED7 /* filerotatingstream.o */,
+				C301AC001FA24E96001A0ED7 /* fileutils.o */,
+				C301AC271FA24E97001A0ED7 /* flags.o */,
+				C301ABF61FA24E96001A0ED7 /* helpers.o */,
+				C301AC211FA24E97001A0ED7 /* histogram_percentile_counter.o */,
+				C301AC241FA24E97001A0ED7 /* httpbase.o */,
+				C301AC111FA24E96001A0ED7 /* httpcommon.o */,
+				C301AC0D1FA24E96001A0ED7 /* ifaddrs_converter.o */,
+				C301AC081FA24E96001A0ED7 /* ipaddress.o */,
+				C301ABEF1FA24E95001A0ED7 /* location.o */,
+				C301AC121FA24E96001A0ED7 /* logging.o */,
+				C301ABE11FA24E94001A0ED7 /* logsinks.o */,
+				C301AC221FA24E97001A0ED7 /* macifaddrs_converter.o */,
+				C301ABF41FA24E96001A0ED7 /* managers.o */,
+				C301ABD61FA24E94001A0ED7 /* managers.o */,
+				C301AC141FA24E96001A0ED7 /* messagedigest.o */,
+				C301ABDA1FA24E94001A0ED7 /* messagehandler.o */,
+				C301ABF91FA24E96001A0ED7 /* messagequeue.o */,
+				C301AC021FA24E96001A0ED7 /* nethelpers.o */,
+				C301ABFF1FA24E96001A0ED7 /* network.o */,
+				C301AC151FA24E96001A0ED7 /* networkmonitor.o */,
+				C301ABF01FA24E95001A0ED7 /* noop.o */,
+				C301ABF31FA24E96001A0ED7 /* nullsocketserver.o */,
+				C301ABFA1FA24E96001A0ED7 /* openssladapter.o */,
+				C301ABD51FA24E94001A0ED7 /* openssldigest.o */,
+				C301ABE71FA24E95001A0ED7 /* opensslidentity.o */,
+				C301AC1B1FA24E97001A0ED7 /* opensslstreamadapter.o */,
+				C301AC281FA24E97001A0ED7 /* optionsfile.o */,
+				C301AC0C1FA24E96001A0ED7 /* pathutils.o */,
+				C301AC0B1FA24E96001A0ED7 /* physicalsocketserver.o */,
+				C301AC0E1FA24E96001A0ED7 /* platform_file.o */,
+				C301ABD21FA24E94001A0ED7 /* platform_thread.o */,
+				C301ABFE1FA24E96001A0ED7 /* proxyinfo.o */,
+				C301AC171FA24E97001A0ED7 /* race_checker.o */,
+				C301ABEE1FA24E95001A0ED7 /* random.o */,
+				C301AC1C1FA24E97001A0ED7 /* rate_limiter.o */,
+				C301ABFB1FA24E96001A0ED7 /* rate_statistics.o */,
+				C301ABDD1FA24E94001A0ED7 /* ratelimiter.o */,
+				C301AC091FA24E96001A0ED7 /* ratetracker.o */,
+				C301AC231FA24E97001A0ED7 /* rtccertificate.o */,
+				C301ABE61FA24E95001A0ED7 /* rtccertificategenerator.o */,
+				C301ABD31FA24E94001A0ED7 /* sequenced_task_checker_impl.o */,
+				C301ABE41FA24E95001A0ED7 /* signalthread.o */,
+				C301AC181FA24E97001A0ED7 /* sigslot.o */,
+				C301ABFC1FA24E96001A0ED7 /* socketadapters.o */,
+				C301ABE81FA24E95001A0ED7 /* socketaddress.o */,
+				C301ABE91FA24E95001A0ED7 /* socketaddresspair.o */,
+				C301ABD41FA24E94001A0ED7 /* socketstream.o */,
+				C301AC251FA24E97001A0ED7 /* ssladapter.o */,
+				C301AC101FA24E96001A0ED7 /* sslfingerprint.o */,
+				C301ABEC1FA24E95001A0ED7 /* sslidentity.o */,
+				C301ABE51FA24E95001A0ED7 /* sslstreamadapter.o */,
+				C301ABD71FA24E94001A0ED7 /* stream.o */,
+				C301AC191FA24E97001A0ED7 /* string_to_number.o */,
+				C301AC071FA24E96001A0ED7 /* stringencode.o */,
+				C301ABD81FA24E94001A0ED7 /* stringutils.o */,
+				C301AC031FA24E96001A0ED7 /* task_queue_gcd.o */,
+				C301ABD91FA24E94001A0ED7 /* task_queue_posix.o */,
+				C301ABDB1FA24E94001A0ED7 /* thread_checker_impl.o */,
+				C301ABEB1FA24E95001A0ED7 /* thread_darwin.o */,
+				C301ABEA1FA24E95001A0ED7 /* thread.o */,
+				C301ABDC1FA24E94001A0ED7 /* timestampaligner.o */,
+				C301AC041FA24E96001A0ED7 /* timeutils.o */,
+				C301AC1D1FA24E97001A0ED7 /* transformadapter.o */,
+				C301AC1F1FA24E97001A0ED7 /* unixfilesystem.o */,
+				C301ABDE1FA24E94001A0ED7 /* weak_ptr.o */,
+			);
+			path = webrtc_o;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,6 +434,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B0FD3831FA06C96006378B6 /* Build configuration list for PBXNativeTarget "Horoscopes" */;
 			buildPhases = (
+				C301ABD01FA24E12001A0ED7 /* ShellScript */,
 				4B0FD3691FA06C96006378B6 /* Sources */,
 				4B0FD36A1FA06C96006378B6 /* Frameworks */,
 				4B0FD36B1FA06C96006378B6 /* Resources */,
@@ -137,12 +494,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C301ABD01FA24E12001A0ED7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=~/horo/depot_tools:$PATH\ncd Horoscopes/webrtc/src\ngn gen out/ios_sim --args='target_os=\"ios\" target_cpu=\"x64\"'\nninja -C out/ios_sim rtc_base";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4B0FD3691FA06C96006378B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B0FD3751FA06C96006378B6 /* ViewController.m in Sources */,
+				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.m in Sources */,
 			);
@@ -277,9 +650,11 @@
 		4B0FD3841FA06C96006378B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				HEADER_SEARCH_PATHS = Horoscopes/webrtc/src;
 				INFOPLIST_FILE = Horoscopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
@@ -291,9 +666,11 @@
 		4B0FD3851FA06C96006378B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				HEADER_SEARCH_PATHS = Horoscopes/webrtc/src;
 				INFOPLIST_FILE = Horoscopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;

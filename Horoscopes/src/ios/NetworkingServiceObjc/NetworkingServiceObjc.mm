@@ -73,6 +73,7 @@ void NetworkingServiceObjc::beginRequest(std::string path,
             if (failBlock) {
                 failBlock(cerr);
             }
+            delete[]storage;
             return;
         }
         strong<HttpResponse> respone = factory_->createHttpResponse();

@@ -14,18 +14,23 @@
 
 namespace horo {
     
-NetworkingServiceObjc::NetworkingServiceObjc() {
+NetworkingServiceObjc::NetworkingServiceObjc(NetworkingServiceFactory *factory) : factory_(factory) {
+     
 }
 
 NetworkingServiceObjc::~NetworkingServiceObjc() {
 }
 
-    void NetworkingServiceObjc::beginRequest(std::string url, std::function<void(Json::Value value)> callback) {
-    LOG(LS_WARNING) << url;
+    void NetworkingServiceObjc::beginRequest(std::string path,
+                                             dictionary parameters,
+                                             std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
+                                             std::function<void(error err)> failBlock) {
+    LOG(LS_WARNING) << path;
+    NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
     NSMutableSet *set = [NSMutableSet new];
     [set addObject:@"text/plain"];
     [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
-    [[HTTPSessionManager sharedClient] GET:@"byZodiac" parameters:@{@"id":@"ok"} progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    [[HTTPSessionManager sharedClient] GET:pathString parameters:@{@"id":@"ok"} progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         NSData *data = [NSJSONSerialization dataWithJSONObject:JSON options:0 error:nil];
         
         char *storage = new char[data.length];
@@ -36,9 +41,10 @@ NetworkingServiceObjc::~NetworkingServiceObjc() {
             // failed.
             return;
         }
+        strong<HttpResponse> respone = factory_->createHttpResponse();
         delete[]storage;
-        if (callback) {
-            callback(root);
+        if (successBlock) {
+            successBlock(respone, root);
         }
     } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
         LOG(LS_WARNING) << "!";

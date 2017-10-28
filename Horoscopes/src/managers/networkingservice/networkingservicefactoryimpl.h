@@ -24,7 +24,7 @@ public:
     ~NetworkingServiceFactoryImpl() override;
 public: //abs
     NetworkingService *createNetworkingService() override;
-    HttpResponse *createHttpResponse() override;
+    strong<HttpResponse> createHttpResponse() override;
 };
     
 };

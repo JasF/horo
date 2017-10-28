@@ -7,7 +7,6 @@
 //
 
 #include "managers.h"
-#include "networkingserviceimpl.h"
 #include "networkingservicefactoryimpl.h"
 
 namespace horo {

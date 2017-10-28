@@ -6,7 +6,7 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#import "NetworkingServiceFactoryImpl.h"
+#import "NetworkingServiceFactoryObjc.h"
 #include "../src/managers/networkingservice/networkingservicefactoryimpl.h"
 #include "NetworkingServiceObjc.h"
 #include "HttpResponseObjc.h"
@@ -18,16 +18,16 @@ namespace horo {
         virtual ~NetworkingServiceFactoryObjc() {}
         
         virtual NetworkingService *createNetworkingService(){
-            return new horo::NetworkingServiceObjc();
+            return new horo::NetworkingServiceObjc(this);
         }
-        virtual HttpResponse *createHttpResponse() {
+        virtual strong<HttpResponse> createHttpResponse() {
             return new horo::HttpResponseObjc();
         }
     };
 };
 
 
-@implementation NetworkingServiceFactoryImpl
+@implementation NetworkingServiceFactoryObjc
 
 + (horo::NetworkingServiceFactoryObjc *)sharedFactory {
     static horo::NetworkingServiceFactoryObjc *sharedFactory = nil;

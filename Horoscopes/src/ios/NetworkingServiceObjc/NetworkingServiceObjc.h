@@ -8,14 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #include "../src/managers/networkingservice/networkingservice.h"
+#include "managers/networkingservice/networkingservicefactory.h"
 
 namespace horo {
   
     class NetworkingServiceObjc : public NetworkingService {
     public:
-        NetworkingServiceObjc();
+        NetworkingServiceObjc(NetworkingServiceFactory *factory);
         ~NetworkingServiceObjc() override;
-        virtual void beginRequest(std::string url, std::function<void(Json::Value value)> callback);
+        void beginRequest(std::string path,
+                                  dictionary parameters,
+                                  std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
+                                  std::function<void(error err)> failBlock) override;
+    private:
+        NetworkingServiceFactory *factory_;
     };
 };
 

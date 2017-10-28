@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetworkingServiceFactoryImpl : NSObject
+@interface NetworkingServiceFactoryObjc : NSObject
 
 @end

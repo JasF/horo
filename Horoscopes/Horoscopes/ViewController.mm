@@ -23,13 +23,19 @@
     LOG(LS_ERROR) << "!";
     _networkingService = horo::Managers::shared().networkingService();
     
+    using namespace horo;
+    dictionary dict;
     @weakify(self);
-    _networkingService->beginRequest("http://127.0.0.1:8000", [self_weak_](Json::Value value){
+    _networkingService->beginRequest("byZodiac", dict, [self_weak_](strong<HttpResponse> response, Json::Value value){
         @strongify(self);
         std::string content = value["content"].asString();
         LOG(LS_WARNING) << "response! content: " << content;
         self.networkingService = nullptr;
+    }, [](error err) {
+        
     });
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 

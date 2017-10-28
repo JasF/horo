@@ -18,7 +18,7 @@ namespace horo {
     public:
         virtual ~NetworkingServiceFactory() {}
         virtual NetworkingService *createNetworkingService()=0;
-        virtual HttpResponse *createHttpResponse()=0;
+        virtual strong<HttpResponse> createHttpResponse()=0;
     };
 };
 

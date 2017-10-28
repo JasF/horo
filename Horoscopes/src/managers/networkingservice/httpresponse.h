@@ -12,11 +12,14 @@
 #include "base/horobase.h"
 
 namespace horo {
-    class HttpResponse {
+    class _HttpResponse {
     public:
-        virtual ~HttpResponse() {}
+        virtual ~_HttpResponse() {}
         virtual dictionary headers()=0;
     };
+    
+    class HttpResponse : public
+    rtc::RefCountedObject<_HttpResponse> {};
 };
 
 #endif /* httpresponse_h */

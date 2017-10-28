@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <functional>
 #include <string.h>
+#include "httpresponse.h"
 #include "base/horobase.h"
 
 namespace horo {
@@ -19,7 +20,10 @@ namespace horo {
     class _NetworkingService {
     public:
         virtual ~_NetworkingService() {}
-        virtual void beginRequest(std::string url, std::function<void(Json::Value value)> successBlock) = 0;
+        virtual void beginRequest(std::string path,
+                                  dictionary parameters,
+                                  std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
+                                  std::function<void(error err)> failBlock) = 0;
     };
     
     class NetworkingService : public

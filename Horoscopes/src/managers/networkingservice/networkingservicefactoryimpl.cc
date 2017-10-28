@@ -23,7 +23,7 @@ NetworkingService *NetworkingServiceFactoryImpl::createNetworkingService() {
     return nullptr;
 }
     
-HttpResponse *NetworkingServiceFactoryImpl::createHttpResponse() {
+strong<HttpResponse> NetworkingServiceFactoryImpl::createHttpResponse() {
     if (privateInstance) {
         return privateInstance->createHttpResponse();
     }

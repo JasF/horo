@@ -26,8 +26,88 @@
 		C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DF1FA481C2006DEDB7 /* EXTSafeCategory.m */; };
 		C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17E11FA481C2006DEDB7 /* NSMethodSignature+EXT.m */; };
 		C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17E51FA481C2006DEDB7 /* EXTNil.m */; };
+		C30B17F31FA488A1006DEDB7 /* asyncinvoker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBB1FA30E420094BF12 /* asyncinvoker.o */; };
+		C30B17F41FA488A1006DEDB7 /* asyncpacketsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7A1FA30E3D0094BF12 /* asyncpacketsocket.o */; };
+		C30B17F51FA488A1006DEDB7 /* asyncresolverinterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB51FA30E410094BF12 /* asyncresolverinterface.o */; };
+		C30B17F61FA488A1006DEDB7 /* asyncsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D831FA30E3E0094BF12 /* asyncsocket.o */; };
+		C30B17F71FA488A1006DEDB7 /* asynctcpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D791FA30E3D0094BF12 /* asynctcpsocket.o */; };
+		C30B17F81FA488A1006DEDB7 /* asyncudpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D781FA30E3D0094BF12 /* asyncudpsocket.o */; };
+		C30B17F91FA488A1006DEDB7 /* base64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D991FA30E3F0094BF12 /* base64.o */; };
+		C30B17FA1FA488A1006DEDB7 /* bitbuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D771FA30E3D0094BF12 /* bitbuffer.o */; };
+		C30B17FB1FA488A1006DEDB7 /* bitrateallocationstrategy.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D761FA30E3D0094BF12 /* bitrateallocationstrategy.o */; };
+		C30B17FC1FA488A1006DEDB7 /* bufferqueue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D911FA30E3F0094BF12 /* bufferqueue.o */; };
+		C30B17FD1FA488A1006DEDB7 /* bytebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAC1FA30E410094BF12 /* bytebuffer.o */; };
+		C30B17FE1FA488A1006DEDB7 /* checks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC11FA30E430094BF12 /* checks.o */; };
+		C30B17FF1FA488A1006DEDB7 /* copyonwritebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D811FA30E3E0094BF12 /* copyonwritebuffer.o */; };
+		C30B18001FA488A1006DEDB7 /* crc32.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9C1FA30E400094BF12 /* crc32.o */; };
+		C30B18011FA488A1006DEDB7 /* criticalsection.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D751FA30E3D0094BF12 /* criticalsection.o */; };
+		C30B18021FA488A1006DEDB7 /* cryptstring.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA21FA30E400094BF12 /* cryptstring.o */; };
+		C30B18031FA488A1006DEDB7 /* event_tracer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9D1FA30E400094BF12 /* event_tracer.o */; };
+		C30B18041FA488A1006DEDB7 /* event.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D951FA30E3F0094BF12 /* event.o */; };
+		C30B18051FA488A1006DEDB7 /* file_posix.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D841FA30E3E0094BF12 /* file_posix.o */; };
+		C30B18061FA488A1006DEDB7 /* file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D871FA30E3E0094BF12 /* file.o */; };
+		C30B18071FA488A1006DEDB7 /* filerotatingstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB61FA30E410094BF12 /* filerotatingstream.o */; };
+		C30B18081FA488A1006DEDB7 /* fileutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D941FA30E3F0094BF12 /* fileutils.o */; };
+		C30B18091FA488A1006DEDB7 /* flags.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA11FA30E400094BF12 /* flags.o */; };
+		C30B180A1FA488A1006DEDB7 /* helpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC01FA30E430094BF12 /* helpers.o */; };
+		C30B180B1FA488A1006DEDB7 /* histogram_percentile_counter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7B1FA30E3D0094BF12 /* histogram_percentile_counter.o */; };
+		C30B180C1FA488A1006DEDB7 /* httpbase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9F1FA30E400094BF12 /* httpbase.o */; };
+		C30B180D1FA488A1006DEDB7 /* httpcommon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB11FA30E410094BF12 /* httpcommon.o */; };
+		C30B180E1FA488A1006DEDB7 /* ifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAF1FA30E410094BF12 /* ifaddrs_converter.o */; };
+		C30B180F1FA488A1006DEDB7 /* ipaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9E1FA30E400094BF12 /* ipaddress.o */; };
+		C30B18101FA488A1006DEDB7 /* location.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBC1FA30E420094BF12 /* location.o */; };
+		C30B18111FA488A1006DEDB7 /* logging.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA61FA30E400094BF12 /* logging.o */; };
+		C30B18121FA488A1006DEDB7 /* logsinks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8C1FA30E3F0094BF12 /* logsinks.o */; };
+		C30B18131FA488A1006DEDB7 /* macifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D851FA30E3E0094BF12 /* macifaddrs_converter.o */; };
+		C30B18141FA488A1006DEDB7 /* messagedigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8B1FA30E3E0094BF12 /* messagedigest.o */; };
+		C30B18151FA488A1006DEDB7 /* messagehandler.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBA1FA30E420094BF12 /* messagehandler.o */; };
+		C30B18161FA488A1006DEDB7 /* messagequeue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB31FA30E410094BF12 /* messagequeue.o */; };
+		C30B18171FA488A1006DEDB7 /* nethelpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAB1FA30E410094BF12 /* nethelpers.o */; };
+		C30B18181FA488A1006DEDB7 /* network.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB91FA30E420094BF12 /* network.o */; };
+		C30B18191FA488A1006DEDB7 /* networkmonitor.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D821FA30E3E0094BF12 /* networkmonitor.o */; };
+		C30B181A1FA488A1006DEDB7 /* noop.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D931FA30E3F0094BF12 /* noop.o */; };
+		C30B181B1FA488A1006DEDB7 /* nullsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7D1FA30E3E0094BF12 /* nullsocketserver.o */; };
+		C30B181C1FA488A1006DEDB7 /* openssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBE1FA30E420094BF12 /* openssladapter.o */; };
+		C30B181D1FA488A1006DEDB7 /* openssldigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8E1FA30E3F0094BF12 /* openssldigest.o */; };
+		C30B181E1FA488A1006DEDB7 /* opensslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D921FA30E3F0094BF12 /* opensslidentity.o */; };
+		C30B181F1FA488A1006DEDB7 /* opensslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA01FA30E400094BF12 /* opensslstreamadapter.o */; };
+		C30B18201FA488A1006DEDB7 /* optionsfile.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAA1FA30E410094BF12 /* optionsfile.o */; };
+		C30B18211FA488A1006DEDB7 /* pathutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAD1FA30E410094BF12 /* pathutils.o */; };
+		C30B18221FA488A1006DEDB7 /* physicalsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D881FA30E3E0094BF12 /* physicalsocketserver.o */; };
+		C30B18231FA488A1006DEDB7 /* platform_file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAE1FA30E410094BF12 /* platform_file.o */; };
+		C30B18241FA488A1006DEDB7 /* platform_thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9B1FA30E400094BF12 /* platform_thread.o */; };
+		C30B18251FA488A1006DEDB7 /* proxyinfo.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7C1FA30E3E0094BF12 /* proxyinfo.o */; };
+		C30B18261FA488A1006DEDB7 /* race_checker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9A1FA30E400094BF12 /* race_checker.o */; };
+		C30B18271FA488A1006DEDB7 /* random.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC21FA30E430094BF12 /* random.o */; };
+		C30B18281FA488A1006DEDB7 /* rate_limiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBD1FA30E420094BF12 /* rate_limiter.o */; };
+		C30B18291FA488A1006DEDB7 /* rate_statistics.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC31FA30E430094BF12 /* rate_statistics.o */; };
+		C30B182A1FA488A1006DEDB7 /* ratelimiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA81FA30E400094BF12 /* ratelimiter.o */; };
+		C30B182B1FA488A1006DEDB7 /* ratetracker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D891FA30E3E0094BF12 /* ratetracker.o */; };
+		C30B182C1FA488A1006DEDB7 /* rtccertificate.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB71FA30E420094BF12 /* rtccertificate.o */; };
+		C30B182D1FA488A1006DEDB7 /* rtccertificategenerator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D971FA30E3F0094BF12 /* rtccertificategenerator.o */; };
+		C30B182E1FA488A1006DEDB7 /* signalthread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA31FA30E400094BF12 /* signalthread.o */; };
+		C30B182F1FA488A1006DEDB7 /* sigslot.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA91FA30E410094BF12 /* sigslot.o */; };
+		C30B18301FA488A1006DEDB7 /* socketadapters.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8F1FA30E3F0094BF12 /* socketadapters.o */; };
+		C30B18311FA488A1006DEDB7 /* socketaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA71FA30E400094BF12 /* socketaddress.o */; };
+		C30B18321FA488A1006DEDB7 /* socketaddresspair.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB41FA30E410094BF12 /* socketaddresspair.o */; };
+		C30B18331FA488A1006DEDB7 /* socketstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D861FA30E3E0094BF12 /* socketstream.o */; };
+		C30B18341FA488A1006DEDB7 /* ssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC41FA30E430094BF12 /* ssladapter.o */; };
+		C30B18351FA488A1006DEDB7 /* sslfingerprint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB01FA30E410094BF12 /* sslfingerprint.o */; };
+		C30B18361FA488A1006DEDB7 /* sslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8D1FA30E3F0094BF12 /* sslidentity.o */; };
+		C30B18371FA488A1006DEDB7 /* sslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8A1FA30E3E0094BF12 /* sslstreamadapter.o */; };
+		C30B18381FA488A1006DEDB7 /* stream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7E1FA30E3E0094BF12 /* stream.o */; };
+		C30B18391FA488A1006DEDB7 /* string_to_number.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D741FA30E3D0094BF12 /* string_to_number.o */; };
+		C30B183A1FA488A1006DEDB7 /* stringencode.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7F1FA30E3E0094BF12 /* stringencode.o */; };
+		C30B183B1FA488A1006DEDB7 /* stringutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA41FA30E400094BF12 /* stringutils.o */; };
+		C30B183C1FA488A1006DEDB7 /* thread_checker_impl.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D961FA30E3F0094BF12 /* thread_checker_impl.o */; };
+		C30B183D1FA488A1006DEDB7 /* thread_darwin.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA51FA30E400094BF12 /* thread_darwin.o */; };
+		C30B183E1FA488A1006DEDB7 /* thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB21FA30E410094BF12 /* thread.o */; };
+		C30B183F1FA488A1006DEDB7 /* timestampaligner.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D901FA30E3F0094BF12 /* timestampaligner.o */; };
+		C30B18401FA488A1006DEDB7 /* timeutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB81FA30E420094BF12 /* timeutils.o */; };
+		C30B18411FA488A1006DEDB7 /* transformadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBF1FA30E430094BF12 /* transformadapter.o */; };
+		C30B18421FA488A1006DEDB7 /* unixfilesystem.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D801FA30E3E0094BF12 /* unixfilesystem.o */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
-		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm */; };
+		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
 		C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D01FA375E600C0B1C6 /* AFURLResponseSerialization.m */; };
 		C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D11FA375E600C0B1C6 /* AFHTTPSessionManager.m */; };
@@ -38,87 +118,6 @@
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
-		C3D27DC51FA30E430094BF12 /* string_to_number.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D741FA30E3D0094BF12 /* string_to_number.o */; };
-		C3D27DC61FA30E430094BF12 /* criticalsection.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D751FA30E3D0094BF12 /* criticalsection.o */; };
-		C3D27DC71FA30E430094BF12 /* bitrateallocationstrategy.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D761FA30E3D0094BF12 /* bitrateallocationstrategy.o */; };
-		C3D27DC81FA30E430094BF12 /* bitbuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D771FA30E3D0094BF12 /* bitbuffer.o */; };
-		C3D27DC91FA30E430094BF12 /* asyncudpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D781FA30E3D0094BF12 /* asyncudpsocket.o */; };
-		C3D27DCA1FA30E430094BF12 /* asynctcpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D791FA30E3D0094BF12 /* asynctcpsocket.o */; };
-		C3D27DCB1FA30E430094BF12 /* asyncpacketsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7A1FA30E3D0094BF12 /* asyncpacketsocket.o */; };
-		C3D27DCC1FA30E430094BF12 /* histogram_percentile_counter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7B1FA30E3D0094BF12 /* histogram_percentile_counter.o */; };
-		C3D27DCD1FA30E430094BF12 /* proxyinfo.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7C1FA30E3E0094BF12 /* proxyinfo.o */; };
-		C3D27DCE1FA30E430094BF12 /* nullsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7D1FA30E3E0094BF12 /* nullsocketserver.o */; };
-		C3D27DCF1FA30E430094BF12 /* stream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7E1FA30E3E0094BF12 /* stream.o */; };
-		C3D27DD01FA30E430094BF12 /* stringencode.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7F1FA30E3E0094BF12 /* stringencode.o */; };
-		C3D27DD11FA30E430094BF12 /* unixfilesystem.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D801FA30E3E0094BF12 /* unixfilesystem.o */; };
-		C3D27DD21FA30E430094BF12 /* copyonwritebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D811FA30E3E0094BF12 /* copyonwritebuffer.o */; };
-		C3D27DD31FA30E430094BF12 /* networkmonitor.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D821FA30E3E0094BF12 /* networkmonitor.o */; };
-		C3D27DD41FA30E430094BF12 /* asyncsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D831FA30E3E0094BF12 /* asyncsocket.o */; };
-		C3D27DD51FA30E430094BF12 /* file_posix.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D841FA30E3E0094BF12 /* file_posix.o */; };
-		C3D27DD61FA30E430094BF12 /* macifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D851FA30E3E0094BF12 /* macifaddrs_converter.o */; };
-		C3D27DD71FA30E430094BF12 /* socketstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D861FA30E3E0094BF12 /* socketstream.o */; };
-		C3D27DD81FA30E430094BF12 /* file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D871FA30E3E0094BF12 /* file.o */; };
-		C3D27DD91FA30E430094BF12 /* physicalsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D881FA30E3E0094BF12 /* physicalsocketserver.o */; };
-		C3D27DDA1FA30E430094BF12 /* ratetracker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D891FA30E3E0094BF12 /* ratetracker.o */; };
-		C3D27DDB1FA30E430094BF12 /* sslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8A1FA30E3E0094BF12 /* sslstreamadapter.o */; };
-		C3D27DDC1FA30E430094BF12 /* messagedigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8B1FA30E3E0094BF12 /* messagedigest.o */; };
-		C3D27DDD1FA30E430094BF12 /* logsinks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8C1FA30E3F0094BF12 /* logsinks.o */; };
-		C3D27DDE1FA30E430094BF12 /* sslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8D1FA30E3F0094BF12 /* sslidentity.o */; };
-		C3D27DDF1FA30E430094BF12 /* openssldigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8E1FA30E3F0094BF12 /* openssldigest.o */; };
-		C3D27DE01FA30E430094BF12 /* socketadapters.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8F1FA30E3F0094BF12 /* socketadapters.o */; };
-		C3D27DE11FA30E430094BF12 /* timestampaligner.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D901FA30E3F0094BF12 /* timestampaligner.o */; };
-		C3D27DE21FA30E430094BF12 /* bufferqueue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D911FA30E3F0094BF12 /* bufferqueue.o */; };
-		C3D27DE31FA30E430094BF12 /* opensslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D921FA30E3F0094BF12 /* opensslidentity.o */; };
-		C3D27DE41FA30E430094BF12 /* noop.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D931FA30E3F0094BF12 /* noop.o */; };
-		C3D27DE51FA30E430094BF12 /* fileutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D941FA30E3F0094BF12 /* fileutils.o */; };
-		C3D27DE61FA30E430094BF12 /* event.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D951FA30E3F0094BF12 /* event.o */; };
-		C3D27DE71FA30E430094BF12 /* thread_checker_impl.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D961FA30E3F0094BF12 /* thread_checker_impl.o */; };
-		C3D27DE81FA30E430094BF12 /* rtccertificategenerator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D971FA30E3F0094BF12 /* rtccertificategenerator.o */; };
-		C3D27DEA1FA30E430094BF12 /* base64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D991FA30E3F0094BF12 /* base64.o */; };
-		C3D27DEB1FA30E430094BF12 /* race_checker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9A1FA30E400094BF12 /* race_checker.o */; };
-		C3D27DEC1FA30E430094BF12 /* platform_thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9B1FA30E400094BF12 /* platform_thread.o */; };
-		C3D27DED1FA30E430094BF12 /* crc32.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9C1FA30E400094BF12 /* crc32.o */; };
-		C3D27DEE1FA30E430094BF12 /* event_tracer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9D1FA30E400094BF12 /* event_tracer.o */; };
-		C3D27DEF1FA30E430094BF12 /* ipaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9E1FA30E400094BF12 /* ipaddress.o */; };
-		C3D27DF01FA30E430094BF12 /* httpbase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9F1FA30E400094BF12 /* httpbase.o */; };
-		C3D27DF11FA30E430094BF12 /* opensslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA01FA30E400094BF12 /* opensslstreamadapter.o */; };
-		C3D27DF21FA30E430094BF12 /* flags.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA11FA30E400094BF12 /* flags.o */; };
-		C3D27DF31FA30E430094BF12 /* cryptstring.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA21FA30E400094BF12 /* cryptstring.o */; };
-		C3D27DF41FA30E430094BF12 /* signalthread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA31FA30E400094BF12 /* signalthread.o */; };
-		C3D27DF51FA30E430094BF12 /* stringutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA41FA30E400094BF12 /* stringutils.o */; };
-		C3D27DF61FA30E430094BF12 /* thread_darwin.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA51FA30E400094BF12 /* thread_darwin.o */; };
-		C3D27DF71FA30E430094BF12 /* logging.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA61FA30E400094BF12 /* logging.o */; };
-		C3D27DF81FA30E430094BF12 /* socketaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA71FA30E400094BF12 /* socketaddress.o */; };
-		C3D27DF91FA30E430094BF12 /* ratelimiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA81FA30E400094BF12 /* ratelimiter.o */; };
-		C3D27DFA1FA30E430094BF12 /* sigslot.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA91FA30E410094BF12 /* sigslot.o */; };
-		C3D27DFB1FA30E430094BF12 /* optionsfile.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAA1FA30E410094BF12 /* optionsfile.o */; };
-		C3D27DFC1FA30E430094BF12 /* nethelpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAB1FA30E410094BF12 /* nethelpers.o */; };
-		C3D27DFD1FA30E430094BF12 /* bytebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAC1FA30E410094BF12 /* bytebuffer.o */; };
-		C3D27DFE1FA30E430094BF12 /* pathutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAD1FA30E410094BF12 /* pathutils.o */; };
-		C3D27DFF1FA30E430094BF12 /* platform_file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAE1FA30E410094BF12 /* platform_file.o */; };
-		C3D27E001FA30E430094BF12 /* ifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAF1FA30E410094BF12 /* ifaddrs_converter.o */; };
-		C3D27E011FA30E430094BF12 /* sslfingerprint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB01FA30E410094BF12 /* sslfingerprint.o */; };
-		C3D27E021FA30E430094BF12 /* httpcommon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB11FA30E410094BF12 /* httpcommon.o */; };
-		C3D27E031FA30E430094BF12 /* thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB21FA30E410094BF12 /* thread.o */; };
-		C3D27E041FA30E430094BF12 /* messagequeue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB31FA30E410094BF12 /* messagequeue.o */; };
-		C3D27E051FA30E430094BF12 /* socketaddresspair.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB41FA30E410094BF12 /* socketaddresspair.o */; };
-		C3D27E061FA30E430094BF12 /* asyncresolverinterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB51FA30E410094BF12 /* asyncresolverinterface.o */; };
-		C3D27E071FA30E430094BF12 /* filerotatingstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB61FA30E410094BF12 /* filerotatingstream.o */; };
-		C3D27E081FA30E430094BF12 /* rtccertificate.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB71FA30E420094BF12 /* rtccertificate.o */; };
-		C3D27E091FA30E430094BF12 /* timeutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB81FA30E420094BF12 /* timeutils.o */; };
-		C3D27E0A1FA30E430094BF12 /* network.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB91FA30E420094BF12 /* network.o */; };
-		C3D27E0B1FA30E430094BF12 /* messagehandler.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBA1FA30E420094BF12 /* messagehandler.o */; };
-		C3D27E0C1FA30E430094BF12 /* asyncinvoker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBB1FA30E420094BF12 /* asyncinvoker.o */; };
-		C3D27E0D1FA30E430094BF12 /* location.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBC1FA30E420094BF12 /* location.o */; };
-		C3D27E0E1FA30E430094BF12 /* rate_limiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBD1FA30E420094BF12 /* rate_limiter.o */; };
-		C3D27E0F1FA30E430094BF12 /* openssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBE1FA30E420094BF12 /* openssladapter.o */; };
-		C3D27E101FA30E430094BF12 /* transformadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBF1FA30E430094BF12 /* transformadapter.o */; };
-		C3D27E111FA30E430094BF12 /* helpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC01FA30E430094BF12 /* helpers.o */; };
-		C3D27E121FA30E430094BF12 /* checks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC11FA30E430094BF12 /* checks.o */; };
-		C3D27E131FA30E430094BF12 /* random.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC21FA30E430094BF12 /* random.o */; };
-		C3D27E141FA30E430094BF12 /* rate_statistics.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC31FA30E430094BF12 /* rate_statistics.o */; };
-		C3D27E151FA30E430094BF12 /* ssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC41FA30E430094BF12 /* ssladapter.o */; };
-		C3D281131FA317240094BF12 /* networkingserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C9B1FA309740094BF12 /* networkingserviceimpl.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -495,8 +494,8 @@
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
-		C33B99C11FA3730C00C0B1C6 /* NetworkingServiceFactoryImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingServiceFactoryImpl.h; sourceTree = "<group>"; };
-		C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingServiceFactoryImpl.mm; sourceTree = "<group>"; };
+		C33B99C11FA3730C00C0B1C6 /* NetworkingServiceFactoryObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingServiceFactoryObjc.h; sourceTree = "<group>"; };
+		C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingServiceFactoryObjc.mm; sourceTree = "<group>"; };
 		C33B99C71FA3752400C0B1C6 /* NetworkingServiceObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingServiceObjc.h; sourceTree = "<group>"; };
 		C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingServiceObjc.mm; sourceTree = "<group>"; };
 		C33B99CC1FA375E600C0B1C6 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -518,9 +517,7 @@
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
 		C3D27C971FA309130094BF12 /* managers.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = managers.cc; sourceTree = "<group>"; };
 		C3D27C981FA309130094BF12 /* managers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = managers.h; sourceTree = "<group>"; };
-		C3D27C9B1FA309740094BF12 /* networkingserviceimpl.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = networkingserviceimpl.cc; sourceTree = "<group>"; };
 		C3D27C9C1FA309740094BF12 /* networkingservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservice.h; sourceTree = "<group>"; };
-		C3D27C9E1FA309A60094BF12 /* networkingserviceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingserviceimpl.h; sourceTree = "<group>"; };
 		C3D27D741FA30E3D0094BF12 /* string_to_number.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = string_to_number.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/string_to_number.o; sourceTree = SOURCE_ROOT; };
 		C3D27D751FA30E3D0094BF12 /* criticalsection.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = criticalsection.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/criticalsection.o; sourceTree = SOURCE_ROOT; };
 		C3D27D761FA30E3D0094BF12 /* bitrateallocationstrategy.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = bitrateallocationstrategy.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/bitrateallocationstrategy.o; sourceTree = SOURCE_ROOT; };
@@ -608,86 +605,86 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D27E101FA30E430094BF12 /* transformadapter.o in Frameworks */,
-				C3D27DFE1FA30E430094BF12 /* pathutils.o in Frameworks */,
-				C3D27DD01FA30E430094BF12 /* stringencode.o in Frameworks */,
-				C3D27DF41FA30E430094BF12 /* signalthread.o in Frameworks */,
-				C3D27DD41FA30E430094BF12 /* asyncsocket.o in Frameworks */,
-				C3D27DFC1FA30E430094BF12 /* nethelpers.o in Frameworks */,
-				C3D27DEC1FA30E430094BF12 /* platform_thread.o in Frameworks */,
-				C3D27E021FA30E430094BF12 /* httpcommon.o in Frameworks */,
-				C3D27DE01FA30E430094BF12 /* socketadapters.o in Frameworks */,
-				C3D27E031FA30E430094BF12 /* thread.o in Frameworks */,
-				C3D27E151FA30E430094BF12 /* ssladapter.o in Frameworks */,
-				C3D27DD21FA30E430094BF12 /* copyonwritebuffer.o in Frameworks */,
-				C3D27DE61FA30E430094BF12 /* event.o in Frameworks */,
-				C3D27DD31FA30E430094BF12 /* networkmonitor.o in Frameworks */,
-				C3D27E131FA30E430094BF12 /* random.o in Frameworks */,
-				C3D27DDE1FA30E430094BF12 /* sslidentity.o in Frameworks */,
-				C3D27DD61FA30E430094BF12 /* macifaddrs_converter.o in Frameworks */,
-				C3D27E061FA30E430094BF12 /* asyncresolverinterface.o in Frameworks */,
-				C3D27DDB1FA30E430094BF12 /* sslstreamadapter.o in Frameworks */,
-				C3D27DED1FA30E430094BF12 /* crc32.o in Frameworks */,
-				C3D27E141FA30E430094BF12 /* rate_statistics.o in Frameworks */,
-				C3D27DC91FA30E430094BF12 /* asyncudpsocket.o in Frameworks */,
-				C3D27DDD1FA30E430094BF12 /* logsinks.o in Frameworks */,
-				C3D27E0A1FA30E430094BF12 /* network.o in Frameworks */,
-				C3D27E0D1FA30E430094BF12 /* location.o in Frameworks */,
-				C3D27DEA1FA30E430094BF12 /* base64.o in Frameworks */,
-				C3D27DFF1FA30E430094BF12 /* platform_file.o in Frameworks */,
-				C3D27DCF1FA30E430094BF12 /* stream.o in Frameworks */,
-				C3D27DDF1FA30E430094BF12 /* openssldigest.o in Frameworks */,
-				C3D27DC71FA30E430094BF12 /* bitrateallocationstrategy.o in Frameworks */,
-				C3D27DFA1FA30E430094BF12 /* sigslot.o in Frameworks */,
-				C3D27DF81FA30E430094BF12 /* socketaddress.o in Frameworks */,
-				C3D27DF71FA30E430094BF12 /* logging.o in Frameworks */,
-				C3D27DEF1FA30E430094BF12 /* ipaddress.o in Frameworks */,
-				C3D27E011FA30E430094BF12 /* sslfingerprint.o in Frameworks */,
-				C3D27E0C1FA30E430094BF12 /* asyncinvoker.o in Frameworks */,
-				C3D27DDA1FA30E430094BF12 /* ratetracker.o in Frameworks */,
-				C3D27DD71FA30E430094BF12 /* socketstream.o in Frameworks */,
-				C3D27DE31FA30E430094BF12 /* opensslidentity.o in Frameworks */,
-				C3D27DCC1FA30E430094BF12 /* histogram_percentile_counter.o in Frameworks */,
-				C3D27DF21FA30E430094BF12 /* flags.o in Frameworks */,
-				C3D27DF31FA30E430094BF12 /* cryptstring.o in Frameworks */,
-				C3D27DC81FA30E430094BF12 /* bitbuffer.o in Frameworks */,
-				C3D27DCE1FA30E430094BF12 /* nullsocketserver.o in Frameworks */,
-				C3D27DC61FA30E430094BF12 /* criticalsection.o in Frameworks */,
-				C3D27DFB1FA30E430094BF12 /* optionsfile.o in Frameworks */,
-				C3D27DC51FA30E430094BF12 /* string_to_number.o in Frameworks */,
-				C3D27DCA1FA30E430094BF12 /* asynctcpsocket.o in Frameworks */,
-				C3D27DDC1FA30E430094BF12 /* messagedigest.o in Frameworks */,
-				C3D27DF11FA30E430094BF12 /* opensslstreamadapter.o in Frameworks */,
-				C3D27DD81FA30E430094BF12 /* file.o in Frameworks */,
-				C3D27DFD1FA30E430094BF12 /* bytebuffer.o in Frameworks */,
-				C3D27DE81FA30E430094BF12 /* rtccertificategenerator.o in Frameworks */,
-				C3D27DE21FA30E430094BF12 /* bufferqueue.o in Frameworks */,
-				C3D27E111FA30E430094BF12 /* helpers.o in Frameworks */,
-				C3D27E051FA30E430094BF12 /* socketaddresspair.o in Frameworks */,
-				C3D27DF61FA30E430094BF12 /* thread_darwin.o in Frameworks */,
-				C3D27DD91FA30E430094BF12 /* physicalsocketserver.o in Frameworks */,
-				C3D27E0E1FA30E430094BF12 /* rate_limiter.o in Frameworks */,
-				C3D27DE51FA30E430094BF12 /* fileutils.o in Frameworks */,
-				C3D27E0B1FA30E430094BF12 /* messagehandler.o in Frameworks */,
-				C3D27DF01FA30E430094BF12 /* httpbase.o in Frameworks */,
-				C3D27E121FA30E430094BF12 /* checks.o in Frameworks */,
-				C3D27DEB1FA30E430094BF12 /* race_checker.o in Frameworks */,
-				C3D27DE71FA30E430094BF12 /* thread_checker_impl.o in Frameworks */,
-				C3D27E041FA30E430094BF12 /* messagequeue.o in Frameworks */,
-				C3D27E0F1FA30E430094BF12 /* openssladapter.o in Frameworks */,
-				C3D27DF91FA30E430094BF12 /* ratelimiter.o in Frameworks */,
-				C3D27DD11FA30E430094BF12 /* unixfilesystem.o in Frameworks */,
-				C3D27E001FA30E430094BF12 /* ifaddrs_converter.o in Frameworks */,
-				C3D27DF51FA30E430094BF12 /* stringutils.o in Frameworks */,
-				C3D27E091FA30E430094BF12 /* timeutils.o in Frameworks */,
-				C3D27DD51FA30E430094BF12 /* file_posix.o in Frameworks */,
-				C3D27E081FA30E430094BF12 /* rtccertificate.o in Frameworks */,
-				C3D27DCD1FA30E430094BF12 /* proxyinfo.o in Frameworks */,
-				C3D27DCB1FA30E430094BF12 /* asyncpacketsocket.o in Frameworks */,
-				C3D27DEE1FA30E430094BF12 /* event_tracer.o in Frameworks */,
-				C3D27E071FA30E430094BF12 /* filerotatingstream.o in Frameworks */,
-				C3D27DE11FA30E430094BF12 /* timestampaligner.o in Frameworks */,
-				C3D27DE41FA30E430094BF12 /* noop.o in Frameworks */,
+				C30B183A1FA488A1006DEDB7 /* stringencode.o in Frameworks */,
+				C30B18181FA488A1006DEDB7 /* network.o in Frameworks */,
+				C30B182E1FA488A1006DEDB7 /* signalthread.o in Frameworks */,
+				C30B18361FA488A1006DEDB7 /* sslidentity.o in Frameworks */,
+				C30B18091FA488A1006DEDB7 /* flags.o in Frameworks */,
+				C30B18171FA488A1006DEDB7 /* nethelpers.o in Frameworks */,
+				C30B180A1FA488A1006DEDB7 /* helpers.o in Frameworks */,
+				C30B18281FA488A1006DEDB7 /* rate_limiter.o in Frameworks */,
+				C30B18011FA488A1006DEDB7 /* criticalsection.o in Frameworks */,
+				C30B183F1FA488A1006DEDB7 /* timestampaligner.o in Frameworks */,
+				C30B17FB1FA488A1006DEDB7 /* bitrateallocationstrategy.o in Frameworks */,
+				C30B17F31FA488A1006DEDB7 /* asyncinvoker.o in Frameworks */,
+				C30B18211FA488A1006DEDB7 /* pathutils.o in Frameworks */,
+				C30B18021FA488A1006DEDB7 /* cryptstring.o in Frameworks */,
+				C30B18351FA488A1006DEDB7 /* sslfingerprint.o in Frameworks */,
+				C30B18411FA488A1006DEDB7 /* transformadapter.o in Frameworks */,
+				C30B18381FA488A1006DEDB7 /* stream.o in Frameworks */,
+				C30B18321FA488A1006DEDB7 /* socketaddresspair.o in Frameworks */,
+				C30B180D1FA488A1006DEDB7 /* httpcommon.o in Frameworks */,
+				C30B18331FA488A1006DEDB7 /* socketstream.o in Frameworks */,
+				C30B18051FA488A1006DEDB7 /* file_posix.o in Frameworks */,
+				C30B18101FA488A1006DEDB7 /* location.o in Frameworks */,
+				C30B18421FA488A1006DEDB7 /* unixfilesystem.o in Frameworks */,
+				C30B18161FA488A1006DEDB7 /* messagequeue.o in Frameworks */,
+				C30B180E1FA488A1006DEDB7 /* ifaddrs_converter.o in Frameworks */,
+				C30B17FA1FA488A1006DEDB7 /* bitbuffer.o in Frameworks */,
+				C30B17FC1FA488A1006DEDB7 /* bufferqueue.o in Frameworks */,
+				C30B18221FA488A1006DEDB7 /* physicalsocketserver.o in Frameworks */,
+				C30B181A1FA488A1006DEDB7 /* noop.o in Frameworks */,
+				C30B18261FA488A1006DEDB7 /* race_checker.o in Frameworks */,
+				C30B18041FA488A1006DEDB7 /* event.o in Frameworks */,
+				C30B18131FA488A1006DEDB7 /* macifaddrs_converter.o in Frameworks */,
+				C30B18401FA488A1006DEDB7 /* timeutils.o in Frameworks */,
+				C30B183E1FA488A1006DEDB7 /* thread.o in Frameworks */,
+				C30B180F1FA488A1006DEDB7 /* ipaddress.o in Frameworks */,
+				C30B18371FA488A1006DEDB7 /* sslstreamadapter.o in Frameworks */,
+				C30B18301FA488A1006DEDB7 /* socketadapters.o in Frameworks */,
+				C30B17F61FA488A1006DEDB7 /* asyncsocket.o in Frameworks */,
+				C30B18241FA488A1006DEDB7 /* platform_thread.o in Frameworks */,
+				C30B18201FA488A1006DEDB7 /* optionsfile.o in Frameworks */,
+				C30B17FF1FA488A1006DEDB7 /* copyonwritebuffer.o in Frameworks */,
+				C30B183D1FA488A1006DEDB7 /* thread_darwin.o in Frameworks */,
+				C30B18191FA488A1006DEDB7 /* networkmonitor.o in Frameworks */,
+				C30B181C1FA488A1006DEDB7 /* openssladapter.o in Frameworks */,
+				C30B18071FA488A1006DEDB7 /* filerotatingstream.o in Frameworks */,
+				C30B18311FA488A1006DEDB7 /* socketaddress.o in Frameworks */,
+				C30B18291FA488A1006DEDB7 /* rate_statistics.o in Frameworks */,
+				C30B18121FA488A1006DEDB7 /* logsinks.o in Frameworks */,
+				C30B18141FA488A1006DEDB7 /* messagedigest.o in Frameworks */,
+				C30B18151FA488A1006DEDB7 /* messagehandler.o in Frameworks */,
+				C30B17F41FA488A1006DEDB7 /* asyncpacketsocket.o in Frameworks */,
+				C30B18391FA488A1006DEDB7 /* string_to_number.o in Frameworks */,
+				C30B17FE1FA488A1006DEDB7 /* checks.o in Frameworks */,
+				C30B181F1FA488A1006DEDB7 /* opensslstreamadapter.o in Frameworks */,
+				C30B18251FA488A1006DEDB7 /* proxyinfo.o in Frameworks */,
+				C30B181B1FA488A1006DEDB7 /* nullsocketserver.o in Frameworks */,
+				C30B182C1FA488A1006DEDB7 /* rtccertificate.o in Frameworks */,
+				C30B18231FA488A1006DEDB7 /* platform_file.o in Frameworks */,
+				C30B183B1FA488A1006DEDB7 /* stringutils.o in Frameworks */,
+				C30B183C1FA488A1006DEDB7 /* thread_checker_impl.o in Frameworks */,
+				C30B18031FA488A1006DEDB7 /* event_tracer.o in Frameworks */,
+				C30B180C1FA488A1006DEDB7 /* httpbase.o in Frameworks */,
+				C30B181E1FA488A1006DEDB7 /* opensslidentity.o in Frameworks */,
+				C30B18111FA488A1006DEDB7 /* logging.o in Frameworks */,
+				C30B182A1FA488A1006DEDB7 /* ratelimiter.o in Frameworks */,
+				C30B182F1FA488A1006DEDB7 /* sigslot.o in Frameworks */,
+				C30B18341FA488A1006DEDB7 /* ssladapter.o in Frameworks */,
+				C30B17F81FA488A1006DEDB7 /* asyncudpsocket.o in Frameworks */,
+				C30B18081FA488A1006DEDB7 /* fileutils.o in Frameworks */,
+				C30B181D1FA488A1006DEDB7 /* openssldigest.o in Frameworks */,
+				C30B182B1FA488A1006DEDB7 /* ratetracker.o in Frameworks */,
+				C30B17F51FA488A1006DEDB7 /* asyncresolverinterface.o in Frameworks */,
+				C30B182D1FA488A1006DEDB7 /* rtccertificategenerator.o in Frameworks */,
+				C30B18061FA488A1006DEDB7 /* file.o in Frameworks */,
+				C30B18271FA488A1006DEDB7 /* random.o in Frameworks */,
+				C30B17FD1FA488A1006DEDB7 /* bytebuffer.o in Frameworks */,
+				C30B17F71FA488A1006DEDB7 /* asynctcpsocket.o in Frameworks */,
+				C30B17F91FA488A1006DEDB7 /* base64.o in Frameworks */,
+				C30B180B1FA488A1006DEDB7 /* histogram_percentile_counter.o in Frameworks */,
+				C30B18001FA488A1006DEDB7 /* crc32.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,8 +867,8 @@
 		C33B99C01FA372FC00C0B1C6 /* NetworkingServiceFactoryImpl */ = {
 			isa = PBXGroup;
 			children = (
-				C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm */,
-				C33B99C11FA3730C00C0B1C6 /* NetworkingServiceFactoryImpl.h */,
+				C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */,
+				C33B99C11FA3730C00C0B1C6 /* NetworkingServiceFactoryObjc.h */,
 			);
 			path = NetworkingServiceFactoryImpl;
 			sourceTree = "<group>";
@@ -967,8 +964,6 @@
 			isa = PBXGroup;
 			children = (
 				C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */,
-				C3D27C9B1FA309740094BF12 /* networkingserviceimpl.cc */,
-				C3D27C9E1FA309A60094BF12 /* networkingserviceimpl.h */,
 				C3D27C9C1FA309740094BF12 /* networkingservice.h */,
 				C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */,
 				C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */,
@@ -1489,9 +1484,8 @@
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
-				C3D281131FA317240094BF12 /* networkingserviceimpl.cc in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
-				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm in Sources */,
+				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
 				C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,

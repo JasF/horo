@@ -519,6 +519,7 @@
 		C30B187E1FA4AABC006DEDB7 /* PredictionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PredictionViewController.h; sourceTree = "<group>"; };
 		C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PredictionViewController.mm; sourceTree = "<group>"; };
 		C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PredictionViewController.storyboard; sourceTree = "<group>"; };
+		C30B18831FA4B9F1006DEDB7 /* horoasserts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoasserts.h; sourceTree = "<group>"; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -1049,6 +1050,7 @@
 			children = (
 				C33B99E41FA46FA200C0B1C6 /* horobase.cc */,
 				C33B99E51FA46FA200C0B1C6 /* horobase.h */,
+				C30B18831FA4B9F1006DEDB7 /* horoasserts.h */,
 			);
 			path = base;
 			sourceTree = "<group>";

@@ -16,6 +16,7 @@
 #include "rtc_base/refcountedobject.h"
 #include "rtc_base/scoped_ref_ptr.h"
 #include "rtc_base/logging.h"
+#include "base/horoasserts.h"
 
 template<typename T>
 using strong = rtc::scoped_refptr<T>;

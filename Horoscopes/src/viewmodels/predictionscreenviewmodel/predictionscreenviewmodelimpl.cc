@@ -13,6 +13,8 @@ namespace horo {
                                                                  strong<ScreensManager> screensManager)
     : model_(model),
      screensManager_(screensManager) {
+         SCParameterAssert(model_);
+         SCParameterAssert(screensManager_);
      }
     
     PredictionScreenViewModelImpl::~PredictionScreenViewModelImpl() {

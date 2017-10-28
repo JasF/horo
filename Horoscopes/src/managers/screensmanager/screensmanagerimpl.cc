@@ -11,6 +11,7 @@
 namespace horo {
     static ScreensManager *g_privateInstance = nullptr;
     void ScreensManagerImpl::setPrivateInstance(ScreensManager *privateInstance) {
+        SCParameterAssert(privateInstance);
         g_privateInstance = privateInstance;
     }
     

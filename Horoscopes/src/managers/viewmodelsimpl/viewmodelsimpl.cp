@@ -13,7 +13,7 @@ namespace horo {
     
     ViewModelsImpl::ViewModelsImpl(strong<Models> models)
     : models_(models) {
-        
+        SCParameterAssert(models_);
     }
     
     ViewModelsImpl::~ViewModelsImpl() {

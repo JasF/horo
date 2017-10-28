@@ -13,6 +13,7 @@ namespace horo {
 static NetworkingServiceFactory *privateInstance = nullptr;
     
 void NetworkingServiceFactoryImpl::setPrivateInstance(NetworkingServiceFactory *instance) {
+    SCParameterAssert(instance);
     privateInstance = instance;
 }
 

@@ -21,7 +21,7 @@ namespace horo {
     public:
         virtual ~_NetworkingService() {}
         virtual void beginRequest(std::string path,
-                                  dictionary parameters,
+                                  Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   std::function<void(error err)> failBlock) = 0;
     };

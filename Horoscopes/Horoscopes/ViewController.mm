@@ -24,9 +24,11 @@
     _networkingService = horo::Managers::shared().networkingService();
     
     using namespace horo;
-    dictionary dict;
+    Json::Value parameters;
+    parameters["id"] = 12345;
+    parameters["stroke"] = "hello";
     @weakify(self);
-    _networkingService->beginRequest("byZodiac", dict, [self_weak_](strong<HttpResponse> response, Json::Value value){
+    _networkingService->beginRequest("byZodiac", parameters, [self_weak_](strong<HttpResponse> response, Json::Value value){
         @strongify(self);
         std::string content = value["content"].asString();
         LOG(LS_WARNING) << "response! content: " << content;

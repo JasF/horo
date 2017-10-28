@@ -12,7 +12,11 @@
 #import "HTTPSessionManager.h"
 #include "json/reader.h"
 
+static const int kParsingFailedError = -1;
+
 namespace horo {
+    
+    using namespace std;
     
 NetworkingServiceObjc::NetworkingServiceObjc(NetworkingServiceFactory *factory) : factory_(factory) {
      
@@ -21,16 +25,43 @@ NetworkingServiceObjc::NetworkingServiceObjc(NetworkingServiceFactory *factory) 
 NetworkingServiceObjc::~NetworkingServiceObjc() {
 }
 
-    void NetworkingServiceObjc::beginRequest(std::string path,
-                                             dictionary parameters,
+NSDictionary *dictionaryFromJsonValue(Json::Value parameters) {
+    NSMutableDictionary *result = [NSMutableDictionary new];
+    for( Json::ValueIterator it = parameters.begin(); it != parameters.end(); ++it )
+    {
+        std::string key = it.key().asString();
+        NSString *keyString = [NSString stringWithCString:key.c_str() encoding:[NSString defaultCStringEncoding]];
+        NSCAssert(keyString.length, @"keyString is nil");
+        if (!keyString) {
+            continue;
+        }
+        Json::Value &value = *it;
+        if (value.isNumeric()) {
+            [result setObject:@(value.asInt()) forKey:keyString];
+        }
+        else if (value.isString()) {
+            NSString *valueString = [NSString stringWithCString:value.asString().c_str() encoding:[NSString defaultCStringEncoding]];
+            [result setObject:valueString forKey:keyString];
+        }
+        else {
+            NSCAssert(NO, @"Unexpected type for value: %@.", @(value.type()));
+        }
+    }
+    
+    return [result copy];
+}
+
+void NetworkingServiceObjc::beginRequest(std::string path,
+                                             Json::Value parameters,
                                              std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                              std::function<void(error err)> failBlock) {
     LOG(LS_WARNING) << path;
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
+        NSDictionary *dictionaryParameters = dictionaryFromJsonValue(parameters);
     NSMutableSet *set = [NSMutableSet new];
     [set addObject:@"text/plain"];
     [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
-    [[HTTPSessionManager sharedClient] GET:pathString parameters:@{@"id":@"ok"} progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         NSData *data = [NSJSONSerialization dataWithJSONObject:JSON options:0 error:nil];
         
         char *storage = new char[data.length];
@@ -38,7 +69,10 @@ NetworkingServiceObjc::~NetworkingServiceObjc() {
         Json::Reader reader;
         Json::Value root;
         if (!reader.parse(std::string(storage), root)) {
-            // failed.
+            error cerr("parsing failed error", kParsingFailedError);
+            if (failBlock) {
+                failBlock(cerr);
+            }
             return;
         }
         strong<HttpResponse> respone = factory_->createHttpResponse();
@@ -46,30 +80,13 @@ NetworkingServiceObjc::~NetworkingServiceObjc() {
         if (successBlock) {
             successBlock(respone, root);
         }
-    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
-        LOG(LS_WARNING) << "!";
-       // if (block) {
-      //      block([NSArray array], error);
-      //  }
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
+        error cerr([[aError localizedDescription] UTF8String], (int)[aError code]);
+        if (failBlock) {
+            failBlock(cerr);
+        }
     }];
 }
 
 };
-    
-@implementation NetworkingServiceImpl
-/*
-+ (horo::NetworkingServiceFactoryObjc *)sharedFactory {
-    static horo::NetworkingServiceFactoryObjc *sharedFactory = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedFactory = new horo::NetworkingServiceFactoryObjc();
-    });
-    return sharedFactory;
-}
 
-+ (void)load {
-    
-    horo::NetworkingServiceFactoryImpl::setPrivateInstance([self sharedFactory]);
-}
-*/
-@end

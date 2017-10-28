@@ -11,20 +11,15 @@
 #include "managers/networkingservice/networkingservicefactory.h"
 
 namespace horo {
-  
     class NetworkingServiceObjc : public NetworkingService {
     public:
         NetworkingServiceObjc(NetworkingServiceFactory *factory);
         ~NetworkingServiceObjc() override;
         void beginRequest(std::string path,
-                                  dictionary parameters,
+                              Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   std::function<void(error err)> failBlock) override;
     private:
         NetworkingServiceFactory *factory_;
     };
 };
-
-@interface NetworkingServiceImpl : NSObject
-
-@end

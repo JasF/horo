@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 #include "networkingservice.h"
+#include "modelsimpl/models.h"
+#include "viewmodelsimpl/viewmodels.h"
+#include "screensmanager/screensmanager.h"
 
 namespace horo {
   
@@ -23,6 +26,9 @@ namespace horo {
         
     public:
         strong<NetworkingService> networkingService();
+        strong<ViewModels> viewModels();
+        strong<Models> models();
+        strong<ScreensManager> screensManager();
     };
     
 };

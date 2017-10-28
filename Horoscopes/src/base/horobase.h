@@ -15,9 +15,13 @@
 #include "json/value.h"
 #include "rtc_base/refcountedobject.h"
 #include "rtc_base/scoped_ref_ptr.h"
+#include "rtc_base/logging.h"
 
 template<typename T>
 using strong = rtc::scoped_refptr<T>;
+
+template<typename T>
+using reff = rtc::RefCountedObject<T>;
 
 namespace horo {
     using namespace std;

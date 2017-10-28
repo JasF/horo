@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B0FD3721FA06C96006378B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3711FA06C96006378B6 /* AppDelegate.m */; };
+		4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3711FA06C96006378B6 /* AppDelegate.mm */; };
 		4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3741FA06C96006378B6 /* ViewController.mm */; };
 		4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3791FA06C96006378B6 /* Assets.xcassets */; };
@@ -106,6 +106,14 @@
 		C30B18401FA488A1006DEDB7 /* timeutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB81FA30E420094BF12 /* timeutils.o */; };
 		C30B18411FA488A1006DEDB7 /* transformadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBF1FA30E430094BF12 /* transformadapter.o */; };
 		C30B18421FA488A1006DEDB7 /* unixfilesystem.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D801FA30E3E0094BF12 /* unixfilesystem.o */; };
+		C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */; };
+		C30B18551FA498BB006DEDB7 /* viewmodelsimpl.cp in Sources */ = {isa = PBXBuildFile; fileRef = C30B18541FA498BB006DEDB7 /* viewmodelsimpl.cp */; };
+		C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18571FA498C8006DEDB7 /* modelsimpl.cc */; };
+		C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B186E1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc */; };
+		C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */; };
+		C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */; };
+		C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */; };
+		C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
 		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
@@ -123,7 +131,7 @@
 /* Begin PBXFileReference section */
 		4B0FD36D1FA06C96006378B6 /* Horoscopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Horoscopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B0FD3701FA06C96006378B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4B0FD3711FA06C96006378B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4B0FD3711FA06C96006378B6 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		4B0FD3731FA06C96006378B6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4B0FD3741FA06C96006378B6 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		4B0FD3771FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -491,6 +499,26 @@
 		C30B17E61FA481C2006DEDB7 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTKeyPathCoding.h; sourceTree = "<group>"; };
 		C30B17E71FA481C2006DEDB7 /* EXTCoroutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTCoroutine.h; sourceTree = "<group>"; };
 		C30B17F11FA481DA006DEDB7 /* Horoscopes.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Horoscopes.pch; path = "Supporting Files/Horoscopes.pch"; sourceTree = SOURCE_ROOT; };
+		C30B18441FA496ED006DEDB7 /* screensmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screensmanager.h; sourceTree = "<group>"; };
+		C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = screensmanagerimpl.cc; sourceTree = "<group>"; };
+		C30B18491FA49827006DEDB7 /* screensmanagerimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screensmanagerimpl.h; sourceTree = "<group>"; };
+		C30B18531FA498BA006DEDB7 /* viewmodels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewmodels.h; sourceTree = "<group>"; };
+		C30B18541FA498BB006DEDB7 /* viewmodelsimpl.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = viewmodelsimpl.cp; sourceTree = "<group>"; };
+		C30B18561FA498C8006DEDB7 /* models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = models.h; sourceTree = "<group>"; };
+		C30B18571FA498C8006DEDB7 /* modelsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = modelsimpl.cc; sourceTree = "<group>"; };
+		C30B18591FA499F5006DEDB7 /* modelsimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modelsimpl.h; sourceTree = "<group>"; };
+		C30B185A1FA49A01006DEDB7 /* viewmodelsimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewmodelsimpl.h; sourceTree = "<group>"; };
+		C30B186C1FA49AFF006DEDB7 /* predictionscreenmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = predictionscreenmodel.h; sourceTree = "<group>"; };
+		C30B186D1FA49AFF006DEDB7 /* predictionscreenmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = predictionscreenmodelimpl.h; sourceTree = "<group>"; };
+		C30B186E1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = predictionscreenmodelimpl.cc; sourceTree = "<group>"; };
+		C30B18721FA49E01006DEDB7 /* predictionscreenviewmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = predictionscreenviewmodel.h; sourceTree = "<group>"; };
+		C30B18731FA49E0A006DEDB7 /* predictionscreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = predictionscreenviewmodelimpl.h; sourceTree = "<group>"; };
+		C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = predictionscreenviewmodelimpl.cc; sourceTree = "<group>"; };
+		C30B18791FA4A731006DEDB7 /* ScreensManagerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreensManagerObjc.h; sourceTree = "<group>"; };
+		C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreensManagerObjc.mm; sourceTree = "<group>"; };
+		C30B187E1FA4AABC006DEDB7 /* PredictionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PredictionViewController.h; sourceTree = "<group>"; };
+		C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PredictionViewController.mm; sourceTree = "<group>"; };
+		C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PredictionViewController.storyboard; sourceTree = "<group>"; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -694,6 +722,7 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
+				C30B187C1FA4AA9C006DEDB7 /* ViewControllers */,
 				C33B99CA1FA375E600C0B1C6 /* Components */,
 				C37C83EE1FA3287500B39948 /* Supporting Files */,
 				C3D27E161FA30FC60094BF12 /* rtcbase */,
@@ -715,7 +744,7 @@
 			isa = PBXGroup;
 			children = (
 				4B0FD3701FA06C96006378B6 /* AppDelegate.h */,
-				4B0FD3711FA06C96006378B6 /* AppDelegate.m */,
+				4B0FD3711FA06C96006378B6 /* AppDelegate.mm */,
 				4B0FD3731FA06C96006378B6 /* ViewController.h */,
 				4B0FD3741FA06C96006378B6 /* ViewController.mm */,
 				4B0FD3761FA06C96006378B6 /* Main.storyboard */,
@@ -853,9 +882,103 @@
 			path = extobjc;
 			sourceTree = "<group>";
 		};
+		C30B18431FA496C2006DEDB7 /* screensmanager */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */,
+				C30B18491FA49827006DEDB7 /* screensmanagerimpl.h */,
+				C30B18441FA496ED006DEDB7 /* screensmanager.h */,
+			);
+			path = screensmanager;
+			sourceTree = "<group>";
+		};
+		C30B184B1FA4987D006DEDB7 /* viewmodelsimpl */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18541FA498BB006DEDB7 /* viewmodelsimpl.cp */,
+				C30B185A1FA49A01006DEDB7 /* viewmodelsimpl.h */,
+				C30B18531FA498BA006DEDB7 /* viewmodels.h */,
+			);
+			path = viewmodelsimpl;
+			sourceTree = "<group>";
+		};
+		C30B184C1FA49882006DEDB7 /* modelsimpl */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18571FA498C8006DEDB7 /* modelsimpl.cc */,
+				C30B18591FA499F5006DEDB7 /* modelsimpl.h */,
+				C30B18561FA498C8006DEDB7 /* models.h */,
+			);
+			path = modelsimpl;
+			sourceTree = "<group>";
+		};
+		C30B186A1FA49AFF006DEDB7 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C30B186B1FA49AFF006DEDB7 /* predictionscreenmodel */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		C30B186B1FA49AFF006DEDB7 /* predictionscreenmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C30B186C1FA49AFF006DEDB7 /* predictionscreenmodel.h */,
+				C30B186D1FA49AFF006DEDB7 /* predictionscreenmodelimpl.h */,
+				C30B186E1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc */,
+			);
+			path = predictionscreenmodel;
+			sourceTree = "<group>";
+		};
+		C30B18701FA49DCD006DEDB7 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18711FA49DE4006DEDB7 /* predictionscreenviewmodel */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		C30B18711FA49DE4006DEDB7 /* predictionscreenviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */,
+				C30B18731FA49E0A006DEDB7 /* predictionscreenviewmodelimpl.h */,
+				C30B18721FA49E01006DEDB7 /* predictionscreenviewmodel.h */,
+			);
+			path = predictionscreenviewmodel;
+			sourceTree = "<group>";
+		};
+		C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18791FA4A731006DEDB7 /* ScreensManagerObjc.h */,
+				C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */,
+			);
+			path = ScreensManagerObjc;
+			sourceTree = "<group>";
+		};
+		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C30B187D1FA4AAA2006DEDB7 /* PredictionViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C30B187D1FA4AAA2006DEDB7 /* PredictionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C30B187E1FA4AABC006DEDB7 /* PredictionViewController.h */,
+				C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */,
+				C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */,
+			);
+			path = PredictionViewController;
+			sourceTree = "<group>";
+		};
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */,
 				C30B16591FA47465006DEDB7 /* HttpResponseObjc */,
 				C33B99DF1FA376A800C0B1C6 /* HTTPSessionManager */,
 				C33B99C61FA3752400C0B1C6 /* NetworkingServiceObjc */,
@@ -943,6 +1066,8 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C30B18701FA49DCD006DEDB7 /* viewmodels */,
+				C30B186A1FA49AFF006DEDB7 /* models */,
 				C33B99E31FA46F6E00C0B1C6 /* base */,
 				C33B99B91FA370B500C0B1C6 /* ios */,
 				C3D27C961FA309130094BF12 /* managers */,
@@ -953,6 +1078,9 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C30B184C1FA49882006DEDB7 /* modelsimpl */,
+				C30B184B1FA4987D006DEDB7 /* viewmodelsimpl */,
+				C30B18431FA496C2006DEDB7 /* screensmanager */,
 				C3D27C9A1FA3093C0094BF12 /* networkingservice */,
 				C3D27C971FA309130094BF12 /* managers.cc */,
 				C3D27C981FA309130094BF12 /* managers.h */,
@@ -1445,6 +1573,7 @@
 			files = (
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
+				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
 				4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1473,13 +1602,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
+				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
+				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
+				C30B18551FA498BB006DEDB7 /* viewmodelsimpl.cp in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
@@ -1491,13 +1623,17 @@
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
 				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
+				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
 				C30B17ED1FA481C2006DEDB7 /* NSInvocation+EXT.m in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
+				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
+				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
+				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
-				4B0FD3721FA06C96006378B6 /* AppDelegate.m in Sources */,
+				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 			);

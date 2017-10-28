@@ -8,6 +8,9 @@
 
 #include "managers.h"
 #include "networkingservicefactoryimpl.h"
+#include "modelsimpl/modelsimpl.h"
+#include "viewmodelsimpl/viewmodelsimpl.h"
+#include "screensmanager/screensmanagerimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -39,6 +42,33 @@ Managers &Managers::shared() {
         rtc::scoped_refptr<NetworkingService> service = sharedNetworkingServiceFactory()->createNetworkingService();
         return service;
     }
+    
+    strong<ViewModels> Managers::viewModels() {
+        static strong<ViewModelsImpl> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new ViewModelsImpl(models());
+            sharedInstance->setScreensManager(screensManager());
+        }
+        return sharedInstance;
+    }
+    
+    strong<Models> Managers::models() {
+        static strong<Models> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new ModelsImpl();
+        }
+        return sharedInstance;
+    }
+    
+    strong<ScreensManager> Managers::screensManager() {
+        static strong<ScreensManagerImpl> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new ScreensManagerImpl();
+            sharedInstance->setViewModels(viewModels());
+        }
+        return sharedInstance;
+    }
+    
 };
 
 

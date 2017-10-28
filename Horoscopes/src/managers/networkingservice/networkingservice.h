@@ -16,11 +16,14 @@
 
 namespace horo {
   
-    class NetworkingService {
+    class _NetworkingService {
     public:
-        virtual ~NetworkingService() {}
+        virtual ~_NetworkingService() {}
         virtual void beginRequest(std::string url, std::function<void(Json::Value value)> successBlock) = 0;
     };
+    
+    class NetworkingService : public
+    rtc::RefCountedObject<_NetworkingService> {};
 };
 
 #endif /* networkingservice_hpp */

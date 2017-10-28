@@ -36,8 +36,8 @@ Managers &Managers::shared() {
         return sharedInstance;
     }
     
-    NetworkingService *Managers::networkingService() {
-        NetworkingService *service = sharedNetworkingServiceFactory()->createNetworkingService();
+    strong<NetworkingService> Managers::networkingService() {
+        rtc::scoped_refptr<NetworkingService> service = sharedNetworkingServiceFactory()->createNetworkingService();
         return service;
     }
 };

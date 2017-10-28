@@ -22,7 +22,7 @@ namespace horo {
         virtual ~Managers();
         
     public:
-        NetworkingService *networkingService();
+        strong<NetworkingService> networkingService();
     };
     
 };

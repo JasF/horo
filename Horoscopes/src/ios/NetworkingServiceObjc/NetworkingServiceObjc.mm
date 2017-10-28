@@ -15,11 +15,9 @@
 namespace horo {
     
 NetworkingServiceObjc::NetworkingServiceObjc() {
-    
 }
 
 NetworkingServiceObjc::~NetworkingServiceObjc() {
-    
 }
 
     void NetworkingServiceObjc::beginRequest(std::string url, std::function<void(Json::Value value)> callback) {

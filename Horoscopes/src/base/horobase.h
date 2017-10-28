@@ -13,6 +13,11 @@
 #include <map>
 #include <string>
 #include "json/value.h"
+#include "rtc_base/refcountedobject.h"
+#include "rtc_base/scoped_ref_ptr.h"
+
+template<typename T>
+using strong = rtc::scoped_refptr<T>;
 
 namespace horo {
     using namespace std;

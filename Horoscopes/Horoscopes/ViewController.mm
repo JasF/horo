@@ -12,17 +12,23 @@
 
 @interface ViewController ()
 
+@property (assign, nonatomic) strong<horo::NetworkingService> networkingService;
 @end
 
-@implementation ViewController
+@implementation ViewController {
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     LOG(LS_ERROR) << "!";
-    horo::NetworkingService *networkingService = horo::Managers::shared().networkingService();
-    networkingService->beginRequest("http://127.0.0.1:8000", [](Json::Value value){
+    _networkingService = horo::Managers::shared().networkingService();
+    
+    @weakify(self);
+    _networkingService->beginRequest("http://127.0.0.1:8000", [self_weak_](Json::Value value){
+        @strongify(self);
         std::string content = value["content"].asString();
         LOG(LS_WARNING) << "response! content: " << content;
+        self.networkingService = nullptr;
     });
     // Do any additional setup after loading the view, typically from a nib.
 }

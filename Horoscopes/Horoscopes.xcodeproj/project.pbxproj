@@ -17,6 +17,15 @@
 		C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16781FA476CA006DEDB7 /* json_reader.cpp */; };
 		C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16791FA476CA006DEDB7 /* json_value.cpp */; };
 		C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B167F1FA47770006DEDB7 /* json_writer.cpp */; };
+		C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17D31FA481C2006DEDB7 /* EXTSelectorChecking.m */; };
+		C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17D61FA481C2006DEDB7 /* EXTConcreteProtocol.m */; };
+		C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DB1FA481C2006DEDB7 /* EXTScope.m */; };
+		C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DC1FA481C2006DEDB7 /* EXTRuntimeExtensions.m */; };
+		C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DD1FA481C2006DEDB7 /* EXTADT.m */; };
+		C30B17ED1FA481C2006DEDB7 /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DE1FA481C2006DEDB7 /* NSInvocation+EXT.m */; };
+		C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DF1FA481C2006DEDB7 /* EXTSafeCategory.m */; };
+		C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17E11FA481C2006DEDB7 /* NSMethodSignature+EXT.m */; };
+		C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17E51FA481C2006DEDB7 /* EXTNil.m */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
 		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
@@ -136,6 +145,353 @@
 		C30B16861FA47879006DEDB7 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		C30B16871FA4787A006DEDB7 /* features.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
 		C30B16881FA4787A006DEDB7 /* reader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		C30B16891FA47C78006DEDB7 /* asyncinvoker-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "asyncinvoker-inl.h"; path = "webrtc/src/rtc_base/asyncinvoker-inl.h"; sourceTree = SOURCE_ROOT; };
+		C30B168A1FA47C78006DEDB7 /* checks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = checks.h; path = webrtc/src/rtc_base/checks.h; sourceTree = SOURCE_ROOT; };
+		C30B168B1FA47C78006DEDB7 /* win32securityerrors.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32securityerrors.cc; path = webrtc/src/rtc_base/win32securityerrors.cc; sourceTree = SOURCE_ROOT; };
+		C30B168C1FA47C78006DEDB7 /* criticalsection_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = criticalsection_unittest.cc; path = webrtc/src/rtc_base/criticalsection_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B168D1FA47C78006DEDB7 /* filerotatingstream.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = filerotatingstream.cc; path = webrtc/src/rtc_base/filerotatingstream.cc; sourceTree = SOURCE_ROOT; };
+		C30B168E1FA47C78006DEDB7 /* task_queue_posix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = task_queue_posix.h; path = webrtc/src/rtc_base/task_queue_posix.h; sourceTree = SOURCE_ROOT; };
+		C30B168F1FA47C78006DEDB7 /* thread_checker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thread_checker.h; path = webrtc/src/rtc_base/thread_checker.h; sourceTree = SOURCE_ROOT; };
+		C30B16901FA47C78006DEDB7 /* byteorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = byteorder.h; path = webrtc/src/rtc_base/byteorder.h; sourceTree = SOURCE_ROOT; };
+		C30B16911FA47C79006DEDB7 /* crc32.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = crc32.cc; path = webrtc/src/rtc_base/crc32.cc; sourceTree = SOURCE_ROOT; };
+		C30B16921FA47C79006DEDB7 /* win32filesystem.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32filesystem.cc; path = webrtc/src/rtc_base/win32filesystem.cc; sourceTree = SOURCE_ROOT; };
+		C30B16931FA47C79006DEDB7 /* weak_ptr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = weak_ptr.h; path = webrtc/src/rtc_base/weak_ptr.h; sourceTree = SOURCE_ROOT; };
+		C30B16941FA47C79006DEDB7 /* random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = random.h; path = webrtc/src/rtc_base/random.h; sourceTree = SOURCE_ROOT; };
+		C30B16951FA47C79006DEDB7 /* string_to_number.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = string_to_number.h; path = webrtc/src/rtc_base/string_to_number.h; sourceTree = SOURCE_ROOT; };
+		C30B16961FA47C79006DEDB7 /* rtccertificate_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rtccertificate_unittest.cc; path = webrtc/src/rtc_base/rtccertificate_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16971FA47C79006DEDB7 /* refcountedobject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = refcountedobject.h; path = webrtc/src/rtc_base/refcountedobject.h; sourceTree = SOURCE_ROOT; };
+		C30B16981FA47C79006DEDB7 /* callback.h.pump */ = {isa = PBXFileReference; lastKnownFileType = text; name = callback.h.pump; path = webrtc/src/rtc_base/callback.h.pump; sourceTree = SOURCE_ROOT; };
+		C30B16991FA47C79006DEDB7 /* httpcommon_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = httpcommon_unittest.cc; path = webrtc/src/rtc_base/httpcommon_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B169A1FA47C79006DEDB7 /* sigslot_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sigslot_unittest.cc; path = webrtc/src/rtc_base/sigslot_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B169B1FA47C79006DEDB7 /* stringutils_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stringutils_unittest.cc; path = webrtc/src/rtc_base/stringutils_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B169C1FA47C79006DEDB7 /* proxyserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = proxyserver.h; path = webrtc/src/rtc_base/proxyserver.h; sourceTree = SOURCE_ROOT; };
+		C30B169D1FA47C79006DEDB7 /* cryptstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cryptstring.h; path = webrtc/src/rtc_base/cryptstring.h; sourceTree = SOURCE_ROOT; };
+		C30B169E1FA47C79006DEDB7 /* copyonwritebuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = copyonwritebuffer.h; path = webrtc/src/rtc_base/copyonwritebuffer.h; sourceTree = SOURCE_ROOT; };
+		C30B169F1FA47C79006DEDB7 /* dscp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = dscp.h; path = webrtc/src/rtc_base/dscp.h; sourceTree = SOURCE_ROOT; };
+		C30B16A01FA47C79006DEDB7 /* sslidentity.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sslidentity.cc; path = webrtc/src/rtc_base/sslidentity.cc; sourceTree = SOURCE_ROOT; };
+		C30B16A11FA47C79006DEDB7 /* win32.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32.cc; path = webrtc/src/rtc_base/win32.cc; sourceTree = SOURCE_ROOT; };
+		C30B16A21FA47C79006DEDB7 /* win32socketserver_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32socketserver_unittest.cc; path = webrtc/src/rtc_base/win32socketserver_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16A31FA47C7A006DEDB7 /* openssldigest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = openssldigest.cc; path = webrtc/src/rtc_base/openssldigest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16A41FA47C7A006DEDB7 /* platform_thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = platform_thread.h; path = webrtc/src/rtc_base/platform_thread.h; sourceTree = SOURCE_ROOT; };
+		C30B16A51FA47C7A006DEDB7 /* physicalsocketserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = physicalsocketserver.h; path = webrtc/src/rtc_base/physicalsocketserver.h; sourceTree = SOURCE_ROOT; };
+		C30B16A61FA47C7A006DEDB7 /* unittest_main.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = unittest_main.cc; path = webrtc/src/rtc_base/unittest_main.cc; sourceTree = SOURCE_ROOT; };
+		C30B16A71FA47C7A006DEDB7 /* sequenced_task_checker_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sequenced_task_checker_impl.h; path = webrtc/src/rtc_base/sequenced_task_checker_impl.h; sourceTree = SOURCE_ROOT; };
+		C30B16A81FA47C7A006DEDB7 /* ratetracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ratetracker.h; path = webrtc/src/rtc_base/ratetracker.h; sourceTree = SOURCE_ROOT; };
+		C30B16A91FA47C7A006DEDB7 /* bytebuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bytebuffer.h; path = webrtc/src/rtc_base/bytebuffer.h; sourceTree = SOURCE_ROOT; };
+		C30B16AA1FA47C7A006DEDB7 /* random.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = random.cc; path = webrtc/src/rtc_base/random.cc; sourceTree = SOURCE_ROOT; };
+		C30B16AB1FA47C7A006DEDB7 /* fileutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fileutils.h; path = webrtc/src/rtc_base/fileutils.h; sourceTree = SOURCE_ROOT; };
+		C30B16AC1FA47C7A006DEDB7 /* swap_queue_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = swap_queue_unittest.cc; path = webrtc/src/rtc_base/swap_queue_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16AD1FA47C7A006DEDB7 /* stringize_macros_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stringize_macros_unittest.cc; path = webrtc/src/rtc_base/stringize_macros_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16AE1FA47C7A006DEDB7 /* protobuf_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = protobuf_utils.h; path = webrtc/src/rtc_base/protobuf_utils.h; sourceTree = SOURCE_ROOT; };
+		C30B16AF1FA47C7A006DEDB7 /* openssldigest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = openssldigest.h; path = webrtc/src/rtc_base/openssldigest.h; sourceTree = SOURCE_ROOT; };
+		C30B16B01FA47C7A006DEDB7 /* sanitizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sanitizer.h; path = webrtc/src/rtc_base/sanitizer.h; sourceTree = SOURCE_ROOT; };
+		C30B16B11FA47C7A006DEDB7 /* socketaddress_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = socketaddress_unittest.cc; path = webrtc/src/rtc_base/socketaddress_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16B21FA47C7A006DEDB7 /* thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thread.h; path = webrtc/src/rtc_base/thread.h; sourceTree = SOURCE_ROOT; };
+		C30B16B31FA47C7B006DEDB7 /* socketfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socketfactory.h; path = webrtc/src/rtc_base/socketfactory.h; sourceTree = SOURCE_ROOT; };
+		C30B16B41FA47C7B006DEDB7 /* sigslot.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sigslot.cc; path = webrtc/src/rtc_base/sigslot.cc; sourceTree = SOURCE_ROOT; };
+		C30B16B51FA47C7B006DEDB7 /* socketaddresspair.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = socketaddresspair.cc; path = webrtc/src/rtc_base/socketaddresspair.cc; sourceTree = SOURCE_ROOT; };
+		C30B16B61FA47C7B006DEDB7 /* sslstreamadapter_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sslstreamadapter_unittest.cc; path = webrtc/src/rtc_base/sslstreamadapter_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16BB1FA47C7B006DEDB7 /* Size.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = Size.java; sourceTree = "<group>"; };
+		C30B16BC1FA47C7B006DEDB7 /* ContextUtils.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = ContextUtils.java; sourceTree = "<group>"; };
+		C30B16BD1FA47C7B006DEDB7 /* OWNERS */ = {isa = PBXFileReference; lastKnownFileType = text; path = OWNERS; sourceTree = "<group>"; };
+		C30B16BE1FA47C7B006DEDB7 /* ThreadUtils.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = ThreadUtils.java; sourceTree = "<group>"; };
+		C30B16BF1FA47C7B006DEDB7 /* Logging.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = Logging.java; sourceTree = "<group>"; };
+		C30B16C01FA47C7B006DEDB7 /* constructormagic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = constructormagic.h; path = webrtc/src/rtc_base/constructormagic.h; sourceTree = SOURCE_ROOT; };
+		C30B16C11FA47C7B006DEDB7 /* helpers.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = helpers.cc; path = webrtc/src/rtc_base/helpers.cc; sourceTree = SOURCE_ROOT; };
+		C30B16C21FA47C7B006DEDB7 /* safe_compare_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = safe_compare_unittest.cc; path = webrtc/src/rtc_base/safe_compare_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16C31FA47C7B006DEDB7 /* event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = event.h; path = webrtc/src/rtc_base/event.h; sourceTree = SOURCE_ROOT; };
+		C30B16C41FA47C7B006DEDB7 /* scoped_ref_ptr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = scoped_ref_ptr.h; path = webrtc/src/rtc_base/scoped_ref_ptr.h; sourceTree = SOURCE_ROOT; };
+		C30B16C51FA47C7B006DEDB7 /* bitbuffer.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bitbuffer.cc; path = webrtc/src/rtc_base/bitbuffer.cc; sourceTree = SOURCE_ROOT; };
+		C30B16C61FA47C7B006DEDB7 /* base64_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = base64_unittest.cc; path = webrtc/src/rtc_base/base64_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16C71FA47C7B006DEDB7 /* bufferqueue_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bufferqueue_unittest.cc; path = webrtc/src/rtc_base/bufferqueue_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16C81FA47C7B006DEDB7 /* onetimeevent_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = onetimeevent_unittest.cc; path = webrtc/src/rtc_base/onetimeevent_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16C91FA47C7B006DEDB7 /* sslfingerprint.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sslfingerprint.cc; path = webrtc/src/rtc_base/sslfingerprint.cc; sourceTree = SOURCE_ROOT; };
+		C30B16CA1FA47C7B006DEDB7 /* testclient_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = testclient_unittest.cc; path = webrtc/src/rtc_base/testclient_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16CB1FA47C7C006DEDB7 /* callback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = callback.h; path = webrtc/src/rtc_base/callback.h; sourceTree = SOURCE_ROOT; };
+		C30B16CC1FA47C7C006DEDB7 /* checks.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = checks.cc; path = webrtc/src/rtc_base/checks.cc; sourceTree = SOURCE_ROOT; };
+		C30B16CD1FA47C7C006DEDB7 /* criticalsection.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = criticalsection.cc; path = webrtc/src/rtc_base/criticalsection.cc; sourceTree = SOURCE_ROOT; };
+		C30B16CE1FA47C7C006DEDB7 /* helpers_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = helpers_unittest.cc; path = webrtc/src/rtc_base/helpers_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16CF1FA47C7C006DEDB7 /* refcountedobject_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = refcountedobject_unittest.cc; path = webrtc/src/rtc_base/refcountedobject_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16D01FA47C7C006DEDB7 /* sslfingerprint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sslfingerprint.h; path = webrtc/src/rtc_base/sslfingerprint.h; sourceTree = SOURCE_ROOT; };
+		C30B16D11FA47C7C006DEDB7 /* type_traits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = type_traits.h; path = webrtc/src/rtc_base/type_traits.h; sourceTree = SOURCE_ROOT; };
+		C30B16D21FA47C7C006DEDB7 /* signalthread_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = signalthread_unittest.cc; path = webrtc/src/rtc_base/signalthread_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16D31FA47C7C006DEDB7 /* ratelimiter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ratelimiter.h; path = webrtc/src/rtc_base/ratelimiter.h; sourceTree = SOURCE_ROOT; };
+		C30B16D41FA47C7C006DEDB7 /* task_queue_posix.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_posix.cc; path = webrtc/src/rtc_base/task_queue_posix.cc; sourceTree = SOURCE_ROOT; };
+		C30B16D51FA47C7C006DEDB7 /* optionsfile.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = optionsfile.cc; path = webrtc/src/rtc_base/optionsfile.cc; sourceTree = SOURCE_ROOT; };
+		C30B16D61FA47C7C006DEDB7 /* socketaddresspair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socketaddresspair.h; path = webrtc/src/rtc_base/socketaddresspair.h; sourceTree = SOURCE_ROOT; };
+		C30B16D71FA47C7C006DEDB7 /* task_queue_libevent.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_libevent.cc; path = webrtc/src/rtc_base/task_queue_libevent.cc; sourceTree = SOURCE_ROOT; };
+		C30B16D81FA47C7C006DEDB7 /* stringutils.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stringutils.cc; path = webrtc/src/rtc_base/stringutils.cc; sourceTree = SOURCE_ROOT; };
+		C30B16D91FA47C7C006DEDB7 /* socketadapters.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = socketadapters.cc; path = webrtc/src/rtc_base/socketadapters.cc; sourceTree = SOURCE_ROOT; };
+		C30B16DA1FA47C7C006DEDB7 /* bufferqueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bufferqueue.h; path = webrtc/src/rtc_base/bufferqueue.h; sourceTree = SOURCE_ROOT; };
+		C30B16DB1FA47C7D006DEDB7 /* rollingaccumulator_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rollingaccumulator_unittest.cc; path = webrtc/src/rtc_base/rollingaccumulator_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16DC1FA47C7D006DEDB7 /* bitbuffer_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bitbuffer_unittest.cc; path = webrtc/src/rtc_base/bitbuffer_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16DD1FA47C7D006DEDB7 /* httpserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = httpserver.h; path = webrtc/src/rtc_base/httpserver.h; sourceTree = SOURCE_ROOT; };
+		C30B16DE1FA47C7D006DEDB7 /* proxyserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = proxyserver.cc; path = webrtc/src/rtc_base/proxyserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B16DF1FA47C7D006DEDB7 /* rate_limiter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rate_limiter.cc; path = webrtc/src/rtc_base/rate_limiter.cc; sourceTree = SOURCE_ROOT; };
+		C30B16E01FA47C7D006DEDB7 /* rate_statistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rate_statistics.h; path = webrtc/src/rtc_base/rate_statistics.h; sourceTree = SOURCE_ROOT; };
+		C30B16E11FA47C7D006DEDB7 /* asyncpacketsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asyncpacketsocket.h; path = webrtc/src/rtc_base/asyncpacketsocket.h; sourceTree = SOURCE_ROOT; };
+		C30B16E21FA47C7D006DEDB7 /* thread_annotations_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = thread_annotations_unittest.cc; path = webrtc/src/rtc_base/thread_annotations_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16E31FA47C7D006DEDB7 /* window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = window.h; path = webrtc/src/rtc_base/window.h; sourceTree = SOURCE_ROOT; };
+		C30B16E41FA47C7D006DEDB7 /* sha1.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sha1.cc; path = webrtc/src/rtc_base/sha1.cc; sourceTree = SOURCE_ROOT; };
+		C30B16E51FA47C7D006DEDB7 /* bytebuffer_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bytebuffer_unittest.cc; path = webrtc/src/rtc_base/bytebuffer_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16E61FA47C7D006DEDB7 /* cpu_time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpu_time.h; path = webrtc/src/rtc_base/cpu_time.h; sourceTree = SOURCE_ROOT; };
+		C30B16E71FA47C7D006DEDB7 /* event.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = event.cc; path = webrtc/src/rtc_base/event.cc; sourceTree = SOURCE_ROOT; };
+		C30B16E81FA47C7D006DEDB7 /* openssladapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = openssladapter.h; path = webrtc/src/rtc_base/openssladapter.h; sourceTree = SOURCE_ROOT; };
+		C30B16E91FA47C7D006DEDB7 /* asyncpacketsocket.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asyncpacketsocket.cc; path = webrtc/src/rtc_base/asyncpacketsocket.cc; sourceTree = SOURCE_ROOT; };
+		C30B16EA1FA47C7D006DEDB7 /* virtualsocket_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = virtualsocket_unittest.cc; path = webrtc/src/rtc_base/virtualsocket_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16EB1FA47C7D006DEDB7 /* asynctcpsocket.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asynctcpsocket.cc; path = webrtc/src/rtc_base/asynctcpsocket.cc; sourceTree = SOURCE_ROOT; };
+		C30B16EC1FA47C7E006DEDB7 /* weak_ptr_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = weak_ptr_unittest.cc; path = webrtc/src/rtc_base/weak_ptr_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16ED1FA47C7E006DEDB7 /* fakeclock.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = fakeclock.cc; path = webrtc/src/rtc_base/fakeclock.cc; sourceTree = SOURCE_ROOT; };
+		C30B16EE1FA47C7E006DEDB7 /* compile_assert_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = compile_assert_c.h; path = webrtc/src/rtc_base/compile_assert_c.h; sourceTree = SOURCE_ROOT; };
+		C30B16EF1FA47C7E006DEDB7 /* platform_thread_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = platform_thread_types.h; path = webrtc/src/rtc_base/platform_thread_types.h; sourceTree = SOURCE_ROOT; };
+		C30B16F01FA47C7E006DEDB7 /* gunit_prod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gunit_prod.h; path = webrtc/src/rtc_base/gunit_prod.h; sourceTree = SOURCE_ROOT; };
+		C30B16F11FA47C7E006DEDB7 /* race_checker.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = race_checker.cc; path = webrtc/src/rtc_base/race_checker.cc; sourceTree = SOURCE_ROOT; };
+		C30B16F21FA47C7E006DEDB7 /* histogram_percentile_counter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = histogram_percentile_counter.cc; path = webrtc/src/rtc_base/histogram_percentile_counter.cc; sourceTree = SOURCE_ROOT; };
+		C30B16F31FA47C7E006DEDB7 /* file_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = file_unittest.cc; path = webrtc/src/rtc_base/file_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16F41FA47C7E006DEDB7 /* physicalsocketserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = physicalsocketserver.cc; path = webrtc/src/rtc_base/physicalsocketserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B16F51FA47C7E006DEDB7 /* httpserver_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = httpserver_unittest.cc; path = webrtc/src/rtc_base/httpserver_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16F61FA47C7E006DEDB7 /* opensslidentity.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = opensslidentity.cc; path = webrtc/src/rtc_base/opensslidentity.cc; sourceTree = SOURCE_ROOT; };
+		C30B16F71FA47C7E006DEDB7 /* refcounter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = refcounter.h; path = webrtc/src/rtc_base/refcounter.h; sourceTree = SOURCE_ROOT; };
+		C30B16F81FA47C7E006DEDB7 /* thread_darwin.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = thread_darwin.mm; path = webrtc/src/rtc_base/thread_darwin.mm; sourceTree = SOURCE_ROOT; };
+		C30B16F91FA47C7E006DEDB7 /* ratetracker_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ratetracker_unittest.cc; path = webrtc/src/rtc_base/ratetracker_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B16FA1FA47C7E006DEDB7 /* ignore_wundef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ignore_wundef.h; path = webrtc/src/rtc_base/ignore_wundef.h; sourceTree = SOURCE_ROOT; };
+		C30B16FB1FA47C7E006DEDB7 /* deprecation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = deprecation.h; path = webrtc/src/rtc_base/deprecation.h; sourceTree = SOURCE_ROOT; };
+		C30B16FC1FA47C7F006DEDB7 /* asyncinvoker.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asyncinvoker.cc; path = webrtc/src/rtc_base/asyncinvoker.cc; sourceTree = SOURCE_ROOT; };
+		C30B16FD1FA47C7F006DEDB7 /* httpcommon.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = httpcommon.cc; path = webrtc/src/rtc_base/httpcommon.cc; sourceTree = SOURCE_ROOT; };
+		C30B16FE1FA47C7F006DEDB7 /* unixfilesystem.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = unixfilesystem.cc; path = webrtc/src/rtc_base/unixfilesystem.cc; sourceTree = SOURCE_ROOT; };
+		C30B16FF1FA47C7F006DEDB7 /* file_win.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = file_win.cc; path = webrtc/src/rtc_base/file_win.cc; sourceTree = SOURCE_ROOT; };
+		C30B17001FA47C7F006DEDB7 /* asyncsocket.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asyncsocket.cc; path = webrtc/src/rtc_base/asyncsocket.cc; sourceTree = SOURCE_ROOT; };
+		C30B17011FA47C7F006DEDB7 /* win32window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = win32window.h; path = webrtc/src/rtc_base/win32window.h; sourceTree = SOURCE_ROOT; };
+		C30B17021FA47C7F006DEDB7 /* httpbase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = httpbase.h; path = webrtc/src/rtc_base/httpbase.h; sourceTree = SOURCE_ROOT; };
+		C30B17031FA47C7F006DEDB7 /* httpserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = httpserver.cc; path = webrtc/src/rtc_base/httpserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B17041FA47C7F006DEDB7 /* socketadapters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socketadapters.h; path = webrtc/src/rtc_base/socketadapters.h; sourceTree = SOURCE_ROOT; };
+		C30B17051FA47C7F006DEDB7 /* task_queue_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_unittest.cc; path = webrtc/src/rtc_base/task_queue_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17061FA47C7F006DEDB7 /* criticalsection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = criticalsection.h; path = webrtc/src/rtc_base/criticalsection.h; sourceTree = SOURCE_ROOT; };
+		C30B17071FA47C7F006DEDB7 /* race_checker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = race_checker.h; path = webrtc/src/rtc_base/race_checker.h; sourceTree = SOURCE_ROOT; };
+		C30B17081FA47C7F006DEDB7 /* ratetracker.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ratetracker.cc; path = webrtc/src/rtc_base/ratetracker.cc; sourceTree = SOURCE_ROOT; };
+		C30B17091FA47C7F006DEDB7 /* sequenced_task_checker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sequenced_task_checker.h; path = webrtc/src/rtc_base/sequenced_task_checker.h; sourceTree = SOURCE_ROOT; };
+		C30B170A1FA47C7F006DEDB7 /* atomicops.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = atomicops.h; path = webrtc/src/rtc_base/atomicops.h; sourceTree = SOURCE_ROOT; };
+		C30B170B1FA47C7F006DEDB7 /* win32window_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32window_unittest.cc; path = webrtc/src/rtc_base/win32window_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B170C1FA47C80006DEDB7 /* function_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = function_view.h; path = webrtc/src/rtc_base/function_view.h; sourceTree = SOURCE_ROOT; };
+		C30B170D1FA47C80006DEDB7 /* BUILD.gn */ = {isa = PBXFileReference; lastKnownFileType = text; name = BUILD.gn; path = webrtc/src/rtc_base/BUILD.gn; sourceTree = SOURCE_ROOT; };
+		C30B170E1FA47C80006DEDB7 /* event_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = event_unittest.cc; path = webrtc/src/rtc_base/event_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B170F1FA47C80006DEDB7 /* ifaddrs_converter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ifaddrs_converter.cc; path = webrtc/src/rtc_base/ifaddrs_converter.cc; sourceTree = SOURCE_ROOT; };
+		C30B17101FA47C80006DEDB7 /* ratelimiter_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ratelimiter_unittest.cc; path = webrtc/src/rtc_base/ratelimiter_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17111FA47C80006DEDB7 /* stringencode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stringencode.h; path = webrtc/src/rtc_base/stringencode.h; sourceTree = SOURCE_ROOT; };
+		C30B17121FA47C80006DEDB7 /* stringutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stringutils.h; path = webrtc/src/rtc_base/stringutils.h; sourceTree = SOURCE_ROOT; };
+		C30B17131FA47C80006DEDB7 /* event_tracer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = event_tracer.h; path = webrtc/src/rtc_base/event_tracer.h; sourceTree = SOURCE_ROOT; };
+		C30B17141FA47C80006DEDB7 /* random_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = random_unittest.cc; path = webrtc/src/rtc_base/random_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17151FA47C80006DEDB7 /* opensslstreamadapter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = opensslstreamadapter.cc; path = webrtc/src/rtc_base/opensslstreamadapter.cc; sourceTree = SOURCE_ROOT; };
+		C30B17161FA47C80006DEDB7 /* pathutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pathutils.h; path = webrtc/src/rtc_base/pathutils.h; sourceTree = SOURCE_ROOT; };
+		C30B17171FA47C80006DEDB7 /* bind_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bind_unittest.cc; path = webrtc/src/rtc_base/bind_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17181FA47C80006DEDB7 /* bitrateallocationstrategy.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bitrateallocationstrategy.cc; path = webrtc/src/rtc_base/bitrateallocationstrategy.cc; sourceTree = SOURCE_ROOT; };
+		C30B17191FA47C80006DEDB7 /* opensslidentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = opensslidentity.h; path = webrtc/src/rtc_base/opensslidentity.h; sourceTree = SOURCE_ROOT; };
+		C30B171A1FA47C80006DEDB7 /* socketstream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socketstream.h; path = webrtc/src/rtc_base/socketstream.h; sourceTree = SOURCE_ROOT; };
+		C30B171B1FA47C80006DEDB7 /* callback_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = callback_unittest.cc; path = webrtc/src/rtc_base/callback_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B171C1FA47C81006DEDB7 /* safe_minmax_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = safe_minmax_unittest.cc; path = webrtc/src/rtc_base/safe_minmax_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B171D1FA47C81006DEDB7 /* sslstreamadapter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sslstreamadapter.cc; path = webrtc/src/rtc_base/sslstreamadapter.cc; sourceTree = SOURCE_ROOT; };
+		C30B171E1FA47C81006DEDB7 /* thread_checker_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = thread_checker_unittest.cc; path = webrtc/src/rtc_base/thread_checker_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B171F1FA47C81006DEDB7 /* cryptstring.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cryptstring.cc; path = webrtc/src/rtc_base/cryptstring.cc; sourceTree = SOURCE_ROOT; };
+		C30B17201FA47C81006DEDB7 /* sslidentity_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sslidentity_unittest.cc; path = webrtc/src/rtc_base/sslidentity_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17211FA47C81006DEDB7 /* thread_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = thread_unittest.cc; path = webrtc/src/rtc_base/thread_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17221FA47C81006DEDB7 /* timeutils.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = timeutils.cc; path = webrtc/src/rtc_base/timeutils.cc; sourceTree = SOURCE_ROOT; };
+		C30B17231FA47C81006DEDB7 /* rtccertificategenerator_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rtccertificategenerator_unittest.cc; path = webrtc/src/rtc_base/rtccertificategenerator_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17241FA47C81006DEDB7 /* trace_event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = trace_event.h; path = webrtc/src/rtc_base/trace_event.h; sourceTree = SOURCE_ROOT; };
+		C30B17251FA47C81006DEDB7 /* weak_ptr.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = weak_ptr.cc; path = webrtc/src/rtc_base/weak_ptr.cc; sourceTree = SOURCE_ROOT; };
+		C30B17261FA47C81006DEDB7 /* win32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = win32.h; path = webrtc/src/rtc_base/win32.h; sourceTree = SOURCE_ROOT; };
+		C30B17271FA47C81006DEDB7 /* win32socketserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = win32socketserver.h; path = webrtc/src/rtc_base/win32socketserver.h; sourceTree = SOURCE_ROOT; };
+		C30B17281FA47C81006DEDB7 /* sigslotrepeater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sigslotrepeater.h; path = webrtc/src/rtc_base/sigslotrepeater.h; sourceTree = SOURCE_ROOT; };
+		C30B17291FA47C81006DEDB7 /* base64.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = base64.cc; path = webrtc/src/rtc_base/base64.cc; sourceTree = SOURCE_ROOT; };
+		C30B172A1FA47C81006DEDB7 /* proxyinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = proxyinfo.h; path = webrtc/src/rtc_base/proxyinfo.h; sourceTree = SOURCE_ROOT; };
+		C30B172B1FA47C81006DEDB7 /* stream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stream.h; path = webrtc/src/rtc_base/stream.h; sourceTree = SOURCE_ROOT; };
+		C30B172C1FA47C82006DEDB7 /* ifaddrs-android.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ifaddrs-android.h"; path = "webrtc/src/rtc_base/ifaddrs-android.h"; sourceTree = SOURCE_ROOT; };
+		C30B172D1FA47C82006DEDB7 /* cpu_time.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cpu_time.cc; path = webrtc/src/rtc_base/cpu_time.cc; sourceTree = SOURCE_ROOT; };
+		C30B172E1FA47C82006DEDB7 /* ipaddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ipaddress.h; path = webrtc/src/rtc_base/ipaddress.h; sourceTree = SOURCE_ROOT; };
+		C30B172F1FA47C82006DEDB7 /* socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socket.h; path = webrtc/src/rtc_base/socket.h; sourceTree = SOURCE_ROOT; };
+		C30B17301FA47C82006DEDB7 /* transformadapter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = transformadapter.cc; path = webrtc/src/rtc_base/transformadapter.cc; sourceTree = SOURCE_ROOT; };
+		C30B17311FA47C82006DEDB7 /* asyncudpsocket.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asyncudpsocket.cc; path = webrtc/src/rtc_base/asyncudpsocket.cc; sourceTree = SOURCE_ROOT; };
+		C30B17321FA47C82006DEDB7 /* ipaddress_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ipaddress_unittest.cc; path = webrtc/src/rtc_base/ipaddress_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17331FA47C82006DEDB7 /* httpbase_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = httpbase_unittest.cc; path = webrtc/src/rtc_base/httpbase_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17341FA47C82006DEDB7 /* fileutils.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = fileutils.cc; path = webrtc/src/rtc_base/fileutils.cc; sourceTree = SOURCE_ROOT; };
+		C30B17351FA47C82006DEDB7 /* opensslstreamadapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = opensslstreamadapter.h; path = webrtc/src/rtc_base/opensslstreamadapter.h; sourceTree = SOURCE_ROOT; };
+		C30B17361FA47C82006DEDB7 /* bitbuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bitbuffer.h; path = webrtc/src/rtc_base/bitbuffer.h; sourceTree = SOURCE_ROOT; };
+		C30B17371FA47C82006DEDB7 /* crc32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = crc32.h; path = webrtc/src/rtc_base/crc32.h; sourceTree = SOURCE_ROOT; };
+		C30B17381FA47C82006DEDB7 /* fakenetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fakenetwork.h; path = webrtc/src/rtc_base/fakenetwork.h; sourceTree = SOURCE_ROOT; };
+		C30B17391FA47C82006DEDB7 /* swap_queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = swap_queue.h; path = webrtc/src/rtc_base/swap_queue.h; sourceTree = SOURCE_ROOT; };
+		C30B173A1FA47C82006DEDB7 /* task_queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = task_queue.h; path = webrtc/src/rtc_base/task_queue.h; sourceTree = SOURCE_ROOT; };
+		C30B173B1FA47C82006DEDB7 /* signalthread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = signalthread.h; path = webrtc/src/rtc_base/signalthread.h; sourceTree = SOURCE_ROOT; };
+		C30B173C1FA47C83006DEDB7 /* sigslottester_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sigslottester_unittest.cc; path = webrtc/src/rtc_base/sigslottester_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B173D1FA47C83006DEDB7 /* json_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = json_unittest.cc; path = webrtc/src/rtc_base/json_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B173E1FA47C83006DEDB7 /* pathutils_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pathutils_unittest.cc; path = webrtc/src/rtc_base/pathutils_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B173F1FA47C83006DEDB7 /* template_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = template_util.h; path = webrtc/src/rtc_base/template_util.h; sourceTree = SOURCE_ROOT; };
+		C30B17401FA47C83006DEDB7 /* safe_compare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = safe_compare.h; path = webrtc/src/rtc_base/safe_compare.h; sourceTree = SOURCE_ROOT; };
+		C30B17411FA47C83006DEDB7 /* basictypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = basictypes.h; path = webrtc/src/rtc_base/basictypes.h; sourceTree = SOURCE_ROOT; };
+		C30B17421FA47C83006DEDB7 /* copyonwritebuffer_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = copyonwritebuffer_unittest.cc; path = webrtc/src/rtc_base/copyonwritebuffer_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17431FA47C83006DEDB7 /* bytebuffer.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bytebuffer.cc; path = webrtc/src/rtc_base/bytebuffer.cc; sourceTree = SOURCE_ROOT; };
+		C30B17441FA47C83006DEDB7 /* ptr_util_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ptr_util_unittest.cc; path = webrtc/src/rtc_base/ptr_util_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17451FA47C83006DEDB7 /* asyncresolverinterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asyncresolverinterface.h; path = webrtc/src/rtc_base/asyncresolverinterface.h; sourceTree = SOURCE_ROOT; };
+		C30B17461FA47C83006DEDB7 /* histogram_percentile_counter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = histogram_percentile_counter.h; path = webrtc/src/rtc_base/histogram_percentile_counter.h; sourceTree = SOURCE_ROOT; };
+		C30B17471FA47C83006DEDB7 /* sigslottester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sigslottester.h; path = webrtc/src/rtc_base/sigslottester.h; sourceTree = SOURCE_ROOT; };
+		C30B17481FA47C83006DEDB7 /* testechoserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = testechoserver.cc; path = webrtc/src/rtc_base/testechoserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B17491FA47C83006DEDB7 /* fakeclock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fakeclock.h; path = webrtc/src/rtc_base/fakeclock.h; sourceTree = SOURCE_ROOT; };
+		C30B174A1FA47C83006DEDB7 /* ssladapter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ssladapter.cc; path = webrtc/src/rtc_base/ssladapter.cc; sourceTree = SOURCE_ROOT; };
+		C30B174B1FA47C83006DEDB7 /* fakesslidentity.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = fakesslidentity.cc; path = webrtc/src/rtc_base/fakesslidentity.cc; sourceTree = SOURCE_ROOT; };
+		C30B174C1FA47C84006DEDB7 /* file_posix.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = file_posix.cc; path = webrtc/src/rtc_base/file_posix.cc; sourceTree = SOURCE_ROOT; };
+		C30B174D1FA47C84006DEDB7 /* onetimeevent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = onetimeevent.h; path = webrtc/src/rtc_base/onetimeevent.h; sourceTree = SOURCE_ROOT; };
+		C30B174E1FA47C84006DEDB7 /* platform_thread.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = platform_thread.cc; path = webrtc/src/rtc_base/platform_thread.cc; sourceTree = SOURCE_ROOT; };
+		C30B174F1FA47C84006DEDB7 /* stringize_macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stringize_macros.h; path = webrtc/src/rtc_base/stringize_macros.h; sourceTree = SOURCE_ROOT; };
+		C30B17501FA47C84006DEDB7 /* timeutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = timeutils.h; path = webrtc/src/rtc_base/timeutils.h; sourceTree = SOURCE_ROOT; };
+		C30B17511FA47C84006DEDB7 /* win32socketinit.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32socketinit.cc; path = webrtc/src/rtc_base/win32socketinit.cc; sourceTree = SOURCE_ROOT; };
+		C30B17521FA47C84006DEDB7 /* filerotatingstream_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = filerotatingstream_unittest.cc; path = webrtc/src/rtc_base/filerotatingstream_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17531FA47C84006DEDB7 /* gunit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gunit.h; path = webrtc/src/rtc_base/gunit.h; sourceTree = SOURCE_ROOT; };
+		C30B17541FA47C84006DEDB7 /* proxy_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = proxy_unittest.cc; path = webrtc/src/rtc_base/proxy_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17551FA47C84006DEDB7 /* virtualsocketserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = virtualsocketserver.h; path = webrtc/src/rtc_base/virtualsocketserver.h; sourceTree = SOURCE_ROOT; };
+		C30B17561FA47C84006DEDB7 /* testutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = testutils.h; path = webrtc/src/rtc_base/testutils.h; sourceTree = SOURCE_ROOT; };
+		C30B17571FA47C84006DEDB7 /* platform_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = platform_file.h; path = webrtc/src/rtc_base/platform_file.h; sourceTree = SOURCE_ROOT; };
+		C30B17581FA47C84006DEDB7 /* safe_minmax.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = safe_minmax.h; path = webrtc/src/rtc_base/safe_minmax.h; sourceTree = SOURCE_ROOT; };
+		C30B17591FA47C84006DEDB7 /* rtccertificategenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rtccertificategenerator.h; path = webrtc/src/rtc_base/rtccertificategenerator.h; sourceTree = SOURCE_ROOT; };
+		C30B175A1FA47C84006DEDB7 /* sequenced_task_checker_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sequenced_task_checker_unittest.cc; path = webrtc/src/rtc_base/sequenced_task_checker_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B175B1FA47C85006DEDB7 /* rtccertificate.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rtccertificate.cc; path = webrtc/src/rtc_base/rtccertificate.cc; sourceTree = SOURCE_ROOT; };
+		C30B175C1FA47C85006DEDB7 /* ssladapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ssladapter.h; path = webrtc/src/rtc_base/ssladapter.h; sourceTree = SOURCE_ROOT; };
+		C30B175D1FA47C85006DEDB7 /* rollingaccumulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rollingaccumulator.h; path = webrtc/src/rtc_base/rollingaccumulator.h; sourceTree = SOURCE_ROOT; };
+		C30B175E1FA47C85006DEDB7 /* testechoserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = testechoserver.h; path = webrtc/src/rtc_base/testechoserver.h; sourceTree = SOURCE_ROOT; };
+		C30B175F1FA47C85006DEDB7 /* asyncresolverinterface.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asyncresolverinterface.cc; path = webrtc/src/rtc_base/asyncresolverinterface.cc; sourceTree = SOURCE_ROOT; };
+		C30B17601FA47C85006DEDB7 /* socket_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = socket_unittest.cc; path = webrtc/src/rtc_base/socket_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17611FA47C85006DEDB7 /* testclient.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = testclient.cc; path = webrtc/src/rtc_base/testclient.cc; sourceTree = SOURCE_ROOT; };
+		C30B17621FA47C85006DEDB7 /* file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = file.h; path = webrtc/src/rtc_base/file.h; sourceTree = SOURCE_ROOT; };
+		C30B17631FA47C85006DEDB7 /* firewallsocketserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = firewallsocketserver.h; path = webrtc/src/rtc_base/firewallsocketserver.h; sourceTree = SOURCE_ROOT; };
+		C30B17641FA47C85006DEDB7 /* buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = webrtc/src/rtc_base/buffer.h; sourceTree = SOURCE_ROOT; };
+		C30B17651FA47C85006DEDB7 /* stream_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stream_unittest.cc; path = webrtc/src/rtc_base/stream_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17661FA47C85006DEDB7 /* ipaddress.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ipaddress.cc; path = webrtc/src/rtc_base/ipaddress.cc; sourceTree = SOURCE_ROOT; };
+		C30B17671FA47C85006DEDB7 /* string_to_number_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = string_to_number_unittest.cc; path = webrtc/src/rtc_base/string_to_number_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17681FA47C85006DEDB7 /* openssladapter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = openssladapter.cc; path = webrtc/src/rtc_base/openssladapter.cc; sourceTree = SOURCE_ROOT; };
+		C30B17691FA47C85006DEDB7 /* crc32_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = crc32_unittest.cc; path = webrtc/src/rtc_base/crc32_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B176A1FA47C85006DEDB7 /* atomicops_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = atomicops_unittest.cc; path = webrtc/src/rtc_base/atomicops_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B176B1FA47C86006DEDB7 /* optionsfile_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = optionsfile_unittest.cc; path = webrtc/src/rtc_base/optionsfile_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B176C1FA47C86006DEDB7 /* flags.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = flags.cc; path = webrtc/src/rtc_base/flags.cc; sourceTree = SOURCE_ROOT; };
+		C30B176D1FA47C86006DEDB7 /* signalthread.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = signalthread.cc; path = webrtc/src/rtc_base/signalthread.cc; sourceTree = SOURCE_ROOT; };
+		C30B176E1FA47C86006DEDB7 /* platform_file.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = platform_file.cc; path = webrtc/src/rtc_base/platform_file.cc; sourceTree = SOURCE_ROOT; };
+		C30B176F1FA47C86006DEDB7 /* proxyinfo.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = proxyinfo.cc; path = webrtc/src/rtc_base/proxyinfo.cc; sourceTree = SOURCE_ROOT; };
+		C30B17701FA47C86006DEDB7 /* safe_conversions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = safe_conversions.h; path = webrtc/src/rtc_base/safe_conversions.h; sourceTree = SOURCE_ROOT; };
+		C30B17711FA47C86006DEDB7 /* virtualsocketserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = virtualsocketserver.cc; path = webrtc/src/rtc_base/virtualsocketserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B17721FA47C86006DEDB7 /* sha1digest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sha1digest.cc; path = webrtc/src/rtc_base/sha1digest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17731FA47C86006DEDB7 /* sigslot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sigslot.h; path = webrtc/src/rtc_base/sigslot.h; sourceTree = SOURCE_ROOT; };
+		C30B17741FA47C86006DEDB7 /* asyncinvoker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asyncinvoker.h; path = webrtc/src/rtc_base/asyncinvoker.h; sourceTree = SOURCE_ROOT; };
+		C30B17751FA47C86006DEDB7 /* rate_statistics_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rate_statistics_unittest.cc; path = webrtc/src/rtc_base/rate_statistics_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17761FA47C86006DEDB7 /* basictypes_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = basictypes_unittest.cc; path = webrtc/src/rtc_base/basictypes_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17771FA47C86006DEDB7 /* ratelimiter.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ratelimiter.cc; path = webrtc/src/rtc_base/ratelimiter.cc; sourceTree = SOURCE_ROOT; };
+		C30B17781FA47C86006DEDB7 /* socketaddress.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = socketaddress.cc; path = webrtc/src/rtc_base/socketaddress.cc; sourceTree = SOURCE_ROOT; };
+		C30B17791FA47C86006DEDB7 /* thread_checker_impl.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = thread_checker_impl.cc; path = webrtc/src/rtc_base/thread_checker_impl.cc; sourceTree = SOURCE_ROOT; };
+		C30B177A1FA47C87006DEDB7 /* stringencode_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stringencode_unittest.cc; path = webrtc/src/rtc_base/stringencode_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B177B1FA47C87006DEDB7 /* win32_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32_unittest.cc; path = webrtc/src/rtc_base/win32_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B177C1FA47C87006DEDB7 /* sha1digest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sha1digest.h; path = webrtc/src/rtc_base/sha1digest.h; sourceTree = SOURCE_ROOT; };
+		C30B177D1FA47C87006DEDB7 /* ifaddrs_converter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ifaddrs_converter.h; path = webrtc/src/rtc_base/ifaddrs_converter.h; sourceTree = SOURCE_ROOT; };
+		C30B177E1FA47C87006DEDB7 /* rate_statistics.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rate_statistics.cc; path = webrtc/src/rtc_base/rate_statistics.cc; sourceTree = SOURCE_ROOT; };
+		C30B177F1FA47C87006DEDB7 /* unixfilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = unixfilesystem.h; path = webrtc/src/rtc_base/unixfilesystem.h; sourceTree = SOURCE_ROOT; };
+		C30B17801FA47C87006DEDB7 /* file.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = file.cc; path = webrtc/src/rtc_base/file.cc; sourceTree = SOURCE_ROOT; };
+		C30B17811FA47C87006DEDB7 /* asyncudpsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asyncudpsocket.h; path = webrtc/src/rtc_base/asyncudpsocket.h; sourceTree = SOURCE_ROOT; };
+		C30B17821FA47C87006DEDB7 /* format_macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = format_macros.h; path = webrtc/src/rtc_base/format_macros.h; sourceTree = SOURCE_ROOT; };
+		C30B17831FA47C87006DEDB7 /* sslstreamadapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sslstreamadapter.h; path = webrtc/src/rtc_base/sslstreamadapter.h; sourceTree = SOURCE_ROOT; };
+		C30B17841FA47C87006DEDB7 /* task_queue_win.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_win.cc; path = webrtc/src/rtc_base/task_queue_win.cc; sourceTree = SOURCE_ROOT; };
+		C30B17851FA47C87006DEDB7 /* histogram_percentile_counter_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = histogram_percentile_counter_unittest.cc; path = webrtc/src/rtc_base/histogram_percentile_counter_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17861FA47C87006DEDB7 /* stream.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stream.cc; path = webrtc/src/rtc_base/stream.cc; sourceTree = SOURCE_ROOT; };
+		C30B17871FA47C87006DEDB7 /* bufferqueue.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = bufferqueue.cc; path = webrtc/src/rtc_base/bufferqueue.cc; sourceTree = SOURCE_ROOT; };
+		C30B17881FA47C87006DEDB7 /* socketaddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socketaddress.h; path = webrtc/src/rtc_base/socketaddress.h; sourceTree = SOURCE_ROOT; };
+		C30B17891FA47C88006DEDB7 /* httpcommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = httpcommon.h; path = webrtc/src/rtc_base/httpcommon.h; sourceTree = SOURCE_ROOT; };
+		C30B178A1FA47C88006DEDB7 /* base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = base64.h; path = webrtc/src/rtc_base/base64.h; sourceTree = SOURCE_ROOT; };
+		C30B178B1FA47C88006DEDB7 /* ssladapter_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ssladapter_unittest.cc; path = webrtc/src/rtc_base/ssladapter_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B178C1FA47C88006DEDB7 /* socketserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socketserver.h; path = webrtc/src/rtc_base/socketserver.h; sourceTree = SOURCE_ROOT; };
+		C30B178D1FA47C88006DEDB7 /* bind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bind.h; path = webrtc/src/rtc_base/bind.h; sourceTree = SOURCE_ROOT; };
+		C30B178E1FA47C88006DEDB7 /* DEPS */ = {isa = PBXFileReference; lastKnownFileType = text; name = DEPS; path = webrtc/src/rtc_base/DEPS; sourceTree = SOURCE_ROOT; };
+		C30B178F1FA47C88006DEDB7 /* filerotatingstream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = filerotatingstream.h; path = webrtc/src/rtc_base/filerotatingstream.h; sourceTree = SOURCE_ROOT; };
+		C30B17901FA47C88006DEDB7 /* openssladapter_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = openssladapter_unittest.cc; path = webrtc/src/rtc_base/openssladapter_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17911FA47C88006DEDB7 /* timestampaligner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = timestampaligner.h; path = webrtc/src/rtc_base/timestampaligner.h; sourceTree = SOURCE_ROOT; };
+		C30B17921FA47C88006DEDB7 /* asynctcpsocket_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asynctcpsocket_unittest.cc; path = webrtc/src/rtc_base/asynctcpsocket_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17931FA47C88006DEDB7 /* win32socketserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32socketserver.cc; path = webrtc/src/rtc_base/win32socketserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B17941FA47C88006DEDB7 /* rate_limiter_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rate_limiter_unittest.cc; path = webrtc/src/rtc_base/rate_limiter_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17951FA47C88006DEDB7 /* event_tracer_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = event_tracer_unittest.cc; path = webrtc/src/rtc_base/event_tracer_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17961FA47C88006DEDB7 /* pathutils.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pathutils.cc; path = webrtc/src/rtc_base/pathutils.cc; sourceTree = SOURCE_ROOT; };
+		C30B17971FA47C88006DEDB7 /* testbase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = testbase64.h; path = webrtc/src/rtc_base/testbase64.h; sourceTree = SOURCE_ROOT; };
+		C30B17981FA47C88006DEDB7 /* win32filesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = win32filesystem.h; path = webrtc/src/rtc_base/win32filesystem.h; sourceTree = SOURCE_ROOT; };
+		C30B17991FA47C89006DEDB7 /* testclient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = testclient.h; path = webrtc/src/rtc_base/testclient.h; sourceTree = SOURCE_ROOT; };
+		C30B179A1FA47C89006DEDB7 /* firewallsocketserver.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = firewallsocketserver.cc; path = webrtc/src/rtc_base/firewallsocketserver.cc; sourceTree = SOURCE_ROOT; };
+		C30B179B1FA47C89006DEDB7 /* socket_unittest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socket_unittest.h; path = webrtc/src/rtc_base/socket_unittest.h; sourceTree = SOURCE_ROOT; };
+		C30B179C1FA47C89006DEDB7 /* asyncudpsocket_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = asyncudpsocket_unittest.cc; path = webrtc/src/rtc_base/asyncudpsocket_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B179D1FA47C89006DEDB7 /* rtccertificate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rtccertificate.h; path = webrtc/src/rtc_base/rtccertificate.h; sourceTree = SOURCE_ROOT; };
+		C30B179E1FA47C89006DEDB7 /* task_queue_gcd.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_gcd.cc; path = webrtc/src/rtc_base/task_queue_gcd.cc; sourceTree = SOURCE_ROOT; };
+		C30B179F1FA47C89006DEDB7 /* arraysize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = arraysize.h; path = webrtc/src/rtc_base/arraysize.h; sourceTree = SOURCE_ROOT; };
+		C30B17A01FA47C89006DEDB7 /* physicalsocketserver_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = physicalsocketserver_unittest.cc; path = webrtc/src/rtc_base/physicalsocketserver_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17A11FA47C89006DEDB7 /* win32socketinit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = win32socketinit.h; path = webrtc/src/rtc_base/win32socketinit.h; sourceTree = SOURCE_ROOT; };
+		C30B17A21FA47C89006DEDB7 /* httpcommon-inl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "httpcommon-inl.h"; path = "webrtc/src/rtc_base/httpcommon-inl.h"; sourceTree = SOURCE_ROOT; };
+		C30B17A31FA47C89006DEDB7 /* byteorder_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = byteorder_unittest.cc; path = webrtc/src/rtc_base/byteorder_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17A41FA47C89006DEDB7 /* cpu_time_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cpu_time_unittest.cc; path = webrtc/src/rtc_base/cpu_time_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17A51FA47C89006DEDB7 /* sslroots.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sslroots.h; path = webrtc/src/rtc_base/sslroots.h; sourceTree = SOURCE_ROOT; };
+		C30B17A61FA47C89006DEDB7 /* Dummy.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = Dummy.java; path = webrtc/src/rtc_base/Dummy.java; sourceTree = SOURCE_ROOT; };
+		C30B17A71FA47C89006DEDB7 /* event_tracer.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = event_tracer.cc; path = webrtc/src/rtc_base/event_tracer.cc; sourceTree = SOURCE_ROOT; };
+		C30B17A81FA47C8A006DEDB7 /* flags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = flags.h; path = webrtc/src/rtc_base/flags.h; sourceTree = SOURCE_ROOT; };
+		C30B17A91FA47C8A006DEDB7 /* optionsfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = optionsfile.h; path = webrtc/src/rtc_base/optionsfile.h; sourceTree = SOURCE_ROOT; };
+		C30B17AA1FA47C8A006DEDB7 /* platform_thread_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = platform_thread_unittest.cc; path = webrtc/src/rtc_base/platform_thread_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17AB1FA47C8A006DEDB7 /* function_view_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = function_view_unittest.cc; path = webrtc/src/rtc_base/function_view_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17AC1FA47C8A006DEDB7 /* safe_conversions_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = safe_conversions_impl.h; path = webrtc/src/rtc_base/safe_conversions_impl.h; sourceTree = SOURCE_ROOT; };
+		C30B17AD1FA47C8A006DEDB7 /* refcount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = refcount.h; path = webrtc/src/rtc_base/refcount.h; sourceTree = SOURCE_ROOT; };
+		C30B17AE1FA47C8A006DEDB7 /* fakesslidentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fakesslidentity.h; path = webrtc/src/rtc_base/fakesslidentity.h; sourceTree = SOURCE_ROOT; };
+		C30B17AF1FA47C8A006DEDB7 /* sequenced_task_checker_impl.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sequenced_task_checker_impl.cc; path = webrtc/src/rtc_base/sequenced_task_checker_impl.cc; sourceTree = SOURCE_ROOT; };
+		C30B17B01FA47C8A006DEDB7 /* ifaddrs-android.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "ifaddrs-android.cc"; path = "webrtc/src/rtc_base/ifaddrs-android.cc"; sourceTree = SOURCE_ROOT; };
+		C30B17B11FA47C8A006DEDB7 /* sha1digest_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sha1digest_unittest.cc; path = webrtc/src/rtc_base/sha1digest_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17B21FA47C8A006DEDB7 /* bitrateallocationstrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bitrateallocationstrategy.h; path = webrtc/src/rtc_base/bitrateallocationstrategy.h; sourceTree = SOURCE_ROOT; };
+		C30B17B31FA47C8A006DEDB7 /* asyncsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asyncsocket.h; path = webrtc/src/rtc_base/asyncsocket.h; sourceTree = SOURCE_ROOT; };
+		C30B17B41FA47C8A006DEDB7 /* sha1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = webrtc/src/rtc_base/sha1.h; sourceTree = SOURCE_ROOT; };
+		C30B17B51FA47C8A006DEDB7 /* thread_checker_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thread_checker_impl.h; path = webrtc/src/rtc_base/thread_checker_impl.h; sourceTree = SOURCE_ROOT; };
+		C30B17B61FA47C8A006DEDB7 /* thread.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = thread.cc; path = webrtc/src/rtc_base/thread.cc; sourceTree = SOURCE_ROOT; };
+		C30B17B71FA47C8B006DEDB7 /* win32window.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = win32window.cc; path = webrtc/src/rtc_base/win32window.cc; sourceTree = SOURCE_ROOT; };
+		C30B17B81FA47C8B006DEDB7 /* asynctcpsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = asynctcpsocket.h; path = webrtc/src/rtc_base/asynctcpsocket.h; sourceTree = SOURCE_ROOT; };
+		C30B17B91FA47C8B006DEDB7 /* copyonwritebuffer.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = copyonwritebuffer.cc; path = webrtc/src/rtc_base/copyonwritebuffer.cc; sourceTree = SOURCE_ROOT; };
+		C30B17BA1FA47C8B006DEDB7 /* timedelta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = timedelta.h; path = webrtc/src/rtc_base/timedelta.h; sourceTree = SOURCE_ROOT; };
+		C30B17BB1FA47C8B006DEDB7 /* ptr_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ptr_util.h; path = webrtc/src/rtc_base/ptr_util.h; sourceTree = SOURCE_ROOT; };
+		C30B17BC1FA47C8B006DEDB7 /* helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = helpers.h; path = webrtc/src/rtc_base/helpers.h; sourceTree = SOURCE_ROOT; };
+		C30B17BD1FA47C8B006DEDB7 /* socketstream.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = socketstream.cc; path = webrtc/src/rtc_base/socketstream.cc; sourceTree = SOURCE_ROOT; };
+		C30B17BE1FA47C8B006DEDB7 /* openssl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = openssl.h; path = webrtc/src/rtc_base/openssl.h; sourceTree = SOURCE_ROOT; };
+		C30B17BF1FA47C8B006DEDB7 /* buffer_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = buffer_unittest.cc; path = webrtc/src/rtc_base/buffer_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17C01FA47C8B006DEDB7 /* timestampaligner.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = timestampaligner.cc; path = webrtc/src/rtc_base/timestampaligner.cc; sourceTree = SOURCE_ROOT; };
+		C30B17C11FA47C8B006DEDB7 /* sslidentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sslidentity.h; path = webrtc/src/rtc_base/sslidentity.h; sourceTree = SOURCE_ROOT; };
+		C30B17C21FA47C8B006DEDB7 /* stringencode.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stringencode.cc; path = webrtc/src/rtc_base/stringencode.cc; sourceTree = SOURCE_ROOT; };
+		C30B17C31FA47C8B006DEDB7 /* timeutils_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = timeutils_unittest.cc; path = webrtc/src/rtc_base/timeutils_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17C41FA47C8B006DEDB7 /* gtest_prod_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gtest_prod_util.h; path = webrtc/src/rtc_base/gtest_prod_util.h; sourceTree = SOURCE_ROOT; };
+		C30B17C51FA47C8C006DEDB7 /* OWNERS */ = {isa = PBXFileReference; lastKnownFileType = text; name = OWNERS; path = webrtc/src/rtc_base/OWNERS; sourceTree = SOURCE_ROOT; };
+		C30B17C61FA47C8C006DEDB7 /* rate_limiter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rate_limiter.h; path = webrtc/src/rtc_base/rate_limiter.h; sourceTree = SOURCE_ROOT; };
+		C30B17C71FA47C8C006DEDB7 /* httpbase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = httpbase.cc; path = webrtc/src/rtc_base/httpbase.cc; sourceTree = SOURCE_ROOT; };
+		C30B17C81FA47C8C006DEDB7 /* transformadapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = transformadapter.h; path = webrtc/src/rtc_base/transformadapter.h; sourceTree = SOURCE_ROOT; };
+		C30B17C91FA47C8C006DEDB7 /* sigslottester.h.pump */ = {isa = PBXFileReference; lastKnownFileType = text; name = sigslottester.h.pump; path = webrtc/src/rtc_base/sigslottester.h.pump; sourceTree = SOURCE_ROOT; };
+		C30B17CA1FA47C8C006DEDB7 /* rtccertificategenerator.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rtccertificategenerator.cc; path = webrtc/src/rtc_base/rtccertificategenerator.cc; sourceTree = SOURCE_ROOT; };
+		C30B17CB1FA47C8C006DEDB7 /* timestampaligner_unittest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = timestampaligner_unittest.cc; path = webrtc/src/rtc_base/timestampaligner_unittest.cc; sourceTree = SOURCE_ROOT; };
+		C30B17CC1FA47C8C006DEDB7 /* testutils.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = testutils.cc; path = webrtc/src/rtc_base/testutils.cc; sourceTree = SOURCE_ROOT; };
+		C30B17CD1FA47C8C006DEDB7 /* thread_annotations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thread_annotations.h; path = webrtc/src/rtc_base/thread_annotations.h; sourceTree = SOURCE_ROOT; };
+		C30B17CE1FA47C8C006DEDB7 /* string_to_number.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = string_to_number.cc; path = webrtc/src/rtc_base/string_to_number.cc; sourceTree = SOURCE_ROOT; };
+		C30B17D01FA481C2006DEDB7 /* NSInvocation+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+EXT.h"; sourceTree = "<group>"; };
+		C30B17D11FA481C2006DEDB7 /* EXTRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTRuntimeExtensions.h; sourceTree = "<group>"; };
+		C30B17D21FA481C2006DEDB7 /* EXTADT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTADT.h; sourceTree = "<group>"; };
+		C30B17D31FA481C2006DEDB7 /* EXTSelectorChecking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTSelectorChecking.m; sourceTree = "<group>"; };
+		C30B17D41FA481C2006DEDB7 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
+		C30B17D51FA481C2006DEDB7 /* EXTSafeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTSafeCategory.h; sourceTree = "<group>"; };
+		C30B17D61FA481C2006DEDB7 /* EXTConcreteProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTConcreteProtocol.m; sourceTree = "<group>"; };
+		C30B17D71FA481C2006DEDB7 /* extobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extobjc.h; sourceTree = "<group>"; };
+		C30B17D81FA481C2006DEDB7 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
+		C30B17D91FA481C2006DEDB7 /* extobjc_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extobjc_Prefix.pch; sourceTree = "<group>"; };
+		C30B17DA1FA481C2006DEDB7 /* EXTNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTNil.h; sourceTree = "<group>"; };
+		C30B17DB1FA481C2006DEDB7 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
+		C30B17DC1FA481C2006DEDB7 /* EXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTRuntimeExtensions.m; sourceTree = "<group>"; };
+		C30B17DD1FA481C2006DEDB7 /* EXTADT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTADT.m; sourceTree = "<group>"; };
+		C30B17DE1FA481C2006DEDB7 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
+		C30B17DF1FA481C2006DEDB7 /* EXTSafeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTSafeCategory.m; sourceTree = "<group>"; };
+		C30B17E01FA481C2006DEDB7 /* EXTSynthesize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTSynthesize.h; sourceTree = "<group>"; };
+		C30B17E11FA481C2006DEDB7 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		C30B17E21FA481C2006DEDB7 /* EXTSelectorChecking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTSelectorChecking.h; sourceTree = "<group>"; };
+		C30B17E31FA481C2006DEDB7 /* EXTConcreteProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTConcreteProtocol.h; sourceTree = "<group>"; };
+		C30B17E41FA481C2006DEDB7 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
+		C30B17E51FA481C2006DEDB7 /* EXTNil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTNil.m; sourceTree = "<group>"; };
+		C30B17E61FA481C2006DEDB7 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTKeyPathCoding.h; sourceTree = "<group>"; };
+		C30B17E71FA481C2006DEDB7 /* EXTCoroutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTCoroutine.h; sourceTree = "<group>"; };
+		C30B17F11FA481DA006DEDB7 /* Horoscopes.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Horoscopes.pch; path = "Supporting Files/Horoscopes.pch"; sourceTree = SOURCE_ROOT; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -432,6 +788,74 @@
 			path = json;
 			sourceTree = "<group>";
 		};
+		C30B16B71FA47C7B006DEDB7 /* java */ = {
+			isa = PBXGroup;
+			children = (
+				C30B16B81FA47C7B006DEDB7 /* src */,
+			);
+			name = java;
+			path = webrtc/src/rtc_base/java;
+			sourceTree = SOURCE_ROOT;
+		};
+		C30B16B81FA47C7B006DEDB7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C30B16B91FA47C7B006DEDB7 /* org */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		C30B16B91FA47C7B006DEDB7 /* org */ = {
+			isa = PBXGroup;
+			children = (
+				C30B16BA1FA47C7B006DEDB7 /* webrtc */,
+			);
+			path = org;
+			sourceTree = "<group>";
+		};
+		C30B16BA1FA47C7B006DEDB7 /* webrtc */ = {
+			isa = PBXGroup;
+			children = (
+				C30B16BB1FA47C7B006DEDB7 /* Size.java */,
+				C30B16BC1FA47C7B006DEDB7 /* ContextUtils.java */,
+				C30B16BD1FA47C7B006DEDB7 /* OWNERS */,
+				C30B16BE1FA47C7B006DEDB7 /* ThreadUtils.java */,
+				C30B16BF1FA47C7B006DEDB7 /* Logging.java */,
+			);
+			path = webrtc;
+			sourceTree = "<group>";
+		};
+		C30B17CF1FA481C2006DEDB7 /* extobjc */ = {
+			isa = PBXGroup;
+			children = (
+				C30B17D01FA481C2006DEDB7 /* NSInvocation+EXT.h */,
+				C30B17D11FA481C2006DEDB7 /* EXTRuntimeExtensions.h */,
+				C30B17D21FA481C2006DEDB7 /* EXTADT.h */,
+				C30B17D31FA481C2006DEDB7 /* EXTSelectorChecking.m */,
+				C30B17D41FA481C2006DEDB7 /* NSMethodSignature+EXT.h */,
+				C30B17D51FA481C2006DEDB7 /* EXTSafeCategory.h */,
+				C30B17D61FA481C2006DEDB7 /* EXTConcreteProtocol.m */,
+				C30B17D71FA481C2006DEDB7 /* extobjc.h */,
+				C30B17D81FA481C2006DEDB7 /* metamacros.h */,
+				C30B17D91FA481C2006DEDB7 /* extobjc_Prefix.pch */,
+				C30B17DA1FA481C2006DEDB7 /* EXTNil.h */,
+				C30B17DB1FA481C2006DEDB7 /* EXTScope.m */,
+				C30B17DC1FA481C2006DEDB7 /* EXTRuntimeExtensions.m */,
+				C30B17DD1FA481C2006DEDB7 /* EXTADT.m */,
+				C30B17DE1FA481C2006DEDB7 /* NSInvocation+EXT.m */,
+				C30B17DF1FA481C2006DEDB7 /* EXTSafeCategory.m */,
+				C30B17E01FA481C2006DEDB7 /* EXTSynthesize.h */,
+				C30B17E11FA481C2006DEDB7 /* NSMethodSignature+EXT.m */,
+				C30B17E21FA481C2006DEDB7 /* EXTSelectorChecking.h */,
+				C30B17E31FA481C2006DEDB7 /* EXTConcreteProtocol.h */,
+				C30B17E41FA481C2006DEDB7 /* EXTScope.h */,
+				C30B17E51FA481C2006DEDB7 /* EXTNil.m */,
+				C30B17E61FA481C2006DEDB7 /* EXTKeyPathCoding.h */,
+				C30B17E71FA481C2006DEDB7 /* EXTCoroutine.h */,
+			);
+			path = extobjc;
+			sourceTree = "<group>";
+		};
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +888,7 @@
 		C33B99CA1FA375E600C0B1C6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C30B17CF1FA481C2006DEDB7 /* extobjc */,
 				C30B164E1FA47088006DEDB7 /* jsoncpp */,
 				C33B99CB1FA375E600C0B1C6 /* AFNetworking */,
 			);
@@ -512,6 +937,7 @@
 			isa = PBXGroup;
 			children = (
 				C3D27C9F1FA30D530094BF12 /* webrtc_o */,
+				C30B17F11FA481DA006DEDB7 /* Horoscopes.pch */,
 			);
 			name = "Supporting Files";
 			path = "New Group";
@@ -641,6 +1067,324 @@
 		C3D27E161FA30FC60094BF12 /* rtcbase */ = {
 			isa = PBXGroup;
 			children = (
+				C30B179F1FA47C89006DEDB7 /* arraysize.h */,
+				C30B16891FA47C78006DEDB7 /* asyncinvoker-inl.h */,
+				C30B16FC1FA47C7F006DEDB7 /* asyncinvoker.cc */,
+				C30B17741FA47C86006DEDB7 /* asyncinvoker.h */,
+				C30B16E91FA47C7D006DEDB7 /* asyncpacketsocket.cc */,
+				C30B16E11FA47C7D006DEDB7 /* asyncpacketsocket.h */,
+				C30B175F1FA47C85006DEDB7 /* asyncresolverinterface.cc */,
+				C30B17451FA47C83006DEDB7 /* asyncresolverinterface.h */,
+				C30B17001FA47C7F006DEDB7 /* asyncsocket.cc */,
+				C30B17B31FA47C8A006DEDB7 /* asyncsocket.h */,
+				C30B17921FA47C88006DEDB7 /* asynctcpsocket_unittest.cc */,
+				C30B16EB1FA47C7D006DEDB7 /* asynctcpsocket.cc */,
+				C30B17B81FA47C8B006DEDB7 /* asynctcpsocket.h */,
+				C30B179C1FA47C89006DEDB7 /* asyncudpsocket_unittest.cc */,
+				C30B17311FA47C82006DEDB7 /* asyncudpsocket.cc */,
+				C30B17811FA47C87006DEDB7 /* asyncudpsocket.h */,
+				C30B176A1FA47C85006DEDB7 /* atomicops_unittest.cc */,
+				C30B170A1FA47C7F006DEDB7 /* atomicops.h */,
+				C30B16C61FA47C7B006DEDB7 /* base64_unittest.cc */,
+				C30B17291FA47C81006DEDB7 /* base64.cc */,
+				C30B178A1FA47C88006DEDB7 /* base64.h */,
+				C30B17761FA47C86006DEDB7 /* basictypes_unittest.cc */,
+				C30B17411FA47C83006DEDB7 /* basictypes.h */,
+				C30B17171FA47C80006DEDB7 /* bind_unittest.cc */,
+				C30B178D1FA47C88006DEDB7 /* bind.h */,
+				C30B16DC1FA47C7D006DEDB7 /* bitbuffer_unittest.cc */,
+				C30B16C51FA47C7B006DEDB7 /* bitbuffer.cc */,
+				C30B17361FA47C82006DEDB7 /* bitbuffer.h */,
+				C30B17181FA47C80006DEDB7 /* bitrateallocationstrategy.cc */,
+				C30B17B21FA47C8A006DEDB7 /* bitrateallocationstrategy.h */,
+				C30B17BF1FA47C8B006DEDB7 /* buffer_unittest.cc */,
+				C30B17641FA47C85006DEDB7 /* buffer.h */,
+				C30B16C71FA47C7B006DEDB7 /* bufferqueue_unittest.cc */,
+				C30B17871FA47C87006DEDB7 /* bufferqueue.cc */,
+				C30B16DA1FA47C7C006DEDB7 /* bufferqueue.h */,
+				C30B170D1FA47C80006DEDB7 /* BUILD.gn */,
+				C30B16E51FA47C7D006DEDB7 /* bytebuffer_unittest.cc */,
+				C30B17431FA47C83006DEDB7 /* bytebuffer.cc */,
+				C30B16A91FA47C7A006DEDB7 /* bytebuffer.h */,
+				C30B17A31FA47C89006DEDB7 /* byteorder_unittest.cc */,
+				C30B16901FA47C78006DEDB7 /* byteorder.h */,
+				C30B171B1FA47C80006DEDB7 /* callback_unittest.cc */,
+				C30B16CB1FA47C7C006DEDB7 /* callback.h */,
+				C30B16981FA47C79006DEDB7 /* callback.h.pump */,
+				C30B16CC1FA47C7C006DEDB7 /* checks.cc */,
+				C30B168A1FA47C78006DEDB7 /* checks.h */,
+				C30B16EE1FA47C7E006DEDB7 /* compile_assert_c.h */,
+				C30B16C01FA47C7B006DEDB7 /* constructormagic.h */,
+				C30B17421FA47C83006DEDB7 /* copyonwritebuffer_unittest.cc */,
+				C30B17B91FA47C8B006DEDB7 /* copyonwritebuffer.cc */,
+				C30B169E1FA47C79006DEDB7 /* copyonwritebuffer.h */,
+				C30B17A41FA47C89006DEDB7 /* cpu_time_unittest.cc */,
+				C30B172D1FA47C82006DEDB7 /* cpu_time.cc */,
+				C30B16E61FA47C7D006DEDB7 /* cpu_time.h */,
+				C30B17691FA47C85006DEDB7 /* crc32_unittest.cc */,
+				C30B16911FA47C79006DEDB7 /* crc32.cc */,
+				C30B17371FA47C82006DEDB7 /* crc32.h */,
+				C30B168C1FA47C78006DEDB7 /* criticalsection_unittest.cc */,
+				C30B16CD1FA47C7C006DEDB7 /* criticalsection.cc */,
+				C30B17061FA47C7F006DEDB7 /* criticalsection.h */,
+				C30B171F1FA47C81006DEDB7 /* cryptstring.cc */,
+				C30B169D1FA47C79006DEDB7 /* cryptstring.h */,
+				C30B16FB1FA47C7E006DEDB7 /* deprecation.h */,
+				C30B178E1FA47C88006DEDB7 /* DEPS */,
+				C30B169F1FA47C79006DEDB7 /* dscp.h */,
+				C30B17A61FA47C89006DEDB7 /* Dummy.java */,
+				C30B17951FA47C88006DEDB7 /* event_tracer_unittest.cc */,
+				C30B17A71FA47C89006DEDB7 /* event_tracer.cc */,
+				C30B17131FA47C80006DEDB7 /* event_tracer.h */,
+				C30B170E1FA47C80006DEDB7 /* event_unittest.cc */,
+				C30B16E71FA47C7D006DEDB7 /* event.cc */,
+				C30B16C31FA47C7B006DEDB7 /* event.h */,
+				C30B16ED1FA47C7E006DEDB7 /* fakeclock.cc */,
+				C30B17491FA47C83006DEDB7 /* fakeclock.h */,
+				C30B17381FA47C82006DEDB7 /* fakenetwork.h */,
+				C30B174B1FA47C83006DEDB7 /* fakesslidentity.cc */,
+				C30B17AE1FA47C8A006DEDB7 /* fakesslidentity.h */,
+				C30B174C1FA47C84006DEDB7 /* file_posix.cc */,
+				C30B16F31FA47C7E006DEDB7 /* file_unittest.cc */,
+				C30B16FF1FA47C7F006DEDB7 /* file_win.cc */,
+				C30B17801FA47C87006DEDB7 /* file.cc */,
+				C30B17621FA47C85006DEDB7 /* file.h */,
+				C30B17521FA47C84006DEDB7 /* filerotatingstream_unittest.cc */,
+				C30B168D1FA47C78006DEDB7 /* filerotatingstream.cc */,
+				C30B178F1FA47C88006DEDB7 /* filerotatingstream.h */,
+				C30B17341FA47C82006DEDB7 /* fileutils.cc */,
+				C30B16AB1FA47C7A006DEDB7 /* fileutils.h */,
+				C30B179A1FA47C89006DEDB7 /* firewallsocketserver.cc */,
+				C30B17631FA47C85006DEDB7 /* firewallsocketserver.h */,
+				C30B176C1FA47C86006DEDB7 /* flags.cc */,
+				C30B17A81FA47C8A006DEDB7 /* flags.h */,
+				C30B17821FA47C87006DEDB7 /* format_macros.h */,
+				C30B17AB1FA47C8A006DEDB7 /* function_view_unittest.cc */,
+				C30B170C1FA47C80006DEDB7 /* function_view.h */,
+				C30B17C41FA47C8B006DEDB7 /* gtest_prod_util.h */,
+				C30B16F01FA47C7E006DEDB7 /* gunit_prod.h */,
+				C30B17531FA47C84006DEDB7 /* gunit.h */,
+				C30B16CE1FA47C7C006DEDB7 /* helpers_unittest.cc */,
+				C30B16C11FA47C7B006DEDB7 /* helpers.cc */,
+				C30B17BC1FA47C8B006DEDB7 /* helpers.h */,
+				C30B17851FA47C87006DEDB7 /* histogram_percentile_counter_unittest.cc */,
+				C30B16F21FA47C7E006DEDB7 /* histogram_percentile_counter.cc */,
+				C30B17461FA47C83006DEDB7 /* histogram_percentile_counter.h */,
+				C30B17331FA47C82006DEDB7 /* httpbase_unittest.cc */,
+				C30B17C71FA47C8C006DEDB7 /* httpbase.cc */,
+				C30B17021FA47C7F006DEDB7 /* httpbase.h */,
+				C30B16991FA47C79006DEDB7 /* httpcommon_unittest.cc */,
+				C30B17A21FA47C89006DEDB7 /* httpcommon-inl.h */,
+				C30B16FD1FA47C7F006DEDB7 /* httpcommon.cc */,
+				C30B17891FA47C88006DEDB7 /* httpcommon.h */,
+				C30B16F51FA47C7E006DEDB7 /* httpserver_unittest.cc */,
+				C30B17031FA47C7F006DEDB7 /* httpserver.cc */,
+				C30B16DD1FA47C7D006DEDB7 /* httpserver.h */,
+				C30B170F1FA47C80006DEDB7 /* ifaddrs_converter.cc */,
+				C30B177D1FA47C87006DEDB7 /* ifaddrs_converter.h */,
+				C30B17B01FA47C8A006DEDB7 /* ifaddrs-android.cc */,
+				C30B172C1FA47C82006DEDB7 /* ifaddrs-android.h */,
+				C30B16FA1FA47C7E006DEDB7 /* ignore_wundef.h */,
+				C30B17321FA47C82006DEDB7 /* ipaddress_unittest.cc */,
+				C30B17661FA47C85006DEDB7 /* ipaddress.cc */,
+				C30B172E1FA47C82006DEDB7 /* ipaddress.h */,
+				C30B16B71FA47C7B006DEDB7 /* java */,
+				C30B173D1FA47C83006DEDB7 /* json_unittest.cc */,
+				C30B16C81FA47C7B006DEDB7 /* onetimeevent_unittest.cc */,
+				C30B174D1FA47C84006DEDB7 /* onetimeevent.h */,
+				C30B17BE1FA47C8B006DEDB7 /* openssl.h */,
+				C30B17901FA47C88006DEDB7 /* openssladapter_unittest.cc */,
+				C30B17681FA47C85006DEDB7 /* openssladapter.cc */,
+				C30B16E81FA47C7D006DEDB7 /* openssladapter.h */,
+				C30B16A31FA47C7A006DEDB7 /* openssldigest.cc */,
+				C30B16AF1FA47C7A006DEDB7 /* openssldigest.h */,
+				C30B16F61FA47C7E006DEDB7 /* opensslidentity.cc */,
+				C30B17191FA47C80006DEDB7 /* opensslidentity.h */,
+				C30B17151FA47C80006DEDB7 /* opensslstreamadapter.cc */,
+				C30B17351FA47C82006DEDB7 /* opensslstreamadapter.h */,
+				C30B176B1FA47C86006DEDB7 /* optionsfile_unittest.cc */,
+				C30B16D51FA47C7C006DEDB7 /* optionsfile.cc */,
+				C30B17A91FA47C8A006DEDB7 /* optionsfile.h */,
+				C30B17C51FA47C8C006DEDB7 /* OWNERS */,
+				C30B173E1FA47C83006DEDB7 /* pathutils_unittest.cc */,
+				C30B17961FA47C88006DEDB7 /* pathutils.cc */,
+				C30B17161FA47C80006DEDB7 /* pathutils.h */,
+				C30B17A01FA47C89006DEDB7 /* physicalsocketserver_unittest.cc */,
+				C30B16F41FA47C7E006DEDB7 /* physicalsocketserver.cc */,
+				C30B16A51FA47C7A006DEDB7 /* physicalsocketserver.h */,
+				C30B176E1FA47C86006DEDB7 /* platform_file.cc */,
+				C30B17571FA47C84006DEDB7 /* platform_file.h */,
+				C30B16EF1FA47C7E006DEDB7 /* platform_thread_types.h */,
+				C30B17AA1FA47C8A006DEDB7 /* platform_thread_unittest.cc */,
+				C30B174E1FA47C84006DEDB7 /* platform_thread.cc */,
+				C30B16A41FA47C7A006DEDB7 /* platform_thread.h */,
+				C30B16AE1FA47C7A006DEDB7 /* protobuf_utils.h */,
+				C30B17541FA47C84006DEDB7 /* proxy_unittest.cc */,
+				C30B176F1FA47C86006DEDB7 /* proxyinfo.cc */,
+				C30B172A1FA47C81006DEDB7 /* proxyinfo.h */,
+				C30B16DE1FA47C7D006DEDB7 /* proxyserver.cc */,
+				C30B169C1FA47C79006DEDB7 /* proxyserver.h */,
+				C30B17441FA47C83006DEDB7 /* ptr_util_unittest.cc */,
+				C30B17BB1FA47C8B006DEDB7 /* ptr_util.h */,
+				C30B16F11FA47C7E006DEDB7 /* race_checker.cc */,
+				C30B17071FA47C7F006DEDB7 /* race_checker.h */,
+				C30B17141FA47C80006DEDB7 /* random_unittest.cc */,
+				C30B16AA1FA47C7A006DEDB7 /* random.cc */,
+				C30B16941FA47C79006DEDB7 /* random.h */,
+				C30B17941FA47C88006DEDB7 /* rate_limiter_unittest.cc */,
+				C30B16DF1FA47C7D006DEDB7 /* rate_limiter.cc */,
+				C30B17C61FA47C8C006DEDB7 /* rate_limiter.h */,
+				C30B17751FA47C86006DEDB7 /* rate_statistics_unittest.cc */,
+				C30B177E1FA47C87006DEDB7 /* rate_statistics.cc */,
+				C30B16E01FA47C7D006DEDB7 /* rate_statistics.h */,
+				C30B17101FA47C80006DEDB7 /* ratelimiter_unittest.cc */,
+				C30B17771FA47C86006DEDB7 /* ratelimiter.cc */,
+				C30B16D31FA47C7C006DEDB7 /* ratelimiter.h */,
+				C30B16F91FA47C7E006DEDB7 /* ratetracker_unittest.cc */,
+				C30B17081FA47C7F006DEDB7 /* ratetracker.cc */,
+				C30B16A81FA47C7A006DEDB7 /* ratetracker.h */,
+				C30B17AD1FA47C8A006DEDB7 /* refcount.h */,
+				C30B16CF1FA47C7C006DEDB7 /* refcountedobject_unittest.cc */,
+				C30B16971FA47C79006DEDB7 /* refcountedobject.h */,
+				C30B16F71FA47C7E006DEDB7 /* refcounter.h */,
+				C30B16DB1FA47C7D006DEDB7 /* rollingaccumulator_unittest.cc */,
+				C30B175D1FA47C85006DEDB7 /* rollingaccumulator.h */,
+				C30B16961FA47C79006DEDB7 /* rtccertificate_unittest.cc */,
+				C30B175B1FA47C85006DEDB7 /* rtccertificate.cc */,
+				C30B179D1FA47C89006DEDB7 /* rtccertificate.h */,
+				C30B17231FA47C81006DEDB7 /* rtccertificategenerator_unittest.cc */,
+				C30B17CA1FA47C8C006DEDB7 /* rtccertificategenerator.cc */,
+				C30B17591FA47C84006DEDB7 /* rtccertificategenerator.h */,
+				C30B16C21FA47C7B006DEDB7 /* safe_compare_unittest.cc */,
+				C30B17401FA47C83006DEDB7 /* safe_compare.h */,
+				C30B17AC1FA47C8A006DEDB7 /* safe_conversions_impl.h */,
+				C30B17701FA47C86006DEDB7 /* safe_conversions.h */,
+				C30B171C1FA47C81006DEDB7 /* safe_minmax_unittest.cc */,
+				C30B17581FA47C84006DEDB7 /* safe_minmax.h */,
+				C30B16B01FA47C7A006DEDB7 /* sanitizer.h */,
+				C30B16C41FA47C7B006DEDB7 /* scoped_ref_ptr.h */,
+				C30B17AF1FA47C8A006DEDB7 /* sequenced_task_checker_impl.cc */,
+				C30B16A71FA47C7A006DEDB7 /* sequenced_task_checker_impl.h */,
+				C30B175A1FA47C84006DEDB7 /* sequenced_task_checker_unittest.cc */,
+				C30B17091FA47C7F006DEDB7 /* sequenced_task_checker.h */,
+				C30B16E41FA47C7D006DEDB7 /* sha1.cc */,
+				C30B17B41FA47C8A006DEDB7 /* sha1.h */,
+				C30B17B11FA47C8A006DEDB7 /* sha1digest_unittest.cc */,
+				C30B17721FA47C86006DEDB7 /* sha1digest.cc */,
+				C30B177C1FA47C87006DEDB7 /* sha1digest.h */,
+				C30B16D21FA47C7C006DEDB7 /* signalthread_unittest.cc */,
+				C30B176D1FA47C86006DEDB7 /* signalthread.cc */,
+				C30B173B1FA47C82006DEDB7 /* signalthread.h */,
+				C30B169A1FA47C79006DEDB7 /* sigslot_unittest.cc */,
+				C30B16B41FA47C7B006DEDB7 /* sigslot.cc */,
+				C30B17731FA47C86006DEDB7 /* sigslot.h */,
+				C30B17281FA47C81006DEDB7 /* sigslotrepeater.h */,
+				C30B173C1FA47C83006DEDB7 /* sigslottester_unittest.cc */,
+				C30B17471FA47C83006DEDB7 /* sigslottester.h */,
+				C30B17C91FA47C8C006DEDB7 /* sigslottester.h.pump */,
+				C30B17601FA47C85006DEDB7 /* socket_unittest.cc */,
+				C30B179B1FA47C89006DEDB7 /* socket_unittest.h */,
+				C30B172F1FA47C82006DEDB7 /* socket.h */,
+				C30B16D91FA47C7C006DEDB7 /* socketadapters.cc */,
+				C30B17041FA47C7F006DEDB7 /* socketadapters.h */,
+				C30B16B11FA47C7A006DEDB7 /* socketaddress_unittest.cc */,
+				C30B17781FA47C86006DEDB7 /* socketaddress.cc */,
+				C30B17881FA47C87006DEDB7 /* socketaddress.h */,
+				C30B16B51FA47C7B006DEDB7 /* socketaddresspair.cc */,
+				C30B16D61FA47C7C006DEDB7 /* socketaddresspair.h */,
+				C30B16B31FA47C7B006DEDB7 /* socketfactory.h */,
+				C30B178C1FA47C88006DEDB7 /* socketserver.h */,
+				C30B17BD1FA47C8B006DEDB7 /* socketstream.cc */,
+				C30B171A1FA47C80006DEDB7 /* socketstream.h */,
+				C30B178B1FA47C88006DEDB7 /* ssladapter_unittest.cc */,
+				C30B174A1FA47C83006DEDB7 /* ssladapter.cc */,
+				C30B175C1FA47C85006DEDB7 /* ssladapter.h */,
+				C30B16C91FA47C7B006DEDB7 /* sslfingerprint.cc */,
+				C30B16D01FA47C7C006DEDB7 /* sslfingerprint.h */,
+				C30B17201FA47C81006DEDB7 /* sslidentity_unittest.cc */,
+				C30B16A01FA47C79006DEDB7 /* sslidentity.cc */,
+				C30B17C11FA47C8B006DEDB7 /* sslidentity.h */,
+				C30B17A51FA47C89006DEDB7 /* sslroots.h */,
+				C30B16B61FA47C7B006DEDB7 /* sslstreamadapter_unittest.cc */,
+				C30B171D1FA47C81006DEDB7 /* sslstreamadapter.cc */,
+				C30B17831FA47C87006DEDB7 /* sslstreamadapter.h */,
+				C30B17651FA47C85006DEDB7 /* stream_unittest.cc */,
+				C30B17861FA47C87006DEDB7 /* stream.cc */,
+				C30B172B1FA47C81006DEDB7 /* stream.h */,
+				C30B17671FA47C85006DEDB7 /* string_to_number_unittest.cc */,
+				C30B17CE1FA47C8C006DEDB7 /* string_to_number.cc */,
+				C30B16951FA47C79006DEDB7 /* string_to_number.h */,
+				C30B177A1FA47C87006DEDB7 /* stringencode_unittest.cc */,
+				C30B17C21FA47C8B006DEDB7 /* stringencode.cc */,
+				C30B17111FA47C80006DEDB7 /* stringencode.h */,
+				C30B16AD1FA47C7A006DEDB7 /* stringize_macros_unittest.cc */,
+				C30B174F1FA47C84006DEDB7 /* stringize_macros.h */,
+				C30B169B1FA47C79006DEDB7 /* stringutils_unittest.cc */,
+				C30B16D81FA47C7C006DEDB7 /* stringutils.cc */,
+				C30B17121FA47C80006DEDB7 /* stringutils.h */,
+				C30B16AC1FA47C7A006DEDB7 /* swap_queue_unittest.cc */,
+				C30B17391FA47C82006DEDB7 /* swap_queue.h */,
+				C30B179E1FA47C89006DEDB7 /* task_queue_gcd.cc */,
+				C30B16D71FA47C7C006DEDB7 /* task_queue_libevent.cc */,
+				C30B16D41FA47C7C006DEDB7 /* task_queue_posix.cc */,
+				C30B168E1FA47C78006DEDB7 /* task_queue_posix.h */,
+				C30B17051FA47C7F006DEDB7 /* task_queue_unittest.cc */,
+				C30B17841FA47C87006DEDB7 /* task_queue_win.cc */,
+				C30B173A1FA47C82006DEDB7 /* task_queue.h */,
+				C30B173F1FA47C83006DEDB7 /* template_util.h */,
+				C30B17971FA47C88006DEDB7 /* testbase64.h */,
+				C30B16CA1FA47C7B006DEDB7 /* testclient_unittest.cc */,
+				C30B17611FA47C85006DEDB7 /* testclient.cc */,
+				C30B17991FA47C89006DEDB7 /* testclient.h */,
+				C30B17481FA47C83006DEDB7 /* testechoserver.cc */,
+				C30B175E1FA47C85006DEDB7 /* testechoserver.h */,
+				C30B17CC1FA47C8C006DEDB7 /* testutils.cc */,
+				C30B17561FA47C84006DEDB7 /* testutils.h */,
+				C30B16E21FA47C7D006DEDB7 /* thread_annotations_unittest.cc */,
+				C30B17CD1FA47C8C006DEDB7 /* thread_annotations.h */,
+				C30B17791FA47C86006DEDB7 /* thread_checker_impl.cc */,
+				C30B17B51FA47C8A006DEDB7 /* thread_checker_impl.h */,
+				C30B171E1FA47C81006DEDB7 /* thread_checker_unittest.cc */,
+				C30B168F1FA47C78006DEDB7 /* thread_checker.h */,
+				C30B16F81FA47C7E006DEDB7 /* thread_darwin.mm */,
+				C30B17211FA47C81006DEDB7 /* thread_unittest.cc */,
+				C30B17B61FA47C8A006DEDB7 /* thread.cc */,
+				C30B16B21FA47C7A006DEDB7 /* thread.h */,
+				C30B17BA1FA47C8B006DEDB7 /* timedelta.h */,
+				C30B17CB1FA47C8C006DEDB7 /* timestampaligner_unittest.cc */,
+				C30B17C01FA47C8B006DEDB7 /* timestampaligner.cc */,
+				C30B17911FA47C88006DEDB7 /* timestampaligner.h */,
+				C30B17C31FA47C8B006DEDB7 /* timeutils_unittest.cc */,
+				C30B17221FA47C81006DEDB7 /* timeutils.cc */,
+				C30B17501FA47C84006DEDB7 /* timeutils.h */,
+				C30B17241FA47C81006DEDB7 /* trace_event.h */,
+				C30B17301FA47C82006DEDB7 /* transformadapter.cc */,
+				C30B17C81FA47C8C006DEDB7 /* transformadapter.h */,
+				C30B16D11FA47C7C006DEDB7 /* type_traits.h */,
+				C30B16A61FA47C7A006DEDB7 /* unittest_main.cc */,
+				C30B16FE1FA47C7F006DEDB7 /* unixfilesystem.cc */,
+				C30B177F1FA47C87006DEDB7 /* unixfilesystem.h */,
+				C30B16EA1FA47C7D006DEDB7 /* virtualsocket_unittest.cc */,
+				C30B17711FA47C86006DEDB7 /* virtualsocketserver.cc */,
+				C30B17551FA47C84006DEDB7 /* virtualsocketserver.h */,
+				C30B16EC1FA47C7E006DEDB7 /* weak_ptr_unittest.cc */,
+				C30B17251FA47C81006DEDB7 /* weak_ptr.cc */,
+				C30B16931FA47C79006DEDB7 /* weak_ptr.h */,
+				C30B177B1FA47C87006DEDB7 /* win32_unittest.cc */,
+				C30B16A11FA47C79006DEDB7 /* win32.cc */,
+				C30B17261FA47C81006DEDB7 /* win32.h */,
+				C30B16921FA47C79006DEDB7 /* win32filesystem.cc */,
+				C30B17981FA47C88006DEDB7 /* win32filesystem.h */,
+				C30B168B1FA47C78006DEDB7 /* win32securityerrors.cc */,
+				C30B17511FA47C84006DEDB7 /* win32socketinit.cc */,
+				C30B17A11FA47C89006DEDB7 /* win32socketinit.h */,
+				C30B16A21FA47C79006DEDB7 /* win32socketserver_unittest.cc */,
+				C30B17931FA47C88006DEDB7 /* win32socketserver.cc */,
+				C30B17271FA47C81006DEDB7 /* win32socketserver.h */,
+				C30B170B1FA47C7F006DEDB7 /* win32window_unittest.cc */,
+				C30B17B71FA47C8B006DEDB7 /* win32window.cc */,
+				C30B17011FA47C7F006DEDB7 /* win32window.h */,
+				C30B16E31FA47C7D006DEDB7 /* window.h */,
 			);
 			path = rtcbase;
 			sourceTree = "<group>";
@@ -734,24 +1478,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
+				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
+				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
+				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
+				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
+				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
 				C3D281131FA317240094BF12 /* networkingserviceimpl.cc in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryImpl.mm in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
 				C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */,
+				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
+				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
+				C30B17ED1FA481C2006DEDB7 /* NSInvocation+EXT.m in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.m in Sources */,
+				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -895,6 +1648,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
 				HEADER_SEARCH_PATHS = (
 					webrtc/src,
 					src,
@@ -915,6 +1670,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
 				HEADER_SEARCH_PATHS = (
 					webrtc/src,
 					src,

@@ -21,7 +21,7 @@ namespace horo {
         virtual strong<HttpResponse> createHttpResponse()=0;
     };
     
-    class NetworkingServiceFactory : public rtc::RefCountedObject<_NetworkingServiceFactory> {};
+    typedef reff<_NetworkingServiceFactory> NetworkingServiceFactory;
 };
 
 

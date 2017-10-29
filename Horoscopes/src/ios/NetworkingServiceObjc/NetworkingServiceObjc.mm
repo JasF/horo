@@ -11,6 +11,7 @@
 #import "AFHTTPSessionManager.h"
 #import "HTTPSessionManager.h"
 #include "json/reader.h"
+#include "NSDictionary+Horo.h"
 
 static const int kParsingFailedError = -1;
 
@@ -25,39 +26,13 @@ NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> fa
 NetworkingServiceObjc::~NetworkingServiceObjc() {
 }
 
-NSDictionary *dictionaryFromJsonValue(Json::Value parameters) {
-    NSMutableDictionary *result = [NSMutableDictionary new];
-    for( Json::ValueIterator it = parameters.begin(); it != parameters.end(); ++it )
-    {
-        std::string key = it.key().asString();
-        NSString *keyString = [NSString stringWithCString:key.c_str() encoding:[NSString defaultCStringEncoding]];
-        NSCAssert(keyString.length, @"keyString is nil");
-        if (!keyString) {
-            continue;
-        }
-        Json::Value &value = *it;
-        if (value.isNumeric()) {
-            [result setObject:@(value.asInt()) forKey:keyString];
-        }
-        else if (value.isString()) {
-            NSString *valueString = [NSString stringWithCString:value.asString().c_str() encoding:[NSString defaultCStringEncoding]];
-            [result setObject:valueString forKey:keyString];
-        }
-        else {
-            NSCAssert(NO, @"Unexpected type for value: %@.", @(value.type()));
-        }
-    }
-    
-    return [result copy];
-}
-
 void NetworkingServiceObjc::beginRequest(std::string path,
                                              Json::Value parameters,
                                              std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                              std::function<void(error err)> failBlock) {
     LOG(LS_WARNING) << path;
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
-        NSDictionary *dictionaryParameters = dictionaryFromJsonValue(parameters);
+    NSDictionary *dictionaryParameters = [NSDictionary horo_dictionaryFromJsonValue:parameters];
     NSMutableSet *set = [NSMutableSet new];
     [set addObject:@"text/plain"];
     [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;

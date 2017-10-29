@@ -26,7 +26,7 @@ using reff = rtc::RefCountedObject<T>;
 
 namespace horo {
     using namespace std;
-    typedef map<string, string> dictionary;
+    typedef Json::Value dictionary;
     class error {
     public:
         error(std::string text) : text_(text), code_(0) { text_ = text;}

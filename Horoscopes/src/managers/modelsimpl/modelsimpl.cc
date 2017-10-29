@@ -8,10 +8,14 @@
 
 #include "modelsimpl.h"
 #import "models/predictionscreenmodel/predictionscreenmodelimpl.h"
+#import "models/helloscreenmodel/helloscreenmodelimpl.h"
+#import "managers/loginmanager/loginmanagerfactoryimpl.h"
 
 namespace horo {
   
-    ModelsImpl::ModelsImpl() {
+    ModelsImpl::ModelsImpl(strong<CoreComponents> components, strong<FacebookManager> facebookManager)
+    : components_(components)
+    , facebookManager_(facebookManager) {
         
     }
     
@@ -21,6 +25,10 @@ namespace horo {
     
     strong<PredictionScreenModel> ModelsImpl::predictionScreenModel() {
         return new PredictionScreenModelImpl();
+    }
+    
+    strong<HelloScreenModel> ModelsImpl::helloScreenModel() {
+        return new HelloScreenModelImpl(components_, new LoginManagerFactoryImpl(facebookManager_));
     }
     
 };

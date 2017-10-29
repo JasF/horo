@@ -18,8 +18,7 @@ namespace horo {
         virtual dictionary headers()=0;
     };
     
-    class HttpResponse : public
-    rtc::RefCountedObject<_HttpResponse> {};
+    typedef reff<_HttpResponse> HttpResponse;
 };
 
 #endif /* httpresponse_h */

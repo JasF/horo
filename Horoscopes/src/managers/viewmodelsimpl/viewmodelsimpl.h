@@ -24,6 +24,7 @@ namespace horo {
         
     public:
         strong<PredictionScreenViewModel> predictionScreenViewModel() override;
+        strong<HelloScreenViewModel> helloScreenViewModel() override;
         
     private:
         strong<Models> models_;

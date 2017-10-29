@@ -107,7 +107,6 @@
 		C30B18411FA488A1006DEDB7 /* transformadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBF1FA30E430094BF12 /* transformadapter.o */; };
 		C30B18421FA488A1006DEDB7 /* unixfilesystem.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D801FA30E3E0094BF12 /* unixfilesystem.o */; };
 		C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */; };
-		C30B18551FA498BB006DEDB7 /* viewmodelsimpl.cp in Sources */ = {isa = PBXBuildFile; fileRef = C30B18541FA498BB006DEDB7 /* viewmodelsimpl.cp */; };
 		C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18571FA498C8006DEDB7 /* modelsimpl.cc */; };
 		C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B186E1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc */; };
 		C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */; };
@@ -115,6 +114,13 @@
 		C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */; };
 		C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */; };
 		C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18891FA4C2D9006DEDB7 /* zodiac.cc */; };
+		C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18901FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc */; };
+		C30B18981FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18971FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc */; };
+		C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18991FA5CFE6006DEDB7 /* viewmodelsimpl.cc */; };
+		C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B189F1FA5D0FB006DEDB7 /* corecomponents.cc */; };
+		C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A41FA5D15F006DEDB7 /* person.cc */; };
+		C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */; };
+		C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
 		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
@@ -126,6 +132,19 @@
 		C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D71FA375E600C0B1C6 /* AFSecurityPolicy.m */; };
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
+		C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
+		C3B601771FA5DB3300AD4F6D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */; };
+		C3B601781FA5DB3300AD4F6D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */; };
+		C3B6017A1FA5E10D00AD4F6D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601791FA5E10D00AD4F6D /* Bolts.framework */; };
+		C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601801FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc */; };
+		C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601861FA5F39100AD4F6D /* facebookloginmanager.cc */; };
+		C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B6018D1FA5F62B00AD4F6D /* facebookmanagerimpl.cc */; };
+		C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601911FA5F76C00AD4F6D /* FacebookBanagerObjc.mm */; };
+		C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601961FA5FCA700AD4F6D /* coding.cc */; };
+		C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B6019D1FA6008700AD4F6D /* settings.cc */; };
+		C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601A41FA604E600AD4F6D /* serializerimpl.cc */; };
+		C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */; };
+		C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
 /* End PBXBuildFile section */
 
@@ -504,7 +523,6 @@
 		C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = screensmanagerimpl.cc; sourceTree = "<group>"; };
 		C30B18491FA49827006DEDB7 /* screensmanagerimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screensmanagerimpl.h; sourceTree = "<group>"; };
 		C30B18531FA498BA006DEDB7 /* viewmodels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewmodels.h; sourceTree = "<group>"; };
-		C30B18541FA498BB006DEDB7 /* viewmodelsimpl.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = viewmodelsimpl.cp; sourceTree = "<group>"; };
 		C30B18561FA498C8006DEDB7 /* models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = models.h; sourceTree = "<group>"; };
 		C30B18571FA498C8006DEDB7 /* modelsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = modelsimpl.cc; sourceTree = "<group>"; };
 		C30B18591FA499F5006DEDB7 /* modelsimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modelsimpl.h; sourceTree = "<group>"; };
@@ -523,6 +541,20 @@
 		C30B18831FA4B9F1006DEDB7 /* horoasserts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoasserts.h; sourceTree = "<group>"; };
 		C30B18861FA4C2BF006DEDB7 /* zodiac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zodiac.h; sourceTree = "<group>"; };
 		C30B18891FA4C2D9006DEDB7 /* zodiac.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zodiac.cc; sourceTree = "<group>"; };
+		C30B188C1FA5CEF8006DEDB7 /* helloscreenmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helloscreenmodel.h; sourceTree = "<group>"; };
+		C30B188D1FA5CF0B006DEDB7 /* helloscreenmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helloscreenmodelimpl.h; sourceTree = "<group>"; };
+		C30B18901FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helloscreenmodelimpl.cc; sourceTree = "<group>"; };
+		C30B18931FA5CF2D006DEDB7 /* helloscreenviewmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helloscreenviewmodel.h; sourceTree = "<group>"; };
+		C30B18941FA5CF3A006DEDB7 /* helloscreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helloscreenviewmodelimpl.h; sourceTree = "<group>"; };
+		C30B18971FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helloscreenviewmodelimpl.cc; sourceTree = "<group>"; };
+		C30B18991FA5CFE6006DEDB7 /* viewmodelsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = viewmodelsimpl.cc; sourceTree = "<group>"; };
+		C30B189C1FA5D0EA006DEDB7 /* corecomponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = corecomponents.h; sourceTree = "<group>"; };
+		C30B189F1FA5D0FB006DEDB7 /* corecomponents.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = corecomponents.cc; sourceTree = "<group>"; };
+		C30B18A11FA5D14B006DEDB7 /* person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = person.h; sourceTree = "<group>"; };
+		C30B18A41FA5D15F006DEDB7 /* person.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = person.cc; sourceTree = "<group>"; };
+		C30B18A71FA5D590006DEDB7 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WelcomeViewController.mm; sourceTree = "<group>"; };
+		C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -547,6 +579,33 @@
 		C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
+		C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
+		C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C3B601791FA5E10D00AD4F6D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C3B6017C1FA5F33400AD4F6D /* loginmanagerfactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginmanagerfactoryimpl.h; sourceTree = "<group>"; };
+		C3B6017F1FA5F34000AD4F6D /* loginmanagerfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginmanagerfactory.h; sourceTree = "<group>"; };
+		C3B601801FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = loginmanagerfactoryimpl.cc; sourceTree = "<group>"; };
+		C3B601821FA5F36900AD4F6D /* loginmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginmanager.h; sourceTree = "<group>"; };
+		C3B601831FA5F37C00AD4F6D /* facebookloginmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookloginmanager.h; sourceTree = "<group>"; };
+		C3B601861FA5F39100AD4F6D /* facebookloginmanager.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookloginmanager.cc; sourceTree = "<group>"; };
+		C3B601891FA5F60C00AD4F6D /* facebookmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookmanager.h; sourceTree = "<group>"; };
+		C3B6018A1FA5F61900AD4F6D /* facebookmanagerimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookmanagerimpl.h; sourceTree = "<group>"; };
+		C3B6018D1FA5F62B00AD4F6D /* facebookmanagerimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookmanagerimpl.cc; sourceTree = "<group>"; };
+		C3B601901FA5F76C00AD4F6D /* FacebookBanagerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookBanagerObjc.h; sourceTree = "<group>"; };
+		C3B601911FA5F76C00AD4F6D /* FacebookBanagerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FacebookBanagerObjc.mm; sourceTree = "<group>"; };
+		C3B601931FA5FC9500AD4F6D /* coding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coding.h; sourceTree = "<group>"; };
+		C3B601961FA5FCA700AD4F6D /* coding.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coding.cc; sourceTree = "<group>"; };
+		C3B6019A1FA6007800AD4F6D /* settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
+		C3B6019D1FA6008700AD4F6D /* settings.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = settings.cc; sourceTree = "<group>"; };
+		C3B601A11FA604C300AD4F6D /* serializerimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serializerimpl.h; sourceTree = "<group>"; };
+		C3B601A41FA604E600AD4F6D /* serializerimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = serializerimpl.cc; sourceTree = "<group>"; };
+		C3B601A51FA604E600AD4F6D /* serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serializer.h; sourceTree = "<group>"; };
+		C3B601A81FA605A300AD4F6D /* SerializerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SerializerObjc.h; sourceTree = "<group>"; };
+		C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SerializerObjc.mm; sourceTree = "<group>"; };
+		C3B601AE1FA60DBE00AD4F6D /* Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Horo.h"; sourceTree = "<group>"; };
+		C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSDictionary+Horo.mm"; sourceTree = "<group>"; };
 		C3D27C971FA309130094BF12 /* managers.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = managers.cc; sourceTree = "<group>"; };
 		C3D27C981FA309130094BF12 /* managers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = managers.h; sourceTree = "<group>"; };
 		C3D27C9C1FA309740094BF12 /* networkingservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservice.h; sourceTree = "<group>"; };
@@ -647,12 +706,14 @@
 				C30B18281FA488A1006DEDB7 /* rate_limiter.o in Frameworks */,
 				C30B18011FA488A1006DEDB7 /* criticalsection.o in Frameworks */,
 				C30B183F1FA488A1006DEDB7 /* timestampaligner.o in Frameworks */,
+				C3B601781FA5DB3300AD4F6D /* FBSDKLoginKit.framework in Frameworks */,
 				C30B17FB1FA488A1006DEDB7 /* bitrateallocationstrategy.o in Frameworks */,
 				C30B17F31FA488A1006DEDB7 /* asyncinvoker.o in Frameworks */,
 				C30B18211FA488A1006DEDB7 /* pathutils.o in Frameworks */,
 				C30B18021FA488A1006DEDB7 /* cryptstring.o in Frameworks */,
 				C30B18351FA488A1006DEDB7 /* sslfingerprint.o in Frameworks */,
 				C30B18411FA488A1006DEDB7 /* transformadapter.o in Frameworks */,
+				C3B601771FA5DB3300AD4F6D /* FBSDKCoreKit.framework in Frameworks */,
 				C30B18381FA488A1006DEDB7 /* stream.o in Frameworks */,
 				C30B18321FA488A1006DEDB7 /* socketaddresspair.o in Frameworks */,
 				C30B180D1FA488A1006DEDB7 /* httpcommon.o in Frameworks */,
@@ -702,6 +763,7 @@
 				C30B181E1FA488A1006DEDB7 /* opensslidentity.o in Frameworks */,
 				C30B18111FA488A1006DEDB7 /* logging.o in Frameworks */,
 				C30B182A1FA488A1006DEDB7 /* ratelimiter.o in Frameworks */,
+				C3B6017A1FA5E10D00AD4F6D /* Bolts.framework in Frameworks */,
 				C30B182F1FA488A1006DEDB7 /* sigslot.o in Frameworks */,
 				C30B18341FA488A1006DEDB7 /* ssladapter.o in Frameworks */,
 				C30B17F81FA488A1006DEDB7 /* asyncudpsocket.o in Frameworks */,
@@ -726,6 +788,7 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
+				C3B601AD1FA60DAE00AD4F6D /* Categories */,
 				C30B187C1FA4AA9C006DEDB7 /* ViewControllers */,
 				C33B99CA1FA375E600C0B1C6 /* Components */,
 				C37C83EE1FA3287500B39948 /* Supporting Files */,
@@ -899,7 +962,7 @@
 		C30B184B1FA4987D006DEDB7 /* viewmodelsimpl */ = {
 			isa = PBXGroup;
 			children = (
-				C30B18541FA498BB006DEDB7 /* viewmodelsimpl.cp */,
+				C30B18991FA5CFE6006DEDB7 /* viewmodelsimpl.cc */,
 				C30B185A1FA49A01006DEDB7 /* viewmodelsimpl.h */,
 				C30B18531FA498BA006DEDB7 /* viewmodels.h */,
 			);
@@ -919,6 +982,8 @@
 		C30B186A1FA49AFF006DEDB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C30B189B1FA5D0D8006DEDB7 /* corecomponents */,
+				C30B188B1FA5CEE5006DEDB7 /* helloscreenmodel */,
 				C30B186B1FA49AFF006DEDB7 /* predictionscreenmodel */,
 			);
 			path = models;
@@ -937,6 +1002,7 @@
 		C30B18701FA49DCD006DEDB7 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				C30B18921FA5CF20006DEDB7 /* helloscreenviewmodel */,
 				C30B18711FA49DE4006DEDB7 /* predictionscreenviewmodel */,
 			);
 			path = viewmodels;
@@ -964,6 +1030,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C30B18A61FA5D560006DEDB7 /* WelcomeViewController */,
 				C30B187D1FA4AAA2006DEDB7 /* PredictionViewController */,
 			);
 			path = ViewControllers;
@@ -984,13 +1051,56 @@
 			children = (
 				C30B18861FA4C2BF006DEDB7 /* zodiac.h */,
 				C30B18891FA4C2D9006DEDB7 /* zodiac.cc */,
+				C30B18A11FA5D14B006DEDB7 /* person.h */,
+				C30B18A41FA5D15F006DEDB7 /* person.cc */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		C30B188B1FA5CEE5006DEDB7 /* helloscreenmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C30B188C1FA5CEF8006DEDB7 /* helloscreenmodel.h */,
+				C30B188D1FA5CF0B006DEDB7 /* helloscreenmodelimpl.h */,
+				C30B18901FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc */,
+			);
+			path = helloscreenmodel;
+			sourceTree = "<group>";
+		};
+		C30B18921FA5CF20006DEDB7 /* helloscreenviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18931FA5CF2D006DEDB7 /* helloscreenviewmodel.h */,
+				C30B18941FA5CF3A006DEDB7 /* helloscreenviewmodelimpl.h */,
+				C30B18971FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc */,
+			);
+			path = helloscreenviewmodel;
+			sourceTree = "<group>";
+		};
+		C30B189B1FA5D0D8006DEDB7 /* corecomponents */ = {
+			isa = PBXGroup;
+			children = (
+				C30B189C1FA5D0EA006DEDB7 /* corecomponents.h */,
+				C30B189F1FA5D0FB006DEDB7 /* corecomponents.cc */,
+			);
+			path = corecomponents;
+			sourceTree = "<group>";
+		};
+		C30B18A61FA5D560006DEDB7 /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18A71FA5D590006DEDB7 /* WelcomeViewController.h */,
+				C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */,
+				C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */,
+			);
+			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C3B601A71FA6059400AD4F6D /* SerializerObjc */,
+				C3B6018F1FA5F75500AD4F6D /* FacebookManagerObjc */,
 				C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */,
 				C30B16591FA47465006DEDB7 /* HttpResponseObjc */,
 				C33B99DF1FA376A800C0B1C6 /* HTTPSessionManager */,
@@ -1021,6 +1131,7 @@
 		C33B99CA1FA375E600C0B1C6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C3B601721FA5DAAC00AD4F6D /* frameworks */,
 				C30B17CF1FA481C2006DEDB7 /* extobjc */,
 				C30B164E1FA47088006DEDB7 /* jsoncpp */,
 				C33B99CB1FA375E600C0B1C6 /* AFNetworking */,
@@ -1063,6 +1174,8 @@
 				C33B99E41FA46FA200C0B1C6 /* horobase.cc */,
 				C33B99E51FA46FA200C0B1C6 /* horobase.h */,
 				C30B18831FA4B9F1006DEDB7 /* horoasserts.h */,
+				C3B601961FA5FCA700AD4F6D /* coding.cc */,
+				C3B601931FA5FC9500AD4F6D /* coding.h */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1075,6 +1188,87 @@
 			);
 			name = "Supporting Files";
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601791FA5E10D00AD4F6D /* Bolts.framework */,
+				C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */,
+				C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */,
+				C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		C3B6017B1FA5F30B00AD4F6D /* loginmanager */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601801FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc */,
+				C3B6017C1FA5F33400AD4F6D /* loginmanagerfactoryimpl.h */,
+				C3B6017F1FA5F34000AD4F6D /* loginmanagerfactory.h */,
+				C3B601821FA5F36900AD4F6D /* loginmanager.h */,
+				C3B601861FA5F39100AD4F6D /* facebookloginmanager.cc */,
+				C3B601831FA5F37C00AD4F6D /* facebookloginmanager.h */,
+			);
+			path = loginmanager;
+			sourceTree = "<group>";
+		};
+		C3B601881FA5F5F500AD4F6D /* facebookmanager */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601891FA5F60C00AD4F6D /* facebookmanager.h */,
+				C3B6018A1FA5F61900AD4F6D /* facebookmanagerimpl.h */,
+				C3B6018D1FA5F62B00AD4F6D /* facebookmanagerimpl.cc */,
+			);
+			path = facebookmanager;
+			sourceTree = "<group>";
+		};
+		C3B6018F1FA5F75500AD4F6D /* FacebookManagerObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601901FA5F76C00AD4F6D /* FacebookBanagerObjc.h */,
+				C3B601911FA5F76C00AD4F6D /* FacebookBanagerObjc.mm */,
+			);
+			path = FacebookManagerObjc;
+			sourceTree = "<group>";
+		};
+		C3B601991FA6006B00AD4F6D /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3B6019A1FA6007800AD4F6D /* settings.h */,
+				C3B6019D1FA6008700AD4F6D /* settings.cc */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		C3B601A01FA6049900AD4F6D /* serializer */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601A51FA604E600AD4F6D /* serializer.h */,
+				C3B601A41FA604E600AD4F6D /* serializerimpl.cc */,
+				C3B601A11FA604C300AD4F6D /* serializerimpl.h */,
+			);
+			path = serializer;
+			sourceTree = "<group>";
+		};
+		C3B601A71FA6059400AD4F6D /* SerializerObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601A81FA605A300AD4F6D /* SerializerObjc.h */,
+				C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */,
+			);
+			path = SerializerObjc;
+			sourceTree = "<group>";
+		};
+		C3B601AD1FA60DAE00AD4F6D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C3B601AE1FA60DBE00AD4F6D /* Categories.h */,
+				C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */,
+				C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		C3D27C951FA309130094BF12 /* src */ = {
@@ -1093,6 +1287,10 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3B601A01FA6049900AD4F6D /* serializer */,
+				C3B601991FA6006B00AD4F6D /* settings */,
+				C3B601881FA5F5F500AD4F6D /* facebookmanager */,
+				C3B6017B1FA5F30B00AD4F6D /* loginmanager */,
 				C30B184C1FA49882006DEDB7 /* modelsimpl */,
 				C30B184B1FA4987D006DEDB7 /* viewmodelsimpl */,
 				C30B18431FA496C2006DEDB7 /* screensmanager */,
@@ -1586,8 +1784,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
+				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
 				4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */,
 			);
@@ -1618,37 +1818,51 @@
 			files = (
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
 				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
+				C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
+				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
+				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
+				C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
-				C30B18551FA498BB006DEDB7 /* viewmodelsimpl.cp in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
+				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
 				C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
+				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
 				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
+				C30B18981FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc in Sources */,
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
+				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
 				C30B17ED1FA481C2006DEDB7 /* NSInvocation+EXT.m in Sources */,
+				C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */,
+				C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
+				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
+				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
+				C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */,
+				C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
+				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
@@ -1794,6 +2008,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Components/frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1816,6 +2034,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Components/frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
 				HEADER_SEARCH_PATHS = (

@@ -26,8 +26,7 @@ namespace horo {
                                   std::function<void(error err)> failBlock) = 0;
     };
     
-    class NetworkingService : public
-    rtc::RefCountedObject<_NetworkingService> {};
+    typedef reff<_NetworkingService> NetworkingService;
 };
 
 #endif /* networkingservice_hpp */

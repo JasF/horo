@@ -11,6 +11,8 @@
 #include "modelsimpl/modelsimpl.h"
 #include "viewmodelsimpl/viewmodelsimpl.h"
 #include "screensmanager/screensmanagerimpl.h"
+#include "managers/serializer/serializerimpl.h"
+#include "managers/facebookmanager/facebookmanagerimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -55,7 +57,7 @@ Managers &Managers::shared() {
     strong<Models> Managers::models() {
         static strong<Models> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new ModelsImpl();
+            sharedInstance = new ModelsImpl(coreComponents(), facebookManager());
         }
         return sharedInstance;
     }
@@ -69,6 +71,37 @@ Managers &Managers::shared() {
         return sharedInstance;
     }
     
+    strong<CoreComponents> Managers::coreComponents() {
+        static strong<CoreComponents> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new CoreComponents();
+        }
+        return sharedInstance;
+    }
+    
+    strong<Serializer> Managers::serializer() {
+        static strong<SerializerImpl> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new SerializerImpl();
+        }
+        return sharedInstance;
+    }
+    
+    strong<Settings> Managers::settings() {
+        static strong<Settings> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new Settings(serializer());
+        }
+        return sharedInstance;
+    }
+    
+    strong<FacebookManager> Managers::facebookManager() {
+        static strong<FacebookManager> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new FacebookManagerImpl();
+        }
+        return sharedInstance;
+    }
 };
 
 

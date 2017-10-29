@@ -23,6 +23,7 @@ namespace horo {
         ~ScreensManagerImpl() override;
     public:
         void showPredictionViewController() override;
+        void showWelcomeViewController() override;
     public:
         void setViewModels(strong<ViewModels> viewModels) { viewModels_ = viewModels; }
         strong<ViewModels> viewModels() {return viewModels_;};

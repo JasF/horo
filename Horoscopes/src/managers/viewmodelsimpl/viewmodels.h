@@ -11,6 +11,7 @@
 
 #include "base/horobase.h"
 #include "viewmodels/predictionscreenviewmodel/predictionscreenviewmodel.h"
+#include "viewmodels/helloscreenviewmodel/helloscreenviewmodel.h"
 
 namespace horo {
   
@@ -19,6 +20,7 @@ namespace horo {
         virtual ~_ViewModels() {}
     public:
         virtual strong<PredictionScreenViewModel> predictionScreenViewModel()=0;
+        virtual strong<HelloScreenViewModel> helloScreenViewModel()=0;
     };
     
     typedef reff<_ViewModels> ViewModels;

@@ -14,6 +14,10 @@
 #include "modelsimpl/models.h"
 #include "viewmodelsimpl/viewmodels.h"
 #include "screensmanager/screensmanager.h"
+#include "models/corecomponents/corecomponents.h"
+#include "managers/settings/settings.h"
+#include "managers/serializer/serializer.h"
+#include "managers/facebookmanager/facebookmanager.h"
 
 namespace horo {
   
@@ -29,6 +33,10 @@ namespace horo {
         strong<ViewModels> viewModels();
         strong<Models> models();
         strong<ScreensManager> screensManager();
+        strong<CoreComponents> coreComponents();
+        strong<Serializer> serializer();
+        strong<Settings> settings();
+        strong<FacebookManager> facebookManager();
     };
     
 };

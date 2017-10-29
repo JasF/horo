@@ -10,16 +10,23 @@
 #define modelsimpl_h
 
 #include "models.h"
+#include "models/corecomponents/corecomponents.h"
+#include "managers/facebookmanager/facebookmanager.h"
 
 namespace horo {
   
     class ModelsImpl : public Models {
     public:
-        ModelsImpl();
+        ModelsImpl(strong<CoreComponents> components,
+                   strong<FacebookManager> facebookManager);
         ~ModelsImpl() override;
     public:
         strong<PredictionScreenModel> predictionScreenModel() override;
+        strong<HelloScreenModel> helloScreenModel() override;
         
+    private:
+        strong<CoreComponents> components_;
+        strong<FacebookManager> facebookManager_;
     };
     
 };

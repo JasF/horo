@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "PredictionViewController.h"
 #import "AppDelegate.h"
+#import "WelcomeViewController.h"
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -30,6 +31,24 @@ namespace horo {
                                                             instantiateViewControllerWithIdentifier:@"navigationController"];
             PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
             viewController.viewModel = impl_->viewModels()->predictionScreenViewModel();
+            
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            UINavigationController *tnc = (UINavigationController *)delegate.window.rootViewController;
+            if ([tnc isKindOfClass:[UINavigationController class]]) {
+                [tnc pushViewController:viewController animated:YES];
+            }
+            else {
+                delegate.window.rootViewController = navigationController;
+            }
+        }
+        void showWelcomeViewController() override {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WelcomeViewController"
+                                                                 bundle: nil];
+            
+            UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
+            WelcomeViewController *viewController = (WelcomeViewController *)navigationController.topViewController;
+            viewController.viewModel = impl_->viewModels()->helloScreenViewModel();
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             UINavigationController *tnc = (UINavigationController *)delegate.window.rootViewController;

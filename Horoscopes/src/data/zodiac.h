@@ -14,6 +14,7 @@
 namespace horo {
   
 enum ZodiacTypes {
+    Unknown=-1,
     Aquarius,
     Pisces,
     Aries,
@@ -30,7 +31,8 @@ enum ZodiacTypes {
 };
 class _Zodiac {
 public:
-    _Zodiac():type_(ZodiacsCount){}
+    _Zodiac(int a):type_(Unknown){}
+    _Zodiac():type_(Unknown){}
     _Zodiac(ZodiacTypes type) : type_(type) {}
     ~_Zodiac() {}
     
@@ -41,7 +43,7 @@ private:
     ZodiacTypes type_;
 };
     
-    class Zodiac : public rtc::RefCountedObject<_Zodiac> {};
+    typedef reff<_Zodiac> Zodiac;
     
 };
 

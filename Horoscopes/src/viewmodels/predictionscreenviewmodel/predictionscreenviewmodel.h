@@ -17,12 +17,13 @@ namespace horo {
     public:
         virtual ~_PredictionScreenViewModel() {}
         virtual void didActivated() = 0;
-        virtual std::wstring yesterdayHoroscopeText() = 0;
-        virtual std::wstring todayHoroscopeText() = 0;
-        virtual std::wstring tomorrowHoroscopeText() = 0;
-        virtual std::wstring weekHoroscopeText() = 0;
-        virtual std::wstring monthHoroscopeText() = 0;
-        virtual std::wstring yearHoroscopeText() = 0;
+        virtual std::string zodiacName() = 0;
+        virtual std::string yesterdayHoroscopeText() = 0;
+        virtual std::string todayHoroscopeText() = 0;
+        virtual std::string tomorrowHoroscopeText() = 0;
+        virtual std::string weekHoroscopeText() = 0;
+        virtual std::string monthHoroscopeText() = 0;
+        virtual std::string yearHoroscopeText() = 0;
     };
     
     typedef reff<_PredictionScreenViewModel> PredictionScreenViewModel;

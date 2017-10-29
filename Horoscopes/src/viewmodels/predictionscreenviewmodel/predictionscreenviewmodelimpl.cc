@@ -21,24 +21,28 @@ namespace horo {
         
     }
     
-    std::wstring PredictionScreenViewModelImpl::yesterdayHoroscopeText() {
-        return L"";
+    std::string PredictionScreenViewModelImpl::yesterdayHoroscopeText() {
+        return "";
     }
-    std::wstring PredictionScreenViewModelImpl::todayHoroscopeText() {
-        return L"";
+    std::string PredictionScreenViewModelImpl::todayHoroscopeText() {
+        return "";
     }
-    std::wstring PredictionScreenViewModelImpl::tomorrowHoroscopeText() {
-        return L"";
+    std::string PredictionScreenViewModelImpl::tomorrowHoroscopeText() {
+        return "";
     }
-    std::wstring PredictionScreenViewModelImpl::weekHoroscopeText() {
-        return L"";
+    std::string PredictionScreenViewModelImpl::weekHoroscopeText() {
+        return "";
     }
-    std::wstring PredictionScreenViewModelImpl::monthHoroscopeText() {
-        return L"";
+    std::string PredictionScreenViewModelImpl::monthHoroscopeText() {
+        return "";
     }
-    std::wstring PredictionScreenViewModelImpl::yearHoroscopeText() {
-        return L"";
+    std::string PredictionScreenViewModelImpl::yearHoroscopeText() {
+        return "";
     }
+    std::string PredictionScreenViewModelImpl::zodiacName() {
+        return model_->zodiacName();
+    }
+    
     void PredictionScreenViewModelImpl::didActivated() {
         LOG(LS_WARNING) << "didActivated";
     }

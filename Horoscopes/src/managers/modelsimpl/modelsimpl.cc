@@ -29,7 +29,7 @@ namespace horo {
     }
     
     strong<PredictionScreenModel> ModelsImpl::predictionScreenModel() {
-        return new PredictionScreenModelImpl();
+        return new PredictionScreenModelImpl(components_);
     }
     
     strong<HelloScreenModel> ModelsImpl::helloScreenModel() {

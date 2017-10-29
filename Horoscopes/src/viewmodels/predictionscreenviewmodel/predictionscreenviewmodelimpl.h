@@ -23,12 +23,13 @@ namespace horo {
     public:
         void didActivated() override;
         
-        std::wstring yesterdayHoroscopeText() override;
-        std::wstring todayHoroscopeText() override;
-        std::wstring tomorrowHoroscopeText() override;
-        std::wstring weekHoroscopeText() override;
-        std::wstring monthHoroscopeText() override;
-        std::wstring yearHoroscopeText() override;
+        std::string zodiacName() override;
+        std::string yesterdayHoroscopeText() override;
+        std::string todayHoroscopeText() override;
+        std::string tomorrowHoroscopeText() override;
+        std::string weekHoroscopeText() override;
+        std::string monthHoroscopeText() override;
+        std::string yearHoroscopeText() override;
         
     private:
         strong<PredictionScreenModel> model_;

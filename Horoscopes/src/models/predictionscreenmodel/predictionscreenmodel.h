@@ -19,6 +19,7 @@ namespace horo {
     public:
         virtual ~_PredictionScreenModel() {}
         virtual void loadData() = 0;
+        virtual std::string zodiacName() = 0;
     };
     
     typedef reff<_PredictionScreenModel> PredictionScreenModel;

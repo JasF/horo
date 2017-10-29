@@ -25,7 +25,7 @@ static CGFloat const kRowHeight = 100;
     _tableView.estimatedRowHeight = kRowHeight;
     _viewModel->didActivated();
     
-    _zodiacLabel.text = @"some text";
+    _zodiacLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacName().c_str()];
     // Do any additional setup after loading the view.
 }
 

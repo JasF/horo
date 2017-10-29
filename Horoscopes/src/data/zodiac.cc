@@ -61,8 +61,24 @@ ZodiacTypes _Zodiac::zodiacTypeByDate(Months month, int day, int /*year*/) {
 }
     
 std::string _Zodiac::name() const {
-    
-    return "";
+    static dictionary dict;
+    if (!dict.size()) {
+        dict[Aquarius] = "Aquarius";
+        dict[Pisces] = "Pisces";
+        dict[Aries] = "Aries";
+        dict[Taurus] = "Taurus";
+        dict[Gemini] = "Gemini";
+        dict[Cancer] = "Cancer";
+        dict[Leo] = "Leo";
+        dict[Virgo] = "Virgo";
+        dict[Libra] = "Libra";
+        dict[Scorpio] = "Scorpio";
+        dict[Sagittarius] = "Sagittarius";
+        dict[Capricorn] = "Capricorn";
+    }
+    std::string result = dict[type()].asString();
+    SCAssert(result.length(), "unknown zodiac type");
+    return result;
 }
     
 };

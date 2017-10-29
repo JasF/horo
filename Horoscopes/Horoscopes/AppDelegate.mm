@@ -48,6 +48,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     strong<horo::Settings> settins = horo::Managers::shared().settings();
     strong<horo::Person> person = settins->currentPerson();
+    horo::Managers::shared().coreComponents()->person_ = person;
     if (person.get()) {
         horo::Managers::shared().screensManager()->showPredictionViewController();
     }

@@ -14,9 +14,12 @@ namespace horo {
                                                        strong<ScreensManager> screensManager)
     : model_(model),
     screensManager_(screensManager) {
-        model_->personGatheredCallback_ = [this]() {
+        model_->personGatheredCallback_ = [this](bool success) {
             if (userLoggedInCallback_) {
-                userLoggedInCallback_();
+                userLoggedInCallback_(success);
+            }
+            if (success) {
+                screensManager_->showPredictionViewController();
             }
         };
     }

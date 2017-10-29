@@ -57,7 +57,9 @@ Managers &Managers::shared() {
     strong<Models> Managers::models() {
         static strong<Models> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new ModelsImpl(coreComponents(), facebookManager());
+            sharedInstance = new ModelsImpl(coreComponents(),
+                                            facebookManager(),
+                                            settings());
         }
         return sharedInstance;
     }

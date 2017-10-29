@@ -20,7 +20,7 @@ namespace horo {
         virtual void continueTapped()=0;
         virtual void loggedInOverFacebook()=0;
         
-        std::function<void()> userLoggedInCallback_ = nullptr;
+        std::function<void(bool success)> userLoggedInCallback_ = nullptr;
     };
     
     typedef reff<_HelloScreenViewModel> HelloScreenViewModel;

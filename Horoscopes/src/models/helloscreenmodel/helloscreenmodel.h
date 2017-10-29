@@ -19,7 +19,7 @@ namespace horo {
         
     public:
         virtual void loginOnFacebook()=0;
-        std::function<void()> personGatheredCallback_ = nullptr;
+        std::function<void(bool success)> personGatheredCallback_ = nullptr;
     };
     
     typedef reff<_HelloScreenModel> HelloScreenModel;

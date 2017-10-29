@@ -11,11 +11,14 @@
 namespace horo {
   
     HelloScreenModelImpl::HelloScreenModelImpl(strong<CoreComponents> components,
-                                               strong<LoginManagerFactory> loginManagerFactory)
+                                               strong<LoginManagerFactory> loginManagerFactory,
+                                               strong<Settings> settings)
     : components_(components)
-    , loginManagerFactory_(loginManagerFactory) {
-        SCParameterAssert(components_);
-        SCParameterAssert(loginManagerFactory_);
+    , loginManagerFactory_(loginManagerFactory)
+    , settings_(settings) {
+        SCParameterAssert(components_.get());
+        SCParameterAssert(loginManagerFactory_.get());
+        SCParameterAssert(settings_.get());
     }
     
     HelloScreenModelImpl::~HelloScreenModelImpl() {
@@ -33,12 +36,14 @@ namespace horo {
             
             if (!person.get()) {
                 if (personGatheredCallback_) {
-                    personGatheredCallback_();
+                    personGatheredCallback_(false);
                 }
                 return;
             }
+            settings_->setCurrentPerson(person);
+            components_->person_ = person;
             if (personGatheredCallback_) {
-                personGatheredCallback_();
+                personGatheredCallback_(true);
             }
         });
     }

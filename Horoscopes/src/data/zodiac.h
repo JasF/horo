@@ -14,7 +14,7 @@
 namespace horo {
   
 enum ZodiacTypes {
-    Unknown=-1,
+    Unknown,
     Aquarius,
     Pisces,
     Aries,
@@ -29,9 +29,27 @@ enum ZodiacTypes {
     Capricorn,
     ZodiacsCount
 };
+    
+enum Months {
+    January = 1,
+    February = 2,
+    March = 3,
+    April = 4,
+    May,
+    June,
+    July,
+    August,
+    September,
+    October,
+    November,
+    December
+};
+    
 class _Zodiac {
 public:
-    _Zodiac(int a):type_(Unknown){}
+    static ZodiacTypes zodiacTypeByDate(Months month, int day, int year); // start from 1 = first day
+public:
+    _Zodiac(int a):type_((ZodiacTypes)a){}
     _Zodiac():type_(Unknown){}
     _Zodiac(ZodiacTypes type) : type_(type) {}
     ~_Zodiac() {}

@@ -14,7 +14,7 @@
 namespace horo {
     class SerializerImpl : public Serializer {
     public:
-        static void setPrivateInstance(strong<Serializer> privateInstance);
+        static void setPrivateInstance(Serializer *privateInstance);
     public:
         SerializerImpl();
         ~SerializerImpl() override;

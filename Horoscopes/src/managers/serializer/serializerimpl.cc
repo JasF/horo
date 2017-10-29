@@ -10,8 +10,8 @@
 
 namespace horo {
   
-    strong<Serializer> g_privateInstance = nullptr;
-    void SerializerImpl::setPrivateInstance(strong<Serializer> privateInstance) {
+    Serializer *g_privateInstance = nullptr;
+    void SerializerImpl::setPrivateInstance(Serializer *privateInstance) {
         g_privateInstance = privateInstance;
     }
 
@@ -24,13 +24,13 @@ namespace horo {
     }
     
     void SerializerImpl::saveString(std::string key, std::string value) {
-        if (g_privateInstance.get()) {
+        if (g_privateInstance) {
             g_privateInstance->saveString(key, value);
         }
     }
     
     std::string SerializerImpl::loadString(std::string key) {
-        if (g_privateInstance.get()) {
+        if (g_privateInstance) {
             return g_privateInstance->loadString(key);
         }
         return "";

@@ -30,6 +30,12 @@
     NSCParameterAssert(_viewModel);
     _loginButton.delegate = self;
     _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
+    @weakify(self);
+    _viewModel->userLoggedInCallback_ = [self_weak_](bool success){
+        @strongify(self);
+        LOG(LS_WARNING) << "User gathered! success: " << success;
+        [self hideProgressHud];
+    };
     // Do any additional setup after loading the view.
 }
 
@@ -81,6 +87,15 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
  */
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
     NSLog(@"DidLogout");
+}
+
+#pragma mark - Private Methods
+- (void)hideProgressHud {
+    
+}
+
+- (void)showProgressHud {
+    
 }
 
 @end

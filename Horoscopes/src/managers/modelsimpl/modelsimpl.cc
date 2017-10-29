@@ -13,10 +13,15 @@
 
 namespace horo {
   
-    ModelsImpl::ModelsImpl(strong<CoreComponents> components, strong<FacebookManager> facebookManager)
+    ModelsImpl::ModelsImpl(strong<CoreComponents> components,
+                           strong<FacebookManager> facebookManager,
+                           strong<Settings> settings)
     : components_(components)
-    , facebookManager_(facebookManager) {
-        
+    , facebookManager_(facebookManager)
+    , settings_(settings) {
+        SCParameterAssert(components_.get());
+        SCParameterAssert(facebookManager_.get());
+        SCParameterAssert(settings_.get());
     }
     
     ModelsImpl::~ModelsImpl() {
@@ -28,7 +33,9 @@ namespace horo {
     }
     
     strong<HelloScreenModel> ModelsImpl::helloScreenModel() {
-        return new HelloScreenModelImpl(components_, new LoginManagerFactoryImpl(facebookManager_));
+        return new HelloScreenModelImpl(components_,
+                                        new LoginManagerFactoryImpl(facebookManager_),
+                                        settings_);
     }
     
 };

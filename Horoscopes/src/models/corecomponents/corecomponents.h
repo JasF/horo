@@ -17,6 +17,8 @@ namespace horo {
   
     class _CoreComponents {
     public:
+        virtual ~_CoreComponents() {}
+        strong<Person> person_;
     };
     
     typedef reff<_CoreComponents> CoreComponents;

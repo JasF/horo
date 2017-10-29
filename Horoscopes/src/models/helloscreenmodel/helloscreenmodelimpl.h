@@ -14,12 +14,14 @@
 #include "helloscreenmodel.h"
 #include "models/corecomponents/corecomponents.h"
 #include "managers/loginmanager/loginmanagerfactory.h"
+#include "managers/settings/settings.h"
 
 namespace horo {
     class HelloScreenModelImpl : public HelloScreenModel {
     public:
         HelloScreenModelImpl(strong<CoreComponents> components,
-                             strong<LoginManagerFactory> loginManagerFactory);
+                             strong<LoginManagerFactory> loginManagerFactory,
+                             strong<Settings> settings);
         ~HelloScreenModelImpl() override;
     public:
         void loginOnFacebook() override;
@@ -28,6 +30,7 @@ namespace horo {
         strong<CoreComponents> components_;
         strong<LoginManagerFactory> loginManagerFactory_;
         strong<LoginManager> loginManager_;
+        strong<Settings> settings_;
     };
 };
 

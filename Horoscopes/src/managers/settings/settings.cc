@@ -45,7 +45,7 @@ namespace horo {
         std::string data = serializer_->loadString(key);
         Json::Reader reader;
         Json::Value result;
-        if (!reader.parse(key, result)) {
+        if (!reader.parse(data, result)) {
             Json::Value empty;
             return empty;
         }
@@ -53,7 +53,7 @@ namespace horo {
     }
     
     void _Settings::saveDictionary(std::string key, dictionary dictionary) {
-        Json::FastWriter writer;
+        Json::StyledWriter writer;
         std::string data = writer.write(dictionary);
         serializer_->saveString(key, data);
     }

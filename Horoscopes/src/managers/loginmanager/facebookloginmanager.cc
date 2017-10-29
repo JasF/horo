@@ -7,6 +7,8 @@
 //
 
 #include "facebookloginmanager.h"
+#include <vector>
+#include <sstream>
 
 namespace horo {
   
@@ -21,25 +23,53 @@ FacebookLoginManager::~FacebookLoginManager() {
     
 }
 
+std::vector<std::string> toVector(std::string string, char delimeter) {
+    std::vector<std::string> array;
+    std::stringstream ss(string);
+    std::string tmp;
+    while(std::getline(ss, tmp, delimeter))
+    {
+        array.push_back(tmp);
+    }
+    return array;
+}
+    
 void FacebookLoginManager::requestUserInformation(std::function<void(strong<Person> person)> callback) {
     facebookManager_->requestPersonalInformation([callback](dictionary data){
         LOG(LS_WARNING) << "FB userInfo: " << data.toStyledString();
         string birthday = data["birthday"].asString();
         // string email = data["email"];
         string name = data["name"].asString();
-        string gender = data["gender"].asString();
+        string genderString = data["gender"].asString();
+        std::vector<std::string> birthdayVector = toVector(birthday, '/');
         
-        if (!birthday.length() || !name.length()) {
+        if (birthdayVector.size() != 3 || !name.length()) {
             if (callback) {
                 callback(nullptr);
             }
             return;
         }
-        // теперь нужно из даты рождения получить знак зодиака
-        //stringByDate
-        //strong<Person> = new Person();
+        int day = std::stoi(birthdayVector[0]);
+        int month = std::stoi(birthdayVector[1]);
+        int year = std::stoi(birthdayVector[2]);
+        
+        ZodiacTypes type = Zodiac::zodiacTypeByDate((Months)month, day, year);
+        
+        if (type == Unknown) {
+            if (callback) {
+                callback(nullptr);
+            }
+            return;
+        }
+        Json::Value genders;
+        genders["male"] = Male;
+        genders["female"] = Female;
+        Gender gender = (Gender)genders[genderString].asInt();
+        
+        strong<Zodiac> zodiac = new Zodiac(type);
+        strong<Person> person = new Person(zodiac, name, gender);
         if (callback) {
-            callback(nullptr);
+            callback(person);
         }
     });
 }

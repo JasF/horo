@@ -18,8 +18,8 @@ namespace horo {
     
     using namespace std;
     
-NetworkingServiceObjc::NetworkingServiceObjc(NetworkingServiceFactory *factory) : factory_(factory) {
-     
+NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> factory) : factory_(factory) {
+    NSCParameterAssert(factory.get());
 }
 
 NetworkingServiceObjc::~NetworkingServiceObjc() {

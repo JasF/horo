@@ -11,15 +11,17 @@
 
 #include "networkingservice.h"
 #include "httpresponse.h"
+#include "base/horobase.h"
 
 namespace horo {
-    
-    class NetworkingServiceFactory {
+    class _NetworkingServiceFactory {
     public:
-        virtual ~NetworkingServiceFactory() {}
+        virtual ~_NetworkingServiceFactory() {}
         virtual NetworkingService *createNetworkingService()=0;
         virtual strong<HttpResponse> createHttpResponse()=0;
     };
+    
+    class NetworkingServiceFactory : public rtc::RefCountedObject<_NetworkingServiceFactory> {};
 };
 
 

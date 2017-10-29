@@ -114,6 +114,7 @@
 		C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */; };
 		C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */; };
 		C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */; };
+		C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18891FA4C2D9006DEDB7 /* zodiac.cc */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
 		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
@@ -520,6 +521,8 @@
 		C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PredictionViewController.mm; sourceTree = "<group>"; };
 		C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PredictionViewController.storyboard; sourceTree = "<group>"; };
 		C30B18831FA4B9F1006DEDB7 /* horoasserts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoasserts.h; sourceTree = "<group>"; };
+		C30B18861FA4C2BF006DEDB7 /* zodiac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zodiac.h; sourceTree = "<group>"; };
+		C30B18891FA4C2D9006DEDB7 /* zodiac.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zodiac.cc; sourceTree = "<group>"; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -976,6 +979,15 @@
 			path = PredictionViewController;
 			sourceTree = "<group>";
 		};
+		C30B18841FA4C285006DEDB7 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C30B18861FA4C2BF006DEDB7 /* zodiac.h */,
+				C30B18891FA4C2D9006DEDB7 /* zodiac.cc */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -1068,6 +1080,7 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C30B18841FA4C285006DEDB7 /* data */,
 				C30B18701FA49DCD006DEDB7 /* viewmodels */,
 				C30B186A1FA49AFF006DEDB7 /* models */,
 				C33B99E31FA46F6E00C0B1C6 /* base */,
@@ -1610,6 +1623,7 @@
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
+				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,

@@ -19,11 +19,60 @@
                     <view key="view" contentMode="scaleToFill" id="gul-Lk-ZSH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-6u-Aw4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kmh-mk-xBG" id="zO6-e6-b7m"/>
+                                    <outlet property="delegate" destination="kmh-mk-xBG" id="UZ1-uu-h7N"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.2256310950310226" blue="0.97119899611398963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2T4-6u-Aw4" secondAttribute="trailing" id="LPR-5v-hLx"/>
+                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="height" secondItem="gul-Lk-ZSH" secondAttribute="height" id="gF1-PO-LwJ"/>
+                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="gMb-45-cnc"/>
+                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="top" secondItem="y0m-NJ-iMr" secondAttribute="bottom" id="ivH-YJ-euU"/>
+                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="leading" secondItem="gul-Lk-ZSH" secondAttribute="leading" id="wkP-do-P4F"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kwh-Hi-CzZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
+                        <outlet property="zodiacLabel" destination="Opt-ec-Fnz" id="G0H-0b-c5n"/>
+                        <outlet property="zodiacTitleCell" destination="fdT-hh-KsN" id="6Py-qM-G6U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQQ-kt-BJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fdT-hh-KsN">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdT-hh-KsN" id="qWq-Gl-Sjp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opt-ec-Fnz">
+                                <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43.5" id="cli-JG-d0r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Opt-ec-Fnz" secondAttribute="bottom" id="TUs-Mr-2O9"/>
+                            <constraint firstItem="Opt-ec-Fnz" firstAttribute="leading" secondItem="qWq-Gl-Sjp" secondAttribute="leading" constant="20" id="qVH-lf-acG"/>
+                            <constraint firstItem="Opt-ec-Fnz" firstAttribute="width" secondItem="qWq-Gl-Sjp" secondAttribute="width" constant="-40" id="yvE-IZ-IOW"/>
+                            <constraint firstItem="Opt-ec-Fnz" firstAttribute="top" secondItem="qWq-Gl-Sjp" secondAttribute="top" id="zBH-l2-TYF"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="-1111" y="-85"/>
         </scene>

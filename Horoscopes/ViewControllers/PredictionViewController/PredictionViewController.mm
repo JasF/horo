@@ -8,8 +8,12 @@
 
 #import "PredictionViewController.h"
 
-@interface PredictionViewController ()
+static CGFloat const kRowHeight = 100;
 
+@interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
+@property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
 @end
 
 @implementation PredictionViewController
@@ -17,7 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
+    _tableView.rowHeight = kRowHeight;
+    _tableView.estimatedRowHeight = kRowHeight;
     _viewModel->didActivated();
+    
+    _zodiacLabel.text = @"some text";
     // Do any additional setup after loading the view.
 }
 
@@ -26,6 +34,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableViewDelegate
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: return self.zodiacTitleCell;
+    }
+    UITableViewCell *cell = [UITableViewCell new];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
 /*
 #pragma mark - Navigation
 

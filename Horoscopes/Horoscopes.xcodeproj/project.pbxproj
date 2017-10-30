@@ -132,6 +132,8 @@
 		C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D71FA375E600C0B1C6 /* AFSecurityPolicy.m */; };
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
+		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
+		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
 		C3B601771FA5DB3300AD4F6D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */; };
 		C3B601781FA5DB3300AD4F6D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */; };
@@ -145,6 +147,27 @@
 		C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601A41FA604E600AD4F6D /* serializerimpl.cc */; };
 		C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */; };
 		C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */; };
+		C3CD7DD91FA6F19F00D2BFF3 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */; };
+		C3CD7DDA1FA6F19F00D2BFF3 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */; };
+		C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */; };
+		C3CD7DDC1FA6F19F00D2BFF3 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD01FA6F19E00D2BFF3 /* GTMSessionFetcher.framework */; };
+		C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3CD7DD21FA6F19E00D2BFF3 /* gRPCCertificates.bundle */; };
+		C3CD7DDE1FA6F19F00D2BFF3 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD31FA6F19E00D2BFF3 /* FirebaseAuth.framework */; };
+		C3CD7DDF1FA6F19F00D2BFF3 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD41FA6F19E00D2BFF3 /* leveldb-library.framework */; };
+		C3CD7DE01FA6F19F00D2BFF3 /* gRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD51FA6F19E00D2BFF3 /* gRPC.framework */; };
+		C3CD7DE11FA6F19F00D2BFF3 /* gRPC-ProtoRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD61FA6F19E00D2BFF3 /* gRPC-ProtoRPC.framework */; };
+		C3CD7DE21FA6F19F00D2BFF3 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD71FA6F19E00D2BFF3 /* BoringSSL.framework */; };
+		C3CD7DE31FA6F19F00D2BFF3 /* gRPC-RxLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD81FA6F19E00D2BFF3 /* gRPC-RxLibrary.framework */; };
+		C3CD7DE61FA6F3D500D2BFF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CD7DE51FA6F3D500D2BFF3 /* GoogleService-Info.plist */; };
+		C3CD7DF21FA6F4E800D2BFF3 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DE81FA6F4E700D2BFF3 /* GTMSessionFetcher.framework */; };
+		C3CD7DF31FA6F4E800D2BFF3 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DE91FA6F4E700D2BFF3 /* FirebaseAuth.framework */; };
+		C3CD7DF41FA6F4E800D2BFF3 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEB1FA6F4E700D2BFF3 /* FirebaseCore.framework */; };
+		C3CD7DF51FA6F4E800D2BFF3 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEC1FA6F4E700D2BFF3 /* FirebaseAnalytics.framework */; };
+		C3CD7DF61FA6F4E800D2BFF3 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DED1FA6F4E700D2BFF3 /* GoogleToolboxForMac.framework */; };
+		C3CD7DF71FA6F4E800D2BFF3 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEE1FA6F4E700D2BFF3 /* nanopb.framework */; };
+		C3CD7DF81FA6F4E800D2BFF3 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEF1FA6F4E700D2BFF3 /* FirebaseNanoPB.framework */; };
+		C3CD7DF91FA6F4E800D2BFF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */; };
+		C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
 /* End PBXBuildFile section */
 
@@ -579,6 +602,7 @@
 		C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
+		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -606,6 +630,30 @@
 		C3B601AE1FA60DBE00AD4F6D /* Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Horo.h"; sourceTree = "<group>"; };
 		C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSDictionary+Horo.mm"; sourceTree = "<group>"; };
+		C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
+		C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
+		C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
+		C3CD7DD01FA6F19E00D2BFF3 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		C3CD7DD21FA6F19E00D2BFF3 /* gRPCCertificates.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = gRPCCertificates.bundle; sourceTree = "<group>"; };
+		C3CD7DD31FA6F19E00D2BFF3 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
+		C3CD7DD41FA6F19E00D2BFF3 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		C3CD7DD51FA6F19E00D2BFF3 /* gRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gRPC.framework; sourceTree = "<group>"; };
+		C3CD7DD61FA6F19E00D2BFF3 /* gRPC-ProtoRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-ProtoRPC.framework"; sourceTree = "<group>"; };
+		C3CD7DD71FA6F19E00D2BFF3 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoringSSL.framework; sourceTree = "<group>"; };
+		C3CD7DD81FA6F19E00D2BFF3 /* gRPC-RxLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-RxLibrary.framework"; sourceTree = "<group>"; };
+		C3CD7DE51FA6F3D500D2BFF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3CD7DE81FA6F4E700D2BFF3 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		C3CD7DE91FA6F4E700D2BFF3 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
+		C3CD7DEB1FA6F4E700D2BFF3 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		C3CD7DEC1FA6F4E700D2BFF3 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		C3CD7DED1FA6F4E700D2BFF3 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		C3CD7DEE1FA6F4E700D2BFF3 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		C3CD7DEF1FA6F4E700D2BFF3 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		C3CD7DFC1FA6F52F00D2BFF3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		C3CD7DFE1FA6F57A00D2BFF3 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		C3D27C971FA309130094BF12 /* managers.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = managers.cc; sourceTree = "<group>"; };
 		C3D27C981FA309130094BF12 /* managers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = managers.h; sourceTree = "<group>"; };
 		C3D27C9C1FA309740094BF12 /* networkingservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservice.h; sourceTree = "<group>"; };
@@ -696,6 +744,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */,
 				C30B183A1FA488A1006DEDB7 /* stringencode.o in Frameworks */,
 				C30B18181FA488A1006DEDB7 /* network.o in Frameworks */,
 				C30B182E1FA488A1006DEDB7 /* signalthread.o in Frameworks */,
@@ -703,24 +752,33 @@
 				C30B18091FA488A1006DEDB7 /* flags.o in Frameworks */,
 				C30B18171FA488A1006DEDB7 /* nethelpers.o in Frameworks */,
 				C30B180A1FA488A1006DEDB7 /* helpers.o in Frameworks */,
+				C3CD7DF61FA6F4E800D2BFF3 /* GoogleToolboxForMac.framework in Frameworks */,
+				C3CD7DF31FA6F4E800D2BFF3 /* FirebaseAuth.framework in Frameworks */,
+				C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */,
 				C30B18281FA488A1006DEDB7 /* rate_limiter.o in Frameworks */,
 				C30B18011FA488A1006DEDB7 /* criticalsection.o in Frameworks */,
 				C30B183F1FA488A1006DEDB7 /* timestampaligner.o in Frameworks */,
+				C3CD7DF71FA6F4E800D2BFF3 /* nanopb.framework in Frameworks */,
 				C3B601781FA5DB3300AD4F6D /* FBSDKLoginKit.framework in Frameworks */,
 				C30B17FB1FA488A1006DEDB7 /* bitrateallocationstrategy.o in Frameworks */,
+				C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */,
 				C30B17F31FA488A1006DEDB7 /* asyncinvoker.o in Frameworks */,
 				C30B18211FA488A1006DEDB7 /* pathutils.o in Frameworks */,
 				C30B18021FA488A1006DEDB7 /* cryptstring.o in Frameworks */,
 				C30B18351FA488A1006DEDB7 /* sslfingerprint.o in Frameworks */,
 				C30B18411FA488A1006DEDB7 /* transformadapter.o in Frameworks */,
+				C3CD7DE21FA6F19F00D2BFF3 /* BoringSSL.framework in Frameworks */,
 				C3B601771FA5DB3300AD4F6D /* FBSDKCoreKit.framework in Frameworks */,
 				C30B18381FA488A1006DEDB7 /* stream.o in Frameworks */,
 				C30B18321FA488A1006DEDB7 /* socketaddresspair.o in Frameworks */,
 				C30B180D1FA488A1006DEDB7 /* httpcommon.o in Frameworks */,
 				C30B18331FA488A1006DEDB7 /* socketstream.o in Frameworks */,
 				C30B18051FA488A1006DEDB7 /* file_posix.o in Frameworks */,
+				C3CD7DD91FA6F19F00D2BFF3 /* Protobuf.framework in Frameworks */,
 				C30B18101FA488A1006DEDB7 /* location.o in Frameworks */,
 				C30B18421FA488A1006DEDB7 /* unixfilesystem.o in Frameworks */,
+				C3CD7DDA1FA6F19F00D2BFF3 /* gRPC-Core.framework in Frameworks */,
 				C30B18161FA488A1006DEDB7 /* messagequeue.o in Frameworks */,
 				C30B180E1FA488A1006DEDB7 /* ifaddrs_converter.o in Frameworks */,
 				C30B17FA1FA488A1006DEDB7 /* bitbuffer.o in Frameworks */,
@@ -728,6 +786,7 @@
 				C30B18221FA488A1006DEDB7 /* physicalsocketserver.o in Frameworks */,
 				C30B181A1FA488A1006DEDB7 /* noop.o in Frameworks */,
 				C30B18261FA488A1006DEDB7 /* race_checker.o in Frameworks */,
+				C3CD7DDF1FA6F19F00D2BFF3 /* leveldb-library.framework in Frameworks */,
 				C30B18041FA488A1006DEDB7 /* event.o in Frameworks */,
 				C30B18131FA488A1006DEDB7 /* macifaddrs_converter.o in Frameworks */,
 				C30B18401FA488A1006DEDB7 /* timeutils.o in Frameworks */,
@@ -738,12 +797,16 @@
 				C30B17F61FA488A1006DEDB7 /* asyncsocket.o in Frameworks */,
 				C30B18241FA488A1006DEDB7 /* platform_thread.o in Frameworks */,
 				C30B18201FA488A1006DEDB7 /* optionsfile.o in Frameworks */,
+				C3CD7DE11FA6F19F00D2BFF3 /* gRPC-ProtoRPC.framework in Frameworks */,
 				C30B17FF1FA488A1006DEDB7 /* copyonwritebuffer.o in Frameworks */,
 				C30B183D1FA488A1006DEDB7 /* thread_darwin.o in Frameworks */,
+				C3CD7DF21FA6F4E800D2BFF3 /* GTMSessionFetcher.framework in Frameworks */,
 				C30B18191FA488A1006DEDB7 /* networkmonitor.o in Frameworks */,
+				C3CD7DF91FA6F4E800D2BFF3 /* FirebaseInstanceID.framework in Frameworks */,
 				C30B181C1FA488A1006DEDB7 /* openssladapter.o in Frameworks */,
 				C30B18071FA488A1006DEDB7 /* filerotatingstream.o in Frameworks */,
 				C30B18311FA488A1006DEDB7 /* socketaddress.o in Frameworks */,
+				C3CD7DE01FA6F19F00D2BFF3 /* gRPC.framework in Frameworks */,
 				C30B18291FA488A1006DEDB7 /* rate_statistics.o in Frameworks */,
 				C30B18121FA488A1006DEDB7 /* logsinks.o in Frameworks */,
 				C30B18141FA488A1006DEDB7 /* messagedigest.o in Frameworks */,
@@ -754,6 +817,7 @@
 				C30B181F1FA488A1006DEDB7 /* opensslstreamadapter.o in Frameworks */,
 				C30B18251FA488A1006DEDB7 /* proxyinfo.o in Frameworks */,
 				C30B181B1FA488A1006DEDB7 /* nullsocketserver.o in Frameworks */,
+				C3CD7DDE1FA6F19F00D2BFF3 /* FirebaseAuth.framework in Frameworks */,
 				C30B182C1FA488A1006DEDB7 /* rtccertificate.o in Frameworks */,
 				C30B18231FA488A1006DEDB7 /* platform_file.o in Frameworks */,
 				C30B183B1FA488A1006DEDB7 /* stringutils.o in Frameworks */,
@@ -771,11 +835,16 @@
 				C30B181D1FA488A1006DEDB7 /* openssldigest.o in Frameworks */,
 				C30B182B1FA488A1006DEDB7 /* ratetracker.o in Frameworks */,
 				C30B17F51FA488A1006DEDB7 /* asyncresolverinterface.o in Frameworks */,
+				C3CD7DF81FA6F4E800D2BFF3 /* FirebaseNanoPB.framework in Frameworks */,
 				C30B182D1FA488A1006DEDB7 /* rtccertificategenerator.o in Frameworks */,
+				C3CD7DF51FA6F4E800D2BFF3 /* FirebaseAnalytics.framework in Frameworks */,
+				C3CD7DE31FA6F19F00D2BFF3 /* gRPC-RxLibrary.framework in Frameworks */,
 				C30B18061FA488A1006DEDB7 /* file.o in Frameworks */,
 				C30B18271FA488A1006DEDB7 /* random.o in Frameworks */,
 				C30B17FD1FA488A1006DEDB7 /* bytebuffer.o in Frameworks */,
+				C3CD7DDC1FA6F19F00D2BFF3 /* GTMSessionFetcher.framework in Frameworks */,
 				C30B17F71FA488A1006DEDB7 /* asynctcpsocket.o in Frameworks */,
+				C3CD7DF41FA6F4E800D2BFF3 /* FirebaseCore.framework in Frameworks */,
 				C30B17F91FA488A1006DEDB7 /* base64.o in Frameworks */,
 				C30B180B1FA488A1006DEDB7 /* histogram_percentile_counter.o in Frameworks */,
 				C30B18001FA488A1006DEDB7 /* crc32.o in Frameworks */,
@@ -796,6 +865,7 @@
 				C3D27C951FA309130094BF12 /* src */,
 				4B0FD36F1FA06C96006378B6 /* Horoscopes */,
 				4B0FD36E1FA06C96006378B6 /* Products */,
+				C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1131,6 +1201,7 @@
 		C33B99CA1FA375E600C0B1C6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C3CD7DCB1FA6F19E00D2BFF3 /* Firebase */,
 				C3B601721FA5DAAC00AD4F6D /* frameworks */,
 				C30B17CF1FA481C2006DEDB7 /* extobjc */,
 				C30B164E1FA47088006DEDB7 /* jsoncpp */,
@@ -1183,6 +1254,7 @@
 		C37C83EE1FA3287500B39948 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3CD7DE41FA6F3BC00D2BFF3 /* plists */,
 				C3D27C9F1FA30D530094BF12 /* webrtc_o */,
 				C30B17F11FA481DA006DEDB7 /* Horoscopes.pch */,
 			);
@@ -1269,6 +1341,84 @@
 				C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		C3CD7DCB1FA6F19E00D2BFF3 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				C3CD7DEA1FA6F4E700D2BFF3 /* Analytics */,
+				C3CD7DE71FA6F4E700D2BFF3 /* Auth */,
+				C3CD7DCC1FA6F19E00D2BFF3 /* Firestore */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		C3CD7DCC1FA6F19E00D2BFF3 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */,
+				C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */,
+				C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */,
+				C3CD7DD01FA6F19E00D2BFF3 /* GTMSessionFetcher.framework */,
+				C3CD7DD11FA6F19E00D2BFF3 /* Resources */,
+				C3CD7DD31FA6F19E00D2BFF3 /* FirebaseAuth.framework */,
+				C3CD7DD41FA6F19E00D2BFF3 /* leveldb-library.framework */,
+				C3CD7DD51FA6F19E00D2BFF3 /* gRPC.framework */,
+				C3CD7DD61FA6F19E00D2BFF3 /* gRPC-ProtoRPC.framework */,
+				C3CD7DD71FA6F19E00D2BFF3 /* BoringSSL.framework */,
+				C3CD7DD81FA6F19E00D2BFF3 /* gRPC-RxLibrary.framework */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		C3CD7DD11FA6F19E00D2BFF3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3CD7DD21FA6F19E00D2BFF3 /* gRPCCertificates.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C3CD7DE41FA6F3BC00D2BFF3 /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				C3CD7DE51FA6F3D500D2BFF3 /* GoogleService-Info.plist */,
+			);
+			path = plists;
+			sourceTree = "<group>";
+		};
+		C3CD7DE71FA6F4E700D2BFF3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C3CD7DE81FA6F4E700D2BFF3 /* GTMSessionFetcher.framework */,
+				C3CD7DE91FA6F4E700D2BFF3 /* FirebaseAuth.framework */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C3CD7DEA1FA6F4E700D2BFF3 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				C3CD7DEB1FA6F4E700D2BFF3 /* FirebaseCore.framework */,
+				C3CD7DEC1FA6F4E700D2BFF3 /* FirebaseAnalytics.framework */,
+				C3CD7DED1FA6F4E700D2BFF3 /* GoogleToolboxForMac.framework */,
+				C3CD7DEE1FA6F4E700D2BFF3 /* nanopb.framework */,
+				C3CD7DEF1FA6F4E700D2BFF3 /* FirebaseNanoPB.framework */,
+				C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */,
+				C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */,
+				C3CD7DFE1FA6F57A00D2BFF3 /* libz.1.1.3.tbd */,
+				C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */,
+				C3CD7DFC1FA6F52F00D2BFF3 /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C3D27C951FA309130094BF12 /* src */ = {
@@ -1785,6 +1935,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
+				C3CD7DE61FA6F3D500D2BFF3 /* GoogleService-Info.plist in Resources */,
+				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
@@ -2011,6 +2163,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
+					"$(PROJECT_DIR)/Components/Firebase/Firestore",
+					"$(PROJECT_DIR)/Components/Firebase/Auth",
+					"$(PROJECT_DIR)/Components/Firebase/Analytics",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
@@ -2021,6 +2176,7 @@
 				);
 				INFOPLIST_FILE = Horoscopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2037,6 +2193,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
+					"$(PROJECT_DIR)/Components/Firebase/Firestore",
+					"$(PROJECT_DIR)/Components/Firebase/Auth",
+					"$(PROJECT_DIR)/Components/Firebase/Analytics",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
@@ -2047,6 +2206,7 @@
 				);
 				INFOPLIST_FILE = Horoscopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

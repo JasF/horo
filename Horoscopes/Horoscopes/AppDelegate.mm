@@ -10,6 +10,7 @@
 #include "managers/managers.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#include <FirebaseCore/FirebaseCore.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FIRApp configure];
     [FBSDKLoginButton class];
     // Override point for customization after application launch.
     [[FBSDKApplicationDelegate sharedInstance] application:application

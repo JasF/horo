@@ -17,6 +17,8 @@ namespace horo {
     class _CollectionReference {
     public:
         virtual ~_CollectionReference() {}
+    public:
+        virtual strong<DocumentReference> documentWithPath(std::string path) = 0;
     };
     
     typedef reff<_CollectionReference> CollectionReference;

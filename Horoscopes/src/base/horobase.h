@@ -29,6 +29,7 @@ namespace horo {
     typedef Json::Value dictionary;
     class error {
     public:
+        error() : code_(0) {}
         error(std::string text) : text_(text), code_(0) { text_ = text;}
         error(int code) : code_(code) {}
         error(string text, int code) : text_(text), code_(code) {}

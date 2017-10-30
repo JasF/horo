@@ -25,7 +25,20 @@ PredictionScreenModelImpl::~PredictionScreenModelImpl() {
 }
     
 void PredictionScreenModelImpl::loadData() {
-    firestore_->collectionWithPath("horoscopes");
+    strong<CollectionReference> collectionReference = firestore_->collectionWithPath("horoscopes");
+    SCParameterAssert(collectionReference.get());
+    if (!collectionReference.get()) {
+        return;
+    }
+    strong<DocumentReference> documentReference = collectionReference->documentWithPath("capricorn");
+    SCParameterAssert(documentReference.get());
+    if (!documentReference.get()) {
+        return;
+    }
+    documentReference->getDocumentWithCompletion([](strong<DocumentSnapshot> snapshot, error err){
+        Json::Value data = snapshot->data();
+        LOG(LS_WARNING) << "received data: " << data.toStyledString();
+    });
 }
 
 std::string PredictionScreenModelImpl::zodiacName() {

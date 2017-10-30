@@ -8,18 +8,15 @@
 
 #include "firestorefactoryimpl.h"
 #include "firestoreimpl.h"
-#include "collectionreferenceimpl.h"
-#include "documentreferenceimpl.h"
-#include "documentsnapshotimpl.h"
 
 namespace horo {
   
     strong<CollectionReference> FirestoreFactoryImpl::createCollectionReference(strong<CollectionReference> otherReference) {
-        return new CollectionReferenceImpl(this);
+        return nullptr;
     }
     
     strong<DocumentReference> FirestoreFactoryImpl::createDocumentReference(strong<DocumentReference> otherReference) {
-        return new DocumentReferenceImpl();
+        return nullptr;
     }
     
     strong<Firestore> FirestoreFactoryImpl::createFirestore() {
@@ -27,7 +24,7 @@ namespace horo {
     }
     
     strong<DocumentSnapshot> FirestoreFactoryImpl::createDocumentSnapshot(strong<DocumentSnapshot> otherReference) {
-        return nullptr;//new DocumentReferenceImpl();
+        return nullptr;
     }
     
 };

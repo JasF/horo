@@ -16,6 +16,8 @@ namespace horo {
     class _DocumentSnapshot {
     public:
         virtual ~_DocumentSnapshot() {}
+    public:
+        virtual Json::Value data() const = 0;
     };
     
     typedef reff<_DocumentSnapshot> DocumentSnapshot;

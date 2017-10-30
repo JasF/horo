@@ -19,6 +19,7 @@
 #include "managers/serializer/serializer.h"
 #include "managers/facebookmanager/facebookmanager.h"
 #include "managers/firestore/firestore.h"
+#include "managers/daofactory/daofactory.h"
 
 namespace horo {
   
@@ -39,6 +40,7 @@ namespace horo {
         strong<Settings> settings();
         strong<FacebookManager> facebookManager();
         strong<Firestore> firestore();
+        strong<DAOFactory> daoFactory();
     };
     
 };

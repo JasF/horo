@@ -15,6 +15,8 @@
 #include "managers/facebookmanager/facebookmanagerimpl.h"
 #include "managers/firestore/firestoreimpl.h"
 #include "managers/firestore/firestorefactoryimpl.h"
+#include "managers/daofactory/daofactoryimpl.h"
+#include "database/databaseimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -123,6 +125,15 @@ Managers &Managers::shared() {
         }
         return sharedInstance;
     }
+    
+    strong<DAOFactory> Managers::daoFactory() {
+        static strong<DAOFactory> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new DAOFactoryImpl(new DatabaseImpl("offline.sql"));
+        }
+        return sharedInstance;
+    }
+    
 };
 
 

@@ -13,6 +13,12 @@
 		4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3791FA06C96006378B6 /* Assets.xcassets */; };
 		4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */; };
 		4B0FD3801FA06C96006378B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD37F1FA06C96006378B6 /* main.m */; };
+		C30409451FA77F0700A0FC33 /* horoscopedaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409441FA77F0700A0FC33 /* horoscopedaoimpl.cc */; };
+		C304094A1FA77F6600A0FC33 /* horoscopedto.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409491FA77F6600A0FC33 /* horoscopedto.cc */; };
+		C30409511FA7802B00A0FC33 /* daofactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409501FA7802B00A0FC33 /* daofactoryimpl.cc */; };
+		C30409731FA7870100A0FC33 /* DatabaseObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30409721FA7870100A0FC33 /* DatabaseObjc.mm */; };
+		C304097A1FA7874A00A0FC33 /* databaseimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409791FA7874900A0FC33 /* databaseimpl.cc */; };
+		C304097C1FA789B600A0FC33 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C304097B1FA789B600A0FC33 /* FMDB.framework */; };
 		C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B165B1FA4746F006DEDB7 /* HttpResponseObjc.mm */; };
 		C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16781FA476CA006DEDB7 /* json_reader.cpp */; };
 		C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16791FA476CA006DEDB7 /* json_value.cpp */; };
@@ -185,6 +191,20 @@
 		4B0FD37C1FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B0FD37E1FA06C96006378B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B0FD37F1FA06C96006378B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C30409401FA77EE100A0FC33 /* horoscopedao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopedao.h; sourceTree = "<group>"; };
+		C30409411FA77EF500A0FC33 /* horoscopedaoimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopedaoimpl.h; sourceTree = "<group>"; };
+		C30409441FA77F0700A0FC33 /* horoscopedaoimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopedaoimpl.cc; sourceTree = "<group>"; };
+		C30409461FA77F5400A0FC33 /* horoscopedto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopedto.h; sourceTree = "<group>"; };
+		C30409491FA77F6600A0FC33 /* horoscopedto.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopedto.cc; sourceTree = "<group>"; };
+		C304094C1FA7801200A0FC33 /* daofactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = daofactory.h; sourceTree = "<group>"; };
+		C304094D1FA7801C00A0FC33 /* daofactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = daofactoryimpl.h; sourceTree = "<group>"; };
+		C30409501FA7802B00A0FC33 /* daofactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = daofactoryimpl.cc; sourceTree = "<group>"; };
+		C304096D1FA7868300A0FC33 /* database.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
+		C304096F1FA786EA00A0FC33 /* DatabaseObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseObjc.h; sourceTree = "<group>"; };
+		C30409721FA7870100A0FC33 /* DatabaseObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DatabaseObjc.mm; sourceTree = "<group>"; };
+		C30409761FA7873B00A0FC33 /* databaseimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = databaseimpl.h; sourceTree = "<group>"; };
+		C30409791FA7874900A0FC33 /* databaseimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseimpl.cc; sourceTree = "<group>"; };
+		C304097B1FA789B600A0FC33 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FMDB.framework; sourceTree = "<group>"; };
 		C30B16581FA4725C006DEDB7 /* httpresponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = httpresponse.h; sourceTree = "<group>"; };
 		C30B165A1FA4746F006DEDB7 /* HttpResponseObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpResponseObjc.h; sourceTree = "<group>"; };
 		C30B165B1FA4746F006DEDB7 /* HttpResponseObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HttpResponseObjc.mm; sourceTree = "<group>"; };
@@ -861,6 +881,7 @@
 				C3CD7DF41FA6F4E800D2BFF3 /* FirebaseCore.framework in Frameworks */,
 				C30B17F91FA488A1006DEDB7 /* base64.o in Frameworks */,
 				C30B180B1FA488A1006DEDB7 /* histogram_percentile_counter.o in Frameworks */,
+				C304097C1FA789B600A0FC33 /* FMDB.framework in Frameworks */,
 				C30B18001FA488A1006DEDB7 /* crc32.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,6 +926,45 @@
 				4B0FD37F1FA06C96006378B6 /* main.m */,
 			);
 			path = Horoscopes;
+			sourceTree = "<group>";
+		};
+		C304093F1FA77EBB00A0FC33 /* horoscopedao */ = {
+			isa = PBXGroup;
+			children = (
+				C30409401FA77EE100A0FC33 /* horoscopedao.h */,
+				C30409411FA77EF500A0FC33 /* horoscopedaoimpl.h */,
+				C30409441FA77F0700A0FC33 /* horoscopedaoimpl.cc */,
+			);
+			path = horoscopedao;
+			sourceTree = "<group>";
+		};
+		C304094B1FA7800300A0FC33 /* daofactory */ = {
+			isa = PBXGroup;
+			children = (
+				C304094C1FA7801200A0FC33 /* daofactory.h */,
+				C304094D1FA7801C00A0FC33 /* daofactoryimpl.h */,
+				C30409501FA7802B00A0FC33 /* daofactoryimpl.cc */,
+			);
+			path = daofactory;
+			sourceTree = "<group>";
+		};
+		C304096B1FA7864900A0FC33 /* database */ = {
+			isa = PBXGroup;
+			children = (
+				C304096D1FA7868300A0FC33 /* database.h */,
+				C30409761FA7873B00A0FC33 /* databaseimpl.h */,
+				C30409791FA7874900A0FC33 /* databaseimpl.cc */,
+			);
+			path = database;
+			sourceTree = "<group>";
+		};
+		C304096E1FA786DA00A0FC33 /* DatabaseObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C304096F1FA786EA00A0FC33 /* DatabaseObjc.h */,
+				C30409721FA7870100A0FC33 /* DatabaseObjc.mm */,
+			);
+			path = DatabaseObjc;
 			sourceTree = "<group>";
 		};
 		C30B164E1FA47088006DEDB7 /* jsoncpp */ = {
@@ -1137,6 +1197,8 @@
 				C30B18891FA4C2D9006DEDB7 /* zodiac.cc */,
 				C30B18A11FA5D14B006DEDB7 /* person.h */,
 				C30B18A41FA5D15F006DEDB7 /* person.cc */,
+				C30409461FA77F5400A0FC33 /* horoscopedto.h */,
+				C30409491FA77F6600A0FC33 /* horoscopedto.cc */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1183,6 +1245,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C304096E1FA786DA00A0FC33 /* DatabaseObjc */,
 				C3817DFF1FA70CCF00447155 /* FirestoreObjc */,
 				C3B601A71FA6059400AD4F6D /* SerializerObjc */,
 				C3B6018F1FA5F75500AD4F6D /* FacebookManagerObjc */,
@@ -1305,6 +1368,7 @@
 		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C304097B1FA789B600A0FC33 /* FMDB.framework */,
 				C3B601791FA5E10D00AD4F6D /* Bolts.framework */,
 				C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */,
 				C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */,
@@ -1464,6 +1528,7 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C304096B1FA7864900A0FC33 /* database */,
 				C30B18841FA4C285006DEDB7 /* data */,
 				C30B18701FA49DCD006DEDB7 /* viewmodels */,
 				C30B186A1FA49AFF006DEDB7 /* models */,
@@ -1477,6 +1542,8 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C304094B1FA7800300A0FC33 /* daofactory */,
+				C304093F1FA77EBB00A0FC33 /* horoscopedao */,
 				C3817DE01FA7051700447155 /* firestore */,
 				C3B601A01FA6049900AD4F6D /* serializer */,
 				C3B601991FA6006B00AD4F6D /* settings */,
@@ -2010,6 +2077,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
+				C30409451FA77F0700A0FC33 /* horoscopedaoimpl.cc in Sources */,
 				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
 				C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
@@ -2019,6 +2087,8 @@
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
+				C30409511FA7802B00A0FC33 /* daofactoryimpl.cc in Sources */,
+				C304097A1FA7874A00A0FC33 /* databaseimpl.cc in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
@@ -2035,9 +2105,11 @@
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
 				C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
+				C30409731FA7870100A0FC33 /* DatabaseObjc.mm in Sources */,
 				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
 				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
+				C304094A1FA77F6600A0FC33 /* horoscopedto.cc in Sources */,
 				C30B18981FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc in Sources */,
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
 				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,

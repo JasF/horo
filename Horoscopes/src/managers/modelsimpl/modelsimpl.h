@@ -13,6 +13,7 @@
 #include "models/corecomponents/corecomponents.h"
 #include "managers/facebookmanager/facebookmanager.h"
 #include "managers/settings/settings.h"
+#include "managers/firestore/firestore.h"
 
 namespace horo {
   
@@ -20,7 +21,8 @@ namespace horo {
     public:
         ModelsImpl(strong<CoreComponents> components,
                    strong<FacebookManager> facebookManager,
-                   strong<Settings> settings);
+                   strong<Settings> settings,
+                   strong<Firestore> firestore);
         ~ModelsImpl() override;
     public:
         strong<PredictionScreenModel> predictionScreenModel() override;
@@ -30,6 +32,7 @@ namespace horo {
         strong<CoreComponents> components_;
         strong<FacebookManager> facebookManager_;
         strong<Settings> settings_;
+        strong<Firestore> firestore_;
     };
     
 };

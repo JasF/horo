@@ -10,10 +10,14 @@
 
 namespace horo {
     
-PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> components)
-    : components_(components) {
-        SCParameterAssert(components_);
+PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> components,
+                                                     strong<Firestore> firestore)
+    : components_(components)
+    , firestore_(firestore) {
+        SCParameterAssert(components_.get());
+        SCParameterAssert(firestore_.get());
         person_ = components_->person_;
+        loadData();
 }
     
 PredictionScreenModelImpl::~PredictionScreenModelImpl() {
@@ -21,7 +25,7 @@ PredictionScreenModelImpl::~PredictionScreenModelImpl() {
 }
     
 void PredictionScreenModelImpl::loadData() {
-    
+    firestore_->collectionWithPath("horoscopes");
 }
 
 std::string PredictionScreenModelImpl::zodiacName() {

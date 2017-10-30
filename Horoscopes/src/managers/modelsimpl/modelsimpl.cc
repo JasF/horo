@@ -15,13 +15,16 @@ namespace horo {
   
     ModelsImpl::ModelsImpl(strong<CoreComponents> components,
                            strong<FacebookManager> facebookManager,
-                           strong<Settings> settings)
+                           strong<Settings> settings,
+                           strong<Firestore> firestore)
     : components_(components)
     , facebookManager_(facebookManager)
-    , settings_(settings) {
+    , settings_(settings)
+    , firestore_(firestore) {
         SCParameterAssert(components_.get());
         SCParameterAssert(facebookManager_.get());
         SCParameterAssert(settings_.get());
+        SCParameterAssert(firestore_.get());
     }
     
     ModelsImpl::~ModelsImpl() {
@@ -29,7 +32,7 @@ namespace horo {
     }
     
     strong<PredictionScreenModel> ModelsImpl::predictionScreenModel() {
-        return new PredictionScreenModelImpl(components_);
+        return new PredictionScreenModelImpl(components_, firestore_);
     }
     
     strong<HelloScreenModel> ModelsImpl::helloScreenModel() {

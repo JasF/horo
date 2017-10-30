@@ -13,6 +13,8 @@
 #include "screensmanager/screensmanagerimpl.h"
 #include "managers/serializer/serializerimpl.h"
 #include "managers/facebookmanager/facebookmanagerimpl.h"
+#include "managers/firestore/firestoreimpl.h"
+#include "managers/firestore/firestorefactoryimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -59,7 +61,8 @@ Managers &Managers::shared() {
         if (!sharedInstance) {
             sharedInstance = new ModelsImpl(coreComponents(),
                                             facebookManager(),
-                                            settings());
+                                            settings(),
+                                            firestore());
         }
         return sharedInstance;
     }
@@ -101,6 +104,22 @@ Managers &Managers::shared() {
         static strong<FacebookManager> sharedInstance = nullptr;
         if (!sharedInstance) {
             sharedInstance = new FacebookManagerImpl();
+        }
+        return sharedInstance;
+    }
+    
+    strong<FirestoreFactory> firestoreFactory() {
+        static strong<FirestoreFactory> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new FirestoreFactoryImpl();
+        }
+        return sharedInstance;
+    }
+    
+    strong<Firestore> Managers::firestore() {
+        static strong<Firestore> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = firestoreFactory()->createFirestore();
         }
         return sharedInstance;
     }

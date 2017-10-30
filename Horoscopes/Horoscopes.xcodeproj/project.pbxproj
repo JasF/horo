@@ -134,6 +134,13 @@
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
+		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
+		C3817DEC1FA705FF00447155 /* collectionreferenceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DEB1FA705FF00447155 /* collectionreferenceimpl.cc */; };
+		C3817DF21FA7063E00447155 /* documentreferenceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF11FA7063E00447155 /* documentreferenceimpl.cc */; };
+		C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */; };
+		C3817DFE1FA70AF400447155 /* documentsnapshotimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DFD1FA70AF300447155 /* documentsnapshotimpl.cc */; };
+		C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3817E031FA70CFC00447155 /* FirestoreObjc.mm */; };
+		C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3817E051FA70F7500447155 /* GoogleService-Info.plist */; };
 		C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
 		C3B601771FA5DB3300AD4F6D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */; };
 		C3B601781FA5DB3300AD4F6D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */; };
@@ -158,7 +165,6 @@
 		C3CD7DE11FA6F19F00D2BFF3 /* gRPC-ProtoRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD61FA6F19E00D2BFF3 /* gRPC-ProtoRPC.framework */; };
 		C3CD7DE21FA6F19F00D2BFF3 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD71FA6F19E00D2BFF3 /* BoringSSL.framework */; };
 		C3CD7DE31FA6F19F00D2BFF3 /* gRPC-RxLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD81FA6F19E00D2BFF3 /* gRPC-RxLibrary.framework */; };
-		C3CD7DE61FA6F3D500D2BFF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CD7DE51FA6F3D500D2BFF3 /* GoogleService-Info.plist */; };
 		C3CD7DF21FA6F4E800D2BFF3 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DE81FA6F4E700D2BFF3 /* GTMSessionFetcher.framework */; };
 		C3CD7DF31FA6F4E800D2BFF3 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DE91FA6F4E700D2BFF3 /* FirebaseAuth.framework */; };
 		C3CD7DF41FA6F4E800D2BFF3 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEB1FA6F4E700D2BFF3 /* FirebaseCore.framework */; };
@@ -603,6 +609,24 @@
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C3817DE11FA7053000447155 /* firestore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestore.h; sourceTree = "<group>"; };
+		C3817DE21FA7053C00447155 /* firestoreimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestoreimpl.h; sourceTree = "<group>"; };
+		C3817DE51FA7055200447155 /* firestoreimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = firestoreimpl.cc; sourceTree = "<group>"; };
+		C3817DE71FA705D400447155 /* collectionreference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = collectionreference.h; sourceTree = "<group>"; };
+		C3817DE81FA705E900447155 /* collectionreferenceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = collectionreferenceimpl.h; sourceTree = "<group>"; };
+		C3817DEB1FA705FF00447155 /* collectionreferenceimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collectionreferenceimpl.cc; sourceTree = "<group>"; };
+		C3817DED1FA7061C00447155 /* documentreference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = documentreference.h; sourceTree = "<group>"; };
+		C3817DEE1FA7062C00447155 /* documentreferenceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = documentreferenceimpl.h; sourceTree = "<group>"; };
+		C3817DF11FA7063E00447155 /* documentreferenceimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = documentreferenceimpl.cc; sourceTree = "<group>"; };
+		C3817DF31FA7088F00447155 /* firestorefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestorefactory.h; sourceTree = "<group>"; };
+		C3817DF41FA7089B00447155 /* firestorefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestorefactoryimpl.h; sourceTree = "<group>"; };
+		C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = firestorefactoryimpl.cc; sourceTree = "<group>"; };
+		C3817DF91FA70AD300447155 /* documentsnapshot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = documentsnapshot.h; sourceTree = "<group>"; };
+		C3817DFA1FA70AE000447155 /* documentsnapshotimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = documentsnapshotimpl.h; sourceTree = "<group>"; };
+		C3817DFD1FA70AF300447155 /* documentsnapshotimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = documentsnapshotimpl.cc; sourceTree = "<group>"; };
+		C3817E001FA70CEA00447155 /* FirestoreObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirestoreObjc.h; sourceTree = "<group>"; };
+		C3817E031FA70CFC00447155 /* FirestoreObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirestoreObjc.mm; sourceTree = "<group>"; };
+		C3817E051FA70F7500447155 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/plists/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -641,7 +665,6 @@
 		C3CD7DD61FA6F19E00D2BFF3 /* gRPC-ProtoRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-ProtoRPC.framework"; sourceTree = "<group>"; };
 		C3CD7DD71FA6F19E00D2BFF3 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoringSSL.framework; sourceTree = "<group>"; };
 		C3CD7DD81FA6F19E00D2BFF3 /* gRPC-RxLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-RxLibrary.framework"; sourceTree = "<group>"; };
-		C3CD7DE51FA6F3D500D2BFF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3CD7DE81FA6F4E700D2BFF3 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		C3CD7DE91FA6F4E700D2BFF3 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
 		C3CD7DEB1FA6F4E700D2BFF3 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
@@ -1169,6 +1192,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C3817DFF1FA70CCF00447155 /* FirestoreObjc */,
 				C3B601A71FA6059400AD4F6D /* SerializerObjc */,
 				C3B6018F1FA5F75500AD4F6D /* FacebookManagerObjc */,
 				C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */,
@@ -1260,6 +1284,37 @@
 			);
 			name = "Supporting Files";
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C3817DE01FA7051700447155 /* firestore */ = {
+			isa = PBXGroup;
+			children = (
+				C3817DE11FA7053000447155 /* firestore.h */,
+				C3817DE21FA7053C00447155 /* firestoreimpl.h */,
+				C3817DE51FA7055200447155 /* firestoreimpl.cc */,
+				C3817DE71FA705D400447155 /* collectionreference.h */,
+				C3817DE81FA705E900447155 /* collectionreferenceimpl.h */,
+				C3817DEB1FA705FF00447155 /* collectionreferenceimpl.cc */,
+				C3817DED1FA7061C00447155 /* documentreference.h */,
+				C3817DEE1FA7062C00447155 /* documentreferenceimpl.h */,
+				C3817DF11FA7063E00447155 /* documentreferenceimpl.cc */,
+				C3817DF31FA7088F00447155 /* firestorefactory.h */,
+				C3817DF41FA7089B00447155 /* firestorefactoryimpl.h */,
+				C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */,
+				C3817DF91FA70AD300447155 /* documentsnapshot.h */,
+				C3817DFA1FA70AE000447155 /* documentsnapshotimpl.h */,
+				C3817DFD1FA70AF300447155 /* documentsnapshotimpl.cc */,
+			);
+			path = firestore;
+			sourceTree = "<group>";
+		};
+		C3817DFF1FA70CCF00447155 /* FirestoreObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3817E031FA70CFC00447155 /* FirestoreObjc.mm */,
+				C3817E001FA70CEA00447155 /* FirestoreObjc.h */,
+			);
+			path = FirestoreObjc;
 			sourceTree = "<group>";
 		};
 		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
@@ -1382,7 +1437,7 @@
 		C3CD7DE41FA6F3BC00D2BFF3 /* plists */ = {
 			isa = PBXGroup;
 			children = (
-				C3CD7DE51FA6F3D500D2BFF3 /* GoogleService-Info.plist */,
+				C3817E051FA70F7500447155 /* GoogleService-Info.plist */,
 			);
 			path = plists;
 			sourceTree = "<group>";
@@ -1437,6 +1492,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3817DE01FA7051700447155 /* firestore */,
 				C3B601A01FA6049900AD4F6D /* serializer */,
 				C3B601991FA6006B00AD4F6D /* settings */,
 				C3B601881FA5F5F500AD4F6D /* facebookmanager */,
@@ -1935,7 +1991,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
-				C3CD7DE61FA6F3D500D2BFF3 /* GoogleService-Info.plist in Resources */,
+				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
@@ -1972,10 +2028,12 @@
 				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
 				C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
+				C3817DFE1FA70AF400447155 /* documentsnapshotimpl.cc in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
+				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
@@ -2004,11 +2062,15 @@
 				C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */,
 				C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
+				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
+				C3817DEC1FA705FF00447155 /* collectionreferenceimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
+				C3817DF21FA7063E00447155 /* documentreferenceimpl.cc in Sources */,
+				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
 				C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */,
 				C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */,

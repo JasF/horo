@@ -18,6 +18,7 @@
 #include "managers/settings/settings.h"
 #include "managers/serializer/serializer.h"
 #include "managers/facebookmanager/facebookmanager.h"
+#include "managers/firestore/firestore.h"
 
 namespace horo {
   
@@ -37,6 +38,7 @@ namespace horo {
         strong<Serializer> serializer();
         strong<Settings> settings();
         strong<FacebookManager> facebookManager();
+        strong<Firestore> firestore();
     };
     
 };

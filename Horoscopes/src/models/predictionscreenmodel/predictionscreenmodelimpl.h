@@ -14,14 +14,14 @@
 #include "predictionscreenmodel.h"
 #include "models/corecomponents/corecomponents.h"
 #include "data/person.h"
-#include "managers/firestore/firestore.h"
+#include "managers/horoscopesservice/horoscopesservice.h"
 
 namespace horo {
   
     class PredictionScreenModelImpl : public PredictionScreenModel {
     public:
         PredictionScreenModelImpl(strong<CoreComponents> components,
-                                  strong<Firestore> firestore);
+                                  strong<HoroscopesService> horoscopesService);
         ~PredictionScreenModelImpl() override;
     public:
         void loadData() override;
@@ -31,7 +31,7 @@ namespace horo {
     private:
         strong<CoreComponents> components_;
         strong<Person> person_;
-        strong<Firestore> firestore_;
+        strong<HoroscopesService> horoscopesService_;
     };
     
 };

@@ -17,7 +17,7 @@ void NetworkingServiceFactoryImpl::setPrivateInstance(NetworkingServiceFactory *
     privateInstance = instance;
 }
 
-NetworkingService *NetworkingServiceFactoryImpl::createNetworkingService() {
+strong<NetworkingService> NetworkingServiceFactoryImpl::createNetworkingService() {
     if (privateInstance) {
         return privateInstance->createNetworkingService();
     }

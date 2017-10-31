@@ -7,3 +7,21 @@
 //
 
 #include "horoscopedto.h"
+
+namespace horo {
+  
+    void _HoroscopeDTO::encode(Json::Value &coder) {
+        coder["type"] = type_;
+        coder["content"] = content_;
+        coder["date"] = date_;
+        coder["zodiac"] = zodiac_;
+    }
+    
+    void _HoroscopeDTO::decode(Json::Value &coder) {
+        type_ = (HoroscopeType) coder["type"].asInt();
+        content_= coder["content"].asString();
+        date_ = coder["date"].asInt();
+        zodiac_ = (ZodiacTypes) coder["zodiac"].asInt();
+    }
+    
+};

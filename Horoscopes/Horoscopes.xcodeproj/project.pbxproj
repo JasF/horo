@@ -144,6 +144,8 @@
 		C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */; };
 		C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3817E031FA70CFC00447155 /* FirestoreObjc.mm */; };
 		C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3817E051FA70F7500447155 /* GoogleService-Info.plist */; };
+		C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */; };
+		C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */; };
 		C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
 		C3B601771FA5DB3300AD4F6D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */; };
 		C3B601781FA5DB3300AD4F6D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */; };
@@ -638,6 +640,12 @@
 		C3817E001FA70CEA00447155 /* FirestoreObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirestoreObjc.h; sourceTree = "<group>"; };
 		C3817E031FA70CFC00447155 /* FirestoreObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirestoreObjc.mm; sourceTree = "<group>"; };
 		C3817E051FA70F7500447155 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/plists/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C3B3AA8B1FA83B5A00D74180 /* horoscopesservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesservice.h; sourceTree = "<group>"; };
+		C3B3AA8C1FA83B6C00D74180 /* horoscopesserviceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesserviceimpl.h; sourceTree = "<group>"; };
+		C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopesserviceimpl.cc; sourceTree = "<group>"; };
+		C3B3AA931FA84DC100D74180 /* horoscopesparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesparser.h; sourceTree = "<group>"; };
+		C3B3AA941FA84DCE00D74180 /* horoscopesparserimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesparserimpl.h; sourceTree = "<group>"; };
+		C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopesparserimpl.cc; sourceTree = "<group>"; };
 		C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -1365,6 +1373,26 @@
 			path = FirestoreObjc;
 			sourceTree = "<group>";
 		};
+		C3B3AA8A1FA83B0200D74180 /* horoscopesservice */ = {
+			isa = PBXGroup;
+			children = (
+				C3B3AA8B1FA83B5A00D74180 /* horoscopesservice.h */,
+				C3B3AA8C1FA83B6C00D74180 /* horoscopesserviceimpl.h */,
+				C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */,
+			);
+			path = horoscopesservice;
+			sourceTree = "<group>";
+		};
+		C3B3AA921FA84DAF00D74180 /* horoscopesparser */ = {
+			isa = PBXGroup;
+			children = (
+				C3B3AA931FA84DC100D74180 /* horoscopesparser.h */,
+				C3B3AA941FA84DCE00D74180 /* horoscopesparserimpl.h */,
+				C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */,
+			);
+			path = horoscopesparser;
+			sourceTree = "<group>";
+		};
 		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1542,6 +1570,8 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3B3AA921FA84DAF00D74180 /* horoscopesparser */,
+				C3B3AA8A1FA83B0200D74180 /* horoscopesservice */,
 				C304094B1FA7800300A0FC33 /* daofactory */,
 				C304093F1FA77EBB00A0FC33 /* horoscopedao */,
 				C3817DE01FA7051700447155 /* firestore */,
@@ -2083,6 +2113,7 @@
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
+				C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */,
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
@@ -2119,6 +2150,7 @@
 				C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
 				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
+				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,

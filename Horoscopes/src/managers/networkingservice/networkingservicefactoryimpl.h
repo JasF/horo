@@ -23,7 +23,7 @@ public:
     NetworkingServiceFactoryImpl();
     ~NetworkingServiceFactoryImpl() override;
 public: //abs
-    NetworkingService *createNetworkingService() override;
+    strong<NetworkingService> createNetworkingService() override;
     strong<HttpResponse> createHttpResponse() override;
 };
     

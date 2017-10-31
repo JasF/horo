@@ -9,13 +9,38 @@
 #ifndef horoscopedto_h
 #define horoscopedto_h
 
-#include "base/horobase.h"
+#include "base/coding.h"
+#include "zodiac.h"
 
 namespace horo {
-    class _HoroscopeDTO {
+    
+    enum HoroscopeType {
+        HoroscopeDay,
+        HoroscopeWeek,
+        HoroscopeMonth,
+        HoroscopeYear
+    };
+    
+    class _HoroscopeDTO : public Coding {
     public:
         virtual ~_HoroscopeDTO() {}
         
+    public:
+        void encode(Json::Value &coder) override;
+        void decode(Json::Value &coder) override;
+        
+        
+    public:
+        ZodiacTypes zodiac() const { return zodiac_; }
+        HoroscopeType type() const { return type_; }
+        std::string content() const { return content_; }
+        uint64_t date() const { return date_; }
+        
+    private:
+        ZodiacTypes zodiac_;
+        HoroscopeType type_;
+        std::string content_;
+        uint64_t date_;
     };
     
     typedef reff<_HoroscopeDTO> HoroscopeDTO;

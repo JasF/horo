@@ -9,11 +9,28 @@
 #import "DatabaseObjc.h"
 #include "database/databaseimpl.h"
 #import <FMDB/FMDatabase.h>
+#include "../../../Categories/NSDictionary+Horo.h"
 
 namespace horo {
   
-    class DatabaseObjc : public Database
-    , public DatabaseImplPrivate {
+    class DatabaseObjcImpl :  public Database {
+    public:
+        DatabaseObjcImpl(std::string path) :db_([FMDatabase databaseWithPath:[[NSString alloc] initWithUTF8String:path.c_str()]]) {
+            SCParameterAssert(db_);
+        }
+        ~DatabaseObjcImpl() override {}
+    public:
+        bool executeUpdate(std::string query, Json::Value parameters) override {
+            NSString *queryString = [[NSString alloc] initWithUTF8String:query.c_str()];
+            NSDictionary *dictionary = [NSDictionary horo_dictionaryFromJsonValue:parameters];
+            bool result = [db_ executeUpdate:queryString withParameterDictionary:dictionary];
+            return result;
+        }
+    private:
+        FMDatabase *db_;
+    };
+    
+    class DatabaseObjc : public DatabaseImplPrivate {
     public:
         DatabaseObjc(){}
         ~DatabaseObjc() override {}
@@ -25,13 +42,9 @@ namespace horo {
             return staticInstance;
         }
         
-        void execute(std::string query, Json::Value parameters) override {
-            
-        }
         
-        
-        Database *createDatabase(std::string path) {
-            return nullptr;
+        Database *createDatabase(std::string path) override {
+            return new DatabaseObjcImpl(path);
         }
     };
 };

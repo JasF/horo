@@ -26,7 +26,7 @@ namespace horo {
         DatabaseImpl(std::string path);
         ~DatabaseImpl() override {}
     public:
-        void execute(std::string query, Json::Value parameters) override;
+        bool executeUpdate(std::string query, Json::Value parameters) override;
         
     private:
         strong<Database> p_;

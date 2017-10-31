@@ -17,6 +17,8 @@
 #include "managers/firestore/firestorefactoryimpl.h"
 #include "managers/daofactory/daofactoryimpl.h"
 #include "database/databaseimpl.h"
+#include "managers/horoscopesservice/horoscopesserviceimpl.h"
+#include "managers/horoscopesparser/horoscopesparserimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -64,7 +66,8 @@ Managers &Managers::shared() {
             sharedInstance = new ModelsImpl(coreComponents(),
                                             facebookManager(),
                                             settings(),
-                                            firestore());
+                                            firestore(),
+                                            horoscopesService());
         }
         return sharedInstance;
     }
@@ -134,6 +137,19 @@ Managers &Managers::shared() {
         return sharedInstance;
     }
     
+    strong<HoroscopesService> Managers::horoscopesService() {
+        static strong<HoroscopesService> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new HoroscopesServiceImpl(firestore(), horoscopesParser(), daoFactory()->createHoroscopeDAO());
+        }
+        return sharedInstance;
+    }
+    
+    strong<HoroscopesParser> Managers::horoscopesParser() {
+        static strong<HoroscopesParser> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new HoroscopesParserImpl();
+        }
+        return sharedInstance;
+    }
 };
-
-

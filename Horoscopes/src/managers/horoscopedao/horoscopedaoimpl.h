@@ -20,9 +20,9 @@ namespace horo {
         }
         ~HoroscopeDAOImpl() override {}
     public:
-        void writeHoroscope(strong<HoroscopeDTO> horoscope) override;
+        bool writeHoroscope(strong<HoroscopeDTO> horoscope) override;
         strong<HoroscopeDTO> readHoroscope(uint64_t date, HoroscopeType type) override;
-        
+        void create() override;
     private:
         strong<Database> database_;
     };

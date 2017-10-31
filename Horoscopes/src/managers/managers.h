@@ -20,6 +20,8 @@
 #include "managers/facebookmanager/facebookmanager.h"
 #include "managers/firestore/firestore.h"
 #include "managers/daofactory/daofactory.h"
+#include "managers/horoscopesservice/horoscopesservice.h"
+#include "managers/horoscopesparser/horoscopesparser.h"
 
 namespace horo {
   
@@ -41,6 +43,8 @@ namespace horo {
         strong<FacebookManager> facebookManager();
         strong<Firestore> firestore();
         strong<DAOFactory> daoFactory();
+        strong<HoroscopesService> horoscopesService();
+        strong<HoroscopesParser> horoscopesParser();
     };
     
 };

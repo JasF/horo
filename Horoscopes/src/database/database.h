@@ -15,7 +15,7 @@ namespace horo {
     class _Database {
     public:
         virtual ~_Database() {}
-        virtual void execute(std::string query, Json::Value parameters) = 0;
+        virtual bool executeUpdate(std::string query, Json::Value parameters = Json::Value()) = 0;
     };
     
     typedef reff<_Database> Database;

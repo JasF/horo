@@ -17,7 +17,7 @@ namespace horo {
         NetworkingServiceFactoryObjc() {}
         virtual ~NetworkingServiceFactoryObjc() {}
         
-        virtual NetworkingService *createNetworkingService(){
+        virtual strong<NetworkingService> createNetworkingService(){
             return new horo::NetworkingServiceObjc(this);
         }
         virtual strong<HttpResponse> createHttpResponse() {

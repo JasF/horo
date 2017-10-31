@@ -21,10 +21,11 @@ namespace horo {
         }
     }
     
-    void DatabaseImpl::execute(std::string query, Json::Value parameters) {
+    bool DatabaseImpl::executeUpdate(std::string query, Json::Value parameters) {
         if (p_) {
-            p_->execute(query, parameters);
+            return p_->executeUpdate(query, parameters);
         }
+        return false;
     }
     
 };

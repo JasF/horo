@@ -11,11 +11,11 @@
 namespace horo {
     
 PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> components,
-                                                     strong<Firestore> firestore)
+                                                     strong<HoroscopesService> horoscopesService)
     : components_(components)
-    , firestore_(firestore) {
+    , horoscopesService_(horoscopesService) {
         SCParameterAssert(components_.get());
-        SCParameterAssert(firestore_.get());
+        SCParameterAssert(horoscopesService_.get());
         person_ = components_->person_;
         loadData();
 }
@@ -25,19 +25,13 @@ PredictionScreenModelImpl::~PredictionScreenModelImpl() {
 }
     
 void PredictionScreenModelImpl::loadData() {
-    strong<CollectionReference> collectionReference = firestore_->collectionWithPath("horoscopes");
-    SCParameterAssert(collectionReference.get());
-    if (!collectionReference.get()) {
-        return;
-    }
-    strong<DocumentReference> documentReference = collectionReference->documentWithPath("capricorn");
-    SCParameterAssert(documentReference.get());
-    if (!documentReference.get()) {
-        return;
-    }
-    documentReference->getDocumentWithCompletion([](strong<DocumentSnapshot> snapshot, error err){
-        Json::Value data = snapshot->data();
-        LOG(LS_WARNING) << "received data: " << data.toStyledString();
+    horoscopesService_->fetchHoroscopes([](HoroscopeDTO *yesterday,
+                                           HoroscopeDTO *today,
+                                           HoroscopeDTO *tomorrow,
+                                           HoroscopeDTO *week,
+                                           HoroscopeDTO *month,
+                                           HoroscopeDTO *year){
+        
     });
 }
 

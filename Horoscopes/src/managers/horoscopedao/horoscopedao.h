@@ -14,19 +14,12 @@
 
 namespace horo {
     
-    enum HoroscopeType {
-        HoroscopeDay,
-        HoroscopeWeek,
-        HoroscopeMonth,
-        HoroscopeYear
-    };
-    
     class _HoroscopeDAO {
     public:
         virtual ~_HoroscopeDAO() {}
-        virtual void writeHoroscope(strong<HoroscopeDTO> horoscope) = 0;
+        virtual bool writeHoroscope(strong<HoroscopeDTO> horoscope) = 0;
         virtual strong<HoroscopeDTO> readHoroscope(uint64_t date, HoroscopeType type) = 0;
-        
+        virtual void create()=0;
     };
     
     typedef reff<_HoroscopeDAO> HoroscopeDAO;

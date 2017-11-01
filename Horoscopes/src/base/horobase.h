@@ -43,6 +43,7 @@ namespace horo {
     
     vector<string> separateString(string str, char delimeter);
     time_t timestempToTime(int64_t timestemp);
+    long long timeToTimestemp(time_t time);
     long long localtime();
 }
 

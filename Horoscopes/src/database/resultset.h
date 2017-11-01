@@ -19,6 +19,7 @@ namespace horo {
         virtual bool next() = 0;
         virtual int intForColumn(std::string columnName) = 0;
         virtual string stringForColumn(std::string columnName) = 0;
+        virtual unsigned long long int unsignedLongLongIntForColumn(std::string columnName) = 0;
     };
     
     typedef reff<_ResultSet> ResultSet;

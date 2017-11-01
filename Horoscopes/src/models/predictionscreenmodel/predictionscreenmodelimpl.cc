@@ -25,12 +25,12 @@ PredictionScreenModelImpl::~PredictionScreenModelImpl() {
 }
     
 void PredictionScreenModelImpl::loadData() {
-    horoscopesService_->fetchHoroscopes([](HoroscopeDTO *yesterday,
-                                           HoroscopeDTO *today,
-                                           HoroscopeDTO *tomorrow,
-                                           HoroscopeDTO *week,
-                                           HoroscopeDTO *month,
-                                           HoroscopeDTO *year){
+    horoscopesService_->fetchHoroscopes([](strong<HoroscopeDTO> yesterday,
+                                           strong<HoroscopeDTO> today,
+                                           strong<HoroscopeDTO> tomorrow,
+                                           strong<HoroscopeDTO> week,
+                                           strong<HoroscopeDTO> month,
+                                           strong<HoroscopeDTO> year){
         
     });
 }

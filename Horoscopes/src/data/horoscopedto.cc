@@ -13,14 +13,14 @@ namespace horo {
     void _HoroscopeDTO::encode(Json::Value &coder) {
         coder["type"] = type_;
         coder["content"] = content_;
-        coder["date"] = date_;
+        coder["date"] = (Json::UInt64) date_;
         coder["zodiac"] = zodiac_;
     }
     
     void _HoroscopeDTO::decode(Json::Value &coder) {
         type_ = (HoroscopeType) coder["type"].asInt();
         content_= coder["content"].asString();
-        date_ = coder["date"].asInt();
+        date_ = coder["date"].asUInt64();
         zodiac_ = (ZodiacTypes) coder["zodiac"].asInt();
     }
     

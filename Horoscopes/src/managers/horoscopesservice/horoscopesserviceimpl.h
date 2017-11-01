@@ -36,6 +36,9 @@ namespace horo {
         void fetchHoroscopes(HoroscopesServiceCallback callback) override;
         
     private:
+        void offlineFetchHoroscopes(HoroscopesServiceCallback callback);
+        
+    private:
         strong<Firestore> firestore_;
         strong<HoroscopesParser> parser_;
         strong<HoroscopeDAO> horoscopeDAO_;

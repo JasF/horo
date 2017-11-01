@@ -23,6 +23,7 @@ namespace horo {
     
     class _HoroscopeDTO : public Coding {
     public:
+        _HoroscopeDTO() : zodiac_(Unknown), type_(HoroscopeDay), date_(0) {}
         virtual ~_HoroscopeDTO() {}
         
     public:

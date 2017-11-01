@@ -104,6 +104,9 @@ namespace horo {
             horoscope->AddRef();
             pointers[object["type"].asString()] = (Json::UInt64) horoscope;
             horoscopes.push_back(horoscope);
+            
+            
+            LOG(LS_WARNING) << "date: " << date;
         }
         
         strong<HoroscopeDTO> yesterday = (HoroscopeDTO *)pointers["yesterday"].asUInt64();

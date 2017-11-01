@@ -31,10 +31,26 @@ namespace horo {
         return timenum;
     }
     
-    long long localtime() {
-        auto unix_timestamp = std::chrono::seconds(std::time(NULL));
+    long long timeToTimestemp(time_t time) {
+        auto unix_timestamp = std::chrono::seconds(time);
         long long nTimestemp = std::chrono::seconds(unix_timestamp).count();
         return nTimestemp;
     }
+    
+    long long localtime() {
+        return timeToTimestemp(std::time(NULL));
+    }
+    
+    /*
+     time_t tt = system_clock::to_time_t(time);
+     tm local_tm = *localtime(&tt);
+     
+     LOG(LS_WARNING) << "local_time: " << local_tm.tm_year + 1900 << '-';
+     LOG(LS_WARNING) << local_tm.tm_mon + 1 << '-';
+     LOG(LS_WARNING) << local_tm.tm_mday << ' ';
+     LOG(LS_WARNING) << local_tm.tm_hour << ':';
+     LOG(LS_WARNING) << local_tm.tm_min << ':';
+     LOG(LS_WARNING) << local_tm.tm_sec << '\n';
+     */
 };
 

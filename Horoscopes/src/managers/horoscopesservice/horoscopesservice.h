@@ -14,12 +14,12 @@
 
 namespace horo {
     
-    typedef std::function<void(HoroscopeDTO *yesterday,
-                               HoroscopeDTO *today,
-                               HoroscopeDTO *tomorrow,
-                               HoroscopeDTO *week,
-                               HoroscopeDTO *month,
-                               HoroscopeDTO *year)> HoroscopesServiceCallback;
+    typedef std::function<void(strong<HoroscopeDTO> yesterday,
+                               strong<HoroscopeDTO> today,
+                               strong<HoroscopeDTO> tomorrow,
+                               strong<HoroscopeDTO> week,
+                               strong<HoroscopeDTO> month,
+                               strong<HoroscopeDTO> year)> HoroscopesServiceCallback;
     class _HoroscopesService {
     public:
         virtual ~_HoroscopesService() {}

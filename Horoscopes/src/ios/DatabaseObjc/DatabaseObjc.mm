@@ -19,13 +19,16 @@ namespace horo {
         ResultSetObjc(FMResultSet *result) : results_(result) {}
         ~ResultSetObjc() override {}
     public:
-        virtual BOOL next() override {
+        BOOL next() override {
             return [results_ next];
         }
-        virtual int intForColumn(std::string columnName) override {
+        int intForColumn(std::string columnName) override {
             return [results_ intForColumn:[[NSString alloc] initWithUTF8String:columnName.c_str()]];
         }
-        virtual std::string stringForColumn(std::string columnName) override {
+        unsigned long long int unsignedLongLongIntForColumn(std::string columnName) override {
+            return [results_ unsignedLongLongIntForColumn:[[NSString alloc] initWithUTF8String:columnName.c_str()]];
+        }
+        std::string stringForColumn(std::string columnName) override {
             NSString *string = [results_ stringForColumn:[[NSString alloc] initWithUTF8String:columnName.c_str()]];
             return [string UTF8String];
         }

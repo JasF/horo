@@ -31,6 +31,7 @@ namespace horo {
     private:
         Managers();
         virtual ~Managers();
+        std::string databaseFilePath();
         
     public:
         strong<NetworkingService> networkingService();

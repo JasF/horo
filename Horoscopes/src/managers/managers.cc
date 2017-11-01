@@ -19,6 +19,7 @@
 #include "database/databaseimpl.h"
 #include "managers/horoscopesservice/horoscopesserviceimpl.h"
 #include "managers/horoscopesparser/horoscopesparserimpl.h"
+#include "base/platform.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -129,10 +130,17 @@ Managers &Managers::shared() {
         return sharedInstance;
     }
     
+    std::string Managers::databaseFilePath() {
+        std::string path = documentsPath();
+        path += "/offline.sql";
+        return path;
+    }
+    
     strong<DAOFactory> Managers::daoFactory() {
         static strong<DAOFactory> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new DAOFactoryImpl(new DatabaseImpl("offline.sql"));
+            std::string path = databaseFilePath();
+            sharedInstance = new DAOFactoryImpl(new DatabaseImpl(path));
         }
         return sharedInstance;
     }

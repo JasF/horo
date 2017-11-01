@@ -28,4 +28,25 @@ namespace horo {
         return false;
     }
     
+    strong<ResultSet> DatabaseImpl::executeQuery(std::string query, Json::Value parameters) {
+        if (p_) {
+            return p_->executeQuery(query, parameters);
+        }
+        return nullptr;
+    }
+    
+    int64_t DatabaseImpl::lastInsertRowId() const {
+        if (p_) {
+            return p_->lastInsertRowId();
+        }
+        return 0;
+    }
+    
+    std::string DatabaseImpl::lastErrorMessage() {
+        if (p_) {
+            return p_->lastErrorMessage();
+        }
+        return "";
+    }
+    
 };

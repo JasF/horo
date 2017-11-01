@@ -72,7 +72,7 @@ namespace horo {
 
 @implementation FacebookBanagerObjc
 
-+ (void)load {
++ (void)doLoading {
     horo::FacebookManagerImpl::setPrivateInstance(horo::FacebookManagerObjc::shared());
 }
 

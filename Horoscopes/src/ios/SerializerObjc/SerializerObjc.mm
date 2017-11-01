@@ -49,7 +49,7 @@ namespace horo {
 
 @implementation SerializerObjc
 
-+ (void)load {
++ (void)doLoading {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationDidEnterBackgroundNotification object:nil];
     horo::SerializerImpl::setPrivateInstance(horo::SerializerObjc::shared());
 }

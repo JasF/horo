@@ -116,7 +116,7 @@ namespace horo {
 @property (strong, nonatomic) FIRDocumentReference *docRef;
 */
 @implementation FirestoreObjc
-+ (void)load {
++ (void)doLoading {
     horo::FirestoreImpl::setPrivateInstance(horo::FirestoreObjc::shared());
 }
 @end

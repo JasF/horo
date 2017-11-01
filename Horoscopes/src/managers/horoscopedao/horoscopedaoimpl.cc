@@ -7,6 +7,7 @@
 //
 
 #include "horoscopedaoimpl.h"
+#include "database/resultset.h"
 
 static const char * kSQLCreate = ""\
 "CREATE TABLE IF NOT EXISTS horoscopes ("\
@@ -17,6 +18,12 @@ static const char * kSQLCreate = ""\
 "content TEXT"\
 ");";
 
+static const char * kSQLSelect = ""
+"SELECT "
+"id "
+"FROM "
+"horoscopes "
+"WHERE type = :type AND date = :date;";
 /** Query for the inssert row. */
 static const char * kSQLInsert = ""\
 "INSERT INTO "\
@@ -24,12 +31,33 @@ static const char * kSQLInsert = ""\
 "VALUES "\
 "(:zodiac, :type, :date, :content);";
 
+/** Query for the update row. */
+static const char * kSQLUpdate = ""
+"UPDATE "
+"horoscopes "
+"SET "
+"type = :type, date = :date "
+"WHERE "
+"id = :id;";
 namespace horo {
     
 bool HoroscopeDAOImpl::writeHoroscope(strong<HoroscopeDTO> horoscope) {
     Json::Value parameters;
     horoscope->encode(parameters);
-    bool result = database_->executeUpdate(kSQLCreate, parameters);
+    
+    strong<ResultSet> results = database_->executeQuery(kSQLSelect, parameters);
+    if (results->next()) {
+        int rowid = results->intForColumn("id");
+        Json::Value mutableParameters(parameters);
+        mutableParameters["id"] = rowid;
+        bool result = database_->executeUpdate(kSQLUpdate, mutableParameters);
+        return result;
+    }
+    
+    bool result = database_->executeUpdate(kSQLInsert, parameters);
+    if (!result) {
+        LOG(LS_WARNING) << "Insert error: " << database_->lastErrorMessage();
+    }
     return result;
 }
 

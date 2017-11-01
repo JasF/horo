@@ -12,6 +12,10 @@
 #include <stdio.h>
 #include <map>
 #include <string>
+#include <vector>
+#include <iostream>
+#include <chrono>
+#include <ctime>
 #include "json/value.h"
 #include "rtc_base/refcountedobject.h"
 #include "rtc_base/scoped_ref_ptr.h"
@@ -36,6 +40,10 @@ namespace horo {
         string text_;
         int code_;
     };
+    
+    vector<string> separateString(string str, char delimeter);
+    time_t timestempToTime(int64_t timestemp);
+    long long localtime();
 }
 
 #endif /* horobase_hpp */

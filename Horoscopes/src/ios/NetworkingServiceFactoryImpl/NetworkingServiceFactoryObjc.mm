@@ -38,8 +38,7 @@ namespace horo {
     return sharedFactory;
 }
 
-+ (void)load {
-    
++ (void)doLoading {
     horo::NetworkingServiceFactoryImpl::setPrivateInstance([self sharedFactory]);
 }
 @end

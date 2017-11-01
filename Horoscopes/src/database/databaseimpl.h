@@ -27,6 +27,9 @@ namespace horo {
         ~DatabaseImpl() override {}
     public:
         bool executeUpdate(std::string query, Json::Value parameters) override;
+        strong<ResultSet> executeQuery(std::string query, Json::Value parameters = Json::Value()) override;
+        int64_t lastInsertRowId() const override;
+        std::string lastErrorMessage() override;
         
     private:
         strong<Database> p_;

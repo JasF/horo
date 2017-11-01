@@ -66,7 +66,7 @@ namespace horo {
 };
 
 @implementation ScreensManagerObjc
-+ (void)load {
++ (void)doLoading {
     static horo::ScreensManagerObjc *sharedInstance = nullptr;
     sharedInstance = new horo::ScreensManagerObjc(horo::Managers::shared().screensManager());
     horo::ScreensManagerImpl::setPrivateInstance(sharedInstance);

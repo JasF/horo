@@ -1,17 +1,18 @@
 {
-    "name": "horoscope-server",
-    "preferGlobal": true,
-    "version": "0.0.1",
-    "author": "Andrei Vayavoda",
-    "license": "MIT",
-    "engines": {
-        "node": ">=0.10"
-    },
-    "scripts": {
-        "start": "node ./app.js"
-    },
-    "dependencies": {
-        "express": "~3.4.7",
-        "json-lint": "~0.1.0"
-    }
+  "name": "horoscope-server",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Andrei Vayavoda",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^0.8.2",
+    "express": "~3.4.7",
+    "json-lint": "~0.1.0"
+  }
 }

@@ -629,6 +629,7 @@
 		C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
+		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C3817DE11FA7053000447155 /* firestore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestore.h; sourceTree = "<group>"; };
 		C3817DE21FA7053C00447155 /* firestoreimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestoreimpl.h; sourceTree = "<group>"; };
@@ -908,6 +909,7 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
+				C37657731FAC2E0500874188 /* server */,
 				C3B601AD1FA60DAE00AD4F6D /* Categories */,
 				C30B187C1FA4AA9C006DEDB7 /* ViewControllers */,
 				C33B99CA1FA375E600C0B1C6 /* Components */,
@@ -1347,6 +1349,14 @@
 				C38D8CC71FA8DD5800F5BAD2 /* platform.h */,
 			);
 			path = base;
+			sourceTree = "<group>";
+		};
+		C37657731FAC2E0500874188 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				C37657741FAC2E2300874188 /* datastoreupdate.js */,
+			);
+			path = server;
 			sourceTree = "<group>";
 		};
 		C37C83EE1FA3287500B39948 /* Supporting Files */ = {

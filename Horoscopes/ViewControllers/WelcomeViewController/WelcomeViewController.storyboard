@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +28,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="x5e-BS-Rbg">
             <objects>
-                <viewController storyboardIdentifier="viewController" id="mSM-8M-cB8" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" automaticallyAdjustsScrollViewInsets="NO" id="mSM-8M-cB8" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lUx-qU-4ep"/>
                         <viewControllerLayoutGuide type="bottom" id="EL7-Qt-wEG"/>
@@ -36,8 +37,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-t9-cfo" customClass="BackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bFM-IJ-91k">
+                                        <rect key="frame" x="0.0" y="0.0" width="1334" height="667"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bFM-IJ-91k" secondAttribute="height" multiplier="2:1" id="eVg-xQ-tre"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bFM-IJ-91k" firstAttribute="top" secondItem="DQj-t9-cfo" secondAttribute="top" id="EkN-PW-cpE"/>
+                                    <constraint firstItem="bFM-IJ-91k" firstAttribute="leading" secondItem="DQj-t9-cfo" secondAttribute="leading" id="Gtn-7B-5dh"/>
+                                    <constraint firstItem="bFM-IJ-91k" firstAttribute="height" secondItem="DQj-t9-cfo" secondAttribute="height" id="ORa-AY-Pqq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="bFM-IJ-91k" id="8X2-i2-hEw"/>
+                                </connections>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-1m-Trz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="mSM-8M-cB8" id="CKR-cf-RA5"/>
@@ -45,11 +67,15 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.61545751145323246" green="0.73457739637305697" blue="0.25585248753285078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hy3-1m-Trz" firstAttribute="top" secondItem="lUx-qU-4ep" secondAttribute="bottom" id="KCU-XX-o7h"/>
+                            <constraint firstItem="DQj-t9-cfo" firstAttribute="height" secondItem="qSL-Bx-8n5" secondAttribute="height" id="6Mh-Ev-7sQ"/>
+                            <constraint firstItem="DQj-t9-cfo" firstAttribute="centerX" secondItem="qSL-Bx-8n5" secondAttribute="centerX" id="GD7-LU-Fl2"/>
+                            <constraint firstItem="hy3-1m-Trz" firstAttribute="centerY" secondItem="qSL-Bx-8n5" secondAttribute="centerY" id="If0-DQ-Wmv"/>
                             <constraint firstItem="hy3-1m-Trz" firstAttribute="width" secondItem="qSL-Bx-8n5" secondAttribute="width" id="MPU-G8-GWn"/>
-                            <constraint firstItem="hy3-1m-Trz" firstAttribute="leading" secondItem="qSL-Bx-8n5" secondAttribute="leading" id="VR5-NJ-j2v"/>
+                            <constraint firstItem="DQj-t9-cfo" firstAttribute="width" secondItem="qSL-Bx-8n5" secondAttribute="width" id="c4m-52-63A"/>
+                            <constraint firstItem="hy3-1m-Trz" firstAttribute="centerX" secondItem="qSL-Bx-8n5" secondAttribute="centerX" id="dl2-Hn-v5P"/>
+                            <constraint firstItem="DQj-t9-cfo" firstAttribute="centerY" secondItem="qSL-Bx-8n5" secondAttribute="centerY" id="olY-Hh-ZSf"/>
                             <constraint firstItem="hy3-1m-Trz" firstAttribute="height" secondItem="qSL-Bx-8n5" secondAttribute="height" id="zqh-yf-k2d"/>
                         </constraints>
                     </view>
@@ -57,6 +83,7 @@
                     <connections>
                         <outlet property="facebookLoginCell" destination="6Xd-At-QtL" id="bOs-kv-qO5"/>
                         <outlet property="loginButton" destination="2BC-C4-Skw" id="bSN-FN-woC"/>
+                        <outlet property="tableView" destination="hy3-1m-Trz" id="hr0-Ch-xAd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqB-O4-uek" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,20 +95,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BC-C4-Skw" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="20" y="20" width="355" height="43.5"/>
+                                <rect key="frame" x="0.0" y="-39.5" width="375" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="Obb-sA-tRm"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2BC-C4-Skw" firstAttribute="leading" secondItem="vzK-kv-4UA" secondAttribute="leading" constant="20" symbolic="YES" id="RXg-36-1lm"/>
-                            <constraint firstItem="2BC-C4-Skw" firstAttribute="top" secondItem="vzK-kv-4UA" secondAttribute="top" constant="20" symbolic="YES" id="cHd-Iq-tMY"/>
+                            <constraint firstItem="2BC-C4-Skw" firstAttribute="centerX" secondItem="vzK-kv-4UA" secondAttribute="centerX" id="VlW-MU-YvA"/>
+                            <constraint firstItem="2BC-C4-Skw" firstAttribute="centerY" secondItem="vzK-kv-4UA" secondAttribute="centerY" id="di8-zq-fq5"/>
                             <constraint firstAttribute="bottom" secondItem="2BC-C4-Skw" secondAttribute="bottom" id="u2b-vw-7hY"/>
-                            <constraint firstItem="2BC-C4-Skw" firstAttribute="width" secondItem="vzK-kv-4UA" secondAttribute="width" constant="-20" id="wMz-o9-QtG"/>
+                            <constraint firstItem="2BC-C4-Skw" firstAttribute="width" secondItem="vzK-kv-4UA" secondAttribute="width" id="wMz-o9-QtG"/>
                         </constraints>
                     </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
             </objects>
             <point key="canvasLocation" x="-34" y="118"/>

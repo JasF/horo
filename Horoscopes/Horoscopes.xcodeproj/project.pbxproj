@@ -127,6 +127,9 @@
 		C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A41FA5D15F006DEDB7 /* person.cc */; };
 		C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */; };
 		C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */; };
+		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
+		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
+		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
 		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
@@ -605,6 +608,11 @@
 		C30B18A71FA5D590006DEDB7 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WelcomeViewController.mm; sourceTree = "<group>"; };
 		C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
+		C3190C131FADDDF50059F247 /* BackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
+		C3190C141FADDDF50059F247 /* BackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
+		C3190C161FADDF630059F247 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
+		C3190C181FADE4D60059F247 /* UIView+TKGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKGeometry.h"; sourceTree = "<group>"; };
+		C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKGeometry.m"; sourceTree = "<group>"; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -942,6 +950,7 @@
 				4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */,
 				4B0FD37E1FA06C96006378B6 /* Info.plist */,
 				4B0FD37F1FA06C96006378B6 /* main.m */,
+				C3190C161FADDF630059F247 /* Common.xcassets */,
 			);
 			path = Horoscopes;
 			sourceTree = "<group>";
@@ -1193,6 +1202,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C3190C121FADDDC40059F247 /* components */,
 				C30B18A61FA5D560006DEDB7 /* WelcomeViewController */,
 				C30B187D1FA4AAA2006DEDB7 /* PredictionViewController */,
 			);
@@ -1259,6 +1269,15 @@
 				C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */,
 			);
 			path = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		C3190C121FADDDC40059F247 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				C3190C131FADDDF50059F247 /* BackgroundView.h */,
+				C3190C141FADDDF50059F247 /* BackgroundView.m */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
@@ -1508,6 +1527,8 @@
 		C3B601AD1FA60DAE00AD4F6D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C3190C181FADE4D60059F247 /* UIView+TKGeometry.h */,
+				C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */,
 				C3B601AE1FA60DBE00AD4F6D /* Categories.h */,
 				C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */,
 				C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */,
@@ -2114,6 +2135,7 @@
 			files = (
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
+				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
@@ -2160,6 +2182,7 @@
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
 				C30409511FA7802B00A0FC33 /* daofactoryimpl.cc in Sources */,
 				C304097A1FA7874A00A0FC33 /* databaseimpl.cc in Sources */,
+				C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
@@ -2206,6 +2229,7 @@
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
 				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
+				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 			);

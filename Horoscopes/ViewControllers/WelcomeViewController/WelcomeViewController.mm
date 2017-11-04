@@ -9,18 +9,15 @@
 #import "WelcomeViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#include "UIView+TKGeometry.h"
 
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseFirestore/FirebaseFirestore.h>
 
 @interface WelcomeViewController () <UITableViewDelegate, UITableViewDataSource, FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) IBOutlet UITableViewCell *facebookLoginCell;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
-
-@property (strong, nonatomic) FIRFirestore *db;
-@property (strong, nonatomic) FIRCollectionReference *collRef;
-@property (strong, nonatomic) FIRDocumentReference *docRef;
-
 @end
 
 @implementation WelcomeViewController
@@ -35,25 +32,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
+    _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
-    _db = [FIRFirestore firestoreForApp:[FIRApp defaultApp]];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        _collRef = [self.db collectionWithPath:@"horoscopes"];
-        _docRef = [_collRef documentWithPath:@"capricorn"];
-        [_docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
-            if (snapshot != nil) {
-                NSLog(@"Document data: %@", snapshot.data);
-                NSArray *result = snapshot.data[@"result"];
-                if ([result isKindOfClass:[NSArray class]]) {
-                    NSLog(@"Allright! %@", result);
-                }
-            } else {
-                NSLog(@"Document does not exist");
-            }
-        }];
-    });
-    
+    _tableView.contentInset = UIEdgeInsetsZero;
+    _tableView.separatorInset = UIEdgeInsetsZero;
+    _tableView.separatorColor = [UIColor clearColor];
     _loginButton.delegate = self;
     _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
     @weakify(self);
@@ -63,9 +46,10 @@
         [self hideProgressHud];
     };
     
+    self.navigationController.navigationBarHidden = YES;
     // Do any additional setup after loading the view.
 }
-
+    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -108,10 +92,6 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 }
 
 
-/**
- Sent to the delegate when the button was used to logout.
- - Parameter loginButton: The button that was clicked.
- */
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
     NSLog(@"DidLogout");
 }

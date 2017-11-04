@@ -40,10 +40,8 @@ static CGFloat const kAnimationDuration = 50.f;
         self.imageView.xOrigin = -self.height;
     } completion:^(BOOL finished) {
         @strongify(self);
-        if (finished) {
-            self.imageView.xOrigin = 0.f;
-            [self doAnimation:seed];
-        }
+        self.imageView.xOrigin = 0.f;
+        [self doAnimation:seed];
     }];
 }
 @end

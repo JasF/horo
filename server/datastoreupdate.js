@@ -19,8 +19,10 @@ var zodiacs = [
 
 const firestore = new Firestore({projectId: 'horo-ios',
                                 keyFilename: credentialsFilename });
+/*
 const document = firestore.doc('posts/intro-to-firestore');
-// Enter new data into the document.
+*/
+ // Enter new data into the document.
 /*
 document.set({
              title: 'Welcome to Firestore',
@@ -89,7 +91,7 @@ function invokeTextFromTreeWithZodiacKey(tree, key) {
         for (var i = 0; i < tree.attributes.length; i++) {
             var attr = tree.attributes[i];
             if (attr.name == "class") {
-                classValue = attr.attr.value
+                classValue = attr.value
             }
             //console.log('attr name: ' + attr.name + '; value: ' + attr.value)
         }
@@ -130,14 +132,16 @@ function invokeTextFromTreeWithZodiacKey(tree, key) {
 }
 
 function invokePayloadData(tree, completion) {
+   // console.log(tree);
     if (tree.nodeName == "div") {
         for (var y = 0; y < tree.attributes.length; y++) {
             attribute = tree.attributes[y];
+            //console.log(attribute.value);
             if (attribute.name == "class" && attribute.value == "horoscope-content") {
-               // console.log('found payload tree: ');
+                console.log('found payload tree: ');
                 textStorage = ""
                 invokeTextFromTreeWithZodiacKey(tree, zodiacKey)
-               // console.log( "" + zodiacKey + ': textStorage: ' + textStorage)
+                console.log( "" + zodiacKey + ': textStorage: ' + textStorage)
             }
         }
     }
@@ -155,14 +159,108 @@ function invokePayloadData(tree, completion) {
         if (child.nodeType == 1 /*1 == Element*/) {
             invokePayloadData(child, null)
         }
+        if (child.nodeType == 3) {
+           // console.log(child.textContent)
+        }
     }
     if (completion != null) {
         completion(zodiacKey, textStorage)
     }
 }
 
-function doRequest(signIndex, completion) {
-    var url = "https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=" + signIndex
+var HoroTypeDay = "days"
+var HoroTypeWeek = "week"
+var HoroTypeMonth = "month"
+var HoroTypeYear = "year"
+
+function writePrediction(type, signName, text, callback) {
+    
+    
+    function dateToDateString(aDate) {
+        var result = "" + aDate.getDate()+ "." + Number(parseInt(aDate.getMonth(), 10) + 1) + "." + aDate.getFullYear()
+        return result;
+    }
+    
+    horoTypes = {yesterday:HoroTypeDay,
+    today:HoroTypeDay,
+    tomorrow:HoroTypeDay,
+    weekly:HoroTypeWeek,
+    monthly:HoroTypeMonth,
+        year:HoroTypeYear};
+    horoType = horoTypes[type]
+    if (horoType == null) {
+        console.log("unknown type: " + type)
+        return;
+    }
+    
+    var date = new Date();
+    dateFunctions = {today:function () {
+                return dateToDateString(date)
+              }, yesterday:function () {
+                  newDate = new Date()
+                  newDate.setDate(date.getDate() - 1)
+                return dateToDateString(newDate)
+              }, tomorrow:function () {
+                  newDate = new Date()
+                  newDate.setDate(date.getDate() + 1)
+                return dateToDateString(newDate)
+              }, weekly:function () {
+                  newDate = new Date()
+                  day = parseInt(date.getDay())
+                  if (day > 0) {
+                      --day;
+                  }
+                  else {
+                      day = 6;
+                  }
+                  newDate.setDate(date.getDate() - day)
+                  console.log("weekly: " + newDate)
+                return dateToDateString(newDate)
+              }, monthly:function () {
+                  var newDate = new Date(date)
+                  newDate.setDate(1)
+                  console.log("monthly: " + newDate)
+                return dateToDateString( newDate )
+              }, year:function () {
+                var newDate = new Date(date)
+                newDate.setDate(1)
+                newDate.setMonth(0)
+                  console.log("year: " + newDate)
+                return dateToDateString( newDate )
+              }}
+    dateFunction = dateFunctions[type];
+    if (dateFunction == null) {
+        console.log("unknown horoType: " + type);
+        return;
+    }
+    dateString = dateFunction()
+    console.log(dateString)
+    
+    path = 'storage/' + horoType + '/' + signName + '/' + dateString
+    console.log("setting document: " + path);
+    const document = firestore.doc(path)
+    document.set({ content : text }).then(() => {
+                         callback(true)
+                         });
+                         
+}
+
+function doRequest(type, signIndex, completion) {
+    
+    dateFunctions = {today:function () {
+        return "daily-" + type;
+    }, yesterday:function () {
+        return "daily-" + type;
+    }, tomorrow:function () {
+        return "daily-" + type;
+    }, weekly:function () {
+        return type;
+    }, monthly:function () {
+        return type;
+    }, year:function () {
+        return "";
+    }}
+    var url = "https://www.horoscope.com/us/horoscopes/general/horoscope-general-" + dateFunctions[type]() + ".aspx?sign=" + signIndex
     console.log("start requesting: " + url)
     const browser = new Browser()
     browser.fetch(url)
@@ -176,32 +274,51 @@ function doRequest(signIndex, completion) {
           var root = tree["root"]
           invokePayloadData(root, function (zodiacName, predictionText) {
                             console.log('zodiacName: ' + zodiacName + '; predictionText: ' + predictionText)
+                            if (completion) {
+                            completion(zodiacName, predictionText)
+                            }
                             })
-          if (completion) {
-            completion(true)
-          }
           })
     .catch(function(error) {
            console.log("parsing html error!");
            console.log(error);
            if (completion) {
-             completion(false)
+             completion(null, null)
            }
            });
 }
 
-function requestHoroscopesWithSignsArray(array) {
+function requestHoroscopesWithSignsArray(array, type, callback) {
     if (array.length == 0) {
         console.log("end of requests horoscopes. Array empty");
+        if (callback != null) {
+            callback();
+        }
         return;
     }
     index = array[0]
     array.splice(0, 1);
-    doRequest(index, function (success) {
-              console.log("parsing success: " + success)
-                requestHoroscopesWithSignsArray(array)
+    doRequest(type, index, function (zodiacName, predictionText) {
+              if (zodiacName == null || predictionText == null) {
+                console.log("error receive horoscope for index: " + index + "!");
+                return;
+              }
+              writePrediction(type, zodiacName, predictionText, function (databaseSuccess) {
+                requestHoroscopesWithSignsArray(array, type, callback)
+                console.log("databaseSuccess : " + databaseSuccess)
               })
+    })
 }
 
-indexes = [0]
-requestHoroscopesWithSignsArray(indexes)
+indexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+requestHoroscopesWithSignsArray(indexes.slice(), "yesterday", function () {
+  requestHoroscopesWithSignsArray(indexes.slice(), "today", function () {
+     requestHoroscopesWithSignsArray(indexes.slice(), "tomorrow", function () {
+       requestHoroscopesWithSignsArray(indexes.slice(), "weekly", function () {
+         requestHoroscopesWithSignsArray(indexes.slice(), "monthly", function () {
+            console.log("done!")
+         })
+       })
+     })
+   })
+ })

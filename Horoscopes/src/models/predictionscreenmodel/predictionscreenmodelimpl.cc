@@ -31,7 +31,7 @@ void PredictionScreenModelImpl::loadData() {
                                            strong<HoroscopeDTO> week,
                                            strong<HoroscopeDTO> month,
                                            strong<HoroscopeDTO> year){
-        
+        LOG(LS_WARNING) << "fetched!";
     });
 }
 

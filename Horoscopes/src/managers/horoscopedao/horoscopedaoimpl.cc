@@ -51,6 +51,9 @@ static const char * kSQLSelectByDateType = ""
 namespace horo {
     
 bool HoroscopeDAOImpl::writeHoroscope(strong<HoroscopeDTO> horoscope) {
+    if (!horoscope.get()) {
+        return false;
+    }
     Json::Value parameters;
     horoscope->encode(parameters);
     

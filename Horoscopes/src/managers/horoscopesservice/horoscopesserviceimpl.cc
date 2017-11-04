@@ -11,7 +11,7 @@
 namespace horo {
 
     bool isOffline() {
-        return true;
+        return false;
     }
     
     void HoroscopesServiceImpl::fetchHoroscopes(HoroscopesServiceCallback callback) {

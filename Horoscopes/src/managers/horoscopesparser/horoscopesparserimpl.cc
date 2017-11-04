@@ -26,7 +26,7 @@ namespace horo {
     
     
     int64_t dateStringToDate(std::string dateString) {
-        vector<string> parts = separateString(dateString, '/');
+        vector<string> parts = separateString(dateString, '.');
         SCAssert(parts.size() == DatePartsCount, "date error");
         if (parts.size() != DatePartsCount) {
             return 0;

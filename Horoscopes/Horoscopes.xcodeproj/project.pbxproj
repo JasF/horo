@@ -130,6 +130,17 @@
 		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
 		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
+		C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */; };
+		C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */; };
+		C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */; };
+		C31A138C1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */; };
+		C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */; };
+		C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */; };
+		C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */; };
+		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
+		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
+		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
+		C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */; };
 		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
 		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
 		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
@@ -613,6 +624,34 @@
 		C3190C161FADDF630059F247 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
 		C3190C181FADE4D60059F247 /* UIView+TKGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKGeometry.h"; sourceTree = "<group>"; };
 		C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKGeometry.m"; sourceTree = "<group>"; };
+		C31A137A1FAF2DED001FABFE /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsViewController.mm; sourceTree = "<group>"; };
+		C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
+		C31A13821FAF2F45001FABFE /* friendsscreenviewmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenviewmodelimpl.h; sourceTree = "<group>"; };
+		C31A13841FAF2F45001FABFE /* friendsscreenviewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenviewmodel.h; sourceTree = "<group>"; };
+		C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsscreenmodelimpl.cc; sourceTree = "<group>"; };
+		C31A13891FAF2F4D001FABFE /* friendsscreenmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenmodel.h; sourceTree = "<group>"; };
+		C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsscreenviewmodelimpl.cc; sourceTree = "<group>"; };
+		C31A138D1FAF3064001FABFE /* friendsscreenmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsscreenmodelimpl.h; sourceTree = "<group>"; };
+		C31A138E1FAF39BC001FABFE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C31A13901FAF4E9A001FABFE /* friendsprovider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsprovider.h; sourceTree = "<group>"; };
+		C31A13911FAF4EB0001FABFE /* facebookfriendsprovider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookfriendsprovider.h; sourceTree = "<group>"; };
+		C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookfriendsprovider.cc; sourceTree = "<group>"; };
+		C31A13971FAF4FCE001FABFE /* friendsmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsmanager.h; sourceTree = "<group>"; };
+		C31A13981FAF4FDE001FABFE /* friendsmanagerimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsmanagerimpl.h; sourceTree = "<group>"; };
+		C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsmanagerimpl.cc; sourceTree = "<group>"; };
+		C31A139E1FAF50FC001FABFE /* friendsproviderfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsproviderfactory.h; sourceTree = "<group>"; };
+		C31A139F1FAF5108001FABFE /* friendsproviderfactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsproviderfactoryimpl.h; sourceTree = "<group>"; };
+		C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsproviderfactoryimpl.cc; sourceTree = "<group>"; };
+		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
+		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
+		C3383FDC1FAF26AA00CCE133 /* menuscreenviewmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuscreenviewmodelimpl.h; sourceTree = "<group>"; };
+		C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menuscreenviewmodelimpl.cc; sourceTree = "<group>"; };
+		C3383FDE1FAF26AA00CCE133 /* menuscreenviewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuscreenviewmodel.h; sourceTree = "<group>"; };
+		C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menuscreenmodelimpl.cc; sourceTree = "<group>"; };
+		C3383FE21FAF26C800CCE133 /* menuscreenmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuscreenmodel.h; sourceTree = "<group>"; };
+		C3383FE31FAF26C800CCE133 /* menuscreenmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuscreenmodelimpl.h; sourceTree = "<group>"; };
 		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
 		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
 		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
@@ -1154,6 +1193,8 @@
 		C30B186A1FA49AFF006DEDB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C31A13861FAF2F4D001FABFE /* friendsscreenmodel */,
+				C3383FE01FAF26C800CCE133 /* menuscreenmodel */,
 				C30B189B1FA5D0D8006DEDB7 /* corecomponents */,
 				C30B188B1FA5CEE5006DEDB7 /* helloscreenmodel */,
 				C30B186B1FA49AFF006DEDB7 /* predictionscreenmodel */,
@@ -1174,6 +1215,8 @@
 		C30B18701FA49DCD006DEDB7 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				C31A13811FAF2F45001FABFE /* friendsscreenviewmodel */,
+				C3383FDB1FAF26AA00CCE133 /* menuscreenviewmodel */,
 				C30B18921FA5CF20006DEDB7 /* helloscreenviewmodel */,
 				C30B18711FA49DE4006DEDB7 /* predictionscreenviewmodel */,
 			);
@@ -1202,6 +1245,8 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C31A13791FAF2DDD001FABFE /* FriendsViewController */,
+				C3383FD31FAF251200CCE133 /* MenuViewController */,
 				C3190C121FADDDC40059F247 /* components */,
 				C30B18A61FA5D560006DEDB7 /* WelcomeViewController */,
 				C30B187D1FA4AAA2006DEDB7 /* PredictionViewController */,
@@ -1278,6 +1323,96 @@
 				C3190C141FADDDF50059F247 /* BackgroundView.m */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		C31A13791FAF2DDD001FABFE /* FriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C31A137A1FAF2DED001FABFE /* FriendsViewController.h */,
+				C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */,
+				C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */,
+			);
+			path = FriendsViewController;
+			sourceTree = "<group>";
+		};
+		C31A13811FAF2F45001FABFE /* friendsscreenviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13821FAF2F45001FABFE /* friendsscreenviewmodelimpl.h */,
+				C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */,
+				C31A13841FAF2F45001FABFE /* friendsscreenviewmodel.h */,
+			);
+			path = friendsscreenviewmodel;
+			sourceTree = "<group>";
+		};
+		C31A13861FAF2F4D001FABFE /* friendsscreenmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C31A138D1FAF3064001FABFE /* friendsscreenmodelimpl.h */,
+				C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */,
+				C31A13891FAF2F4D001FABFE /* friendsscreenmodel.h */,
+			);
+			path = friendsscreenmodel;
+			sourceTree = "<group>";
+		};
+		C31A138F1FAF4E77001FABFE /* friendsprovider */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13901FAF4E9A001FABFE /* friendsprovider.h */,
+				C31A13911FAF4EB0001FABFE /* facebookfriendsprovider.h */,
+				C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */,
+			);
+			path = friendsprovider;
+			sourceTree = "<group>";
+		};
+		C31A13961FAF4FC0001FABFE /* friendsmanager */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13971FAF4FCE001FABFE /* friendsmanager.h */,
+				C31A13981FAF4FDE001FABFE /* friendsmanagerimpl.h */,
+				C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */,
+			);
+			path = friendsmanager;
+			sourceTree = "<group>";
+		};
+		C31A139D1FAF50EE001FABFE /* friendsproviderfactory */ = {
+			isa = PBXGroup;
+			children = (
+				C31A139E1FAF50FC001FABFE /* friendsproviderfactory.h */,
+				C31A139F1FAF5108001FABFE /* friendsproviderfactoryimpl.h */,
+				C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */,
+			);
+			path = friendsproviderfactory;
+			sourceTree = "<group>";
+		};
+		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3383FD41FAF252200CCE133 /* MenuViewController.h */,
+				C3383FD71FAF253100CCE133 /* MenuViewController.mm */,
+				C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */,
+			);
+			path = MenuViewController;
+			sourceTree = "<group>";
+		};
+		C3383FDB1FAF26AA00CCE133 /* menuscreenviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C3383FDC1FAF26AA00CCE133 /* menuscreenviewmodelimpl.h */,
+				C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */,
+				C3383FDE1FAF26AA00CCE133 /* menuscreenviewmodel.h */,
+			);
+			path = menuscreenviewmodel;
+			sourceTree = "<group>";
+		};
+		C3383FE01FAF26C800CCE133 /* menuscreenmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */,
+				C3383FE21FAF26C800CCE133 /* menuscreenmodel.h */,
+				C3383FE31FAF26C800CCE133 /* menuscreenmodelimpl.h */,
+			);
+			path = menuscreenmodel;
 			sourceTree = "<group>";
 		};
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
@@ -1606,6 +1741,7 @@
 		C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C31A138E1FAF39BC001FABFE /* WebKit.framework */,
 				C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */,
 				C3CD7DFE1FA6F57A00D2BFF3 /* libz.1.1.3.tbd */,
 				C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */,
@@ -1631,6 +1767,9 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C31A139D1FAF50EE001FABFE /* friendsproviderfactory */,
+				C31A13961FAF4FC0001FABFE /* friendsmanager */,
+				C31A138F1FAF4E77001FABFE /* friendsprovider */,
 				C3B3AA921FA84DAF00D74180 /* horoscopesparser */,
 				C3B3AA8A1FA83B0200D74180 /* horoscopesservice */,
 				C304094B1FA7800300A0FC33 /* daofactory */,
@@ -2136,7 +2275,9 @@
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
+				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
+				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
@@ -2187,6 +2328,9 @@
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
+				C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */,
+				C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */,
+				C31A138C1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc in Sources */,
 				C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
@@ -2198,6 +2342,7 @@
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
 				C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */,
+				C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				C30409731FA7870100A0FC33 /* DatabaseObjc.mm in Sources */,
 				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
@@ -2209,6 +2354,7 @@
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
 				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
+				C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */,
 				C30B17ED1FA481C2006DEDB7 /* NSInvocation+EXT.m in Sources */,
 				C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */,
 				C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */,
@@ -2217,6 +2363,7 @@
 				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
+				C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
@@ -2228,9 +2375,12 @@
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
 				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
+				C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
+				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
+				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

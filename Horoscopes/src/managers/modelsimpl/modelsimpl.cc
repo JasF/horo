@@ -9,7 +9,10 @@
 #include "modelsimpl.h"
 #import "models/predictionscreenmodel/predictionscreenmodelimpl.h"
 #import "models/helloscreenmodel/helloscreenmodelimpl.h"
+#import "models/menuscreenmodel/menuscreenmodelimpl.h"
+#import "models/friendsscreenmodel/friendsscreenmodelimpl.h"
 #import "managers/loginmanager/loginmanagerfactoryimpl.h"
+#import "managers/managers.h"
 
 namespace horo {
   
@@ -44,4 +47,15 @@ namespace horo {
                                         settings_);
     }
     
+    strong<MenuScreenModel> ModelsImpl::menuScreenModel() {
+        return new MenuScreenModelImpl(components_,
+                                        new LoginManagerFactoryImpl(facebookManager_),
+                                        settings_);
+    }
+    
+    strong<FriendsScreenModel> ModelsImpl::friendsScreenModel() {
+        return new FriendsScreenModelImpl(components_,
+                                          Managers::shared().friendsManager(),
+                                       settings_);
+    }
 };

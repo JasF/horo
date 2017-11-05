@@ -35,8 +35,20 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     NSDictionary *dictionaryParameters = [NSDictionary horo_dictionaryFromJsonValue:parameters];
     NSMutableSet *set = [NSMutableSet new];
     [set addObject:@"text/plain"];
+    [set addObject:@"text/html"];
     [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
     [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        if ([JSON isKindOfClass:[NSData class]]) {
+            NSString *text = [[NSString alloc] initWithData:(NSData *)JSON encoding:NSUTF8StringEncoding];
+            if (text.length) {
+                JSON = @{@"text" : text};
+            }
+            else {
+                JSON = nil;
+            }
+            
+        }
+       
         NSData *data = [NSJSONSerialization dataWithJSONObject:JSON options:0 error:nil];
         
         char *storage = new char[data.length];

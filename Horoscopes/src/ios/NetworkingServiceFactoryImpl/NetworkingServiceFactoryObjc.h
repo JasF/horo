@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "managers/networkingservice/networkingservicefactory.h"
 
 @interface NetworkingServiceFactoryObjc : NSObject
+
++ (horo::NetworkingServiceFactory *)sharedFactory;
 
 @end

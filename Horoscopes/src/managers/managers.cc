@@ -20,6 +20,8 @@
 #include "managers/horoscopesservice/horoscopesserviceimpl.h"
 #include "managers/horoscopesparser/horoscopesparserimpl.h"
 #include "base/platform.h"
+#include "managers/friendsproviderfactory/friendsproviderfactoryimpl.h"
+#include "managers/friendsmanager/friendsmanagerimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -39,7 +41,7 @@ Managers &Managers::shared() {
         
     }
 
-    NetworkingServiceFactory *sharedNetworkingServiceFactory() {
+    NetworkingServiceFactory *Managers::sharedNetworkingServiceFactory() {
         static NetworkingServiceFactory *sharedInstance = nullptr;
         if (sharedInstance == nullptr) {
             sharedInstance = new NetworkingServiceFactoryImpl();
@@ -159,5 +161,17 @@ Managers &Managers::shared() {
             sharedInstance = new HoroscopesParserImpl();
         }
         return sharedInstance;
+    }
+    
+    strong<FriendsProviderFactory> Managers::friendsProviderFactory() {
+        static strong<FriendsProviderFactory> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new FriendsProviderFactoryImpl(sharedNetworkingServiceFactory());
+        }
+        return sharedInstance;
+    }
+    
+    strong<FriendsManager> Managers::friendsManager() {
+        return new FriendsManagerImpl(friendsProviderFactory());
     }
 };

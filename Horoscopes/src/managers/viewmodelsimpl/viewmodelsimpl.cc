@@ -9,6 +9,8 @@
 #include "viewmodelsimpl.h"
 #include "viewmodels/predictionscreenviewmodel/predictionscreenviewmodelimpl.h"
 #include "viewmodels/helloscreenviewmodel/helloscreenviewmodelimpl.h"
+#include "viewmodels/menuscreenviewmodel/menuscreenviewmodelimpl.h"
+#include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodelimpl.h"
 
 namespace horo {
     
@@ -33,4 +35,15 @@ namespace horo {
         return viewModel;
     }
     
+    strong<MenuScreenViewModel> ViewModelsImpl::menuScreenViewModel() {
+        strong<MenuScreenModel> model = models_->menuScreenModel();
+        MenuScreenViewModelImpl *viewModel = new MenuScreenViewModelImpl(model, screensManager_);
+        return viewModel;
+    }
+    
+    strong<FriendsScreenViewModel> ViewModelsImpl::friendsScreenViewModel() {
+        strong<FriendsScreenModel> model = models_->friendsScreenModel();
+        FriendsScreenViewModelImpl *viewModel = new FriendsScreenViewModelImpl(model, screensManager_);
+        return viewModel;
+    }
 };

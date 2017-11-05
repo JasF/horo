@@ -18,6 +18,8 @@ public:
     virtual ~_ScreensManager() {}
     virtual void showPredictionViewController() = 0;
     virtual void showWelcomeViewController() = 0;
+    virtual void showMenuViewController() = 0;
+    virtual void showFriendsViewController() = 0;
 };
     
 typedef reff<_ScreensManager> ScreensManager;

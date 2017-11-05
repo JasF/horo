@@ -8,7 +8,7 @@
 
 #import "HTTPSessionManager.h"
 
-static NSString * const HTTPSessionManagerAPIBaseURLString = @"http://127.0.0.1:8002/";
+static NSString * const HTTPSessionManagerAPIBaseURLString = @"https://m.facebook.com/";
 
 @implementation HTTPSessionManager
 
@@ -19,6 +19,17 @@ static NSString * const HTTPSessionManagerAPIBaseURLString = @"http://127.0.0.1:
         _sharedClient = [[HTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:HTTPSessionManagerAPIBaseURLString]];
     });
     return _sharedClient;
+}
+
+- (id)initWithBaseURL:(NSURL *)url {
+    if (self = [super initWithBaseURL:url]) {
+        [self initialization];
+    }
+    return self;
+}
+
+- (void)initialization {
+    self.responseSerializer = [AFHTTPResponseSerializer serializer];
 }
 
 @end

@@ -35,4 +35,15 @@ namespace horo {
         }
     }
     
+    void ScreensManagerImpl::showMenuViewController() {
+        if (g_privateInstance) {
+            g_privateInstance->showMenuViewController();
+        }
+    }
+    
+    void ScreensManagerImpl::showFriendsViewController() {
+        if (g_privateInstance) {
+            g_privateInstance->showFriendsViewController();
+        }
+    }
 };

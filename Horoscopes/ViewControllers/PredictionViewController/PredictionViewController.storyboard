@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Prediction View Controller-->
         <scene sceneID="aE0-eh-7pO">
             <objects>
-                <viewController storyboardIdentifier="viewController" id="kmh-mk-xBG" customClass="PredictionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" automaticallyAdjustsScrollViewInsets="NO" id="kmh-mk-xBG" customClass="PredictionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y0m-NJ-iMr"/>
                         <viewControllerLayoutGuide type="bottom" id="bCJ-Af-vXP"/>
@@ -20,8 +21,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-sy-0Jg" customClass="BackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-hm-CTj">
+                                        <rect key="frame" x="0.0" y="0.0" width="1334" height="667"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fOf-hm-CTj" secondAttribute="height" multiplier="2:1" id="hsg-kF-fkc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fOf-hm-CTj" firstAttribute="top" secondItem="PaJ-sy-0Jg" secondAttribute="top" id="A8a-0u-13g"/>
+                                    <constraint firstItem="fOf-hm-CTj" firstAttribute="height" secondItem="PaJ-sy-0Jg" secondAttribute="height" id="Tdk-Lg-g63"/>
+                                    <constraint firstItem="fOf-hm-CTj" firstAttribute="leading" secondItem="PaJ-sy-0Jg" secondAttribute="leading" id="cJt-zD-30r"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="fOf-hm-CTj" id="lfy-YM-rlM"/>
+                                </connections>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-6u-Aw4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="kmh-mk-xBG" id="zO6-e6-b7m"/>
@@ -29,16 +51,31 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.2256310950310226" blue="0.97119899611398963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="BqR-iM-shr"/>
                             <constraint firstAttribute="trailing" secondItem="2T4-6u-Aw4" secondAttribute="trailing" id="LPR-5v-hLx"/>
+                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="height" secondItem="gul-Lk-ZSH" secondAttribute="height" id="Qca-ez-UsB"/>
+                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="centerY" secondItem="gul-Lk-ZSH" secondAttribute="centerY" id="Wfb-M5-fY2"/>
+                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="YaM-7g-TWS"/>
+                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="YhO-hH-o5I"/>
                             <constraint firstItem="2T4-6u-Aw4" firstAttribute="height" secondItem="gul-Lk-ZSH" secondAttribute="height" id="gF1-PO-LwJ"/>
                             <constraint firstItem="2T4-6u-Aw4" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="gMb-45-cnc"/>
-                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="top" secondItem="y0m-NJ-iMr" secondAttribute="bottom" id="ivH-YJ-euU"/>
-                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="leading" secondItem="gul-Lk-ZSH" secondAttribute="leading" id="wkP-do-P4F"/>
+                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="centerY" secondItem="gul-Lk-ZSH" secondAttribute="centerY" id="v7y-c0-753"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kwh-Hi-CzZ"/>
+                    <navigationItem key="navigationItem" id="kwh-Hi-CzZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="EJE-Ax-C8n">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iE7-Yx-xGQ">
+                                <rect key="frame" x="16" y="7" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <action selector="menuTapped:" destination="kmh-mk-xBG" eventType="touchUpInside" id="l0p-dd-g9Q"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
                         <outlet property="zodiacLabel" destination="Opt-ec-Fnz" id="G0H-0b-c5n"/>
@@ -59,11 +96,11 @@
                                     <constraint firstAttribute="height" constant="43.5" id="cli-JG-d0r"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.61545751150000005" green="0.73457739639999997" blue="0.2558524875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Opt-ec-Fnz" secondAttribute="bottom" id="TUs-Mr-2O9"/>
                             <constraint firstItem="Opt-ec-Fnz" firstAttribute="leading" secondItem="qWq-Gl-Sjp" secondAttribute="leading" constant="20" id="qVH-lf-acG"/>

@@ -30,6 +30,7 @@ namespace horo {
         std::string weekHoroscopeText() override;
         std::string monthHoroscopeText() override;
         std::string yearHoroscopeText() override;
+        void menuTapped() override;
         
     private:
         strong<PredictionScreenModel> model_;

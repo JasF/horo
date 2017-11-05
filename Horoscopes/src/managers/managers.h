@@ -22,6 +22,9 @@
 #include "managers/daofactory/daofactory.h"
 #include "managers/horoscopesservice/horoscopesservice.h"
 #include "managers/horoscopesparser/horoscopesparser.h"
+#include "managers/friendsproviderfactory/friendsproviderfactory.h"
+#include "managers/friendsmanager/friendsmanager.h"
+#include "managers/networkingservice/networkingservicefactory.h"
 
 namespace horo {
   
@@ -46,6 +49,9 @@ namespace horo {
         strong<DAOFactory> daoFactory();
         strong<HoroscopesService> horoscopesService();
         strong<HoroscopesParser> horoscopesParser();
+        strong<FriendsProviderFactory> friendsProviderFactory();
+        strong<FriendsManager> friendsManager();
+        NetworkingServiceFactory *sharedNetworkingServiceFactory();
     };
     
 };

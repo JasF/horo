@@ -45,8 +45,6 @@
         LOG(LS_WARNING) << "User gathered! success: " << success;
         [self hideProgressHud];
     };
-    
-    self.navigationController.navigationBarHidden = YES;
     // Do any additional setup after loading the view.
 }
     

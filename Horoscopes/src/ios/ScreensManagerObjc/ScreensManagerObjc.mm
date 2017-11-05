@@ -8,11 +8,13 @@
 
 #import "ScreensManagerObjc.h"
 #include "managers/screensmanager/screensmanagerimpl.h"
-#include "managers/managers.h"
-#import <UIKit/UIKit.h>
 #import "PredictionViewController.h"
-#import "AppDelegate.h"
 #import "WelcomeViewController.h"
+#include "managers/managers.h"
+#import "MenuViewController.h"
+#import "FriendsViewController.h"
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -58,6 +60,31 @@ namespace horo {
             else {
                 delegate.window.rootViewController = navigationController;
             }
+        }
+        void showMenuViewController() override {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MenuViewController"
+                                                                 bundle: nil];
+            
+            UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
+            MenuViewController *viewController = (MenuViewController *)navigationController.topViewController;
+            viewController.viewModel = impl_->viewModels()->menuScreenViewModel();
+            
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = navigationController;
+        }
+        
+        void showFriendsViewController() override {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
+                                                                 bundle: nil];
+            
+            UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
+            FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
+            viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
+            
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = navigationController;
         }
     private:
         strong<ScreensManager> original_;

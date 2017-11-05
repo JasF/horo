@@ -13,6 +13,8 @@
 #include "base/horobase.h"
 #include "models/predictionscreenmodel/predictionscreenmodel.h"
 #include "models/helloscreenmodel/helloscreenmodel.h"
+#include "models/menuscreenmodel/menuscreenmodel.h"
+#include "models/friendsscreenmodel/friendsscreenmodel.h"
 
 namespace horo {
     
@@ -22,6 +24,8 @@ namespace horo {
     public:
         virtual strong<PredictionScreenModel> predictionScreenModel()=0;
         virtual strong<HelloScreenModel> helloScreenModel()=0;
+        virtual strong<MenuScreenModel> menuScreenModel()=0;
+        virtual strong<FriendsScreenModel> friendsScreenModel()=0;
     };
     
     typedef reff<_Models> Models;

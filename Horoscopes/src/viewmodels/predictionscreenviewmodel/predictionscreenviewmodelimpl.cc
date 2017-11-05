@@ -39,6 +39,9 @@ namespace horo {
     std::string PredictionScreenViewModelImpl::yearHoroscopeText() {
         return "";
     }
+    void PredictionScreenViewModelImpl::menuTapped() {
+        screensManager_->showMenuViewController();
+    }
     std::string PredictionScreenViewModelImpl::zodiacName() {
         return model_->zodiacName();
     }

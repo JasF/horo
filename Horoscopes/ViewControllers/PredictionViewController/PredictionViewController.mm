@@ -21,8 +21,13 @@ static CGFloat const kRowHeight = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
+    //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20pt on top
     _tableView.rowHeight = kRowHeight;
     _tableView.estimatedRowHeight = kRowHeight;
+    _tableView.contentInset = UIEdgeInsetsZero;
+    _tableView.separatorInset = UIEdgeInsetsZero;
+    _tableView.separatorColor = [UIColor clearColor];
+    
     _viewModel->didActivated();
     
     _zodiacLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacName().c_str()];
@@ -61,5 +66,8 @@ static CGFloat const kRowHeight = 100;
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)menuTapped:(id)sender {
+    _viewModel->menuTapped();
+}
 
 @end

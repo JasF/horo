@@ -33,4 +33,9 @@ namespace horo {
     void FriendsScreenModelImpl::updateFriendsFromFacebook() {
         friendsManager_->loadFacebookFriends();
     }
+    
+    bool FriendsScreenModelImpl::webViewDidLoad(std::string url) {
+        return friendsManager_->webViewDidLoad(url);
+    }
+    
 };

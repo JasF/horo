@@ -64,6 +64,7 @@ void NetworkingServiceObjc::beginRequest(std::string path,
             return;
         }
         strong<HttpResponse> respone = factory_->createHttpResponse();
+        respone->url_ = [task.response.URL.absoluteString UTF8String];
         delete[]storage;
         if (successBlock) {
             successBlock(respone, root);

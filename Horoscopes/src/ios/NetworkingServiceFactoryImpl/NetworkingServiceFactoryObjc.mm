@@ -15,9 +15,12 @@ namespace horo {
     class NetworkingServiceFactoryObjc : public NetworkingServiceFactory {
     public:
         NetworkingServiceFactoryObjc() {}
-        virtual ~NetworkingServiceFactoryObjc() {}
+        virtual ~NetworkingServiceFactoryObjc() {
+            LOG(LS_WARNING) << "!";
+        }
         
         virtual strong<NetworkingService> createNetworkingService(){
+            this->AddRef();
             return new horo::NetworkingServiceObjc(this);
         }
         virtual strong<HttpResponse> createHttpResponse() {

@@ -17,6 +17,7 @@ namespace horo {
         virtual ~_FriendsManager(){}
     public:
         virtual void loadFacebookFriends()=0;
+        virtual bool webViewDidLoad(std::string url)=0;
         
     public:
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_;

@@ -16,6 +16,8 @@ namespace horo {
     public:
         virtual ~_HttpResponse() {}
         virtual dictionary headers()=0;
+    public:
+        std::string url_;
     };
     
     typedef reff<_HttpResponse> HttpResponse;

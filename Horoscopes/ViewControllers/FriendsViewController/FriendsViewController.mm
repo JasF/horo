@@ -29,22 +29,22 @@ UIWebViewDelegate>
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
-    
-    _webView.hidden = NO;
-    
     _viewModel->updateFriendsFromFacebook();
-    /*
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://m.facebook.com/home.php"]];
-    [_webView loadRequest:request];
-     */
 }
 
 - (void)initializeCallbacks {
     @weakify(self);
     _viewModel->authorizationUrlCallback_ = [self_weak_](std::string url, std::vector<std::string> allowedPatterns) {
         @strongify(self);
-        LOG(LS_WARNING) << "!";
+        NSString *urlString = [[NSString alloc] initWithUTF8String:url.c_str()];
+        [self showUrl:urlString];
     };
+}
+
+- (void)showUrl:(NSString *)urlString {
+    _webView.hidden = NO;
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    [_webView loadRequest:request];
 }
 
 #pragma mark - UITableViewDataSource
@@ -94,9 +94,17 @@ UIWebViewDelegate>
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    std::string loadedUrl = [webView.request.URL.absoluteString UTF8String];
+    BOOL canContinue = _viewModel->webViewDidLoad(loadedUrl);
+    if (!canContinue) {
+        _webView.hidden = YES;
+        [_webView stopLoading];
+    }
+    /*
     NSLog(@"did-load |&^*($| url: %@", webView.request.URL);
     NSString *yourHTMLSourceCodeString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
     NSLog(@"length: %@", @([yourHTMLSourceCodeString length]));
+    */
 }
 
 - (void)webView:(UIWebView *)webView

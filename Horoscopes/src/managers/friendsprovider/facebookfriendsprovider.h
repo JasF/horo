@@ -11,6 +11,7 @@
 
 #include "friendsprovider.h"
 #include "managers/networkingservice/networkingservicefactory.h"
+#include "managers/networkingservice/networkingservice.h"
 
 namespace horo {
     class FacebookFriendsProvider : public FriendsProvider {
@@ -22,10 +23,12 @@ namespace horo {
         }
         ~FacebookFriendsProvider() override {}
     public:
-        void requestFriendsList(std::function<void(std::vector<FacebookFriend> friends, std::string nextUrl, RequestStatus status)> completion) override;
+        void requestFriendsList(std::function<void(std::vector<GenericFriend> friends, std::string nextUrl, RequestStatus status)> completion) override;
+        bool webViewDidLoad(std::string url) override;
         
     private:
         strong<NetworkingServiceFactory> factory_;
+        strong<NetworkingService> request_;
     };
 };
 

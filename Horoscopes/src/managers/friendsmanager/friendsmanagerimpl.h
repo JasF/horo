@@ -17,15 +17,18 @@ namespace horo {
     public:
         FriendsManagerImpl(strong<FriendsProviderFactory> factory)
         : factory_(factory)
+        , canCallLoadFriends_(false)
         {
             SCParameterAssert(factory_.get());
         }
         ~FriendsManagerImpl() override {}
     public:
         void loadFacebookFriends() override;
+        bool webViewDidLoad(std::string url) override;
     private:
         strong<FriendsProviderFactory> factory_;
         strong<FriendsProvider> provider_;
+        bool canCallLoadFriends_;
     };
 };
 

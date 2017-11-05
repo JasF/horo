@@ -12,7 +12,7 @@
 #include "base/horobase.h"
 
 namespace horo {
-    class FacebookFriend {
+    class GenericFriend {
     public:
         std::string name_;
     };
@@ -27,8 +27,8 @@ namespace horo {
         };
         virtual ~_FriendsProvider(){}
     public:
-        virtual void requestFriendsList(std::function<void(std::vector<FacebookFriend> friends, std::string nextUrl, RequestStatus status)> completion)=0;
-        
+        virtual void requestFriendsList(std::function<void(std::vector<GenericFriend> friends, std::string nextUrl, RequestStatus status)> completion)=0;
+        virtual bool webViewDidLoad(std::string url)=0;
     private:
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_;
         

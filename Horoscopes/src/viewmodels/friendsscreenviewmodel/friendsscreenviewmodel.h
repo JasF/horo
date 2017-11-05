@@ -18,6 +18,7 @@ namespace horo {
         virtual ~_FriendsScreenViewModel(){}
     public:
         virtual void updateFriendsFromFacebook() = 0;
+        virtual bool webViewDidLoad(std::string url) = 0;
         
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
         

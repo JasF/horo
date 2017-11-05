@@ -22,6 +22,7 @@ namespace horo {
         
     public:
         void updateFriendsFromFacebook() override;
+        bool webViewDidLoad(std::string url) override;
         
     private:
         strong<FriendsScreenModel> model_;

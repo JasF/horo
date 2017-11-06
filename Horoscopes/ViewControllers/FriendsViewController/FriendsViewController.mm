@@ -71,6 +71,7 @@ static FriendsViewController *staticInstance = nil;
     NSCParameterAssert(_viewModel);
     [super viewDidLoad];
     _wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    _wkWebView.hidden = YES;
     [self.view addSubview:_wkWebView];
     [self initializeCallbacks];
     _tableView.rowHeight = UITableViewAutomaticDimension;
@@ -100,7 +101,6 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (void)showUrl:(NSString *)urlString {
-    _wkWebView.hidden = NO;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [_wkWebView loadRequest:request];
 }
@@ -140,6 +140,8 @@ static FriendsViewController *staticInstance = nil;
 #pragma mark - UIWebViewDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     std::string loadedUrl = [webView.URL.absoluteString UTF8String];
+    bool showWebView = _viewModel->webViewDidLoad(loadedUrl);
+    self.wkWebView.hidden = !showWebView;
     [self performSuccessCallback:YES];
 }
 
@@ -170,7 +172,6 @@ static FriendsViewController *staticInstance = nil;
     self.webViewDidLoadCompletion = completion;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:friendsUrl];
     [_wkWebView loadRequest:request];
-    _wkWebView.hidden = NO;
 }
 
 - (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {

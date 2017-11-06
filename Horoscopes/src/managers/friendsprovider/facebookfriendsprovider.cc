@@ -154,6 +154,7 @@ void FacebookFriendsProvider::parseFriendsPage(Json::Value json) {
     Json::Value result = parser->parse();
     
     Json::Value array = result["results"];
+    LOG(LS_WARNING) << "friends count: " << array.size();
     executeRequestFriendsNextPage();    
 }
 

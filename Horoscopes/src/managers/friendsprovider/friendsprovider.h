@@ -24,6 +24,7 @@ namespace horo {
             Unknown,
             OK,
             AuthorizationRequired,
+            Failed
         };
         virtual ~_FriendsProvider(){}
     public:

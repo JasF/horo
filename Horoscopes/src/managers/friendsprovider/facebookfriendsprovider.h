@@ -28,6 +28,8 @@ namespace horo {
         
     private:
         void parseHomePage(Json::Value json);
+        void executeHomePageRequest();
+        
     private:
         strong<NetworkingServiceFactory> factory_;
         strong<NetworkingService> request_;

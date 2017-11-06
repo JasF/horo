@@ -17,7 +17,6 @@ void FriendsManagerImpl::loadFacebookFriends() {
     if (!friendsProvider.get()) {
         return;
     }
-    canCallLoadFriends_ = true;
     provider_ = friendsProvider;
     std::function<void(std::vector<GenericFriend> friends, std::string url, FriendsProvider::RequestStatus status)> safeCompletion = [this](std::vector<GenericFriend> friends, std::string url, FriendsProvider::RequestStatus status) {
         LOG(LS_WARNING) << "status is: " << status;
@@ -35,12 +34,6 @@ void FriendsManagerImpl::loadFacebookFriends() {
 bool FriendsManagerImpl::webViewDidLoad(std::string url) {
     if (provider_.get()) {
         bool result = provider_->webViewDidLoad(url);
-        if (!result) {
-            if (canCallLoadFriends_) {
-                loadFacebookFriends();
-                canCallLoadFriends_ = false;
-            }
-        }
         return result;
     }
     return false;

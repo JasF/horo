@@ -17,7 +17,6 @@ namespace horo {
     public:
         FriendsManagerImpl(strong<FriendsProviderFactory> factory)
         : factory_(factory)
-        , canCallLoadFriends_(false)
         {
             SCParameterAssert(factory_.get());
         }
@@ -28,7 +27,6 @@ namespace horo {
     private:
         strong<FriendsProviderFactory> factory_;
         strong<FriendsProvider> provider_;
-        bool canCallLoadFriends_;
     };
 };
 

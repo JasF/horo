@@ -173,7 +173,7 @@ Managers &Managers::shared() {
     }
     
     strong<FriendsManager> Managers::friendsManager() {
-        return new FriendsManagerImpl(friendsProviderFactory());
+        return new FriendsManagerImpl(friendsProviderFactory(), daoFactory()->createPersonDAO());
     }
     
     strong<HtmlParserFactory> Managers::htmlParserFactory() {

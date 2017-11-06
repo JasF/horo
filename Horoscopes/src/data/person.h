@@ -36,6 +36,8 @@ namespace horo {
         _Person();
         _Person(strong<Zodiac> zodiac,
                 std::string name,
+                std::string imageUrl,
+                std::string personUrl,
                 Gender gender,
                 PersonStatus status,
                 PersonType type,
@@ -50,6 +52,8 @@ namespace horo {
         inline void setWithFacebook(bool a) { withFacebook_ = a; }
     private:
         std::string name_; // utf-8
+        std::string imageUrl_;
+        std::string personUrl_;
         strong<Zodiac> zodiac_;
         Gender gender_;
         PersonStatus status_;
@@ -59,7 +63,6 @@ namespace horo {
     };
     
     typedef reff<_Person> Person;
-    
 };
 
 #endif /* person_h */

@@ -50,7 +50,7 @@ class RefCountedObject : public T {
   // has exclusive access to the object.
   virtual bool HasOneRef() const { return ref_count_.HasOneRef(); }
 
- protected:
+ public:
   virtual ~RefCountedObject() {}
 
   mutable webrtc::webrtc_impl::RefCounter ref_count_{0};

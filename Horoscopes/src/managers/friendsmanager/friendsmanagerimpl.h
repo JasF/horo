@@ -11,14 +11,20 @@
 
 #include "friendsmanager.h"
 #include "managers/friendsproviderfactory/friendsproviderfactory.h"
+#include "managers/persondao/persondao.h"
 
 namespace horo {
     class FriendsManagerImpl : public FriendsManager {
     public:
-        FriendsManagerImpl(strong<FriendsProviderFactory> factory)
-        : factory_(factory)
+        FriendsManagerImpl(strong<FriendsProviderFactory> factory,
+                           strong<PersonDAO> personDAO)
+        : factory_(factory),
+        personDAO_(personDAO)
         {
             SCParameterAssert(factory_.get());
+            SCParameterAssert(personDAO_.get());
+            
+            personDAO_->create();
         }
         ~FriendsManagerImpl() override {}
     public:
@@ -27,6 +33,7 @@ namespace horo {
     private:
         strong<FriendsProviderFactory> factory_;
         strong<FriendsProvider> provider_;
+        strong<PersonDAO> personDAO_;
     };
 };
 

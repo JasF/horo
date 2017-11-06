@@ -11,6 +11,7 @@
 
 #include "managers/horoscopedao/horoscopedao.h"
 #include "managers/daofactory/daofactory.h"
+#include "managers/persondao/persondaoimpl.h"
 #include "database/database.h"
 
 namespace horo {
@@ -19,6 +20,7 @@ namespace horo {
         DAOFactoryImpl(strong<Database> database) : database_(database) {}
         ~DAOFactoryImpl() override {}
         strong<HoroscopeDAO> createHoroscopeDAO() override;
+        strong<PersonDAO> createPersonDAO() override;
     private:
         strong<Database> database_;
     };

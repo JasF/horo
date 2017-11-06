@@ -11,6 +11,8 @@
 namespace horo {
     
     static const char *kName = "name";
+    static const char *kImageUrl = "imageUrl";
+    static const char *kPersonUrl = "personUrl";
     static const char *kZodiacType = "zodiacType";
     static const char *kGender = "gender";
     static const char *kStatus = "status";
@@ -26,6 +28,8 @@ namespace horo {
     
     _Person::_Person(strong<Zodiac> zodiac,
                      std::string name,
+                     std::string imageUrl,
+                     std::string personUrl,
                      Gender gender,
                      PersonStatus status,
                      PersonType type,
@@ -33,6 +37,8 @@ namespace horo {
                      bool withFacebook)
     : zodiac_(zodiac),
     name_(name),
+    imageUrl_(imageUrl),
+    personUrl_(personUrl),
     gender_(gender),
     status_(status),
     type_(type),
@@ -52,6 +58,8 @@ namespace horo {
     void _Person::encode(Json::Value &coder) {
         coder[kZodiacType] = zodiac_->type();//int
         coder[kName] = name_;//string
+        coder[kImageUrl] = imageUrl_;
+        coder[kPersonUrl] = personUrl_;
         coder[kGender] = gender_;//int
         coder[kStatus] = status_;
         coder[kType] = type_;
@@ -68,6 +76,8 @@ namespace horo {
             zodiac_ = nullptr;
         }
         name_ = coder[kName].asString();
+        imageUrl_ = coder[kImageUrl].asString();
+        personUrl_ = coder[kPersonUrl].asString();
         gender_ = (Gender) coder[kGender].asInt();
         status_ = (PersonStatus) coder[kStatus].asInt();
         type_ = (PersonType) coder[kType].asInt();

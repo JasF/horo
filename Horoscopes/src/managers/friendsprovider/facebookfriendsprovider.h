@@ -28,7 +28,7 @@ namespace horo {
         }
         ~FacebookFriendsProvider() override {}
     public:
-        void requestFriendsList(std::function<void(std::vector<GenericFriend> friends, std::string nextUrl, RequestStatus status)> completion) override;
+        void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) override;
         bool webViewDidLoad(std::string url) override;
         
     private:
@@ -54,7 +54,7 @@ namespace horo {
         strong<HtmlParserFactory> parserFactory_;
         strong<NetworkingServiceFactory> factory_;
         strong<NetworkingService> request_;
-        std::function<void(std::vector<GenericFriend> friends,
+        std::function<void(Json::Value friends,
                            std::string nextUrl,
                            RequestStatus status)> callback_;
         std::string currentPath_;

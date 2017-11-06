@@ -15,7 +15,7 @@
 namespace horo {
     using namespace std;
   
-void FacebookFriendsProvider::requestFriendsList(std::function<void(std::vector<GenericFriend> friends,
+void FacebookFriendsProvider::requestFriendsList(std::function<void(Json::Value friends,
                                                                     std::string nextUrl,
                                                                     RequestStatus status)> completion) {
     callback_ = completion;
@@ -104,7 +104,7 @@ bool FacebookFriendsProvider::isRequiredAuthorizationResponse(strong<HttpRespons
     }
     std::string url = response->url_;
     if (url.find("login") != std::string::npos) {
-        std::vector<GenericFriend> friends;
+        Json::Value friends;
         if (callback_) {
             callback_(friends, response->url_, AuthorizationRequired);
         };
@@ -153,13 +153,15 @@ void FacebookFriendsProvider::parseFriendsPage(Json::Value json) {
     strong<HtmlParser> parser = parserFactory_->createFacebookFriendsParser(text);
     Json::Value result = parser->parse();
     
-    Json::Value array = result["results"];
-    LOG(LS_WARNING) << "friends count: " << array.size();
+    Json::Value persons = result["results"];
+    if (callback_) {
+        callback_(persons, "", Partial);
+    };
     executeRequestFriendsNextPage();    
 }
 
 void FacebookFriendsProvider::operationDidFinishedWithError() {
-    std::vector<GenericFriend> friends;
+    Json::Value friends;
     if (callback_) {
         callback_(friends, "", Failed);
     };

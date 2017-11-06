@@ -11,6 +11,7 @@
 
 #include "base/horobase.h"
 #include "managers/horoscopedao/horoscopedao.h"
+#include "managers/persondao/persondao.h"
 
 namespace horo {
     
@@ -18,6 +19,7 @@ namespace horo {
     public:
         virtual ~_DAOFactory() {}
         virtual strong<HoroscopeDAO> createHoroscopeDAO()=0;
+        virtual strong<PersonDAO> createPersonDAO()=0;
     };
     
     typedef reff<_DAOFactory> DAOFactory;

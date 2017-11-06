@@ -26,12 +26,13 @@ namespace horo {
     private:
         void iterate(const GumboNode* root);
         set<string> friendsUrls();
+        void processATag(const GumboNode *root, GumboAttribute* cls_attr);
         
     private:
         std::string text_;
         Json::Value results_;
         Json::Value parameters_;
-        set<string> hrefs_;
+        Json::Value persons_;
     };
 };
 

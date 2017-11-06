@@ -157,6 +157,7 @@
 		C31A13FC1FB073D8001FABFE /* facebookfriendsparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */; };
 		C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A138E1FAF39BC001FABFE /* WebKit.framework */; };
 		C31A14031FB08FD4001FABFE /* url.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14021FB08FD4001FABFE /* url.cc */; };
+		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -710,6 +711,9 @@
 		C31A13FD1FB087D2001FABFE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		C31A13FF1FB08FBF001FABFE /* url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = url.h; sourceTree = "<group>"; };
 		C31A14021FB08FD4001FABFE /* url.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = url.cc; sourceTree = "<group>"; };
+		C31A14051FB0B233001FABFE /* persondao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = persondao.h; sourceTree = "<group>"; };
+		C31A14061FB0B240001FABFE /* persondaoimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = persondaoimpl.h; sourceTree = "<group>"; };
+		C31A14091FB0B254001FABFE /* persondaoimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = persondaoimpl.cc; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1544,6 +1548,16 @@
 			path = gumbo;
 			sourceTree = "<group>";
 		};
+		C31A14041FB0B1E2001FABFE /* persondao */ = {
+			isa = PBXGroup;
+			children = (
+				C31A14051FB0B233001FABFE /* persondao.h */,
+				C31A14061FB0B240001FABFE /* persondaoimpl.h */,
+				C31A14091FB0B254001FABFE /* persondaoimpl.cc */,
+			);
+			path = persondao;
+			sourceTree = "<group>";
+		};
 		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1935,6 +1949,7 @@
 				C3B3AA921FA84DAF00D74180 /* horoscopesparser */,
 				C3B3AA8A1FA83B0200D74180 /* horoscopesservice */,
 				C304094B1FA7800300A0FC33 /* daofactory */,
+				C31A14041FB0B1E2001FABFE /* persondao */,
 				C304093F1FA77EBB00A0FC33 /* horoscopedao */,
 				C3817DE01FA7051700447155 /* firestore */,
 				C3B601A01FA6049900AD4F6D /* serializer */,
@@ -2510,6 +2525,7 @@
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
 				C31A13E61FB06168001FABFE /* vector.c in Sources */,
 				C31A14031FB08FD4001FABFE /* url.cc in Sources */,
+				C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */,
 				C31A13EB1FB06168001FABFE /* attribute.c in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,

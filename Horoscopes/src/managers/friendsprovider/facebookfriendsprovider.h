@@ -27,8 +27,13 @@ namespace horo {
         bool webViewDidLoad(std::string url) override;
         
     private:
+        void parseHomePage(Json::Value json);
+    private:
         strong<NetworkingServiceFactory> factory_;
         strong<NetworkingService> request_;
+        std::function<void(std::vector<GenericFriend> friends,
+                           std::string nextUrl,
+                           RequestStatus status)> callback_;
     };
 };
 

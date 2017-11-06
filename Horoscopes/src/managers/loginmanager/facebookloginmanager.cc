@@ -67,10 +67,16 @@ void FacebookLoginManager::requestUserInformation(std::function<void(strong<Pers
         Gender gender = (Gender)genders[genderString].asInt();
         
         strong<Zodiac> zodiac = new Zodiac(type);
-        strong<Person> person = new Person(zodiac, name, gender);
+        strong<Person> person = new Person(zodiac, name, gender, StatusCompleted, TypeUser, DateWrapper(day, month, year), true);
         if (callback) {
             callback(person);
         }
+        /*
+        _Person(strong<Zodiac> zodiac,
+                std::string name,
+                Gender gender,
+                PersonStatus status,);
+        */
     });
 }
     

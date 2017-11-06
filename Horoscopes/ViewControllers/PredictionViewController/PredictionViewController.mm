@@ -22,7 +22,7 @@ static CGFloat const kRowHeight = 100;
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
     //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20pt on top
-    _tableView.rowHeight = kRowHeight;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = kRowHeight;
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;

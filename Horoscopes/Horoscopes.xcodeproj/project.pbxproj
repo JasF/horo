@@ -137,6 +137,7 @@
 		C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */; };
 		C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */; };
 		C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */; };
+		C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A71FB052A2001FABFE /* datewrapper.cc */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -643,6 +644,8 @@
 		C31A139E1FAF50FC001FABFE /* friendsproviderfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsproviderfactory.h; sourceTree = "<group>"; };
 		C31A139F1FAF5108001FABFE /* friendsproviderfactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsproviderfactoryimpl.h; sourceTree = "<group>"; };
 		C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsproviderfactoryimpl.cc; sourceTree = "<group>"; };
+		C31A13A41FB05290001FABFE /* datewrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datewrapper.h; sourceTree = "<group>"; };
+		C31A13A71FB052A2001FABFE /* datewrapper.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = datewrapper.cc; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1273,6 +1276,8 @@
 				C30B18A41FA5D15F006DEDB7 /* person.cc */,
 				C30409461FA77F5400A0FC33 /* horoscopedto.h */,
 				C30409491FA77F6600A0FC33 /* horoscopedto.cc */,
+				C31A13A41FB05290001FABFE /* datewrapper.h */,
+				C31A13A71FB052A2001FABFE /* datewrapper.cc */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -2378,6 +2383,7 @@
 				C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
+				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
 				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,

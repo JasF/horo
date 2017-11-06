@@ -12,6 +12,7 @@
 #include "base/horobase.h"
 #include "zodiac.h"
 #include "base/coding.h"
+#include "data/datewrapper.h"
 
 namespace horo {
     enum Gender {
@@ -19,19 +20,42 @@ namespace horo {
         Male,
         Female
     };
+    enum PersonStatus {
+        StatusUnknown,
+        StatusReadyForRequest,
+        StatusCompleted,
+        StatusFailed
+    };
+    enum PersonType {
+        TypeUnknown,
+        TypeUser,
+        TypeFriend
+    };
     class _Person : public Coding {
     public:
         _Person();
-        _Person(strong<Zodiac> zodiac, std::string name, Gender gender);
+        _Person(strong<Zodiac> zodiac,
+                std::string name,
+                Gender gender,
+                PersonStatus status,
+                PersonType type,
+                DateWrapper birthdayDate,
+                bool withFacebook);
         virtual ~_Person();
     public:
         void encode(Json::Value &coder) override;
         void decode(Json::Value &coder) override;
         strong<Zodiac> zodiac() { return zodiac_; }
+        inline bool withFacebook() const { return withFacebook_; }
+        inline void setWithFacebook(bool a) { withFacebook_ = a; }
     private:
-        strong<Zodiac> zodiac_;
         std::string name_; // utf-8
+        strong<Zodiac> zodiac_;
         Gender gender_;
+        PersonStatus status_;
+        PersonType type_;
+        DateWrapper birthdayDate_;
+        bool withFacebook_;
     };
     
     typedef reff<_Person> Person;

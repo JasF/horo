@@ -14,6 +14,8 @@
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseFirestore/FirebaseFirestore.h>
 
+static CGFloat const kRowHeight = 100;
+
 @interface WelcomeViewController () <UITableViewDelegate, UITableViewDataSource, FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) IBOutlet UITableViewCell *facebookLoginCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -32,11 +34,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
-    _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
+    //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20 or 64pt on top
+    _tableView.rowHeight = UITableViewAutomaticDimension;
+    _tableView.estimatedRowHeight = kRowHeight;
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
+    
     _loginButton.delegate = self;
     _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
     @weakify(self);

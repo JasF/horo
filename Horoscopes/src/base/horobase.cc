@@ -18,7 +18,9 @@ namespace horo {
         {
             string substr;
             getline( ss, substr, delimeter );
-            result.push_back( substr );
+            if (substr.length()) {
+                result.push_back( substr );
+            }
         }
         
         return result;

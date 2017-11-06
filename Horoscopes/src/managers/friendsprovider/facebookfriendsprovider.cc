@@ -13,13 +13,11 @@ namespace horo {
 void FacebookFriendsProvider::requestFriendsList(std::function<void(std::vector<GenericFriend> friends,
                                                                     std::string nextUrl,
                                                                     RequestStatus status)> completion) {
-    /*
-    if (completion) {
-    }
-     */
+    callback_ = completion;
     request_ = factory_->createNetworkingService();
     Json::Value parameters;
-    request_->beginRequest("/home.php", parameters, [completion](strong<HttpResponse> response, Json::Value json) {
+    strong<FacebookFriendsProvider> aProvider(this);
+    request_->beginRequest("/home.php", parameters, [completion, aProvider](strong<HttpResponse> response, Json::Value json) {
         std::string url = response->url_;
         if (url.find("login") != std::string::npos) {
             std::vector<GenericFriend> friends;
@@ -28,6 +26,7 @@ void FacebookFriendsProvider::requestFriendsList(std::function<void(std::vector<
             };
             return;
         }
+        aProvider->parseHomePage(json);
         LOG(LS_WARNING) << "success:: " << json.toStyledString();
     }, [](error aErr) {
         LOG(LS_WARNING) << "err:" << aErr.text_;
@@ -42,6 +41,10 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
         return false;
     }
     return true;
+}
+    
+void FacebookFriendsProvider::parseHomePage(Json::Value json) {
+    std::string text = json["text"].asString();
 }
     
 };

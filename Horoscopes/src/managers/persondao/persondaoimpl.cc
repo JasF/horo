@@ -19,7 +19,7 @@ static const char * kSQLCreate = ""\
 "status INTEGER, "\
 "type INTEGER, "\
 "birthdayDate STRING, "\
-"withFacebook INTEGER,"\
+"withFacebook INTEGER"\
 ");";
 
 namespace horo {
@@ -35,7 +35,7 @@ namespace horo {
     }
     
     void PersonDAOImpl::create() {
-        database_->executeUpdate(kSQLCreate);
+        bool result = database_->executeUpdate(kSQLCreate);
     }
     
 };

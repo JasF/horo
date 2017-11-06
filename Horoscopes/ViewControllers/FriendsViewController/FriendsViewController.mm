@@ -13,15 +13,22 @@ static CGFloat const kRowHeight = 100;
 
 
 @interface FriendsViewController () <UITableViewDelegate, UITableViewDataSource,
-UIWebViewDelegate>
+UIWebViewDelegate, WKUIDelegate, WKNavigationDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet WKWebView *wkWebView;
+@property (assign, nonatomic) BOOL friendsLoading;
 @end
 
 @implementation FriendsViewController
 
+static FriendsViewController *staticInstance = nil;
++ (instancetype)shared {
+    return staticInstance;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    staticInstance = self;
     NSCParameterAssert(_viewModel);
     [self initializeCallbacks];
     _tableView.rowHeight = UITableViewAutomaticDimension;
@@ -30,6 +37,9 @@ UIWebViewDelegate>
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
     _viewModel->updateFriendsFromFacebook();
+    
+    _wkWebView.UIDelegate = self;
+    _wkWebView.navigationDelegate = self;
 }
 
 - (void)initializeCallbacks {
@@ -85,7 +95,6 @@ UIWebViewDelegate>
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"requesting |&^*($| url: %@", webView.request.URL);
     return YES;
 }
 
@@ -94,22 +103,29 @@ UIWebViewDelegate>
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    if (_friendsLoading) {
+        return;
+    }
     std::string loadedUrl = [webView.request.URL.absoluteString UTF8String];
     BOOL canContinue = _viewModel->webViewDidLoad(loadedUrl);
     if (!canContinue) {
         _webView.hidden = YES;
         [_webView stopLoading];
     }
-    /*
-    NSLog(@"did-load |&^*($| url: %@", webView.request.URL);
-    NSString *yourHTMLSourceCodeString = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    NSLog(@"length: %@", @([yourHTMLSourceCodeString length]));
-    */
 }
 
 - (void)webView:(UIWebView *)webView
 didFailLoadWithError:(NSError *)error {
     
+}
+
+#pragma mark -
+- (void)loadFriendsWithPath:(NSURL *)friendsUrl {
+    NSCParameterAssert(friendsUrl);
+    _friendsLoading = YES;
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:friendsUrl];
+    [_webView loadRequest:request];
+    _webView.hidden = NO;
 }
 
 @end

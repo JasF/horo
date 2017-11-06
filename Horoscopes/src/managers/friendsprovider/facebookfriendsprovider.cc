@@ -43,24 +43,34 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
         return;
     }
     Json::Value parameters;
+    parameters["webViewFriendsLoading"]=1;
     strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
+    executeRequest(path, parameters, [aProvider](strong<HttpResponse> response, Json::Value json) {
         aProvider->parseFriendsPage(json);
     });
 }
 
 void FacebookFriendsProvider::executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback) {
-    currentPath_ = path;
-    currentCallback_ = callback;
-    executeRequest();
+    Json::Value parameters;
+    executeRequest(path, parameters, callback);
 }
     
+void FacebookFriendsProvider::executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback) {
+    currentPath_ = path;
+    currentCallback_ = callback;
+    executeRequest(parameters);
+}
+
 void FacebookFriendsProvider::executeRequest() {
-    Json::Value parameters;
+    executeRequest(parameters_);
+}
+    
+void FacebookFriendsProvider::executeRequest(Json::Value parameters) {
     strong<FacebookFriendsProvider> aProvider(this);
     request_ = factory_->createNetworkingService();
     auto aCallback = currentCallback_;
-    request_->beginRequest(currentPath_, parameters, [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
+    parameters_ = parameters;
+    request_->beginRequest(currentPath_, parameters_, [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
         if (aProvider->isRequiredAuthorizationResponse(response)) {
             return;
         }

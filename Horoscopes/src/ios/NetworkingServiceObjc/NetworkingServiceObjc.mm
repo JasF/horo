@@ -12,6 +12,7 @@
 #import "HTTPSessionManager.h"
 #include "json/reader.h"
 #include "NSDictionary+Horo.h"
+#include "FriendsViewController.h"
 
 static const int kParsingFailedError = -1;
 
@@ -32,7 +33,16 @@ void NetworkingServiceObjc::beginRequest(std::string path,
                                              std::function<void(error err)> failBlock) {
     LOG(LS_WARNING) << path;
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
-    NSDictionary *dictionaryParameters = [NSDictionary horo_dictionaryFromJsonValue:parameters];
+    NSMutableDictionary *dictionaryParameters = [[NSDictionary horo_dictionaryFromJsonValue:parameters] mutableCopy];
+    if ([dictionaryParameters[@"webViewFriendsLoading"] boolValue]) {
+        [dictionaryParameters removeObjectForKey:@"webViewFriendsLoading"];
+        LOG(LS_WARNING) << "Attach webView here!";
+        UIWebView *webView = [FriendsViewController shared].webView;
+        NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
+        NSString *urlString = [baseUrl stringByAppendingString:pathString];
+        [[FriendsViewController shared] loadFriendsWithPath:[NSURL URLWithString:urlString]];
+        return;
+    }
     NSMutableSet *set = [NSMutableSet new];
     [set addObject:@"text/plain"];
     [set addObject:@"text/html"];

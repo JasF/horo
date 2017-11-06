@@ -10,5 +10,8 @@
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodel.h"
 
 @interface FriendsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (assign, nonatomic) strong<horo::FriendsScreenViewModel> viewModel;
++ (instancetype)shared;
+- (void)loadFriendsWithPath:(NSURL *)friendsUrl;
 @end

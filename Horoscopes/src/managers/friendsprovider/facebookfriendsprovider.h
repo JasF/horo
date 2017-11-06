@@ -42,7 +42,9 @@ namespace horo {
         void executeUserInformationPageRequest(std::string path);
         void executeFriendsPageRequest(std::string path);
         void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback);
+        void executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback);
         void executeRequest();
+        void executeRequest(Json::Value parameters);
         
     public:
         bool isRequiredAuthorizationResponse(strong<HttpResponse> response);
@@ -55,6 +57,7 @@ namespace horo {
                            std::string nextUrl,
                            RequestStatus status)> callback_;
         std::string currentPath_;
+        Json::Value parameters_;
         std::function<void(strong<HttpResponse> response, Json::Value value)> currentCallback_;
     };
 };

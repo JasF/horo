@@ -7,6 +7,7 @@
 //
 
 #include "facebookhomepageparser.h"
+#include "data/url.h"
 
 namespace horo {
     using namespace std;
@@ -27,16 +28,20 @@ namespace horo {
     }
     
     string FacebookHomePageParser::userUrl() {
-        string photosUrl = findInSet(hrefs_, "photos");
-        if (!photosUrl.length()) {
-            return "";
+        for (auto urlString : hrefs_) {
+            Url url(urlString);
+            
+            string name = url.path();
+            if (!name.length() ||
+                name.find("/") != std::string::npos) {
+                continue;
+            }
+            
+            if (url.queries().size() == 1) {
+                return urlString;
+            }
         }
-        size_t index = photosUrl.find("/photos");
-        if (index == std::string::npos) {
-            return "";
-        }
-        string result = photosUrl.substr(0, index);
-        return result;
+        return "";
     }
     
     

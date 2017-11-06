@@ -59,7 +59,6 @@ namespace horo {
                     callback(yesterday, today, tomorrow, week, month, year);
                 }
             });
-            LOG(LS_WARNING) << "received data: " << data.toStyledString();
         });
     }
     

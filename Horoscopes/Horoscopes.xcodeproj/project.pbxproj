@@ -155,6 +155,8 @@
 		C31A13EF1FB06168001FABFE /* tag.in in Resources */ = {isa = PBXBuildFile; fileRef = C31A13E21FB06168001FABFE /* tag.in */; };
 		C31A13F91FB07182001FABFE /* facebookuserinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13F71FB07182001FABFE /* facebookuserinformationparser.cc */; };
 		C31A13FC1FB073D8001FABFE /* facebookfriendsparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */; };
+		C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A138E1FAF39BC001FABFE /* WebKit.framework */; };
+		C31A14031FB08FD4001FABFE /* url.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14021FB08FD4001FABFE /* url.cc */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -705,6 +707,9 @@
 		C31A13F81FB07182001FABFE /* facebookuserinformationparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserinformationparser.h; sourceTree = "<group>"; };
 		C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookfriendsparser.cc; sourceTree = "<group>"; };
 		C31A13FB1FB073D8001FABFE /* facebookfriendsparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookfriendsparser.h; sourceTree = "<group>"; };
+		C31A13FD1FB087D2001FABFE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		C31A13FF1FB08FBF001FABFE /* url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = url.h; sourceTree = "<group>"; };
+		C31A14021FB08FD4001FABFE /* url.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = url.cc; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -904,6 +909,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */,
 				C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */,
 				C30B183A1FA488A1006DEDB7 /* stringencode.o in Frameworks */,
 				C30B18181FA488A1006DEDB7 /* network.o in Frameworks */,
@@ -1337,6 +1343,8 @@
 				C30409491FA77F6600A0FC33 /* horoscopedto.cc */,
 				C31A13A41FB05290001FABFE /* datewrapper.h */,
 				C31A13A71FB052A2001FABFE /* datewrapper.cc */,
+				C31A13FF1FB08FBF001FABFE /* url.h */,
+				C31A14021FB08FD4001FABFE /* url.cc */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1892,6 +1900,7 @@
 		C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C31A13FD1FB087D2001FABFE /* JavaScriptCore.framework */,
 				C31A138E1FAF39BC001FABFE /* WebKit.framework */,
 				C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */,
 				C3CD7DFE1FA6F57A00D2BFF3 /* libz.1.1.3.tbd */,
@@ -2500,6 +2509,7 @@
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
 				C31A13E61FB06168001FABFE /* vector.c in Sources */,
+				C31A14031FB08FD4001FABFE /* url.cc in Sources */,
 				C31A13EB1FB06168001FABFE /* attribute.c in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,

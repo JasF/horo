@@ -66,39 +66,16 @@
                                     <outlet property="delegate" destination="JrU-sD-48u" id="UOP-Be-g61"/>
                                 </connections>
                             </tableView>
-                            <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-Ex-Vx1">
-                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="JrU-sD-48u" id="CYj-r0-MMr"/>
-                                </connections>
-                            </webView>
-                            <wkWebView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTX-94-y5t">
-                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ciU-uB-ylO" firstAttribute="height" secondItem="B4b-qd-m7k" secondAttribute="height" id="0yD-WB-4On"/>
-                            <constraint firstItem="PNi-Ex-Vx1" firstAttribute="width" secondItem="B4b-qd-m7k" secondAttribute="width" id="4A6-yl-UVH"/>
-                            <constraint firstItem="PNi-Ex-Vx1" firstAttribute="height" secondItem="B4b-qd-m7k" secondAttribute="height" id="5ur-Jt-pGd"/>
                             <constraint firstItem="ciU-uB-ylO" firstAttribute="centerX" secondItem="B4b-qd-m7k" secondAttribute="centerX" id="6R7-C2-HQX"/>
-                            <constraint firstItem="PNi-Ex-Vx1" firstAttribute="centerY" secondItem="B4b-qd-m7k" secondAttribute="centerY" id="LdH-ES-jck"/>
                             <constraint firstItem="ATg-3S-ZKj" firstAttribute="width" secondItem="B4b-qd-m7k" secondAttribute="width" id="LxN-1X-a7a"/>
                             <constraint firstItem="ciU-uB-ylO" firstAttribute="width" secondItem="B4b-qd-m7k" secondAttribute="width" id="MmK-ep-ZvV"/>
                             <constraint firstItem="ATg-3S-ZKj" firstAttribute="height" secondItem="B4b-qd-m7k" secondAttribute="height" id="OvM-UA-TOv"/>
                             <constraint firstItem="ciU-uB-ylO" firstAttribute="centerY" secondItem="B4b-qd-m7k" secondAttribute="centerY" id="RSG-Q6-h1i"/>
-                            <constraint firstItem="PNi-Ex-Vx1" firstAttribute="centerX" secondItem="B4b-qd-m7k" secondAttribute="centerX" id="SMG-RD-LjJ"/>
                             <constraint firstItem="ATg-3S-ZKj" firstAttribute="centerX" secondItem="B4b-qd-m7k" secondAttribute="centerX" id="XUk-aW-djM"/>
-                            <constraint firstItem="UTX-94-y5t" firstAttribute="height" secondItem="B4b-qd-m7k" secondAttribute="height" id="YyI-Ck-zit"/>
-                            <constraint firstItem="UTX-94-y5t" firstAttribute="centerY" secondItem="B4b-qd-m7k" secondAttribute="centerY" id="aH6-68-RHL"/>
-                            <constraint firstItem="UTX-94-y5t" firstAttribute="width" secondItem="B4b-qd-m7k" secondAttribute="width" id="ahG-or-z2S"/>
-                            <constraint firstItem="UTX-94-y5t" firstAttribute="centerX" secondItem="B4b-qd-m7k" secondAttribute="centerX" id="kYw-2k-odh"/>
                             <constraint firstItem="ATg-3S-ZKj" firstAttribute="centerY" secondItem="B4b-qd-m7k" secondAttribute="centerY" id="nDe-aT-NhX"/>
                         </constraints>
                     </view>
@@ -116,8 +93,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ATg-3S-ZKj" id="Iru-rq-SAi"/>
-                        <outlet property="webView" destination="PNi-Ex-Vx1" id="6cF-cw-Ra7"/>
-                        <outlet property="wkWebView" destination="UTX-94-y5t" id="Rrs-H2-88q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iM4-b4-tni" userLabel="First Responder" sceneMemberID="firstResponder"/>

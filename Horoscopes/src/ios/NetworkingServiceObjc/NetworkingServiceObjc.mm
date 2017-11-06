@@ -31,23 +31,8 @@ void NetworkingServiceObjc::beginRequest(std::string path,
                                              Json::Value parameters,
                                              std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                              std::function<void(error err)> failBlock) {
-    LOG(LS_WARNING) << path;
-    NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
-    NSMutableDictionary *dictionaryParameters = [[NSDictionary horo_dictionaryFromJsonValue:parameters] mutableCopy];
-    if ([dictionaryParameters[@"webViewFriendsLoading"] boolValue]) {
-        [dictionaryParameters removeObjectForKey:@"webViewFriendsLoading"];
-        LOG(LS_WARNING) << "Attach webView here!";
-        UIWebView *webView = [FriendsViewController shared].webView;
-        NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
-        NSString *urlString = [baseUrl stringByAppendingString:pathString];
-        [[FriendsViewController shared] loadFriendsWithPath:[NSURL URLWithString:urlString]];
-        return;
-    }
-    NSMutableSet *set = [NSMutableSet new];
-    [set addObject:@"text/plain"];
-    [set addObject:@"text/html"];
-    [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
-    [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    
+    auto safeSuccess = ^(NSURL *url, id JSON) {
         if ([JSON isKindOfClass:[NSData class]]) {
             NSString *text = [[NSString alloc] initWithData:(NSData *)JSON encoding:NSUTF8StringEncoding];
             if (text.length) {
@@ -56,9 +41,8 @@ void NetworkingServiceObjc::beginRequest(std::string path,
             else {
                 JSON = nil;
             }
-            
         }
-       
+        
         NSData *data = [NSJSONSerialization dataWithJSONObject:JSON options:0 error:nil];
         
         char *storage = new char[data.length];
@@ -74,12 +58,42 @@ void NetworkingServiceObjc::beginRequest(std::string path,
             return;
         }
         strong<HttpResponse> respone = factory_->createHttpResponse();
-        respone->url_ = [task.response.URL.absoluteString UTF8String];
+        if (url) {
+            respone->url_ = [url.absoluteString UTF8String];
+        }
         delete[]storage;
         if (successBlock) {
             successBlock(respone, root);
         }
-    } failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
+    };
+    NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
+    NSMutableDictionary *dictionaryParameters = [[NSDictionary horo_dictionaryFromJsonValue:parameters] mutableCopy];
+    if ([dictionaryParameters[@"triggerSwipeToBottom"] boolValue]) {
+        [dictionaryParameters removeObjectForKey:@"triggerSwipeToBottom"];
+        [[FriendsViewController shared] triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
+            NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+            safeSuccess(url, data);
+        }];
+        return;
+    }
+    if ([dictionaryParameters[@"webViewFriendsLoading"] boolValue]) {
+        [dictionaryParameters removeObjectForKey:@"webViewFriendsLoading"];
+        NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
+        NSString *urlString = [baseUrl stringByAppendingString:pathString];
+        [[FriendsViewController shared] loadFriendsWithPath:[NSURL URLWithString:urlString] completion:^(NSString *html, NSURL *url, NSError *error) {
+            NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+            safeSuccess(url, data);
+        }];
+        return;
+    }
+    NSMutableSet *set = [NSMutableSet new];
+    [set addObject:@"text/plain"];
+    [set addObject:@"text/html"];
+    [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
+    [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        safeSuccess(task.response.URL, JSON);
+    }
+                                   failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
         error cerr([[aError localizedDescription] UTF8String], (int)[aError code]);
         if (failBlock) {
             failBlock(cerr);

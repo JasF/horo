@@ -9,14 +9,17 @@
 #import "FriendsViewController.h"
 #import <WebKit/WebKit.h>
 
+static int kObservingContentSizeChangesContext;
 static CGFloat const kRowHeight = 100;
-
-
 @interface FriendsViewController () <UITableViewDelegate, UITableViewDataSource,
-UIWebViewDelegate, WKUIDelegate, WKNavigationDelegate>
+WKUIDelegate, WKNavigationDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet WKWebView *wkWebView;
-@property (assign, nonatomic) BOOL friendsLoading;
+@property (strong, nonatomic) WKWebView *wkWebView;
+@property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
+@property (assign, nonatomic) CGFloat maximumContentHeight;
+@property (assign, nonatomic) BOOL subscribed;
+@property (assign, nonatomic) BOOL needSetContentOffset;
+@property (assign, nonatomic) BOOL moreFriendsRequest;
 @end
 
 @implementation FriendsViewController
@@ -26,10 +29,49 @@ static FriendsViewController *staticInstance = nil;
     return staticInstance;
 }
 
+- (void)startObservingContentSizeChangesInWebView:(WKWebView *)webView {
+    [webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
+}
+
+- (void)stopObservingContentSizeChangesInWebView:(WKWebView *)webView {
+    [webView.scrollView removeObserver:self forKeyPath:@"contentSize" context:&kObservingContentSizeChangesContext];
+}
+
+- (void)delayedCheckForContentHeight:(NSNumber *)tempHeight {
+    if (![@(_maximumContentHeight) isEqual:tempHeight]) {
+        return;
+    }
+    self.subscribed = NO;
+    if (self.needSetContentOffset) {
+        self.needSetContentOffset = NO;
+        [self swipeToBottom];
+    }
+    if (self.moreFriendsRequest) {
+        self.moreFriendsRequest = NO;
+        [self performSuccessCallback:NO];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context == &kObservingContentSizeChangesContext) {
+        if (self.maximumContentHeight < _wkWebView.scrollView.contentSize.height) {
+            self.maximumContentHeight = _wkWebView.scrollView.contentSize.height;
+            CGFloat tempHeight = self.maximumContentHeight;
+            self.subscribed = YES;
+            [NSObject cancelPreviousPerformRequestsWithTarget:self];
+            [self performSelector:@selector(delayedCheckForContentHeight:) withObject:@(tempHeight) afterDelay:0.2f];
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
     staticInstance = self;
     NSCParameterAssert(_viewModel);
+    [super viewDidLoad];
+    _wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:_wkWebView];
     [self initializeCallbacks];
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = kRowHeight;
@@ -40,6 +82,12 @@ static FriendsViewController *staticInstance = nil;
     
     _wkWebView.UIDelegate = self;
     _wkWebView.navigationDelegate = self;
+    [self startObservingContentSizeChangesInWebView:_wkWebView];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _wkWebView.frame = self.view.bounds;
 }
 
 - (void)initializeCallbacks {
@@ -52,9 +100,9 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (void)showUrl:(NSString *)urlString {
-    _webView.hidden = NO;
+    _wkWebView.hidden = NO;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
-    [_webView loadRequest:request];
+    [_wkWebView loadRequest:request];
 }
 
 #pragma mark - UITableViewDataSource
@@ -91,41 +139,61 @@ static FriendsViewController *staticInstance = nil;
 
 #pragma mark - UIWebViewDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    
+    std::string loadedUrl = [webView.URL.absoluteString UTF8String];
+    [self performSuccessCallback:YES];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    return YES;
+- (void)performSuccessCallback:(BOOL)withClean {
+    @weakify(self);
+    [_wkWebView evaluateJavaScript:@"document.documentElement.outerHTML" completionHandler:^(id _Nullable object, NSError * _Nullable error) {
+        @strongify(self);
+        if (self.webViewDidLoadCompletion) {
+            auto cb = self.webViewDidLoadCompletion;
+            self.webViewDidLoadCompletion = nil;
+            cb(object, self.wkWebView.URL, error);
+        }
+    }];
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    if (_friendsLoading) {
-        return;
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    if (self.webViewDidLoadCompletion) {
+        auto cb = self.webViewDidLoadCompletion;
+        self.webViewDidLoadCompletion = nil;
+        cb(nil, webView.URL, error);
     }
-    std::string loadedUrl = [webView.request.URL.absoluteString UTF8String];
-    BOOL canContinue = _viewModel->webViewDidLoad(loadedUrl);
-    if (!canContinue) {
-        _webView.hidden = YES;
-        [_webView stopLoading];
-    }
-}
-
-- (void)webView:(UIWebView *)webView
-didFailLoadWithError:(NSError *)error {
-    
 }
 
 #pragma mark -
-- (void)loadFriendsWithPath:(NSURL *)friendsUrl {
+- (void)loadFriendsWithPath:(NSURL *)friendsUrl completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
     NSCParameterAssert(friendsUrl);
-    _friendsLoading = YES;
+    NSCParameterAssert(completion);
+    self.webViewDidLoadCompletion = completion;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:friendsUrl];
-    [_webView loadRequest:request];
-    _webView.hidden = NO;
+    [_wkWebView loadRequest:request];
+    _wkWebView.hidden = NO;
+}
+
+- (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
+    self.webViewDidLoadCompletion = completion;
+    self.moreFriendsRequest = YES;
+    if (self.subscribed) {
+        self.needSetContentOffset = YES;
+    }
+    else {
+        [self swipeToBottom];
+    }
+}
+
+- (void)swipeToBottom {
+    dispatch_block_t block = ^{
+        CGPoint point = CGPointMake(0, self.wkWebView.scrollView.contentSize.height);
+        if (point.y < 0.f) {
+            point.y = 0;
+        }
+        [self.wkWebView.scrollView setContentOffset:point animated:YES];
+    };
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
 @end

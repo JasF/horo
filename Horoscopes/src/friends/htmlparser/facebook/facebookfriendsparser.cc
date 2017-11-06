@@ -7,6 +7,7 @@
 //
 
 #include "facebookfriendsparser.h"
+#include "data/url.h"
 
 static const char *kFriendPattern = "fref=fr_tab";
 
@@ -41,17 +42,20 @@ namespace horo {
     set<string> FacebookFriendsParser::friendsUrls() {
         
         set<string> excluded;
-        excluded.insert(".php?");
+        excluded.insert(".php");
         
         set<string> result;
         for (auto source :hrefs_) {
-            if (source.find(kFriendPattern) != string::npos) {
-                if (std::count(source.begin(), source.end(), '/') > 1) {
-                 //   continue;
-                }
-                if (stringContainSubstring(source, excluded)) {
-                   // continue;
-                }
+            if (!source.length() || source[0] != '/') {
+                continue;
+            }
+            Url url(source);
+            std::string path = url.path();
+            auto queries = url.queries();
+            if (url.path() == "profile.php" ||
+                (queries.size() == 0 &&
+                 path.find(".php") == std::string::npos &&
+                 path.find("/") == std::string::npos) ) {
                 result.insert(source);
             }
         }

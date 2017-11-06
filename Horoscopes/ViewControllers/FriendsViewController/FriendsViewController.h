@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (assign, nonatomic) strong<horo::FriendsScreenViewModel> viewModel;
 + (instancetype)shared;
-- (void)loadFriendsWithPath:(NSURL *)friendsUrl;
+- (void)loadFriendsWithPath:(NSURL *)friendsUrl completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion;
+- (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion;
+
 @end

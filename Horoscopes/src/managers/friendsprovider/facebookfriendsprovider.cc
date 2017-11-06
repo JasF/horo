@@ -8,6 +8,9 @@
 
 #include "facebookfriendsprovider.h"
 #include "friends/htmlparser/htmlparser.h"
+#include <algorithm>
+#include <string>
+#include "data/url.h"
 
 namespace horo {
     using namespace std;
@@ -21,7 +24,7 @@ void FacebookFriendsProvider::requestFriendsList(std::function<void(std::vector<
     
 void FacebookFriendsProvider::executeHomePageRequest() {
     strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest("/home.php", [aProvider](strong<HttpResponse> response, Json::Value json) {
+    executeRequest("home.php", [aProvider](strong<HttpResponse> response, Json::Value json) {
         aProvider->parseHomePage(json);
     });
 }
@@ -42,10 +45,18 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
     if (!path.length()) {
         return;
     }
-    Json::Value parameters;
-    parameters["webViewFriendsLoading"]=1;
+    friendsUrl_ = path;
     strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest(path, parameters, [aProvider](strong<HttpResponse> response, Json::Value json) {
+    executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
+        aProvider->parseFriendsPage(json);
+    });
+}
+
+void FacebookFriendsProvider::executeRequestFriendsNextPage() {
+    strong<FacebookFriendsProvider> aProvider(this);
+    Json::Value parameters;
+    parameters["triggerSwipeToBottom"]=1;
+    executeRequest(friendsUrl_, parameters, [aProvider](strong<HttpResponse> response, Json::Value json) {
         aProvider->parseFriendsPage(json);
     });
 }
@@ -55,7 +66,11 @@ void FacebookFriendsProvider::executeRequest(std::string path, std::function<voi
     executeRequest(path, parameters, callback);
 }
     
-void FacebookFriendsProvider::executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback) {
+void FacebookFriendsProvider::executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback)
+{
+    if (path.length() && path[0] == '/') {
+        path = path.substr(1, path.length()-1);
+    }
     currentPath_ = path;
     currentCallback_ = callback;
     executeRequest(parameters);
@@ -70,6 +85,7 @@ void FacebookFriendsProvider::executeRequest(Json::Value parameters) {
     request_ = factory_->createNetworkingService();
     auto aCallback = currentCallback_;
     parameters_ = parameters;
+    parameters_["webViewFriendsLoading"]=1;
     request_->beginRequest(currentPath_, parameters_, [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
         if (aProvider->isRequiredAuthorizationResponse(response)) {
             return;
@@ -136,8 +152,9 @@ void FacebookFriendsProvider::parseFriendsPage(Json::Value json) {
     std::string text = json["text"].asString();
     strong<HtmlParser> parser = parserFactory_->createFacebookFriendsParser(text);
     Json::Value result = parser->parse();
+    
     Json::Value array = result["results"];
-    LOG(LS_WARNING) << "friends: " << array.toStyledString();
+    executeRequestFriendsNextPage();    
 }
 
 void FacebookFriendsProvider::operationDidFinishedWithError() {

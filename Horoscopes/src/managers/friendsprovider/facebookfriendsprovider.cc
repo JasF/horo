@@ -7,45 +7,92 @@
 //
 
 #include "facebookfriendsprovider.h"
+#include "friends/htmlparser/htmlparser.h"
 
 namespace horo {
+    using namespace std;
   
 void FacebookFriendsProvider::requestFriendsList(std::function<void(std::vector<GenericFriend> friends,
                                                                     std::string nextUrl,
                                                                     RequestStatus status)> completion) {
     callback_ = completion;
-    request_ = factory_->createNetworkingService();
     executeHomePageRequest();
 }
     
 void FacebookFriendsProvider::executeHomePageRequest() {
+    strong<FacebookFriendsProvider> aProvider(this);
+    executeRequest("/home.php", [aProvider](strong<HttpResponse> response, Json::Value json) {
+        aProvider->parseHomePage(json);
+    });
+}
+    
+void FacebookFriendsProvider::executeUserInformationPageRequest(string path) {
+    SCParameterAssert(path.length());
+    if (!path.length()) {
+        return;
+    }
+    strong<FacebookFriendsProvider> aProvider(this);
+    executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
+        aProvider->parseUserInformationPage(json);
+    });
+}
+    
+void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
+    SCParameterAssert(path.length());
+    if (!path.length()) {
+        return;
+    }
     Json::Value parameters;
     strong<FacebookFriendsProvider> aProvider(this);
-    auto aCallback = callback_;
-    request_->beginRequest("/home.php", parameters, [aCallback, aProvider](strong<HttpResponse> response, Json::Value json) {
-        std::string url = response->url_;
-        if (url.find("login") != std::string::npos) {
-            std::vector<GenericFriend> friends;
-            if (aCallback) {
-                aCallback(friends, response->url_, AuthorizationRequired);
-            };
+    executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
+        aProvider->parseFriendsPage(json);
+    });
+}
+
+void FacebookFriendsProvider::executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback) {
+    currentPath_ = path;
+    currentCallback_ = callback;
+    executeRequest();
+}
+    
+void FacebookFriendsProvider::executeRequest() {
+    Json::Value parameters;
+    strong<FacebookFriendsProvider> aProvider(this);
+    request_ = factory_->createNetworkingService();
+    auto aCallback = currentCallback_;
+    request_->beginRequest(currentPath_, parameters, [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
+        if (aProvider->isRequiredAuthorizationResponse(response)) {
             return;
         }
-        aProvider->parseHomePage(json);
-    }, [aCallback](error aErr) {
-        std::vector<GenericFriend> friends;
         if (aCallback) {
-            aCallback(friends, "", Failed);
-        };
-        LOG(LS_WARNING) << "err:" << aErr.text_;
+            aCallback(response, json);
+        }
+    }, [aProvider](error aErr) {
+        aProvider->operationDidFinishedWithError();
     });
+}
+
+bool FacebookFriendsProvider::isRequiredAuthorizationResponse(strong<HttpResponse> response) {
+    if (!response.get()) {
+        return false;
+    }
+    std::string url = response->url_;
+    if (url.find("login") != std::string::npos) {
+        std::vector<GenericFriend> friends;
+        if (callback_) {
+            callback_(friends, response->url_, AuthorizationRequired);
+        };
+        return true;
+    }
+    return false;
 }
 
 bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     if (url.find("login") != std::string::npos) {
         return true;
     }
-    else if (url.find("home.php") != std::string::npos) {
+    else if (url.find(currentPath_) != std::string::npos) {
+        executeRequest();
         return false;
     }
     return true;
@@ -53,11 +100,41 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     
 void FacebookFriendsProvider::parseHomePage(Json::Value json) {
     std::string text = json["text"].asString();
-    // зачем нам home page? ради авторизации конечно!
-    // из home.php извлекаем ссылку на локальный профиль, из ссылки на локальный профиль ссылку на список друзей
-    // -> home.php
-    // information
-    // friends
+    strong<HtmlParser> parser = parserFactory_->createFacebookHomePageParser(text);
+    Json::Value result = parser->parse();
+    std::string nextUrl = result["url"].asString();
+    if (!nextUrl.length()) {
+        operationDidFinishedWithError();
+        return;
+    }
+    executeUserInformationPageRequest(nextUrl);
+}
+    
+void FacebookFriendsProvider::parseUserInformationPage(Json::Value json) {
+    std::string text = json["text"].asString();
+    strong<HtmlParser> parser = parserFactory_->createFacebookUserInformationParser(text);
+    Json::Value result = parser->parse();
+    std::string nextUrl = result["url"].asString();
+    if (!nextUrl.length()) {
+        operationDidFinishedWithError();
+        return;
+    }
+    executeFriendsPageRequest(nextUrl);
+}
+
+void FacebookFriendsProvider::parseFriendsPage(Json::Value json) {
+    std::string text = json["text"].asString();
+    strong<HtmlParser> parser = parserFactory_->createFacebookFriendsParser(text);
+    Json::Value result = parser->parse();
+    Json::Value array = result["results"];
+    LOG(LS_WARNING) << "friends: " << array.toStyledString();
+}
+
+void FacebookFriendsProvider::operationDidFinishedWithError() {
+    std::vector<GenericFriend> friends;
+    if (callback_) {
+        callback_(friends, "", Failed);
+    };
 }
 
 };

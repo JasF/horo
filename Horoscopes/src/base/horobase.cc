@@ -43,6 +43,15 @@ namespace horo {
         return timeToTimestemp(std::time(NULL));
     }
     
+    string findInSet(std::set<std::string> storage, string pattern) {
+        for (string stroke:storage) {
+            if (stroke.find(pattern) != std::string::npos) {
+                return stroke;
+            }
+        }
+        return "";
+    }
+    
     /*
      time_t tt = system_clock::to_time_t(time);
      tm local_tm = *localtime(&tt);

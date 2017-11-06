@@ -22,6 +22,7 @@
 #include "base/platform.h"
 #include "managers/friendsproviderfactory/friendsproviderfactoryimpl.h"
 #include "managers/friendsmanager/friendsmanagerimpl.h"
+#include "friends/htmlparserfactory/htmlparserfactoryimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -166,12 +167,20 @@ Managers &Managers::shared() {
     strong<FriendsProviderFactory> Managers::friendsProviderFactory() {
         static strong<FriendsProviderFactory> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new FriendsProviderFactoryImpl(sharedNetworkingServiceFactory());
+            sharedInstance = new FriendsProviderFactoryImpl(sharedNetworkingServiceFactory(), htmlParserFactory());
         }
         return sharedInstance;
     }
     
     strong<FriendsManager> Managers::friendsManager() {
         return new FriendsManagerImpl(friendsProviderFactory());
+    }
+    
+    strong<HtmlParserFactory> Managers::htmlParserFactory() {
+        static strong<HtmlParserFactory> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new HtmlParserFactoryImpl();
+        }
+        return sharedInstance;
     }
 };

@@ -1,0 +1,59 @@
+//
+//  facebookhomepageparser.c
+//  Horoscopes
+//
+//  Created by Jasf on 06.11.2017.
+//  Copyright © 2017 Mail.Ru. All rights reserved.
+//
+
+#include "facebookhomepageparser.h"
+
+namespace horo {
+    using namespace std;
+    Json::Value FacebookHomePageParser::parse() {
+        if (results_["url"].asString().length()) {
+            return results_;
+        }
+        parameters_.clear();
+        hrefs_.clear();
+        GumboOutput* output = gumbo_parse_with_options(&kGumboDefaultOptions, text_.c_str(), text_.length());
+        iterate(output->root);
+        gumbo_destroy_output(&kGumboDefaultOptions, output);
+        std::string url = userUrl();
+        if (url.length()) {
+            results_["url"] = url;
+        }
+        return results_;
+    }
+    
+    string FacebookHomePageParser::userUrl() {
+        string photosUrl = findInSet(hrefs_, "photos");
+        if (!photosUrl.length()) {
+            return "";
+        }
+        size_t index = photosUrl.find("/photos");
+        if (index == std::string::npos) {
+            return "";
+        }
+        string result = photosUrl.substr(0, index);
+        return result;
+    }
+    
+    
+    void FacebookHomePageParser::iterate(const GumboNode *root) {
+        if (root->type != GUMBO_NODE_ELEMENT) {
+            return;
+        }
+        
+        GumboAttribute* cls_attr;
+        if ((cls_attr = gumbo_get_attribute(&root->v.element.attributes, "href"))) {
+            hrefs_.insert(cls_attr->value);
+        }
+        
+        const GumboVector* root_children = &root->v.element.children;
+        for (int i = 0; i < root_children->length; ++i) {
+            GumboNode* child =(GumboNode *)root_children->data[i];
+            iterate(child);
+        }
+    }
+};

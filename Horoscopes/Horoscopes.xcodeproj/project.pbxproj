@@ -138,6 +138,23 @@
 		C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */; };
 		C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */; };
 		C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A71FB052A2001FABFE /* datewrapper.cc */; };
+		C31A13B81FB05E48001FABFE /* htmlparserfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13B71FB05E48001FABFE /* htmlparserfactoryimpl.cc */; };
+		C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13B91FB05EF1001FABFE /* facebookhomepageparser.cc */; };
+		C31A13E31FB06168001FABFE /* char_ref.rl in Resources */ = {isa = PBXBuildFile; fileRef = C31A13C71FB06166001FABFE /* char_ref.rl */; };
+		C31A13E41FB06168001FABFE /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13C81FB06166001FABFE /* parser.c */; };
+		C31A13E51FB06168001FABFE /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13CD1FB06166001FABFE /* util.c */; };
+		C31A13E61FB06168001FABFE /* vector.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13D21FB06167001FABFE /* vector.c */; };
+		C31A13E71FB06168001FABFE /* tokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13D31FB06167001FABFE /* tokenizer.c */; };
+		C31A13E81FB06168001FABFE /* string_piece.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13D41FB06167001FABFE /* string_piece.c */; };
+		C31A13E91FB06168001FABFE /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DB1FB06168001FABFE /* error.c */; };
+		C31A13EA1FB06168001FABFE /* string_buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DC1FB06168001FABFE /* string_buffer.c */; };
+		C31A13EB1FB06168001FABFE /* attribute.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DD1FB06168001FABFE /* attribute.c */; };
+		C31A13EC1FB06168001FABFE /* tag.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DE1FB06168001FABFE /* tag.c */; };
+		C31A13ED1FB06168001FABFE /* utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DF1FB06168001FABFE /* utf8.c */; };
+		C31A13EE1FB06168001FABFE /* char_ref.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13E01FB06168001FABFE /* char_ref.c */; };
+		C31A13EF1FB06168001FABFE /* tag.in in Resources */ = {isa = PBXBuildFile; fileRef = C31A13E21FB06168001FABFE /* tag.in */; };
+		C31A13F91FB07182001FABFE /* facebookuserinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13F71FB07182001FABFE /* facebookuserinformationparser.cc */; };
+		C31A13FC1FB073D8001FABFE /* facebookfriendsparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -646,6 +663,48 @@
 		C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsproviderfactoryimpl.cc; sourceTree = "<group>"; };
 		C31A13A41FB05290001FABFE /* datewrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = datewrapper.h; sourceTree = "<group>"; };
 		C31A13A71FB052A2001FABFE /* datewrapper.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = datewrapper.cc; sourceTree = "<group>"; };
+		C31A13AC1FB05D4E001FABFE /* facebookhomepageparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookhomepageparser.h; sourceTree = "<group>"; };
+		C31A13AF1FB05DA7001FABFE /* htmlparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = htmlparser.h; sourceTree = "<group>"; };
+		C31A13B11FB05E17001FABFE /* htmlparserfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = htmlparserfactory.h; sourceTree = "<group>"; };
+		C31A13B41FB05E37001FABFE /* htmlparserfactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = htmlparserfactoryimpl.h; sourceTree = "<group>"; };
+		C31A13B71FB05E48001FABFE /* htmlparserfactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = htmlparserfactoryimpl.cc; sourceTree = "<group>"; };
+		C31A13B91FB05EF1001FABFE /* facebookhomepageparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookhomepageparser.cc; sourceTree = "<group>"; };
+		C31A13C41FB06166001FABFE /* tag_enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tag_enum.h; sourceTree = "<group>"; };
+		C31A13C51FB06166001FABFE /* string_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_buffer.h; sourceTree = "<group>"; };
+		C31A13C61FB06166001FABFE /* token_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = token_type.h; sourceTree = "<group>"; };
+		C31A13C71FB06166001FABFE /* char_ref.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = char_ref.rl; sourceTree = "<group>"; };
+		C31A13C81FB06166001FABFE /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		C31A13C91FB06166001FABFE /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		C31A13CA1FB06166001FABFE /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		C31A13CB1FB06166001FABFE /* attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attribute.h; sourceTree = "<group>"; };
+		C31A13CC1FB06166001FABFE /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		C31A13CD1FB06166001FABFE /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		C31A13CE1FB06166001FABFE /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
+		C31A13CF1FB06167001FABFE /* tag_sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tag_sizes.h; sourceTree = "<group>"; };
+		C31A13D01FB06167001FABFE /* insertion_mode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = insertion_mode.h; sourceTree = "<group>"; };
+		C31A13D11FB06167001FABFE /* tag_gperf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tag_gperf.h; sourceTree = "<group>"; };
+		C31A13D21FB06167001FABFE /* vector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vector.c; sourceTree = "<group>"; };
+		C31A13D31FB06167001FABFE /* tokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tokenizer.c; sourceTree = "<group>"; };
+		C31A13D41FB06167001FABFE /* string_piece.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = string_piece.c; sourceTree = "<group>"; };
+		C31A13D51FB06167001FABFE /* tag_strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tag_strings.h; sourceTree = "<group>"; };
+		C31A13D61FB06167001FABFE /* char_ref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = char_ref.h; sourceTree = "<group>"; };
+		C31A13D71FB06167001FABFE /* gumbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gumbo.h; sourceTree = "<group>"; };
+		C31A13D81FB06167001FABFE /* string_piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_piece.h; sourceTree = "<group>"; };
+		C31A13D91FB06167001FABFE /* tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tokenizer.h; sourceTree = "<group>"; };
+		C31A13DA1FB06167001FABFE /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		C31A13DB1FB06168001FABFE /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		C31A13DC1FB06168001FABFE /* string_buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = string_buffer.c; sourceTree = "<group>"; };
+		C31A13DD1FB06168001FABFE /* attribute.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = attribute.c; sourceTree = "<group>"; };
+		C31A13DE1FB06168001FABFE /* tag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tag.c; sourceTree = "<group>"; };
+		C31A13DF1FB06168001FABFE /* utf8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utf8.c; sourceTree = "<group>"; };
+		C31A13E01FB06168001FABFE /* char_ref.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = char_ref.c; sourceTree = "<group>"; };
+		C31A13E11FB06168001FABFE /* tokenizer_states.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tokenizer_states.h; sourceTree = "<group>"; };
+		C31A13E21FB06168001FABFE /* tag.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tag.in; sourceTree = "<group>"; };
+		C31A13F01FB06B68001FABFE /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = webrtc/src/rtc_base/json.h; sourceTree = SOURCE_ROOT; };
+		C31A13F71FB07182001FABFE /* facebookuserinformationparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookuserinformationparser.cc; sourceTree = "<group>"; };
+		C31A13F81FB07182001FABFE /* facebookuserinformationparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserinformationparser.h; sourceTree = "<group>"; };
+		C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookfriendsparser.cc; sourceTree = "<group>"; };
+		C31A13FB1FB073D8001FABFE /* facebookfriendsparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookfriendsparser.h; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1390,6 +1449,93 @@
 			path = friendsproviderfactory;
 			sourceTree = "<group>";
 		};
+		C31A13A91FB05CE9001FABFE /* friends */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13B01FB05E09001FABFE /* htmlparserfactory */,
+				C31A13AA1FB05CFB001FABFE /* htmlparser */,
+			);
+			path = friends;
+			sourceTree = "<group>";
+		};
+		C31A13AA1FB05CFB001FABFE /* htmlparser */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13AB1FB05D31001FABFE /* facebook */,
+				C31A13AF1FB05DA7001FABFE /* htmlparser.h */,
+			);
+			path = htmlparser;
+			sourceTree = "<group>";
+		};
+		C31A13AB1FB05D31001FABFE /* facebook */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13F71FB07182001FABFE /* facebookuserinformationparser.cc */,
+				C31A13F81FB07182001FABFE /* facebookuserinformationparser.h */,
+				C31A13AC1FB05D4E001FABFE /* facebookhomepageparser.h */,
+				C31A13B91FB05EF1001FABFE /* facebookhomepageparser.cc */,
+				C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */,
+				C31A13FB1FB073D8001FABFE /* facebookfriendsparser.h */,
+			);
+			path = facebook;
+			sourceTree = "<group>";
+		};
+		C31A13B01FB05E09001FABFE /* htmlparserfactory */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13B11FB05E17001FABFE /* htmlparserfactory.h */,
+				C31A13B41FB05E37001FABFE /* htmlparserfactoryimpl.h */,
+				C31A13B71FB05E48001FABFE /* htmlparserfactoryimpl.cc */,
+			);
+			path = htmlparserfactory;
+			sourceTree = "<group>";
+		};
+		C31A13C21FB06111001FABFE /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13C31FB0611D001FABFE /* gumbo */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		C31A13C31FB0611D001FABFE /* gumbo */ = {
+			isa = PBXGroup;
+			children = (
+				C31A13DD1FB06168001FABFE /* attribute.c */,
+				C31A13CB1FB06166001FABFE /* attribute.h */,
+				C31A13E01FB06168001FABFE /* char_ref.c */,
+				C31A13D61FB06167001FABFE /* char_ref.h */,
+				C31A13C71FB06166001FABFE /* char_ref.rl */,
+				C31A13DB1FB06168001FABFE /* error.c */,
+				C31A13CC1FB06166001FABFE /* error.h */,
+				C31A13D71FB06167001FABFE /* gumbo.h */,
+				C31A13D01FB06167001FABFE /* insertion_mode.h */,
+				C31A13C81FB06166001FABFE /* parser.c */,
+				C31A13C91FB06166001FABFE /* parser.h */,
+				C31A13DC1FB06168001FABFE /* string_buffer.c */,
+				C31A13C51FB06166001FABFE /* string_buffer.h */,
+				C31A13D41FB06167001FABFE /* string_piece.c */,
+				C31A13D81FB06167001FABFE /* string_piece.h */,
+				C31A13C41FB06166001FABFE /* tag_enum.h */,
+				C31A13D11FB06167001FABFE /* tag_gperf.h */,
+				C31A13CF1FB06167001FABFE /* tag_sizes.h */,
+				C31A13D51FB06167001FABFE /* tag_strings.h */,
+				C31A13DE1FB06168001FABFE /* tag.c */,
+				C31A13E21FB06168001FABFE /* tag.in */,
+				C31A13C61FB06166001FABFE /* token_type.h */,
+				C31A13E11FB06168001FABFE /* tokenizer_states.h */,
+				C31A13D31FB06167001FABFE /* tokenizer.c */,
+				C31A13D91FB06167001FABFE /* tokenizer.h */,
+				C31A13DF1FB06168001FABFE /* utf8.c */,
+				C31A13DA1FB06167001FABFE /* utf8.h */,
+				C31A13CD1FB06166001FABFE /* util.c */,
+				C31A13CA1FB06166001FABFE /* util.h */,
+				C31A13D21FB06167001FABFE /* vector.c */,
+				C31A13CE1FB06166001FABFE /* vector.h */,
+			);
+			path = gumbo;
+			sourceTree = "<group>";
+		};
 		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1758,6 +1904,8 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C31A13C21FB06111001FABFE /* thirdparty */,
+				C31A13A91FB05CE9001FABFE /* friends */,
 				C304096B1FA7864900A0FC33 /* database */,
 				C30B18841FA4C285006DEDB7 /* data */,
 				C30B18701FA49DCD006DEDB7 /* viewmodels */,
@@ -1896,6 +2044,7 @@
 		C3D27E161FA30FC60094BF12 /* rtcbase */ = {
 			isa = PBXGroup;
 			children = (
+				C31A13F01FB06B68001FABFE /* json.h */,
 				C30B179F1FA47C89006DEDB7 /* arraysize.h */,
 				C30B16891FA47C78006DEDB7 /* asyncinvoker-inl.h */,
 				C30B16FC1FA47C7F006DEDB7 /* asyncinvoker.cc */,
@@ -2277,6 +2426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
@@ -2286,6 +2436,7 @@
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
+				C31A13E31FB06168001FABFE /* char_ref.rl in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
 				4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */,
 			);
@@ -2316,17 +2467,20 @@
 			files = (
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
 				C30409451FA77F0700A0FC33 /* horoscopedaoimpl.cc in Sources */,
+				C31A13E91FB06168001FABFE /* error.c in Sources */,
 				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
 				C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
+				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
 				C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */,
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
 				C30409511FA7802B00A0FC33 /* daofactoryimpl.cc in Sources */,
+				C31A13EC1FB06168001FABFE /* tag.c in Sources */,
 				C304097A1FA7874A00A0FC33 /* databaseimpl.cc in Sources */,
 				C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
@@ -2335,6 +2489,8 @@
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */,
 				C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */,
+				C31A13F91FB07182001FABFE /* facebookuserinformationparser.cc in Sources */,
+				C31A13EE1FB06168001FABFE /* char_ref.c in Sources */,
 				C31A138C1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc in Sources */,
 				C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2343,13 +2499,19 @@
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
+				C31A13E61FB06168001FABFE /* vector.c in Sources */,
+				C31A13EB1FB06168001FABFE /* attribute.c in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,
+				C31A13EA1FB06168001FABFE /* string_buffer.c in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
 				C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */,
 				C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */,
+				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
+				C31A13E41FB06168001FABFE /* parser.c in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				C30409731FA7870100A0FC33 /* DatabaseObjc.mm in Sources */,
+				C31A13ED1FB06168001FABFE /* utf8.c in Sources */,
 				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
 				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
@@ -2369,17 +2531,21 @@
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
 				C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */,
+				C31A13B81FB05E48001FABFE /* htmlparserfactoryimpl.cc in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
+				C31A13FC1FB073D8001FABFE /* facebookfriendsparser.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
 				C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */,
+				C31A13E51FB06168001FABFE /* util.c in Sources */,
 				C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
 				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
+				C31A13E81FB06168001FABFE /* string_piece.c in Sources */,
 				C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,

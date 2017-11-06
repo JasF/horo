@@ -11,12 +11,15 @@
 
 #include "friendsproviderfactory.h"
 #include "managers/networkingservice/networkingservicefactory.h"
+#include "friends/htmlparserfactory/htmlparserfactory.h"
 
 namespace horo {
     class FriendsProviderFactoryImpl : public FriendsProviderFactory {
     public:
-        FriendsProviderFactoryImpl(strong<NetworkingServiceFactory> factory)
-        : factory_(factory)
+        FriendsProviderFactoryImpl(strong<NetworkingServiceFactory> factory,
+                                   strong<HtmlParserFactory> parserFactory)
+        : factory_(factory),
+        parserFactory_(parserFactory)
         {
             SCParameterAssert(factory_.get());
         }
@@ -26,6 +29,7 @@ namespace horo {
         
     private:
         strong<NetworkingServiceFactory> factory_;
+        strong<HtmlParserFactory> parserFactory_;
     };
 };
 

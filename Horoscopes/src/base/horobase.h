@@ -16,6 +16,7 @@
 #include <iostream>
 #include <chrono>
 #include <ctime>
+#include <set>
 #include "json/value.h"
 #include "rtc_base/refcountedobject.h"
 #include "rtc_base/scoped_ref_ptr.h"
@@ -45,6 +46,7 @@ namespace horo {
     time_t timestempToTime(int64_t timestemp);
     long long timeToTimestemp(time_t time);
     long long localtime();
+    string findInSet(std::set<std::string> storage, string pattern);
 }
 
 #endif /* horobase_hpp */

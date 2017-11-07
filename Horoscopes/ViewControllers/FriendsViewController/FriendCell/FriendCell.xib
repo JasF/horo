@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="b5U-Ez-yfv" customClass="FriendCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b5U-Ez-yfv" id="IeY-nt-vPM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-nv-bWN">
+                        <rect key="frame" x="16" y="0.0" width="343" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJJ-uI-Xl9">
+                        <rect key="frame" x="16" y="20.5" width="343" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="ZJJ-uI-Xl9" firstAttribute="top" secondItem="CcD-nv-bWN" secondAttribute="bottom" id="3zE-jB-IaY"/>
+                    <constraint firstAttribute="bottom" secondItem="ZJJ-uI-Xl9" secondAttribute="bottom" constant="2" id="8xt-TA-W7U"/>
+                    <constraint firstItem="ZJJ-uI-Xl9" firstAttribute="width" secondItem="IeY-nt-vPM" secondAttribute="width" constant="-32" id="KMr-mf-uTu"/>
+                    <constraint firstItem="CcD-nv-bWN" firstAttribute="top" secondItem="IeY-nt-vPM" secondAttribute="top" id="O96-3Y-a0u"/>
+                    <constraint firstItem="CcD-nv-bWN" firstAttribute="width" secondItem="IeY-nt-vPM" secondAttribute="width" constant="-32" id="YIl-st-21T"/>
+                    <constraint firstItem="CcD-nv-bWN" firstAttribute="leading" secondItem="IeY-nt-vPM" secondAttribute="leading" constant="16" id="dMW-u7-5XR"/>
+                    <constraint firstItem="ZJJ-uI-Xl9" firstAttribute="leading" secondItem="IeY-nt-vPM" secondAttribute="leading" constant="16" id="vdF-ec-uR5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="birthdayLabel" destination="ZJJ-uI-Xl9" id="rZY-1g-5DU"/>
+                <outlet property="nameLabel" destination="CcD-nv-bWN" id="fB8-lB-tpX"/>
+            </connections>
+            <point key="canvasLocation" x="42.5" y="97"/>
+        </tableViewCell>
+    </objects>
+</document>

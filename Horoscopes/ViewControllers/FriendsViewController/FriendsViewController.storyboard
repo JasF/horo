@@ -93,9 +93,38 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ATg-3S-ZKj" id="Iru-rq-SAi"/>
+                        <outlet property="updateFriendsCell" destination="RAG-po-YAo" id="9Bj-hM-Q1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iM4-b4-tni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RAG-po-YAo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RAG-po-YAo" id="nBJ-eJ-G2C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOQ-ou-gHF">
+                                <rect key="frame" x="125" y="1" width="124" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zex-PT-HB5"/>
+                                </constraints>
+                                <state key="normal" title="Update Friends"/>
+                                <connections>
+                                    <action selector="updateFriendsTapped:" destination="JrU-sD-48u" eventType="touchUpInside" id="40I-S2-X3k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IOQ-ou-gHF" secondAttribute="bottom" id="Ab3-kg-tFx"/>
+                            <constraint firstItem="IOQ-ou-gHF" firstAttribute="centerY" secondItem="nBJ-eJ-G2C" secondAttribute="centerY" id="Hut-yM-d54"/>
+                            <constraint firstItem="IOQ-ou-gHF" firstAttribute="centerX" secondItem="nBJ-eJ-G2C" secondAttribute="centerX" id="T5z-Q8-Mkx"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="151" y="122"/>
         </scene>

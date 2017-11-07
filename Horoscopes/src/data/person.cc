@@ -7,6 +7,7 @@
 //
 
 #include "person.h"
+#include "data/url.h"
 
 namespace horo {
     
@@ -19,6 +20,7 @@ namespace horo {
     static const char *kType = "type";
     static const char *kBirthdayDate = "birthdayDate";
     static const char *kWithFacebook = "withFacebook";
+    static const char *kUniqueIdentifier = "uniqueIdentifier";
   
     _Person::_Person() : gender_(GenderUnknown),
         status_(StatusUnknown),
@@ -44,11 +46,13 @@ namespace horo {
     type_(type),
     birthdayDate_(birthdayDate),
     withFacebook_(withFacebook) {
-        SCParameterAssert(zodiac_);
         SCParameterAssert(name_.length());
-        SCParameterAssert(gender_);
-        SCParameterAssert(status_);
-        SCParameterAssert(type_);
+        if (type_ == TypeFriend) {
+            SCParameterAssert(personUrl_.length());
+        }
+        else if (type_ == TypeUser) {
+            SCParameterAssert(birthdayDate_.toString().length());
+        }
     }
     
     _Person::~_Person() {
@@ -56,7 +60,7 @@ namespace horo {
     }
     
     void _Person::encode(Json::Value &coder) {
-        coder[kZodiacType] = zodiac_->type();//int
+        coder[kZodiacType] = (zodiac_.get()) ? zodiac_->type() : Unknown;
         coder[kName] = name_;//string
         coder[kImageUrl] = imageUrl_;
         coder[kPersonUrl] = personUrl_;
@@ -65,6 +69,7 @@ namespace horo {
         coder[kType] = type_;
         coder[kBirthdayDate] = birthdayDate_.toString();
         coder[kWithFacebook] = withFacebook_;
+        coder[kUniqueIdentifier] = uniqueIdentifier();
     }
     
     void _Person::decode(Json::Value &coder) {
@@ -85,4 +90,14 @@ namespace horo {
         withFacebook_ = (bool) coder[kWithFacebook].asBool();
     }
     
+    string _Person::uniqueIdentifier() {
+        if (!personUrl_.length()) {
+            return "0";
+        }
+        Url url(personUrl_);
+        if (url.path() == "profile.php") {
+            return personUrl_;
+        }
+        return url.path();
+    }
 };

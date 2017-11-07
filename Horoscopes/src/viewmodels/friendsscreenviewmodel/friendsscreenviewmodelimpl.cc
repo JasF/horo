@@ -21,6 +21,11 @@ namespace horo {
                 this->authorizationUrlCallback_(url, allowedPatterns);
             }
         };
+        model->friendsUpdatedCallback_ = [this](set<strong<Person>> friends){
+            if (this->friendsUpdatedCallback_) {
+                this->friendsUpdatedCallback_(friends);
+            }
+        };
     }
     
     FriendsScreenViewModelImpl::~FriendsScreenViewModelImpl() {
@@ -33,5 +38,13 @@ namespace horo {
     
     bool FriendsScreenViewModelImpl::webViewDidLoad(std::string url) {
         return model_->webViewDidLoad(url);
+    }
+    
+    int FriendsScreenViewModelImpl::friendsCount() {
+        return model_->friendsCount();
+    }
+    
+    void FriendsScreenViewModelImpl::friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) {
+        model_->friendDataAtIndex(index, callback);
     }
 };

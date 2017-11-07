@@ -22,8 +22,10 @@ namespace horo {
         virtual ~PersonDAOImpl() override {}
     public:
         bool writePerson(strong<Person> person) override;
-        list<Person> readPersons() override;
+        set<strong<Person>> readFacebookFriends() override;
         void create() override;
+    private:
+        bool update(strong<Person> person, int rowid);
     private:
         strong<Database> database_;
     };

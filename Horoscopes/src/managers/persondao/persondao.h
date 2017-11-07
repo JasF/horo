@@ -18,7 +18,7 @@ namespace horo {
         ~_PersonDAO() {}
     public:
         virtual bool writePerson(strong<Person> person)=0;
-        virtual list<Person> readPersons()=0;
+        virtual set<strong<Person>> readFacebookFriends()=0;
         virtual void create()=0;
     };
     

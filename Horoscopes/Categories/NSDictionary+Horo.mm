@@ -21,12 +21,18 @@ NSDictionary *dictionaryFromJsonValue(Json::Value parameters) {
             continue;
         }
         Json::Value &value = *it;
-        if (value.isNumeric()) {
+        if (value.isDouble()) {
+            [result setObject:@(value.asDouble()) forKey:keyString];
+        }
+        else if (value.isNumeric()) {
             [result setObject:@(value.asInt()) forKey:keyString];
         }
         else if (value.isString()) {
-            NSString *valueString = [NSString stringWithCString:value.asString().c_str() encoding:[NSString defaultCStringEncoding]];
+            NSString *valueString = [NSString stringWithCString:value.asString().c_str() encoding:NSUTF8StringEncoding];
             [result setObject:valueString forKey:keyString];
+        }
+        else if (value.isBool()) {
+            [result setObject:@(value.asBool()) forKey:keyString];
         }
         else {
             NSCAssert(NO, @"Unexpected type for value: %@.", @(value.type()));

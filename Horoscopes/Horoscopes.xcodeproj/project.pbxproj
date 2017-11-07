@@ -158,6 +158,8 @@
 		C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A138E1FAF39BC001FABFE /* WebKit.framework */; };
 		C31A14031FB08FD4001FABFE /* url.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14021FB08FD4001FABFE /* url.cc */; };
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
+		C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C31A140D1FB17B85001FABFE /* FriendCell.m */; };
+		C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31A140F1FB17B99001FABFE /* FriendCell.xib */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -714,6 +716,9 @@
 		C31A14051FB0B233001FABFE /* persondao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = persondao.h; sourceTree = "<group>"; };
 		C31A14061FB0B240001FABFE /* persondaoimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = persondaoimpl.h; sourceTree = "<group>"; };
 		C31A14091FB0B254001FABFE /* persondaoimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = persondaoimpl.cc; sourceTree = "<group>"; };
+		C31A140C1FB17B85001FABFE /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		C31A140D1FB17B85001FABFE /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		C31A140F1FB17B99001FABFE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1404,6 +1409,7 @@
 		C31A13791FAF2DDD001FABFE /* FriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C31A140B1FB17B72001FABFE /* FriendCell */,
 				C31A137A1FAF2DED001FABFE /* FriendsViewController.h */,
 				C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */,
 				C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */,
@@ -1556,6 +1562,16 @@
 				C31A14091FB0B254001FABFE /* persondaoimpl.cc */,
 			);
 			path = persondao;
+			sourceTree = "<group>";
+		};
+		C31A140B1FB17B72001FABFE /* FriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				C31A140C1FB17B85001FABFE /* FriendCell.h */,
+				C31A140D1FB17B85001FABFE /* FriendCell.m */,
+				C31A140F1FB17B99001FABFE /* FriendCell.xib */,
+			);
+			path = FriendCell;
 			sourceTree = "<group>";
 		};
 		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
@@ -2453,6 +2469,7 @@
 				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
+				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
@@ -2580,6 +2597,7 @@
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
 				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
+				C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

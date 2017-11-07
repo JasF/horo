@@ -27,28 +27,13 @@ void FriendsManagerImpl::loadFacebookFriends() {
                 string name = personData["name"].asString();
                 string personUrl = personData["personUrl"].asString();
                 string imageUrl = personData["imageUrl"].asString();
-                /*
-                strong<Zodiac> zodiac,
-                std::string name,
-                Gender gender,
-                PersonStatus status,
-                PersonType type,
-                DateWrapper birthdayDate,
-                bool withFacebook);
-                */
                 strong<Person> person = new Person(new Zodiac(), name, imageUrl, personUrl, GenderUnknown, StatusReadyForRequest, TypeFriend, DateWrapper(), true);
                 aThis->personDAO_->writePerson(person);
             }
-            //кладем в сторейдж и потом считаем общее число
-            /*
-            LOG(LS_WARNING) << "friends count: " << persons.size();
-            for (int i=0;i<persons.size();++i) {
-                Json::Value person = persons[i];
-                string name = person["name"].asString();
-                string url = person["personUrl"].asString();
-                LOG(LS_WARNING) << "name: " << name << "; url: " << url;
+            
+            if (aThis->friendsUpdatedCallback_) {
+                aThis->friendsUpdatedCallback_(aThis->personDAO_->readFacebookFriends());
             }
-            */
             return;
         }
         if (status == FriendsProvider::AuthorizationRequired) {
@@ -68,6 +53,11 @@ bool FriendsManagerImpl::webViewDidLoad(std::string url) {
         return result;
     }
     return false;
+}
+
+set<strong<Person>> FriendsManagerImpl::readFacebookFriendsFromDatabase() {
+    set<strong<Person>> result = personDAO_->readFacebookFriends();
+    return result;
 }
 
 };

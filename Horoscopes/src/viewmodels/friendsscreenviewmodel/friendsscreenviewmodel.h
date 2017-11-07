@@ -10,6 +10,7 @@
 #define friendsscreenviewmodel_h
 
 #include "base/horobase.h"
+#include "data/person.h"
 
 namespace horo {
   
@@ -19,11 +20,13 @@ namespace horo {
     public:
         virtual void updateFriendsFromFacebook() = 0;
         virtual bool webViewDidLoad(std::string url) = 0;
-        
-        std::function<void(bool success)> userLoggedInCallback_ = nullptr;
+        virtual int friendsCount()=0;
+        virtual void friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback)=0;
         
     public:
-        std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_;
+        std::function<void(bool success)> userLoggedInCallback_ = nullptr;
+        std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_ = nullptr;
+        std::function<void(set<strong<Person>> friends)> friendsUpdatedCallback_ = nullptr;
     };
     
     typedef reff<_FriendsScreenViewModel> FriendsScreenViewModel;

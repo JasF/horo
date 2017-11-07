@@ -23,6 +23,8 @@ namespace horo {
     public:
         void updateFriendsFromFacebook() override;
         bool webViewDidLoad(std::string url) override;
+        int friendsCount() override;
+        void friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) override;
         
     private:
         strong<FriendsScreenModel> model_;

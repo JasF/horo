@@ -15,8 +15,13 @@ namespace horo {
   
     class Coding {
     public:
+        virtual ~Coding() {}
+    public:
         virtual void encode(Json::Value &coder) = 0;
         virtual void decode(Json::Value &coder) = 0;
+        
+        Json::Value encoded();
+        Json::Value decoded();
     };
     
 };

@@ -8,6 +8,8 @@
 
 #import "FriendsViewController.h"
 #import <WebKit/WebKit.h>
+#import "FriendCell.h"
+#include "data/person.h"
 
 static int kObservingContentSizeChangesContext;
 static CGFloat const kRowHeight = 100;
@@ -20,9 +22,13 @@ WKUIDelegate, WKNavigationDelegate>
 @property (assign, nonatomic) BOOL subscribed;
 @property (assign, nonatomic) BOOL needSetContentOffset;
 @property (assign, nonatomic) BOOL moreFriendsRequest;
+@property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
 @end
 
 @implementation FriendsViewController
+
+using namespace std;
+using namespace horo;
 
 static FriendsViewController *staticInstance = nil;
 + (instancetype)shared {
@@ -79,8 +85,11 @@ static FriendsViewController *staticInstance = nil;
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
-    _viewModel->updateFriendsFromFacebook();
-    
+    @weakify(self);
+    _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
+        @strongify(self);
+        [self.tableView reloadData];
+    };
     _wkWebView.UIDelegate = self;
     _wkWebView.navigationDelegate = self;
     [self startObservingContentSizeChangesInWebView:_wkWebView];
@@ -107,8 +116,21 @@ static FriendsViewController *staticInstance = nil;
 
 #pragma mark - UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        //case 0: return self.friendsCell;
+    if (indexPath.row == 0) {
+        return self.updateFriendsCell;
+    }
+    else {
+        NSString *identifier = @"friendCell";
+        FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[NSBundle mainBundle] loadNibNamed:@"FriendCell" owner:nil options:nil].firstObject;
+        }
+        int index = (int)indexPath.row - 1;
+        _viewModel->friendDataAtIndex(index, [cell](string name, string birthdayDate){
+            cell.nameLabel.text = [[NSString alloc] initWithUTF8String:name.c_str()];
+            cell.birthdayLabel.text = [[NSString alloc] initWithUTF8String:birthdayDate.c_str()];
+        });
+        return cell;
     }
     return [UITableViewCell new];
 }
@@ -126,7 +148,8 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    NSInteger count = 1 + _viewModel->friendsCount();
+    return count;
 }
 
 #pragma mark - Observer
@@ -195,6 +218,10 @@ static FriendsViewController *staticInstance = nil;
     };
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
+}
+
+- (IBAction)updateFriendsTapped:(id)sender {
+    _viewModel->updateFriendsFromFacebook();
 }
 
 @end

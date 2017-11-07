@@ -72,32 +72,6 @@ bool HoroscopeDAOImpl::writeHoroscope(strong<HoroscopeDTO> horoscope) {
     }
     return result;
 }
-
-Json::Value resultSetToJsonValue(strong<ResultSet> resultSet) {
-    Json::Value result;
-    strong<HoroscopeDTO> temporary = new HoroscopeDTO();
-    Json::Value keys;
-    temporary->encode(keys);
-    
-    for( Json::ValueIterator it = keys.begin(); it != keys.end(); ++it )
-    {
-        std::string key = it.key().asString();
-        Json::Value &value = *it;
-        if (value.isUInt64()) {
-            result[key] = resultSet->unsignedLongLongIntForColumn(key);
-        }
-        else if (value.isInt()) {
-            result[key] = resultSet->intForColumn(key);
-        }
-        else if (value.isString()) {
-            result[key] = resultSet->stringForColumn(key);
-        }
-        else {
-            SCAssert(false, "Unhandled type for key");
-        }
-    }
-    return result;
-}
     
 strong<HoroscopeDTO> HoroscopeDAOImpl::readHoroscope(uint64_t date, HoroscopeType type) {
     Json::Value parameters;
@@ -105,9 +79,7 @@ strong<HoroscopeDTO> HoroscopeDAOImpl::readHoroscope(uint64_t date, HoroscopeTyp
     parameters["type"] = type;
     strong<ResultSet> results = database_->executeQuery(kSQLSelectByDateType, parameters);
     if (results->next()) {
-        Json::Value datasource = resultSetToJsonValue(results);
-        strong<HoroscopeDTO> result = new HoroscopeDTO();
-        result->decode(datasource);
+        strong<HoroscopeDTO> result = resultSetToJsonValue<HoroscopeDTO>(results);
         return result;
     }
     return nullptr;

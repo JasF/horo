@@ -50,6 +50,9 @@ namespace horo {
         strong<Zodiac> zodiac() { return zodiac_; }
         inline bool withFacebook() const { return withFacebook_; }
         inline void setWithFacebook(bool a) { withFacebook_ = a; }
+        string uniqueIdentifier();
+        string name() const { return name_; }
+        DateWrapper birthdayDate() const { return birthdayDate_; }
     private:
         std::string name_; // utf-8
         std::string imageUrl_;

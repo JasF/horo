@@ -30,6 +30,7 @@ namespace horo {
     public:
         void loadFacebookFriends() override;
         bool webViewDidLoad(std::string url) override;
+        virtual set<strong<Person>> readFacebookFriendsFromDatabase()override;
     private:
         strong<FriendsProviderFactory> factory_;
         strong<FriendsProvider> provider_;

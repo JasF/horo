@@ -24,6 +24,9 @@ namespace horo {
     }
     
     std::string DateWrapper::toString() {
+        if (!day_ && !month_ && !year_) {
+            return "";
+        }
         return std::to_string(day_) + '.' + std::to_string(month_) + '.' + std::to_string(year_);
     }
 };

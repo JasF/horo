@@ -20,17 +20,20 @@ namespace horo {
                            strong<FacebookManager> facebookManager,
                            strong<Settings> settings,
                            strong<Firestore> firestore,
-                           strong<HoroscopesService> horoscopesService)
+                           strong<HoroscopesService> horoscopesService,
+                           strong<ScreensManager> screensManager)
     : components_(components)
     , facebookManager_(facebookManager)
     , settings_(settings)
     , firestore_(firestore)
-    , horoscopesService_(horoscopesService) {
+    , horoscopesService_(horoscopesService)
+    , screensManager_(screensManager) {
         SCParameterAssert(components_.get());
         SCParameterAssert(facebookManager_.get());
         SCParameterAssert(settings_.get());
         SCParameterAssert(firestore_.get());
         SCParameterAssert(horoscopesService_.get());
+        SCParameterAssert(screensManager_.get());
     }
     
     ModelsImpl::~ModelsImpl() {
@@ -38,7 +41,11 @@ namespace horo {
     }
     
     strong<PredictionScreenModel> ModelsImpl::predictionScreenModel() {
-        return new PredictionScreenModelImpl(components_, horoscopesService_);
+        return predictionScreenModel(nullptr);
+    }
+    
+    strong<PredictionScreenModel> ModelsImpl::predictionScreenModel(strong<Person> person) {
+        return new PredictionScreenModelImpl(components_, horoscopesService_, person);
     }
     
     strong<HelloScreenModel> ModelsImpl::helloScreenModel() {
@@ -56,6 +63,7 @@ namespace horo {
     strong<FriendsScreenModel> ModelsImpl::friendsScreenModel() {
         return new FriendsScreenModelImpl(components_,
                                           Managers::shared().friendsManager(),
-                                       settings_);
+                                       settings_,
+                                          screensManager_);
     }
 };

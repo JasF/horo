@@ -29,6 +29,12 @@ namespace horo {
         return viewModel;
     }
     
+    strong<PredictionScreenViewModel> ViewModelsImpl::predictionScreenViewModel(strong<Person> person) {
+        strong<PredictionScreenModel> model = models_->predictionScreenModel(person);
+        PredictionScreenViewModelImpl *viewModel = new PredictionScreenViewModelImpl(model, screensManager_);
+        return viewModel;
+    }
+    
     strong<HelloScreenViewModel> ViewModelsImpl::helloScreenViewModel() {
         strong<HelloScreenModel> model = models_->helloScreenModel();
         HelloScreenViewModelImpl *viewModel = new HelloScreenViewModelImpl(model, screensManager_);

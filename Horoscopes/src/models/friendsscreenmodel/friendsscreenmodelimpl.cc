@@ -12,13 +12,16 @@ namespace horo {
   
     FriendsScreenModelImpl::FriendsScreenModelImpl(strong<CoreComponents> components,
                                                    strong<FriendsManager> friendsManager,
-                                               strong<Settings> settings)
+                                               strong<Settings> settings,
+                                                   strong<ScreensManager> screensManager)
     : components_(components)
     , friendsManager_(friendsManager)
-    , settings_(settings) {
+    , settings_(settings),
+    screensManager_(screensManager) {
         SCParameterAssert(components_.get());
         SCParameterAssert(friendsManager_.get());
         SCParameterAssert(settings_.get());
+        SCParameterAssert(screensManager_.get());
         friendsManager_->authorizationUrlCallback_ = [this](std::string url, std::vector<std::string> allowedPatterns) {
             if (this->authorizationUrlCallback_) {
                 this->authorizationUrlCallback_(url, allowedPatterns);
@@ -79,4 +82,17 @@ namespace horo {
             friendsList_.push_back(ptr);
         }
     }
+    
+    void FriendsScreenModelImpl::friendWithIndexSelected(int index) {
+        SCAssert(index< friendsList_.size(), "index out of bounds");
+        if (index >= friendsList_.size()) {
+            return;
+        }
+        
+        list<strong<Person>>::iterator it = friendsList_.begin();
+        advance(it, index);
+        strong<Person> person = *it;
+        screensManager_->showPredictionViewController(person);
+    }
+    
 };

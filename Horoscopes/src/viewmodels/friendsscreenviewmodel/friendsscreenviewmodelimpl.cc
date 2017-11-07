@@ -47,4 +47,9 @@ namespace horo {
     void FriendsScreenViewModelImpl::friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) {
         model_->friendDataAtIndex(index, callback);
     }
+    
+    void FriendsScreenViewModelImpl::friendWithIndexSelected(int index) {
+        model_->friendWithIndexSelected(index);
+    }
+    
 };

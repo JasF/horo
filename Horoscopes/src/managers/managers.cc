@@ -71,7 +71,8 @@ Managers &Managers::shared() {
                                             facebookManager(),
                                             settings(),
                                             firestore(),
-                                            horoscopesService());
+                                            horoscopesService(),
+                                            screensManager());
         }
         return sharedInstance;
     }

@@ -11,12 +11,16 @@
 namespace horo {
     
 PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> components,
-                                                     strong<HoroscopesService> horoscopesService)
+                                                     strong<HoroscopesService> horoscopesService,
+                                                     strong<Person> person)
     : components_(components)
-    , horoscopesService_(horoscopesService) {
+    , horoscopesService_(horoscopesService)
+    , person_(person) {
         SCParameterAssert(components_.get());
         SCParameterAssert(horoscopesService_.get());
-        person_ = components_->person_;
+        if (!person_.get()) {
+            person_ = components_->person_;
+        }
         loadData();
 }
     
@@ -37,7 +41,10 @@ void PredictionScreenModelImpl::loadData() {
 
 std::string PredictionScreenModelImpl::zodiacName() {
     if (person_.get()) {
-        return person_->zodiac()->name();
+        if (person_->zodiac().get()) {
+            return person_->zodiac()->name();
+        }
+        return "Unknown";
     }
     return nullptr;
 }

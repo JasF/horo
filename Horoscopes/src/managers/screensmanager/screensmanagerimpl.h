@@ -23,6 +23,7 @@ namespace horo {
         ~ScreensManagerImpl() override;
     public:
         void showPredictionViewController() override;
+        void showPredictionViewController(strong<Person> person) override;
         void showWelcomeViewController() override;
         void showMenuViewController() override;
         void showFriendsViewController() override;

@@ -21,7 +21,8 @@ namespace horo {
     class PredictionScreenModelImpl : public PredictionScreenModel {
     public:
         PredictionScreenModelImpl(strong<CoreComponents> components,
-                                  strong<HoroscopesService> horoscopesService);
+                                  strong<HoroscopesService> horoscopesService,
+                                  strong<Person> person);
         ~PredictionScreenModelImpl() override;
     public:
         void loadData() override;

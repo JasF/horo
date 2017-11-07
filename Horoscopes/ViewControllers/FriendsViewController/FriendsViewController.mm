@@ -140,11 +140,18 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    if (!indexPath.row) {
+        return nil;
+    }
+    return indexPath;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (!indexPath.row) {
+        return;
+    }
+    NSInteger index = indexPath.row - 1;
+    _viewModel->friendWithIndexSelected(index);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

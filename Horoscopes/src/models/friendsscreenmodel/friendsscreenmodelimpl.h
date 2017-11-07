@@ -14,6 +14,7 @@
 #include "friendsscreenmodel.h"
 #include "models/corecomponents/corecomponents.h"
 #include "managers/friendsmanager/friendsmanager.h"
+#include "managers/screensmanager/screensmanager.h"
 #include "managers/settings/settings.h"
 
 namespace horo {
@@ -21,13 +22,15 @@ namespace horo {
     public:
         FriendsScreenModelImpl(strong<CoreComponents> components,
                              strong<FriendsManager> friendsManager,
-                             strong<Settings> settings);
+                             strong<Settings> settings,
+                               strong<ScreensManager> screensManager);
         ~FriendsScreenModelImpl() override;
     public:
         void updateFriendsFromFacebook() override;
         bool webViewDidLoad(std::string url) override;
         int friendsCount() override;
         void friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) override;
+        void friendWithIndexSelected(int index) override;
         
     private:
         void loadFriends(set<strong<Person>> loadFriends);
@@ -36,6 +39,7 @@ namespace horo {
         strong<FriendsManager> friendsManager_;
         strong<Settings> settings_;
         list<strong<Person>> friendsList_;
+        strong<ScreensManager> screensManager_;
     };
 };
 

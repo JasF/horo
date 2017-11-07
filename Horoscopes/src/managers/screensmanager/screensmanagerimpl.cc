@@ -29,6 +29,12 @@ namespace horo {
         }
     }
     
+    void ScreensManagerImpl::showPredictionViewController(strong<Person> person) {
+        if (g_privateInstance) {
+            g_privateInstance->showPredictionViewController(person);
+        }
+    }
+    
     void ScreensManagerImpl::showWelcomeViewController() {
         if (g_privateInstance) {
             g_privateInstance->showWelcomeViewController();

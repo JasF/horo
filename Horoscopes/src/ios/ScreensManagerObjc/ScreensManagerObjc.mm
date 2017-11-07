@@ -25,14 +25,14 @@ namespace horo {
         }
         ~ScreensManagerObjc() override {}
     public:
-        void showPredictionViewController() override {
+       void showPredictionViewController(strong<Person> person) override {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController"
                                                                      bundle: nil];
             
             UINavigationController *navigationController =(UINavigationController *)[storyboard
                                                             instantiateViewControllerWithIdentifier:@"navigationController"];
             PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
-            viewController.viewModel = impl_->viewModels()->predictionScreenViewModel();
+            viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             UINavigationController *tnc = (UINavigationController *)delegate.window.rootViewController;
@@ -42,6 +42,10 @@ namespace horo {
             else {
                 delegate.window.rootViewController = navigationController;
             }
+        }
+        
+        void showPredictionViewController() override {
+            showPredictionViewController(nullptr);
         }
         void showWelcomeViewController() override {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WelcomeViewController"

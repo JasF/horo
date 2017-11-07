@@ -160,6 +160,8 @@
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
 		C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C31A140D1FB17B85001FABFE /* FriendCell.m */; };
 		C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31A140F1FB17B99001FABFE /* FriendCell.xib */; };
+		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
+		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -719,6 +721,12 @@
 		C31A140C1FB17B85001FABFE /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		C31A140D1FB17B85001FABFE /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		C31A140F1FB17B99001FABFE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		C31A14111FB19267001FABFE /* facebookfriendinformationparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookfriendinformationparser.h; sourceTree = "<group>"; };
+		C31A14141FB1927C001FABFE /* facebookfriendinformationparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookfriendinformationparser.h; sourceTree = "<group>"; };
+		C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookfriendinformationparser.cc; sourceTree = "<group>"; };
+		C31A14171FB19612001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
+		C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookuserdetailparser.cc; sourceTree = "<group>"; };
+		C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1488,12 +1496,18 @@
 		C31A13AB1FB05D31001FABFE /* facebook */ = {
 			isa = PBXGroup;
 			children = (
+				C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */,
+				C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */,
+				C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */,
+				C31A14141FB1927C001FABFE /* facebookfriendinformationparser.h */,
 				C31A13F71FB07182001FABFE /* facebookuserinformationparser.cc */,
 				C31A13F81FB07182001FABFE /* facebookuserinformationparser.h */,
 				C31A13AC1FB05D4E001FABFE /* facebookhomepageparser.h */,
 				C31A13B91FB05EF1001FABFE /* facebookhomepageparser.cc */,
 				C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */,
 				C31A13FB1FB073D8001FABFE /* facebookfriendsparser.h */,
+				C31A14111FB19267001FABFE /* facebookfriendinformationparser.h */,
+				C31A14171FB19612001FABFE /* facebookuserdetailparser.h */,
 			);
 			path = facebook;
 			sourceTree = "<group>";
@@ -2526,6 +2540,7 @@
 				C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
+				C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */,
@@ -2542,6 +2557,7 @@
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
 				C31A13E61FB06168001FABFE /* vector.c in Sources */,
 				C31A14031FB08FD4001FABFE /* url.cc in Sources */,
+				C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */,
 				C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */,
 				C31A13EB1FB06168001FABFE /* attribute.c in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,

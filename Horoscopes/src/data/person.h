@@ -53,6 +53,11 @@ namespace horo {
         string uniqueIdentifier();
         string name() const { return name_; }
         DateWrapper birthdayDate() const { return birthdayDate_; }
+        PersonStatus status() const { return status_; }
+        PersonType type() const { return type_; }
+        Gender gender() const { return gender_; }
+        string imageUrl() const { return imageUrl_; }
+        string personUrl() const { return personUrl_; }
     private:
         std::string name_; // utf-8
         std::string imageUrl_;

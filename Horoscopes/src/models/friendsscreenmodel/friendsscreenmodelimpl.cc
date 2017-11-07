@@ -92,7 +92,24 @@ namespace horo {
         list<strong<Person>>::iterator it = friendsList_.begin();
         advance(it, index);
         strong<Person> person = *it;
-        screensManager_->showPredictionViewController(person);
+        
+        if (!person.get()) {
+            return;
+        }
+        
+        if (person->status() == StatusCompleted) {
+            screensManager_->showPredictionViewController(person);
+        }
+        else if (person->status() == StatusReadyForRequest) {
+            friendsManager_->updateUserInformationForPerson(person, [](bool success){
+                if (success) {
+                    
+                }
+            });
+        }
+        else {
+            SCAssert(person->status() == StatusReadyForRequest || person->status() == StatusCompleted, "unhandled failed selection of friend");
+        }
     }
     
 };

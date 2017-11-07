@@ -19,6 +19,8 @@ namespace horo {
         virtual strong<HtmlParser> createFacebookHomePageParser(std::string text)=0;
         virtual strong<HtmlParser> createFacebookUserInformationParser(std::string text)=0;
         virtual strong<HtmlParser> createFacebookFriendsParser(std::string text)=0;
+        virtual strong<HtmlParser> createFacebookFriendInformationParser(std::string text)=0;
+        virtual strong<HtmlParser> createFacebookUserDetailParser(std::string text)=0;
     };
     
     typedef reff<_HtmlParserFactory> HtmlParserFactory;

@@ -52,6 +52,26 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
     });
 }
 
+void FacebookFriendsProvider::executeFriendInformationPageRequest(string path) {
+    SCParameterAssert(path.length());
+    if (!path.length()) {
+        return;
+    }
+    executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
+        this->parseFriendInformationPage(json);
+    });
+}
+    
+void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
+    SCParameterAssert(path.length());
+    if (!path.length()) {
+        return;
+    }
+    executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
+        this->parseUserDetailPage(json);
+    });
+}
+
 void FacebookFriendsProvider::executeRequestFriendsNextPage() {
     strong<FacebookFriendsProvider> aProvider(this);
     Json::Value parameters;
@@ -124,6 +144,10 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     return true;
 }
     
+void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) {
+    executeFriendInformationPageRequest(path);
+}
+
 void FacebookFriendsProvider::parseHomePage(Json::Value json) {
     std::string text = json["text"].asString();
     strong<HtmlParser> parser = parserFactory_->createFacebookHomePageParser(text);
@@ -158,6 +182,23 @@ void FacebookFriendsProvider::parseFriendsPage(Json::Value json) {
         callback_(persons, "", Partial);
     };
     executeRequestFriendsNextPage();    
+}
+
+void FacebookFriendsProvider::parseFriendInformationPage(Json::Value json) {
+    std::string text = json["text"].asString();
+    strong<HtmlParser> parser = parserFactory_->createFacebookFriendInformationParser(text);
+    Json::Value result = parser->parse();
+    
+    string url = result["url"].asString();
+    if (url.length()) {
+        executeUserDetailPageRequest(url);
+    }
+}
+
+void FacebookFriendsProvider::parseUserDetailPage(Json::Value json) {
+    std::string text = json["text"].asString();
+    strong<HtmlParser> parser = parserFactory_->createFacebookUserDetailParser(text);
+    Json::Value result = parser->parse();
 }
 
 void FacebookFriendsProvider::operationDidFinishedWithError() {

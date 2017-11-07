@@ -21,8 +21,10 @@ namespace horo {
         : factory_(factory),
         personDAO_(personDAO)
         {
+            provider_ = friendsProvider();
             SCParameterAssert(factory_.get());
             SCParameterAssert(personDAO_.get());
+            SCParameterAssert(provider_.get());
             
             personDAO_->create();
         }
@@ -30,7 +32,12 @@ namespace horo {
     public:
         void loadFacebookFriends() override;
         bool webViewDidLoad(std::string url) override;
-        virtual set<strong<Person>> readFacebookFriendsFromDatabase()override;
+        set<strong<Person>> readFacebookFriendsFromDatabase() override;
+        void updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) override;
+        
+    private:
+        strong<FriendsProvider> friendsProvider();
+        
     private:
         strong<FriendsProviderFactory> factory_;
         strong<FriendsProvider> provider_;

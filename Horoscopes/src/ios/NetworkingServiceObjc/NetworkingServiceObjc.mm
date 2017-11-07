@@ -33,6 +33,13 @@ void NetworkingServiceObjc::beginRequest(std::string path,
                                              std::function<void(error err)> failBlock) {
     
     auto safeSuccess = ^(NSURL *url, id JSON) {
+        if (!JSON) {
+            error cerr("zero error", kParsingFailedError);
+            if (failBlock) {
+                failBlock(cerr);
+            }
+            return;
+        }
         if ([JSON isKindOfClass:[NSData class]]) {
             NSString *text = [[NSString alloc] initWithData:(NSData *)JSON encoding:NSUTF8StringEncoding];
             if (text.length) {

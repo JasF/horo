@@ -19,6 +19,8 @@ namespace horo {
         strong<HtmlParser> createFacebookHomePageParser(std::string text) override;
         strong<HtmlParser> createFacebookUserInformationParser(std::string text) override;
         strong<HtmlParser> createFacebookFriendsParser(std::string text) override;
+        strong<HtmlParser> createFacebookFriendInformationParser(std::string text) override;
+        strong<HtmlParser> createFacebookUserDetailParser(std::string text) override;
     };
 }
 

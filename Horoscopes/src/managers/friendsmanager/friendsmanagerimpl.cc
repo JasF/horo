@@ -11,13 +11,13 @@
 
 namespace horo {
 
+strong<FriendsProvider> FriendsManagerImpl::friendsProvider() {
+    strong<FriendsProvider> provider = factory_->createFacebookFriendsProvider();
+    return provider;
+}
+    
 void FriendsManagerImpl::loadFacebookFriends() {
-    strong<FriendsProvider> friendsProvider = factory_->createFacebookFriendsProvider();
-    SCAssert(friendsProvider.get(), "friendsProvider zero");
-    if (!friendsProvider.get()) {
-        return;
-    }
-    provider_ = friendsProvider;
+    LOG(LS_ERROR) << "ACHTUNG SUPERSTRONG RETAIN CYCLE (DOUBLE-CLOSE-LOCK)";
     strong<FriendsManagerImpl> aThis = this;
     std::function<void(Json::Value friends, std::string url, FriendsProvider::RequestStatus status)> safeCompletion = [aThis](Json::Value friends, std::string url, FriendsProvider::RequestStatus status) {
         LOG(LS_WARNING) << "status is: " << status << " with count: " << friends.size();
@@ -47,6 +47,22 @@ void FriendsManagerImpl::loadFacebookFriends() {
     provider_->requestFriendsList(safeCompletion);
 }
     
+void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) {
+    
+    std::function<void(Json::Value friends, std::string url, FriendsProvider::RequestStatus status)> safeCompletion = [this](Json::Value friends, std::string url, FriendsProvider::RequestStatus status) {
+        
+    };
+    
+    SCAssert(person->personUrl().length(), "person with corrupted personUrl() detected");
+    if (!person->personUrl().length()) {
+        if (callback) {
+            callback(false);
+        }
+        return;
+    }
+    provider_->requestUserInformation(person->personUrl(), safeCompletion);
+}
+
 bool FriendsManagerImpl::webViewDidLoad(std::string url) {
     if (provider_.get()) {
         bool result = provider_->webViewDidLoad(url);

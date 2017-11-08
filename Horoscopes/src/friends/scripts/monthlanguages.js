@@ -19,33 +19,6 @@ db.serialize(function() {
 
 db.close();
 */
-
-function fillAuthorizationPage(browser, err) {
-    if (!browser.success) {
-        console.log('br fail')
-        return false;
-    }
-    inputValue = browser.document.getElementById("m_login_email");
-    if (inputValue == null) {
-        console.log('m_login_email null')
-        return false;
-    }
-    inputValue.value = "jasfasola@mail.ru";
-    inputValue = browser.document.getElementById("m_login_password");
-    if (inputValue == null) {
-        console.log('m_login_password null')
-        return false;
-    }
-    inputValue.value = "7q13Po46";
-    inputValue = browser.document.getElementById("u_0_5");
-    if (inputValue == null) {
-        console.log('u_0_5 (login button) null')
-        return false;
-    }
-    inputValue.click()
-    return true;
-}
-
 const Browser = require('zombie');
 
 // Which will be routed to our test server localhost:3000
@@ -53,8 +26,14 @@ const Browser = require('zombie');
 var url = "https://m.facebook.com";
 var browser = new Browser();
 browser.visit(url, function(err) {
-              result = fillAuthorizationPage(browser, err)
-              console.log('result: ' + result)
+              
+              browser.fill('input[name="email"]', "jasfasola@mail.ru")
+              .fill('input[name="pass"]', "7q13Po46")
+              .pressButton('input[name="login"]', function(res) {
+                           var markup = browser.document.documentElement.innerHTML;
+                           console.log('inside. markup:' + markup)
+                           });
+             // http://krasimirtsonev.com/blog/article/Testing-with-headless-browser-Zombiejs-Jasmine-TDD-NodeJS-example
 })
 
 console.log('zz ok')

@@ -9,6 +9,48 @@ const queryString = require('query-string');
 latestUrl = ""
 db.run("CREATE TABLE IF NOT EXISTS localizedMonths (monthInEnglish TEXT, day TEXT, languageCode TEXT, localizedString TEXT, localizedBirthdayString TEXT)");
 
+function fetchValueForMonthsByLanguageCode(monthsList, languageCode, callback) {
+    if (!monthsList.length) {
+        if (callback) {
+            callback(true);
+        }
+        return;
+    }
+    
+    monthName = monthsList[0]
+    monthsList.splice(0,1)
+    db.all("SELECT * FROM localizedMonths WHERE monthInEnglish = ? AND languageCode = ?;", [monthName, languageCode], function(err, rows) {
+           if (!rows.length) {
+           if (callback) {
+           callback(false);
+           }
+            return;
+           }
+           console.log(rows[0].localizedString)
+           fetchValueForMonthsByLanguageCode(monthsList, languageCode, callback)
+         })
+}
+
+function allEntitiesInDatabaseExists(languageCode, callback) {
+    db.all("SELECT DISTINCT monthInEnglish FROM localizedMonths;", function(err, rows) {
+           if (!rows.length) {
+           if (callback) {
+           callback(false);
+           }
+           return;
+           }
+           monthsList=[]
+           rows.forEach(function (v) {
+                        monthsList.push(v.monthInEnglish)
+                        })
+           fetchValueForMonthsByLanguageCode(monthsList, languageCode, function(success) {
+                                             if (callback) {
+                                              callback(success)
+                                             }
+                                    })
+           });
+}
+
 function entityInDatabaseExists(monthString, languageCode, callback) {
     var count = 0;
     db.all("SELECT * FROM localizedMonths WHERE monthInEnglish = \"" + monthString + "\" AND languageCode = \"" + languageCode + "\";", function(err, rows) {
@@ -201,23 +243,28 @@ function handleLanguagesArray(browser, languages) {
     index += 1
     const query = queryString.parse(url.substring(index, url.length - index));
     console.log('selecting: ' + url + ' with language: ' + query.l);
-    browser.visit("https://m.facebook.com" + url, function(err) {
-                  urlsWithMonthsNames = [{month:"january", url:"https://m.facebook.com/danikin2/about?lst=100001547389445%3A100001052329626%3A1510297976", year:"1979", day: "13"},
-                                         {month:"february", url:"https://m.facebook.com/alexey.antropov/about?lst=100001547389445%3A100001328802913%3A1510297834", year: "1984", day: "5"},
-                                         {month:"march", url:"https://m.facebook.com/zombiehamon/about?lst=100001547389445%3A100000348924649%3A1510298181", year: "", day: "11"},
-                                         {month:"april", url:"https://m.facebook.com/postnikov/about?lst=100001547389445%3A619000915%3A1510298002", year: "1982", day: "29"},
-                                         {month:"may", url:"https://m.facebook.com/korolev.petr/about?lst=100001547389445%3A100000272556300%3A1510298390", year: "1989", day: "20"},
-                                         {month:"june", url:"https://m.facebook.com/jenja.kuznetsov/about?lst=100001547389445%3A100002691857319%3A1510211827", year: "7", day: "1982"},
-                                         {month:"july", url:"https://m.facebook.com/st.shambala/about?lst=100001547389445%3A1599670057%3A1510298404", year: "", day: "19"},
-                                         {month:"august", url:"https://m.facebook.com/vadim.balashov/about?lst=100001547389445%3A1250453135%3A1510298318", year: "1984", day: "5"},
-                                         {month:"september", url:"https://m.facebook.com/okokawa/about?lst=100001547389445%3A1398444205%3A1510297867", year: "", day: "12"},
-                                         {month:"october", url:"https://m.facebook.com/trofkate/about?lst=100001547389445%3A100001679278750%3A1510298522", year: "1993", day: "11"},
-                                         {month:"november", url:"https://m.facebook.com/gagafonov/about?lst=100001547389445%3A100000619129853%3A1510297945", year: "1982", day: "17"},
-                                         {month:"december", url:"https://m.facebook.com/olga.stjarna/about?lst=100001547389445%3A100002901729072%3A1510297758", year: "", day: "21"}];
-                  fetchLanguageFromUrlsArray(browser, urlsWithMonthsNames, query.l, function () {
-                                             handleLanguagesArray(browser, languages);
-                                           })
-     })
+    
+    allEntitiesInDatabaseExists(query.l, function (success) {
+                                browser.visit("https://m.facebook.com" + url, function(err) {
+                                              urlsWithMonthsNames = [{month:"january", url:"https://m.facebook.com/danikin2/about?lst=100001547389445%3A100001052329626%3A1510297976", year:"1979", day: "13"},
+                                                                     {month:"february", url:"https://m.facebook.com/alexey.antropov/about?lst=100001547389445%3A100001328802913%3A1510297834", year: "1984", day: "5"},
+                                                                     {month:"march", url:"https://m.facebook.com/zombiehamon/about?lst=100001547389445%3A100000348924649%3A1510298181", year: "", day: "11"},
+                                                                     {month:"april", url:"https://m.facebook.com/postnikov/about?lst=100001547389445%3A619000915%3A1510298002", year: "1982", day: "29"},
+                                                                     {month:"may", url:"https://m.facebook.com/korolev.petr/about?lst=100001547389445%3A100000272556300%3A1510298390", year: "1989", day: "20"},
+                                                                     {month:"june", url:"https://m.facebook.com/jenja.kuznetsov/about?lst=100001547389445%3A100002691857319%3A1510211827", year: "7", day: "1982"},
+                                                                     {month:"july", url:"https://m.facebook.com/st.shambala/about?lst=100001547389445%3A1599670057%3A1510298404", year: "", day: "19"},
+                                                                     {month:"august", url:"https://m.facebook.com/vadim.balashov/about?lst=100001547389445%3A1250453135%3A1510298318", year: "1984", day: "5"},
+                                                                     {month:"september", url:"https://m.facebook.com/okokawa/about?lst=100001547389445%3A1398444205%3A1510297867", year: "", day: "12"},
+                                                                     {month:"october", url:"https://m.facebook.com/trofkate/about?lst=100001547389445%3A100001679278750%3A1510298522", year: "1993", day: "11"},
+                                                                     {month:"november", url:"https://m.facebook.com/gagafonov/about?lst=100001547389445%3A100000619129853%3A1510297945", year: "1982", day: "17"},
+                                                                     {month:"december", url:"https://m.facebook.com/olga.stjarna/about?lst=100001547389445%3A100002901729072%3A1510297758", year: "", day: "21"}];
+                                              fetchLanguageFromUrlsArray(browser, urlsWithMonthsNames, query.l, function () {
+                                                                         handleLanguagesArray(browser, languages);
+                                                                         })
+                                              })
+                                })
+    
+    
 }
 
 const Browser = require('zombie');

@@ -200,6 +200,7 @@
 		C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601A41FA604E600AD4F6D /* serializerimpl.cc */; };
 		C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */; };
 		C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */; };
+		C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */ = {isa = PBXBuildFile; fileRef = C3B8977A1FB718DF0083C201 /* monthlanguages.js */; };
 		C3CD7DD91FA6F19F00D2BFF3 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */; };
 		C3CD7DDA1FA6F19F00D2BFF3 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */; };
 		C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */; };
@@ -813,6 +814,9 @@
 		C3B601AE1FA60DBE00AD4F6D /* Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Horo.h"; sourceTree = "<group>"; };
 		C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSDictionary+Horo.mm"; sourceTree = "<group>"; };
+		C3B8977A1FB718DF0083C201 /* monthlanguages.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = monthlanguages.js; path = src/friends/scripts/monthlanguages.js; sourceTree = SOURCE_ROOT; };
+		C3B8977E1FB726880083C201 /* prettyoutputstrokes.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = prettyoutputstrokes.js; path = src/friends/scripts/prettyoutputstrokes.js; sourceTree = SOURCE_ROOT; };
+		C3B8977F1FB726880083C201 /* prettyoutputdates.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = prettyoutputdates.js; path = src/friends/scripts/prettyoutputdates.js; sourceTree = SOURCE_ROOT; };
 		C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
 		C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
@@ -1711,6 +1715,9 @@
 		C37657731FAC2E0500874188 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				C3B8977F1FB726880083C201 /* prettyoutputdates.js */,
+				C3B8977E1FB726880083C201 /* prettyoutputstrokes.js */,
+				C3B8977A1FB718DF0083C201 /* monthlanguages.js */,
 				C37657741FAC2E2300874188 /* datastoreupdate.js */,
 			);
 			path = server;
@@ -2486,6 +2493,7 @@
 				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
+				C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,

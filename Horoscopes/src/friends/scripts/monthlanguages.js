@@ -1,26 +1,46 @@
-
+var fs = require('fs')
+databaseFilename = "localizedMonths.sql";
+//fs.unlink(databaseFilename);
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(':memory:');
+var db = new sqlite3.Database(databaseFilename);
 var gumbo = require("gumbo-parser");
+const queryString = require('query-string');
 
 latestUrl = ""
-/*
-db.serialize(function() {
-             db.run("CREATE TABLE localizedMonths (nameInEnglish TEXT, languageCode TEXT, localizedString TEXT)");
-             
-             var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-             for (var i = 0; i < 10; i++) {
-             stmt.run("Ipsum " + i);
-             }
-             stmt.finalize();
-             
-             db.each("SELECT rowid AS id, info FROM lorem", function(err, row) {
-                     console.log(row.id + ": " + row.info);
-                     });
-             });
+db.run("CREATE TABLE IF NOT EXISTS localizedMonths (monthInEnglish TEXT, day TEXT, languageCode TEXT, localizedString TEXT, localizedBirthdayString TEXT)");
 
-db.close();
-*/
+function entityInDatabaseExists(monthString, languageCode, callback) {
+    var count = 0;
+    db.all("SELECT * FROM localizedMonths WHERE monthInEnglish = \"" + monthString + "\" AND languageCode = \"" + languageCode + "\";", function(err, rows) {
+           if (err) console.log(err);
+           if (rows.length) {
+             callback(true);
+           }
+           else {
+             callback(false);
+           }
+            });
+    return true;
+}
+
+function writeLocalizedBirthdayTextToDatabase(birthdayText, birthdayName, languageCode, monthString, dayString) {
+    console.log('writing')
+    if (!birthdayText.length || !birthdayName.length || !languageCode.length || !monthString.length || !dayString.length) {
+        console.log('writeLocalizedBirthdayTextToDatabase parameter error')
+        return;
+    }
+    db.serialize(function() {
+                 
+                 db.run("INSERT INTO localizedMonths(monthInEnglish,day,languageCode,localizedString,localizedBirthdayString) VALUES(?,?,?,?,?)", [monthString, dayString, languageCode, birthdayText, birthdayName], function(err) {
+                                   if (err) {
+                                   return console.log(err.message);
+                                   }
+                                   // get the last insert id
+                                   console.log("writed.");
+                                 });
+                 });
+    
+}
 urls = []
 function iterateLanguages(root) {
     if (root.nodeType == 3) {
@@ -59,89 +79,128 @@ function preiterateLanguages(root) {
     return urls;
 }
 
+var gGumboStack = []
+var birthdayText = ""
+var birthdayName = ""
+var textsList = []
 gInsideProfileCard = false
 function parseProfileCard(root, data, uproot) {
     if (root.nodeType == 3) {
+        if (textsList.length > 10) {
+            textsList.splice(0,1);
+        }
         if (gInsideProfileCard) {
             day = data.day;
             text = root.textContent
-            if(text.indexOf(day) > -1) {
-                console.log('url: ' + data.url + '; birthday: ' + text);
+            if (text.indexOf(day) > -1) {
+              birthdayText = text
+              birthdayName = ""
+                if (textsList.length) {
+                    birthdayName = textsList[textsList.length-1]
+                }
             }
         }
-        console.log(root.textContent)
-        if (root.textContent.indexOf('1979') > -1) {
-            console.log('uproot')
-            console.log(uproot)
-            console.log(uproot.attributes)
-        }
+        textsList.push(root.textContent)
     }
-    
-    mInsideProfileCard = false;
-    if (root.nodeName == "div") {
-       console.log(root.attributes)
+    var mInsideProfileCard = false;
+    if (root.attributes != null) {
         for (var y = 0; y < root.attributes.length; y++) {
             attribute = root.attributes[y];
-            if (attribute.name == "data-sigil") {
-                url = attribute.value
-                if (url.includes('profile-card')) {
+            if (attribute.name == "id") {
+                if (attribute.value.includes('basic-info')) {
                     gInsideProfileCard = true
                     mInsideProfileCard = true;
                 }
             }
         }
     }
-    
     if (root.nodeType != 1) {
         return;
     }
+    gGumboStack.push(root)
     for (var i = 0; i < root.childNodes.length; i++) {
         var child = root.childNodes[i];
-        parseProfileCard(child, data, root)
+        if (child != null) {
+            parseProfileCard(child, data, root)
+        }
     }
-    
-    if (mInsideProfileCard == true) {
+    gGumboStack.pop();
+    if (mInsideProfileCard === true) {
         mInsideProfileCard = false;
         gInsideProfileCard = false;
     }
-    /*
-     <div class="_56be _2xfb" id="basic-info" data-sigil="profile-card"><div class="_55wo _55x2 _56bf"><header class="_56bq _52ja _52jh _59e9 _55wp _3knw __gy" data-sigil="profile-card-header"><div class="_55wr _4g33 _52we _5b6o"><div class="_4g34 _5b6q _5b6p"><div class="__gx">Основная информация</div></div><div class="_4g34 _5b6r _5b6p"><div></div></div></div></header><div class="_55x2 _5ji7"><div class="_5cds _2lcw _5cdu" title="Имя (Русский)"><div class="lr"><div class="_5cdv r">Olga  Stjarna</div><div class="_52ja _5ejs"><span class="_52jd _52ja _52jg">Имя (Русский)</span></div><div class="clear"></div></div></div><div class="_5cds _2lcw _5cdu" title="Дата рождения"><div class="lr"><div class="_5cdv r">21 декабря</div><div class="_52ja _5ejs"><span class="_52jd _52ja _52jg">Дата рождения</span></div><div class="clear"></div></div></div><div class="_5cds _2lcw _5cdu" title="Пол"><div class="lr"><div class="_5cdv r">Женский</div><div class="_52ja _5ejs"><span class="_52jd _52ja _52jg">Пол</span></div><div class="clear"></div></div></div><div class="_5cds _2lcw _5cdu" title="Языки"><div class="lr"><div class="_5cdv r">Русский язык и Английский язык</div><div class="_52ja _5ejs"><span class="_52jd _52ja _52jg">Языки</span></div><div class="clear"></div></div></div></div></div></div>
-    */
-     
 }
 
-function fetchLanguageFromUrlsArray(browser, urlsArray) {
+function fetchLanguageFromUrlsArray(browser, urlsArray, languageCode, callback) {
     if (!urlsArray.length) {
         console.log('urls array is empty');
+        if (callback) {
+            callback();
+        }
         return;
     }
     data = urlsArray[0]
     urlsArray.shift()
-    url = data.url;
-    if (!url.length) {
-        console.log('wrong');
-        return;
-    }
-     browser.visit(url, function(err) {
-       var markup = browser.document.documentElement.innerHTML;
-       var tree = gumbo(markup);
-                   console.log('parsing profile card: ' + markup.length)
-       parseProfileCard(tree.root, data, null)
-     });
+    
+    entityInDatabaseExists(data.month, languageCode, function(exists){
+                           if (exists) {
+                            fetchLanguageFromUrlsArray(browser, urlsArray, languageCode, callback);
+                            console.log('skipping: ' + data.month + ': ' + languageCode);
+                            return;
+                           }
+                           
+                           url = data.url;
+                           if (!url.length) {
+                           console.log('wrong');
+                           return;
+                           }
+                           browser.visit(url, function(err) {
+                                          var markup = browser.document.documentElement.innerHTML;
+                                          var tree = gumbo(markup);
+                                          console.log('parsing profile card: ' + markup.length);
+                                          gGumboStack = [];
+                                          textsList = [];
+                                          birthdayText = "";
+                                          parseProfileCard(tree.root, data, null);
+                                          if (birthdayText.length && birthdayName.length) {
+                                            writeLocalizedBirthdayTextToDatabase(birthdayText, birthdayName, languageCode, data.month, data.day)
+                                          }
+                                          else {
+                                            console.log('failed gathering date for ' + url);
+                                          }
+                                          fetchLanguageFromUrlsArray(browser, urlsArray, languageCode, callback);
+                                         });
+                           
+    });
+    
+    
 }
 
 function handleLanguagesArray(browser, languages) {
     if (!languages.length) {
         console.log('Languages empty. Possible Authorization error');
+        db.close()
         return;
     }
     console.log('Successfully authorized! List of languages: ' + languages.length);
-    first = languages[0]
-    console.log(first)
-    if (first.url.length) {
-        url = first.url
+    langDict = languages[0]
+    url = langDict.url
+    languages.splice(0, 1)
+    if (!url.length) {
+        console.log('url error');
+        console.log(url);
+        handleLanguagesArray(browser, languages);
+        return;
     }
-    console.log('selecting: ' + url);
+    index = url.indexOf('?')
+    if (index == -1) {
+        console.log('url query error');
+        handleLanguagesArray(browser, languages);
+        return;
+    }
+    index += 1
+    const query = queryString.parse(url.substring(index, url.length - index));
+    console.log('selecting: ' + url + ' with language: ' + query.l);
     browser.visit("https://m.facebook.com" + url, function(err) {
                   urlsWithMonthsNames = [{month:"january", url:"https://m.facebook.com/danikin2/about?lst=100001547389445%3A100001052329626%3A1510297976", year:"1979", day: "13"},
                                          {month:"february", url:"https://m.facebook.com/alexey.antropov/about?lst=100001547389445%3A100001328802913%3A1510297834", year: "1984", day: "5"},
@@ -155,7 +214,9 @@ function handleLanguagesArray(browser, languages) {
                                          {month:"october", url:"https://m.facebook.com/trofkate/about?lst=100001547389445%3A100001679278750%3A1510298522", year: "1993", day: "11"},
                                          {month:"november", url:"https://m.facebook.com/gagafonov/about?lst=100001547389445%3A100000619129853%3A1510297945", year: "1982", day: "17"},
                                          {month:"december", url:"https://m.facebook.com/olga.stjarna/about?lst=100001547389445%3A100002901729072%3A1510297758", year: "", day: "21"}];
-                  fetchLanguageFromUrlsArray(browser, urlsWithMonthsNames)
+                  fetchLanguageFromUrlsArray(browser, urlsWithMonthsNames, query.l, function () {
+                                             handleLanguagesArray(browser, languages);
+                                           })
      })
 }
 
@@ -166,9 +227,9 @@ browser.visit(url, function(err) {
               var markup = browser.document.documentElement.innerHTML;
               //console.log('inside. markup:' + markup)
               //iterateLanguages(tree.root)
-              
+              console.log('authorization')
               browser.fill('input[name="email"]', "jasfasola@mail.ru")
-              .fill('input[name="pass"]', "7q13Po46")
+              .fill('input[name="pass"]', "QvWoM4*f")
               .pressButton('input[name="login"]', function(res) {
                            var markup = browser.document.documentElement.innerHTML;
                           // console.log('inside. markup:' + markup)
@@ -178,10 +239,22 @@ browser.visit(url, function(err) {
                                                               // console.log('inside2. markup:' + markup)
                                                               var tree = gumbo(markup);
                                                               languages = preiterateLanguages(tree.root)
-                                                              handleLanguagesArray(browser, languages)
+                                                             
+                                                              var urlsOnlyArray = []
+                                                             languages.forEach(function (value) {
+                                                                              urlsOnlyArray.push(value.url)
+                                                                               })
+                                                              var langsSet = new Set(urlsOnlyArray)
+                                                             urlsOnlyArray = []
+                                                             langsSet.forEach(function (value) {
+                                                                              urlsOnlyArray.push({url:value})
+                                                                               })
+                                                             console.log('urlsOnlyArray count: ' + urlsOnlyArray.length)
+                                                             // while (languages.length > 160) {
+                                                               // languages.splice(0,1);
+                                                            //  }
+                                                             handleLanguagesArray(browser, urlsOnlyArray)
                                                              })
                                             })
                            });
 })
-
-console.log('zz ok')

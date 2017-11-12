@@ -123,7 +123,7 @@ DateWrapper BirthdayDetectorImpl::timestampForDateString(string dateString, list
     if (!day) {
         return DateWrapper();
     }
-    return DateWrapper();
+    return DateWrapper(day, monthIndex, year);
 }
 
 };

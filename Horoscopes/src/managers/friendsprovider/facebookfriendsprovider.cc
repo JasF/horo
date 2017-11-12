@@ -138,24 +138,14 @@ bool FacebookFriendsProvider::isRequiredAuthorizationResponse(strong<HttpRespons
 }
 
 bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
-    if (url.find("about") != std::string::npos) {
-        return true;
-    }
-    else if (url.find("profile.php") != std::string::npos) {
-        Url queryy(url);
-        if (queryy.get("v") == "info") {
-            return true;
-        }
-        return false;
-    }
-    else if (url.find("login") != std::string::npos) {
+    if (url.find("login") != std::string::npos) {
         return true;
     }
     else if (url.find(currentPath_) != std::string::npos) {
-        executeRequest();
+        //executeRequest();
         return false;
     }
-    return true;
+    return false;
 }
     
 void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) {

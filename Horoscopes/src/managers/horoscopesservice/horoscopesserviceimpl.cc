@@ -36,6 +36,12 @@ namespace horo {
             return;
         }
         documentReference->getDocumentWithCompletion([this, callback](strong<DocumentSnapshot> snapshot, error err){
+            if (!snapshot.get()) {
+                if (callback) {
+                    callback(nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
+                }
+                return;
+            }
             Json::Value data = snapshot->data();
             parser_->parse(data, [this, callback](strong<HoroscopeDTO> yesterday,
                                     strong<HoroscopeDTO> today,

@@ -36,7 +36,8 @@ static const char * kSQLReadFacebookFriends = ""\
 "* "\
 "FROM "\
 "persons "\
-"WHERE withFacebook != 0 AND type = 2;"; // type=2 means friend (1==user, 0==unknown)
+"WHERE withFacebook != 0 AND type = 2 "
+"ORDER BY name;"; // type=2 means friend (1==user, 0==unknown)
 
 static const char * kSQLUpdate = ""\
 "UPDATE "\

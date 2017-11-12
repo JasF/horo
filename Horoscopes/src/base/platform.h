@@ -12,9 +12,9 @@
 #include "base/horobase.h"
 
 namespace horo {
-  
     std::string documentsPath();
-    
+    std::string contentOfFile(string filename, string extension);
+    string toLowerCase(string source);
 };
 
 #endif /* platform_h */

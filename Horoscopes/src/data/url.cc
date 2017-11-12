@@ -34,12 +34,22 @@ string Url::path() {
     return result;
 }
 
+string Url::get(string parameterName) {
+    for (auto q : queries()) {
+        if (q.first == parameterName) {
+            return q.second;
+        }
+    }
+    return "";
+}
+
 list<pair<string,string>> Url::queries() {
     list<pair<string,string>> result;
     size_t index = url_.find("?");
     if (index == string::npos) {
         return result;
     }
+    index += 1;
     string queriesString = url_.substr(index, url_.length() - index);
     vector<string> vctr = separateString(queriesString, '&');
     for (auto fullQuery : vctr) {

@@ -16,14 +16,14 @@ namespace horo {
         }
         textsList_.clear();
         parameters_.clear();
-        hrefs_.clear();
         GumboOutput* output = gumbo_parse_with_options(&kGumboDefaultOptions, text_.c_str(), text_.length());
         iterate(output->root);
         gumbo_destroy_output(&kGumboDefaultOptions, output);
-        for (auto url:hrefs_) {
-            if (url.find("about?") != std::string::npos) {
-               // results_["url"] = url;
-              //  break;
+        if (birthdate_.length() && codes_.size()) {
+            DateWrapper date = birthdayDetector_->timestampForDateString(birthdate_, codes_);
+            string dateString = date.toString();
+            if (dateString.length()) {
+                results_["birthdayTimestamp"] = dateString;
             }
         }
         return results_;
@@ -31,17 +31,27 @@ namespace horo {
     
     void FacebookUserDetailParser::iterate(const GumboNode *root) {
         if (root->type == GUMBO_NODE_TEXT) {
+            std::string text = root->v.text.text;
+            if (text == "Дата рождения") {
+                LOG(LS_ERROR)<<"!";
+            }
+            textsList_.push_back(text);
+            if (textsList_.size() > 10) {
+                textsList_.erase(textsList_.begin());
+            }
             
-            textsList_.push_back(root->v.text.text);
             string backString= textsList_.back();
            // LOG(LS_WARNING) << backString;
-            if (backString == birthdayDateDetectorString()) {
+            auto codes = birthdayDetector_->isLocalizedBirthdayString(text);
+            if (codes.size()) {
                 size_t count = textsList_.size();
                 if (count > 1) {
                     auto it = textsList_.begin();
                     std::advance(it, count-2);
                     string birthdate = *it;
-                    LOG(LS_ERROR) << "birthdate: " << birthdate;
+                    birthdate_ = birthdate;
+                    codes_ = codes;
+                    return;
                 }
             }
         }
@@ -49,16 +59,15 @@ namespace horo {
             return;
         }
         
-        GumboAttribute* cls_attr;
-        if ((cls_attr = gumbo_get_attribute(&root->v.element.attributes, "href"))) {
-            hrefs_.insert(cls_attr->value);
-        }
         
         
         const GumboVector* root_children = &root->v.element.children;
         for (int i = 0; i < root_children->length; ++i) {
             GumboNode* child =(GumboNode *)root_children->data[i];
             iterate(child);
+            if (birthdate_.length()) {
+                return;
+            }
         }
     }
     

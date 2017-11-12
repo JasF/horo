@@ -8,6 +8,9 @@
 
 #include "horobase.h"
 #include <iostream>
+#include <codecvt>
+#include <iostream>
+#include <locale>
 
 namespace horo {
     vector<string> separateString(string str, char delimeter) {
@@ -52,16 +55,19 @@ namespace horo {
         return "";
     }
     
-    /*
-     time_t tt = system_clock::to_time_t(time);
-     tm local_tm = *localtime(&tt);
-     
-     LOG(LS_WARNING) << "local_time: " << local_tm.tm_year + 1900 << '-';
-     LOG(LS_WARNING) << local_tm.tm_mon + 1 << '-';
-     LOG(LS_WARNING) << local_tm.tm_mday << ' ';
-     LOG(LS_WARNING) << local_tm.tm_hour << ':';
-     LOG(LS_WARNING) << local_tm.tm_min << ':';
-     LOG(LS_WARNING) << local_tm.tm_sec << '\n';
-     */
+    std::string ReplaceAll(std::string str, const std::string& from, const std::string& to) {
+        size_t start_pos = 0;
+        while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+            str.replace(start_pos, from.length(), to);
+            start_pos += to.length(); // Handles case where 'to' is a substring of 'from'
+        }
+        return str;
+    }
+    
+    wstring toUtf16(std::string utf8) {
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+        std::wstring wstr = converter.from_bytes(utf8);
+        return wstr;
+    }
 };
 

@@ -23,6 +23,7 @@
 #include "managers/friendsproviderfactory/friendsproviderfactoryimpl.h"
 #include "managers/friendsmanager/friendsmanagerimpl.h"
 #include "friends/htmlparserfactory/htmlparserfactoryimpl.h"
+#include "managers/birthdaydetector/birthdaydetectorimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -180,7 +181,15 @@ Managers &Managers::shared() {
     strong<HtmlParserFactory> Managers::htmlParserFactory() {
         static strong<HtmlParserFactory> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new HtmlParserFactoryImpl();
+            sharedInstance = new HtmlParserFactoryImpl(birthdayDetector());
+        }
+        return sharedInstance;
+    }
+    
+    strong<BirthdayDetector> Managers::birthdayDetector() {
+        static strong<BirthdayDetector> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new BirthdayDetectorImpl();
         }
         return sharedInstance;
     }

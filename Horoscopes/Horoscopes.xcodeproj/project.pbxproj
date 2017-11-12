@@ -201,6 +201,9 @@
 		C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */; };
 		C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */; };
 		C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */ = {isa = PBXBuildFile; fileRef = C3B8977A1FB718DF0083C201 /* monthlanguages.js */; };
+		C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */; };
+		C3B8ABF01FB83B350083C201 /* locdates.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8978B1FB83B2E0083C201 /* locdates.json */; };
+		C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */; };
 		C3CD7DD91FA6F19F00D2BFF3 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */; };
 		C3CD7DDA1FA6F19F00D2BFF3 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */; };
 		C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */; };
@@ -817,6 +820,11 @@
 		C3B8977A1FB718DF0083C201 /* monthlanguages.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = monthlanguages.js; path = src/friends/scripts/monthlanguages.js; sourceTree = SOURCE_ROOT; };
 		C3B8977E1FB726880083C201 /* prettyoutputstrokes.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = prettyoutputstrokes.js; path = src/friends/scripts/prettyoutputstrokes.js; sourceTree = SOURCE_ROOT; };
 		C3B8977F1FB726880083C201 /* prettyoutputdates.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = prettyoutputdates.js; path = src/friends/scripts/prettyoutputdates.js; sourceTree = SOURCE_ROOT; };
+		C3B897811FB8375F0083C201 /* birthdaydetectorimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthdaydetectorimpl.h; sourceTree = "<group>"; };
+		C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = birthdaydetectorimpl.cc; sourceTree = "<group>"; };
+		C3B897861FB8377E0083C201 /* birthdaydetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthdaydetector.h; sourceTree = "<group>"; };
+		C3B8978B1FB83B2E0083C201 /* locdates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locdates.json; sourceTree = "<group>"; };
+		C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = birthdayslocstr.json; sourceTree = "<group>"; };
 		C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
 		C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
@@ -1482,6 +1490,7 @@
 		C31A13A91FB05CE9001FABFE /* friends */ = {
 			isa = PBXGroup;
 			children = (
+				C3B897871FB83B2E0083C201 /* scripts */,
 				C31A13B01FB05E09001FABFE /* htmlparserfactory */,
 				C31A13AA1FB05CFB001FABFE /* htmlparser */,
 			);
@@ -1881,6 +1890,25 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		C3B897801FB836E70083C201 /* birthdaydetector */ = {
+			isa = PBXGroup;
+			children = (
+				C3B897811FB8375F0083C201 /* birthdaydetectorimpl.h */,
+				C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */,
+				C3B897861FB8377E0083C201 /* birthdaydetector.h */,
+			);
+			path = birthdaydetector;
+			sourceTree = "<group>";
+		};
+		C3B897871FB83B2E0083C201 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				C3B8978B1FB83B2E0083C201 /* locdates.json */,
+				C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
 		C3CD7DCB1FA6F19E00D2BFF3 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -1980,6 +2008,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3B897801FB836E70083C201 /* birthdaydetector */,
 				C31A139D1FAF50EE001FABFE /* friendsproviderfactory */,
 				C31A13961FAF4FC0001FABFE /* friendsmanager */,
 				C31A138F1FAF4E77001FABFE /* friendsprovider */,
@@ -2492,12 +2521,14 @@
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
+				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
 				C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
+				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
 				C31A13E31FB06168001FABFE /* char_ref.rl in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
@@ -2603,6 +2634,7 @@
 				C31A13FC1FB073D8001FABFE /* facebookfriendsparser.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
+				C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
@@ -2780,6 +2812,10 @@
 				);
 				INFOPLIST_FILE = Horoscopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2810,6 +2846,10 @@
 				);
 				INFOPLIST_FILE = Horoscopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -16,6 +16,7 @@
 #include <iostream>
 #include <chrono>
 #include <ctime>
+#include <algorithm>
 #include <set>
 #include "json/value.h"
 #include "rtc_base/refcountedobject.h"
@@ -47,6 +48,8 @@ namespace horo {
     long long timeToTimestemp(time_t time);
     long long localtime();
     string findInSet(std::set<std::string> storage, string pattern);
+    string ReplaceAll(string str, const string& from, const string& to);
+    wstring toUtf16(std::string utf8);
 }
 
 #endif /* horobase_hpp */

@@ -26,6 +26,7 @@
 #include "managers/friendsmanager/friendsmanager.h"
 #include "managers/networkingservice/networkingservicefactory.h"
 #include "friends/htmlparserfactory/htmlparserfactory.h"
+#include "managers/birthdaydetector/birthdaydetector.h"
 
 namespace horo {
   
@@ -54,6 +55,7 @@ namespace horo {
         strong<FriendsManager> friendsManager();
         NetworkingServiceFactory *sharedNetworkingServiceFactory();
         strong<HtmlParserFactory> htmlParserFactory();
+        strong<BirthdayDetector> birthdayDetector();
     };
     
 };

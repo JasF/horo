@@ -31,10 +31,11 @@ enum ZodiacTypes {
 };
     
 enum Months {
-    January = 1,
-    February = 2,
-    March = 3,
-    April = 4,
+    MonthUnknown,
+    January,
+    February,
+    March,
+    April,
     May,
     June,
     July,

@@ -15,6 +15,17 @@ namespace horo {
         NSString* dir   = paths.firstObject;
         return [dir UTF8String];
     }
+    
+    string contentOfFile(string filename, string extension) {
+        NSURL *url = [[NSBundle mainBundle] URLForResource:[NSString stringWithUTF8String:filename.c_str()]
+                                             withExtension:[NSString stringWithUTF8String:extension.c_str()]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        return string((char *)data.bytes, data.length);
+    }
+    
+    string toLowerCase(string source) {
+        return [[[NSString stringWithUTF8String:source.c_str()] lowercaseString] UTF8String];
+    }
 };
 
 @implementation Platform

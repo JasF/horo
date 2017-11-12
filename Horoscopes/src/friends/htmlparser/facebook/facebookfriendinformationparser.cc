@@ -7,6 +7,7 @@
 //
 
 #include "facebookfriendinformationparser.h"
+#include "data/url.h"
 
 namespace horo {
     using namespace std;
@@ -24,6 +25,12 @@ namespace horo {
                 results_["url"] = url;
                 break;
             }
+            else if(url.find("profile.php?") != std::string::npos) {
+                Url queryy(url);
+                if (queryy.get("v").length() && queryy.get("id").length()) {
+                    results_["url"] = url;
+                }
+            }
         }
         return results_;
     }
@@ -37,7 +44,6 @@ namespace horo {
         if ((cls_attr = gumbo_get_attribute(&root->v.element.attributes, "href"))) {
             hrefs_.insert(cls_attr->value);
         }
-        
         
         const GumboVector* root_children = &root->v.element.children;
         for (int i = 0; i < root_children->length; ++i) {

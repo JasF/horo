@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <string>
 #include "data/url.h"
+#include "data/datewrapper.h"
 
 namespace horo {
     using namespace std;
@@ -88,6 +89,9 @@ void FacebookFriendsProvider::executeRequest(std::string path, std::function<voi
     
 void FacebookFriendsProvider::executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback)
 {
+    if (path.find("http") != string::npos) {
+        path = ReplaceAll(path, "https://m.facebook.com/", "");
+    }
     if (path.length() && path[0] == '/') {
         path = path.substr(1, path.length()-1);
     }
@@ -134,7 +138,17 @@ bool FacebookFriendsProvider::isRequiredAuthorizationResponse(strong<HttpRespons
 }
 
 bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
-    if (url.find("login") != std::string::npos) {
+    if (url.find("about") != std::string::npos) {
+        return true;
+    }
+    else if (url.find("profile.php") != std::string::npos) {
+        Url queryy(url);
+        if (queryy.get("v") == "info") {
+            return true;
+        }
+        return false;
+    }
+    else if (url.find("login") != std::string::npos) {
         return true;
     }
     else if (url.find(currentPath_) != std::string::npos) {
@@ -199,6 +213,10 @@ void FacebookFriendsProvider::parseUserDetailPage(Json::Value json) {
     std::string text = json["text"].asString();
     strong<HtmlParser> parser = parserFactory_->createFacebookUserDetailParser(text);
     Json::Value result = parser->parse();
+    string dateString = result["birthdayTimestamp"].asString();
+    if (dateString.length()) {
+        DateWrapper date(dateString);
+    }
 }
 
 void FacebookFriendsProvider::operationDidFinishedWithError() {

@@ -35,7 +35,7 @@ namespace horo {
     }
     
     strong<HtmlParser> HtmlParserFactoryImpl::createFacebookUserDetailParser(std::string text) {
-        strong<FacebookUserDetailParser> parser = new FacebookUserDetailParser(text);
+        strong<FacebookUserDetailParser> parser = new FacebookUserDetailParser(text, birthdayDetector_);
         return parser;
     }
 }

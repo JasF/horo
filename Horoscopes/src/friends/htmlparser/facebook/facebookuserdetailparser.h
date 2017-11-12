@@ -12,13 +12,17 @@
 
 #include "friends/htmlparser/htmlparser.h"
 #include "thirdparty/gumbo/gumbo.h"
+#include "managers/birthdaydetector/birthdaydetector.h"
 #include <set>
 
 namespace horo {
     using namespace std;
     class FacebookUserDetailParser : public HtmlParser {
     public:
-        FacebookUserDetailParser(std::string text) : text_(text) {}
+        FacebookUserDetailParser(std::string text, strong<BirthdayDetector> birthdayDetector) : text_(text),
+        birthdayDetector_(birthdayDetector) {
+            SCParameterAssert(birthdayDetector_.get());
+        }
         ~FacebookUserDetailParser() override {}
         
         
@@ -34,8 +38,10 @@ namespace horo {
         std::string text_;
         Json::Value results_;
         Json::Value parameters_;
-        set<string> hrefs_;
         list<string> textsList_;
+        strong<BirthdayDetector> birthdayDetector_;
+        string birthdate_;
+        list<string> codes_;
     };
 };
 

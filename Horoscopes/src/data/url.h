@@ -21,6 +21,7 @@ namespace horo {
         Url(string url);
         ~Url(){}
         string path();
+        string get(string parameterName);
         list<pair<string,string>> queries();
     private:
         string url_;

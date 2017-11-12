@@ -268,7 +268,7 @@ function handleLanguagesArray(browser, languages) {
 }
 
 const Browser = require('zombie');
-var url = "https://m.facebook.com/a/language.php?l=en_US&gfid=AQD7j6syLtmVSq7R";
+var url = "https://m.facebook.com/";
 var browser = new Browser();
 browser.visit(url, function(err) {
               var markup = browser.document.documentElement.innerHTML;

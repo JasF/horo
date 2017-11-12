@@ -1,8 +1,8 @@
 var fs = require('fs')
-databaseFilename = "localizedMonths-copy.sql";
+databaseFilename = "localizedMonths-gm.sql";
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(databaseFilename);
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function fetchLanguageMonthValuesW(arrMonths, languageCode, storage, callback) {
     if (!arrMonths.length) {
         if (callback) {
@@ -24,15 +24,15 @@ function fetchLanguageMonthValuesW(arrMonths, languageCode, storage, callback) {
            
           // console.log(rows);
            row = rows[0];
-           storage[monthText] = row.localizedString
+           storage.push(row.localizedString.toLowerCase())
            fetchLanguageMonthValuesW(arrMonths, languageCode, storage, callback)
          });
 }
 
 function fetchLanguageMonthValues(arrMonths, languageCode, callback) {
-    fetchLanguageMonthValuesW(arrMonths, languageCode, {}, callback);
+    fetchLanguageMonthValuesW(arrMonths, languageCode, [], callback);
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
  Решение 2
  для определения месяца по дате рождения нужно теперь ключи:
@@ -77,15 +77,23 @@ function fetchLanguageCodeInfoW(arrList, storage, callback) {
 function fetchLanguageCodeInfo(arrList, callback) {
     fetchLanguageCodeInfoW(arrList, {}, callback)
 }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 db.all("SELECT DISTINCT languageCode FROM localizedMonths;", function(err, rows) {
        arrList=[]
        rows.forEach(function (v) {
                     arrList.push(v.languageCode)
                   })
        fetchLanguageCodeInfo(arrList, function (storage) {
-                             console.log('got it')
-                             console.log(storage)
+                             json = JSON.stringify(storage);
+                            // console.log(json)
+                             
+                             fs.writeFile("./locdates.json", json, function(err) {
+                                          if(err) {
+                                          return console.log(err);
+                                          }
+                                          
+                                          console.log("The file ./locdates.json was saved!");
+                                          });
                            })
        });
 

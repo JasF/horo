@@ -16,6 +16,17 @@
 
 static CGFloat const kRowHeight = 100;
 
+@interface NavigationBar : UINavigationBar
+@end
+
+@implementation NavigationBar
+- (CGRect)frame {
+    CGRect frame = [super frame];
+    frame.size.height = 200.f;
+    return frame;
+}
+@end
+
 @interface WelcomeViewController () <UITableViewDelegate, UITableViewDataSource, FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) IBOutlet UITableViewCell *facebookLoginCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -106,6 +117,13 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 - (void)showProgressHud {
     
+}
+
+- (IBAction)testTapped:(id)sender {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.navigationController.navigationBar.frame = CGRectMake(0, 0, self.navigationController.navigationBar.size.width, 200);
+        [self.navigationController.navigationBar layoutIfNeeded];
+    });
 }
 
 @end

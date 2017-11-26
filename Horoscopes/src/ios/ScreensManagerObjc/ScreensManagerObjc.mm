@@ -66,15 +66,8 @@ namespace horo {
                // viewController.view.alpha = 0.4f;
                 [viewController didMoveToParentViewController:navController];
                 frame.origin.y = 0.f;
-                [UIView animateWithDuration:1.f animations:^{
-                    viewController.view.frame = frame;
-                }
-                                 completion:^(BOOL finished) {
-                                     if (finished) {
-                                         [viewController lockSelf];
-                                     }
-                                 }
-                 ];
+                viewController.view.frame = frame;
+                [viewController lockSelf];
             }
             else {
                 delegate.window.rootViewController = navigationController;

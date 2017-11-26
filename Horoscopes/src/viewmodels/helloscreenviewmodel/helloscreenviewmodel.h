@@ -10,6 +10,7 @@
 #define helloscreenviewmodel_h
 
 #include "base/horobase.h"
+#include "data/datewrapper.h"
 
 namespace horo {
   
@@ -17,8 +18,9 @@ namespace horo {
     public:
         virtual ~_HelloScreenViewModel(){}
     public:
-        virtual void continueTapped()=0;
+        virtual void continueTapped(DateWrapper date)=0;
         virtual void loggedInOverFacebook()=0;
+        virtual void setUserLoggedInCallback(std::function<void(bool success)> a)=0;
         
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
     };

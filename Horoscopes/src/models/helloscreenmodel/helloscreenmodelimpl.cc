@@ -25,6 +25,14 @@ namespace horo {
         
     }
     
+    void HelloScreenModelImpl::handlePerson(strong<Person> person) {
+        settings_->setCurrentPerson(person);
+        components_->person_ = person;
+        if (personGatheredCallback_) {
+            personGatheredCallback_(true);
+        }
+    }
+    
     void HelloScreenModelImpl::loginOnFacebook() {
         loginManager_ = loginManagerFactory_->createFacebookLoginManager();
         SCAssert(loginManager_.get(), "login manager is not allocated");
@@ -33,18 +41,20 @@ namespace horo {
         }
         loginManager_->requestUserInformation([this](strong<Person> person) {
             // set to application storage
-            
             if (!person.get()) {
                 if (personGatheredCallback_) {
                     personGatheredCallback_(false);
                 }
                 return;
             }
-            settings_->setCurrentPerson(person);
-            components_->person_ = person;
-            if (personGatheredCallback_) {
-                personGatheredCallback_(true);
-            }
+            handlePerson(person);
         });
+    }
+    
+    void HelloScreenModelImpl::createPersonWithBirthdayDate(DateWrapper wrapper) {
+        ZodiacTypes type = Zodiac::zodiacTypeByDate((Months)wrapper.month(), wrapper.day(), wrapper.year());
+        strong<Zodiac> zodiac = new Zodiac(type);
+        strong<Person> person = new Person(zodiac, "", "", "", Male, StatusUnknown, TypeUser, wrapper, false);
+        handlePerson(person);
     }
 };

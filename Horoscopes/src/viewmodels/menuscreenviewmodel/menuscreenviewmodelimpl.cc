@@ -28,7 +28,7 @@ namespace horo {
         
     }
     
-    void MenuScreenViewModelImpl::continueTapped() {
+    void MenuScreenViewModelImpl::continueTapped(DateWrapper date) {
         
     }
     

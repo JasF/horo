@@ -10,6 +10,7 @@
 #define menuscreenviewmodel_h
 
 #include "base/horobase.h"
+#include "data/datewrapper.h"
 
 namespace horo {
   
@@ -17,7 +18,7 @@ namespace horo {
     public:
         virtual ~_MenuScreenViewModel(){}
     public:
-        virtual void continueTapped()=0;
+        virtual void continueTapped(DateWrapper date)=0;
         virtual void loggedInOverFacebook()=0;
         virtual void zodiacsTapped()=0;
         virtual void friendsTapped()=0;

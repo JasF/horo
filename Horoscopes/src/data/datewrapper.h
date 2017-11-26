@@ -24,6 +24,9 @@ namespace horo {
         ~DateWrapper(){}
     public:
         std::string toString();
+        inline int month() const { return month_; }
+        inline int day() const { return day_; }
+        inline int year() const { return year_; }
     private:
         void fromString(std::string string);
     private:

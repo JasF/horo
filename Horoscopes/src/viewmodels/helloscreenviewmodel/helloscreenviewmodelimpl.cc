@@ -28,11 +28,15 @@ namespace horo {
         
     }
     
-    void HelloScreenViewModelImpl::continueTapped() {
-        
+    void HelloScreenViewModelImpl::continueTapped(DateWrapper date) {
+        model_->createPersonWithBirthdayDate(date);
     }
     
     void HelloScreenViewModelImpl::loggedInOverFacebook() {
         model_->loginOnFacebook();
+    }
+    
+    void HelloScreenViewModelImpl::setUserLoggedInCallback(std::function<void(bool success)> a) {
+        userLoggedInCallback_ = a;
     }
 };

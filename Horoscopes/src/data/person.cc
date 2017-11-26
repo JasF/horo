@@ -46,7 +46,6 @@ namespace horo {
     type_(type),
     birthdayDate_(birthdayDate),
     withFacebook_(withFacebook) {
-        SCParameterAssert(name_.length());
         if (type_ == TypeFriend) {
             SCParameterAssert(personUrl_.length());
         }

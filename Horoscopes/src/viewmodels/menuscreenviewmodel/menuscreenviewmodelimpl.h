@@ -21,7 +21,7 @@ namespace horo {
         ~MenuScreenViewModelImpl() override;
         
     public:
-        void continueTapped() override;
+        void continueTapped(DateWrapper date) override;
         void loggedInOverFacebook() override;
         void zodiacsTapped() override;
         void friendsTapped() override;

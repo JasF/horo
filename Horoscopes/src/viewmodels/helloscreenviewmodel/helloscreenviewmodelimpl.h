@@ -21,8 +21,9 @@ namespace horo {
         ~HelloScreenViewModelImpl() override;
         
     public:
-        void continueTapped() override;
+        void continueTapped(DateWrapper date) override;
         void loggedInOverFacebook() override;
+        void setUserLoggedInCallback(std::function<void(bool success)> a) override;
         
     private:
         strong<HelloScreenModel> model_;

@@ -25,6 +25,9 @@ namespace horo {
         ~HelloScreenModelImpl() override;
     public:
         void loginOnFacebook() override;
+        void createPersonWithBirthdayDate(DateWrapper wrapper) override;
+    private:
+        void handlePerson(strong<Person> person);
         
     private:
         strong<CoreComponents> components_;

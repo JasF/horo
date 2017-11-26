@@ -10,7 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #include "UIView+TKGeometry.h"
-
+#include "data/datewrapper.h"
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseFirestore/FirebaseFirestore.h>
 
@@ -62,11 +62,12 @@ static CGFloat const kRowHeight = 100;
     _loginButton.delegate = self;
     _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
     @weakify(self);
-    _viewModel->userLoggedInCallback_ = [self_weak_](bool success){
+    _viewModel->setUserLoggedInCallback([self_weak_](bool success){
         @strongify(self);
         LOG(LS_WARNING) << "User gathered! success: " << success;
         [self hideProgressHud];
-    };
+        [self hideWindow];
+    });
     
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -76,25 +77,6 @@ static CGFloat const kRowHeight = 100;
     _pickerView.datePickerMode = UIDatePickerModeDate;
     [_pickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
     _pickerView.maximumDate = [NSDate date];
-    /*
-    // Vibrancy effect
-    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
-    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-    [vibrancyEffectView setFrame:self.view.bounds];
-    
-    // Label for vibrant text
-    UILabel *vibrantLabel = [[UILabel alloc] init];
-    [vibrantLabel setText:@"Vibrant"];
-    [vibrantLabel setFont:[UIFont systemFontOfSize:72.0f]];
-    [vibrantLabel sizeToFit];
-    [vibrantLabel setCenter: self.view.center];
-    
-    // Add label to the vibrancy view
-    [[vibrancyEffectView contentView] addSubview:vibrantLabel];
-    
-    // Add the vibrancy view to the blur view
-    [[blurEffectView contentView] addSubview:vibrancyEffectView];
-    */
 }
     
 - (void)didReceiveMemoryWarning {
@@ -168,7 +150,28 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 #pragma mark - Observers
 - (IBAction)continueTapped:(id)sender {
-    
+    NSDate *date = _pickerView.date;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay |
+    NSCalendarUnitMonth |
+    NSCalendarUnitYear
+                fromDate:date];
+    horo::DateWrapper wrapper((int)components.day,
+                              (int)components.month,
+                              (int)components.year);
+    _viewModel->continueTapped(wrapper);
+}
+
+- (void)hideWindow {
+    @weakify(self);
+    [UIView animateWithDuration:0.5f animations:^{
+        self.view.alpha = 0.f;
+    }
+                     completion:^(BOOL finished) {
+                         @strongify(self);
+                         self.selfLocker = nil;
+                     }
+     ];
 }
 
 @end

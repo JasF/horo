@@ -25,7 +25,6 @@
     // Override point for customization after application launch.
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    
     [self performShowingOperations];
     return YES;
 }

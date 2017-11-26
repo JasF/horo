@@ -185,6 +185,7 @@
 		C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3817E051FA70F7500447155 /* GoogleService-Info.plist */; };
 		C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CC51FA8DADF00F5BAD2 /* ManualInitialization.mm */; };
 		C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */; };
+		C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */; };
 		C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */; };
 		C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */; };
 		C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
@@ -784,6 +785,8 @@
 		C38D8CC91FA8DD9500F5BAD2 /* Platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Platform.mm; sourceTree = "<group>"; };
 		C38D8CCC1FA8E19500F5BAD2 /* resultset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resultset.h; sourceTree = "<group>"; };
+		C3B06E3C1FCAFDBC008E66CE /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		C3B3AA8B1FA83B5A00D74180 /* horoscopesservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesservice.h; sourceTree = "<group>"; };
 		C3B3AA8C1FA83B6C00D74180 /* horoscopesserviceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesserviceimpl.h; sourceTree = "<group>"; };
 		C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopesserviceimpl.cc; sourceTree = "<group>"; };
@@ -1342,6 +1345,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */,
 				C31A13791FAF2DDD001FABFE /* FriendsViewController */,
 				C3383FD31FAF251200CCE133 /* MenuViewController */,
 				C3190C121FADDDC40059F247 /* components */,
@@ -1784,6 +1788,15 @@
 				C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */,
 			);
 			path = Platform;
+			sourceTree = "<group>";
+		};
+		C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				C3B06E3C1FCAFDBC008E66CE /* BaseNavigationController.h */,
+				C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */,
+			);
+			path = BaseNavigationController;
 			sourceTree = "<group>";
 		};
 		C3B3AA8A1FA83B0200D74180 /* horoscopesservice */ = {
@@ -2627,6 +2640,7 @@
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
 				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
+				C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
 				C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */,
 				C31A13B81FB05E48001FABFE /* htmlparserfactoryimpl.cc in Sources */,

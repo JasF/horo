@@ -27,6 +27,10 @@ static CGFloat const kRowHeight = 100;
     _tableView.separatorColor = [UIColor clearColor];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -55,7 +59,9 @@ static CGFloat const kRowHeight = 100;
 - (IBAction)friendsTapped:(id)sender {
     _viewModel->friendsTapped();
 }
+
 - (IBAction)zodiacsTapped:(id)sender {
     _viewModel->zodiacsTapped();
 }
+
 @end

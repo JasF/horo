@@ -28,10 +28,14 @@ static CGFloat const kRowHeight = 100;
 @end
 
 @interface WelcomeViewController () <UITableViewDelegate, UITableViewDataSource, FBSDKLoginButtonDelegate>
+@property (strong, nonatomic) IBOutlet UITableViewCell *topSpaceCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *hiCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *facebookLoginCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *pickerCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 @property (strong, nonatomic) id selfLocker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *pickerView;
 @end
 
 @implementation WelcomeViewController
@@ -69,7 +73,9 @@ static CGFloat const kRowHeight = 100;
     [blurEffectView setFrame:self.view.bounds];
     [self.view insertSubview:blurEffectView belowSubview:_tableView];
     
-    
+    _pickerView.datePickerMode = UIDatePickerModeDate;
+    [_pickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
+    _pickerView.maximumDate = [NSDate date];
     /*
     // Vibrancy effect
     UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
@@ -98,7 +104,7 @@ static CGFloat const kRowHeight = 100;
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return UITableViewAutomaticDimension;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,12 +113,15 @@ static CGFloat const kRowHeight = 100;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: return self.facebookLoginCell;
+        case 0: return self.topSpaceCell;
+        case 1: return self.hiCell;
+        case 2: return self.facebookLoginCell;
+        case 3: return self.pickerCell;
     }
     return [UITableViewCell new];
 }
@@ -155,6 +164,11 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 - (void)lockSelf {
     self.selfLocker = self;
+}
+
+#pragma mark - Observers
+- (IBAction)continueTapped:(id)sender {
+    
 }
 
 @end

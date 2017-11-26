@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,27 +37,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-t9-cfo" customClass="BackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bFM-IJ-91k">
-                                        <rect key="frame" x="0.0" y="0.0" width="1334" height="667"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="bFM-IJ-91k" secondAttribute="height" multiplier="2:1" id="eVg-xQ-tre"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="bFM-IJ-91k" firstAttribute="top" secondItem="DQj-t9-cfo" secondAttribute="top" id="EkN-PW-cpE"/>
-                                    <constraint firstItem="bFM-IJ-91k" firstAttribute="leading" secondItem="DQj-t9-cfo" secondAttribute="leading" id="Gtn-7B-5dh"/>
-                                    <constraint firstItem="bFM-IJ-91k" firstAttribute="height" secondItem="DQj-t9-cfo" secondAttribute="height" id="ORa-AY-Pqq"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="imageView" destination="bFM-IJ-91k" id="8X2-i2-hEw"/>
-                                </connections>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-1m-Trz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,13 +48,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DQj-t9-cfo" firstAttribute="height" secondItem="qSL-Bx-8n5" secondAttribute="height" id="6Mh-Ev-7sQ"/>
-                            <constraint firstItem="DQj-t9-cfo" firstAttribute="centerX" secondItem="qSL-Bx-8n5" secondAttribute="centerX" id="GD7-LU-Fl2"/>
                             <constraint firstItem="hy3-1m-Trz" firstAttribute="centerY" secondItem="qSL-Bx-8n5" secondAttribute="centerY" id="If0-DQ-Wmv"/>
                             <constraint firstItem="hy3-1m-Trz" firstAttribute="width" secondItem="qSL-Bx-8n5" secondAttribute="width" id="MPU-G8-GWn"/>
-                            <constraint firstItem="DQj-t9-cfo" firstAttribute="width" secondItem="qSL-Bx-8n5" secondAttribute="width" id="c4m-52-63A"/>
                             <constraint firstItem="hy3-1m-Trz" firstAttribute="centerX" secondItem="qSL-Bx-8n5" secondAttribute="centerX" id="dl2-Hn-v5P"/>
-                            <constraint firstItem="DQj-t9-cfo" firstAttribute="centerY" secondItem="qSL-Bx-8n5" secondAttribute="centerY" id="olY-Hh-ZSf"/>
                             <constraint firstItem="hy3-1m-Trz" firstAttribute="height" secondItem="qSL-Bx-8n5" secondAttribute="height" id="zqh-yf-k2d"/>
                         </constraints>
                     </view>

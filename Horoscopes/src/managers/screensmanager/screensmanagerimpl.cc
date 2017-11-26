@@ -41,9 +41,9 @@ namespace horo {
         }
     }
     
-    void ScreensManagerImpl::showMenuViewController() {
+    void ScreensManagerImpl::showMenuViewController(bool animated) {
         if (g_privateInstance) {
-            g_privateInstance->showMenuViewController();
+            g_privateInstance->showMenuViewController(animated);
         }
     }
     

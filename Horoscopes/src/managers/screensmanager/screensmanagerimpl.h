@@ -25,7 +25,7 @@ namespace horo {
         void showPredictionViewController() override;
         void showPredictionViewController(strong<Person> person) override;
         void showWelcomeViewController() override;
-        void showMenuViewController() override;
+        void showMenuViewController(bool animated) override;
         void showFriendsViewController() override;
     public:
         void setViewModels(strong<ViewModels> viewModels) { viewModels_ = viewModels; }

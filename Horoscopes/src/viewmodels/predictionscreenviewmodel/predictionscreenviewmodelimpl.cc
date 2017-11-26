@@ -40,7 +40,7 @@ namespace horo {
         return "";
     }
     void PredictionScreenViewModelImpl::menuTapped() {
-        screensManager_->showMenuViewController();
+        screensManager_->showMenuViewController(true);
     }
     std::string PredictionScreenViewModelImpl::zodiacName() {
         return model_->zodiacName();

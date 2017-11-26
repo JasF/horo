@@ -25,6 +25,8 @@
     // Override point for customization after application launch.
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    
+    [self performShowingOperations];
     return YES;
 }
 
@@ -48,15 +50,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    strong<horo::Settings> settins = horo::Managers::shared().settings();
-    strong<horo::Person> person = settins->currentPerson();
-    horo::Managers::shared().coreComponents()->person_ = person;
-    if (person.get()) {
-        horo::Managers::shared().screensManager()->showPredictionViewController();
-    }
-    else {
-        horo::Managers::shared().screensManager()->showWelcomeViewController();
-    }
 }
 
 
@@ -83,5 +76,19 @@
     
 }
 */
+
+#pragma mark - Private Methods
+- (void)performShowingOperations {
+    strong<horo::Settings> settings = horo::Managers::shared().settings();
+    strong<horo::Person> person = settings->currentPerson();
+    horo::Managers::shared().coreComponents()->person_ = person;
+    if (person.get()) {
+        horo::Managers::shared().screensManager()->showPredictionViewController();
+    }
+    else {
+        horo::Managers::shared().screensManager()->showMenuViewController(false);
+        horo::Managers::shared().screensManager()->showWelcomeViewController();
+    }
+}
 
 @end

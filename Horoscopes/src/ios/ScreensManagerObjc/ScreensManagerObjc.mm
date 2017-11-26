@@ -35,9 +35,9 @@ namespace horo {
             viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UINavigationController *tnc = (UINavigationController *)delegate.window.rootViewController;
-            if ([tnc isKindOfClass:[UINavigationController class]]) {
-                [tnc pushViewController:viewController animated:YES];
+            UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
+            if ([navController isKindOfClass:[UINavigationController class]]) {
+                [navController pushViewController:viewController animated:YES];
             }
             else {
                 delegate.window.rootViewController = navigationController;
@@ -57,15 +57,30 @@ namespace horo {
             viewController.viewModel = impl_->viewModels()->helloScreenViewModel();
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UINavigationController *tnc = (UINavigationController *)delegate.window.rootViewController;
-            if ([tnc isKindOfClass:[UINavigationController class]]) {
-                [tnc pushViewController:viewController animated:YES];
+            UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
+            if ([navController isKindOfClass:[UINavigationController class]]) {
+                CGRect frame = navController.view.bounds;
+                frame.origin.y = frame.size.height;
+                viewController.view.frame = frame;
+                [navController.view addSubview:viewController.view];
+               // viewController.view.alpha = 0.4f;
+                [viewController didMoveToParentViewController:navController];
+                frame.origin.y = 0.f;
+                [UIView animateWithDuration:1.f animations:^{
+                    viewController.view.frame = frame;
+                }
+                                 completion:^(BOOL finished) {
+                                     if (finished) {
+                                         [viewController lockSelf];
+                                     }
+                                 }
+                 ];
             }
             else {
                 delegate.window.rootViewController = navigationController;
             }
         }
-        void showMenuViewController() override {
+        void showMenuViewController(bool animated) override {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MenuViewController"
                                                                  bundle: nil];
             

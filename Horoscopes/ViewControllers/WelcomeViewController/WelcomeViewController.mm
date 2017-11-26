@@ -31,6 +31,7 @@ static CGFloat const kRowHeight = 100;
 @property (strong, nonatomic) IBOutlet UITableViewCell *facebookLoginCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (strong, nonatomic) id selfLocker;
 @end
 
 @implementation WelcomeViewController
@@ -46,6 +47,7 @@ static CGFloat const kRowHeight = 100;
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
     
+  //  self.view.alpha = 0.5f;
     //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20 or 64pt on top
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = kRowHeight;
@@ -61,7 +63,32 @@ static CGFloat const kRowHeight = 100;
         LOG(LS_WARNING) << "User gathered! success: " << success;
         [self hideProgressHud];
     };
-    // Do any additional setup after loading the view.
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [blurEffectView setFrame:self.view.bounds];
+    [self.view insertSubview:blurEffectView belowSubview:_tableView];
+    
+    
+    /*
+    // Vibrancy effect
+    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+    [vibrancyEffectView setFrame:self.view.bounds];
+    
+    // Label for vibrant text
+    UILabel *vibrantLabel = [[UILabel alloc] init];
+    [vibrantLabel setText:@"Vibrant"];
+    [vibrantLabel setFont:[UIFont systemFontOfSize:72.0f]];
+    [vibrantLabel sizeToFit];
+    [vibrantLabel setCenter: self.view.center];
+    
+    // Add label to the vibrancy view
+    [[vibrancyEffectView contentView] addSubview:vibrantLabel];
+    
+    // Add the vibrancy view to the blur view
+    [[blurEffectView contentView] addSubview:vibrancyEffectView];
+    */
 }
     
 - (void)didReceiveMemoryWarning {
@@ -124,6 +151,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
         self.navigationController.navigationBar.frame = CGRectMake(0, 0, self.navigationController.navigationBar.size.width, 200);
         [self.navigationController.navigationBar layoutIfNeeded];
     });
+}
+
+- (void)lockSelf {
+    self.selfLocker = self;
 }
 
 @end

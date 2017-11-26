@@ -12,4 +12,6 @@
 
 @interface WelcomeViewController : UIViewController
 @property (assign, nonatomic) strong<horo::HelloScreenViewModel> viewModel;
+
+- (void)lockSelf;
 @end

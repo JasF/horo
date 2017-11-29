@@ -14,6 +14,26 @@ namespace horo {
     static const char *kEndMonth = "kEndMonth";
     static const char *kEndDay = "kEndDay";
     
+    string stringByMonth(Months month) {
+        switch (month) {
+            case January: return "January";
+            case February: return "February";
+            case March: return "March";
+            case April: return "April";
+            case May: return "May";
+            case June: return "June";
+            case July: return "July";
+            case August: return "August";
+            case September: return "September";
+            case October: return "October";
+            case November: return "November";
+            case December: return "December";
+            case MonthUnknown:
+            default:break;
+        }
+        return "";
+    }
+    
     Json::Value createValue(Months sM, int sD, Months eM, int eD) {
         Json::Value result;
         result[kStartMonth] = sM;
@@ -60,6 +80,38 @@ ZodiacTypes _Zodiac::zodiacTypeByDate(Months month, int day, int /*year*/) {
     return Unknown;
 }
     
+DateWrapper _Zodiac::startDateForType(ZodiacTypes aType) {
+    Json::Value &data = zodiacTypesDatasource();
+    for( Json::ValueIterator it = data.begin(); it != data.end(); ++it )
+    {
+        ZodiacTypes type =(ZodiacTypes)it.key().asInt();
+        if (type == aType) {
+            Json::Value &value = *it;
+            Months sM = (Months) value[kStartMonth].asInt();
+            int sD = value[kStartDay].asInt();
+            DateWrapper date(sD, sM);
+            return date;
+        }
+    }
+    return DateWrapper();
+}
+
+DateWrapper _Zodiac::endDateForType(ZodiacTypes aType) {
+    Json::Value &data = zodiacTypesDatasource();
+    for( Json::ValueIterator it = data.begin(); it != data.end(); ++it )
+    {
+        ZodiacTypes type =(ZodiacTypes)it.key().asInt();
+        if (type == aType) {
+            Json::Value &value = *it;
+            Months eM = (Months) value[kEndMonth].asInt();
+            int eD = value[kEndDay].asInt();
+            DateWrapper date(eD, eM);
+            return date;
+        }
+    }
+    return DateWrapper();
+}
+     
 std::string _Zodiac::name() const {
     static dictionary dict;
     if (!dict.size()) {

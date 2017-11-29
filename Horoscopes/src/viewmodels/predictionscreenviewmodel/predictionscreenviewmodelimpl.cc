@@ -46,6 +46,10 @@ namespace horo {
         return model_->zodiacName();
     }
     
+    std::string PredictionScreenViewModelImpl::zodiacDateString() {
+        return model_->zodiacDateString();
+    }
+    
     void PredictionScreenViewModelImpl::didActivated() {
         LOG(LS_WARNING) << "didActivated";
     }

@@ -24,6 +24,7 @@ namespace horo {
         void didActivated() override;
         
         std::string zodiacName() override;
+        std::string zodiacDateString() override;
         std::string yesterdayHoroscopeText() override;
         std::string todayHoroscopeText() override;
         std::string tomorrowHoroscopeText() override;

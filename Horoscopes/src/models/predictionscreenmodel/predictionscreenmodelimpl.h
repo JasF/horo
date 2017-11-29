@@ -27,6 +27,7 @@ namespace horo {
     public:
         void loadData() override;
         std::string zodiacName() override;
+        std::string zodiacDateString() override;
         
         strong<Zodiac> zodiac();
     private:

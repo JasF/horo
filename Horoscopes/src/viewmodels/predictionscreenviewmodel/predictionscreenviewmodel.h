@@ -18,6 +18,7 @@ namespace horo {
         virtual ~_PredictionScreenViewModel() {}
         virtual void didActivated() = 0;
         virtual std::string zodiacName() = 0;
+        virtual std::string zodiacDateString() = 0;
         virtual std::string yesterdayHoroscopeText() = 0;
         virtual std::string todayHoroscopeText() = 0;
         virtual std::string tomorrowHoroscopeText() = 0;

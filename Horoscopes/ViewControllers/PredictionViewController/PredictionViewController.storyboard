@@ -92,8 +92,8 @@
                             </constraints>
                         </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="5Up-MP-jby">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHh-d4-pOc">
-                                <rect key="frame" x="343" y="11" width="16" height="22"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHh-d4-pOc">
+                                <rect key="frame" x="340" y="9" width="19" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="sharing"/>
                             </button>
@@ -102,6 +102,7 @@
                     <connections>
                         <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
                         <outlet property="titleImageView" destination="Rvp-nV-cjI" id="qxd-H8-gUg"/>
+                        <outlet property="zodiacDateLabel" destination="ivB-06-gjJ" id="5ck-dE-m94"/>
                         <outlet property="zodiacLabel" destination="Opt-ec-Fnz" id="G0H-0b-c5n"/>
                         <outlet property="zodiacTitleCell" destination="fdT-hh-KsN" id="6Py-qM-G6U"/>
                     </connections>
@@ -110,23 +111,32 @@
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fdT-hh-KsN">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdT-hh-KsN" id="qWq-Gl-Sjp">
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdT-hh-KsN" id="qWq-Gl-Sjp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opt-ec-Fnz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opt-ec-Fnz">
                                 <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43.5" id="cli-JG-d0r"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivB-06-gjJ">
+                                <rect key="frame" x="20" y="43.5" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.61545751150000005" green="0.73457739639999997" blue="0.2558524875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Opt-ec-Fnz" secondAttribute="bottom" id="TUs-Mr-2O9"/>
+                            <constraint firstItem="ivB-06-gjJ" firstAttribute="width" secondItem="qWq-Gl-Sjp" secondAttribute="width" constant="-40" id="YBG-oa-ZV8"/>
+                            <constraint firstItem="ivB-06-gjJ" firstAttribute="top" secondItem="Opt-ec-Fnz" secondAttribute="bottom" constant="8" id="YrT-vt-FdY"/>
+                            <constraint firstItem="ivB-06-gjJ" firstAttribute="leading" secondItem="qWq-Gl-Sjp" secondAttribute="leading" constant="20" id="cgl-mz-91C"/>
+                            <constraint firstAttribute="bottom" secondItem="ivB-06-gjJ" secondAttribute="bottom" constant="20" symbolic="YES" id="f6r-LZ-bK7"/>
                             <constraint firstItem="Opt-ec-Fnz" firstAttribute="leading" secondItem="qWq-Gl-Sjp" secondAttribute="leading" constant="20" id="qVH-lf-acG"/>
                             <constraint firstItem="Opt-ec-Fnz" firstAttribute="width" secondItem="qWq-Gl-Sjp" secondAttribute="width" constant="-40" id="yvE-IZ-IOW"/>
                             <constraint firstItem="Opt-ec-Fnz" firstAttribute="top" secondItem="qWq-Gl-Sjp" secondAttribute="top" id="zBH-l2-TYF"/>

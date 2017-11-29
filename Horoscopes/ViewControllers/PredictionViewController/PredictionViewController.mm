@@ -13,6 +13,7 @@ static CGFloat const kRowHeight = 100;
 @interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zodiacDateLabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @end
@@ -37,6 +38,7 @@ static CGFloat const kRowHeight = 100;
     
     
     _zodiacLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacName().c_str()];
+    _zodiacDateLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacDateString().c_str()];
     NSString *iconName = [_zodiacLabel.text lowercaseString];
     UIImage *image = [UIImage imageNamed:iconName];
     NSCAssert(image, @"image cannot be nil");

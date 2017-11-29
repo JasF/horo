@@ -10,6 +10,7 @@
 #define zodiac_h
 
 #include "base/horobase.h"
+#include "data/datewrapper.h"
 
 namespace horo {
   
@@ -46,9 +47,13 @@ enum Months {
     December
 };
     
+string stringByMonth(Months month);
+    
 class _Zodiac {
 public:
     static ZodiacTypes zodiacTypeByDate(Months month, int day, int year); // start from 1 = first day
+    static DateWrapper startDateForType(ZodiacTypes type);
+    static DateWrapper endDateForType(ZodiacTypes type);
 public:
     _Zodiac(int a):type_((ZodiacTypes)a){}
     _Zodiac():type_(Unknown){}

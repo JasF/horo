@@ -32,10 +32,14 @@ namespace horo {
         std::string monthHoroscopeText() override;
         std::string yearHoroscopeText() override;
         void menuTapped() override;
+        list<string> tabsTitles() override;
+        list<string> horoscopesText() override;
+        void setDataFetchedCallback(std::function<void(bool success)> callback) override;
         
     private:
         strong<PredictionScreenModel> model_;
         strong<ScreensManager> screensManager_;
+        std::function<void(bool success)> callback_;
     };
     
 };

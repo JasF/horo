@@ -15,6 +15,11 @@ namespace horo {
      screensManager_(screensManager) {
          SCParameterAssert(model_);
          SCParameterAssert(screensManager_);
+         model_->setDataFetchedCallback([this](bool success){
+             if (callback_) {
+                 callback_(success);
+             }
+         });
      }
     
     PredictionScreenViewModelImpl::~PredictionScreenViewModelImpl() {
@@ -42,6 +47,19 @@ namespace horo {
     void PredictionScreenViewModelImpl::menuTapped() {
         screensManager_->showMenuViewController(true);
     }
+    
+    list<string> PredictionScreenViewModelImpl::tabsTitles() {
+        return model_->tabsTitles();
+    }
+    
+    list<string> PredictionScreenViewModelImpl::horoscopesText() {
+        return model_->horoscopesText();
+    }
+    
+    void PredictionScreenViewModelImpl::setDataFetchedCallback(std::function<void(bool success)> callback) {
+        callback_ = callback;
+    }
+    
     std::string PredictionScreenViewModelImpl::zodiacName() {
         return model_->zodiacName();
     }

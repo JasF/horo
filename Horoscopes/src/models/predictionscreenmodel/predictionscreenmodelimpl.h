@@ -28,12 +28,25 @@ namespace horo {
         void loadData() override;
         std::string zodiacName() override;
         std::string zodiacDateString() override;
+        list<string> tabsTitles() override;
+        list<string> horoscopesText() override;
+        void setDataFetchedCallback(std::function<void(bool success)> callback) override;
         
         strong<Zodiac> zodiac();
+    private:
+        void handleFetchedHoroscopes(strong<HoroscopeDTO> yesterday,
+                                     strong<HoroscopeDTO> today,
+                                     strong<HoroscopeDTO> tomorrow,
+                                     strong<HoroscopeDTO> week,
+                                     strong<HoroscopeDTO> month,
+                                     strong<HoroscopeDTO> year);
     private:
         strong<CoreComponents> components_;
         strong<Person> person_;
         strong<HoroscopesService> horoscopesService_;
+        list<string> predictions_;
+        list<string> tabsTitles_;
+        std::function<void(bool success)> callback_;
     };
     
 };

@@ -101,6 +101,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
+                        <outlet property="tabs" destination="ahf-Nn-LpW" id="vXQ-dO-Jzu"/>
+                        <outlet property="tabsCell" destination="Wir-U2-iHY" id="3j7-mZ-tCW"/>
                         <outlet property="titleImageView" destination="Rvp-nV-cjI" id="qxd-H8-gUg"/>
                         <outlet property="zodiacDateLabel" destination="ivB-06-gjJ" id="5ck-dE-m94"/>
                         <outlet property="zodiacLabel" destination="Opt-ec-Fnz" id="G0H-0b-c5n"/>
@@ -108,6 +110,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQQ-kt-BJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wir-U2-iHY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wir-U2-iHY" id="7Jh-eF-KmW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahf-Nn-LpW" customClass="Tabs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="hZH-0t-7ES"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ahf-Nn-LpW" firstAttribute="top" secondItem="7Jh-eF-KmW" secondAttribute="top" id="Itz-1x-Gtv"/>
+                            <constraint firstAttribute="bottom" secondItem="ahf-Nn-LpW" secondAttribute="bottom" id="Jhn-VO-enG"/>
+                            <constraint firstItem="ahf-Nn-LpW" firstAttribute="width" secondItem="7Jh-eF-KmW" secondAttribute="width" id="M9h-Z7-aXk"/>
+                            <constraint firstItem="ahf-Nn-LpW" firstAttribute="leading" secondItem="7Jh-eF-KmW" secondAttribute="leading" id="XS6-Rz-c1K"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                </tableViewCell>
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fdT-hh-KsN">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>

@@ -205,6 +205,9 @@
 		C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */; };
 		C3B8ABF01FB83B350083C201 /* locdates.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8978B1FB83B2E0083C201 /* locdates.json */; };
 		C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */; };
+		C3C117001FCE8929007DA9FF /* Tabs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C116FF1FCE8929007DA9FF /* Tabs.m */; };
+		C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C117031FCE9542007DA9FF /* TabsItemView.m */; };
+		C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C117071FCE95E9007DA9FF /* TabsItemView.xib */; };
 		C3CD7DD91FA6F19F00D2BFF3 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */; };
 		C3CD7DDA1FA6F19F00D2BFF3 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */; };
 		C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */; };
@@ -828,6 +831,11 @@
 		C3B897861FB8377E0083C201 /* birthdaydetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthdaydetector.h; sourceTree = "<group>"; };
 		C3B8978B1FB83B2E0083C201 /* locdates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locdates.json; sourceTree = "<group>"; };
 		C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = birthdayslocstr.json; sourceTree = "<group>"; };
+		C3C116FE1FCE8929007DA9FF /* Tabs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tabs.h; sourceTree = "<group>"; };
+		C3C116FF1FCE8929007DA9FF /* Tabs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tabs.m; sourceTree = "<group>"; };
+		C3C117021FCE9542007DA9FF /* TabsItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabsItemView.h; sourceTree = "<group>"; };
+		C3C117031FCE9542007DA9FF /* TabsItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabsItemView.m; sourceTree = "<group>"; };
+		C3C117071FCE95E9007DA9FF /* TabsItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsItemView.xib; sourceTree = "<group>"; };
 		C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
 		C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
@@ -1056,6 +1064,7 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
+				C3C116FC1FCE86BE007DA9FF /* classes */,
 				C37657731FAC2E0500874188 /* server */,
 				C3B601AD1FA60DAE00AD4F6D /* Categories */,
 				C30B187C1FA4AA9C006DEDB7 /* ViewControllers */,
@@ -1922,6 +1931,34 @@
 			path = scripts;
 			sourceTree = "<group>";
 		};
+		C3C116FC1FCE86BE007DA9FF /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3C117011FCE9519007DA9FF /* TabsItemView */,
+				C3C116FD1FCE88F9007DA9FF /* Tabs */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		C3C116FD1FCE88F9007DA9FF /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				C3C116FE1FCE8929007DA9FF /* Tabs.h */,
+				C3C116FF1FCE8929007DA9FF /* Tabs.m */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		C3C117011FCE9519007DA9FF /* TabsItemView */ = {
+			isa = PBXGroup;
+			children = (
+				C3C117021FCE9542007DA9FF /* TabsItemView.h */,
+				C3C117031FCE9542007DA9FF /* TabsItemView.m */,
+				C3C117071FCE95E9007DA9FF /* TabsItemView.xib */,
+			);
+			path = TabsItemView;
+			sourceTree = "<group>";
+		};
 		C3CD7DCB1FA6F19E00D2BFF3 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -2542,6 +2579,7 @@
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
+				C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
 				C31A13E31FB06168001FABFE /* char_ref.rl in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
@@ -2629,6 +2667,7 @@
 				C304094A1FA77F6600A0FC33 /* horoscopedto.cc in Sources */,
 				C30B18981FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc in Sources */,
 				C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */,
+				C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */,
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
 				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
@@ -2656,6 +2695,7 @@
 				C31A13E51FB06168001FABFE /* util.c in Sources */,
 				C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
+				C3C117001FCE8929007DA9FF /* Tabs.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
 				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
 				C31A13E81FB06168001FABFE /* string_piece.c in Sources */,

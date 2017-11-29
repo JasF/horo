@@ -26,6 +26,9 @@ namespace horo {
         virtual std::string monthHoroscopeText() = 0;
         virtual std::string yearHoroscopeText() = 0;
         virtual void menuTapped() = 0;
+        virtual list<string> tabsTitles() = 0;
+        virtual list<string> horoscopesText() = 0;
+        virtual void setDataFetchedCallback(std::function<void(bool success)> callback) = 0;
     };
     
     typedef reff<_PredictionScreenViewModel> PredictionScreenViewModel;

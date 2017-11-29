@@ -7,6 +7,7 @@
 //
 
 #import "PredictionViewController.h"
+#import "Tabs.h"
 
 static CGFloat const kRowHeight = 100;
 
@@ -15,7 +16,9 @@ static CGFloat const kRowHeight = 100;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacDateLabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *tabsCell;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+@property (weak, nonatomic) IBOutlet Tabs *tabs;
 @end
 
 @implementation PredictionViewController
@@ -34,8 +37,18 @@ static CGFloat const kRowHeight = 100;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
     
+    @weakify(self);
+    _viewModel->setDataFetchedCallback([self_weak_](bool success) {
+        @strongify(self);
+        auto titles = self.viewModel->tabsTitles();
+        NSMutableArray *array = [NSMutableArray new];
+        for (auto t: titles) {
+            NSString *title = [NSString stringWithUTF8String:t.c_str()];
+            [array addObject:title];
+        }
+        self.tabs.titles = [array copy];
+    });
     _viewModel->didActivated();
-    
     
     _zodiacLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacName().c_str()];
     _zodiacDateLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacDateString().c_str()];
@@ -54,6 +67,8 @@ static CGFloat const kRowHeight = 100;
     self.navigationController.navigationBar.opaque = YES;
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
+    _viewModel->tabsTitles();
     // Do any additional setup after loading the view.
 }
 
@@ -66,29 +81,25 @@ static CGFloat const kRowHeight = 100;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: return self.zodiacTitleCell;
+        case 1: return self.tabsCell;
     }
-    UITableViewCell *cell = [UITableViewCell new];
-    return cell;
+    return [UITableViewCell new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
-*/
+
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
 }

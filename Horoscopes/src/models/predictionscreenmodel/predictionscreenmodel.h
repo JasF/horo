@@ -21,6 +21,9 @@ namespace horo {
         virtual void loadData() = 0;
         virtual std::string zodiacName() = 0;
         virtual std::string zodiacDateString() = 0;
+        virtual list<string> tabsTitles() = 0;
+        virtual list<string> horoscopesText() = 0;
+        virtual void setDataFetchedCallback(std::function<void(bool success)> callback) = 0;
     };
     
     typedef reff<_PredictionScreenModel> PredictionScreenModel;

@@ -16,7 +16,16 @@ static CGFloat const kRowHeight = 100;
 @property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
 @end
 
+@interface UINavigationBar (custom)
+@end
+@implementation UINavigationBar (custom)
+- (void)drawRect:(CGRect)rect {}
+@end
 @implementation PredictionViewController
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +40,23 @@ static CGFloat const kRowHeight = 100;
     _viewModel->didActivated();
     
     _zodiacLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacName().c_str()];
+    
+    const CGFloat colorMask[6] = {222, 255, 222, 255, 222, 255};
+    UIImage *img = [[UIImage alloc] init];
+    UIImage *maskedImage = [UIImage imageWithCGImage: CGImageCreateWithMaskingColors(img.CGImage, colorMask)];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+  //  [self.navigationController.navigationBar setBackgroundImage:maskedImage forBarMetrics:UIBarMetricsDefault];
+    //remove shadow
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    NSMutableArray *array = [self.navigationController.navigationBar.subviews mutableCopy];
+    if (array.count) {
+        [array.firstObject removeFromSuperview];
+    }
+    self.navigationController.navigationBar.opaque = YES;
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
 }
 

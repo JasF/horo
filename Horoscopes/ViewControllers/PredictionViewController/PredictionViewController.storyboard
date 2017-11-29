@@ -66,9 +66,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kwh-Hi-CzZ">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="EJE-Ax-C8n">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iE7-Yx-xGQ">
-                                <rect key="frame" x="16" y="7" width="46" height="39"/>
+                                <rect key="frame" x="16" y="2.5" width="46" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="menuIcon"/>
                                 <connections>
@@ -76,9 +77,31 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="pBi-Ga-Q5g">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rvp-nV-cjI"/>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Rvp-nV-cjI" firstAttribute="centerX" secondItem="pBi-Ga-Q5g" secondAttribute="centerX" id="Dil-Yv-Ecy"/>
+                                <constraint firstAttribute="width" secondItem="Rvp-nV-cjI" secondAttribute="width" id="NPt-A1-fhL"/>
+                                <constraint firstAttribute="height" secondItem="Rvp-nV-cjI" secondAttribute="height" id="OGS-Gm-QiJ"/>
+                                <constraint firstItem="Rvp-nV-cjI" firstAttribute="centerY" secondItem="pBi-Ga-Q5g" secondAttribute="centerY" id="Wp2-Uv-SiA"/>
+                            </constraints>
+                        </view>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="5Up-MP-jby">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHh-d4-pOc">
+                                <rect key="frame" x="343" y="11" width="16" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="sharing"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
+                        <outlet property="titleImageView" destination="Rvp-nV-cjI" id="qxd-H8-gUg"/>
                         <outlet property="zodiacLabel" destination="Opt-ec-Fnz" id="G0H-0b-c5n"/>
                         <outlet property="zodiacTitleCell" destination="fdT-hh-KsN" id="6Py-qM-G6U"/>
                     </connections>
@@ -135,5 +158,6 @@
     </scenes>
     <resources>
         <image name="menuIcon" width="23" height="19"/>
+        <image name="sharing" width="19" height="26"/>
     </resources>
 </document>

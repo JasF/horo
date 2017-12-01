@@ -10,6 +10,7 @@
 #import "UIView+TKGeometry.h"
 
 static CGFloat const kHighlightedItemViewAlpha = 0.8f;
+static CGFloat const kSemiHighlightedItemViewAlpha = kHighlightedItemViewAlpha / 2;
 
 @interface TabsItemView () <UIGestureRecognizerDelegate>
 @property IBOutlet UILabel *labelFirst;
@@ -76,6 +77,10 @@ static CGFloat const kHighlightedItemViewAlpha = 0.8f;
 }
 
 - (void)setItemHighlighted:(BOOL)highlighted {
+    [self setItemHighlighted:highlighted syncLabelColor:NO];
+}
+
+- (void)setItemHighlighted:(BOOL)highlighted syncLabelColor:(BOOL)syncLabelColor {
     UIColor *backgroundColor = (highlighted) ? [[UIColor whiteColor] colorWithAlphaComponent:kHighlightedItemViewAlpha] : [UIColor clearColor];
     if ([self.backgroundColor isEqual:backgroundColor]) {
         return;
@@ -88,12 +93,36 @@ static CGFloat const kHighlightedItemViewAlpha = 0.8f;
     UILabel *invisibleLabel = [self invisibleLabel];
     UILabel *visibleLabel = [self visibleLabel];
     
+    
     invisibleLabel.textColor = colorBlock(highlighted);
-    visibleLabel.textColor = colorBlock(!highlighted);
+    if (!syncLabelColor) {
+        visibleLabel.textColor = colorBlock(highlighted);
+    }
     
     invisibleLabel.alpha = 1.f;
     visibleLabel.alpha = 0.f;
+}
+
+- (void)setItemSemiHighlighted {
+    UIColor *backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:kSemiHighlightedItemViewAlpha];
+    if ([self.backgroundColor isEqual:backgroundColor]) {
+        return;
+    }
+    self.backgroundColor = backgroundColor;
+    UIColor *color = [UIColor grayColor];
     
+    UILabel *invisibleLabel = [self invisibleLabel];
+    UILabel *visibleLabel = [self visibleLabel];
+    
+    invisibleLabel.textColor = color;
+    visibleLabel.textColor = color;
+    
+    invisibleLabel.alpha = 1.f;
+    visibleLabel.alpha = 0.f;
+}
+
+- (void)setOverSelection {
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 @end

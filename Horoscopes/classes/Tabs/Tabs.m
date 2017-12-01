@@ -53,11 +53,58 @@ static CGFloat const kAnimationDuration = 0.25f;
     [self setNeedsLayout];
 }
 
+- (void)cancelItemSemiSelection:(NSInteger)itemIndex animated:(BOOL)animated {
+    NSCAssert(itemIndex < _itemViews.count, @"itemIndex out of bounds. index: %@; items: %@", @(itemIndex), _itemViews);
+    TabsItemView *itemView = _itemViews[itemIndex];
+    TabsItemView *selectedItem = self.selectedItem;
+    
+    dispatch_block_t block = ^{
+        [itemView setItemHighlighted:NO syncLabelColor:YES];
+        [selectedItem setItemHighlighted:YES syncLabelColor:YES];
+    };
+    if (animated) {
+        [UIView animateWithDuration:kAnimationDuration animations:^{
+            block();
+        }];
+    }
+    else {
+        block();
+    }
+}
+
+- (void)setItemSemiSelected:(NSInteger)itemIndex animated:(BOOL)animated {
+    NSCAssert(itemIndex < _itemViews.count, @"itemIndex out of bounds. index: %@; items: %@", @(itemIndex), _itemViews);
+    TabsItemView *candidateItem = _itemViews[itemIndex];
+    TabsItemView *selectedItem = self.selectedItem;
+    
+    dispatch_block_t block = ^{
+        if ([candidateItem isEqual:selectedItem]) {
+            [candidateItem setOverSelection];
+        }
+        else {
+            [candidateItem setItemSemiHighlighted];
+            [selectedItem setItemSemiHighlighted];
+        }
+    };
+    if (animated) {
+        [UIView animateWithDuration:kAnimationDuration animations:^{
+            block();
+        }];
+    }
+    else {
+        block();
+    }
+}
+
 - (void)setItemSelected:(NSInteger)itemIndex animated:(BOOL)animated {
     NSCAssert(itemIndex < _itemViews.count, @"itemIndex out of bounds. index: %@; items: %@", @(itemIndex), _itemViews);
     TabsItemView *itemView = _itemViews[itemIndex];
     dispatch_block_t unhighlightBlock = ^{
-        [self.itemViews makeObjectsPerformSelector:@selector(setItemHighlighted:) withObject:@(NO)];
+        [self.itemViews enumerateObjectsUsingBlock:^(TabsItemView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (![itemView isEqual:obj]) {
+                [obj setItemHighlighted:NO];
+            }
+        }];
     };
     dispatch_block_t highlightBlock = ^{
         [itemView setItemHighlighted:YES];
@@ -83,6 +130,7 @@ static CGFloat const kAnimationDuration = 0.25f;
         highlightBlock();
         [self updateLayout];
     }
+    self.selectedIndex = itemIndex;
 }
 
 #pragma mark - Layouting
@@ -110,13 +158,24 @@ static CGFloat const kAnimationDuration = 0.25f;
     NSCAssert(index != NSNotFound, @"unknown object");
     switch (state) {
         case TabItemViewTouchBegin:
+            [self setItemSemiSelected:index animated:YES];
             break;
         case TabItemViewTouchCancelled:
+            [self cancelItemSemiSelection:index animated:YES];
             break;
         case TabItemViewTouchFinished:
             [self setItemSelected:index animated:YES];
             break;
     }
+}
+
+- (TabsItemView *)selectedItem {
+    NSCAssert(_selectedIndex < _itemViews.count, @"index out of bounds");
+    return _itemViews[_selectedIndex];
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    _selectedIndex = selectedIndex;
 }
 
 @end

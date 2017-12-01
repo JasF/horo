@@ -9,8 +9,16 @@
 #ifndef Horoscopes_pch
 #define Horoscopes_pch
 
+#ifdef __OBJC__
 #import "EXTScope.h"
 #import "Categories.h"
+#import <CoreFoundation/CoreFoundation.h>
+#import <Foundation/Foundation.h>
+
+CF_INLINE bool IsEqualFloat(float a, float b) { return ABS(a - b) < pow(10, -10); }
+CF_INLINE bool IsFloatEqual(float a, float b) { return IsEqualFloat(a,b);}
+#endif
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

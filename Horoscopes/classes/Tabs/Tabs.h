@@ -10,4 +10,5 @@
 
 @interface Tabs : UIView
 @property (nonatomic) NSArray *titles;
+- (void)setItemSelected:(NSInteger)itemIndex animated:(BOOL)animated;
 @end

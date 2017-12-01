@@ -9,7 +9,8 @@
 #import "PredictionViewController.h"
 #import "Tabs.h"
 
-static CGFloat const kRowHeight = 100;
+static CGFloat const kRowHeight = 100.f;
+static NSInteger const kTodayTabIndex = 1;
 
 @interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -30,12 +31,12 @@ static CGFloat const kRowHeight = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
-    //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20pt on top
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = kRowHeight;
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
+    _tableView.allowsSelection = NO;
     
     @weakify(self);
     _viewModel->setDataFetchedCallback([self_weak_](bool success) {
@@ -47,6 +48,9 @@ static CGFloat const kRowHeight = 100;
             [array addObject:title];
         }
         self.tabs.titles = [array copy];
+        if (self.tabs.titles.count > kTodayTabIndex) {
+            [self.tabs setItemSelected:kTodayTabIndex animated:NO];
+        }
     });
     _viewModel->didActivated();
     

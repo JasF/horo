@@ -6,3 +6,6 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
+
+#import <CoreFoundation/CoreFoundation.h>
+

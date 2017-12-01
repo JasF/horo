@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM (NSInteger, TabItemViewTouchState) {
+    TabItemViewTouchBegin,
+    TabItemViewTouchCancelled,
+    TabItemViewTouchFinished
+};
+
 @interface TabsItemView : UIView
-- (void)updateSize;
+@property (nonatomic, copy) void (^touchesBlock)(TabItemViewTouchState state);
 - (void)setTitle:(NSString *)title;
+- (void)setItemHighlighted:(BOOL)highlighted;
 @end
+ 

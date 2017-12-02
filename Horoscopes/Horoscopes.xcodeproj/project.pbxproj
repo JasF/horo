@@ -183,6 +183,11 @@
 		C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */; };
 		C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3817E031FA70CFC00447155 /* FirestoreObjc.mm */; };
 		C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3817E051FA70F7500447155 /* GoogleService-Info.plist */; };
+		C38A628C1FD28A5C00012ECA /* HoroscopesCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A628B1FD28A5C00012ECA /* HoroscopesCell.mm */; };
+		C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A628F1FD28BEB00012ECA /* PredictionContentViewController.m */; };
+		C38A62971FD291FF00012ECA /* UIView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A62961FD291FF00012ECA /* UIView+Horo.m */; };
+		C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A62991FD29A8B00012ECA /* NSString+Horo.mm */; };
+		C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38A629B1FD29E5400012ECA /* PredictionContentViewController.xib */; };
 		C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CC51FA8DADF00F5BAD2 /* ManualInitialization.mm */; };
 		C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */; };
 		C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */; };
@@ -783,6 +788,15 @@
 		C3817E001FA70CEA00447155 /* FirestoreObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirestoreObjc.h; sourceTree = "<group>"; };
 		C3817E031FA70CFC00447155 /* FirestoreObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirestoreObjc.mm; sourceTree = "<group>"; };
 		C3817E051FA70F7500447155 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/plists/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C38A628A1FD28A5C00012ECA /* HoroscopesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoroscopesCell.h; sourceTree = "<group>"; };
+		C38A628B1FD28A5C00012ECA /* HoroscopesCell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HoroscopesCell.mm; sourceTree = "<group>"; };
+		C38A628E1FD28BEB00012ECA /* PredictionContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PredictionContentViewController.h; sourceTree = "<group>"; };
+		C38A628F1FD28BEB00012ECA /* PredictionContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PredictionContentViewController.m; sourceTree = "<group>"; };
+		C38A62951FD291FF00012ECA /* UIView+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Horo.h"; sourceTree = "<group>"; };
+		C38A62961FD291FF00012ECA /* UIView+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Horo.m"; sourceTree = "<group>"; };
+		C38A62981FD29A8B00012ECA /* NSString+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Horo.h"; sourceTree = "<group>"; };
+		C38A62991FD29A8B00012ECA /* NSString+Horo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSString+Horo.mm"; sourceTree = "<group>"; };
+		C38A629B1FD29E5400012ECA /* PredictionContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictionContentViewController.xib; sourceTree = "<group>"; };
 		C38D8CC41FA8DADF00F5BAD2 /* ManualInitialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManualInitialization.h; sourceTree = "<group>"; };
 		C38D8CC51FA8DADF00F5BAD2 /* ManualInitialization.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ManualInitialization.mm; sourceTree = "<group>"; };
 		C38D8CC71FA8DD5800F5BAD2 /* platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
@@ -1782,6 +1796,25 @@
 			path = FirestoreObjc;
 			sourceTree = "<group>";
 		};
+		C38A62891FD28A4400012ECA /* HoroscopesCell */ = {
+			isa = PBXGroup;
+			children = (
+				C38A628A1FD28A5C00012ECA /* HoroscopesCell.h */,
+				C38A628B1FD28A5C00012ECA /* HoroscopesCell.mm */,
+			);
+			path = HoroscopesCell;
+			sourceTree = "<group>";
+		};
+		C38A628D1FD28B5700012ECA /* PredictionContentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C38A628E1FD28BEB00012ECA /* PredictionContentViewController.h */,
+				C38A628F1FD28BEB00012ECA /* PredictionContentViewController.m */,
+				C38A629B1FD29E5400012ECA /* PredictionContentViewController.xib */,
+			);
+			path = PredictionContentViewController;
+			sourceTree = "<group>";
+		};
 		C38D8CC31FA8DAC700F5BAD2 /* ManualInitialization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1909,6 +1942,10 @@
 				C3B601AE1FA60DBE00AD4F6D /* Categories.h */,
 				C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */,
 				C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */,
+				C38A62951FD291FF00012ECA /* UIView+Horo.h */,
+				C38A62961FD291FF00012ECA /* UIView+Horo.m */,
+				C38A62981FD29A8B00012ECA /* NSString+Horo.h */,
+				C38A62991FD29A8B00012ECA /* NSString+Horo.mm */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1935,6 +1972,8 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C38A628D1FD28B5700012ECA /* PredictionContentViewController */,
+				C38A62891FD28A4400012ECA /* HoroscopesCell */,
 				C3C117011FCE9519007DA9FF /* TabsItemView */,
 				C3C116FD1FCE88F9007DA9FF /* Tabs */,
 			);
@@ -2571,6 +2610,7 @@
 				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
+				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
 				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
@@ -2652,6 +2692,7 @@
 				C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */,
 				C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */,
 				C31A13EB1FB06168001FABFE /* attribute.c in Sources */,
+				C38A62971FD291FF00012ECA /* UIView+Horo.m in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,
 				C31A13EA1FB06168001FABFE /* string_buffer.c in Sources */,
@@ -2660,6 +2701,7 @@
 				C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */,
 				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
 				C31A13E41FB06168001FABFE /* parser.c in Sources */,
+				C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				C30409731FA7870100A0FC33 /* DatabaseObjc.mm in Sources */,
 				C31A13ED1FB06168001FABFE /* utf8.c in Sources */,
@@ -2678,6 +2720,7 @@
 				C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */,
 				C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */,
 				C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */,
+				C38A628C1FD28A5C00012ECA /* HoroscopesCell.mm in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
 				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
@@ -2708,6 +2751,7 @@
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
 				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
+				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 				C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */,
 			);

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #include "viewmodels/predictionscreenviewmodel/predictionscreenviewmodel.h"
 
 @interface PredictionViewController : UIViewController
+@property UIPageViewController *horoscopesPageViewController;
 @property (assign, nonatomic) strong<horo::PredictionScreenViewModel> viewModel;
 @end

@@ -17,11 +17,6 @@ static CGFloat const kAnimationDuration = 50.f;
 @end
 
 @implementation BackgroundView
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    _imageView.image = [UIImage imageNamed:@"bg-cyclic"];
-}
-    
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.animationSeed = self.animationSeed + 1;

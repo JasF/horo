@@ -26,22 +26,24 @@ namespace horo {
         ~ScreensManagerObjc() override {}
     public:
        void showPredictionViewController(strong<Person> person) override {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController"
-                                                                     bundle: nil];
+           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController"
+                                                                bundle:nil];
             
-            UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                            instantiateViewControllerWithIdentifier:@"navigationController"];
-            PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
-            viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
+           UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                           instantiateViewControllerWithIdentifier:@"navigationController"];
+           UIPageViewController *pageViewController = (UIPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HoroscopesPageViewController"];
+           PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
+           viewController.horoscopesPageViewController = pageViewController;
+           viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
             
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
-            if ([navController isKindOfClass:[UINavigationController class]]) {
-                [navController pushViewController:viewController animated:YES];
-            }
-            else {
-                delegate.window.rootViewController = navigationController;
-            }
+           AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+           UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
+           if ([navController isKindOfClass:[UINavigationController class]]) {
+               [navController pushViewController:viewController animated:YES];
+           }
+           else {
+               delegate.window.rootViewController = navigationController;
+           }
         }
         
         void showPredictionViewController() override {

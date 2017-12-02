@@ -25,7 +25,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-sy-0Jg" customClass="BackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-hm-CTj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-cyclic" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-hm-CTj">
                                         <rect key="frame" x="0.0" y="0.0" width="1206" height="603"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -100,6 +100,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="horoscopesCell" destination="awj-Iq-iRn" id="a3d-mh-HSJ"/>
+                        <outlet property="horoscopesContainerView" destination="eQt-oH-XxP" id="tDr-Wu-u42"/>
                         <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
                         <outlet property="tabs" destination="ahf-Nn-LpW" id="vXQ-dO-Jzu"/>
                         <outlet property="tabsCell" destination="Wir-U2-iHY" id="3j7-mZ-tCW"/>
@@ -179,6 +181,43 @@
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="awj-Iq-iRn" customClass="HoroscopesCell">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awj-Iq-iRn" id="lX4-h5-CGo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5V-gw-2tp" userLabel="Height Setter View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="20" id="6bi-5M-suE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQt-oH-XxP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eQt-oH-XxP" firstAttribute="top" secondItem="lX4-h5-CGo" secondAttribute="top" id="GXN-po-JIU"/>
+                            <constraint firstItem="eQt-oH-XxP" firstAttribute="width" secondItem="lX4-h5-CGo" secondAttribute="width" id="R1N-UN-rQY"/>
+                            <constraint firstItem="eQt-oH-XxP" firstAttribute="bottom" secondItem="lX4-h5-CGo" secondAttribute="bottom" id="RGT-en-lpG"/>
+                            <constraint firstAttribute="bottom" secondItem="y5V-gw-2tp" secondAttribute="bottom" id="af9-6n-6mr"/>
+                            <constraint firstItem="y5V-gw-2tp" firstAttribute="width" secondItem="lX4-h5-CGo" secondAttribute="width" id="bQW-pW-bhb"/>
+                            <constraint firstItem="y5V-gw-2tp" firstAttribute="leading" secondItem="lX4-h5-CGo" secondAttribute="leading" id="eXW-Km-Kf5"/>
+                            <constraint firstItem="eQt-oH-XxP" firstAttribute="leading" secondItem="lX4-h5-CGo" secondAttribute="leading" id="gDG-J9-9cT"/>
+                            <constraint firstItem="y5V-gw-2tp" firstAttribute="top" secondItem="lX4-h5-CGo" secondAttribute="top" id="liu-Iz-5q4"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="containerView" destination="eQt-oH-XxP" id="Fj4-w8-Frt"/>
+                        <outlet property="heightConstraint" destination="6bi-5M-suE" id="oXj-zN-b0z"/>
+                    </connections>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="-1111" y="-85"/>
         </scene>
@@ -200,8 +239,16 @@
             </objects>
             <point key="canvasLocation" x="-2033" y="-85"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="6cO-bY-HHv">
+            <objects>
+                <pageViewController storyboardIdentifier="HoroscopesPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="RIM-Kv-csr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxY-6a-u7k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
+        <image name="bg-cyclic" width="1024" height="512"/>
         <image name="menuIcon" width="23" height="19"/>
         <image name="sharing" width="19" height="26"/>
     </resources>

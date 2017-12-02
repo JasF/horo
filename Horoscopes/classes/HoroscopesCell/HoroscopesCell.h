@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, Direction) {
+    DirectionBackToRight,
+    DirectionForwardToLeft
+};
+
 @interface HoroscopesCell : UITableViewCell <UIPageViewControllerDelegate,
 UIPageViewControllerDataSource>
 
 @property (strong, nonatomic, nullable) NSArray *texts;
 @property (strong, nonatomic, nonnull) UIPageViewController *pageViewController;
 @property (strong, nonatomic, nonnull) UIViewController *parentViewController;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (weak, nonatomic, nullable) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (copy, nonatomic, nullable) void (^draggingProgress)(CGFloat completed, Direction direction);
 @end

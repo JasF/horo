@@ -103,7 +103,15 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+    Direction direction = (scrollView.contentOffset.x > scrollView.width) ? DirectionForwardToLeft : DirectionBackToRight;
+    CGFloat delta = (direction == DirectionForwardToLeft) ? scrollView.contentOffset.x - scrollView.width : scrollView.width - scrollView.contentOffset.x;
+    if (IsEqualFloat(0, delta)) {
+        return;
+    }
+    CGFloat percentage = delta / scrollView.width;
+    if (_draggingProgress) {
+        _draggingProgress(percentage, direction);
+    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

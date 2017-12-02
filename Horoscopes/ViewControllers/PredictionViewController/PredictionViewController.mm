@@ -41,8 +41,7 @@ static NSInteger const kTodayTabIndex = 1;
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
     NSCParameterAssert(_horoscopesPageViewController);
-    _horoscopesCell.parentViewController = self;
-    _horoscopesCell.pageViewController = _horoscopesPageViewController;
+    [self initializeHoroscopeCell];
     _horoscopesPageViewController.view.frame = self.view.frame;
     [self addChildViewController:_horoscopesPageViewController];
     [_horoscopesContainerView horo_addFillingSubview:_horoscopesPageViewController.view];
@@ -121,4 +120,16 @@ static NSInteger const kTodayTabIndex = 1;
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
 }
+
+#pragma mark - Private Methods {
+- (void)initializeHoroscopeCell {
+    _horoscopesCell.parentViewController = self;
+    _horoscopesCell.pageViewController = _horoscopesPageViewController;
+    @weakify(self);
+    _horoscopesCell.draggingProgress = ^(CGFloat completed, Direction direction) {
+        @strongify(self);
+        NSLog(@"Direction: %@  progress %.2f", @(direction), completed);
+    };
+}
+
 @end

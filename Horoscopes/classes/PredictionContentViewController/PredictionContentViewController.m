@@ -16,16 +16,6 @@
 
 @implementation PredictionContentViewController
 
-#pragma mark - Initialization
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Public Methods
 - (void)setText:(NSString *)text width:(CGFloat)width {
     self.view.width = width;

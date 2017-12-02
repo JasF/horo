@@ -128,7 +128,7 @@ static NSInteger const kTodayTabIndex = 1;
     @weakify(self);
     _horoscopesCell.draggingProgress = ^(CGFloat completed, Direction direction) {
         @strongify(self);
-        NSLog(@"Direction: %@  progress %.2f", @(direction), completed);
+        [self.tabs animateSelection:direction patchCompleted:completed];
     };
 }
 

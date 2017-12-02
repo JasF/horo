@@ -174,8 +174,30 @@ static CGFloat const kAnimationDuration = 0.25f;
     return _itemViews[_selectedIndex];
 }
 
+- (TabsItemView *)previousItem {
+    NSCAssert(_selectedIndex < _itemViews.count, @"index out of bounds");
+    return (_selectedIndex) ? _itemViews[_selectedIndex-1] : nil;
+}
+
+- (TabsItemView *)nextItem {
+    NSCAssert(_selectedIndex < _itemViews.count, @"index out of bounds");
+    return (_selectedIndex < _itemViews.count - 1) ? _itemViews[_selectedIndex+1] : nil;
+}
+
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
+}
+
+#pragma mark - Public Methods
+- (void)animateSelection:(Direction)direction patchCompleted:(CGFloat)completed {
+    TabsItemView *currentItem = [self selectedItem];
+    TabsItemView *nextItem = (direction == DirectionForwardToLeft) ? [self nextItem] : [self previousItem];
+    if (!currentItem || !nextItem) {
+        return;
+    }
+    for (TabsItemView *itemView in @[currentItem, nextItem]) {
+        [itemView animateSelection:direction patchCompleted:completed selected:[currentItem isEqual:itemView]];
+    }
 }
 
 @end

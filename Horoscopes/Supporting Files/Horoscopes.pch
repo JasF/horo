@@ -17,6 +17,12 @@
 
 CF_INLINE bool IsEqualFloat(float a, float b) { return ABS(a - b) < pow(10, -10); }
 CF_INLINE bool IsFloatEqual(float a, float b) { return IsEqualFloat(a,b);}
+
+typedef NS_ENUM(NSInteger, Direction) {
+    DirectionBackToRight,
+    DirectionForwardToLeft
+};
+
 #endif
 
 // Include any system framework and library headers here that should be included in all compilation units.

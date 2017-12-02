@@ -9,7 +9,7 @@
 #import "TabsItemView.h"
 #import "UIView+TKGeometry.h"
 
-static CGFloat const kHighlightedItemViewAlpha = 0.8f;
+static CGFloat const kHighlightedItemViewAlpha = 0.5f;
 static CGFloat const kSemiHighlightedItemViewAlpha = kHighlightedItemViewAlpha / 2;
 
 @interface TabsItemView () <UIGestureRecognizerDelegate>
@@ -123,6 +123,14 @@ static CGFloat const kSemiHighlightedItemViewAlpha = kHighlightedItemViewAlpha /
 
 - (void)setOverSelection {
     self.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)animateSelection:(Direction)direction patchCompleted:(CGFloat)completed selected:(BOOL)selected {
+    CGFloat newAlpha = (selected) ? kHighlightedItemViewAlpha - kHighlightedItemViewAlpha * completed : kHighlightedItemViewAlpha * completed;
+    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:newAlpha];
+    CGFloat fontColorValue = (selected) ? completed : 1.f - completed ;
+    UIColor *textColor = [UIColor colorWithRed:fontColorValue green:fontColorValue blue:fontColorValue alpha:1.f];
+    [self visibleLabel].textColor = textColor;
 }
 
 @end

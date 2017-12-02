@@ -159,7 +159,12 @@ static NSInteger const kTodayTabIndex = 1;
 
 - (void)updatePredictionHeight {
     [_horoscopesCell updateHeight];
-    [self.tableView reloadData];
+    NSIndexPath *indexPath = [_tableView indexPathForCell:_horoscopesCell];
+    NSCAssert(indexPath, @"something wrong");
+    if (!indexPath) {
+        return;
+    }
+    [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

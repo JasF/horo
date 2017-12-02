@@ -134,7 +134,7 @@ static NSInteger const kTodayTabIndex = 1;
     _horoscopesCell.draggingProgress = ^(CGFloat completed, Direction direction) {
         @strongify(self);
         if (self.allowCustomAnimationWithTabs) {
-            [self.tabs animateSelection:direction patchCompleted:completed];            
+            [self.tabs animateSelection:direction patchCompleted:completed];
         }
     };
     _horoscopesCell.selectedPageChanged = ^(NSInteger previous, NSInteger current) {
@@ -159,12 +159,9 @@ static NSInteger const kTodayTabIndex = 1;
 
 - (void)updatePredictionHeight {
     [_horoscopesCell updateHeight];
-    NSIndexPath *indexPath = [_tableView indexPathForCell:_horoscopesCell];
-    NSCAssert(indexPath, @"something wrong");
-    if (!indexPath) {
-        return;
-    }
-    [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+    });
 }
 
 @end

@@ -17,6 +17,7 @@ static CGFloat const kAnimationDuration = 0.25f;
 @property (strong, nonatomic) NSMutableArray *itemViews;
 @property (assign, nonatomic) NSInteger leftItemIndex;
 @property (assign, nonatomic) NSInteger selectedIndex;
+@property (assign, nonatomic) CGFloat xDelta;
 @end
 
 @implementation Tabs
@@ -124,6 +125,7 @@ static CGFloat const kAnimationDuration = 0.25f;
         highlightBlock();
     };
     
+    _xDelta = 0.f;
     NSInteger maximumLeftIndex = self.itemViews.count - self.tabsCount;
     _leftItemIndex = itemIndex - 1;
     if (_leftItemIndex < 0) {
@@ -157,7 +159,7 @@ static CGFloat const kAnimationDuration = 0.25f;
 
 - (void)updateLayout {
     CGFloat itemWidth = self.width/self.tabsCount;
-    CGFloat xOffset = -itemWidth*self.leftItemIndex;
+    CGFloat xOffset = -itemWidth*self.leftItemIndex + _xDelta;
     for (TabsItemView *view in _itemViews) {
         view.frame = CGRectMake(xOffset, 0.f, itemWidth, self.height);
         xOffset += view.width;
@@ -218,6 +220,19 @@ static CGFloat const kAnimationDuration = 0.25f;
     for (TabsItemView *itemView in @[currentItem, nextItem]) {
         [itemView animateSelection:direction patchCompleted:completed selected:[currentItem isEqual:itemView]];
     }
+    CGFloat itemWidth = self.width/self.tabsCount;
+    _xDelta = (direction == DirectionForwardToLeft) ? -itemWidth*completed : itemWidth*completed;
+    if (direction == DirectionForwardToLeft) {
+        if (!_selectedIndex || _selectedIndex == _titles.count - 1 || _selectedIndex == _titles.count - 2) {
+            _xDelta = 0;
+        }
+    }
+    else {
+        if (_selectedIndex == 1 || _selectedIndex == _titles.count - 1) {
+            _xDelta = 0;
+        }
+    }
+    [self setNeedsLayout];
 }
 
 @end

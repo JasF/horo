@@ -177,6 +177,7 @@
 		C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D71FA375E600C0B1C6 /* AFSecurityPolicy.m */; };
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
+		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -773,6 +774,8 @@
 		C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
+		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
+		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1749,6 +1752,15 @@
 			path = base;
 			sourceTree = "<group>";
 		};
+		C36F77F71FD2DCD300581631 /* MaskingView */ = {
+			isa = PBXGroup;
+			children = (
+				C36F77F81FD2DCF100581631 /* MaskingView.h */,
+				C36F77F91FD2DCF100581631 /* MaskingView.m */,
+			);
+			path = MaskingView;
+			sourceTree = "<group>";
+		};
 		C37657731FAC2E0500874188 /* server */ = {
 			isa = PBXGroup;
 			children = (
@@ -1972,6 +1984,7 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C36F77F71FD2DCD300581631 /* MaskingView */,
 				C38A628D1FD28B5700012ECA /* PredictionContentViewController */,
 				C38A62891FD28A4400012ECA /* HoroscopesCell */,
 				C3C117011FCE9519007DA9FF /* TabsItemView */,
@@ -2660,6 +2673,7 @@
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
+				C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */,
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
 				C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */,
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,

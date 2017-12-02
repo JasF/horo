@@ -43,26 +43,37 @@
                                     <outlet property="imageView" destination="fOf-hm-CTj" id="lfy-YM-rlM"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-6u-Aw4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-ik-VwC" customClass="MaskingView">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="603"/>
+                                <subviews>
+                                    <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-6u-Aw4">
+                                        <rect key="frame" x="19.5" y="-0.5" width="335" height="603"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="kmh-mk-xBG" id="zO6-e6-b7m"/>
+                                            <outlet property="delegate" destination="kmh-mk-xBG" id="UZ1-uu-h7N"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="kmh-mk-xBG" id="zO6-e6-b7m"/>
-                                    <outlet property="delegate" destination="kmh-mk-xBG" id="UZ1-uu-h7N"/>
-                                </connections>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="2T4-6u-Aw4" firstAttribute="width" secondItem="Uf5-ik-VwC" secondAttribute="width" constant="-40" id="ChN-Mg-yBr"/>
+                                    <constraint firstItem="2T4-6u-Aw4" firstAttribute="centerY" secondItem="Uf5-ik-VwC" secondAttribute="centerY" id="GBE-aF-rz6"/>
+                                    <constraint firstItem="2T4-6u-Aw4" firstAttribute="centerX" secondItem="Uf5-ik-VwC" secondAttribute="centerX" id="TgY-j7-USy"/>
+                                    <constraint firstItem="2T4-6u-Aw4" firstAttribute="height" secondItem="Uf5-ik-VwC" secondAttribute="height" id="edK-ZF-x87"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PaJ-sy-0Jg" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="BqR-iM-shr"/>
-                            <constraint firstAttribute="trailing" secondItem="2T4-6u-Aw4" secondAttribute="trailing" id="LPR-5v-hLx"/>
                             <constraint firstItem="PaJ-sy-0Jg" firstAttribute="height" secondItem="gul-Lk-ZSH" secondAttribute="height" id="Qca-ez-UsB"/>
+                            <constraint firstItem="bCJ-Af-vXP" firstAttribute="top" secondItem="Uf5-ik-VwC" secondAttribute="bottom" constant="0.5" id="U5U-8A-Dnu"/>
                             <constraint firstItem="PaJ-sy-0Jg" firstAttribute="centerY" secondItem="gul-Lk-ZSH" secondAttribute="centerY" id="Wfb-M5-fY2"/>
-                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="YaM-7g-TWS"/>
+                            <constraint firstItem="Uf5-ik-VwC" firstAttribute="top" secondItem="y0m-NJ-iMr" secondAttribute="bottom" constant="-0.5" id="YAl-ou-NgC"/>
                             <constraint firstItem="PaJ-sy-0Jg" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="YhO-hH-o5I"/>
-                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="height" secondItem="gul-Lk-ZSH" secondAttribute="height" id="gF1-PO-LwJ"/>
-                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="gMb-45-cnc"/>
-                            <constraint firstItem="2T4-6u-Aw4" firstAttribute="centerY" secondItem="gul-Lk-ZSH" secondAttribute="centerY" id="v7y-c0-753"/>
+                            <constraint firstItem="Uf5-ik-VwC" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="f2E-Tl-mSZ"/>
+                            <constraint firstItem="Uf5-ik-VwC" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="xTk-gL-JsX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kwh-Hi-CzZ">
@@ -176,7 +187,7 @@
                             <constraint firstAttribute="bottom" secondItem="slu-zV-EKb" secondAttribute="bottom" id="fgv-3c-68Q"/>
                             <constraint firstItem="Opt-ec-Fnz" firstAttribute="leading" secondItem="qWq-Gl-Sjp" secondAttribute="leading" constant="20" id="qVH-lf-acG"/>
                             <constraint firstItem="Opt-ec-Fnz" firstAttribute="width" secondItem="qWq-Gl-Sjp" secondAttribute="width" constant="-40" id="yvE-IZ-IOW"/>
-                            <constraint firstItem="Opt-ec-Fnz" firstAttribute="top" secondItem="qWq-Gl-Sjp" secondAttribute="top" id="zBH-l2-TYF"/>
+                            <constraint firstItem="Opt-ec-Fnz" firstAttribute="top" secondItem="qWq-Gl-Sjp" secondAttribute="top" constant="8" id="zBH-l2-TYF"/>
                         </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

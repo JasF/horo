@@ -62,7 +62,7 @@ static NSInteger const kTodayTabIndex = 1;
         @strongify(self);
         self.tabs.titles = [NSString horo_stringsArrayWithList:self.viewModel->tabsTitles()];
         self.horoscopesCell.texts = [NSString horo_stringsArrayWithList:self.viewModel->horoscopesText()];
-        [self.tableView reloadData];
+        [self updatePredictionHeight];
         if (self.tabs.titles.count > kTodayTabIndex) {
             [self.tabs setItemSelected:kTodayTabIndex
                              animation:TabsAnimationNone
@@ -140,6 +140,7 @@ static NSInteger const kTodayTabIndex = 1;
     _horoscopesCell.selectedPageChanged = ^(NSInteger previous, NSInteger current) {
         @strongify(self);
         [self.tabs setItemSelected:current animation:TabsAnimationFrameOnly];
+        [self updatePredictionHeight];
     };
 }
 
@@ -151,8 +152,14 @@ static NSInteger const kTodayTabIndex = 1;
         [self.horoscopesCell setSelectedIndex:currentIndex completion:^{
             @strongify(self);
             self.allowCustomAnimationWithTabs = YES;
+            [self updatePredictionHeight];
         }];
     };
+}
+
+- (void)updatePredictionHeight {
+    [_horoscopesCell updateHeight];
+    [self.tableView reloadData];
 }
 
 @end

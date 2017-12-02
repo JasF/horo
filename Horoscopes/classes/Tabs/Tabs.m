@@ -133,6 +133,7 @@ static CGFloat const kAnimationDuration = 0.25f;
         _leftItemIndex = maximumLeftIndex;
     }
     if (animation == TabsAnimationNone) {
+        highlightingBlock();
     }
     else {
         if (animation == TabsAnimationFrameOnly) {

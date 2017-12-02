@@ -166,4 +166,8 @@ static NSInteger const kTodayTabIndex = 1;
                                  }];
 }
 
+- (void)updateHeight {
+ //   _heightConstraint.constant = [_selectedViewController getHeight];
+}
+
 @end

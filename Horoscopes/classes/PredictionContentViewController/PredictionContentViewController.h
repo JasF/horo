@@ -11,4 +11,5 @@
 @interface PredictionContentViewController : UIViewController
 @property (assign, nonatomic) NSInteger index;
 - (void)setText:(NSString *)text width:(CGFloat)width;
+- (CGFloat)getHeight;
 @end

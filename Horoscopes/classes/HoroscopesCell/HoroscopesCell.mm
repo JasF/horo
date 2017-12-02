@@ -12,7 +12,7 @@
 
 static NSInteger const kTodayTabIndex = 1;
 
-@interface HoroscopesCell () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@interface HoroscopesCell () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSMutableDictionary *viewControllers;
 @end
@@ -31,9 +31,11 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - Accessors
 - (void)setPageViewController:(UIPageViewController *)pageViewController {
+    [[self scrollView] setDelegate:nil];
     _pageViewController = pageViewController;
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
+    [[self scrollView] setDelegate:self];
 }
 
 - (void)setTexts:(NSArray *)texts {
@@ -90,4 +92,27 @@ static NSInteger const kTodayTabIndex = 1;
     return resultViewController;
 }
 
+- (UIScrollView *)scrollView {
+    for (UIView *view in _pageViewController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            return(UIScrollView *)view;
+        }
+    }
+    return nil;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"scrollViewDidEndDecelerating");
+    // after finish доскроллинг
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    NSLog(@"scrollViewDidEndScrollingAnimation");
+    // after finish custom transition, triggered from tabs
+}
 @end

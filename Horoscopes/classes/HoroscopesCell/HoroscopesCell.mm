@@ -15,6 +15,7 @@ static NSInteger const kTodayTabIndex = 1;
 @interface HoroscopesCell () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSMutableDictionary *viewControllers;
+@property (weak, nonatomic) PredictionContentViewController *selectedViewController;
 @end
 
 @implementation HoroscopesCell
@@ -43,6 +44,7 @@ static NSInteger const kTodayTabIndex = 1;
     _texts = texts;
     NSInteger index = (texts.count > kTodayTabIndex) ? kTodayTabIndex : 0;
     PredictionContentViewController *viewController = [self viewControllerByIndex:index];
+    _selectedViewController = viewController;
     _heightConstraint.constant = viewController.view.height;
     [_pageViewController setViewControllers:@[viewController]
                                   direction:UIPageViewControllerNavigationDirectionForward
@@ -68,6 +70,17 @@ static NSInteger const kTodayTabIndex = 1;
 
 
 #pragma mark - UIPageViewControllerDelegate
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    PredictionContentViewController *viewController = _pageViewController.viewControllers.firstObject;
+    if ([_selectedViewController isEqual:viewController]) {
+        return;
+    }
+    NSInteger previous = _selectedViewController.index;
+    _selectedViewController = viewController;
+    if (_selectedPageChanged) {
+        _selectedPageChanged(previous, _selectedViewController.index);
+    }
+}
 
 #pragma mark - Private Methods
 - (PredictionContentViewController *)allocateViewControllerWithIndex:(NSInteger)index {
@@ -115,12 +128,42 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"scrollViewDidEndDecelerating");
-    // after finish доскроллинг
+    //NSLog(@"scrollViewDidEndDecelerating");
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     NSLog(@"scrollViewDidEndScrollingAnimation");
     // after finish custom transition, triggered from tabs
 }
+
+#pragma mark - Public Methods
+- (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t)completion {
+    if (_selectedViewController.index == index) {
+        if (completion) {
+            completion();
+        }
+        return;
+    }
+    UIPageViewControllerNavigationDirection direction = (index > _selectedViewController.index) ? UIPageViewControllerNavigationDirectionForward: UIPageViewControllerNavigationDirectionReverse;
+    PredictionContentViewController *nextViewController = [self viewControllerByIndex:index];
+    NSCAssert(nextViewController, @"ViewController must be allocated");
+    if (!nextViewController) {
+        if (completion) {
+            completion();
+        }
+        return;
+    }
+    @weakify(self);
+    [_pageViewController setViewControllers:@[nextViewController]
+                                      direction:direction
+                                       animated:YES
+                                 completion:^(BOOL finished) {
+                                     @strongify(self);
+                                     self.selectedViewController = nextViewController;
+                                     if (completion) {
+                                         completion();
+                                     }
+                                 }];
+}
+
 @end

@@ -54,7 +54,6 @@ static CGFloat const kSemiHighlightedItemViewAlpha = kHighlightedItemViewAlpha /
     if ([touches containsObject:_activeTouch]) {
         [self touchCancelled];
     }
-    NSLog(@"");
 }
 
 #pragma mark - Private Methods

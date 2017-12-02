@@ -97,6 +97,15 @@ static CGFloat const kAnimationDuration = 0.25f;
 }
 
 - (void)setItemSelected:(NSInteger)itemIndex animated:(BOOL)animated {
+    [self setItemSelected:itemIndex animation:(animated) ? TabsAnimationFull : TabsAnimationNone];
+}
+
+
+- (void)setItemSelected:(NSInteger)itemIndex animation:(TabsAnimationsPreferences)animation {
+    [self setItemSelected:itemIndex animation:animation withNotify:(animation != TabsAnimationFrameOnly)];
+}
+
+- (void)setItemSelected:(NSInteger)itemIndex animation:(TabsAnimationsPreferences)animation withNotify:(BOOL)withNotify {
     NSCAssert(itemIndex < _itemViews.count, @"itemIndex out of bounds. index: %@; items: %@", @(itemIndex), _itemViews);
     TabsItemView *itemView = _itemViews[itemIndex];
     dispatch_block_t unhighlightBlock = ^{
@@ -110,6 +119,11 @@ static CGFloat const kAnimationDuration = 0.25f;
         [itemView setItemHighlighted:YES];
     };
     
+    dispatch_block_t highlightingBlock = ^{
+        unhighlightBlock();
+        highlightBlock();
+    };
+    
     NSInteger maximumLeftIndex = self.itemViews.count - self.tabsCount;
     _leftItemIndex = itemIndex - 1;
     if (_leftItemIndex < 0) {
@@ -118,19 +132,20 @@ static CGFloat const kAnimationDuration = 0.25f;
     if (_leftItemIndex > maximumLeftIndex) {
         _leftItemIndex = maximumLeftIndex;
     }
-    if (animated) {
+    if (animation == TabsAnimationNone) {
+    }
+    else {
+        if (animation == TabsAnimationFrameOnly) {
+            highlightingBlock();
+        }
         [UIView animateWithDuration:kAnimationDuration animations:^{
-            unhighlightBlock();
-            highlightBlock();
+            if (animation == TabsAnimationFull) {
+                highlightingBlock();
+            }
             [self updateLayout];
         }];
     }
-    else {
-        unhighlightBlock();
-        highlightBlock();
-        [self updateLayout];
-    }
-    self.selectedIndex = itemIndex;
+    [self setSelectedIndex:itemIndex withNotify:withNotify];
 }
 
 #pragma mark - Layouting
@@ -184,8 +199,12 @@ static CGFloat const kAnimationDuration = 0.25f;
     return (_selectedIndex < _itemViews.count - 1) ? _itemViews[_selectedIndex+1] : nil;
 }
 
-- (void)setSelectedIndex:(NSInteger)selectedIndex {
+- (void)setSelectedIndex:(NSInteger)selectedIndex withNotify:(BOOL)withNotify {
+    NSInteger previous = _selectedIndex;
     _selectedIndex = selectedIndex;
+    if (withNotify && previous != _selectedIndex && _tabsItemViewSelected) {
+        _tabsItemViewSelected(previous, _selectedIndex);
+    }
 }
 
 #pragma mark - Public Methods

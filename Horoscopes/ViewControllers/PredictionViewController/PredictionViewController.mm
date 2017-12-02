@@ -25,6 +25,7 @@ static NSInteger const kTodayTabIndex = 1;
 @property (weak, nonatomic) IBOutlet Tabs *tabs;
 @property (strong, nonatomic) IBOutlet HoroscopesCell *horoscopesCell;
 @property (weak, nonatomic) IBOutlet UIView *horoscopesContainerView;
+@property (assign, nonatomic) BOOL allowCustomAnimationWithTabs;
 @end
 
 @implementation PredictionViewController
@@ -39,9 +40,11 @@ static NSInteger const kTodayTabIndex = 1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.allowCustomAnimationWithTabs = YES;
     NSCParameterAssert(_viewModel);
     NSCParameterAssert(_horoscopesPageViewController);
     [self initializeHoroscopeCell];
+    [self initializeTabs];
     _horoscopesPageViewController.view.frame = self.view.frame;
     [self addChildViewController:_horoscopesPageViewController];
     [_horoscopesContainerView horo_addFillingSubview:_horoscopesPageViewController.view];
@@ -59,10 +62,12 @@ static NSInteger const kTodayTabIndex = 1;
         @strongify(self);
         self.tabs.titles = [NSString horo_stringsArrayWithList:self.viewModel->tabsTitles()];
         self.horoscopesCell.texts = [NSString horo_stringsArrayWithList:self.viewModel->horoscopesText()];
-        if (self.tabs.titles.count > kTodayTabIndex) {
-            [self.tabs setItemSelected:kTodayTabIndex animated:NO];
-        }
         [self.tableView reloadData];
+        if (self.tabs.titles.count > kTodayTabIndex) {
+            [self.tabs setItemSelected:kTodayTabIndex
+                             animation:TabsAnimationNone
+                            withNotify:NO];
+        }
     });
     _viewModel->didActivated();
     
@@ -128,7 +133,25 @@ static NSInteger const kTodayTabIndex = 1;
     @weakify(self);
     _horoscopesCell.draggingProgress = ^(CGFloat completed, Direction direction) {
         @strongify(self);
-        [self.tabs animateSelection:direction patchCompleted:completed];
+        if (self.allowCustomAnimationWithTabs) {
+            [self.tabs animateSelection:direction patchCompleted:completed];            
+        }
+    };
+    _horoscopesCell.selectedPageChanged = ^(NSInteger previous, NSInteger current) {
+        @strongify(self);
+        [self.tabs setItemSelected:current animation:TabsAnimationFrameOnly];
+    };
+}
+
+- (void)initializeTabs {
+    @weakify(self);
+    _tabs.tabsItemViewSelected = ^(NSInteger previousIndex, NSInteger currentIndex) {
+        @strongify(self);
+        self.allowCustomAnimationWithTabs = NO;
+        [self.horoscopesCell setSelectedIndex:currentIndex completion:^{
+            @strongify(self);
+            self.allowCustomAnimationWithTabs = YES;
+        }];
     };
 }
 

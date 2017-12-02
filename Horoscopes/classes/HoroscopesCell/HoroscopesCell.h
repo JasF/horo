@@ -16,4 +16,6 @@ UIPageViewControllerDataSource>
 @property (strong, nonatomic, nonnull) UIViewController *parentViewController;
 @property (weak, nonatomic, nullable) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (copy, nonatomic, nullable) void (^draggingProgress)(CGFloat completed, Direction direction);
+@property (copy, nonatomic, nullable) void (^selectedPageChanged)(NSInteger previous, NSInteger current);
+- (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t)completion;
 @end

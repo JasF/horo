@@ -181,10 +181,10 @@
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
-                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="awj-Iq-iRn" customClass="HoroscopesCell">
+                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="awj-Iq-iRn" customClass="HoroscopesCell">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awj-Iq-iRn" id="lX4-h5-CGo">
+                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awj-Iq-iRn" id="lX4-h5-CGo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -196,7 +196,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQt-oH-XxP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="293.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -204,7 +204,7 @@
                         <constraints>
                             <constraint firstItem="eQt-oH-XxP" firstAttribute="top" secondItem="lX4-h5-CGo" secondAttribute="top" id="GXN-po-JIU"/>
                             <constraint firstItem="eQt-oH-XxP" firstAttribute="width" secondItem="lX4-h5-CGo" secondAttribute="width" id="R1N-UN-rQY"/>
-                            <constraint firstItem="eQt-oH-XxP" firstAttribute="bottom" secondItem="lX4-h5-CGo" secondAttribute="bottom" id="RGT-en-lpG"/>
+                            <constraint firstItem="eQt-oH-XxP" firstAttribute="bottom" secondItem="lX4-h5-CGo" secondAttribute="bottom" constant="250" id="RGT-en-lpG"/>
                             <constraint firstAttribute="bottom" secondItem="y5V-gw-2tp" secondAttribute="bottom" id="af9-6n-6mr"/>
                             <constraint firstItem="y5V-gw-2tp" firstAttribute="width" secondItem="lX4-h5-CGo" secondAttribute="width" id="bQW-pW-bhb"/>
                             <constraint firstItem="y5V-gw-2tp" firstAttribute="leading" secondItem="lX4-h5-CGo" secondAttribute="leading" id="eXW-Km-Kf5"/>

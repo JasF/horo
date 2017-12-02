@@ -20,19 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hg-iG-5XW">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.96270402369999997" green="0.94542523570000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XF7-Gr-Qoq" userLabel="Label container view">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hg-iG-5XW">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.96270402369999997" green="0.94542523570000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" secondItem="3hg-iG-5XW" secondAttribute="height" id="DZx-JW-1vl"/>
+                        <constraint firstItem="3hg-iG-5XW" firstAttribute="top" secondItem="XF7-Gr-Qoq" secondAttribute="top" id="Nwm-o5-dSx"/>
+                        <constraint firstItem="3hg-iG-5XW" firstAttribute="leading" secondItem="XF7-Gr-Qoq" secondAttribute="leading" id="Vxp-Ia-vi0"/>
+                        <constraint firstItem="3hg-iG-5XW" firstAttribute="width" secondItem="XF7-Gr-Qoq" secondAttribute="width" id="rmV-Er-Qiw"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="3hg-iG-5XW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JGX-9d-tc5"/>
-                <constraint firstAttribute="bottom" secondItem="3hg-iG-5XW" secondAttribute="bottom" id="Srw-4j-mr2"/>
-                <constraint firstItem="3hg-iG-5XW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fcw-CY-XIb"/>
-                <constraint firstItem="3hg-iG-5XW" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="zUv-SN-NQT"/>
+                <constraint firstItem="XF7-Gr-Qoq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="A0T-z5-ZcV"/>
+                <constraint firstItem="XF7-Gr-Qoq" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="WUc-jI-rGG"/>
+                <constraint firstItem="XF7-Gr-Qoq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bf6-WQ-rdM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

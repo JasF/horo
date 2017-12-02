@@ -20,11 +20,15 @@
 - (void)setText:(NSString *)text width:(CGFloat)width {
     self.view.width = width;
     _label.text = text;
+    self.view.height = [self getHeight];
+    _blurEffectView.frame = self.view.bounds;
+}
+
+- (CGFloat)getHeight {
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
     [_label sizeToFit];
-    self.view.height = _label.height;
-    _blurEffectView.frame = self.view.bounds;
+    return _label.height;
 }
 
 @end

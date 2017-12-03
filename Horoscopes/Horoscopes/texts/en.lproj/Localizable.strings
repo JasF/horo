@@ -6,3 +6,8 @@
   Copyright © 2017 Mail.Ru. All rights reserved.
 */
 "begin_update"="Begin update";
+"friends"="Friends";
+"account"="Account";
+"birthday_unknown"="Birthday unknown";
+"notifications"="Notifications";
+"everyday_pushes"="Everyday pushes";

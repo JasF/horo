@@ -13,6 +13,8 @@ static CGFloat const kRowHeight = 100;
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *friendsCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *accountCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *notificationsCell;
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
@@ -28,6 +30,15 @@ static CGFloat const kRowHeight = 100;
     _tableView.separatorColor = [UIColor clearColor];
     _tableView.allowsSelection = NO;
     _friendsDescriptionLabel.text = L(@"begin_update");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+        });
+    });
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -38,6 +49,8 @@ static CGFloat const kRowHeight = 100;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: return self.friendsCell;
+        case 1: return self.accountCell;
+        case 2: return self.notificationsCell;
     }
     return [UITableViewCell new];
 }
@@ -55,7 +68,7 @@ static CGFloat const kRowHeight = 100;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 3;
 }
 
 #pragma mark - Observer

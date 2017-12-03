@@ -12,6 +12,8 @@
 #import "DesignLabel.h"
 
 @interface DesignLabel ()
+@property (assign, nonatomic) CGFloat cachedWidth;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @end
 
 @implementation DesignLabel
@@ -20,6 +22,9 @@
     [super awakeFromNib];
     [self initialization];
     self.text = L(self.text);
+    _descriptionLabel.text = L(_descriptionLabel.text);
+    self.adjustsFontSizeToFitWidth = YES;
+    [self sizeToFit];
 }
 
 - (void)initialization {
@@ -33,6 +38,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [self updateMask];
+}
+
+- (void)updateMask {
     CALayer *aMaskLayer=[CALayer layer];
     UIImage *image = [UIImageView generateWithSize:[UIScreen mainScreen].bounds.size
                                               type:GradientMenuCell];

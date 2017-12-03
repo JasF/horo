@@ -66,26 +66,69 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="accountCell" destination="8g6-ZC-VpB" id="Yow-Po-pgo"/>
                         <outlet property="friendsCell" destination="qAx-0M-ccH" id="DEh-By-RXe"/>
                         <outlet property="friendsDescriptionLabel" destination="BJq-im-0Pt" id="UGx-Nr-Nk8"/>
+                        <outlet property="notificationsCell" destination="zqf-uQ-exO" id="AgE-BT-6Bd"/>
                         <outlet property="tableView" destination="ATg-3S-ZKj" id="Iru-rq-SAi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iM4-b4-tni" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qAx-0M-ccH">
+                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qAx-0M-ccH">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qAx-0M-ccH" id="9gH-WA-Qap">
+                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qAx-0M-ccH" id="9gH-WA-Qap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="friends" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF3-qc-IzU" customClass="DesignLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="friends" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF3-qc-IzU" customClass="DesignLabel">
                                 <rect key="frame" x="166" y="11" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="BJq-im-0Pt" id="frr-Wu-FZB"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJq-im-0Pt">
+                                <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJq-im-0Pt">
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IF3-qc-IzU" firstAttribute="leading" secondItem="9gH-WA-Qap" secondAttribute="leading" constant="20" id="7tM-gi-UiG"/>
+                            <constraint firstAttribute="bottom" secondItem="BJq-im-0Pt" secondAttribute="bottom" id="DMy-Qw-Blt"/>
+                            <constraint firstItem="BJq-im-0Pt" firstAttribute="width" secondItem="9gH-WA-Qap" secondAttribute="width" constant="-40" id="YMe-yf-HxW"/>
+                            <constraint firstItem="BJq-im-0Pt" firstAttribute="top" secondItem="IF3-qc-IzU" secondAttribute="bottom" id="ktC-j7-dsT"/>
+                            <constraint firstItem="BJq-im-0Pt" firstAttribute="leading" secondItem="9gH-WA-Qap" secondAttribute="leading" constant="20" id="pSe-Pl-79T"/>
+                            <constraint firstItem="IF3-qc-IzU" firstAttribute="top" secondItem="9gH-WA-Qap" secondAttribute="top" id="rjj-hG-3Cf"/>
+                            <constraint firstItem="IF3-qc-IzU" firstAttribute="width" secondItem="9gH-WA-Qap" secondAttribute="width" constant="-40" id="txT-kj-mjq"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableViewCell>
+                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8g6-ZC-VpB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8g6-ZC-VpB" id="4zT-mF-bAm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="account" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3U-OC-95N" customClass="DesignLabel">
+                                <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="a4l-11-McJ" id="YRr-zm-H7m"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="birthday_unknown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-11-McJ">
                                 <rect key="frame" x="166" y="11" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,13 +137,49 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IF3-qc-IzU" firstAttribute="leading" secondItem="9gH-WA-Qap" secondAttribute="leading" id="7tM-gi-UiG"/>
-                            <constraint firstAttribute="bottom" secondItem="BJq-im-0Pt" secondAttribute="bottom" id="DMy-Qw-Blt"/>
-                            <constraint firstItem="BJq-im-0Pt" firstAttribute="width" secondItem="9gH-WA-Qap" secondAttribute="width" id="YMe-yf-HxW"/>
-                            <constraint firstItem="BJq-im-0Pt" firstAttribute="top" secondItem="IF3-qc-IzU" secondAttribute="bottom" id="ktC-j7-dsT"/>
-                            <constraint firstItem="BJq-im-0Pt" firstAttribute="leading" secondItem="9gH-WA-Qap" secondAttribute="leading" id="pSe-Pl-79T"/>
-                            <constraint firstItem="IF3-qc-IzU" firstAttribute="top" secondItem="9gH-WA-Qap" secondAttribute="top" id="rjj-hG-3Cf"/>
-                            <constraint firstItem="IF3-qc-IzU" firstAttribute="width" secondItem="9gH-WA-Qap" secondAttribute="width" id="txT-kj-mjq"/>
+                            <constraint firstItem="p3U-OC-95N" firstAttribute="leading" secondItem="4zT-mF-bAm" secondAttribute="leading" constant="20" id="Ms4-T7-wFF"/>
+                            <constraint firstItem="p3U-OC-95N" firstAttribute="width" secondItem="4zT-mF-bAm" secondAttribute="width" constant="-40" id="Nxk-tG-KA5"/>
+                            <constraint firstItem="a4l-11-McJ" firstAttribute="top" secondItem="p3U-OC-95N" secondAttribute="bottom" id="RgX-o7-ZR1"/>
+                            <constraint firstItem="p3U-OC-95N" firstAttribute="top" secondItem="4zT-mF-bAm" secondAttribute="top" id="f7j-kA-lkq"/>
+                            <constraint firstAttribute="bottom" secondItem="a4l-11-McJ" secondAttribute="bottom" id="gQM-re-15B"/>
+                            <constraint firstItem="a4l-11-McJ" firstAttribute="width" secondItem="4zT-mF-bAm" secondAttribute="width" constant="-40" id="rxU-Jh-Ezp"/>
+                            <constraint firstItem="a4l-11-McJ" firstAttribute="leading" secondItem="4zT-mF-bAm" secondAttribute="leading" constant="20" id="wlb-OL-STt"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableViewCell>
+                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zqf-uQ-exO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zqf-uQ-exO" id="piM-U8-2mK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="notifications" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAY-4L-XeF" customClass="DesignLabel">
+                                <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="nVu-eb-7yk" id="P6S-Ti-TZh"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="everyday_pushes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVu-eb-7yk">
+                                <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nVu-eb-7yk" firstAttribute="top" secondItem="TAY-4L-XeF" secondAttribute="bottom" id="7A5-Pw-8nL"/>
+                            <constraint firstItem="TAY-4L-XeF" firstAttribute="top" secondItem="piM-U8-2mK" secondAttribute="top" id="GdP-3M-WR6"/>
+                            <constraint firstItem="nVu-eb-7yk" firstAttribute="leading" secondItem="piM-U8-2mK" secondAttribute="leading" constant="20" id="RSJ-VQ-Gvd"/>
+                            <constraint firstItem="nVu-eb-7yk" firstAttribute="width" secondItem="piM-U8-2mK" secondAttribute="width" constant="-40" id="fxY-ni-aGg"/>
+                            <constraint firstItem="TAY-4L-XeF" firstAttribute="leading" secondItem="piM-U8-2mK" secondAttribute="leading" constant="20" id="kha-ZI-stK"/>
+                            <constraint firstItem="TAY-4L-XeF" firstAttribute="width" secondItem="piM-U8-2mK" secondAttribute="width" constant="-40" id="uid-Ar-8lN"/>
+                            <constraint firstAttribute="bottom" secondItem="nVu-eb-7yk" secondAttribute="bottom" id="wlX-Qe-UuY"/>
                         </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

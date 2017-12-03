@@ -15,7 +15,7 @@ static CGFloat const kGradientLocationThird = 1.f;
 
 
 static CGFloat const kGradientMenuCellFirst = 0.0f;
-static CGFloat const kGradientMenuCellSecond = 0.25f;
+static CGFloat const kGradientMenuCellSecond = 0.18f;
 static CGFloat const kGradientMenuCellThird = 1.f;
 
 @implementation UIImageView (Horo)

@@ -1,5 +1,5 @@
 //
-//  DesignLabel.h
+//  MenuCell.h
 //  Horoscopes
 //
 //  Created by Jasf on 03.12.2017.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DesignLabel : UILabel
-- (void)animateHighligh:(BOOL)highlight;
+
+@interface MenuCell : UITableViewCell
+
 @end

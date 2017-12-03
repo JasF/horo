@@ -181,6 +181,7 @@
 		C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355E1FD3DEED005C862C /* UIImageView+Horo.m */; };
 		C34035651FD3ED29005C862C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
 		C34035691FD3EDC6005C862C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C340356B1FD3EDC6005C862C /* Localizable.strings */; };
+		C340356F1FD41184005C862C /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C340356E1FD41184005C862C /* MenuCell.m */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
@@ -785,6 +786,8 @@
 		C34035631FD3ED29005C862C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		C34035641FD3ED29005C862C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		C340356A1FD3EDC6005C862C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C340356D1FD41184005C862C /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		C340356E1FD41184005C862C /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1790,6 +1793,15 @@
 			path = texts;
 			sourceTree = "<group>";
 		};
+		C340356C1FD4116D005C862C /* MenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				C340356D1FD41184005C862C /* MenuCell.h */,
+				C340356E1FD41184005C862C /* MenuCell.m */,
+			);
+			path = MenuCell;
+			sourceTree = "<group>";
+		};
 		C36F77F71FD2DCD300581631 /* MaskingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2024,6 +2036,7 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C340356C1FD4116D005C862C /* MenuCell */,
 				C34035621FD3ED1E005C862C /* Utils */,
 				C34035591FD3DD1F005C862C /* DesignLabel */,
 				C36F77F71FD2DCD300581631 /* MaskingView */,
@@ -2779,6 +2792,7 @@
 				C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */,
 				C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */,
 				C38A628C1FD28A5C00012ECA /* HoroscopesCell.mm in Sources */,
+				C340356F1FD41184005C862C /* MenuCell.m in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
 				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,

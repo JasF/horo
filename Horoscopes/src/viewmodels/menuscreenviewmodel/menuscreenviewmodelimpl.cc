@@ -43,4 +43,8 @@ namespace horo {
     void MenuScreenViewModelImpl::friendsTapped() {
         screensManager_->showFriendsViewController();
     }
+    
+    void MenuScreenViewModelImpl::closeTapped() {
+        screensManager_->showPredictionViewController();
+    }
 };

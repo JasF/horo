@@ -25,6 +25,12 @@ typedef NS_ENUM(NSInteger, Direction) {
 
 #define L(a) NSLocalizedString(a, nil)
 
+typedef NS_ENUM (NSInteger, TouchState) {
+    TouchBegin,
+    TouchCancelled,
+    TouchFinished
+};
+
 #endif
 
 // Include any system framework and library headers here that should be included in all compilation units.

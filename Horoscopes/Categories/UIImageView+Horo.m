@@ -15,7 +15,7 @@ static CGFloat const kGradientLocationThird = 1.f;
 
 
 static CGFloat const kGradientMenuCellFirst = 0.0f;
-static CGFloat const kGradientMenuCellSecond = 0.18f;
+static CGFloat const kGradientMenuCellSecond = 0.5f;
 static CGFloat const kGradientMenuCellThird = 1.f;
 
 @implementation UIImageView (Horo)
@@ -32,7 +32,7 @@ static CGFloat const kGradientMenuCellThird = 1.f;
                                                             (id)[UIColor blackColor].CGColor,
                                                             (id)[UIColor blackColor].CGColor ],
                                       @(GradientMenuCell) : @[ (id)[UIColor blackColor].CGColor,
-                                                               (id)[UIColor clearColor].CGColor,
+                                                               (id)[UIColor blackColor].CGColor,
                                                                (id)[UIColor clearColor].CGColor ]};
     
     // AV: Проверки на случай добавления смены ориентации

@@ -12,6 +12,7 @@ static CGFloat const kRowHeight = 100;
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *closeCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *friendsCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *accountCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *notificationsCell;
@@ -48,9 +49,10 @@ static CGFloat const kRowHeight = 100;
 #pragma mark - UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: return self.friendsCell;
-        case 1: return self.accountCell;
-        case 2: return self.notificationsCell;
+        case 0: return self.closeCell;
+        case 1: return self.friendsCell;
+        case 2: return self.accountCell;
+        case 3: return self.notificationsCell;
     }
     return [UITableViewCell new];
 }
@@ -68,7 +70,7 @@ static CGFloat const kRowHeight = 100;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 #pragma mark - Observer
@@ -78,6 +80,9 @@ static CGFloat const kRowHeight = 100;
 
 - (IBAction)zodiacsTapped:(id)sender {
     _viewModel->zodiacsTapped();
+}
+- (IBAction)closeTapped:(id)sender {
+    _viewModel->closeTapped();
 }
 
 @end

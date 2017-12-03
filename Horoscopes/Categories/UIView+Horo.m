@@ -26,4 +26,21 @@
                           metrics:nil
                           views:NSDictionaryOfVariableBindings(subview)]];
 }
+
+- (UIImage *)horo_grabImage {
+    // Create a "canvas" (image context) to draw in.
+    UIGraphicsBeginImageContext([self bounds].size);
+    
+    // Make the CALayer to draw in our "canvas".
+    [[self layer] renderInContext:UIGraphicsGetCurrentContext()];
+    
+    // Fetch an UIImage of our "canvas".
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Stop the "canvas" from accepting any input.
+    UIGraphicsEndImageContext();
+    
+    // Return the image.
+    return image;
+}
 @end

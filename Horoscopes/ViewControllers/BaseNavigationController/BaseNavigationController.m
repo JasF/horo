@@ -7,6 +7,8 @@
 //
 
 #import "BaseNavigationController.h"
+#import "BackgroundView.h"
+#import "UIView+Horo.h"
 
 @interface BaseNavigationController ()
 
@@ -16,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    BackgroundView *backgroundView = [BackgroundView new];
+    [self.view horo_addFillingSubview:backgroundView];
+    [self.view sendSubviewToBack:backgroundView];
 }
 
 - (void)didReceiveMemoryWarning {

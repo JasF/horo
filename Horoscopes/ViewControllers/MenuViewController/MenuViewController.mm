@@ -13,6 +13,7 @@ static CGFloat const kRowHeight = 100;
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *friendsCell;
+@property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
 @implementation MenuViewController
@@ -25,6 +26,8 @@ static CGFloat const kRowHeight = 100;
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
+    _tableView.allowsSelection = NO;
+    _friendsDescriptionLabel.text = L(@"begin_update");
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

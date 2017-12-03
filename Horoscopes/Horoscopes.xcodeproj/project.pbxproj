@@ -177,6 +177,10 @@
 		C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D71FA375E600C0B1C6 /* AFSecurityPolicy.m */; };
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
+		C340355C1FD3DD50005C862C /* DesignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355B1FD3DD50005C862C /* DesignLabel.m */; };
+		C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355E1FD3DEED005C862C /* UIImageView+Horo.m */; };
+		C34035651FD3ED29005C862C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
+		C34035691FD3EDC6005C862C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C340356B1FD3EDC6005C862C /* Localizable.strings */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
@@ -774,6 +778,13 @@
 		C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
+		C340355A1FD3DD50005C862C /* DesignLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignLabel.h; sourceTree = "<group>"; };
+		C340355B1FD3DD50005C862C /* DesignLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignLabel.m; sourceTree = "<group>"; };
+		C340355D1FD3DEED005C862C /* UIImageView+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Horo.h"; sourceTree = "<group>"; };
+		C340355E1FD3DEED005C862C /* UIImageView+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Horo.m"; sourceTree = "<group>"; };
+		C34035631FD3ED29005C862C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		C34035641FD3ED29005C862C /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		C340356A1FD3EDC6005C862C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1107,6 +1118,7 @@
 		4B0FD36F1FA06C96006378B6 /* Horoscopes */ = {
 			isa = PBXGroup;
 			children = (
+				C34035661FD3EDA7005C862C /* texts */,
 				4B0FD3701FA06C96006378B6 /* AppDelegate.h */,
 				4B0FD3711FA06C96006378B6 /* AppDelegate.mm */,
 				4B0FD3731FA06C96006378B6 /* ViewController.h */,
@@ -1752,6 +1764,32 @@
 			path = base;
 			sourceTree = "<group>";
 		};
+		C34035591FD3DD1F005C862C /* DesignLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C340355A1FD3DD50005C862C /* DesignLabel.h */,
+				C340355B1FD3DD50005C862C /* DesignLabel.m */,
+			);
+			path = DesignLabel;
+			sourceTree = "<group>";
+		};
+		C34035621FD3ED1E005C862C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C34035631FD3ED29005C862C /* Utils.h */,
+				C34035641FD3ED29005C862C /* Utils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C34035661FD3EDA7005C862C /* texts */ = {
+			isa = PBXGroup;
+			children = (
+				C340356B1FD3EDC6005C862C /* Localizable.strings */,
+			);
+			path = texts;
+			sourceTree = "<group>";
+		};
 		C36F77F71FD2DCD300581631 /* MaskingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1958,6 +1996,8 @@
 				C38A62961FD291FF00012ECA /* UIView+Horo.m */,
 				C38A62981FD29A8B00012ECA /* NSString+Horo.h */,
 				C38A62991FD29A8B00012ECA /* NSString+Horo.mm */,
+				C340355D1FD3DEED005C862C /* UIImageView+Horo.h */,
+				C340355E1FD3DEED005C862C /* UIImageView+Horo.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1984,6 +2024,8 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C34035621FD3ED1E005C862C /* Utils */,
+				C34035591FD3DD1F005C862C /* DesignLabel */,
 				C36F77F71FD2DCD300581631 /* MaskingView */,
 				C38A628D1FD28B5700012ECA /* PredictionContentViewController */,
 				C38A62891FD28A4400012ECA /* HoroscopesCell */,
@@ -2637,6 +2679,7 @@
 				C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
 				C31A13E31FB06168001FABFE /* char_ref.rl in Resources */,
+				C34035691FD3EDC6005C862C /* Localizable.strings in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
 				4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */,
 			);
@@ -2688,6 +2731,7 @@
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
+				C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */,
 				C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */,
@@ -2747,6 +2791,7 @@
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
 				C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */,
+				C340355C1FD3DD50005C862C /* DesignLabel.m in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
@@ -2764,6 +2809,7 @@
 				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
+				C34035651FD3ED29005C862C /* Utils.m in Sources */,
 				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
@@ -2788,6 +2834,14 @@
 				4B0FD37C1FA06C96006378B6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C340356B1FD3EDC6005C862C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C340356A1FD3EDC6005C862C /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

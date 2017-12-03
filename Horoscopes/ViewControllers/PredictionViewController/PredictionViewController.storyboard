@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,27 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-sy-0Jg" customClass="BackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-cyclic" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-hm-CTj">
-                                        <rect key="frame" x="0.0" y="0.0" width="1206" height="603"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="fOf-hm-CTj" secondAttribute="height" multiplier="2:1" id="hsg-kF-fkc"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="fOf-hm-CTj" firstAttribute="top" secondItem="PaJ-sy-0Jg" secondAttribute="top" id="A8a-0u-13g"/>
-                                    <constraint firstItem="fOf-hm-CTj" firstAttribute="height" secondItem="PaJ-sy-0Jg" secondAttribute="height" id="Tdk-Lg-g63"/>
-                                    <constraint firstItem="fOf-hm-CTj" firstAttribute="leading" secondItem="PaJ-sy-0Jg" secondAttribute="leading" id="cJt-zD-30r"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="imageView" destination="fOf-hm-CTj" id="lfy-YM-rlM"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-ik-VwC" customClass="MaskingView">
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="603"/>
                                 <subviews>
@@ -66,12 +44,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="BqR-iM-shr"/>
-                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="height" secondItem="gul-Lk-ZSH" secondAttribute="height" id="Qca-ez-UsB"/>
                             <constraint firstItem="bCJ-Af-vXP" firstAttribute="top" secondItem="Uf5-ik-VwC" secondAttribute="bottom" constant="0.5" id="U5U-8A-Dnu"/>
-                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="centerY" secondItem="gul-Lk-ZSH" secondAttribute="centerY" id="Wfb-M5-fY2"/>
                             <constraint firstItem="Uf5-ik-VwC" firstAttribute="top" secondItem="y0m-NJ-iMr" secondAttribute="bottom" constant="-0.5" id="YAl-ou-NgC"/>
-                            <constraint firstItem="PaJ-sy-0Jg" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="YhO-hH-o5I"/>
                             <constraint firstItem="Uf5-ik-VwC" firstAttribute="centerX" secondItem="gul-Lk-ZSH" secondAttribute="centerX" id="f2E-Tl-mSZ"/>
                             <constraint firstItem="Uf5-ik-VwC" firstAttribute="width" secondItem="gul-Lk-ZSH" secondAttribute="width" id="xTk-gL-JsX"/>
                         </constraints>
@@ -259,7 +233,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg-cyclic" width="1024" height="512"/>
         <image name="menuIcon" width="23" height="19"/>
         <image name="sharing" width="19" height="26"/>
     </resources>

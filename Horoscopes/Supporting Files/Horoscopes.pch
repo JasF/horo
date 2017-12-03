@@ -23,6 +23,8 @@ typedef NS_ENUM(NSInteger, Direction) {
     DirectionForwardToLeft
 };
 
+#define L(a) NSLocalizedString(a, nil)
+
 #endif
 
 // Include any system framework and library headers here that should be included in all compilation units.

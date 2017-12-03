@@ -6,8 +6,9 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#import "BackgroundView.h"
 #import "UIView+TKGeometry.h"
+#import "BackgroundView.h"
+#import "UIView+Horo.h"
 
 static CGFloat const kAnimationDuration = 50.f;
 
@@ -17,6 +18,51 @@ static CGFloat const kAnimationDuration = 50.f;
 @end
 
 @implementation BackgroundView
+
+- (id)init {
+    if (self = [super init]) {
+        [self initialization];
+    }
+    return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self initialization];
+}
+
+- (void)initialization {
+    if (!_imageView) {
+        _imageView = [UIImageView new];
+        [self addSubview:_imageView];
+        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSMutableArray *array = [NSMutableArray new];
+        [array addObject:[NSLayoutConstraint constraintWithItem:_imageView
+                                                      attribute:NSLayoutAttributeTop
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeTop
+                                                     multiplier:1.f
+                                                       constant:0.f]];
+        [array addObject:[NSLayoutConstraint constraintWithItem:_imageView
+                                                      attribute:NSLayoutAttributeHeight
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeHeight
+                                                     multiplier:1.f
+                                                       constant:0.f]];
+        [array addObject:[NSLayoutConstraint constraintWithItem:_imageView
+                                                      attribute:NSLayoutAttributeLeading
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeLeading
+                                                     multiplier:1.f
+                                                       constant:0.f]];
+        [self addConstraints:array];
+    }
+    _imageView.image = [UIImage imageNamed:@"bg-cyclic"];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.animationSeed = self.animationSeed + 1;

@@ -24,6 +24,7 @@ WKUIDelegate, WKNavigationDelegate>
 @property (assign, nonatomic) BOOL needSetContentOffset;
 @property (assign, nonatomic) BOOL moreFriendsRequest;
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
+@property (strong, nonatomic) NSURL *friendsWorkingURL;
 @end
 
 @implementation FriendsViewController
@@ -179,6 +180,9 @@ static FriendsViewController *staticInstance = nil;
 
 - (void)performSuccessCallback:(BOOL)withClean {
     @weakify(self);
+    if (![_wkWebView.URL.path isEqual:_friendsWorkingURL.path]) {
+        return;
+    }
     [_wkWebView evaluateJavaScript:@"document.documentElement.outerHTML" completionHandler:^(id _Nullable object, NSError * _Nullable error) {
         @strongify(self);
         if (self.webViewDidLoadCompletion) {
@@ -190,6 +194,9 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    if (![_wkWebView.URL.path isEqual:_friendsWorkingURL.path]) {
+        return;
+    }
     if (self.webViewDidLoadCompletion) {
         auto cb = self.webViewDidLoadCompletion;
         self.webViewDidLoadCompletion = nil;
@@ -201,6 +208,7 @@ static FriendsViewController *staticInstance = nil;
 - (void)loadFriendsWithPath:(NSURL *)friendsUrl completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
     NSCParameterAssert(friendsUrl);
     NSCParameterAssert(completion);
+    _friendsWorkingURL = friendsUrl;
     self.webViewDidLoadCompletion = completion;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:friendsUrl];
     [_wkWebView loadRequest:request];

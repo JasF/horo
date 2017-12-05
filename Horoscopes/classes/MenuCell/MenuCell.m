@@ -36,6 +36,11 @@
 
 #pragma mark - Observers
 - (IBAction)tapped:(id)sender {
+    if (_tappedBlock) {
+        if (_tappedBlock()) {
+            return;
+        }
+    }
     [self executeCallback:TouchFinished];
 }
 

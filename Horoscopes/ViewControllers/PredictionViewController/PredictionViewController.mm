@@ -7,6 +7,7 @@
 //
 
 #import "PredictionViewController.h"
+#import "UINavigationBar+Horo.h"
 #import "HoroscopesCell.h"
 #import "NSString+Horo.h"
 #import "UIView+Horo.h"
@@ -60,7 +61,11 @@ static NSInteger const kTodayTabIndex = 1;
     @weakify(self);
     _viewModel->setDataFetchedCallback([self_weak_](bool success) {
         @strongify(self);
-        self.tabs.titles = [NSString horo_stringsArrayWithList:self.viewModel->tabsTitles()];
+        NSMutableArray *localizedStrings = [NSMutableArray new];
+        for (NSString *string in [NSString horo_stringsArrayWithList:self.viewModel->tabsTitles()]) {
+            [localizedStrings addObject:L(string)];
+        }
+        self.tabs.titles = localizedStrings;
         self.horoscopesCell.texts = [NSString horo_stringsArrayWithList:self.viewModel->horoscopesText()];
         [self updatePredictionHeight];
         if (self.tabs.titles.count > kTodayTabIndex) {
@@ -71,23 +76,13 @@ static NSInteger const kTodayTabIndex = 1;
     });
     _viewModel->didActivated();
     
-    _zodiacLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacName().c_str()];
-    _zodiacDateLabel.text = [[NSString alloc] initWithUTF8String:_viewModel->zodiacDateString().c_str()];
+    _zodiacLabel.text = L([NSString stringWithUTF8String:_viewModel->zodiacName().c_str()]);
+    _zodiacDateLabel.text = L([NSString stringWithUTF8String:_viewModel->zodiacDateString().c_str()]);
     NSString *iconName = [_zodiacLabel.text lowercaseString];
     UIImage *image = [UIImage imageNamed:iconName];
     NSCAssert(image, @"image cannot be nil");
     _titleImageView.image = image;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    NSMutableArray *array = [self.navigationController.navigationBar.subviews mutableCopy];
-    if (array.count) {
-        [array.firstObject removeFromSuperview];
-    }
-    self.navigationController.navigationBar.opaque = YES;
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    [self.navigationController.navigationBar horo_makeTransparent];
     
     _viewModel->tabsTitles();
     // Do any additional setup after loading the view.

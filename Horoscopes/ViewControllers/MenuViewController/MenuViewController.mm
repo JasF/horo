@@ -7,15 +7,16 @@
 //
 
 #import "MenuViewController.h"
+#import "MenuCell.h"
 
 static CGFloat const kRowHeight = 100;
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *closeCell;
-@property (strong, nonatomic) IBOutlet UITableViewCell *friendsCell;
-@property (strong, nonatomic) IBOutlet UITableViewCell *accountCell;
-@property (strong, nonatomic) IBOutlet UITableViewCell *notificationsCell;
+@property (strong, nonatomic) IBOutlet MenuCell *friendsCell;
+@property (strong, nonatomic) IBOutlet MenuCell *accountCell;
+@property (strong, nonatomic) IBOutlet MenuCell *notificationsCell;
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
@@ -31,15 +32,22 @@ static CGFloat const kRowHeight = 100;
     _tableView.separatorColor = [UIColor clearColor];
     _tableView.allowsSelection = NO;
     _friendsDescriptionLabel.text = L(@"begin_update");
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [_tableView reloadData];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [_tableView reloadData];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [_tableView reloadData];
-            });
-        });
-    });
+    @weakify(self);
+    _friendsCell.tappedBlock = ^BOOL{
+        @strongify(self);
+        self.viewModel->friendsTapped();
+        return YES;
+    };
+    _accountCell.tappedBlock = ^BOOL{
+        @strongify(self);
+        self.viewModel->accountTapped();
+        return YES;
+    };
+    _notificationsCell.tappedBlock = ^BOOL{
+        @strongify(self);
+        self.viewModel->notificationsTapped();
+        return NO;
+    };
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

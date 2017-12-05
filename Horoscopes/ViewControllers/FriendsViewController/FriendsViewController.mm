@@ -7,9 +7,10 @@
 //
 
 #import "FriendsViewController.h"
+#import "UINavigationBar+Horo.h"
 #import <WebKit/WebKit.h>
-#import "FriendCell.h"
 #include "data/person.h"
+#import "FriendCell.h"
 
 static int kObservingContentSizeChangesContext;
 static CGFloat const kRowHeight = 100;
@@ -93,6 +94,7 @@ static FriendsViewController *staticInstance = nil;
     _wkWebView.UIDelegate = self;
     _wkWebView.navigationDelegate = self;
     [self startObservingContentSizeChangesInWebView:_wkWebView];
+    [self.navigationController.navigationBar horo_makeTransparent];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -151,7 +153,7 @@ static FriendsViewController *staticInstance = nil;
         return;
     }
     NSInteger index = indexPath.row - 1;
-    _viewModel->friendWithIndexSelected(index);
+    _viewModel->friendWithIndexSelected((int)index);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -227,8 +229,13 @@ static FriendsViewController *staticInstance = nil;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
+#pragma mark - Observers
 - (IBAction)updateFriendsTapped:(id)sender {
     _viewModel->updateFriendsFromFacebook();
+}
+
+- (IBAction)menuTapped:(id)sender {
+    _viewModel->menuTapped();
 }
 
 @end

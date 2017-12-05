@@ -7,6 +7,7 @@
 //
 
 #include "predictionscreenmodelimpl.h"
+#include "base/platform.h"
 
 namespace horo {
     
@@ -81,8 +82,8 @@ std::string PredictionScreenModelImpl::zodiacDateString() {
     DateWrapper startDate = Zodiac::startDateForType(zodiac()->type());
     DateWrapper endDate = Zodiac::endDateForType(zodiac()->type());
     SCAssert(startDate.day() && startDate.month() && endDate.day() && endDate.month(), "Parameters must be satisfied");
-    string startMonth = horo::stringByMonth((Months)startDate.month());
-    string endMonth = stringByMonth((Months)endDate.month());
+    string startMonth = loc(stringByMonth((Months)startDate.month()));
+    string endMonth = loc(stringByMonth((Months)endDate.month()));
     string resultString = std::to_string(startDate.day()) + " " + startMonth + " - " + std::to_string(endDate.day()) + " " + endMonth;
     return resultString;
 }

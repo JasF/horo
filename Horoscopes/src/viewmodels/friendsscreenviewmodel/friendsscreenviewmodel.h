@@ -19,6 +19,7 @@ namespace horo {
         virtual ~_FriendsScreenViewModel(){}
     public:
         virtual void updateFriendsFromFacebook() = 0;
+        virtual void menuTapped() = 0;
         virtual bool webViewDidLoad(std::string url) = 0;
         virtual int friendsCount()=0;
         virtual void friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback)=0;

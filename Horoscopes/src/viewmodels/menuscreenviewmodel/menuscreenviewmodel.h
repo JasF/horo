@@ -22,6 +22,8 @@ namespace horo {
         virtual void loggedInOverFacebook()=0;
         virtual void zodiacsTapped()=0;
         virtual void friendsTapped()=0;
+        virtual void accountTapped()=0;
+        virtual void notificationsTapped()=0;
         virtual void closeTapped()=0;
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
     };

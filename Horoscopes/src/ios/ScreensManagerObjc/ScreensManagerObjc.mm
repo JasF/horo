@@ -37,13 +37,7 @@ namespace horo {
            viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
             
            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-           UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
-           if ([navController isKindOfClass:[UINavigationController class]]) {
-               [navController pushViewController:viewController animated:YES];
-           }
-           else {
-               delegate.window.rootViewController = navigationController;
-           }
+           delegate.window.rootViewController = navigationController;
         }
         
         void showPredictionViewController() override {
@@ -65,7 +59,6 @@ namespace horo {
                 frame.origin.y = frame.size.height;
                 viewController.view.frame = frame;
                 [navController.view addSubview:viewController.view];
-               // viewController.view.alpha = 0.4f;
                 [viewController didMoveToParentViewController:navController];
                 frame.origin.y = 0.f;
                 viewController.view.frame = frame;

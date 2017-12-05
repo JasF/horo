@@ -36,6 +36,10 @@ namespace horo {
         model_->updateFriendsFromFacebook();
     }
     
+    void FriendsScreenViewModelImpl::menuTapped() {
+        screensManager_->showMenuViewController(true);
+    }
+    
     bool FriendsScreenViewModelImpl::webViewDidLoad(std::string url) {
         return model_->webViewDidLoad(url);
     }

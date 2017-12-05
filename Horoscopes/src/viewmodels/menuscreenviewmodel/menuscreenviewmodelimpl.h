@@ -25,6 +25,8 @@ namespace horo {
         void loggedInOverFacebook() override;
         void zodiacsTapped() override;
         void friendsTapped() override;
+        void accountTapped() override;
+        void notificationsTapped() override;
         void closeTapped() override;
         
     private:

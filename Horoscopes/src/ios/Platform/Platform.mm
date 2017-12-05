@@ -26,6 +26,10 @@ namespace horo {
     string toLowerCase(string source) {
         return [[[NSString stringWithUTF8String:source.c_str()] lowercaseString] UTF8String];
     }
+    
+    string loc(string term) {
+        return [L([NSString stringWithUTF8String:term.c_str()]) UTF8String];
+    }
 };
 
 @implementation Platform

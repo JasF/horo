@@ -177,6 +177,7 @@
 		C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D71FA375E600C0B1C6 /* AFSecurityPolicy.m */; };
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
+		C33E3E5E1FD675E200DBADEB /* UINavigationBar+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */; };
 		C340355C1FD3DD50005C862C /* DesignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355B1FD3DD50005C862C /* DesignLabel.m */; };
 		C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355E1FD3DEED005C862C /* UIImageView+Horo.m */; };
 		C34035651FD3ED29005C862C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
@@ -779,6 +780,8 @@
 		C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
 		C33B99E41FA46FA200C0B1C6 /* horobase.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = horobase.cc; sourceTree = "<group>"; };
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
+		C33E3E5C1FD675E200DBADEB /* UINavigationBar+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Horo.h"; sourceTree = "<group>"; };
+		C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Horo.m"; sourceTree = "<group>"; };
 		C340355A1FD3DD50005C862C /* DesignLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignLabel.h; sourceTree = "<group>"; };
 		C340355B1FD3DD50005C862C /* DesignLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignLabel.m; sourceTree = "<group>"; };
 		C340355D1FD3DEED005C862C /* UIImageView+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Horo.h"; sourceTree = "<group>"; };
@@ -2010,6 +2013,8 @@
 				C38A62991FD29A8B00012ECA /* NSString+Horo.mm */,
 				C340355D1FD3DEED005C862C /* UIImageView+Horo.h */,
 				C340355E1FD3DEED005C862C /* UIImageView+Horo.m */,
+				C33E3E5C1FD675E200DBADEB /* UINavigationBar+Horo.h */,
+				C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2724,6 +2729,7 @@
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
 				C30409451FA77F0700A0FC33 /* horoscopedaoimpl.cc in Sources */,
 				C31A13E91FB06168001FABFE /* error.c in Sources */,
+				C33E3E5E1FD675E200DBADEB /* UINavigationBar+Horo.m in Sources */,
 				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
 				C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,

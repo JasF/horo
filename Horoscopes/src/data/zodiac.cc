@@ -16,18 +16,18 @@ namespace horo {
     
     string stringByMonth(Months month) {
         switch (month) {
-            case January: return "January";
-            case February: return "February";
-            case March: return "March";
-            case April: return "April";
-            case May: return "May";
-            case June: return "June";
-            case July: return "July";
-            case August: return "August";
-            case September: return "September";
-            case October: return "October";
-            case November: return "November";
-            case December: return "December";
+            case January: return "january";
+            case February: return "february";
+            case March: return "march";
+            case April: return "april";
+            case May: return "may";
+            case June: return "june";
+            case July: return "july";
+            case August: return "august";
+            case September: return "september";
+            case October: return "october";
+            case November: return "november";
+            case December: return "december";
             case MonthUnknown:
             default:break;
         }
@@ -115,18 +115,18 @@ DateWrapper _Zodiac::endDateForType(ZodiacTypes aType) {
 std::string _Zodiac::name() const {
     static dictionary dict;
     if (!dict.size()) {
-        dict[Aquarius] = "Aquarius";
-        dict[Pisces] = "Pisces";
-        dict[Aries] = "Aries";
-        dict[Taurus] = "Taurus";
-        dict[Gemini] = "Gemini";
-        dict[Cancer] = "Cancer";
-        dict[Leo] = "Leo";
-        dict[Virgo] = "Virgo";
-        dict[Libra] = "Libra";
-        dict[Scorpio] = "Scorpio";
-        dict[Sagittarius] = "Sagittarius";
-        dict[Capricorn] = "Capricorn";
+        dict[Aquarius] = "aquarius";
+        dict[Pisces] = "pisces";
+        dict[Aries] = "aries";
+        dict[Taurus] = "taurus";
+        dict[Gemini] = "gemini";
+        dict[Cancer] = "cancer";
+        dict[Leo] = "leo";
+        dict[Virgo] = "virgo";
+        dict[Libra] = "libra";
+        dict[Scorpio] = "scorpio";
+        dict[Sagittarius] = "sagittarius";
+        dict[Capricorn] = "capricorn";
     }
     std::string result = dict[type()].asString();
     SCAssert(result.length(), "unknown zodiac type");

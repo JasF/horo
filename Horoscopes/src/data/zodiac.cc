@@ -80,6 +80,10 @@ ZodiacTypes _Zodiac::zodiacTypeByDate(Months month, int day, int /*year*/) {
     return Unknown;
 }
     
+ZodiacTypes _Zodiac::zodiacTypeByDate(DateWrapper wrapper) {
+    return _Zodiac::zodiacTypeByDate((Months)wrapper.month(), wrapper.day(), wrapper.year());
+}
+
 DateWrapper _Zodiac::startDateForType(ZodiacTypes aType) {
     Json::Value &data = zodiacTypesDatasource();
     for( Json::ValueIterator it = data.begin(); it != data.end(); ++it )

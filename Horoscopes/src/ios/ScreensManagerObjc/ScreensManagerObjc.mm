@@ -26,6 +26,10 @@ namespace horo {
         ~ScreensManagerObjc() override {}
     public:
        void showPredictionViewController(strong<Person> person) override {
+           SCParameterAssert( !person.get() || (person.get() && person->zodiac().get()) );
+           if (person.get() && !person->zodiac().get()) {
+               return;
+           }
            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController"
                                                                 bundle:nil];
             

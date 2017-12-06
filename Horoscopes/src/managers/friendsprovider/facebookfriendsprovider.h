@@ -30,13 +30,12 @@ namespace horo {
     public:
         void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) override;
         bool webViewDidLoad(std::string url) override;
-        void requestUserInformation(string path, std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) override;
+        void requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) override;
         
     private:
         void parseHomePage(Json::Value json);
         void parseUserInformationPage(Json::Value json);
         void parseFriendsPage(Json::Value json);
-        void parseFriendInformationPage(Json::Value json);
         void parseUserDetailPage(Json::Value json);
         
     private:
@@ -46,7 +45,6 @@ namespace horo {
         void executeHomePageRequest();
         void executeUserInformationPageRequest(std::string path);
         void executeFriendsPageRequest(std::string path);
-        void executeFriendInformationPageRequest(string path);
         void executeUserDetailPageRequest(string path);
         void executeRequestFriendsNextPage();
         void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback);
@@ -67,6 +65,7 @@ namespace horo {
         std::string currentPath_;
         Json::Value parameters_;
         std::string friendsUrl_;
+        std::function<void(DateWrapper birthday)> userInformationCompletion_;
         std::function<void(strong<HttpResponse> response, Json::Value value)> currentCallback_;
     };
 };

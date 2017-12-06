@@ -24,10 +24,7 @@ namespace horo {
             SCParameterAssert(birthdayDetector_.get());
         }
         ~FacebookUserDetailParser() override {}
-        
-        
-        string birthdayDateDetectorString();
-        
+
     public:
         Json::Value parse() override;
         

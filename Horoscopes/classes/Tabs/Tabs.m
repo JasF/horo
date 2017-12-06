@@ -60,7 +60,9 @@ static CGFloat const kAnimationDuration = 0.25f;
     TabsItemView *selectedItem = self.selectedItem;
     
     dispatch_block_t block = ^{
-        [itemView setItemHighlighted:NO syncLabelColor:YES];
+        if (![itemView isEqual:selectedItem]) {
+            [itemView setItemHighlighted:NO syncLabelColor:YES];
+        }
         [selectedItem setItemHighlighted:YES syncLabelColor:YES];
     };
     if (animated) {

@@ -72,7 +72,7 @@ namespace horo {
         }
         Json::Value data = person->encoded();
         if (callback) {
-            callback(person->name(), person->birthdayDate().toString());
+            callback(person->personUrl(), person->birthdayDate().toString());
         }
     }
     
@@ -101,11 +101,17 @@ namespace horo {
             screensManager_->showPredictionViewController(person);
         }
         else if (person->status() == StatusReadyForRequest) {
-            friendsManager_->updateUserInformationForPerson(person, [](bool success){
+            friendsManager_->updateUserInformationForPerson(person, [this, person](bool success){
                 if (success) {
-                    
+                    screensManager_->showPredictionViewController(person);
+                }
+                else {
+                    LOG(LS_ERROR) << "Show error message about unknown birthday date";
                 }
             });
+        }
+        else if (person->status() == StatusFailed) {
+            LOG(LS_ERROR) << "Show error message about unknown birthday date";
         }
         else {
             SCAssert(person->status() == StatusReadyForRequest || person->status() == StatusCompleted, "unhandled failed selection of friend");

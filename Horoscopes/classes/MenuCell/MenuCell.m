@@ -19,13 +19,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _descriptionLabel.text = L(_descriptionLabel.text);
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)layoutSubviews {
@@ -33,11 +26,15 @@
     [_label animateHighligh:NO];
 }
 
+- (void)prepareForShowing {
+    [_label animateHighligh:NO];
+}
 
 #pragma mark - Observers
 - (IBAction)tapped:(id)sender {
     if (_tappedBlock) {
         if (_tappedBlock()) {
+            _activeTouch = nil;
             return;
         }
     }
@@ -60,7 +57,17 @@
 }
 
 #pragma mark - UIView Overriden Methods
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    [self cancelTouches:touches];
+}
+
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    [self cancelTouches:touches];
+}
+
+- (void)cancelTouches:(NSSet<UITouch *> *)touches {
     if (!_activeTouch) {
         return;
     }

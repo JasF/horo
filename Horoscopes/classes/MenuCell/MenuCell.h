@@ -11,4 +11,5 @@
 
 @interface MenuCell : UITableViewCell
 @property (nonatomic, copy, nullable) BOOL (^tappedBlock)();
+- (void)prepareForShowing;
 @end

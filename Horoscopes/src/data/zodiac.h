@@ -52,6 +52,7 @@ string stringByMonth(Months month);
 class _Zodiac {
 public:
     static ZodiacTypes zodiacTypeByDate(Months month, int day, int year); // start from 1 = first day
+    static ZodiacTypes zodiacTypeByDate(DateWrapper wrapper);
     static DateWrapper startDateForType(ZodiacTypes type);
     static DateWrapper endDateForType(ZodiacTypes type);
 public:

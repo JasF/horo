@@ -50,6 +50,11 @@ static CGFloat const kRowHeight = 100;
     };
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_tableView reloadData];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
@@ -63,6 +68,14 @@ static CGFloat const kRowHeight = 100;
         case 3: return self.notificationsCell;
     }
     return [UITableViewCell new];
+}
+
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(MenuCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell isKindOfClass:[MenuCell class]]) {
+        [cell prepareForShowing];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

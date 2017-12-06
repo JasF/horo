@@ -48,9 +48,16 @@ void FriendsManagerImpl::loadFacebookFriends() {
 }
     
 void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) {
-    
-    std::function<void(Json::Value friends, std::string url, FriendsProvider::RequestStatus status)> safeCompletion = [this](Json::Value friends, std::string url, FriendsProvider::RequestStatus status) {
-        
+    SCParameterAssert(person.get());
+    std::function<void(DateWrapper birthday)> safeCompletion = [person, callback](DateWrapper birthday) {
+        bool success = (birthday.month()>0);
+        person->setBirthdayDate(birthday);
+        person->setPersonStatus( (success) ? StatusCompleted : StatusFailed );
+        ZodiacTypes type = Zodiac::zodiacTypeByDate(birthday);
+        person->setZodiac(new Zodiac(type));
+        if (callback) {
+            callback(success);
+        }
     };
     
     SCAssert(person->personUrl().length(), "person with corrupted personUrl() detected");

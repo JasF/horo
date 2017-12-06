@@ -70,10 +70,4 @@ namespace horo {
             }
         }
     }
-    
-    string FacebookUserDetailParser::birthdayDateDetectorString() {
-        return "Дата рождения";
-    }
 };
-
-

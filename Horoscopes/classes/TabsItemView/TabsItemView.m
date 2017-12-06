@@ -47,7 +47,17 @@ static CGFloat const kSemiHighlightedItemViewAlpha = kHighlightedItemViewAlpha /
 }
 
 #pragma mark - UIView Overriden Methods
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    [self cancelTouches:touches];
+}
+
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    [self cancelTouches:touches];
+}
+
+- (void)cancelTouches:(NSSet<UITouch *> *)touches {
     if (!_activeTouch) {
         return;
     }

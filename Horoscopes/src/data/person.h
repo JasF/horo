@@ -53,11 +53,14 @@ namespace horo {
         string uniqueIdentifier();
         string name() const { return name_; }
         DateWrapper birthdayDate() const { return birthdayDate_; }
+        void setBirthdayDate(DateWrapper date) { birthdayDate_ = date; }
         PersonStatus status() const { return status_; }
+        void setPersonStatus(PersonStatus status) { status_ = status; }
         PersonType type() const { return type_; }
         Gender gender() const { return gender_; }
         string imageUrl() const { return imageUrl_; }
         string personUrl() const { return personUrl_; }
+        void setZodiac(strong<Zodiac> zodiac) { zodiac_ = zodiac; }
     private:
         std::string name_; // utf-8
         std::string imageUrl_;

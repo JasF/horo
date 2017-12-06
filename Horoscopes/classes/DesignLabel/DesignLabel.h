@@ -10,4 +10,5 @@
 
 @interface DesignLabel : UILabel
 - (void)animateHighligh:(BOOL)highlight;
+- (void)animateHighligh:(BOOL)highlight animated:(BOOL)animated;
 @end

@@ -52,16 +52,6 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
         aProvider->parseFriendsPage(json);
     });
 }
-
-void FacebookFriendsProvider::executeFriendInformationPageRequest(string path) {
-    SCParameterAssert(path.length());
-    if (!path.length()) {
-        return;
-    }
-    executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
-        this->parseFriendInformationPage(json);
-    });
-}
     
 void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
     SCParameterAssert(path.length());
@@ -148,8 +138,19 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     return false;
 }
     
-void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) {
-    executeFriendInformationPageRequest(path);
+void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) {
+    userInformationCompletion_ = completion;
+    if (path.find("profile.php") == string::npos) {
+        size_t index = path.find("?");
+        if (index != string::npos) {
+            path = path.substr(0, index);
+        }
+        path += "/about";
+    }
+    else {
+        path += "&v=info";
+    }
+    executeUserDetailPageRequest(path);
 }
 
 void FacebookFriendsProvider::parseHomePage(Json::Value json) {
@@ -188,24 +189,18 @@ void FacebookFriendsProvider::parseFriendsPage(Json::Value json) {
     executeRequestFriendsNextPage();    
 }
 
-void FacebookFriendsProvider::parseFriendInformationPage(Json::Value json) {
-    std::string text = json["text"].asString();
-    strong<HtmlParser> parser = parserFactory_->createFacebookFriendInformationParser(text);
-    Json::Value result = parser->parse();
-    
-    string url = result["url"].asString();
-    if (url.length()) {
-        executeUserDetailPageRequest(url);
-    }
-}
-
 void FacebookFriendsProvider::parseUserDetailPage(Json::Value json) {
     std::string text = json["text"].asString();
     strong<HtmlParser> parser = parserFactory_->createFacebookUserDetailParser(text);
     Json::Value result = parser->parse();
     string dateString = result["birthdayTimestamp"].asString();
+    DateWrapper wrapper;
     if (dateString.length()) {
         DateWrapper date(dateString);
+        wrapper = date;
+    }
+    if (userInformationCompletion_) {
+        userInformationCompletion_(wrapper);
     }
 }
 

@@ -11,13 +11,16 @@
 #import "UIView+Horo.h"
 #import "DesignLabel.h"
 
+static CGFloat const kAnimationDuration = 0.5f;
+
 @interface DesignLabel ()
 @property (assign, nonatomic) CGFloat cachedWidth;
-
 @property (strong, nonatomic) UIImageView *imageView;
 @end
 
-@implementation DesignLabel
+@implementation DesignLabel {
+    BOOL _backgroundHighlighted;
+}
 #pragma mark - Initialization
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -50,20 +53,27 @@
     aMaskLayer.contents=(id)image.CGImage;
     aMaskLayer.frame = CGRectMake(0,0, image.size.width, image.size.height);
     self.layer.mask=aMaskLayer;
-    
-    /*
-    [self.imageView removeFromSuperview];
-    self.imageView = [[UIImageView alloc] initWithImage:image];
-    [self horo_addFillingSubview:self.imageView];
-    */
+    [self animateHighligh:_backgroundHighlighted animated:NO];
 }
 
 - (void)animateHighligh:(BOOL)highlight {
-    [UIView animateWithDuration:20.f animations:^{
+    [self animateHighligh:highlight animated:YES];
+}
+
+- (void)animateHighligh:(BOOL)highlight animated:(BOOL)animated {
+    _backgroundHighlighted = highlight;
+    dispatch_block_t block = ^{
         CGRect frame = self.layer.mask.frame;
         frame.origin.y = (highlight) ? 0 : -(frame.size.height-self.height);
         self.layer.mask.frame = frame;
-    }];
+    };
+    
+    if (animated) {
+        [UIView animateWithDuration:kAnimationDuration animations:block];
+    }
+    else {
+        block();
+    }
 }
 
 @end

@@ -9,6 +9,7 @@
 #ifndef friendsprovider_h
 #define friendsprovider_h
 
+#include "data/datewrapper.h"
 #include "base/horobase.h"
 
 namespace horo {
@@ -33,7 +34,7 @@ namespace horo {
     public:
         virtual void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion)=0;
         virtual bool webViewDidLoad(std::string url)=0;
-        virtual void requestUserInformation(string path, std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) = 0;
+        virtual void requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) = 0;
     private:
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_;
         

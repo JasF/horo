@@ -82,7 +82,7 @@ static NSInteger const kTodayTabIndex = 1;
     UIImage *image = [UIImage imageNamed:iconName];
     NSCAssert(image, @"image cannot be nil");
     _titleImageView.image = image;
-    [self.navigationController.navigationBar horo_makeTransparent];
+    [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
     
     _viewModel->tabsTitles();
     // Do any additional setup after loading the view.

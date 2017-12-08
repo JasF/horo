@@ -43,4 +43,21 @@
     // Return the image.
     return image;
 }
+
+- (id)horo_subviewWithClass:(Class)classForSearch {
+    for (UIView *subview in self.subviews) {
+        if ([subview isKindOfClass:classForSearch]) {
+            return subview;
+        }
+        if (subview.subviews.count > 0) {
+            UIView *subsubview = [subview horo_subviewWithClass:classForSearch];
+            if (subsubview) {
+                return subsubview;
+            }
+        }
+    }
+    
+    return nil;
+}
+
 @end

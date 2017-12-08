@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UINavigationBar (Horo)
-- (void)horo_makeTransparent;
+- (void)horo_makeWhiteAndTransparent;
 @end

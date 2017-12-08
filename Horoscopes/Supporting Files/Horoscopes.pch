@@ -31,6 +31,8 @@ typedef NS_ENUM (NSInteger, TouchState) {
     TouchFinished
 };
 
+typedef BOOL (^TappedBlock)(void);
+
 #endif
 
 // Include any system framework and library headers here that should be included in all compilation units.

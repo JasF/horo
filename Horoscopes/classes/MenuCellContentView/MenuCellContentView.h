@@ -1,14 +1,15 @@
 //
-//  MenuCell.h
+//  MenuCellContentView.h
 //  Horoscopes
 //
-//  Created by Jasf on 07.12.2017.
+//  Created by Jasf on 03.12.2017.
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 
-@interface MenuCell : UITableViewCell
+@interface MenuCellContentView : UIView
 @property (nonatomic, copy, nullable) TappedBlock tappedBlock;
+- (void)prepareForShowing;
 @end

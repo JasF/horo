@@ -8,6 +8,8 @@
 
 #import "FriendsViewController.h"
 #import "UINavigationBar+Horo.h"
+#import "UIImage+Horo.h"
+#import "UIView+Horo.h"
 #import <WebKit/WebKit.h>
 #include "data/person.h"
 #import "FriendCell.h"
@@ -15,7 +17,7 @@
 static int kObservingContentSizeChangesContext;
 static CGFloat const kRowHeight = 100;
 @interface FriendsViewController () <UITableViewDelegate, UITableViewDataSource,
-WKUIDelegate, WKNavigationDelegate>
+WKUIDelegate, WKNavigationDelegate, UISearchResultsUpdating>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) WKWebView *wkWebView;
 @property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
@@ -25,6 +27,7 @@ WKUIDelegate, WKNavigationDelegate>
 @property (assign, nonatomic) BOOL moreFriendsRequest;
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
 @property (strong, nonatomic) NSURL *friendsWorkingURL;
+@property (strong, nonatomic) UISearchController *searchController;
 @end
 
 @implementation FriendsViewController
@@ -75,6 +78,7 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (void)viewDidLoad {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     staticInstance = self;
     NSCParameterAssert(_viewModel);
     [super viewDidLoad];
@@ -95,7 +99,45 @@ static FriendsViewController *staticInstance = nil;
     _wkWebView.UIDelegate = self;
     _wkWebView.navigationDelegate = self;
     [self startObservingContentSizeChangesInWebView:_wkWebView];
-    [self.navigationController.navigationBar horo_makeTransparent];
+    [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
+    
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _searchController.searchResultsUpdater = self;
+    [_searchController.searchBar sizeToFit];
+    _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
+    _searchController.searchBar.backgroundColor = [UIColor redColor];
+    if (@available(iOS 11, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        self.navigationItem.searchController = self.searchController;
+        self.navigationItem.hidesSearchBarWhenScrolling = NO;
+    }
+    else {
+        self.tableView.tableHeaderView = self.searchController.searchBar;
+    }
+    self.definesPresentationContext = YES;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupTableViewTrasparency];
+}
+
+- (void)setupTableViewTrasparency {
+    self.searchController.searchResultsController.view.backgroundColor = [UIColor clearColor];
+    UISearchBar *searchBar = self.searchController.searchBar;
+    searchBar.backgroundColor = [UIColor clearColor];
+    if ([searchBar respondsToSelector:@selector(setBarTintColor:)]) {
+        searchBar.barTintColor = [UIColor clearColor];
+    }
+    [searchBar
+     setBackgroundImage:[UIImage horo_strechableImageWithTopPixelColor:[UIColor colorWithWhite:1.0 alpha:0.08]]];
+    UIView *backgroundView = (UIView *)[searchBar horo_subviewWithClass:NSClassFromString(@"UISearchBarBackground")];
+    backgroundView.alpha = 0.f;
+    self.tableView.backgroundView = backgroundView;
+    self.tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -244,6 +286,12 @@ static FriendsViewController *staticInstance = nil;
 
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
+}
+
+#pragma mark - UISearchResultsUpdating
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    UITextField *textField = [_searchController.searchBar valueForKey:@"searchField"];
+    textField.textColor = [UIColor whiteColor];
 }
 
 @end

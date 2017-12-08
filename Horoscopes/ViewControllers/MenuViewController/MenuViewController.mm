@@ -74,7 +74,7 @@ static CGFloat const kRowHeight = 100;
   willDisplayCell:(MenuCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([cell isKindOfClass:[MenuCell class]]) {
-        [cell prepareForShowing];
+       // [cell prepareForShowing];
     }
 }
 

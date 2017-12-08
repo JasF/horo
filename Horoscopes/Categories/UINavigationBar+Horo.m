@@ -9,11 +9,32 @@
 #import "UINavigationBar+Horo.h"
 
 @implementation UINavigationBar (Horo)
-- (void)horo_makeTransparent {
+
+#pragma mark - Public Methods
+- (void)horo_makeWhiteAndTransparent {
     [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.shadowImage = [UIImage new];
     self.opaque = YES;
     self.translucent = YES;
     self.backgroundColor = [UIColor clearColor];
-}
+    [self setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    if (@available (iOS 11, *)) {
+        self.largeTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    }
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[ [UISearchBar class] ]]
+     setTintColor:[UIColor whiteColor]];
+    /*
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil]
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                                                  [UIColor redColor],
+                                                                                                  UITextAttributeTextColor,
+                                                                                                  [UIColor whiteColor],
+                                                                                                  UITextAttributeTextShadowColor,
+                                                                                                  [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
+                                                                                                  UITextAttributeTextShadowOffset,
+                                                                                                  nil]
+                                                                                        forState:UIControlStateNormal];
+*/
+  }
+
 @end

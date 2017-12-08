@@ -11,4 +11,5 @@
 @interface UIView (Horo)
 - (void)horo_addFillingSubview:(UIView *)subview;
 - (UIImage *)horo_grabImage;
+- (id)horo_subviewWithClass:(Class)classForSearch;
 @end

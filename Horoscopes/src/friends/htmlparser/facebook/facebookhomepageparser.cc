@@ -21,6 +21,11 @@ namespace horo {
         iterate(output->root);
         gumbo_destroy_output(&kGumboDefaultOptions, output);
         std::string url = userUrl();
+
+        LOG(LS_ERROR) << "home.php hrefs: ";
+        for (auto urlString : hrefs_) {
+            LOG(LS_ERROR) << urlString;
+        }
         if (url.length()) {
             results_["url"] = url;
         }

@@ -154,6 +154,8 @@ void FacebookFriendsProvider::requestUserInformation(string path, std::function<
 }
 
 void FacebookFriendsProvider::parseHomePage(Json::Value json) {
+    string nextUrl = "/friends/center/friends/";
+    /*
     std::string text = json["text"].asString();
     strong<HtmlParser> parser = parserFactory_->createFacebookHomePageParser(text);
     Json::Value result = parser->parse();
@@ -162,7 +164,8 @@ void FacebookFriendsProvider::parseHomePage(Json::Value json) {
         operationDidFinishedWithError();
         return;
     }
-    executeUserInformationPageRequest(nextUrl);
+     */
+    executeFriendsPageRequest(nextUrl);
 }
     
 void FacebookFriendsProvider::parseUserInformationPage(Json::Value json) {

@@ -216,7 +216,7 @@ static FriendsViewController *staticInstance = nil;
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     std::string loadedUrl = [webView.URL.absoluteString UTF8String];
     bool showWebView = _viewModel->webViewDidLoad(loadedUrl);
-    self.wkWebView.hidden = !showWebView;
+    self.wkWebView.hidden = NO;//!showWebView;
     [self performSuccessCallback:YES];
 }
 
@@ -275,8 +275,8 @@ static FriendsViewController *staticInstance = nil;
         }
         [self.wkWebView.scrollView setContentOffset:point animated:YES];
     };
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
 #pragma mark - Observers

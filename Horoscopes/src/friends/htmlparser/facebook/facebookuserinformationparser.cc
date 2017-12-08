@@ -27,7 +27,7 @@ namespace horo {
     }
     
     string FacebookUserInformationParser::friendsUrl() {
-        string friends = findInSet(hrefs_, "friends");
+        string friends = findInSet(hrefs_, "/friends");
         return friends;
     }
     

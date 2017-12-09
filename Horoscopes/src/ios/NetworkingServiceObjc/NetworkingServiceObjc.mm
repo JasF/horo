@@ -13,6 +13,7 @@
 #include "json/reader.h"
 #include "NSDictionary+Horo.h"
 #include "FriendsViewController.h"
+#import "Controllers.h"
 
 static const int kParsingFailedError = -1;
 
@@ -77,7 +78,7 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     NSMutableDictionary *dictionaryParameters = [[NSDictionary horo_dictionaryFromJsonValue:parameters] mutableCopy];
     if ([dictionaryParameters[@"triggerSwipeToBottom"] boolValue]) {
         [dictionaryParameters removeObjectForKey:@"triggerSwipeToBottom"];
-        [[FriendsViewController shared] triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
+        [[Controllers shared].webViewController triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
             NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
             safeSuccess(url, data);
         }];
@@ -87,10 +88,11 @@ void NetworkingServiceObjc::beginRequest(std::string path,
         [dictionaryParameters removeObjectForKey:@"webViewFriendsLoading"];
         NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
         NSString *urlString = [baseUrl stringByAppendingString:pathString];
-        [[FriendsViewController shared] loadFriendsWithPath:[NSURL URLWithString:urlString] completion:^(NSString *html, NSURL *url, NSError *error) {
-            NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
-            safeSuccess(url, data);
-        }];
+        [[Controllers shared].webViewController loadURLWithPath:[NSURL URLWithString:urlString]
+                                                     completion:^(NSString *html, NSURL *url, NSError *error) {
+                                                        NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+                                                        safeSuccess(url, data);
+                                                     }];
         return;
     }
     NSMutableSet *set = [NSMutableSet new];

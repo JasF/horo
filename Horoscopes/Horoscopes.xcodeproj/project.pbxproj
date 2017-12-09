@@ -130,7 +130,6 @@
 		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
 		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
-		C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */; };
 		C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */; };
 		C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */; };
 		C31A138C1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */; };
@@ -172,6 +171,10 @@
 		C32A60161FDBF45E003CF1CA /* APLResultsTableController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60101FDBF45E003CF1CA /* APLResultsTableController.mm */; };
 		C32A60191FDBF493003CF1CA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A60171FDBF492003CF1CA /* MainStoryboard.storyboard */; };
 		C32A601A1FDBF493003CF1CA /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A60181FDBF492003CF1CA /* TableCell.xib */; };
+		C32A60211FDC1420003CF1CA /* WebViewControllerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */; };
+		C32A60251FDC148B003CF1CA /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.m */; };
+		C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */; };
+		C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -777,6 +780,15 @@
 		C32A60101FDBF45E003CF1CA /* APLResultsTableController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = APLResultsTableController.mm; sourceTree = "<group>"; };
 		C32A60171FDBF492003CF1CA /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C32A60181FDBF492003CF1CA /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
+		C32A601C1FDC0F52003CF1CA /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		C32A601F1FDC1420003CF1CA /* WebViewControllerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewControllerImpl.h; sourceTree = "<group>"; };
+		C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewControllerImpl.mm; sourceTree = "<group>"; };
+		C32A60231FDC148B003CF1CA /* Controllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Controllers.h; sourceTree = "<group>"; };
+		C32A60241FDC148B003CF1CA /* Controllers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Controllers.m; sourceTree = "<group>"; };
+		C32A60261FDC17D7003CF1CA /* WebViewControllerUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewControllerUIDelegate.h; sourceTree = "<group>"; };
+		C32A60281FDC2490003CF1CA /* WebViewDialogController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewDialogController.h; sourceTree = "<group>"; };
+		C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewDialogController.mm; sourceTree = "<group>"; };
+		C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewDialogController.storyboard; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1424,6 +1436,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C32A60271FDC245A003CF1CA /* WebViewDialogController */,
 				C32A60041FDBF45E003CF1CA /* TableSearch */,
 				C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */,
 				C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */,
@@ -1730,6 +1743,36 @@
 				C32A60101FDBF45E003CF1CA /* APLResultsTableController.mm */,
 			);
 			path = TableSearch;
+			sourceTree = "<group>";
+		};
+		C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */ = {
+			isa = PBXGroup;
+			children = (
+				C32A601C1FDC0F52003CF1CA /* WebViewController.h */,
+				C32A601F1FDC1420003CF1CA /* WebViewControllerImpl.h */,
+				C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */,
+				C32A60261FDC17D7003CF1CA /* WebViewControllerUIDelegate.h */,
+			);
+			path = WebViewControllerImpl;
+			sourceTree = "<group>";
+		};
+		C32A60221FDC1478003CF1CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60231FDC148B003CF1CA /* Controllers.h */,
+				C32A60241FDC148B003CF1CA /* Controllers.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C32A60271FDC245A003CF1CA /* WebViewDialogController */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60281FDC2490003CF1CA /* WebViewDialogController.h */,
+				C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */,
+				C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */,
+			);
+			path = WebViewDialogController;
 			sourceTree = "<group>";
 		};
 		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
@@ -2126,6 +2169,8 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C32A60221FDC1478003CF1CA /* Controllers */,
+				C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */,
 				C32A5FFA1FDBD40C003CF1CA /* FriendsCell */,
 				C3EAE0251FD91D6600EC9C3E /* MenuCell */,
 				C340356C1FD4116D005C862C /* MenuCellContentView */,
@@ -2790,6 +2835,7 @@
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				C32A60191FDBF493003CF1CA /* MainStoryboard.storyboard in Resources */,
+				C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
@@ -2836,8 +2882,10 @@
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */,
 				C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */,
+				C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */,
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
 				C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */,
+				C32A60211FDC1420003CF1CA /* WebViewControllerImpl.mm in Sources */,
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
@@ -2879,6 +2927,7 @@
 				C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */,
 				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
 				C31A13E41FB06168001FABFE /* parser.c in Sources */,
+				C32A60251FDC148B003CF1CA /* Controllers.m in Sources */,
 				C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */,
 				C32A60031FDBDD62003CF1CA /* PersonObjc.mm in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
@@ -2937,7 +2986,6 @@
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
 				C34035651FD3ED29005C862C /* Utils.m in Sources */,
-				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
 				C32A60121FDBF45E003CF1CA /* APLBaseTableViewController.mm in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,

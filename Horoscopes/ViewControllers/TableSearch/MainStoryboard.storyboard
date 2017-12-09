@@ -135,6 +135,9 @@
                                     <constraint firstAttribute="height" constant="40" id="26u-m1-3yf"/>
                                 </constraints>
                                 <state key="normal" title="Update Friends"/>
+                                <connections>
+                                    <action selector="updateFriendsTapped:" destination="4Ax-ex-6Gm" eventType="touchUpInside" id="ydU-fG-Cum"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,7 +151,7 @@
                 </tableViewCell>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZiR-hR-ddR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="29"/>
+            <point key="canvasLocation" x="149.5" y="28.5"/>
         </scene>
     </scenes>
     <resources>

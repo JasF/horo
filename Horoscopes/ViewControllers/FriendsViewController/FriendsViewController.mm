@@ -32,7 +32,6 @@ NSString *const kTableCellNibName = @"FriendsCell";
 */
 
 static CGFloat const kAnimationDuration = 0.3f;
-static int kObservingContentSizeChangesContext;
 static CGFloat const kRowHeight = 100;
 @interface FriendsViewController () <UITableViewDelegate, UITableViewDataSource,
 WKUIDelegate, WKNavigationDelegate, UISearchResultsUpdating>
@@ -57,43 +56,6 @@ using namespace horo;
 static FriendsViewController *staticInstance = nil;
 + (instancetype)shared {
     return staticInstance;
-}
-
-- (void)startObservingContentSizeChangesInWebView:(WKWebView *)webView {
-    [webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
-}
-
-- (void)stopObservingContentSizeChangesInWebView:(WKWebView *)webView {
-    [webView.scrollView removeObserver:self forKeyPath:@"contentSize" context:&kObservingContentSizeChangesContext];
-}
-
-- (void)delayedCheckForContentHeight:(NSNumber *)tempHeight {
-    if (![@(_maximumContentHeight) isEqual:tempHeight]) {
-        return;
-    }
-    self.subscribed = NO;
-    if (self.needSetContentOffset) {
-        self.needSetContentOffset = NO;
-        [self swipeToBottom];
-    }
-    if (self.moreFriendsRequest) {
-        self.moreFriendsRequest = NO;
-        [self performSuccessCallback:NO];
-    }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == &kObservingContentSizeChangesContext) {
-        if (self.maximumContentHeight < _wkWebView.scrollView.contentSize.height) {
-            self.maximumContentHeight = _wkWebView.scrollView.contentSize.height;
-            CGFloat tempHeight = self.maximumContentHeight;
-            self.subscribed = YES;
-            [NSObject cancelPreviousPerformRequestsWithTarget:self];
-            [self performSelector:@selector(delayedCheckForContentHeight:) withObject:@(tempHeight) afterDelay:0.2f];
-        }
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
 }
 
 - (void)viewDidLoad {
@@ -121,7 +83,6 @@ static FriendsViewController *staticInstance = nil;
     _wkWebView.navigationDelegate = self;
     [self startObservingContentSizeChangesInWebView:_wkWebView];
     [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
-    
     self.tableView.backgroundColor = [UIColor redColor];
     _resultsTableController = [FriendsResultsViewController new];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:_resultsTableController];
@@ -143,6 +104,7 @@ static FriendsViewController *staticInstance = nil;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupTableViewTrasparency];
+
 }
 
 - (void)setupTableViewTrasparency {
@@ -230,60 +192,6 @@ static FriendsViewController *staticInstance = nil;
     //_viewModel->zodiacsTapped();
 }
 
-#pragma mark - UIWebViewDelegate
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    std::string loadedUrl = [webView.URL.absoluteString UTF8String];
-    bool showWebView = _viewModel->webViewDidLoad(loadedUrl);
-    self.wkWebView.hidden = NO;//!showWebView;
-    [self performSuccessCallback:YES];
-}
-
-- (void)performSuccessCallback:(BOOL)withClean {
-    @weakify(self);
-    if (![_wkWebView.URL.path isEqual:_friendsWorkingURL.path]) {
-        return;
-    }
-    [_wkWebView evaluateJavaScript:@"document.documentElement.outerHTML" completionHandler:^(id _Nullable object, NSError * _Nullable error) {
-        @strongify(self);
-        if (self.webViewDidLoadCompletion) {
-            auto cb = self.webViewDidLoadCompletion;
-            self.webViewDidLoadCompletion = nil;
-            cb(object, self.wkWebView.URL, error);
-        }
-    }];
-}
-
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    if (![_wkWebView.URL.path isEqual:_friendsWorkingURL.path]) {
-        return;
-    }
-    if (self.webViewDidLoadCompletion) {
-        auto cb = self.webViewDidLoadCompletion;
-        self.webViewDidLoadCompletion = nil;
-        cb(nil, webView.URL, error);
-    }
-}
-
-#pragma mark -
-- (void)loadFriendsWithPath:(NSURL *)friendsUrl completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
-    NSCParameterAssert(friendsUrl);
-    NSCParameterAssert(completion);
-    _friendsWorkingURL = friendsUrl;
-    self.webViewDidLoadCompletion = completion;
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:friendsUrl];
-    [_wkWebView loadRequest:request];
-}
-
-- (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
-    self.webViewDidLoadCompletion = completion;
-    self.moreFriendsRequest = YES;
-    if (self.subscribed) {
-        self.needSetContentOffset = YES;
-    }
-    else {
-        [self swipeToBottom];
-    }
-}
 
 - (void)swipeToBottom {
     dispatch_block_t block = ^{

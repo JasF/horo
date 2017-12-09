@@ -16,6 +16,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "APLMainTableViewController.h"
+#import "Controllers.h"
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -75,7 +76,7 @@ namespace horo {
         }
         void showMenuViewController(bool animated) override {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MenuViewController"
-                                                                 bundle: nil];
+                                                                 bundle:nil];
             
             UINavigationController *navigationController =(UINavigationController *)[storyboard
                                                                                      instantiateViewControllerWithIdentifier:@"navigationController"];
@@ -94,6 +95,7 @@ namespace horo {
                                                                                      instantiateViewControllerWithIdentifier:@"RootNavController"];
             APLMainTableViewController *viewController = (APLMainTableViewController *)navigationController.topViewController;
             viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
+            viewController.webViewController = [Controllers shared].webViewController;
         //    viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

@@ -8,7 +8,9 @@
 
 #import "APLBaseTableViewController.h"
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodel.h"
+#import "Controllers.h"
 
 @interface APLMainTableViewController : APLBaseTableViewController
 @property (assign, nonatomic) strong<horo::FriendsScreenViewModel> viewModel;
+@property (strong, nonatomic) id<WebViewController> webViewController;
 @end

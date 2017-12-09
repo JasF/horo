@@ -19,8 +19,9 @@
 #import "UIView+Horo.h"
 #import "PersonObjc.h"
 #import "FriendsCell.h"
+#import "WebViewControllerUIDelegate.h"
 
-@interface APLMainTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface APLMainTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
 @property (nonatomic, strong) UISearchController *searchController;
 
@@ -38,11 +39,11 @@
 using namespace std;
 using namespace horo;
 
-#pragma mark -
-
 @implementation APLMainTableViewController
 - (void)viewDidLoad {
-	[super viewDidLoad];
+    NSCParameterAssert(_viewModel);
+    NSCParameterAssert(_webViewController);
+    [super viewDidLoad];
     [self updateAllFriends];
 
     _resultsTableController = [[APLResultsTableController alloc] init];
@@ -50,7 +51,6 @@ using namespace horo;
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
 	
-    
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
@@ -60,6 +60,8 @@ using namespace horo;
         self.navigationItem.hidesSearchBarWhenScrolling = NO;
     }
     else {
+        UIView *subview = [self.searchController.searchBar horo_subviewWithClass:NSClassFromString(@"UISearchBarBackground")];
+        [subview removeFromSuperview];
         self.tableView.tableHeaderView = self.searchController.searchBar;
     }
     self.definesPresentationContext = YES;
@@ -67,33 +69,20 @@ using namespace horo;
    
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
- //   [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
     
-    
-    /*
-	if ([self.navigationItem respondsToSelector:@selector(setSearchController:)]) {
-		// For iOS 11 and later, we place the search bar in the navigation bar.
-		self.navigationController.navigationBar.prefersLargeTitles = YES;
-		self.navigationItem.searchController = self.searchController;
-		
-		// We want the search bar visible all the time.
-		self.navigationItem.hidesSearchBarWhenScrolling = NO;
-	}
-	else {
-		// For iOS 10 and earlier, we place the search bar in the table view's header.
-		self.tableView.tableHeaderView = self.searchController.searchBar;
-	}
+    for (UIView *subview in self.tableView.subviews) {
+        subview.backgroundColor = [UIColor clearColor];
+    }
+}
 
-    // We want ourselves to be the delegate for this filtered table so didSelectRowAtIndexPath is called for both tables.
-    self.resultsTableController.tableView.delegate = self;
-    self.searchController.delegate = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
-    self.searchController.searchBar.delegate = self; // so we can monitor text changes + others
-    
-    // Search is now just presenting a view controller. As such, normal view controller presentation semantics apply. Namely that presentation will walk up the view controller hierarchy until it finds the root view controller or one that defines a presentation context.
-    
-    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
-     */
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_webViewController setUIDelegate:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_webViewController setUIDelegate:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -111,25 +100,13 @@ using namespace horo;
     }
 }
 
-
 #pragma mark - UISearchBarDelegate
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
 }
 
-
 #pragma mark - UISearchControllerDelegate
-
-/** Called after the search controller's search bar has agreed to begin editing or when
-	'active' is set to YES.
-	If you choose not to present the controller yourself or do not implement this method,
-	a default presentation is performed on your behalf.
-
-	Implement this method if the default presentation is not adequate for your purposes.
-*/
 - (void)presentSearchController:(UISearchController *)searchController {
-    
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
@@ -148,11 +125,9 @@ using namespace horo;
     // do something after the search controller is dismissed
 }
 
-
 #pragma mark - UITableViewDelegate
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _allFriends.count;
+    return _allFriends.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -172,91 +147,13 @@ using namespace horo;
     return cell;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
-    
-    APLProduct *product = self.products[indexPath.row];
-    [self configureCell:cell forProduct:product];
-    
-    return cell;
-}
-*/
-
-/** Here we are the table view delegate for both our main table and filtered table, so we can
-	push from the current navigation controller (resultsTableController's parent view controller
-	is not this UINavigationController)
-*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
 }
-
-
 #pragma mark - UISearchResultsUpdating
-
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-  
 }
 
-
-#pragma mark - UIStateRestoration
-
-/** We restore several items for state restoration:
-	1) Search controller's active state,
-	2) search text,
-	3) first responder
-*/
-NSString *const ViewControllerTitleKey = @"ViewControllerTitleKey";
-NSString *const SearchControllerIsActiveKey = @"SearchControllerIsActiveKey";
-NSString *const SearchBarTextKey = @"SearchBarTextKey";
-NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
-
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super encodeRestorableStateWithCoder:coder];
-    
-    // encode the view state so it can be restored later
-    
-    // encode the title
-    [coder encodeObject:self.title forKey:ViewControllerTitleKey];
-    
-    UISearchController *searchController = self.searchController;
-    
-    // encode the search controller's active state
-    BOOL searchDisplayControllerIsActive = searchController.isActive;
-    [coder encodeBool:searchDisplayControllerIsActive forKey:SearchControllerIsActiveKey];
-    
-    // encode the first responser status
-    if (searchDisplayControllerIsActive) {
-        [coder encodeBool:[searchController.searchBar isFirstResponder] forKey:SearchBarIsFirstResponderKey];
-    }
-    
-    // encode the search bar text
-    [coder encodeObject:searchController.searchBar.text forKey:SearchBarTextKey];
-}
-
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super decodeRestorableStateWithCoder:coder];
-    
-    // restore the title
-    self.title = [coder decodeObjectForKey:ViewControllerTitleKey];
-    
-	/** Restore the active state:
-  		we can't make the searchController active here since it's not part of the view
-		hierarchy yet, instead we do it in viewWillAppear
-    */
-    _searchControllerWasActive = [coder decodeBoolForKey:SearchControllerIsActiveKey];
-    
-	/** Restore the first responder status:
-		We can't make the searchController first responder here since it's not part of the view
-		hierarchy yet, instead we do it in viewWillAppear
-    */
-    _searchControllerSearchFieldWasFirstResponder = [coder decodeBoolForKey:SearchBarIsFirstResponderKey];
-    
-    // restore the text in the search field
-    self.searchController.searchBar.text = [coder decodeObjectForKey:SearchBarTextKey];
-}
-
-#pragma mark -
+#pragma mark - Private
 - (void)updateAllFriends {
     NSMutableArray *array = [NSMutableArray new];
     for (strong<Person> person : _viewModel->allFriends()) {
@@ -267,9 +164,18 @@ NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
 }
 
 #pragma mark - Private Methods
-- (IBAction)menuTapped:(id)sender {
-    _viewModel->menuTapped();
+- (IBAction)updateFriendsTapped:(id)sender {
+    _viewModel->updateFriendsFromFacebook();
+}
+
+#pragma mark - WebViewControllerUIDelegate
+- (UIViewController *)parentViewController {
+    return self;
+}
+
+- (BOOL)webViewDidLoad:(NSURL *)url {
+    string urlString = [url.absoluteString UTF8String];
+    return _viewModel->webViewDidLoad(urlString);
 }
 
 @end
-

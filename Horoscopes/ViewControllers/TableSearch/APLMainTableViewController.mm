@@ -41,7 +41,6 @@ using namespace horo;
 #pragma mark -
 
 @implementation APLMainTableViewController
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
     [self updateAllFriends];
@@ -65,6 +64,11 @@ using namespace horo;
     }
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
+   
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+ //   [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
+    
     
     /*
 	if ([self.navigationItem respondsToSelector:@selector(setSearchController:)]) {

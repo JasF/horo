@@ -166,6 +166,12 @@
 		C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */; };
 		C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */; };
 		C32A60031FDBDD62003CF1CA /* PersonObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60021FDBDD62003CF1CA /* PersonObjc.mm */; };
+		C32A60121FDBF45E003CF1CA /* APLBaseTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60061FDBF45E003CF1CA /* APLBaseTableViewController.mm */; };
+		C32A60131FDBF45E003CF1CA /* APLProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A60091FDBF45E003CF1CA /* APLProduct.m */; };
+		C32A60151FDBF45E003CF1CA /* APLMainTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A600E1FDBF45E003CF1CA /* APLMainTableViewController.mm */; };
+		C32A60161FDBF45E003CF1CA /* APLResultsTableController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60101FDBF45E003CF1CA /* APLResultsTableController.mm */; };
+		C32A60191FDBF493003CF1CA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A60171FDBF492003CF1CA /* MainStoryboard.storyboard */; };
+		C32A601A1FDBF493003CF1CA /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A60181FDBF492003CF1CA /* TableCell.xib */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -760,6 +766,17 @@
 		C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsCell.m; sourceTree = "<group>"; };
 		C32A60011FDBDD62003CF1CA /* PersonObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonObjc.h; sourceTree = "<group>"; };
 		C32A60021FDBDD62003CF1CA /* PersonObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PersonObjc.mm; sourceTree = "<group>"; };
+		C32A60061FDBF45E003CF1CA /* APLBaseTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = APLBaseTableViewController.mm; sourceTree = "<group>"; };
+		C32A60071FDBF45E003CF1CA /* APLMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLMainTableViewController.h; sourceTree = "<group>"; };
+		C32A60091FDBF45E003CF1CA /* APLProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLProduct.m; sourceTree = "<group>"; };
+		C32A600A1FDBF45E003CF1CA /* APLResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLResultsTableController.h; sourceTree = "<group>"; };
+		C32A600B1FDBF45E003CF1CA /* APLDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLDetailViewController.h; sourceTree = "<group>"; };
+		C32A600D1FDBF45E003CF1CA /* APLBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLBaseTableViewController.h; sourceTree = "<group>"; };
+		C32A600E1FDBF45E003CF1CA /* APLMainTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = APLMainTableViewController.mm; sourceTree = "<group>"; };
+		C32A600F1FDBF45E003CF1CA /* APLProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLProduct.h; sourceTree = "<group>"; };
+		C32A60101FDBF45E003CF1CA /* APLResultsTableController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = APLResultsTableController.mm; sourceTree = "<group>"; };
+		C32A60171FDBF492003CF1CA /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C32A60181FDBF492003CF1CA /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -1407,6 +1424,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C32A60041FDBF45E003CF1CA /* TableSearch */,
 				C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */,
 				C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */,
 				C31A13791FAF2DDD001FABFE /* FriendsViewController */,
@@ -1694,6 +1712,24 @@
 				C32A60021FDBDD62003CF1CA /* PersonObjc.mm */,
 			);
 			path = PersonObjc;
+			sourceTree = "<group>";
+		};
+		C32A60041FDBF45E003CF1CA /* TableSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60171FDBF492003CF1CA /* MainStoryboard.storyboard */,
+				C32A60181FDBF492003CF1CA /* TableCell.xib */,
+				C32A60061FDBF45E003CF1CA /* APLBaseTableViewController.mm */,
+				C32A60071FDBF45E003CF1CA /* APLMainTableViewController.h */,
+				C32A60091FDBF45E003CF1CA /* APLProduct.m */,
+				C32A600A1FDBF45E003CF1CA /* APLResultsTableController.h */,
+				C32A600B1FDBF45E003CF1CA /* APLDetailViewController.h */,
+				C32A600D1FDBF45E003CF1CA /* APLBaseTableViewController.h */,
+				C32A600E1FDBF45E003CF1CA /* APLMainTableViewController.mm */,
+				C32A600F1FDBF45E003CF1CA /* APLProduct.h */,
+				C32A60101FDBF45E003CF1CA /* APLResultsTableController.mm */,
+			);
+			path = TableSearch;
 			sourceTree = "<group>";
 		};
 		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
@@ -2745,6 +2781,7 @@
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
 				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
+				C32A601A1FDBF493003CF1CA /* TableCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
@@ -2752,6 +2789,7 @@
 				C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
+				C32A60191FDBF493003CF1CA /* MainStoryboard.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
@@ -2848,6 +2886,7 @@
 				C31A13ED1FB06168001FABFE /* utf8.c in Sources */,
 				C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */,
 				C3AE95FE1FDA619A00A9C73E /* UIImage+Horo.m in Sources */,
+				C32A60131FDBF45E003CF1CA /* APLProduct.m in Sources */,
 				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
 				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
@@ -2884,6 +2923,7 @@
 				C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */,
 				C31A13E51FB06168001FABFE /* util.c in Sources */,
 				C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */,
+				C32A60151FDBF45E003CF1CA /* APLMainTableViewController.mm in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C3C117001FCE8929007DA9FF /* Tabs.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
@@ -2893,10 +2933,12 @@
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
 				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
+				C32A60161FDBF45E003CF1CA /* APLResultsTableController.mm in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
 				C34035651FD3ED29005C862C /* Utils.m in Sources */,
 				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
+				C32A60121FDBF45E003CF1CA /* APLBaseTableViewController.mm in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 				C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */,

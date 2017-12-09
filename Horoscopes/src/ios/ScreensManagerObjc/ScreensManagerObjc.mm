@@ -15,6 +15,7 @@
 #import "FriendsViewController.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "APLMainTableViewController.h"
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -85,7 +86,25 @@ namespace horo {
             delegate.window.rootViewController = navigationController;
         }
         
+        void showTableSearch() {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                                 bundle: nil];
+            
+            UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                                                     instantiateViewControllerWithIdentifier:@"RootNavController"];
+            APLMainTableViewController *viewController = (APLMainTableViewController *)navigationController.topViewController;
+            viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
+        //    viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
+            
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = navigationController;
+        }
+        
         void showFriendsViewController() override {
+            if (@YES.boolValue) {
+                showTableSearch();
+                return;
+            }
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
                                                                  bundle: nil];
             

@@ -11,7 +11,6 @@
 #import "APLResultsTableController.h"
 #import "APLProduct.h"
 #import "FriendsResultsViewController.h"
-#import "FriendsViewController.h"
 #import "UINavigationBar+Horo.h"
 #import <WebKit/WebKit.h>
 #import "UIImage+Horo.h"
@@ -20,13 +19,14 @@
 #import "PersonObjc.h"
 #import "FriendsCell.h"
 #import "WebViewControllerUIDelegate.h"
+#import "FriendsResultsViewController.h"
 
 @interface APLMainTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
 @property (nonatomic, strong) UISearchController *searchController;
 
 // Our secondary search results table view.
-@property (nonatomic, strong) APLResultsTableController *resultsTableController;
+@property (nonatomic, strong) FriendsResultsViewController *resultsTableController;
 @property (nonatomic, strong) NSArray<PersonObjc *> *allFriends;
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
 
@@ -46,7 +46,7 @@ using namespace horo;
     [super viewDidLoad];
     [self updateAllFriends];
 
-    _resultsTableController = [[APLResultsTableController alloc] init];
+    _resultsTableController = [FriendsResultsViewController new];//[[APLResultsTableController alloc] init];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
@@ -98,6 +98,14 @@ using namespace horo;
             _searchControllerSearchFieldWasFirstResponder = NO;
         }
     }
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super decodeRestorableStateWithCoder:coder];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -163,17 +171,20 @@ using namespace horo;
     _allFriends = array;
 }
 
-#pragma mark - Private Methods
+#pragma mark - Observers
+- (IBAction)menuTapped:(id)sender {
+    _viewModel->menuTapped();
+}
 - (IBAction)updateFriendsTapped:(id)sender {
     _viewModel->updateFriendsFromFacebook();
 }
 
 #pragma mark - WebViewControllerUIDelegate
-- (UIViewController *)parentViewController {
+- (UIViewController *)parentViewControllerForWebViewController:(id<WebViewController>)webViewController {
     return self;
 }
 
-- (BOOL)webViewDidLoad:(NSURL *)url {
+- (BOOL)webViewController:(id<WebViewController>)webViewController webViewDidLoad:(NSURL *)url {
     string urlString = [url.absoluteString UTF8String];
     return _viewModel->webViewDidLoad(urlString);
 }

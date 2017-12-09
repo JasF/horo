@@ -12,7 +12,6 @@
 #import "WelcomeViewController.h"
 #include "managers/managers.h"
 #import "MenuViewController.h"
-#import "FriendsViewController.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "APLMainTableViewController.h"
@@ -107,16 +106,6 @@ namespace horo {
                 showTableSearch();
                 return;
             }
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
-                                                                 bundle: nil];
-            
-            UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
-            FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
-            viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
-            
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate.window.rootViewController = navigationController;
         }
     private:
         strong<ScreensManager> original_;

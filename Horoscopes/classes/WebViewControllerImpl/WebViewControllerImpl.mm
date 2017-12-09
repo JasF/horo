@@ -73,7 +73,7 @@ static int kObservingContentSizeChangesContext;
 
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    [self.delegate.parentViewController presentViewController:_dialog.navigationController animated:YES completion:nil];
+    [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialog.navigationController animated:YES completion:nil];
     [self performSuccessCallback:YES];
 }
 

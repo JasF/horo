@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WebViewController;
+
 @protocol WebViewControllerUIDelegate <NSObject>
-- (UIViewController *)parentViewController;
-- (BOOL)webViewDidLoad:(NSURL *)url;
+- (UIViewController *)parentViewControllerForWebViewController:(id<WebViewController>)webViewController;
+- (BOOL)webViewController:(id<WebViewController>)webViewController webViewDidLoad:(NSURL *)url;
 @end

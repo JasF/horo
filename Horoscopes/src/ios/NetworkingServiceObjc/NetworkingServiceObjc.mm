@@ -12,7 +12,6 @@
 #import "HTTPSessionManager.h"
 #include "json/reader.h"
 #include "NSDictionary+Horo.h"
-#include "FriendsViewController.h"
 #import "Controllers.h"
 
 static const int kParsingFailedError = -1;

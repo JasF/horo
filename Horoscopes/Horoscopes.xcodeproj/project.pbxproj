@@ -130,7 +130,6 @@
 		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
 		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
-		C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */; };
 		C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */; };
 		C31A138C1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */; };
 		C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */; };
@@ -684,9 +683,6 @@
 		C3190C161FADDF630059F247 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
 		C3190C181FADE4D60059F247 /* UIView+TKGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKGeometry.h"; sourceTree = "<group>"; };
 		C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKGeometry.m"; sourceTree = "<group>"; };
-		C31A137A1FAF2DED001FABFE /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
-		C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsViewController.mm; sourceTree = "<group>"; };
-		C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
 		C31A13821FAF2F45001FABFE /* friendsscreenviewmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenviewmodelimpl.h; sourceTree = "<group>"; };
 		C31A13841FAF2F45001FABFE /* friendsscreenviewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenviewmodel.h; sourceTree = "<group>"; };
 		C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsscreenmodelimpl.cc; sourceTree = "<group>"; };
@@ -1440,7 +1436,6 @@
 				C32A60041FDBF45E003CF1CA /* TableSearch */,
 				C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */,
 				C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */,
-				C31A13791FAF2DDD001FABFE /* FriendsViewController */,
 				C3383FD31FAF251200CCE133 /* MenuViewController */,
 				C3190C121FADDDC40059F247 /* components */,
 				C30B18A61FA5D560006DEDB7 /* WelcomeViewController */,
@@ -1522,17 +1517,6 @@
 				C3190C141FADDDF50059F247 /* BackgroundView.m */,
 			);
 			path = components;
-			sourceTree = "<group>";
-		};
-		C31A13791FAF2DDD001FABFE /* FriendsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C31A140B1FB17B72001FABFE /* FriendCell */,
-				C31A137A1FAF2DED001FABFE /* FriendsViewController.h */,
-				C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */,
-				C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */,
-			);
-			path = FriendsViewController;
 			sourceTree = "<group>";
 		};
 		C31A13811FAF2F45001FABFE /* friendsscreenviewmodel */ = {
@@ -2169,6 +2153,7 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C31A140B1FB17B72001FABFE /* FriendCell */,
 				C32A60221FDC1478003CF1CA /* Controllers */,
 				C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */,
 				C32A5FFA1FDBD40C003CF1CA /* FriendsCell */,
@@ -2829,7 +2814,6 @@
 				C32A601A1FDBF493003CF1CA /* TableCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
-				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
 				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
 				C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,

@@ -7,9 +7,6 @@
  */
 
 #import "APLMainTableViewController.h"
-#import "APLDetailViewController.h"
-#import "APLResultsTableController.h"
-#import "APLProduct.h"
 #import "FriendsResultsViewController.h"
 #import "UINavigationBar+Horo.h"
 #import <WebKit/WebKit.h>
@@ -73,6 +70,10 @@ using namespace horo;
     for (UIView *subview in self.tableView.subviews) {
         subview.backgroundColor = [UIColor clearColor];
     }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -149,16 +150,72 @@ using namespace horo;
     }
     
     PersonObjc *person = _allFriends[index];
-    
     FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
     [cell setName:person.name birthday:person.birthday];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
+
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchText = searchController.searchBar.text;
+    NSMutableArray *searchResults = [_allFriends mutableCopy];
+    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSArray *searchItems = nil;
+    if (strippedString.length > 0) {
+        searchItems = [strippedString componentsSeparatedByString:@" "];
+    }
+    NSMutableArray *andMatchPredicates = [NSMutableArray array];
+    
+    for (NSString *searchString in searchItems) {
+        NSMutableArray *searchItemsPredicate = [NSMutableArray array];
+        // name field matching
+        NSExpression *lhs = [NSExpression expressionForKeyPath:@"name"];
+        NSExpression *rhs = [NSExpression expressionForConstantValue:searchString];
+        NSPredicate *finalPredicate = [NSComparisonPredicate
+                                       predicateWithLeftExpression:lhs
+                                       rightExpression:rhs
+                                       modifier:NSDirectPredicateModifier
+                                       type:NSContainsPredicateOperatorType
+                                       options:NSCaseInsensitivePredicateOption];
+        [searchItemsPredicate addObject:finalPredicate];
+        
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        numberFormatter.numberStyle = NSNumberFormatterNoStyle;
+        NSNumber *targetNumber = [numberFormatter numberFromString:searchString];
+        if (targetNumber != nil) {   // searchString may not convert to a number
+            lhs = [NSExpression expressionForKeyPath:@"birthday"];
+            rhs = [NSExpression expressionForConstantValue:targetNumber];
+            finalPredicate = [NSComparisonPredicate
+                              predicateWithLeftExpression:lhs
+                              rightExpression:rhs
+                              modifier:NSDirectPredicateModifier
+                              type:NSEqualToPredicateOperatorType
+                              options:NSCaseInsensitivePredicateOption];
+            [searchItemsPredicate addObject:finalPredicate];
+        }
+        
+        // at this OR predicate to our master AND predicate
+        NSCompoundPredicate *orMatchPredicates = [NSCompoundPredicate orPredicateWithSubpredicates:searchItemsPredicate];
+        [andMatchPredicates addObject:orMatchPredicates];
+    }
+    
+    // match up the fields of the Product object
+    NSCompoundPredicate *finalCompoundPredicate =
+    [NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
+    searchResults = [[searchResults filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
+    
+    _resultsTableController.filteredFriends = searchResults;
+    [_resultsTableController.tableView reloadData];
+    [self setTableViewVisibility:(searchController.active && searchText.length)];
+}
+
+- (void)setTableViewVisibility:(BOOL)visibility {
+    self.tableView.hidden = (visibility);
 }
 
 #pragma mark - Private
@@ -175,6 +232,7 @@ using namespace horo;
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
 }
+
 - (IBAction)updateFriendsTapped:(id)sender {
     _viewModel->updateFriendsFromFacebook();
 }

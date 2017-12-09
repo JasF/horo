@@ -7,7 +7,6 @@
  */
 
 #import "APLBaseTableViewController.h"
-#import "APLProduct.h"
 
 NSString *const kCellIdentifier = @"cellID";
 NSString *const kTableCellNibName = @"FriendsCell";
@@ -22,17 +21,7 @@ NSString *const kTableCellNibName = @"FriendsCell";
 }
 
 - (void)configureCell:(UITableViewCell *)cell forProduct:(APLProduct *)product {
-    cell.textLabel.text = product.title;
     
-    // build the price and year string
-    // use NSNumberFormatter to get the currency format out of this NSNumber (product.introPrice)
-    //
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    NSString *priceString = [numberFormatter stringFromNumber:product.introPrice];
-    
-    NSString *detailedStr = [NSString stringWithFormat:@"%@ | %@", priceString, (product.yearIntroduced).stringValue];
-    cell.detailTextLabel.text = detailedStr;
 }
 
 @end

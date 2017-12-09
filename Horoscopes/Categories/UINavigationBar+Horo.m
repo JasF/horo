@@ -23,18 +23,6 @@
     }
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[ [UISearchBar class] ]]
      setTintColor:[UIColor whiteColor]];
-    /*
-    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil]
-     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                                                                  [UIColor redColor],
-                                                                                                  UITextAttributeTextColor,
-                                                                                                  [UIColor whiteColor],
-                                                                                                  UITextAttributeTextShadowColor,
-                                                                                                  [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-                                                                                                  UITextAttributeTextShadowOffset,
-                                                                                                  nil]
-                                                                                        forState:UIControlStateNormal];
-*/
-  }
+}
 
 @end

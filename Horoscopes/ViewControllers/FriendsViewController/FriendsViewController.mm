@@ -105,7 +105,6 @@ static FriendsViewController *staticInstance = nil;
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
-    _searchController.searchBar.backgroundColor = [UIColor redColor];
     if (@available(iOS 11, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         self.navigationItem.searchController = self.searchController;
@@ -290,8 +289,10 @@ static FriendsViewController *staticInstance = nil;
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    UITextField *textField = [_searchController.searchBar valueForKey:@"searchField"];
-    textField.textColor = [UIColor whiteColor];
+    if (@available(iOS 11, *)) {
+        UITextField *textField = [_searchController.searchBar valueForKey:@"searchField"];
+        textField.textColor = [UIColor whiteColor];
+    }
 }
 
 @end

@@ -11,6 +11,7 @@
 #import <WebKit/WKWebView.h>
 
 @interface WebViewDialogController ()
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 @end
 
 @implementation WebViewDialogController
@@ -28,7 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _webView = [[WKWebView alloc] initWithFrame:CGRectZero];
-    [self.view horo_addFillingSubview:_webView];
+    [_containerView horo_addFillingSubview:_webView];
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 #pragma mark - Observers

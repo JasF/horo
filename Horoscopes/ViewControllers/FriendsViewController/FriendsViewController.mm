@@ -1,12 +1,4 @@
-/*
- Copyright (C) 2017 Apple Inc. All Rights Reserved.
- See LICENSE.txt for this sample’s licensing information
- 
- Abstract:
- The application's primary table view controller showing a list of products.
- */
-
-#import "APLMainTableViewController.h"
+#import "FriendsViewController.h"
 #import "FriendsResultsViewController.h"
 #import "UINavigationBar+Horo.h"
 #import <WebKit/WebKit.h>
@@ -18,7 +10,10 @@
 #import "WebViewControllerUIDelegate.h"
 #import "FriendsResultsViewController.h"
 
-@interface APLMainTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
+static NSString *const kCellIdentifier = @"cellID";
+static NSString *const kTableCellNibName = @"FriendsCell";
+
+@interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
 @property (nonatomic, strong) UISearchController *searchController;
 
@@ -36,13 +31,14 @@
 using namespace std;
 using namespace horo;
 
-@implementation APLMainTableViewController
+@implementation FriendsViewController
 - (void)viewDidLoad {
     NSCParameterAssert(_viewModel);
     NSCParameterAssert(_webViewController);
     [super viewDidLoad];
     [self updateAllFriends];
 
+    [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
     _resultsTableController = [FriendsResultsViewController new];//[[APLResultsTableController alloc] init];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
@@ -155,8 +151,17 @@ using namespace horo;
     return cell;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (indexPath.row) ? indexPath : nil;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSInteger index = indexPath.row - 1;
+    NSCAssert(index < _allFriends.count, @"index out of bound");
+    if (index >= _allFriends.count) {
+        return;
+    }
+    _viewModel->friendWithIndexSelected((int)index);
 }
 
 #pragma mark - UISearchResultsUpdating

@@ -28,7 +28,11 @@
 }
 
 - (NSString *)birthday {
-    return [[NSString alloc] initWithUTF8String:_person->birthdayDate().toString().c_str()];
+    NSString *birthday = [[NSString alloc] initWithUTF8String:_person->birthdayDate().toString().c_str()];
+    if (!birthday.length) {
+        birthday = L(@"birthday_unknown");
+    }
+    return birthday;
 }
 
 @end

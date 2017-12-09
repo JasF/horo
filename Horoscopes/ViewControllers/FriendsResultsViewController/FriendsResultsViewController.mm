@@ -13,8 +13,8 @@
 using namespace std;
 
 static CGFloat const kEstimatedRowHeight = 50.f;
-NSString *const kCellIdentifier = @"cellID";
-NSString *const kTableCellNibName = @"FriendsCell";
+static NSString *const kCellIdentifier = @"cellID";
+static NSString *const kTableCellNibName = @"FriendsCell";
 
 @interface FriendsResultsViewController ()
 @end

@@ -26,6 +26,7 @@ static int kObservingContentSizeChangesContext;
 @property (assign, nonatomic) BOOL needSetContentOffset;
 @property (assign, nonatomic) CGFloat maximumContentHeight;
 @property (strong, nonatomic) WebViewDialogController *dialog;
+@property (strong, nonatomic) UINavigationController *dialogNavigationController;
 @end
 
 @implementation WebViewControllerImpl
@@ -33,8 +34,8 @@ static int kObservingContentSizeChangesContext;
 - (id)init {
     if (self = [super init]) {
         _dialog = [WebViewDialogController create];
+        _dialogNavigationController = _dialog.navigationController;
         _webView = [_dialog webView];
-        _webView.hidden = YES;
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
     }
@@ -73,7 +74,7 @@ static int kObservingContentSizeChangesContext;
 
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialog.navigationController animated:YES completion:nil];
+    [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialogNavigationController animated:YES completion:nil];
     [self performSuccessCallback:YES];
 }
 
@@ -147,7 +148,15 @@ static int kObservingContentSizeChangesContext;
 
 #pragma mark - Private Methods
 - (void)swipeToBottom {
-    
+    dispatch_block_t block = ^{
+        CGPoint point = CGPointMake(0, self.webView.scrollView.contentSize.height);
+        if (point.y < 0.f) {
+            point.y = 0;
+        }
+        [self.webView.scrollView setContentOffset:point animated:YES];
+    };
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
 @end

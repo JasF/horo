@@ -14,7 +14,7 @@
         <scene sceneID="Vty-HR-hmG">
             <objects>
                 <navigationController storyboardIdentifier="navigationController" id="dO0-La-rBj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mfa-it-UPR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="mfa-it-UPR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -33,7 +33,19 @@
                     <view key="view" contentMode="scaleToFill" id="4EN-Ul-mRC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIM-bF-0O3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fIM-bF-0O3" firstAttribute="width" secondItem="4EN-Ul-mRC" secondAttribute="width" id="18I-9J-OAW"/>
+                            <constraint firstItem="fIM-bF-0O3" firstAttribute="top" secondItem="fS9-ML-SVy" secondAttribute="top" id="qzV-BJ-M5r"/>
+                            <constraint firstItem="fIM-bF-0O3" firstAttribute="leading" secondItem="fS9-ML-SVy" secondAttribute="leading" id="vMF-bb-73A"/>
+                            <constraint firstItem="fS9-ML-SVy" firstAttribute="bottom" secondItem="fIM-bF-0O3" secondAttribute="bottom" id="zNq-Gm-zuf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fS9-ML-SVy"/>
                     </view>
                     <navigationItem key="navigationItem" id="7lJ-V9-g67">
@@ -48,6 +60,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="containerView" destination="fIM-bF-0O3" id="FXC-3d-k3u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Al-1q-YOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

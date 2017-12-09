@@ -14,7 +14,7 @@
 #import "MenuViewController.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "APLMainTableViewController.h"
+#import "FriendsViewController.h"
 #import "Controllers.h"
 
 namespace horo {
@@ -87,15 +87,14 @@ namespace horo {
         }
         
         void showTableSearch() {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
                                                                  bundle: nil];
             
             UINavigationController *navigationController =(UINavigationController *)[storyboard
                                                                                      instantiateViewControllerWithIdentifier:@"RootNavController"];
-            APLMainTableViewController *viewController = (APLMainTableViewController *)navigationController.topViewController;
+            FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
             viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
             viewController.webViewController = [Controllers shared].webViewController;
-        //    viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             delegate.window.rootViewController = navigationController;

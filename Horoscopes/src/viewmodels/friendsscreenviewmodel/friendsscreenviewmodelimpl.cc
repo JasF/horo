@@ -44,16 +44,11 @@ namespace horo {
         return model_->webViewDidLoad(url);
     }
     
-    int FriendsScreenViewModelImpl::friendsCount() {
-        return model_->friendsCount();
-    }
-    
-    void FriendsScreenViewModelImpl::friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) {
-        model_->friendDataAtIndex(index, callback);
-    }
-    
     void FriendsScreenViewModelImpl::friendWithIndexSelected(int index) {
         model_->friendWithIndexSelected(index);
     }
     
+    list<strong<Person>> FriendsScreenViewModelImpl::allFriends() {
+        return model_->allFriends();
+    }
 };

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodel.h"
 
-@interface FriendsViewController : UIViewController
+@interface FriendsViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (assign, nonatomic) strong<horo::FriendsScreenViewModel> viewModel;
 + (instancetype)shared;

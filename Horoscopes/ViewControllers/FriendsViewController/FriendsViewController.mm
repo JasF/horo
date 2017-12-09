@@ -6,19 +6,36 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
+#import "FriendsResultsViewController.h"
 #import "FriendsViewController.h"
 #import "UINavigationBar+Horo.h"
-#import "UIImage+Horo.h"
-#import "UIView+Horo.h"
 #import <WebKit/WebKit.h>
+#import "UIImage+Horo.h"
 #include "data/person.h"
-#import "FriendCell.h"
+#import "UIView+Horo.h"
+#import "PersonObjc.h"
+#import "FriendsCell.h"
 
+NSString *const kCellIdentifier = @"cellID";
+NSString *const kTableCellNibName = @"FriendsCell";
+
+/*
+@interface TableView : UITableView
+@end
+
+@implementation TableView
+- (void)setFrame:(CGRect)frame {
+    NSLog(@"tableview set frame : %@", NSStringFromCGRect(frame));
+    [super setFrame:frame];
+}
+@end
+*/
+
+static CGFloat const kAnimationDuration = 0.3f;
 static int kObservingContentSizeChangesContext;
 static CGFloat const kRowHeight = 100;
 @interface FriendsViewController () <UITableViewDelegate, UITableViewDataSource,
 WKUIDelegate, WKNavigationDelegate, UISearchResultsUpdating>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) WKWebView *wkWebView;
 @property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
 @property (assign, nonatomic) CGFloat maximumContentHeight;
@@ -28,6 +45,8 @@ WKUIDelegate, WKNavigationDelegate, UISearchResultsUpdating>
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
 @property (strong, nonatomic) NSURL *friendsWorkingURL;
 @property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) FriendsResultsViewController *resultsTableController;
+@property (strong, nonatomic) NSArray<PersonObjc *> *allFriends;
 @end
 
 @implementation FriendsViewController
@@ -78,6 +97,7 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (void)viewDidLoad {
+    [self updateAllFriends];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     staticInstance = self;
     NSCParameterAssert(_viewModel);
@@ -86,11 +106,12 @@ static FriendsViewController *staticInstance = nil;
     _wkWebView.hidden = YES;
     [self.view addSubview:_wkWebView];
     [self initializeCallbacks];
-    _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedRowHeight = kRowHeight;
-    _tableView.contentInset = UIEdgeInsetsZero;
-    _tableView.separatorInset = UIEdgeInsetsZero;
-    _tableView.separatorColor = [UIColor clearColor];
+    [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = kRowHeight;
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorColor = [UIColor clearColor];
     @weakify(self);
     _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
         @strongify(self);
@@ -101,7 +122,9 @@ static FriendsViewController *staticInstance = nil;
     [self startObservingContentSizeChangesInWebView:_wkWebView];
     [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
     
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.tableView.backgroundColor = [UIColor redColor];
+    _resultsTableController = [FriendsResultsViewController new];
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:_resultsTableController];
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
@@ -163,20 +186,17 @@ static FriendsViewController *staticInstance = nil;
     if (indexPath.row == 0) {
         return self.updateFriendsCell;
     }
-    else {
-        NSString *identifier = @"friendCell";
-        FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[NSBundle mainBundle] loadNibNamed:@"FriendCell" owner:nil options:nil].firstObject;
-        }
-        int index = (int)indexPath.row - 1;
-        _viewModel->friendDataAtIndex(index, [cell](string name, string birthdayDate){
-            cell.nameLabel.text = [[NSString alloc] initWithUTF8String:name.c_str()];
-            cell.birthdayLabel.text = [[NSString alloc] initWithUTF8String:birthdayDate.c_str()];
-        });
-        return cell;
+    NSInteger index = indexPath.row - 1;
+    NSCAssert(index < _allFriends.count, @"index out of bounds");
+    if (index >= _allFriends.count) {
+        return [UITableViewCell new];
     }
-    return [UITableViewCell new];
+    
+    PersonObjc *person = _allFriends[index];
+    
+    FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    [cell setName:person.name birthday:person.birthday];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -199,8 +219,7 @@ static FriendsViewController *staticInstance = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count = 1 + _viewModel->friendsCount();
-    return count;
+    return _allFriends.count;
 }
 
 #pragma mark - Observer
@@ -289,10 +308,35 @@ static FriendsViewController *staticInstance = nil;
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSLog(@"ci: %@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
     if (@available(iOS 11, *)) {
         UITextField *textField = [_searchController.searchBar valueForKey:@"searchField"];
         textField.textColor = [UIColor whiteColor];
     }
+    if (!_resultsTableController.filteredFriends.count) {
+        _resultsTableController.filteredFriends = [_allFriends copy];
+    }
+    [_resultsTableController.tableView reloadData];
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    [UIView animateWithDuration:kAnimationDuration
+                     animations:^{
+                         [self changeTableViewVisibility:(searchController.active && searchController.searchBar.text.length)];
+    }];
 }
+
+#pragma mark - Private Methods
+- (void)changeTableViewVisibility:(BOOL)searchControllerActive {
+    self.tableView.alpha = (searchControllerActive) ? 0.f : 1.f;
+}
+
+- (void)updateAllFriends {
+    NSMutableArray *array = [NSMutableArray new];
+    for (strong<Person> person : _viewModel->allFriends()) {
+        PersonObjc *personObject = [[PersonObjc alloc] initWithPerson:person];
+        [array addObject:personObject];
+    }
+    _allFriends = array;
+}
+// огромный класс! нужно разнести
 
 @end

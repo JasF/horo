@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="JrU-sD-48u" kind="relationship" relationship="rootViewController" id="0iP-lR-8dD"/>
+                        <segue destination="JsL-ot-Kdq" kind="relationship" relationship="rootViewController" id="2I6-UM-WLS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBP-i7-Yc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,10 +38,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxa-CV-J1X" customClass="MaskingView">
-                                <rect key="frame" x="-0.5" y="64" width="375" height="603"/>
+                                <rect key="frame" x="-0.5" y="20" width="375" height="647"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-3S-ZKj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.10544709920200379" alpha="0.097133582746478875" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="dataSource" destination="JrU-sD-48u" id="EIK-gS-LHf"/>
@@ -114,6 +114,84 @@
                 </tableViewCell>
             </objects>
             <point key="canvasLocation" x="151" y="122"/>
+        </scene>
+        <!--Friends search-->
+        <scene sceneID="igw-0x-5SM">
+            <objects>
+                <tableViewController storyboardIdentifier="tableViewController" automaticallyAdjustsScrollViewInsets="NO" id="JsL-ot-Kdq" customClass="FriendsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rmv-jh-fBw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="N61-s5-MIf">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N61-s5-MIf" id="Svx-m2-95k">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JsL-ot-Kdq" id="SLm-Ce-7VD"/>
+                            <outlet property="delegate" destination="JsL-ot-Kdq" id="UHo-j2-c4c"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friends search" id="Ucs-Z7-Jm7">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="4d9-q1-vcp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jSY-UG-Dcp">
+                                <rect key="frame" x="16" y="11" width="23" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menuIcon"/>
+                                <connections>
+                                    <action selector="menuTapped:" destination="JsL-ot-Kdq" eventType="touchUpInside" id="Qjx-3x-DIv"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="updateFriendsCell" destination="mTi-Rd-FEI" id="Qbf-Cn-bww"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EXj-KH-rcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mTi-Rd-FEI">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mTi-Rd-FEI" id="vrj-Te-h2U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TG-hM-NRb">
+                                <rect key="frame" x="125" y="1" width="124" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="g0o-VL-ibJ"/>
+                                </constraints>
+                                <state key="normal" title="Update Friends"/>
+                                <connections>
+                                    <action selector="updateFriendsTapped:" destination="JsL-ot-Kdq" eventType="touchUpInside" id="TtZ-lK-Y5a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7TG-hM-NRb" firstAttribute="centerY" secondItem="vrj-Te-h2U" secondAttribute="centerY" id="VJr-Xh-MiV"/>
+                            <constraint firstItem="7TG-hM-NRb" firstAttribute="centerX" secondItem="vrj-Te-h2U" secondAttribute="centerX" id="cQy-44-IL1"/>
+                            <constraint firstAttribute="bottom" secondItem="7TG-hM-NRb" secondAttribute="bottom" id="r19-r6-OHM"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableViewCell>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fFe-KP-9Ti">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="menuIcon"/>
+                    <connections>
+                        <action selector="menuTapped:" destination="JrU-sD-48u" eventType="touchUpInside" id="J9Q-f6-Vpl"/>
+                    </connections>
+                </button>
+            </objects>
         </scene>
     </scenes>
     <resources>

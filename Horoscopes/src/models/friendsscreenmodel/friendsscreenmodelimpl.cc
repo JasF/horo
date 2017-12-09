@@ -48,34 +48,6 @@ namespace horo {
         return friendsManager_->webViewDidLoad(url);
     }
     
-    int FriendsScreenModelImpl::friendsCount() {
-        return(int)friendsList_.size();
-    }
-    
-    void FriendsScreenModelImpl::friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) {
-        SCAssert(index < friendsCount(), "index out of bounds");
-        if (index >= friendsCount()) {
-            if (callback) {
-                callback("", "");
-            }
-            return;
-        }
-        
-        list<strong<Person>>::iterator it = friendsList_.begin();
-        advance(it, index);
-        strong<Person> person = *it;
-        if (!person.get()) {
-            if (callback) {
-                callback("", "");
-            }
-            return;
-        }
-        Json::Value data = person->encoded();
-        if (callback) {
-            callback(person->personUrl(), person->birthdayDate().toString());
-        }
-    }
-    
     void FriendsScreenModelImpl::loadFriends(set<strong<Person>> friends) {
         friendsList_.clear();
         for(auto& ptr: friends){
@@ -118,4 +90,8 @@ namespace horo {
         }
     }
     
+    list<strong<Person>> FriendsScreenModelImpl::allFriends() {
+        list<strong<Person>> list = friendsList_;
+        return list;
+    }
 };

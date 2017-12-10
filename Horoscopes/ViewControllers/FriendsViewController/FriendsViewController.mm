@@ -9,6 +9,8 @@
 #import "FriendsCell.h"
 #import "WebViewControllerUIDelegate.h"
 #import "FriendsResultsViewController.h"
+#import "FriendsHeaderView.h"
+#import "UIView+TKGeometry.h"
 
 static NSString *const kCellIdentifier = @"cellID";
 static NSString *const kTableCellNibName = @"FriendsCell";
@@ -21,6 +23,7 @@ static NSString *const kTableCellNibName = @"FriendsCell";
 @property (nonatomic, strong) FriendsResultsViewController *resultsTableController;
 @property (nonatomic, strong) NSArray<PersonObjc *> *allFriends;
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
+@property (strong, nonatomic) IBOutlet FriendsHeaderView *headerView;
 
 // For state restoration.
 @property BOOL searchControllerWasActive;
@@ -39,7 +42,7 @@ using namespace horo;
     [self updateAllFriends];
 
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
-    _resultsTableController = [FriendsResultsViewController new];//[[APLResultsTableController alloc] init];
+    _resultsTableController = [FriendsResultsViewController new];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
@@ -59,13 +62,23 @@ using namespace horo;
     }
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
-   
+    self.searchController.delegate = self;
+    
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     for (UIView *subview in self.tableView.subviews) {
         subview.backgroundColor = [UIColor clearColor];
     }
+    @weakify(self);
+    _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
+        @strongify(self);
+        [self updateAllFriends];
+        [self setHeaderViewState: friends.size() ? HeaderViewSomeFriendsLoaded : HeaderViewLoadingFriends];
+        [self.tableView reloadData];
+    };
+    
+    _headerView.hidden = YES;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -115,7 +128,7 @@ using namespace horo;
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
-    // do something before the search controller is presented
+    [self cleanSearchBarBackground];
 }
 
 - (void)didPresentSearchController:(UISearchController *)searchController {
@@ -127,12 +140,25 @@ using namespace horo;
 }
 
 - (void)didDismissSearchController:(UISearchController *)searchController {
-    // do something after the search controller is dismissed
+    [self cleanSearchBarBackground];
+}
+
+- (void)cleanSearchBarBackground {
+    UIView *view = self.tableView.subviews.firstObject;
+    view.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _allFriends.count + 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return (_headerView.hidden) ? nil : _headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return (_headerView.hidden) ? 0.f : _headerView.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -239,6 +265,9 @@ using namespace horo;
 }
 
 - (IBAction)updateFriendsTapped:(id)sender {
+    [self setHeaderViewState:HeaderViewStateAuthorizing];
+    _headerView.hidden = NO;
+    [self.tableView reloadData];
     _viewModel->updateFriendsFromFacebook();
 }
 
@@ -250,6 +279,41 @@ using namespace horo;
 - (BOOL)webViewController:(id<WebViewController>)webViewController webViewDidLoad:(NSURL *)url {
     string urlString = [url.absoluteString UTF8String];
     return _viewModel->webViewDidLoad(urlString);
+}
+
+- (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController {
+    _headerView.hidden = YES;
+    [self.tableView reloadData];
+}
+
+#pragma mark - Private
+- (void)setHeaderViewState:(HeaderViewStates)headerViewState {
+    NSDictionary *dictionary = @{@(HeaderViewStateInvisible):@(YES),
+                                 @(HeaderViewStateAuthorizing):@(NO),
+                                 @(HeaderViewLoadingFriends):@(NO),
+                                 @(HeaderViewSomeFriendsLoaded):@(NO)};
+    NSDictionary *strings = @{@(HeaderViewStateInvisible):@"",
+                              @(HeaderViewStateAuthorizing):@"authorizing",
+                              @(HeaderViewLoadingFriends):@"loading_friends",
+                              @(HeaderViewSomeFriendsLoaded):@"%@_friends_loaded"};
+    _headerView.hidden = [dictionary[@(headerViewState)] boolValue];
+    NSString *text = L(strings[@(headerViewState)]);
+    NSMutableAttributedString *attributedString = nil;
+    
+    if (headerViewState == HeaderViewSomeFriendsLoaded) {
+        text = [NSString stringWithFormat:text, @(_allFriends.count)];
+        attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+        NSRange range = [text rangeOfString:@" "];
+        NSCParameterAssert(range.location != NSNotFound);
+        [attributedString addAttribute:NSForegroundColorAttributeName
+                                 value:[UIColor greenColor]
+                                 range:NSMakeRange(0, range.location)];
+    }
+    else {
+        attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    }
+    [_headerView setAttributedText:attributedString];
+    [self.tableView reloadData];
 }
 
 @end

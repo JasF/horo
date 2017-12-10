@@ -118,6 +118,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="headerView" destination="Yvh-Bu-bPb" id="9oa-ev-H5h"/>
                         <outlet property="updateFriendsCell" destination="mm8-uA-Uci" id="kG3-ZJ-VOF"/>
                     </connections>
                 </tableViewController>
@@ -149,6 +150,40 @@
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
+                <view contentMode="scaleToFill" id="Yvh-Bu-bPb" customClass="FriendsHeaderView">
+                    <rect key="frame" x="0.0" y="0.0" width="289" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SWz-4R-wRL">
+                            <rect key="frame" x="8" y="7" width="37" height="37"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorizing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyx-RS-K2w">
+                            <rect key="frame" x="53" y="15" width="87.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-TW-c1h">
+                            <rect key="frame" x="218" y="10" width="60" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal">
+                                <attributedString key="attributedTitle"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="SWz-4R-wRL" firstAttribute="leading" secondItem="Yvh-Bu-bPb" secondAttribute="leading" constant="8" id="2Os-zY-Voa"/>
+                        <constraint firstItem="Iyx-RS-K2w" firstAttribute="leading" secondItem="SWz-4R-wRL" secondAttribute="trailing" constant="8" id="4IL-eH-02A"/>
+                        <constraint firstItem="Iyx-RS-K2w" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="azw-A9-50g"/>
+                        <constraint firstItem="SWz-4R-wRL" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="iyc-CY-jIT"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="1pZ-Ax-a8i"/>
+                    <connections>
+                        <outlet property="indicator" destination="SWz-4R-wRL" id="AKA-IP-jRR"/>
+                        <outlet property="label" destination="Iyx-RS-K2w" id="1hB-FT-Lxi"/>
+                    </connections>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZiR-hR-ddR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="149.5" y="28.5"/>

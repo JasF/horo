@@ -250,6 +250,7 @@
 		C3CD7DF91FA6F4E800D2BFF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */; };
 		C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
+		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
 /* End PBXBuildFile section */
 
@@ -1005,6 +1006,8 @@
 		C3D27DC21FA30E430094BF12 /* random.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = random.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/random.o; sourceTree = SOURCE_ROOT; };
 		C3D27DC31FA30E430094BF12 /* rate_statistics.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rate_statistics.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/rate_statistics.o; sourceTree = SOURCE_ROOT; };
 		C3D27DC41FA30E430094BF12 /* ssladapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ssladapter.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ssladapter.o; sourceTree = SOURCE_ROOT; };
+		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
+		C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsHeaderView.m; sourceTree = "<group>"; };
 		C3EAE0261FD91D7E00EC9C3E /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2133,6 +2136,7 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3E857C61FDD3880002949D9 /* FriendsHeaderView */,
 				C31A140B1FB17B72001FABFE /* FriendCell */,
 				C32A60221FDC1478003CF1CA /* Controllers */,
 				C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */,
@@ -2718,6 +2722,15 @@
 			path = rtcbase;
 			sourceTree = "<group>";
 		};
+		C3E857C61FDD3880002949D9 /* FriendsHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */,
+				C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */,
+			);
+			path = FriendsHeaderView;
+			sourceTree = "<group>";
+		};
 		C3EAE0251FD91D6600EC9C3E /* MenuCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2873,6 +2886,7 @@
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
 				C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */,
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
+				C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,

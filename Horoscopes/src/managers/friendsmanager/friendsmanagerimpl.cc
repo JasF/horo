@@ -30,18 +30,15 @@ void FriendsManagerImpl::loadFacebookFriends() {
                 strong<Person> person = new Person(new Zodiac(), name, imageUrl, personUrl, GenderUnknown, StatusReadyForRequest, TypeFriend, DateWrapper(), true);
                 aThis->personDAO_->writePerson(person);
             }
-            
             if (aThis->friendsUpdatedCallback_) {
                 aThis->friendsUpdatedCallback_(aThis->personDAO_->readFacebookFriends());
             }
-            return;
         }
-        if (status == FriendsProvider::AuthorizationRequired) {
+        else if (status == FriendsProvider::AuthorizationRequired) {
             if (aThis->authorizationUrlCallback_) {
                 std::vector<std::string> vec;
                 aThis->authorizationUrlCallback_(url, vec);
             }
-            return;
         }
     };
     provider_->requestFriendsList(safeCompletion);

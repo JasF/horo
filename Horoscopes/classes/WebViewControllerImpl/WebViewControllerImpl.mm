@@ -14,19 +14,20 @@
 #import "UIView+Horo.h"
 #include <string>
 
-static int kObservingContentSizeChangesContext;
+static CGFloat const kCyclicSwipeDuration = 0.8f;
+static CGFloat const kCancelSwipingDelay = 5.f;
 
 @interface WebViewControllerImpl () <WKUIDelegate, WKNavigationDelegate>
 @property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
 @property (strong, nonatomic) id<WebViewControllerUIDelegate> delegate;
 @property (strong, nonatomic) WKWebView *webView;
 @property (strong, nonatomic) NSURL *workingURL;
-@property (assign, nonatomic) BOOL moreBottomSwipe;
-@property (assign, nonatomic) BOOL subscribed;
-@property (assign, nonatomic) BOOL needSetContentOffset;
 @property (assign, nonatomic) CGFloat maximumContentHeight;
 @property (strong, nonatomic) WebViewDialogController *dialog;
 @property (strong, nonatomic) UINavigationController *dialogNavigationController;
+@property (assign, nonatomic) BOOL swipingActive;
+@property (strong, nonatomic) NSString *cachedPageContent;
+@property (assign, nonatomic) BOOL dialogPresented;
 @end
 
 @implementation WebViewControllerImpl
@@ -43,7 +44,7 @@ static int kObservingContentSizeChangesContext;
 }
 
 - (void)dealloc {
-    [self stopObservingContentSizeChangesInWebView:_webView];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(finishSwiping) object:nil];
 }
 
 #pragma mark - WebViewController
@@ -54,18 +55,19 @@ static int kObservingContentSizeChangesContext;
     _workingURL = URL;
     self.webViewDidLoadCompletion = completion;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_workingURL];
+    _cachedPageContent = nil;
     [_webView loadRequest:request];
+    
+    UIViewController *viewController = nil;
+    if ([self.delegate respondsToSelector:@selector(parentViewControllerForWebViewController:)]) {
+        viewController = [self.delegate parentViewControllerForWebViewController:self];
+    }
+    _webView.frame = viewController.view.frame;
 }
 
 - (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
     self.webViewDidLoadCompletion = completion;
-    self.moreBottomSwipe = YES;
-    if (self.subscribed) {
-        self.needSetContentOffset = YES;
-    }
-    else {
-        [self swipeToBottom];
-    }
+    [self launchCyclicBottomSwiping];
 }
 
 - (void)setUIDelegate:(id<WebViewControllerUIDelegate>)delegate {
@@ -74,7 +76,19 @@ static int kObservingContentSizeChangesContext;
 
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialogNavigationController animated:YES completion:nil];
+    BOOL needsShowDialog = NO;
+    if ([_delegate respondsToSelector:@selector(webViewController:webViewDidLoad:)]) {
+        needsShowDialog = [_delegate webViewController:self webViewDidLoad:webView.URL];
+    }
+    
+    if (!_dialogPresented && needsShowDialog) {
+        _dialogPresented = YES;
+        [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialogNavigationController animated:YES completion:nil];
+    }
+    else if (_dialogPresented && !needsShowDialog) {
+        _dialogPresented = NO;
+        [_dialogNavigationController dismissViewControllerAnimated:YES completion:nil];
+    }
     [self performSuccessCallback:YES];
 }
 
@@ -88,14 +102,31 @@ static int kObservingContentSizeChangesContext;
     if (![_webView.URL.path isEqual:_workingURL.path]) {
         return;
     }
-    [_webView evaluateJavaScript:@"document.documentElement.outerHTML" completionHandler:^(id _Nullable object, NSError * _Nullable error) {
+    [_webView evaluateJavaScript:@"document.documentElement.outerHTML" completionHandler:^(NSString * _Nullable object, NSError * _Nullable error) {
         @strongify(self);
         if (self.webViewDidLoadCompletion) {
+            NSCAssert([object isKindOfClass:[NSString class]], @"unknown object");
+            if (![object isKindOfClass:[NSString class]]) {
+                return;
+            }
+            if ([_cachedPageContent isEqualToString:object]) {
+                return;
+            }
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(finishSwiping) object:nil];
+            [self performSelector:@selector(finishSwiping) withObject:nil afterDelay:kCancelSwipingDelay];
+            _cachedPageContent = object;
             auto cb = self.webViewDidLoadCompletion;
             self.webViewDidLoadCompletion = nil;
             cb(object, self.webView.URL, error);
         }
     }];
+}
+
+- (void)finishSwiping {
+    self.swipingActive = NO;
+    if ([_delegate respondsToSelector:@selector(swipingToBottomFinishedInWebViewController:)]) {
+        [_delegate swipingToBottomFinishedInWebViewController:self];
+    }
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
@@ -109,54 +140,31 @@ static int kObservingContentSizeChangesContext;
     }
 }
 
-- (void)startObservingContentSizeChangesInWebView:(WKWebView *)webView {
-    [webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
+#pragma mark - Private Methods
+- (void)launchCyclicBottomSwiping {
+    _swipingActive = YES;
+    [self doCyclic:NO];
 }
 
-- (void)stopObservingContentSizeChangesInWebView:(WKWebView *)webView {
-    [webView.scrollView removeObserver:self forKeyPath:@"contentSize" context:&kObservingContentSizeChangesContext];
-}
-
-- (void)delayedCheckForContentHeight:(NSNumber *)tempHeight {
-    if (![@(_maximumContentHeight) isEqual:tempHeight]) {
+- (void)doCyclic:(BOOL)withNotify {
+    if (!self.swipingActive) {
         return;
     }
-    self.subscribed = NO;
-    if (self.needSetContentOffset) {
-        self.needSetContentOffset = NO;
-        [self swipeToBottom];
+    [self swipeToBottom];
+    if (withNotify) {
+        [self performSuccessCallback:YES];
     }
-    if (self.moreBottomSwipe) {
-        self.moreBottomSwipe = NO;
-        [self performSuccessCallback:NO];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCyclicSwipeDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self doCyclic:YES];
+    });
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == &kObservingContentSizeChangesContext) {
-        if (self.maximumContentHeight < _webView.scrollView.contentSize.height) {
-            self.maximumContentHeight = _webView.scrollView.contentSize.height;
-            CGFloat tempHeight = self.maximumContentHeight;
-            self.subscribed = YES;
-            [NSObject cancelPreviousPerformRequestsWithTarget:self];
-            [self performSelector:@selector(delayedCheckForContentHeight:) withObject:@(tempHeight) afterDelay:0.2f];
-        }
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
-
-#pragma mark - Private Methods
 - (void)swipeToBottom {
-    dispatch_block_t block = ^{
-        CGPoint point = CGPointMake(0, self.webView.scrollView.contentSize.height);
-        if (point.y < 0.f) {
-            point.y = 0;
-        }
-        [self.webView.scrollView setContentOffset:point animated:YES];
-    };
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
+    CGPoint point = CGPointMake(0, self.webView.scrollView.contentSize.height);
+    if (point.y < 0.f) {
+        point.y = 0;
+    }
+    [self.webView.scrollView setContentOffset:point animated:YES];
 }
 
 @end

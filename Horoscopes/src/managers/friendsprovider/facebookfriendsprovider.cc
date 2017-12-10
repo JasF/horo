@@ -46,6 +46,13 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
     if (!path.length()) {
         return;
     }
+    {
+        // AV: для ивента 'начала загрузки друзей'
+        Json::Value persons;
+        if (callback_) {
+            callback_(persons, "", Partial);
+        };
+    }
     friendsUrl_ = path;
     strong<FacebookFriendsProvider> aProvider(this);
     executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
@@ -58,6 +65,8 @@ void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
     if (!path.length()) {
         return;
     }
+    
+    
     executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
         this->parseUserDetailPage(json);
     });
@@ -155,16 +164,6 @@ void FacebookFriendsProvider::requestUserInformation(string path, std::function<
 
 void FacebookFriendsProvider::parseHomePage(Json::Value json) {
     string nextUrl = "/friends/center/friends/";
-    /*
-    std::string text = json["text"].asString();
-    strong<HtmlParser> parser = parserFactory_->createFacebookHomePageParser(text);
-    Json::Value result = parser->parse();
-    std::string nextUrl = result["url"].asString();
-    if (!nextUrl.length()) {
-        operationDidFinishedWithError();
-        return;
-    }
-     */
     executeFriendsPageRequest(nextUrl);
 }
     

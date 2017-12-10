@@ -24,6 +24,7 @@ static NSString *const kTableCellNibName = @"FriendsCell";
 @property (nonatomic, strong) NSArray<PersonObjc *> *allFriends;
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
 @property (strong, nonatomic) IBOutlet FriendsHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 // For state restoration.
 @property BOOL searchControllerWasActive;
@@ -77,8 +78,11 @@ using namespace horo;
         [self setHeaderViewState: friends.size() ? HeaderViewSomeFriendsLoaded : HeaderViewLoadingFriends];
         [self.tableView reloadData];
     };
-    
     _headerView.hidden = YES;
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:L(@"cancel")
+                                                                                  attributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle), NSBackgroundColorAttributeName:[UIColor clearColor],
+                                                                                               NSForegroundColorAttributeName:[UIColor whiteColor] }];
+    [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -154,6 +158,7 @@ using namespace horo;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    _headerView.width = tableView.width;
     return (_headerView.hidden) ? nil : _headerView;
 }
 
@@ -173,7 +178,7 @@ using namespace horo;
     
     PersonObjc *person = _allFriends[index];
     FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    [cell setName:person.name birthday:person.birthday];
+    [cell setName:person.name birthday:person.birthday imageUrl:person.imageUrl];
     return cell;
 }
 
@@ -262,6 +267,11 @@ using namespace horo;
 #pragma mark - Observers
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
+}
+
+- (IBAction)cancelTapped:(id)sender {
+    [self setHeaderViewState:HeaderViewStateInvisible];
+    _viewModel->cancelFriendsLoadTapped();
 }
 
 - (IBAction)updateFriendsTapped:(id)sender {

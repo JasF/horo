@@ -118,6 +118,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="3Qh-TW-c1h" id="9Jp-jQ-wbY"/>
                         <outlet property="headerView" destination="Yvh-Bu-bPb" id="9oa-ev-H5h"/>
                         <outlet property="updateFriendsCell" destination="mm8-uA-Uci" id="kG3-ZJ-VOF"/>
                     </connections>
@@ -163,19 +164,23 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-TW-c1h">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-TW-c1h">
                             <rect key="frame" x="218" y="10" width="60" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal">
                                 <attributedString key="attributedTitle"/>
                             </state>
+                            <connections>
+                                <action selector="cancelTapped:" destination="4Ax-ex-6Gm" eventType="touchUpInside" id="15b-lD-79H"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="SWz-4R-wRL" firstAttribute="leading" secondItem="Yvh-Bu-bPb" secondAttribute="leading" constant="8" id="2Os-zY-Voa"/>
                         <constraint firstItem="Iyx-RS-K2w" firstAttribute="leading" secondItem="SWz-4R-wRL" secondAttribute="trailing" constant="8" id="4IL-eH-02A"/>
+                        <constraint firstItem="3Qh-TW-c1h" firstAttribute="trailing" secondItem="1pZ-Ax-a8i" secondAttribute="trailing" constant="-18" id="RTl-Cs-l1S"/>
                         <constraint firstItem="Iyx-RS-K2w" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="azw-A9-50g"/>
+                        <constraint firstItem="3Qh-TW-c1h" firstAttribute="centerY" secondItem="1pZ-Ax-a8i" secondAttribute="centerY" id="gfS-EO-8gm"/>
                         <constraint firstItem="SWz-4R-wRL" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="iyc-CY-jIT"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="1pZ-Ax-a8i"/>

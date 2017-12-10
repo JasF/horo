@@ -33,8 +33,9 @@ namespace horo {
         virtual ~_FriendsProvider(){}
     public:
         virtual void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion)=0;
+        virtual void cancelRequestingFriendsList()=0;
         virtual bool webViewDidLoad(std::string url)=0;
-        virtual void requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) = 0;
+        virtual void requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) = 0;
     private:
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_;
         

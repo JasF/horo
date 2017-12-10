@@ -7,26 +7,24 @@
 //
 
 #import "FriendsCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FriendsCell ()
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *birthdayLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *mainImageView;
 @end
 
 @implementation FriendsCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (void)setName:(NSString *)name
-       birthday:(NSString *)birthday {
+       birthday:(NSString *)birthday
+       imageUrl:(NSString *)imageUrl {
     _nameLabel.text = name;
     _birthdayLabel.text = birthday;
+    if (imageUrl.length) {
+        [_mainImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+    }
 }
 
 @end

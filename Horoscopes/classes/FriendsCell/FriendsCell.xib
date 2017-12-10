@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,6 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3q-hh-8je">
+                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="c3q-hh-8je" secondAttribute="height" multiplier="1:1" id="AZK-Yr-p7j"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDy-r4-w92">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,6 +46,9 @@
                     <constraint firstItem="s36-zj-t9v" firstAttribute="top" secondItem="rDy-r4-w92" secondAttribute="bottom" id="BAE-Q4-PNp"/>
                     <constraint firstItem="s36-zj-t9v" firstAttribute="leading" secondItem="p8q-ZM-WkH" secondAttribute="leading" id="CkX-y1-mz6"/>
                     <constraint firstItem="s36-zj-t9v" firstAttribute="width" secondItem="p8q-ZM-WkH" secondAttribute="width" id="LgK-9A-k9s"/>
+                    <constraint firstItem="c3q-hh-8je" firstAttribute="leading" secondItem="p8q-ZM-WkH" secondAttribute="leading" id="O2T-Xa-W0J"/>
+                    <constraint firstItem="c3q-hh-8je" firstAttribute="height" secondItem="p8q-ZM-WkH" secondAttribute="height" id="SY6-EY-XXh"/>
+                    <constraint firstItem="c3q-hh-8je" firstAttribute="top" secondItem="p8q-ZM-WkH" secondAttribute="top" id="aNu-EM-77g"/>
                     <constraint firstItem="rDy-r4-w92" firstAttribute="width" secondItem="p8q-ZM-WkH" secondAttribute="width" id="ik1-Ax-sMf"/>
                     <constraint firstAttribute="bottom" secondItem="s36-zj-t9v" secondAttribute="bottom" id="nTt-Te-ymV"/>
                     <constraint firstItem="rDy-r4-w92" firstAttribute="top" secondItem="p8q-ZM-WkH" secondAttribute="top" id="sfI-qy-2rW"/>
@@ -47,6 +57,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="birthdayLabel" destination="s36-zj-t9v" id="vAR-lt-zjF"/>
+                <outlet property="mainImageView" destination="c3q-hh-8je" id="FMR-8K-jqG"/>
                 <outlet property="nameLabel" destination="rDy-r4-w92" id="bpv-SZ-GRw"/>
             </connections>
         </tableViewCell>

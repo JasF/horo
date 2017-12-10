@@ -1,5 +1,5 @@
 //
-//  facebookuserdetailparser.c
+//  facebookuserdetailparser.cc
 //  Horoscopes
 //
 //  Created by Jasf on 07.11.2017.
@@ -32,16 +32,12 @@ namespace horo {
     void FacebookUserDetailParser::iterate(const GumboNode *root) {
         if (root->type == GUMBO_NODE_TEXT) {
             std::string text = root->v.text.text;
-            if (text == "Дата рождения") {
-                LOG(LS_ERROR)<<"!";
-            }
             textsList_.push_back(text);
             if (textsList_.size() > 10) {
                 textsList_.erase(textsList_.begin());
             }
             
             string backString= textsList_.back();
-           // LOG(LS_WARNING) << backString;
             auto codes = birthdayDetector_->isLocalizedBirthdayString(text);
             if (codes.size()) {
                 size_t count = textsList_.size();

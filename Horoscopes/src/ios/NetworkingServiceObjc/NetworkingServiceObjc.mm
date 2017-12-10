@@ -20,7 +20,8 @@ namespace horo {
     
     using namespace std;
     
-NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> factory) : factory_(factory) {
+NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> factory) : factory_(factory),
+    usingWebViewServices_(false) {
     NSCParameterAssert(factory.get());
 }
 
@@ -76,6 +77,7 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
     NSMutableDictionary *dictionaryParameters = [[NSDictionary horo_dictionaryFromJsonValue:parameters] mutableCopy];
     if ([dictionaryParameters[@"triggerSwipeToBottom"] boolValue]) {
+        usingWebViewServices_ = true;
         [dictionaryParameters removeObjectForKey:@"triggerSwipeToBottom"];
         [[Controllers shared].webViewController triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
             NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
@@ -84,6 +86,7 @@ void NetworkingServiceObjc::beginRequest(std::string path,
         return;
     }
     if ([dictionaryParameters[@"webViewFriendsLoading"] boolValue]) {
+        usingWebViewServices_ = true;
         [dictionaryParameters removeObjectForKey:@"webViewFriendsLoading"];
         NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
         NSString *urlString = [baseUrl stringByAppendingString:pathString];
@@ -98,10 +101,10 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     [set addObject:@"text/plain"];
     [set addObject:@"text/html"];
     [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
-    [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    task_ = [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         safeSuccess(task.response.URL, JSON);
     }
-                                   failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
+                                           failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
         error cerr([[aError localizedDescription] UTF8String], (int)[aError code]);
         if (failBlock) {
             failBlock(cerr);
@@ -109,5 +112,16 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     }];
 }
 
+void NetworkingServiceObjc::cancel() {
+    if (task_) {
+        [task_ cancel];
+        task_ = nil;
+    }
+    if (usingWebViewServices_) {
+        usingWebViewServices_ = false;
+        [[Controllers shared].webViewController cancel];
+    }
+}
+    
 };
 

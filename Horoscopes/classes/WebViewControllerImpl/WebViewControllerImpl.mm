@@ -74,6 +74,11 @@ static CGFloat const kCancelSwipingDelay = 5.f;
     _delegate = delegate;
 }
 
+- (void)cancel {
+    self.swipingActive = NO;
+    [self.webView stopLoading];
+}
+
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     BOOL needsShowDialog = NO;
@@ -93,10 +98,6 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 }
 
 #pragma mark - WKNavigationDelegate
-
-
-#pragma mark - UIWebViewDelegate
-
 - (void)performSuccessCallback:(BOOL)withClean {
     @weakify(self);
     if (![_webView.URL.path isEqual:_workingURL.path]) {

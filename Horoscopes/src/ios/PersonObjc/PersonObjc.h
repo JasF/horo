@@ -12,5 +12,6 @@
 @interface PersonObjc : NSObject
 @property (readonly, nonatomic) NSString *name;
 @property (readonly, nonatomic) NSString *birthday;
+@property (readonly, nonatomic) NSString *imageUrl;
 - (instancetype)initWithPerson:(strong<horo::Person>)person;
 @end

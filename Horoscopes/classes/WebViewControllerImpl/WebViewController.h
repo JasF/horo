@@ -14,4 +14,5 @@
              completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion;
 - (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion;
 - (void)setUIDelegate:(id<WebViewControllerUIDelegate>)delegate;
+- (void)cancel;
 @end

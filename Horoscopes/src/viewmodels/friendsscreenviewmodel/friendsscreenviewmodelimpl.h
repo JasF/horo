@@ -22,6 +22,7 @@ namespace horo {
         
     public:
         void updateFriendsFromFacebook() override;
+        void cancelFriendsLoadTapped() override;
         void menuTapped() override;
         bool webViewDidLoad(std::string url) override;
         void friendWithIndexSelected(int index) override;

@@ -23,6 +23,12 @@ void FacebookFriendsProvider::requestFriendsList(std::function<void(Json::Value 
     executeHomePageRequest();
 }
     
+void FacebookFriendsProvider::cancelRequestingFriendsList() {
+    if (request_.get()) {
+        request_->cancel();
+    }
+}
+
 void FacebookFriendsProvider::executeHomePageRequest() {
     strong<FacebookFriendsProvider> aProvider(this);
     executeRequest("home.php", [aProvider](strong<HttpResponse> response, Json::Value json) {
@@ -147,7 +153,7 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     return false;
 }
     
-void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) {
+void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) {
     userInformationCompletion_ = completion;
     if (path.find("profile.php") == string::npos) {
         size_t index = path.find("?");
@@ -202,7 +208,7 @@ void FacebookFriendsProvider::parseUserDetailPage(Json::Value json) {
         wrapper = date;
     }
     if (userInformationCompletion_) {
-        userInformationCompletion_(wrapper);
+        userInformationCompletion_(wrapper, true);
     }
 }
 

@@ -35,4 +35,8 @@
     return birthday;
 }
 
+- (NSString *)imageUrl {
+    return [NSString stringWithUTF8String:_person->imageUrl().c_str()];
+}
+
 @end

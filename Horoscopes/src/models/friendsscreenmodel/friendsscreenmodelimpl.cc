@@ -44,6 +44,10 @@ namespace horo {
         friendsManager_->loadFacebookFriends();
     }
     
+    void FriendsScreenModelImpl::cancelFriendsUpdating() {
+        friendsManager_->cancelLoading();
+    }
+    
     bool FriendsScreenModelImpl::webViewDidLoad(std::string url) {
         return friendsManager_->webViewDidLoad(url);
     }

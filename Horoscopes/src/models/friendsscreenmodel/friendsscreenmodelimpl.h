@@ -30,6 +30,7 @@ namespace horo {
         bool webViewDidLoad(std::string url) override;
         void friendWithIndexSelected(int index) override;
         list<strong<Person>> allFriends() override;
+        void cancelFriendsUpdating() override;
         
     private:
         void loadFriends(set<strong<Person>> loadFriends);

@@ -30,7 +30,7 @@ strong<HttpResponse> NetworkingServiceFactoryImpl::createHttpResponse() {
     }
     return nullptr;
 }
-    
+
 NetworkingServiceFactoryImpl::NetworkingServiceFactoryImpl() {
     
 }

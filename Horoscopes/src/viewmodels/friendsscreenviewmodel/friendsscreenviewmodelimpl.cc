@@ -36,6 +36,10 @@ namespace horo {
         model_->updateFriendsFromFacebook();
     }
     
+    void FriendsScreenViewModelImpl::cancelFriendsLoadTapped() {
+        model_->cancelFriendsUpdating();
+    }
+    
     void FriendsScreenViewModelImpl::menuTapped() {
         screensManager_->showMenuViewController(true);
     }

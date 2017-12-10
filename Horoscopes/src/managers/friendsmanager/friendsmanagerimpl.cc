@@ -44,10 +44,14 @@ void FriendsManagerImpl::loadFacebookFriends() {
     provider_->requestFriendsList(safeCompletion);
 }
     
+void FriendsManagerImpl::cancelLoading() {
+    provider_->cancelRequestingFriendsList();
+}
+
 void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) {
     SCParameterAssert(person.get());
-    std::function<void(DateWrapper birthday)> safeCompletion = [person, callback](DateWrapper birthday) {
-        bool success = (birthday.month()>0);
+    std::function<void(DateWrapper birthday, bool success)> safeCompletion = [person, callback](DateWrapper birthday, bool success) {
+        success = (birthday.month()>0);
         person->setBirthdayDate(birthday);
         person->setPersonStatus( (success) ? StatusCompleted : StatusFailed );
         ZodiacTypes type = Zodiac::zodiacTypeByDate(birthday);

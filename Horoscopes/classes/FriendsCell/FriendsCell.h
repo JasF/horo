@@ -10,5 +10,6 @@
 
 @interface FriendsCell : UITableViewCell
 - (void)setName:(NSString *)name
-       birthday:(NSString *)birthday;
+       birthday:(NSString *)birthday
+       imageUrl:(NSString *)imageUrl;
 @end

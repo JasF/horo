@@ -28,9 +28,9 @@ namespace horo {
     public:
         void updateFriendsFromFacebook() override;
         bool webViewDidLoad(std::string url) override;
-        int friendsCount() override;
-        void friendDataAtIndex(int index, std::function<void(string name, string birthday)> callback) override;
         void friendWithIndexSelected(int index) override;
+        list<strong<Person>> allFriends() override;
+        void cancelFriendsUpdating() override;
         
     private:
         void loadFriends(set<strong<Person>> loadFriends);

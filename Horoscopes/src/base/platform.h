@@ -16,6 +16,7 @@ namespace horo {
     string contentOfFile(string filename, string extension);
     string toLowerCase(string source);
     string loc(string term);
+    string urlDecode(string decodedUrl);
 };
 
 #endif /* platform_h */

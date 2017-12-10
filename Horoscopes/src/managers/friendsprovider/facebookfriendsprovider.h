@@ -29,8 +29,9 @@ namespace horo {
         ~FacebookFriendsProvider() override {}
     public:
         void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) override;
+        void cancelRequestingFriendsList() override;
         bool webViewDidLoad(std::string url) override;
-        void requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) override;
+        void requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) override;
         
     private:
         void parseHomePage(Json::Value json);
@@ -65,7 +66,7 @@ namespace horo {
         std::string currentPath_;
         Json::Value parameters_;
         std::string friendsUrl_;
-        std::function<void(DateWrapper birthday)> userInformationCompletion_;
+        std::function<void(DateWrapper birthday, bool success)> userInformationCompletion_;
         std::function<void(strong<HttpResponse> response, Json::Value value)> currentCallback_;
     };
 };

@@ -1,297 +1,329 @@
-//
-//  FriendsViewController.m
-//  Horoscopes
-//
-//  Created by Jasf on 05.11.2017.
-//  Copyright © 2017 Mail.Ru. All rights reserved.
-//
-
 #import "FriendsViewController.h"
+#import "FriendsResultsViewController.h"
 #import "UINavigationBar+Horo.h"
-#import "UIImage+Horo.h"
-#import "UIView+Horo.h"
 #import <WebKit/WebKit.h>
+#import "UIImage+Horo.h"
 #include "data/person.h"
-#import "FriendCell.h"
+#import "UIView+Horo.h"
+#import "PersonObjc.h"
+#import "FriendsCell.h"
+#import "WebViewControllerUIDelegate.h"
+#import "FriendsResultsViewController.h"
+#import "FriendsHeaderView.h"
+#import "UIView+TKGeometry.h"
 
-static int kObservingContentSizeChangesContext;
-static CGFloat const kRowHeight = 100;
-@interface FriendsViewController () <UITableViewDelegate, UITableViewDataSource,
-WKUIDelegate, WKNavigationDelegate, UISearchResultsUpdating>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) WKWebView *wkWebView;
-@property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
-@property (assign, nonatomic) CGFloat maximumContentHeight;
-@property (assign, nonatomic) BOOL subscribed;
-@property (assign, nonatomic) BOOL needSetContentOffset;
-@property (assign, nonatomic) BOOL moreFriendsRequest;
+static NSString *const kCellIdentifier = @"cellID";
+static NSString *const kTableCellNibName = @"FriendsCell";
+
+@interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
+
+@property (nonatomic, strong) UISearchController *searchController;
+
+// Our secondary search results table view.
+@property (nonatomic, strong) FriendsResultsViewController *resultsTableController;
+@property (nonatomic, strong) NSArray<PersonObjc *> *allFriends;
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
-@property (strong, nonatomic) NSURL *friendsWorkingURL;
-@property (strong, nonatomic) UISearchController *searchController;
-@end
+@property (strong, nonatomic) IBOutlet FriendsHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-@implementation FriendsViewController
+// For state restoration.
+@property BOOL searchControllerWasActive;
+@property BOOL searchControllerSearchFieldWasFirstResponder;
+
+@end
 
 using namespace std;
 using namespace horo;
 
-static FriendsViewController *staticInstance = nil;
-+ (instancetype)shared {
-    return staticInstance;
-}
-
-- (void)startObservingContentSizeChangesInWebView:(WKWebView *)webView {
-    [webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
-}
-
-- (void)stopObservingContentSizeChangesInWebView:(WKWebView *)webView {
-    [webView.scrollView removeObserver:self forKeyPath:@"contentSize" context:&kObservingContentSizeChangesContext];
-}
-
-- (void)delayedCheckForContentHeight:(NSNumber *)tempHeight {
-    if (![@(_maximumContentHeight) isEqual:tempHeight]) {
-        return;
-    }
-    self.subscribed = NO;
-    if (self.needSetContentOffset) {
-        self.needSetContentOffset = NO;
-        [self swipeToBottom];
-    }
-    if (self.moreFriendsRequest) {
-        self.moreFriendsRequest = NO;
-        [self performSuccessCallback:NO];
-    }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == &kObservingContentSizeChangesContext) {
-        if (self.maximumContentHeight < _wkWebView.scrollView.contentSize.height) {
-            self.maximumContentHeight = _wkWebView.scrollView.contentSize.height;
-            CGFloat tempHeight = self.maximumContentHeight;
-            self.subscribed = YES;
-            [NSObject cancelPreviousPerformRequestsWithTarget:self];
-            [self performSelector:@selector(delayedCheckForContentHeight:) withObject:@(tempHeight) afterDelay:0.2f];
-        }
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
-
+@implementation FriendsViewController
 - (void)viewDidLoad {
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    staticInstance = self;
     NSCParameterAssert(_viewModel);
+    NSCParameterAssert(_webViewController);
     [super viewDidLoad];
-    _wkWebView = [[WKWebView alloc] initWithFrame:self.view.frame];
-    _wkWebView.hidden = YES;
-    [self.view addSubview:_wkWebView];
-    [self initializeCallbacks];
-    _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedRowHeight = kRowHeight;
-    _tableView.contentInset = UIEdgeInsetsZero;
-    _tableView.separatorInset = UIEdgeInsetsZero;
-    _tableView.separatorColor = [UIColor clearColor];
-    @weakify(self);
-    _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
-        @strongify(self);
-        [self.tableView reloadData];
-    };
-    _wkWebView.UIDelegate = self;
-    _wkWebView.navigationDelegate = self;
-    [self startObservingContentSizeChangesInWebView:_wkWebView];
-    [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
-    
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    [self updateAllFriends];
+
+    [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
+    _resultsTableController = [FriendsResultsViewController new];
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
+    self.searchController.searchResultsUpdater = self;
+    [self.searchController.searchBar sizeToFit];
+	
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
-    _searchController.searchBar.backgroundColor = [UIColor redColor];
     if (@available(iOS 11, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         self.navigationItem.searchController = self.searchController;
         self.navigationItem.hidesSearchBarWhenScrolling = NO;
     }
     else {
+        UIView *subview = [self.searchController.searchBar horo_subviewWithClass:NSClassFromString(@"UISearchBarBackground")];
+        [subview removeFromSuperview];
         self.tableView.tableHeaderView = self.searchController.searchBar;
     }
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.delegate = self;
+    
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    for (UIView *subview in self.tableView.subviews) {
+        subview.backgroundColor = [UIColor clearColor];
+    }
+    @weakify(self);
+    _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
+        @strongify(self);
+        [self updateAllFriends];
+        [self setHeaderViewState: friends.size() ? HeaderViewSomeFriendsLoaded : HeaderViewLoadingFriends];
+        [self.tableView reloadData];
+    };
+    _headerView.hidden = YES;
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:L(@"cancel")
+                                                                                  attributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle), NSBackgroundColorAttributeName:[UIColor clearColor],
+                                                                                               NSForegroundColorAttributeName:[UIColor whiteColor] }];
+    [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setupTableViewTrasparency];
+    [_webViewController setUIDelegate:self];
 }
 
-- (void)setupTableViewTrasparency {
-    self.searchController.searchResultsController.view.backgroundColor = [UIColor clearColor];
-    UISearchBar *searchBar = self.searchController.searchBar;
-    searchBar.backgroundColor = [UIColor clearColor];
-    if ([searchBar respondsToSelector:@selector(setBarTintColor:)]) {
-        searchBar.barTintColor = [UIColor clearColor];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_webViewController setUIDelegate:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // restore the searchController's active state
+    if (self.searchControllerWasActive) {
+        self.searchController.active = self.searchControllerWasActive;
+        _searchControllerWasActive = NO;
+        
+        if (self.searchControllerSearchFieldWasFirstResponder) {
+            [self.searchController.searchBar becomeFirstResponder];
+            _searchControllerSearchFieldWasFirstResponder = NO;
+        }
     }
-    [searchBar
-     setBackgroundImage:[UIImage horo_strechableImageWithTopPixelColor:[UIColor colorWithWhite:1.0 alpha:0.08]]];
-    UIView *backgroundView = (UIView *)[searchBar horo_subviewWithClass:NSClassFromString(@"UISearchBarBackground")];
-    backgroundView.alpha = 0.f;
-    self.tableView.backgroundView = backgroundView;
-    self.tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    self.view.backgroundColor = [UIColor clearColor];
 }
 
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    _wkWebView.frame = self.view.bounds;
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super encodeRestorableStateWithCoder:coder];
 }
 
-- (void)initializeCallbacks {
-    @weakify(self);
-    _viewModel->authorizationUrlCallback_ = [self_weak_](std::string url, std::vector<std::string> allowedPatterns) {
-        @strongify(self);
-        NSString *urlString = [[NSString alloc] initWithUTF8String:url.c_str()];
-        [self showUrl:urlString];
-    };
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super decodeRestorableStateWithCoder:coder];
 }
 
-- (void)showUrl:(NSString *)urlString {
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
-    [_wkWebView loadRequest:request];
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UISearchControllerDelegate
+- (void)presentSearchController:(UISearchController *)searchController {
+}
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    [self cleanSearchBarBackground];
+}
+
+- (void)didPresentSearchController:(UISearchController *)searchController {
+    // do something after the search controller is presented
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+    // do something before the search controller is dismissed
+}
+
+- (void)didDismissSearchController:(UISearchController *)searchController {
+    [self cleanSearchBarBackground];
+}
+
+- (void)cleanSearchBarBackground {
+    UIView *view = self.tableView.subviews.firstObject;
+    view.backgroundColor = [UIColor clearColor];
+}
+
+#pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _allFriends.count + 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    _headerView.width = tableView.width;
+    return (_headerView.hidden) ? nil : _headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return (_headerView.hidden) ? 0.f : _headerView.height;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return self.updateFriendsCell;
     }
-    else {
-        NSString *identifier = @"friendCell";
-        FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (!cell) {
-            cell = [[NSBundle mainBundle] loadNibNamed:@"FriendCell" owner:nil options:nil].firstObject;
-        }
-        int index = (int)indexPath.row - 1;
-        _viewModel->friendDataAtIndex(index, [cell](string name, string birthdayDate){
-            cell.nameLabel.text = [[NSString alloc] initWithUTF8String:name.c_str()];
-            cell.birthdayLabel.text = [[NSString alloc] initWithUTF8String:birthdayDate.c_str()];
-        });
-        return cell;
+    NSInteger index = indexPath.row - 1;
+    NSCAssert(index < _allFriends.count, @"index out of bounds");
+    if (index >= _allFriends.count) {
+        return [UITableViewCell new];
     }
-    return [UITableViewCell new];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+    
+    PersonObjc *person = _allFriends[index];
+    FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    [cell setName:person.name birthday:person.birthday imageUrl:person.imageUrl];
+    return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!indexPath.row) {
-        return nil;
-    }
-    return indexPath;
+    return (indexPath.row) ? indexPath : nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!indexPath.row) {
-        return;
-    }
     NSInteger index = indexPath.row - 1;
+    NSCAssert(index < _allFriends.count, @"index out of bound");
+    if (index >= _allFriends.count) {
+        return;
+    }
     _viewModel->friendWithIndexSelected((int)index);
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count = 1 + _viewModel->friendsCount();
-    return count;
-}
-
-#pragma mark - Observer
-- (IBAction)friendsTapped:(id)sender {
-    //_viewModel->friendsTapped();
-}
-- (IBAction)zodiacsTapped:(id)sender {
-    //_viewModel->zodiacsTapped();
-}
-
-#pragma mark - UIWebViewDelegate
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    std::string loadedUrl = [webView.URL.absoluteString UTF8String];
-    bool showWebView = _viewModel->webViewDidLoad(loadedUrl);
-    self.wkWebView.hidden = NO;//!showWebView;
-    [self performSuccessCallback:YES];
-}
-
-- (void)performSuccessCallback:(BOOL)withClean {
-    @weakify(self);
-    if (![_wkWebView.URL.path isEqual:_friendsWorkingURL.path]) {
-        return;
-    }
-    [_wkWebView evaluateJavaScript:@"document.documentElement.outerHTML" completionHandler:^(id _Nullable object, NSError * _Nullable error) {
-        @strongify(self);
-        if (self.webViewDidLoadCompletion) {
-            auto cb = self.webViewDidLoadCompletion;
-            self.webViewDidLoadCompletion = nil;
-            cb(object, self.wkWebView.URL, error);
-        }
-    }];
-}
-
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    if (![_wkWebView.URL.path isEqual:_friendsWorkingURL.path]) {
-        return;
-    }
-    if (self.webViewDidLoadCompletion) {
-        auto cb = self.webViewDidLoadCompletion;
-        self.webViewDidLoadCompletion = nil;
-        cb(nil, webView.URL, error);
-    }
-}
-
-#pragma mark -
-- (void)loadFriendsWithPath:(NSURL *)friendsUrl completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
-    NSCParameterAssert(friendsUrl);
-    NSCParameterAssert(completion);
-    _friendsWorkingURL = friendsUrl;
-    self.webViewDidLoadCompletion = completion;
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:friendsUrl];
-    [_wkWebView loadRequest:request];
-}
-
-- (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
-    self.webViewDidLoadCompletion = completion;
-    self.moreFriendsRequest = YES;
-    if (self.subscribed) {
-        self.needSetContentOffset = YES;
-    }
-    else {
-        [self swipeToBottom];
-    }
-}
-
-- (void)swipeToBottom {
-    dispatch_block_t block = ^{
-        CGPoint point = CGPointMake(0, self.wkWebView.scrollView.contentSize.height);
-        if (point.y < 0.f) {
-            point.y = 0;
-        }
-        [self.wkWebView.scrollView setContentOffset:point animated:YES];
-    };
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
-}
-
-#pragma mark - Observers
-- (IBAction)updateFriendsTapped:(id)sender {
-    _viewModel->updateFriendsFromFacebook();
-}
-
-- (IBAction)menuTapped:(id)sender {
-    _viewModel->menuTapped();
 }
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    UITextField *textField = [_searchController.searchBar valueForKey:@"searchField"];
-    textField.textColor = [UIColor whiteColor];
+    NSString *searchText = searchController.searchBar.text;
+    NSMutableArray *searchResults = [_allFriends mutableCopy];
+    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSArray *searchItems = nil;
+    if (strippedString.length > 0) {
+        searchItems = [strippedString componentsSeparatedByString:@" "];
+    }
+    NSMutableArray *andMatchPredicates = [NSMutableArray array];
+    
+    for (NSString *searchString in searchItems) {
+        NSMutableArray *searchItemsPredicate = [NSMutableArray array];
+        // name field matching
+        NSExpression *lhs = [NSExpression expressionForKeyPath:@"name"];
+        NSExpression *rhs = [NSExpression expressionForConstantValue:searchString];
+        NSPredicate *finalPredicate = [NSComparisonPredicate
+                                       predicateWithLeftExpression:lhs
+                                       rightExpression:rhs
+                                       modifier:NSDirectPredicateModifier
+                                       type:NSContainsPredicateOperatorType
+                                       options:NSCaseInsensitivePredicateOption];
+        [searchItemsPredicate addObject:finalPredicate];
+        
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        numberFormatter.numberStyle = NSNumberFormatterNoStyle;
+        NSNumber *targetNumber = [numberFormatter numberFromString:searchString];
+        if (targetNumber != nil) {   // searchString may not convert to a number
+            lhs = [NSExpression expressionForKeyPath:@"birthday"];
+            rhs = [NSExpression expressionForConstantValue:targetNumber];
+            finalPredicate = [NSComparisonPredicate
+                              predicateWithLeftExpression:lhs
+                              rightExpression:rhs
+                              modifier:NSDirectPredicateModifier
+                              type:NSEqualToPredicateOperatorType
+                              options:NSCaseInsensitivePredicateOption];
+            [searchItemsPredicate addObject:finalPredicate];
+        }
+        
+        // at this OR predicate to our master AND predicate
+        NSCompoundPredicate *orMatchPredicates = [NSCompoundPredicate orPredicateWithSubpredicates:searchItemsPredicate];
+        [andMatchPredicates addObject:orMatchPredicates];
+    }
+    
+    // match up the fields of the Product object
+    NSCompoundPredicate *finalCompoundPredicate =
+    [NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
+    searchResults = [[searchResults filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
+    
+    _resultsTableController.filteredFriends = searchResults;
+    [_resultsTableController.tableView reloadData];
+    [self setTableViewVisibility:(searchController.active && searchText.length)];
+}
+
+- (void)setTableViewVisibility:(BOOL)visibility {
+    self.tableView.hidden = (visibility);
+}
+
+#pragma mark - Private
+- (void)updateAllFriends {
+    NSMutableArray *array = [NSMutableArray new];
+    for (strong<Person> person : _viewModel->allFriends()) {
+        PersonObjc *personObject = [[PersonObjc alloc] initWithPerson:person];
+        [array addObject:personObject];
+    }
+    _allFriends = array;
+}
+
+#pragma mark - Observers
+- (IBAction)menuTapped:(id)sender {
+    _viewModel->menuTapped();
+}
+
+- (IBAction)cancelTapped:(id)sender {
+    [self setHeaderViewState:HeaderViewStateInvisible];
+    _viewModel->cancelFriendsLoadTapped();
+}
+
+- (IBAction)updateFriendsTapped:(id)sender {
+    [self setHeaderViewState:HeaderViewStateAuthorizing];
+    _headerView.hidden = NO;
+    [self.tableView reloadData];
+    _viewModel->updateFriendsFromFacebook();
+}
+
+#pragma mark - WebViewControllerUIDelegate
+- (UIViewController *)parentViewControllerForWebViewController:(id<WebViewController>)webViewController {
+    return self;
+}
+
+- (BOOL)webViewController:(id<WebViewController>)webViewController webViewDidLoad:(NSURL *)url {
+    string urlString = [url.absoluteString UTF8String];
+    return _viewModel->webViewDidLoad(urlString);
+}
+
+- (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController {
+    _headerView.hidden = YES;
+    [self.tableView reloadData];
+}
+
+#pragma mark - Private
+- (void)setHeaderViewState:(HeaderViewStates)headerViewState {
+    NSDictionary *dictionary = @{@(HeaderViewStateInvisible):@(YES),
+                                 @(HeaderViewStateAuthorizing):@(NO),
+                                 @(HeaderViewLoadingFriends):@(NO),
+                                 @(HeaderViewSomeFriendsLoaded):@(NO)};
+    NSDictionary *strings = @{@(HeaderViewStateInvisible):@"",
+                              @(HeaderViewStateAuthorizing):@"authorizing",
+                              @(HeaderViewLoadingFriends):@"loading_friends",
+                              @(HeaderViewSomeFriendsLoaded):@"%@_friends_loaded"};
+    _headerView.hidden = [dictionary[@(headerViewState)] boolValue];
+    NSString *text = L(strings[@(headerViewState)]);
+    NSMutableAttributedString *attributedString = nil;
+    
+    if (headerViewState == HeaderViewSomeFriendsLoaded) {
+        text = [NSString stringWithFormat:text, @(_allFriends.count)];
+        attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+        NSRange range = [text rangeOfString:@" "];
+        NSCParameterAssert(range.location != NSNotFound);
+        [attributedString addAttribute:NSForegroundColorAttributeName
+                                 value:[UIColor greenColor]
+                                 range:NSMakeRange(0, range.location)];
+    }
+    else {
+        attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    }
+    [_headerView setAttributedText:attributedString];
+    [self.tableView reloadData];
 }
 
 @end

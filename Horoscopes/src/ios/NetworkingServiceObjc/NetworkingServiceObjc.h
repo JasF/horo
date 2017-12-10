@@ -10,6 +10,8 @@
 #include "../src/managers/networkingservice/networkingservice.h"
 #include "managers/networkingservice/networkingservicefactory.h"
 
+@class NSURLSessionDataTask;
+
 namespace horo {
     class NetworkingServiceObjc : public NetworkingService {
     public:
@@ -19,7 +21,10 @@ namespace horo {
                               Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   std::function<void(error err)> failBlock) override;
+        void cancel() override;
     private:
         strong<NetworkingServiceFactory> factory_;
+        __strong NSURLSessionDataTask *task_;
+        bool usingWebViewServices_;
     };
 };

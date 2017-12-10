@@ -24,6 +24,7 @@ namespace horo {
                                   Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   std::function<void(error err)> failBlock) = 0;
+        virtual void cancel()=0;
     };
     
     typedef reff<_NetworkingService> NetworkingService;

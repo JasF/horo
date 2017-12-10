@@ -30,27 +30,28 @@ void FriendsManagerImpl::loadFacebookFriends() {
                 strong<Person> person = new Person(new Zodiac(), name, imageUrl, personUrl, GenderUnknown, StatusReadyForRequest, TypeFriend, DateWrapper(), true);
                 aThis->personDAO_->writePerson(person);
             }
-            
             if (aThis->friendsUpdatedCallback_) {
                 aThis->friendsUpdatedCallback_(aThis->personDAO_->readFacebookFriends());
             }
-            return;
         }
-        if (status == FriendsProvider::AuthorizationRequired) {
+        else if (status == FriendsProvider::AuthorizationRequired) {
             if (aThis->authorizationUrlCallback_) {
                 std::vector<std::string> vec;
                 aThis->authorizationUrlCallback_(url, vec);
             }
-            return;
         }
     };
     provider_->requestFriendsList(safeCompletion);
 }
     
+void FriendsManagerImpl::cancelLoading() {
+    provider_->cancelRequestingFriendsList();
+}
+
 void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) {
     SCParameterAssert(person.get());
-    std::function<void(DateWrapper birthday)> safeCompletion = [person, callback](DateWrapper birthday) {
-        bool success = (birthday.month()>0);
+    std::function<void(DateWrapper birthday, bool success)> safeCompletion = [person, callback](DateWrapper birthday, bool success) {
+        success = (birthday.month()>0);
         person->setBirthdayDate(birthday);
         person->setPersonStatus( (success) ? StatusCompleted : StatusFailed );
         ZodiacTypes type = Zodiac::zodiacTypeByDate(birthday);

@@ -23,6 +23,12 @@ void FacebookFriendsProvider::requestFriendsList(std::function<void(Json::Value 
     executeHomePageRequest();
 }
     
+void FacebookFriendsProvider::cancelRequestingFriendsList() {
+    if (request_.get()) {
+        request_->cancel();
+    }
+}
+
 void FacebookFriendsProvider::executeHomePageRequest() {
     strong<FacebookFriendsProvider> aProvider(this);
     executeRequest("home.php", [aProvider](strong<HttpResponse> response, Json::Value json) {
@@ -46,6 +52,13 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
     if (!path.length()) {
         return;
     }
+    {
+        // AV: для ивента 'начала загрузки друзей'
+        Json::Value persons;
+        if (callback_) {
+            callback_(persons, "", Partial);
+        };
+    }
     friendsUrl_ = path;
     strong<FacebookFriendsProvider> aProvider(this);
     executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
@@ -58,6 +71,8 @@ void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
     if (!path.length()) {
         return;
     }
+    
+    
     executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
         this->parseUserDetailPage(json);
     });
@@ -138,7 +153,7 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     return false;
 }
     
-void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday)> completion) {
+void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) {
     userInformationCompletion_ = completion;
     if (path.find("profile.php") == string::npos) {
         size_t index = path.find("?");
@@ -155,16 +170,6 @@ void FacebookFriendsProvider::requestUserInformation(string path, std::function<
 
 void FacebookFriendsProvider::parseHomePage(Json::Value json) {
     string nextUrl = "/friends/center/friends/";
-    /*
-    std::string text = json["text"].asString();
-    strong<HtmlParser> parser = parserFactory_->createFacebookHomePageParser(text);
-    Json::Value result = parser->parse();
-    std::string nextUrl = result["url"].asString();
-    if (!nextUrl.length()) {
-        operationDidFinishedWithError();
-        return;
-    }
-     */
     executeFriendsPageRequest(nextUrl);
 }
     
@@ -203,7 +208,7 @@ void FacebookFriendsProvider::parseUserDetailPage(Json::Value json) {
         wrapper = date;
     }
     if (userInformationCompletion_) {
-        userInformationCompletion_(wrapper);
+        userInformationCompletion_(wrapper, true);
     }
 }
 

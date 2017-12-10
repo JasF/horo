@@ -12,9 +12,10 @@
 #import "WelcomeViewController.h"
 #include "managers/managers.h"
 #import "MenuViewController.h"
-#import "FriendsViewController.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "FriendsViewController.h"
+#import "Controllers.h"
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -74,7 +75,7 @@ namespace horo {
         }
         void showMenuViewController(bool animated) override {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MenuViewController"
-                                                                 bundle: nil];
+                                                                 bundle:nil];
             
             UINavigationController *navigationController =(UINavigationController *)[storyboard
                                                                                      instantiateViewControllerWithIdentifier:@"navigationController"];
@@ -85,17 +86,25 @@ namespace horo {
             delegate.window.rootViewController = navigationController;
         }
         
-        void showFriendsViewController() override {
+        void showTableSearch() {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
                                                                  bundle: nil];
             
             UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
+                                                                                     instantiateViewControllerWithIdentifier:@"RootNavController"];
             FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
             viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
+            viewController.webViewController = [Controllers shared].webViewController;
             
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             delegate.window.rootViewController = navigationController;
+        }
+        
+        void showFriendsViewController() override {
+            if (@YES.boolValue) {
+                showTableSearch();
+                return;
+            }
         }
     private:
         strong<ScreensManager> original_;

@@ -130,8 +130,6 @@
 		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
 		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
-		C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */; };
-		C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */; };
 		C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */; };
 		C31A138C1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */; };
 		C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */; };
@@ -162,6 +160,16 @@
 		C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31A140F1FB17B99001FABFE /* FriendCell.xib */; };
 		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
 		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
+		C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */; };
+		C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */; };
+		C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */; };
+		C32A60031FDBDD62003CF1CA /* PersonObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60021FDBDD62003CF1CA /* PersonObjc.mm */; };
+		C32A60151FDBF45E003CF1CA /* FriendsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A600E1FDBF45E003CF1CA /* FriendsViewController.mm */; };
+		C32A60191FDBF493003CF1CA /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */; };
+		C32A60211FDC1420003CF1CA /* WebViewControllerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */; };
+		C32A60251FDC148B003CF1CA /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.m */; };
+		C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */; };
+		C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */; };
 		C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -242,6 +250,8 @@
 		C3CD7DF91FA6F4E800D2BFF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */; };
 		C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
+		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
+		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
 /* End PBXBuildFile section */
 
@@ -671,9 +681,6 @@
 		C3190C161FADDF630059F247 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
 		C3190C181FADE4D60059F247 /* UIView+TKGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKGeometry.h"; sourceTree = "<group>"; };
 		C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKGeometry.m"; sourceTree = "<group>"; };
-		C31A137A1FAF2DED001FABFE /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
-		C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsViewController.mm; sourceTree = "<group>"; };
-		C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
 		C31A13821FAF2F45001FABFE /* friendsscreenviewmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenviewmodelimpl.h; sourceTree = "<group>"; };
 		C31A13841FAF2F45001FABFE /* friendsscreenviewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsscreenviewmodel.h; sourceTree = "<group>"; };
 		C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = friendsscreenmodelimpl.cc; sourceTree = "<group>"; };
@@ -749,6 +756,25 @@
 		C31A14171FB19612001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
 		C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookuserdetailparser.cc; sourceTree = "<group>"; };
 		C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
+		C32A5FF71FDBD2AC003CF1CA /* FriendsResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsResultsViewController.h; sourceTree = "<group>"; };
+		C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsResultsViewController.mm; sourceTree = "<group>"; };
+		C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsCell.xib; sourceTree = "<group>"; };
+		C32A5FFD1FDBD560003CF1CA /* FriendsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsCell.h; sourceTree = "<group>"; };
+		C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsCell.m; sourceTree = "<group>"; };
+		C32A60011FDBDD62003CF1CA /* PersonObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonObjc.h; sourceTree = "<group>"; };
+		C32A60021FDBDD62003CF1CA /* PersonObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PersonObjc.mm; sourceTree = "<group>"; };
+		C32A60071FDBF45E003CF1CA /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		C32A600E1FDBF45E003CF1CA /* FriendsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsViewController.mm; sourceTree = "<group>"; };
+		C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
+		C32A601C1FDC0F52003CF1CA /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		C32A601F1FDC1420003CF1CA /* WebViewControllerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewControllerImpl.h; sourceTree = "<group>"; };
+		C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewControllerImpl.mm; sourceTree = "<group>"; };
+		C32A60231FDC148B003CF1CA /* Controllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Controllers.h; sourceTree = "<group>"; };
+		C32A60241FDC148B003CF1CA /* Controllers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Controllers.m; sourceTree = "<group>"; };
+		C32A60261FDC17D7003CF1CA /* WebViewControllerUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewControllerUIDelegate.h; sourceTree = "<group>"; };
+		C32A60281FDC2490003CF1CA /* WebViewDialogController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewDialogController.h; sourceTree = "<group>"; };
+		C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewDialogController.mm; sourceTree = "<group>"; };
+		C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewDialogController.storyboard; sourceTree = "<group>"; };
 		C3383FD41FAF252200CCE133 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		C3383FD71FAF253100CCE133 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuViewController.storyboard; sourceTree = "<group>"; };
@@ -981,6 +1007,9 @@
 		C3D27DC21FA30E430094BF12 /* random.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = random.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/random.o; sourceTree = SOURCE_ROOT; };
 		C3D27DC31FA30E430094BF12 /* rate_statistics.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rate_statistics.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/rate_statistics.o; sourceTree = SOURCE_ROOT; };
 		C3D27DC41FA30E430094BF12 /* ssladapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ssladapter.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ssladapter.o; sourceTree = SOURCE_ROOT; };
+		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
+		C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsHeaderView.m; sourceTree = "<group>"; };
+		C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		C3EAE0261FD91D7E00EC9C3E /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1003,6 +1032,7 @@
 				C3CD7DF31FA6F4E800D2BFF3 /* FirebaseAuth.framework in Frameworks */,
 				C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */,
+				C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */,
 				C30B18281FA488A1006DEDB7 /* rate_limiter.o in Frameworks */,
 				C30B18011FA488A1006DEDB7 /* criticalsection.o in Frameworks */,
 				C30B183F1FA488A1006DEDB7 /* timestampaligner.o in Frameworks */,
@@ -1396,8 +1426,10 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C32A60271FDC245A003CF1CA /* WebViewDialogController */,
+				C32A60041FDBF45E003CF1CA /* FriendsViewController */,
+				C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */,
 				C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */,
-				C31A13791FAF2DDD001FABFE /* FriendsViewController */,
 				C3383FD31FAF251200CCE133 /* MenuViewController */,
 				C3190C121FADDDC40059F247 /* components */,
 				C30B18A61FA5D560006DEDB7 /* WelcomeViewController */,
@@ -1479,17 +1511,6 @@
 				C3190C141FADDDF50059F247 /* BackgroundView.m */,
 			);
 			path = components;
-			sourceTree = "<group>";
-		};
-		C31A13791FAF2DDD001FABFE /* FriendsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C31A140B1FB17B72001FABFE /* FriendCell */,
-				C31A137A1FAF2DED001FABFE /* FriendsViewController.h */,
-				C31A137D1FAF2E5A001FABFE /* FriendsViewController.mm */,
-				C31A137F1FAF2E79001FABFE /* FriendsViewController.storyboard */,
-			);
-			path = FriendsViewController;
 			sourceTree = "<group>";
 		};
 		C31A13811FAF2F45001FABFE /* friendsscreenviewmodel */ = {
@@ -1656,6 +1677,74 @@
 			path = FriendCell;
 			sourceTree = "<group>";
 		};
+		C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C32A5FF71FDBD2AC003CF1CA /* FriendsResultsViewController.h */,
+				C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */,
+			);
+			path = FriendsResultsViewController;
+			sourceTree = "<group>";
+		};
+		C32A5FFA1FDBD40C003CF1CA /* FriendsCell */ = {
+			isa = PBXGroup;
+			children = (
+				C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */,
+				C32A5FFD1FDBD560003CF1CA /* FriendsCell.h */,
+				C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */,
+			);
+			path = FriendsCell;
+			sourceTree = "<group>";
+		};
+		C32A60001FDBDD4D003CF1CA /* PersonObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60011FDBDD62003CF1CA /* PersonObjc.h */,
+				C32A60021FDBDD62003CF1CA /* PersonObjc.mm */,
+			);
+			path = PersonObjc;
+			sourceTree = "<group>";
+		};
+		C32A60041FDBF45E003CF1CA /* FriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */,
+				C32A600E1FDBF45E003CF1CA /* FriendsViewController.mm */,
+				C32A60071FDBF45E003CF1CA /* FriendsViewController.h */,
+			);
+			path = FriendsViewController;
+			sourceTree = "<group>";
+		};
+		C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */ = {
+			isa = PBXGroup;
+			children = (
+				C32A601C1FDC0F52003CF1CA /* WebViewController.h */,
+				C32A601F1FDC1420003CF1CA /* WebViewControllerImpl.h */,
+				C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */,
+				C32A60261FDC17D7003CF1CA /* WebViewControllerUIDelegate.h */,
+			);
+			path = WebViewControllerImpl;
+			sourceTree = "<group>";
+		};
+		C32A60221FDC1478003CF1CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60231FDC148B003CF1CA /* Controllers.h */,
+				C32A60241FDC148B003CF1CA /* Controllers.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C32A60271FDC245A003CF1CA /* WebViewDialogController */ = {
+			isa = PBXGroup;
+			children = (
+				C32A60281FDC2490003CF1CA /* WebViewDialogController.h */,
+				C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */,
+				C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */,
+			);
+			path = WebViewDialogController;
+			sourceTree = "<group>";
+		};
 		C3383FD31FAF251200CCE133 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1689,6 +1778,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C32A60001FDBDD4D003CF1CA /* PersonObjc */,
 				C38D8CC81FA8DD7D00F5BAD2 /* Platform */,
 				C38D8CC31FA8DAC700F5BAD2 /* ManualInitialization */,
 				C304096E1FA786DA00A0FC33 /* DatabaseObjc */,
@@ -1936,6 +2026,7 @@
 		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */,
 				C304097B1FA789B600A0FC33 /* FMDB.framework */,
 				C3B601791FA5E10D00AD4F6D /* Bolts.framework */,
 				C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */,
@@ -2049,6 +2140,11 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3E857C61FDD3880002949D9 /* FriendsHeaderView */,
+				C31A140B1FB17B72001FABFE /* FriendCell */,
+				C32A60221FDC1478003CF1CA /* Controllers */,
+				C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */,
+				C32A5FFA1FDBD40C003CF1CA /* FriendsCell */,
 				C3EAE0251FD91D6600EC9C3E /* MenuCell */,
 				C340356C1FD4116D005C862C /* MenuCellContentView */,
 				C34035621FD3ED1E005C862C /* Utils */,
@@ -2630,6 +2726,15 @@
 			path = rtcbase;
 			sourceTree = "<group>";
 		};
+		C3E857C61FDD3880002949D9 /* FriendsHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */,
+				C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */,
+			);
+			path = FriendsHeaderView;
+			sourceTree = "<group>";
+		};
 		C3EAE0251FD91D6600EC9C3E /* MenuCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2705,10 +2810,12 @@
 				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
-				C31A13801FAF2E79001FABFE /* FriendsViewController.storyboard in Resources */,
+				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
 				C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
+				C32A60191FDBF493003CF1CA /* FriendsViewController.storyboard in Resources */,
+				C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
@@ -2755,8 +2862,10 @@
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */,
 				C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */,
+				C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */,
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
 				C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */,
+				C32A60211FDC1420003CF1CA /* WebViewControllerImpl.mm in Sources */,
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
@@ -2779,7 +2888,9 @@
 				C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
+				C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */,
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
+				C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
@@ -2797,10 +2908,13 @@
 				C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */,
 				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
 				C31A13E41FB06168001FABFE /* parser.c in Sources */,
+				C32A60251FDC148B003CF1CA /* Controllers.m in Sources */,
 				C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */,
+				C32A60031FDBDD62003CF1CA /* PersonObjc.mm in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				C30409731FA7870100A0FC33 /* DatabaseObjc.mm in Sources */,
 				C31A13ED1FB06168001FABFE /* utf8.c in Sources */,
+				C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */,
 				C3AE95FE1FDA619A00A9C73E /* UIImage+Horo.m in Sources */,
 				C30B189A1FA5CFE6006DEDB7 /* viewmodelsimpl.cc in Sources */,
 				4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */,
@@ -2838,6 +2952,7 @@
 				C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */,
 				C31A13E51FB06168001FABFE /* util.c in Sources */,
 				C3B601971FA5FCA700AD4F6D /* coding.cc in Sources */,
+				C32A60151FDBF45E003CF1CA /* FriendsViewController.mm in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C3C117001FCE8929007DA9FF /* Tabs.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
@@ -2850,7 +2965,6 @@
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
 				C34035651FD3ED29005C862C /* Utils.m in Sources */,
-				C31A137E1FAF2E5A001FABFE /* FriendsViewController.mm in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
 				C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */,

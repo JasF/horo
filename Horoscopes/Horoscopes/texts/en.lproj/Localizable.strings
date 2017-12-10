@@ -41,3 +41,7 @@
 "week"="Week";
 "month"="Month";
 "year"="Year";
+"authorizing"="Authenticating";
+"loading_friends"="Loading friends";
+"%@_friends_loaded"="%@ Friends loaded";
+"cancel"="Cancel";

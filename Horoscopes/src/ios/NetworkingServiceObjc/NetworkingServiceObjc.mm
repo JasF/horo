@@ -12,7 +12,7 @@
 #import "HTTPSessionManager.h"
 #include "json/reader.h"
 #include "NSDictionary+Horo.h"
-#include "FriendsViewController.h"
+#import "Controllers.h"
 
 static const int kParsingFailedError = -1;
 
@@ -20,7 +20,8 @@ namespace horo {
     
     using namespace std;
     
-NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> factory) : factory_(factory) {
+NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> factory) : factory_(factory),
+    usingWebViewServices_(false) {
     NSCParameterAssert(factory.get());
 }
 
@@ -76,31 +77,34 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
     NSMutableDictionary *dictionaryParameters = [[NSDictionary horo_dictionaryFromJsonValue:parameters] mutableCopy];
     if ([dictionaryParameters[@"triggerSwipeToBottom"] boolValue]) {
+        usingWebViewServices_ = true;
         [dictionaryParameters removeObjectForKey:@"triggerSwipeToBottom"];
-        [[FriendsViewController shared] triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
+        [[Controllers shared].webViewController triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
             NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
             safeSuccess(url, data);
         }];
         return;
     }
     if ([dictionaryParameters[@"webViewFriendsLoading"] boolValue]) {
+        usingWebViewServices_ = true;
         [dictionaryParameters removeObjectForKey:@"webViewFriendsLoading"];
         NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
         NSString *urlString = [baseUrl stringByAppendingString:pathString];
-        [[FriendsViewController shared] loadFriendsWithPath:[NSURL URLWithString:urlString] completion:^(NSString *html, NSURL *url, NSError *error) {
-            NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
-            safeSuccess(url, data);
-        }];
+        [[Controllers shared].webViewController loadURLWithPath:[NSURL URLWithString:urlString]
+                                                     completion:^(NSString *html, NSURL *url, NSError *error) {
+                                                        NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+                                                        safeSuccess(url, data);
+                                                     }];
         return;
     }
     NSMutableSet *set = [NSMutableSet new];
     [set addObject:@"text/plain"];
     [set addObject:@"text/html"];
     [HTTPSessionManager sharedClient].responseSerializer.acceptableContentTypes = set;
-    [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    task_ = [[HTTPSessionManager sharedClient] GET:pathString parameters:dictionaryParameters progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         safeSuccess(task.response.URL, JSON);
     }
-                                   failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
+                                           failure:^(NSURLSessionDataTask *__unused task, NSError *aError) {
         error cerr([[aError localizedDescription] UTF8String], (int)[aError code]);
         if (failBlock) {
             failBlock(cerr);
@@ -108,5 +112,16 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     }];
 }
 
+void NetworkingServiceObjc::cancel() {
+    if (task_) {
+        [task_ cancel];
+        task_ = nil;
+    }
+    if (usingWebViewServices_) {
+        usingWebViewServices_ = false;
+        [[Controllers shared].webViewController cancel];
+    }
+}
+    
 };
 

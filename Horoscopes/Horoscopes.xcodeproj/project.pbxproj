@@ -250,6 +250,7 @@
 		C3CD7DF91FA6F4E800D2BFF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */; };
 		C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
+		C3E602761FDFB1EB00E89115 /* FriendsBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */; };
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
@@ -1007,6 +1008,8 @@
 		C3D27DC21FA30E430094BF12 /* random.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = random.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/random.o; sourceTree = SOURCE_ROOT; };
 		C3D27DC31FA30E430094BF12 /* rate_statistics.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = rate_statistics.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_approved_generic/rate_statistics.o; sourceTree = SOURCE_ROOT; };
 		C3D27DC41FA30E430094BF12 /* ssladapter.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = ssladapter.o; path = webrtc/src/out/ios_sim/obj/rtc_base/rtc_base_generic/ssladapter.o; sourceTree = SOURCE_ROOT; };
+		C3E602741FDFB1EB00E89115 /* FriendsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsBaseViewController.h; sourceTree = "<group>"; };
+		C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsBaseViewController.mm; sourceTree = "<group>"; };
 		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
 		C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsHeaderView.m; sourceTree = "<group>"; };
 		C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
@@ -1426,6 +1429,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C3E602731FDFB1C100E89115 /* FriendsBaseViewController */,
 				C32A60271FDC245A003CF1CA /* WebViewDialogController */,
 				C32A60041FDBF45E003CF1CA /* FriendsViewController */,
 				C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */,
@@ -2726,6 +2730,15 @@
 			path = rtcbase;
 			sourceTree = "<group>";
 		};
+		C3E602731FDFB1C100E89115 /* FriendsBaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3E602741FDFB1EB00E89115 /* FriendsBaseViewController.h */,
+				C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */,
+			);
+			path = FriendsBaseViewController;
+			sourceTree = "<group>";
+		};
 		C3E857C61FDD3880002949D9 /* FriendsHeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2880,6 +2893,7 @@
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
 				C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
+				C3E602761FDFB1EB00E89115 /* FriendsBaseViewController.mm in Sources */,
 				C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */,
 				C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */,
 				C31A13F91FB07182001FABFE /* facebookuserinformationparser.cc in Sources */,

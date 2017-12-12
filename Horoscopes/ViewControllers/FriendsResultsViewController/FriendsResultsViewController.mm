@@ -12,7 +12,6 @@
 
 using namespace std;
 
-static CGFloat const kEstimatedRowHeight = 50.f;
 static NSString *const kCellIdentifier = @"cellID";
 static NSString *const kTableCellNibName = @"FriendsCell";
 
@@ -26,8 +25,6 @@ static NSString *const kTableCellNibName = @"FriendsCell";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = kEstimatedRowHeight;
 }
 
 #pragma mark - Table view data source

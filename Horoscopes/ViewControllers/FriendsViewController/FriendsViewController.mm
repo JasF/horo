@@ -42,6 +42,7 @@ using namespace horo;
     [super viewDidLoad];
     [self updateAllFriends];
 
+    self.tableView.separatorColor = [UIColor clearColor];
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
     _resultsTableController = [FriendsResultsViewController new];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];

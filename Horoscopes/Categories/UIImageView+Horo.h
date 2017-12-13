@@ -10,10 +10,11 @@
 
 typedef NS_ENUM(NSInteger, GradientGenerationTypes) {
    GradientHolka,
-   GradientMenuCell
+   GradientMenuCell,
+   GradientGradientView
 };
 
 @interface UIImageView (Horo)
-+ (UIImage *)generateWithSize:(CGSize)size
-                         type:(GradientGenerationTypes)type;
++ (UIImage *)horo_generateWithSize:(CGSize)size
+                              type:(GradientGenerationTypes)type;
 @end

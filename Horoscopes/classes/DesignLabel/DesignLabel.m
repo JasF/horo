@@ -48,8 +48,8 @@ static CGFloat const kAnimationDuration = 0.5f;
     CALayer *aMaskLayer=[CALayer layer];
     CGSize size = self.size;
     size.height *= 2;
-    UIImage *image = [UIImageView generateWithSize:size
-                                              type:GradientMenuCell];
+    UIImage *image = [UIImageView horo_generateWithSize:size
+                                                   type:GradientMenuCell];
     aMaskLayer.contents=(id)image.CGImage;
     aMaskLayer.frame = CGRectMake(0,0, image.size.width, image.size.height);
     self.layer.mask=aMaskLayer;

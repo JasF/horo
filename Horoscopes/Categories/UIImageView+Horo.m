@@ -13,27 +13,36 @@ static CGFloat const kGradientLocationFirst = 0.0f;
 static CGFloat const kGradientLocationSecond = 0.024f;
 static CGFloat const kGradientLocationThird = 1.f;
 
-
 static CGFloat const kGradientMenuCellFirst = 0.0f;
 static CGFloat const kGradientMenuCellSecond = 0.5f;
 static CGFloat const kGradientMenuCellThird = 1.f;
 
+static CGFloat const kGradientGradientViewFirst = 0.f;
+static CGFloat const kGradientGradientViewSecond = 1.f;
+
 @implementation UIImageView (Horo)
-+ (UIImage *)generateWithSize:(CGSize)size
-                         type:(GradientGenerationTypes)type {
++ (UIImage *)horo_generateWithSize:(CGSize)size
+                              type:(GradientGenerationTypes)type {
     static UIImage *g_GeneratedMaskImage = nil;
     static CGRect g_GeneratedMaskImageFrame = {{0.f, 0.f}, {0.f, 0.f}};
     CGRect frame = CGRectMake(0.f, 0.f, size.width, size.height);
     
-    NSDictionary *typeParameters = @{@(GradientHolka) : @[@(kGradientLocationFirst), @(kGradientLocationSecond), @(kGradientLocationThird)],
-                                 @(GradientMenuCell) : @[@(kGradientMenuCellFirst), @(kGradientMenuCellSecond), @(kGradientMenuCellThird)]};
+    NSDictionary *typeParameters = @{
+                                     @(GradientHolka) : @[@(kGradientLocationFirst), @(kGradientLocationSecond), @(kGradientLocationThird)],
+                                     @(GradientMenuCell) : @[@(kGradientMenuCellFirst), @(kGradientMenuCellSecond), @(kGradientMenuCellThird)],
+                                     @(GradientGradientView) : @[@(kGradientGradientViewFirst), @(kGradientGradientViewSecond)]
+                                   };
     
-    NSDictionary *colorParameters = @{@(GradientHolka) : @[ (id)[UIColor clearColor].CGColor,
+    NSDictionary *colorParameters = @{
+                                      @(GradientHolka) : @[ (id)[UIColor clearColor].CGColor,
                                                             (id)[UIColor blackColor].CGColor,
                                                             (id)[UIColor blackColor].CGColor ],
                                       @(GradientMenuCell) : @[ (id)[UIColor blackColor].CGColor,
                                                                (id)[UIColor blackColor].CGColor,
-                                                               (id)[UIColor clearColor].CGColor ]};
+                                                               (id)[UIColor clearColor].CGColor ],
+                                      @(GradientGradientView) : @[ (id)[UIColor clearColor].CGColor,
+                                                                   (id)[[UIColor blackColor] colorWithAlphaComponent:0.7f].CGColor ]
+                                    };
     
     // AV: Проверки на случай добавления смены ориентации
     if (!g_GeneratedMaskImage || !CGRectEqualToRect(g_GeneratedMaskImageFrame, frame)) {

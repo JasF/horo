@@ -25,8 +25,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CALayer *aMaskLayer=[CALayer layer];
-    UIImage *image = [UIImageView generateWithSize:self.size
-                                              type:GradientHolka];
+    UIImage *image = [UIImageView horo_generateWithSize:self.size
+                                                   type:GradientHolka];
     aMaskLayer.contents=(id)image.CGImage;
     aMaskLayer.frame = CGRectMake(0,0, image.size.width, image.size.height);
     self.layer.mask=aMaskLayer;

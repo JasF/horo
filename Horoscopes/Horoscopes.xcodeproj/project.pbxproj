@@ -254,6 +254,7 @@
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
+		C3F405251FE102C1004D1535 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F405241FE102C1004D1535 /* GradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1015,6 +1016,8 @@
 		C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		C3EAE0261FD91D7E00EC9C3E /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		C3F405231FE102C1004D1535 /* GradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		C3F405241FE102C1004D1535 /* GradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2144,6 +2147,7 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3F405221FE102B1004D1535 /* GradientView */,
 				C3E857C61FDD3880002949D9 /* FriendsHeaderView */,
 				C31A140B1FB17B72001FABFE /* FriendCell */,
 				C32A60221FDC1478003CF1CA /* Controllers */,
@@ -2757,6 +2761,15 @@
 			path = MenuCell;
 			sourceTree = "<group>";
 		};
+		C3F405221FE102B1004D1535 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				C3F405231FE102C1004D1535 /* GradientView.h */,
+				C3F405241FE102C1004D1535 /* GradientView.m */,
+			);
+			path = GradientView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2883,6 +2896,7 @@
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
 				C33B99DE1FA375E600C0B1C6 /* AFSecurityPolicy.m in Sources */,
+				C3F405251FE102C1004D1535 /* GradientView.m in Sources */,
 				C30409511FA7802B00A0FC33 /* daofactoryimpl.cc in Sources */,
 				C31A13EC1FB06168001FABFE /* tag.c in Sources */,
 				C304097A1FA7874A00A0FC33 /* databaseimpl.cc in Sources */,

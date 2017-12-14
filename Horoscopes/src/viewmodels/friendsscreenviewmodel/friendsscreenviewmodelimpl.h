@@ -25,8 +25,8 @@ namespace horo {
         void cancelFriendsLoadTapped() override;
         void menuTapped() override;
         bool webViewDidLoad(std::string url) override;
-        void friendWithIndexSelected(int index) override;
         list<strong<Person>> allFriends() override;
+        void personSelected(strong<Person> person) override;
         
     private:
         strong<FriendsScreenModel> model_;

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FriendsCell : UITableViewCell
+@property (strong, nonatomic) id datasource;
+@property (assign, nonatomic) BOOL cellSelected;
 - (void)setName:(NSString *)name
        birthday:(NSString *)birthday
        imageUrl:(NSString *)imageUrl;

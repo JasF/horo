@@ -59,20 +59,11 @@ namespace horo {
         }
     }
     
-    void FriendsScreenModelImpl::friendWithIndexSelected(int index) {
-        SCAssert(index< friendsList_.size(), "index out of bounds");
-        if (index >= friendsList_.size()) {
-            return;
-        }
-        
-        list<strong<Person>>::iterator it = friendsList_.begin();
-        advance(it, index);
-        strong<Person> person = *it;
-        
+    void FriendsScreenModelImpl::personSelected(strong<Person> person) {
+        SCParameterAssert(person.get());
         if (!person.get()) {
             return;
         }
-        
         if (person->status() == StatusCompleted) {
             screensManager_->showPredictionViewController(person);
         }
@@ -93,7 +84,7 @@ namespace horo {
             SCAssert(person->status() == StatusReadyForRequest || person->status() == StatusCompleted, "unhandled failed selection of friend");
         }
     }
-    
+        
     list<strong<Person>> FriendsScreenModelImpl::allFriends() {
         list<strong<Person>> list = friendsList_;
         return list;

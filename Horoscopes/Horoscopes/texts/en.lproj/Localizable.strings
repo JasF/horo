@@ -8,7 +8,7 @@
 "begin_update"="Begin update";
 "friends"="Friends";
 "account"="Account";
-"birthday"="Birthday";
+"birthday"="Birthday:";
 "notifications"="Notifications";
 "everyday_pushes"="Everyday pushes";
 "january"="January";
@@ -45,3 +45,6 @@
 "loading_friends"="Loading friends";
 "%@_friends_loaded"="%@ Friends loaded";
 "cancel"="Cancel";
+"friends_search"="Friends search";
+"person_birthday_status_ready_for_request"="Needs update";
+"person_birthday_status_failed"="Not available";

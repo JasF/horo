@@ -156,8 +156,6 @@
 		C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A138E1FAF39BC001FABFE /* WebKit.framework */; };
 		C31A14031FB08FD4001FABFE /* url.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14021FB08FD4001FABFE /* url.cc */; };
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
-		C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C31A140D1FB17B85001FABFE /* FriendCell.m */; };
-		C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31A140F1FB17B99001FABFE /* FriendCell.xib */; };
 		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
 		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
 		C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */; };
@@ -749,9 +747,6 @@
 		C31A14051FB0B233001FABFE /* persondao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = persondao.h; sourceTree = "<group>"; };
 		C31A14061FB0B240001FABFE /* persondaoimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = persondaoimpl.h; sourceTree = "<group>"; };
 		C31A14091FB0B254001FABFE /* persondaoimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = persondaoimpl.cc; sourceTree = "<group>"; };
-		C31A140C1FB17B85001FABFE /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
-		C31A140D1FB17B85001FABFE /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
-		C31A140F1FB17B99001FABFE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		C31A14111FB19267001FABFE /* facebookfriendinformationparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookfriendinformationparser.h; sourceTree = "<group>"; };
 		C31A14141FB1927C001FABFE /* facebookfriendinformationparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookfriendinformationparser.h; sourceTree = "<group>"; };
 		C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookfriendinformationparser.cc; sourceTree = "<group>"; };
@@ -1674,16 +1669,6 @@
 			path = persondao;
 			sourceTree = "<group>";
 		};
-		C31A140B1FB17B72001FABFE /* FriendCell */ = {
-			isa = PBXGroup;
-			children = (
-				C31A140C1FB17B85001FABFE /* FriendCell.h */,
-				C31A140D1FB17B85001FABFE /* FriendCell.m */,
-				C31A140F1FB17B99001FABFE /* FriendCell.xib */,
-			);
-			path = FriendCell;
-			sourceTree = "<group>";
-		};
 		C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2149,7 +2134,6 @@
 			children = (
 				C3F405221FE102B1004D1535 /* GradientView */,
 				C3E857C61FDD3880002949D9 /* FriendsHeaderView */,
-				C31A140B1FB17B72001FABFE /* FriendCell */,
 				C32A60221FDC1478003CF1CA /* Controllers */,
 				C32A601B1FDC0F39003CF1CA /* WebViewControllerImpl */,
 				C32A5FFA1FDBD40C003CF1CA /* FriendsCell */,
@@ -2833,7 +2817,6 @@
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
-				C31A14101FB17B99001FABFE /* FriendCell.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
@@ -2995,7 +2978,6 @@
 				C34035651FD3ED29005C862C /* Utils.m in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
-				C31A140E1FB17B85001FABFE /* FriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

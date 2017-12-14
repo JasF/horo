@@ -41,10 +41,12 @@ using namespace horo;
     NSCParameterAssert(_webViewController);
     [super viewDidLoad];
     [self updateAllFriends];
+    self.navigationItem.title = L(self.navigationItem.title);
 
     self.tableView.separatorColor = [UIColor clearColor];
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
     _resultsTableController = [FriendsResultsViewController new];
+    //_resultsTableController.viewModel = _viewModel;
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
@@ -179,7 +181,8 @@ using namespace horo;
     
     PersonObjc *person = _allFriends[index];
     FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    [cell setName:person.name birthday:person.birthday imageUrl:person.imageUrl];
+    [cell setName:person.name birthday:person.birthdayString imageUrl:person.imageUrl];
+    cell.datasource = person;
     return cell;
 }
 
@@ -188,12 +191,15 @@ using namespace horo;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger index = indexPath.row - 1;
-    NSCAssert(index < _allFriends.count, @"index out of bound");
-    if (index >= _allFriends.count) {
+    FriendsCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSCAssert([cell isKindOfClass:[FriendsCell class]], @"cell is not friends cell");
+    NSCAssert([cell.datasource isKindOfClass:[PersonObjc class]], @"datasource is not PrsonObjc");
+    if (!cell || ![cell.datasource isKindOfClass:[PersonObjc class]]) {
         return;
     }
-    _viewModel->friendWithIndexSelected((int)index);
+    PersonObjc *person = (PersonObjc *)cell.datasource;
+    
+    _viewModel->personSelected([person nativeRepresentation]);
 }
 
 #pragma mark - UISearchResultsUpdating

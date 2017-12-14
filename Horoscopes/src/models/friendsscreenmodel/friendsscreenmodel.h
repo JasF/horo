@@ -21,9 +21,9 @@ namespace horo {
     public:
         virtual void updateFriendsFromFacebook() = 0;
         virtual bool webViewDidLoad(std::string url) = 0;
-        virtual void friendWithIndexSelected(int index) = 0;
         virtual list<strong<Person>> allFriends() = 0;
         virtual void cancelFriendsUpdating() = 0;
+        virtual void personSelected(strong<Person> person) = 0;
         
     public:
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_ = nullptr;

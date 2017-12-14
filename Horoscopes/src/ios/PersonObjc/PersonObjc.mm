@@ -27,16 +27,27 @@
     return [[NSString alloc] initWithUTF8String:_person->name().c_str()];
 }
 
-- (NSString *)birthday {
-    NSString *birthday = [[NSString alloc] initWithUTF8String:_person->birthdayDate().toString().c_str()];
-    if (!birthday.length) {
-        birthday = L(@"birthday");
+- (NSString *)birthdayString {
+    if (_person->status() == horo::StatusCompleted) {
+        NSString *birthday = [[NSString alloc] initWithUTF8String:_person->birthdayDate().toString().c_str()];
+        return birthday;
     }
-    return birthday;
+    else if (_person->status() == horo::StatusReadyForRequest) {
+        return L(@"person_birthday_status_ready_for_request");
+    }
+    else if (_person->status() == horo::StatusFailed) {
+        return L(@"person_birthday_status_failed");
+    }
+    
+    return nil;
 }
 
 - (NSString *)imageUrl {
     return [NSString stringWithUTF8String:_person->imageUrl().c_str()];
+}
+
+- (strong<horo::Person>)nativeRepresentation {
+    return _person;
 }
 
 @end

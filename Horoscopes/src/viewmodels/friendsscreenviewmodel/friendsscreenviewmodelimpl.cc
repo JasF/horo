@@ -48,11 +48,11 @@ namespace horo {
         return model_->webViewDidLoad(url);
     }
     
-    void FriendsScreenViewModelImpl::friendWithIndexSelected(int index) {
-        model_->friendWithIndexSelected(index);
-    }
-    
     list<strong<Person>> FriendsScreenViewModelImpl::allFriends() {
         return model_->allFriends();
+    }
+    
+    void FriendsScreenViewModelImpl::personSelected(strong<Person> person) {
+        model_->personSelected(person);
     }
 };

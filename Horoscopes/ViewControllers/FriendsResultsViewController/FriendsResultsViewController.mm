@@ -44,7 +44,7 @@ static NSString *const kTableCellNibName = @"FriendsCell";
     
     FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
     PersonObjc *person = _filteredFriends[indexPath.row];
-    [cell setName:person.name birthday:person.birthday imageUrl:person.imageUrl];
+    [cell setName:person.name birthday:person.birthdayString imageUrl:person.imageUrl];
     return cell;
 }
 

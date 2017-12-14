@@ -105,7 +105,7 @@
                             <outlet property="delegate" destination="4Ax-ex-6Gm" id="BUx-uy-HqP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Table Search" id="LG0-9u-bD4">
+                    <navigationItem key="navigationItem" title="friends_search" id="LG0-9u-bD4">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="qts-T0-Xj9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yJc-yU-z6W">
                                 <rect key="frame" x="16" y="11" width="23" height="22"/>

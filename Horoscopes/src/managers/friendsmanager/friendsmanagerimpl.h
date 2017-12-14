@@ -29,6 +29,7 @@ namespace horo {
             personDAO_->create();
         }
         ~FriendsManagerImpl() override {}
+    
     public:
         void loadFacebookFriends() override;
         void cancelLoading() override;
@@ -38,6 +39,7 @@ namespace horo {
         
     private:
         strong<FriendsProvider> friendsProvider();
+        void birthdayUpdated(strong<Person> person, DateWrapper birthday, bool success, std::function<void(bool success)> callback);
         
     private:
         strong<FriendsProviderFactory> factory_;

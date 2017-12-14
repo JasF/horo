@@ -47,18 +47,26 @@ void FriendsManagerImpl::loadFacebookFriends() {
 void FriendsManagerImpl::cancelLoading() {
     provider_->cancelRequestingFriendsList();
 }
+    
+void FriendsManagerImpl::birthdayUpdated(strong<Person> person,
+                                         DateWrapper birthday,
+                                         bool success,
+                                         std::function<void(bool success)> callback) {
+    success = (birthday.month()>0);
+    person->setBirthdayDate(birthday);
+    person->setPersonStatus( (success) ? StatusCompleted : StatusFailed );
+    ZodiacTypes type = Zodiac::zodiacTypeByDate(birthday);
+    person->setZodiac(new Zodiac(type));
+    if (callback) {
+        callback(success);
+    }
+    personDAO_->writePerson(person);
+}
 
 void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) {
     SCParameterAssert(person.get());
-    std::function<void(DateWrapper birthday, bool success)> safeCompletion = [person, callback](DateWrapper birthday, bool success) {
-        success = (birthday.month()>0);
-        person->setBirthdayDate(birthday);
-        person->setPersonStatus( (success) ? StatusCompleted : StatusFailed );
-        ZodiacTypes type = Zodiac::zodiacTypeByDate(birthday);
-        person->setZodiac(new Zodiac(type));
-        if (callback) {
-            callback(success);
-        }
+    std::function<void(DateWrapper birthday, bool success)> safeCompletion = [this, person, callback](DateWrapper birthday, bool success) {
+        birthdayUpdated(person, birthday, success, callback);
     };
     
     SCAssert(person->personUrl().length(), "person with corrupted personUrl() detected");

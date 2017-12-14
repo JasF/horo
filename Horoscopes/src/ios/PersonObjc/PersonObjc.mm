@@ -7,6 +7,7 @@
 //
 
 #import "PersonObjc.h"
+#import "data/zodiac.h"
 
 
 @interface PersonObjc ()
@@ -29,7 +30,10 @@
 
 - (NSString *)birthdayString {
     if (_person->status() == horo::StatusCompleted) {
-        NSString *birthday = [[NSString alloc] initWithUTF8String:_person->birthdayDate().toString().c_str()];
+        horo::DateWrapper wrapper = _person->birthdayDate();
+        NSString *monthString = L([NSString stringWithUTF8String:horo::stringByMonth((horo::Months)wrapper.month()).c_str()]);
+        NSString *birthday = (wrapper.year()) ? [NSString stringWithFormat:@"%@ %@ %@", @(wrapper.day()), monthString, @(wrapper.year())]
+                                              : [NSString stringWithFormat:@"%@ %@", @(wrapper.day()), monthString];
         return birthday;
     }
     else if (_person->status() == horo::StatusReadyForRequest) {

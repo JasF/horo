@@ -268,6 +268,8 @@ using namespace horo;
         PersonObjc *personObject = [[PersonObjc alloc] initWithPerson:person];
         [array addObject:personObject];
     }
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [array sortUsingDescriptors:@[descriptor]];
     _allFriends = array;
 }
 

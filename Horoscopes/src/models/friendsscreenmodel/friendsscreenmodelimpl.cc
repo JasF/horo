@@ -68,7 +68,15 @@ namespace horo {
             screensManager_->showPredictionViewController(person);
         }
         else if (person->status() == StatusReadyForRequest) {
+            person->setUpdating(true);
+            if (personStateChangedCallback_) {
+                personStateChangedCallback_(person);
+            }
             friendsManager_->updateUserInformationForPerson(person, [this, person](bool success){
+                person->setUpdating(false);
+                if (this->personStateChangedCallback_) {
+                    this->personStateChangedCallback_(person);
+                }
                 if (success) {
                     screensManager_->showPredictionViewController(person);
                 }

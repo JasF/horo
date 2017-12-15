@@ -61,8 +61,12 @@ namespace horo {
         string imageUrl() const { return imageUrl_; }
         string personUrl() const { return personUrl_; }
         void setZodiac(strong<Zodiac> zodiac) { zodiac_ = zodiac; }
+        bool updating() const { return updating_; }
+        void setUpdating(bool updating) { updating_ = updating; }
+        void *wrapper() { return wrapper_; }
+        void setWrapper(void *wrapper) { wrapper_ = wrapper; }
     private:
-        std::string name_; // utf-8
+        std::string name_; // utf-8§
         std::string imageUrl_;
         std::string personUrl_;
         strong<Zodiac> zodiac_;
@@ -71,6 +75,8 @@ namespace horo {
         PersonType type_;
         DateWrapper birthdayDate_;
         bool withFacebook_;
+        bool updating_;
+        void *wrapper_;
     };
     
     typedef reff<_Person> Person;

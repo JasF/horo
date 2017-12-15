@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w26-b6-vmW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="w26-b6-vmW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,7 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,6 +15,10 @@
         <scene sceneID="tXH-gV-NTc">
             <objects>
                 <viewController storyboardIdentifier="APLDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gen-ib-Cgz" userLabel="DetailViewController" customClass="APLDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oNx-19-3Lm"/>
+                        <viewControllerLayoutGuide type="bottom" id="nGI-kq-Icg"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8hD-Hr-uqh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -49,20 +53,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xkg-zs-NLf" firstAttribute="top" secondItem="6WW-fO-tiu" secondAttribute="top" constant="7" id="0Q4-mn-XOM"/>
+                            <constraint firstItem="Xkg-zs-NLf" firstAttribute="top" secondItem="oNx-19-3Lm" secondAttribute="bottom" constant="7" id="0Q4-mn-XOM"/>
                             <constraint firstItem="h3u-Es-UDb" firstAttribute="baseline" secondItem="wZC-US-OVI" secondAttribute="baseline" id="8NP-Lf-ejB"/>
                             <constraint firstItem="h3u-Es-UDb" firstAttribute="firstBaseline" secondItem="wZC-US-OVI" secondAttribute="baseline" id="9u1-gB-igD"/>
                             <constraint firstItem="Xkg-zs-NLf" firstAttribute="leading" secondItem="h3u-Es-UDb" secondAttribute="leading" id="K4q-79-IcX"/>
                             <constraint firstItem="h3u-Es-UDb" firstAttribute="leading" secondItem="wZC-US-OVI" secondAttribute="trailing" constant="8" symbolic="YES" id="Mcd-ny-HQC"/>
                             <constraint firstItem="Xkg-zs-NLf" firstAttribute="leading" secondItem="vzg-gO-TTV" secondAttribute="trailing" constant="8" symbolic="YES" id="Yjj-P0-mk6"/>
-                            <constraint firstItem="wZC-US-OVI" firstAttribute="leading" secondItem="6WW-fO-tiu" secondAttribute="leading" constant="20" id="b9l-Fi-qyM"/>
+                            <constraint firstItem="wZC-US-OVI" firstAttribute="leading" secondItem="8hD-Hr-uqh" secondAttribute="leading" constant="20" id="b9l-Fi-qyM"/>
                             <constraint firstItem="vzg-gO-TTV" firstAttribute="leading" secondItem="wZC-US-OVI" secondAttribute="leading" id="cCp-Hu-22H"/>
                             <constraint firstItem="vzg-gO-TTV" firstAttribute="baseline" secondItem="Xkg-zs-NLf" secondAttribute="baseline" id="dcu-xg-Rwu"/>
                             <constraint firstItem="wZC-US-OVI" firstAttribute="top" secondItem="vzg-gO-TTV" secondAttribute="bottom" constant="8" symbolic="YES" id="nUZ-ov-oQC"/>
                             <constraint firstItem="Xkg-zs-NLf" firstAttribute="trailing" secondItem="h3u-Es-UDb" secondAttribute="trailing" id="x3X-bY-Ku4"/>
                             <constraint firstItem="vzg-gO-TTV" firstAttribute="baseline" secondItem="Xkg-zs-NLf" secondAttribute="firstBaseline" id="z1r-za-6fq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6WW-fO-tiu"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="ziV-cJ-fwE"/>
@@ -151,6 +154,7 @@
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZiR-hR-ddR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="Yvh-Bu-bPb" customClass="FriendsHeaderView">
                     <rect key="frame" x="0.0" y="0.0" width="289" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,18 +182,16 @@
                     <constraints>
                         <constraint firstItem="SWz-4R-wRL" firstAttribute="leading" secondItem="Yvh-Bu-bPb" secondAttribute="leading" constant="8" id="2Os-zY-Voa"/>
                         <constraint firstItem="Iyx-RS-K2w" firstAttribute="leading" secondItem="SWz-4R-wRL" secondAttribute="trailing" constant="8" id="4IL-eH-02A"/>
-                        <constraint firstItem="3Qh-TW-c1h" firstAttribute="trailing" secondItem="1pZ-Ax-a8i" secondAttribute="trailing" constant="-18" id="RTl-Cs-l1S"/>
+                        <constraint firstItem="3Qh-TW-c1h" firstAttribute="trailing" secondItem="Yvh-Bu-bPb" secondAttribute="trailing" constant="-18" id="RTl-Cs-l1S"/>
                         <constraint firstItem="Iyx-RS-K2w" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="azw-A9-50g"/>
-                        <constraint firstItem="3Qh-TW-c1h" firstAttribute="centerY" secondItem="1pZ-Ax-a8i" secondAttribute="centerY" id="gfS-EO-8gm"/>
+                        <constraint firstItem="3Qh-TW-c1h" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="gfS-EO-8gm"/>
                         <constraint firstItem="SWz-4R-wRL" firstAttribute="centerY" secondItem="Yvh-Bu-bPb" secondAttribute="centerY" id="iyc-CY-jIT"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="1pZ-Ax-a8i"/>
                     <connections>
                         <outlet property="indicator" destination="SWz-4R-wRL" id="AKA-IP-jRR"/>
                         <outlet property="label" destination="Iyx-RS-K2w" id="1hB-FT-Lxi"/>
                     </connections>
                 </view>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZiR-hR-ddR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="149.5" y="28.5"/>
         </scene>

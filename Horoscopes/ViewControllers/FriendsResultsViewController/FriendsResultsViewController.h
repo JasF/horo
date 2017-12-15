@@ -9,10 +9,7 @@
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodel.h"
 #import "FriendsBaseViewController.h"
 #import <UIKit/UIKit.h>
-#import "PersonObjc.h"
 
 @interface FriendsResultsViewController : FriendsBaseViewController
-@property (strong, nonatomic) NSArray<PersonObjc *> *filteredFriends;
-- (id)init NS_UNAVAILABLE;
-- (id)new NS_UNAVAILABLE;
+@property (nonatomic, copy, nonnull) void (^didSelectPerson)(PersonObjc * _Nonnull person);
 @end

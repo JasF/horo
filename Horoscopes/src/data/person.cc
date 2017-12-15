@@ -25,7 +25,9 @@ namespace horo {
     _Person::_Person() : gender_(GenderUnknown),
         status_(StatusUnknown),
         type_(TypeUnknown),
-        withFacebook_(false)
+        withFacebook_(false),
+        updating_(false),
+        wrapper_(nullptr)
     {}
     
     _Person::_Person(strong<Zodiac> zodiac,
@@ -45,7 +47,9 @@ namespace horo {
     status_(status),
     type_(type),
     birthdayDate_(birthdayDate),
-    withFacebook_(withFacebook) {
+    withFacebook_(withFacebook),
+    updating_(false),
+    wrapper_(nullptr) {
         if (type_ == TypeFriend) {
             SCParameterAssert(personUrl_.length());
         }

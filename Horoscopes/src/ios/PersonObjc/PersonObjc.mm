@@ -18,10 +18,18 @@
 
 #pragma mark - Initialization
 - (instancetype)initWithPerson:(strong<horo::Person>)person {
+    NSCParameterAssert(person.get());
     if (self = [self init]) {
         _person = person;
+        _person->setWrapper((__bridge void *)self);
     }
     return self;
+}
+
+- (void)dealloc {
+    if (_person->wrapper() == (__bridge void *)self) {
+        _person->setWrapper(nullptr);
+    }
 }
 
 - (NSString *)name {

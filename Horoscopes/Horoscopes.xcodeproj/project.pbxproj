@@ -204,6 +204,7 @@
 		C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CC51FA8DADF00F5BAD2 /* ManualInitialization.mm */; };
 		C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */; };
 		C3AE95FE1FDA619A00A9C73E /* UIImage+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */; };
+		C3B027F41FE3A7200013E1C9 /* FriendsViewController+Filtering.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */; };
 		C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */; };
 		C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */; };
 		C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */; };
@@ -850,6 +851,8 @@
 		C38D8CCC1FA8E19500F5BAD2 /* resultset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resultset.h; sourceTree = "<group>"; };
 		C3AE95FC1FDA619A00A9C73E /* UIImage+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Horo.h"; sourceTree = "<group>"; };
 		C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Horo.m"; sourceTree = "<group>"; };
+		C3B027F21FE3A7200013E1C9 /* FriendsViewController+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FriendsViewController+Filtering.h"; sourceTree = "<group>"; };
+		C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "FriendsViewController+Filtering.mm"; sourceTree = "<group>"; };
 		C3B06E3C1FCAFDBC008E66CE /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		C3B3AA8B1FA83B5A00D74180 /* horoscopesservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesservice.h; sourceTree = "<group>"; };
@@ -1703,6 +1706,8 @@
 				C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */,
 				C32A600E1FDBF45E003CF1CA /* FriendsViewController.mm */,
 				C32A60071FDBF45E003CF1CA /* FriendsViewController.h */,
+				C3B027F21FE3A7200013E1C9 /* FriendsViewController+Filtering.h */,
+				C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */,
 			);
 			path = FriendsViewController;
 			sourceTree = "<group>";
@@ -2936,6 +2941,7 @@
 				C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */,
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
 				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,
+				C3B027F41FE3A7200013E1C9 /* FriendsViewController+Filtering.mm in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
 				C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */,
 				C30B17ED1FA481C2006DEDB7 /* NSInvocation+EXT.m in Sources */,

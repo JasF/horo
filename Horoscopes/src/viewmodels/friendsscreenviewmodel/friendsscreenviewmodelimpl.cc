@@ -26,6 +26,11 @@ namespace horo {
                 this->friendsUpdatedCallback_(friends);
             }
         };
+        model->personStateChangedCallback_ = [this](strong<Person> person) {
+            if (this->personStateChangedCallback_) {
+                this->personStateChangedCallback_(person);
+            }
+        };
     }
     
     FriendsScreenViewModelImpl::~FriendsScreenViewModelImpl() {

@@ -29,6 +29,7 @@ namespace horo {
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_ = nullptr;
         std::function<void(set<strong<Person>> friends)> friendsUpdatedCallback_ = nullptr;
+        std::function<void(strong<Person> person)> personStateChangedCallback_ = nullptr;
     };
     
     typedef reff<_FriendsScreenViewModel> FriendsScreenViewModel;

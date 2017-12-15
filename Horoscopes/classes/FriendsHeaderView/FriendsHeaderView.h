@@ -16,6 +16,5 @@ typedef NS_ENUM(NSInteger, HeaderViewStates) {
 };
 
 @interface FriendsHeaderView : UIView
-- (void)setText:(NSString *)text;
-- (void)setAttributedText:(NSAttributedString *)text;
+- (void)setHeaderViewState:(HeaderViewStates)state allFriendsCount:(NSInteger)allFriendsCount;
 @end

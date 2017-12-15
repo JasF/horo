@@ -11,9 +11,7 @@
 #import "FriendsResultsViewController.h"
 #import "FriendsHeaderView.h"
 #import "UIView+TKGeometry.h"
-
-static NSString *const kCellIdentifier = @"cellID";
-static NSString *const kTableCellNibName = @"FriendsCell";
+#import "FriendsViewController+Filtering.h"
 
 @interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
@@ -46,11 +44,12 @@ using namespace horo;
     [super viewDidLoad];
     [self updateAllFriends];
     self.navigationItem.title = L(self.navigationItem.title);
-
-    self.tableView.separatorColor = [UIColor clearColor];
-    [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
     _resultsTableController = [FriendsResultsViewController new];
-    //_resultsTableController.viewModel = _viewModel;
+    @weakify(self);
+    _resultsTableController.didSelectPerson = ^(PersonObjc * person) {
+        @strongify(self);
+        [self didSelectPerson:person];
+    };
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
@@ -78,12 +77,16 @@ using namespace horo;
     for (UIView *subview in self.tableView.subviews) {
         subview.backgroundColor = [UIColor clearColor];
     }
-    @weakify(self);
     _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
         @strongify(self);
         [self updateAllFriends];
         [self setHeaderViewState: friends.size() ? HeaderViewSomeFriendsLoaded : HeaderViewLoadingFriends];
         [self.tableView reloadData];
+    };
+    _viewModel->personStateChangedCallback_ = [self_weak_](strong<Person> person) {
+        @strongify(self);
+        NSCParameterAssert(person.get());
+        [self personStatusChanged:(__bridge PersonObjc *)person->wrapper()];
     };
     _headerView.hidden = YES;
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:L(@"cancel")
@@ -91,6 +94,7 @@ using namespace horo;
                                                                                                NSForegroundColorAttributeName:[UIColor whiteColor] }];
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     [_webViewController setUIDelegate:self];
+    [self.tableView addSubview:_headerView];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -152,7 +156,7 @@ using namespace horo;
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _allFriends.count + 1;
+    return [super tableView:tableView numberOfRowsInSection:section] + 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -165,91 +169,35 @@ using namespace horo;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return self.updateFriendsCell;
+    if (indexPath.row) {
+        return [super tableView:tableView
+          cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1
+                                                   inSection:indexPath.section]];
     }
-    NSInteger index = indexPath.row - 1;
-    NSCAssert(index < _allFriends.count, @"index out of bounds");
-    if (index >= _allFriends.count) {
-        return [UITableViewCell new];
-    }
-    
-    PersonObjc *person = _allFriends[index];
-    FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    [cell setName:person.name birthday:person.birthdayString imageUrl:person.imageUrl];
-    cell.datasource = person;
-    return cell;
+    return self.updateFriendsCell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    return (indexPath.row) ? indexPath : nil;
+    return (indexPath.row) ? [super tableView:tableView
+                     willSelectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1
+                                                                 inSection:indexPath.section]] : nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    FriendsCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSCAssert([cell isKindOfClass:[FriendsCell class]], @"cell is not friends cell");
-    NSCAssert([cell.datasource isKindOfClass:[PersonObjc class]], @"datasource is not PrsonObjc");
-    if (!cell || ![cell.datasource isKindOfClass:[PersonObjc class]]) {
+    PersonObjc *person = [self personFromCellAtIndexPath:indexPath];
+    NSCAssert(person, @"person cannot be nil");
+    if (!person) {
         return;
     }
-    PersonObjc *person = (PersonObjc *)cell.datasource;
-    
-    _viewModel->personSelected([person nativeRepresentation]);
+    [self didSelectPerson:person];
 }
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSString *searchText = searchController.searchBar.text;
-    NSMutableArray *searchResults = [_allFriends mutableCopy];
-    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    NSArray *searchItems = nil;
-    if (strippedString.length > 0) {
-        searchItems = [strippedString componentsSeparatedByString:@" "];
-    }
-    NSMutableArray *andMatchPredicates = [NSMutableArray array];
-    
-    for (NSString *searchString in searchItems) {
-        NSMutableArray *searchItemsPredicate = [NSMutableArray array];
-        // name field matching
-        NSExpression *lhs = [NSExpression expressionForKeyPath:@"name"];
-        NSExpression *rhs = [NSExpression expressionForConstantValue:searchString];
-        NSPredicate *finalPredicate = [NSComparisonPredicate
-                                       predicateWithLeftExpression:lhs
-                                       rightExpression:rhs
-                                       modifier:NSDirectPredicateModifier
-                                       type:NSContainsPredicateOperatorType
-                                       options:NSCaseInsensitivePredicateOption];
-        [searchItemsPredicate addObject:finalPredicate];
-        
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        numberFormatter.numberStyle = NSNumberFormatterNoStyle;
-        NSNumber *targetNumber = [numberFormatter numberFromString:searchString];
-        if (targetNumber != nil) {   // searchString may not convert to a number
-            lhs = [NSExpression expressionForKeyPath:@"birthday"];
-            rhs = [NSExpression expressionForConstantValue:targetNumber];
-            finalPredicate = [NSComparisonPredicate
-                              predicateWithLeftExpression:lhs
-                              rightExpression:rhs
-                              modifier:NSDirectPredicateModifier
-                              type:NSEqualToPredicateOperatorType
-                              options:NSCaseInsensitivePredicateOption];
-            [searchItemsPredicate addObject:finalPredicate];
-        }
-        
-        // at this OR predicate to our master AND predicate
-        NSCompoundPredicate *orMatchPredicates = [NSCompoundPredicate orPredicateWithSubpredicates:searchItemsPredicate];
-        [andMatchPredicates addObject:orMatchPredicates];
-    }
-    
-    // match up the fields of the Product object
-    NSCompoundPredicate *finalCompoundPredicate =
-    [NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
-    searchResults = [[searchResults filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
-    
-    _resultsTableController.filteredFriends = searchResults;
+    NSArray *results = [self horo_filterFriendsArray:_allFriends withString:searchController.searchBar.text];
+    _resultsTableController.friends = results;
     [_resultsTableController.tableView reloadData];
-    [self setTableViewVisibility:(searchController.active && searchText.length)];
+    [self setTableViewVisibility:(searchController.active && searchController.searchBar.text.length)];
 }
 
 - (void)setTableViewVisibility:(BOOL)visibility {
@@ -266,6 +214,32 @@ using namespace horo;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [array sortUsingDescriptors:@[descriptor]];
     _allFriends = array;
+    self.friends = [_allFriends copy];
+}
+
+- (void)personStatusChanged:(PersonObjc *)person {
+    NSCParameterAssert(person);
+    if (_searchController.active) {
+        [_resultsTableController personStatusChanged:person];
+    }
+    else {
+        [super personStatusChanged:person];
+    }
+}
+
+- (void)setHeaderViewState:(HeaderViewStates)headerViewState {
+    [_headerView setHeaderViewState:headerViewState
+                    allFriendsCount:_allFriends.count];
+    [self.tableView reloadData];
+}
+
+- (void)setHeaderViewHidden:(BOOL)hidden {
+    _headerView.hidden = hidden;
+    [self.tableView reloadData];
+}
+
+- (void)didSelectPerson:(PersonObjc *)person {
+    _viewModel->personSelected([person nativeRepresentation]);
 }
 
 #pragma mark - Observers
@@ -280,7 +254,7 @@ using namespace horo;
 
 - (IBAction)updateFriendsTapped:(id)sender {
     [self setHeaderViewState:HeaderViewStateAuthorizing];
-    _headerView.hidden = NO;
+    [self setHeaderViewHidden:NO];
     [self.tableView reloadData];
     _viewModel->updateFriendsFromFacebook();
 }
@@ -296,37 +270,7 @@ using namespace horo;
 }
 
 - (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController {
-    _headerView.hidden = YES;
-    [self.tableView reloadData];
-}
-
-#pragma mark - Private
-- (void)setHeaderViewState:(HeaderViewStates)headerViewState {
-    NSDictionary *dictionary = @{@(HeaderViewStateInvisible):@(YES),
-                                 @(HeaderViewStateAuthorizing):@(NO),
-                                 @(HeaderViewLoadingFriends):@(NO),
-                                 @(HeaderViewSomeFriendsLoaded):@(NO)};
-    NSDictionary *strings = @{@(HeaderViewStateInvisible):@"",
-                              @(HeaderViewStateAuthorizing):@"authorizing",
-                              @(HeaderViewLoadingFriends):@"loading_friends",
-                              @(HeaderViewSomeFriendsLoaded):@"%@_friends_loaded"};
-    _headerView.hidden = [dictionary[@(headerViewState)] boolValue];
-    NSString *text = L(strings[@(headerViewState)]);
-    NSMutableAttributedString *attributedString = nil;
-    
-    if (headerViewState == HeaderViewSomeFriendsLoaded) {
-        text = [NSString stringWithFormat:text, @(_allFriends.count)];
-        attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-        NSRange range = [text rangeOfString:@" "];
-        NSCParameterAssert(range.location != NSNotFound);
-        [attributedString addAttribute:NSForegroundColorAttributeName
-                                 value:[UIColor greenColor]
-                                 range:NSMakeRange(0, range.location)];
-    }
-    else {
-        attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-    }
-    [_headerView setAttributedText:attributedString];
+    [self setHeaderViewHidden:YES];
     [self.tableView reloadData];
 }
 

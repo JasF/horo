@@ -36,6 +36,10 @@ using namespace std;
 using namespace horo;
 
 @implementation FriendsViewController
+- (void)dealloc {
+    [_webViewController setUIDelegate:nil];
+}
+
 - (void)viewDidLoad {
     NSCParameterAssert(_viewModel);
     NSCParameterAssert(_webViewController);
@@ -86,20 +90,11 @@ using namespace horo;
                                                                                   attributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle), NSBackgroundColorAttributeName:[UIColor clearColor],
                                                                                                NSForegroundColorAttributeName:[UIColor whiteColor] }];
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+    [_webViewController setUIDelegate:self];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [_webViewController setUIDelegate:self];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [_webViewController setUIDelegate:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

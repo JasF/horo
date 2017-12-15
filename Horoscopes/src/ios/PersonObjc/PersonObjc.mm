@@ -37,6 +37,9 @@
 }
 
 - (NSString *)birthdayString {
+    if (_person->updating()) {
+        return L(@"updating");
+    }
     if (_person->status() == horo::StatusCompleted) {
         horo::DateWrapper wrapper = _person->birthdayDate();
         NSString *monthString = L([NSString stringWithUTF8String:horo::stringByMonth((horo::Months)wrapper.month()).c_str()]);
@@ -60,6 +63,10 @@
 
 - (strong<horo::Person>)nativeRepresentation {
     return _person;
+}
+
+- (BOOL)updating {
+    return (BOOL) _person->updating();
 }
 
 @end

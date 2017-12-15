@@ -14,4 +14,5 @@
 - (void)setName:(NSString *)name
        birthday:(NSString *)birthday
        imageUrl:(NSString *)imageUrl;
+- (void)setActivityIndicatorAnimationEnabled:(BOOL)enabled;
 @end

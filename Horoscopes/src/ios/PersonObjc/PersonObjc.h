@@ -13,6 +13,7 @@
 @property (readonly, nonatomic) NSString *name;
 @property (readonly, nonatomic) NSString *birthdayString;
 @property (readonly, nonatomic) NSString *imageUrl;
+@property (readonly, nonatomic) BOOL updating;
 - (instancetype)initWithPerson:(strong<horo::Person>)person;
 - (strong<horo::Person>)nativeRepresentation;
 @end

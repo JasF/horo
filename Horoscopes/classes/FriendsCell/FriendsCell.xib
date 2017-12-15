@@ -76,20 +76,26 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GS9-cV-9XS">
+                        <rect key="frame" x="177" y="11" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="3vZ-MP-Sbm" firstAttribute="centerX" secondItem="p8q-ZM-WkH" secondAttribute="centerX" id="6fE-Th-oy0"/>
                     <constraint firstItem="iaT-ef-UAY" firstAttribute="top" secondItem="s36-zj-t9v" secondAttribute="bottom" constant="4" id="7S3-rq-1Ld"/>
                     <constraint firstItem="3vZ-MP-Sbm" firstAttribute="top" secondItem="p8q-ZM-WkH" secondAttribute="top" id="9Yv-vp-2cU"/>
+                    <constraint firstItem="GS9-cV-9XS" firstAttribute="leading" secondItem="iaT-ef-UAY" secondAttribute="trailing" constant="8" id="BL0-9u-tzk"/>
                     <constraint firstItem="s36-zj-t9v" firstAttribute="leading" secondItem="c3q-hh-8je" secondAttribute="trailing" constant="20" id="CoY-UR-fEZ"/>
                     <constraint firstItem="CLr-hK-Cuq" firstAttribute="trailing" secondItem="p8q-ZM-WkH" secondAttribute="trailing" id="DVV-8l-Tj1"/>
                     <constraint firstAttribute="bottom" secondItem="c3q-hh-8je" secondAttribute="bottom" id="EwV-pO-FwB"/>
+                    <constraint firstItem="GS9-cV-9XS" firstAttribute="top" secondItem="iaT-ef-UAY" secondAttribute="top" id="KZx-j8-6Dr"/>
                     <constraint firstItem="s36-zj-t9v" firstAttribute="width" secondItem="p8q-ZM-WkH" secondAttribute="width" id="LgK-9A-k9s"/>
                     <constraint firstItem="c3q-hh-8je" firstAttribute="leading" secondItem="p8q-ZM-WkH" secondAttribute="leading" constant="20" id="O2T-Xa-W0J"/>
                     <constraint firstItem="s36-zj-t9v" firstAttribute="top" secondItem="c3q-hh-8je" secondAttribute="top" id="P2w-RT-sqg"/>
                     <constraint firstItem="iaT-ef-UAY" firstAttribute="leading" secondItem="s36-zj-t9v" secondAttribute="leading" id="PSZ-gi-rf9"/>
                     <constraint firstItem="c3q-hh-8je" firstAttribute="height" secondItem="p8q-ZM-WkH" secondAttribute="height" id="SY6-EY-XXh"/>
+                    <constraint firstItem="GS9-cV-9XS" firstAttribute="bottom" secondItem="iaT-ef-UAY" secondAttribute="bottom" id="a8E-jg-SG7"/>
                     <constraint firstItem="c3q-hh-8je" firstAttribute="top" secondItem="p8q-ZM-WkH" secondAttribute="top" constant="20" id="aNu-EM-77g"/>
                     <constraint firstItem="CLr-hK-Cuq" firstAttribute="bottom" secondItem="p8q-ZM-WkH" secondAttribute="bottom" constant="2" id="dn6-lg-MGh"/>
                     <constraint firstItem="c3q-hh-8je" firstAttribute="trailing" secondItem="3vZ-MP-Sbm" secondAttribute="trailing" constant="-40" id="fbZ-T5-c20"/>
@@ -98,6 +104,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="activityIndicator" destination="GS9-cV-9XS" id="HU6-G2-gcM"/>
                 <outlet property="birthdayDateLabel" destination="iaT-ef-UAY" id="AIR-Fv-xlS"/>
                 <outlet property="birthdayLabel" destination="s36-zj-t9v" id="vAR-lt-zjF"/>
                 <outlet property="mainImageView" destination="c3q-hh-8je" id="FMR-8K-jqG"/>

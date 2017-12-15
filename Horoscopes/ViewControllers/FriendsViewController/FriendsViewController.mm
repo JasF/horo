@@ -179,8 +179,7 @@ using namespace horo;
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return (indexPath.row) ? [super tableView:tableView
-                     willSelectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1
-                                                                 inSection:indexPath.section]] : nil;
+                     willSelectRowAtIndexPath:indexPath] : nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

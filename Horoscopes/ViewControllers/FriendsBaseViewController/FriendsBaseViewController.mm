@@ -30,7 +30,21 @@ static CGFloat const kEstimatedRowHeight = 50.f;
 }
 
 - (void)personStatusChanged:(PersonObjc *)person {
-    
+    FriendsCell *neededCell = nil;
+    for (FriendsCell *cell in self.tableView.visibleCells) {
+        if ([cell isKindOfClass:[FriendsCell class]] && [cell.datasource isEqual:person]) {
+            neededCell = cell;
+            break;
+        }
+    }
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:neededCell];
+    if (indexPath) {
+        [UIView performWithoutAnimation:^{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        return;
+    }
+    [self.tableView reloadData];
 }
 
 - (PersonObjc *)personFromCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,6 +77,7 @@ static CGFloat const kEstimatedRowHeight = 50.f;
     PersonObjc *person = _friends[index];
     FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
     [cell setName:person.name birthday:person.birthdayString imageUrl:person.imageUrl];
+    [cell setActivityIndicatorAnimationEnabled:person.updating];
     cell.datasource = person;
     return cell;
 }

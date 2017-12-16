@@ -1,5 +1,16 @@
-const Firestore = require('@google-cloud/firestore');
-credentialsFilename = "./horo-ios-287dcbc8f4c6.json"
+var zodiacs = ["aquarius",
+               "pisces",
+               "aries",
+               "taurus",
+               "gemini",
+               "cancer",
+               "leo",
+               "virgo",
+               "libra",
+               "scorpio",
+               "sagittarius",
+               "capricorn"];
+
 credentialsJson = {
     "type": "service_account",
     "project_id": "horo-ios",
@@ -13,23 +24,12 @@ credentialsJson = {
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/redactor%40horo-ios.iam.gserviceaccount.com"
 }
 
-
+const Firestore = require('@google-cloud/firestore');
 const Browser = require('zombie');
 var gumbo = require("gumbo-parser");
 var jsonfile = require('jsonfile')
 
-var zodiacs = ["aquarius",
-"pisces",
-"aries",
-"taurus",
-"gemini",
-"cancer",
-"leo",
-"virgo",
-"libra",
-"scorpio",
-"sagittarius",
-"capricorn"];
+
 
 var newCredentialsFilename = './credentials.json'
 var firestore = null

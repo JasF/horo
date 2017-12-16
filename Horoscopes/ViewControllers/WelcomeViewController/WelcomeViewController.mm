@@ -16,17 +16,6 @@
 
 static CGFloat const kRowHeight = 100;
 
-@interface NavigationBar : UINavigationBar
-@end
-
-@implementation NavigationBar
-- (CGRect)frame {
-    CGRect frame = [super frame];
-    frame.size.height = 200.f;
-    return frame;
-}
-@end
-
 @interface WelcomeViewController () <UITableViewDelegate, UITableViewDataSource, FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) IBOutlet UITableViewCell *topSpaceCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *hiCell;
@@ -51,7 +40,6 @@ static CGFloat const kRowHeight = 100;
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
     
-  //  self.view.alpha = 0.5f;
     //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20 or 64pt on top
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = kRowHeight;

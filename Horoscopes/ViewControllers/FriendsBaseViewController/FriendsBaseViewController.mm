@@ -75,8 +75,12 @@ static CGFloat const kEstimatedRowHeight = 50.f;
     }
     
     PersonObjc *person = _friends[index];
+    NSString *zodiacName = person.zodiac.name;
     FriendsCell *cell = (FriendsCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    [cell setName:person.name birthday:person.birthdayString imageUrl:person.imageUrl];
+    [cell setName:person.name
+         birthday:person.birthdayString
+         imageUrl:person.imageUrl
+       zodiacName:zodiacName];
     [cell setActivityIndicatorAnimationEnabled:person.updating];
     cell.datasource = person;
     return cell;

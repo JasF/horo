@@ -6,9 +6,9 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#import "PersonObjc.h"
 #import "data/zodiac.h"
-
+#import "PersonObjc.h"
+#import "ZodiacObjc.h"
 
 @interface PersonObjc ()
 @property (assign, nonatomic) strong<horo::Person> person;
@@ -32,6 +32,7 @@
     }
 }
 
+#pragma mark - Getters
 - (NSString *)name {
     return [[NSString alloc] initWithUTF8String:_person->name().c_str()];
 }
@@ -55,6 +56,13 @@
     }
     
     return nil;
+}
+
+- (ZodiacObjc *)zodiac {
+    if (!_person->zodiac().get()) {
+        return nil;
+    }
+    return [[ZodiacObjc alloc] initWithZodiac:_person->zodiac()];
 }
 
 - (NSString *)imageUrl {

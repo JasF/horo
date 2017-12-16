@@ -13,6 +13,7 @@
 @property (assign, nonatomic) BOOL cellSelected;
 - (void)setName:(NSString *)name
        birthday:(NSString *)birthday
-       imageUrl:(NSString *)imageUrl;
+       imageUrl:(NSString *)imageUrl
+     zodiacName:(NSString *)zodiacName;
 - (void)setActivityIndicatorAnimationEnabled:(BOOL)enabled;
 @end

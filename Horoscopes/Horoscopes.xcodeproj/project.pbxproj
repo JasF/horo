@@ -379,6 +379,8 @@
 		C315ACD21FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */; };
 		C315ACD31FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */; };
 		C315ACD41FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */; };
+		C315ACD91FE512E200CC9B67 /* ZodiacObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C315ACD81FE512E200CC9B67 /* ZodiacObjc.mm */; };
+		C315ACDA1FE512E200CC9B67 /* ZodiacObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C315ACD81FE512E200CC9B67 /* ZodiacObjc.mm */; };
 		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
 		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
@@ -931,6 +933,8 @@
 		C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Horoscopes-Info.plist"; sourceTree = "<group>"; };
 		C315ACCD1FE504FD00CC9B67 /* Horoscopes.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horoscopes.pch; sourceTree = "<group>"; };
+		C315ACD71FE512E200CC9B67 /* ZodiacObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZodiacObjc.h; sourceTree = "<group>"; };
+		C315ACD81FE512E200CC9B67 /* ZodiacObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZodiacObjc.mm; sourceTree = "<group>"; };
 		C3190C131FADDDF50059F247 /* BackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		C3190C141FADDDF50059F247 /* BackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		C3190C161FADDF630059F247 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
@@ -1904,6 +1908,15 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		C315ACD61FE512CB00CC9B67 /* ZodiacObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C315ACD71FE512E200CC9B67 /* ZodiacObjc.h */,
+				C315ACD81FE512E200CC9B67 /* ZodiacObjc.mm */,
+			);
+			path = ZodiacObjc;
+			sourceTree = "<group>";
+		};
 		C3190C121FADDDC40059F247 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -2170,6 +2183,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C315ACD61FE512CB00CC9B67 /* ZodiacObjc */,
 				C32A60001FDBDD4D003CF1CA /* PersonObjc */,
 				C38D8CC81FA8DD7D00F5BAD2 /* Platform */,
 				C38D8CC31FA8DAC700F5BAD2 /* ManualInitialization */,
@@ -3420,6 +3434,7 @@
 				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
 				C31A13E81FB06168001FABFE /* string_piece.c in Sources */,
 				C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */,
+				C315ACDA1FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
 				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
@@ -3546,6 +3561,7 @@
 				C315AC361FE5040C00CC9B67 /* helloscreenmodelimpl.cc in Sources */,
 				C315AC371FE5040C00CC9B67 /* string_piece.c in Sources */,
 				C315AC381FE5040C00CC9B67 /* friendsscreenmodelimpl.cc in Sources */,
+				C315ACD91FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
 				C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */,
 				C315AC3A1FE5040C00CC9B67 /* UIView+TKGeometry.m in Sources */,
 				C315AC3B1FE5040C00CC9B67 /* datewrapper.cc in Sources */,

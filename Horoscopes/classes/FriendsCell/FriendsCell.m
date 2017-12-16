@@ -20,6 +20,7 @@ static CGFloat const kHighlightedAlpha = 0.5f;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *mainImageViewTrailing;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *mainImageViewHeightAspectRatio;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIImageView *zodiacImageView;
 @end
 
 @implementation FriendsCell
@@ -33,7 +34,8 @@ static CGFloat const kHighlightedAlpha = 0.5f;
 #pragma mark - Public Methods
 - (void)setName:(NSString *)name
        birthday:(NSString *)birthday
-       imageUrl:(NSString *)imageUrl {
+       imageUrl:(NSString *)imageUrl
+     zodiacName:(NSString *)zodiacName {
 #ifdef CENSORED
     name = @"om mani padme hum";
     imageUrl = @"https://firebasestorage.googleapis.com/v0/b/horo-ios.appspot.com/o/om.jpg?alt=media&token=b9f82bea-98e4-48bb-874f-b6cb3eaa7e05";
@@ -41,6 +43,9 @@ static CGFloat const kHighlightedAlpha = 0.5f;
     _nameLabel.text = name;
     _birthdayLabel.text = L(@"birthday");
     _birthdayDateLabel.text = birthday;
+    UIImage *image = [UIImage imageNamed:zodiacName];
+    _zodiacImageView.image = image;
+    
     if (imageUrl.length) {
         [_mainImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
     }

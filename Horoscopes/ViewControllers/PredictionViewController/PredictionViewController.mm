@@ -76,9 +76,10 @@ static NSInteger const kTodayTabIndex = 1;
     });
     _viewModel->didActivated();
     
-    _zodiacLabel.text = L([NSString stringWithUTF8String:_viewModel->zodiacName().c_str()]);
+    NSString *zodiacName = L([NSString stringWithUTF8String:_viewModel->zodiacName().c_str()]);
+    _zodiacLabel.text = zodiacName;
     _zodiacDateLabel.text = L([NSString stringWithUTF8String:_viewModel->zodiacDateString().c_str()]);
-    NSString *iconName = [_zodiacLabel.text lowercaseString];
+    NSString *iconName = [zodiacName lowercaseString];
     UIImage *image = [UIImage imageNamed:iconName];
     NSCAssert(image, @"image cannot be nil");
     _titleImageView.image = image;

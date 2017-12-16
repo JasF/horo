@@ -76,7 +76,7 @@ namespace horo {
         }
         else if (person->status() == StatusReadyForRequest) {
             if (currentPerson_.get() && currentPerson_ != person) {
-                handleSerialRequestForPerson(person);
+                handleSerialRequestForPerson(currentPerson_);
                 return;
             }
             currentPerson_ = person;

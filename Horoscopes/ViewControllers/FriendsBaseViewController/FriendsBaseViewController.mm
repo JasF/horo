@@ -26,7 +26,7 @@ static CGFloat const kEstimatedRowHeight = 50.f;
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
 }
 
-- (void)personStatusChanged:(PersonObjc *)person {
+- (void)reloadCellWithPerson:(PersonObjc *)person {
     FriendsCell *neededCell = nil;
     for (FriendsCell *cell in self.tableView.visibleCells) {
         if ([cell isKindOfClass:[FriendsCell class]] && [cell.datasource isEqual:person]) {

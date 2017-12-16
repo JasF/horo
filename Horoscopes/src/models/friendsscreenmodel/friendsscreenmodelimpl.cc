@@ -16,8 +16,8 @@ namespace horo {
                                                    strong<ScreensManager> screensManager)
     : components_(components)
     , friendsManager_(friendsManager)
-    , settings_(settings),
-    screensManager_(screensManager) {
+    , settings_(settings)
+    , screensManager_(screensManager) {
         SCParameterAssert(components_.get());
         SCParameterAssert(friendsManager_.get());
         SCParameterAssert(settings_.get());
@@ -44,8 +44,15 @@ namespace horo {
         friendsManager_->loadFacebookFriends();
     }
     
-    void FriendsScreenModelImpl::cancelFriendsUpdating() {
+    void FriendsScreenModelImpl::cancelOperation(enum CancelTypes type) {
         friendsManager_->cancelLoading();
+        if (type == CancelFriendBirthdayLoad && currentPerson_.get()) {
+            currentPerson_->setUpdating(false);
+            if (serialRequestAlertViewControllerCallback_) {
+                serialRequestAlertViewControllerCallback_(currentPerson_, true);
+            }
+            currentPerson_ = nullptr;
+        }
     }
     
     bool FriendsScreenModelImpl::webViewDidLoad(std::string url) {
@@ -68,6 +75,11 @@ namespace horo {
             screensManager_->showPredictionViewController(person);
         }
         else if (person->status() == StatusReadyForRequest) {
+            if (currentPerson_.get() && currentPerson_ != person) {
+                handleSerialRequestForPerson(person);
+                return;
+            }
+            currentPerson_ = person;
             person->setUpdating(true);
             if (personStateChangedCallback_) {
                 personStateChangedCallback_(person);
@@ -83,6 +95,9 @@ namespace horo {
                 else {
                     LOG(LS_ERROR) << "Show error message about unknown birthday date";
                 }
+                if (this->currentPerson_ == person) {
+                    this->currentPerson_ = nullptr;
+                }
             });
         }
         else if (person->status() == StatusFailed) {
@@ -96,5 +111,11 @@ namespace horo {
     list<strong<Person>> FriendsScreenModelImpl::allFriends() {
         list<strong<Person>> list = friendsList_;
         return list;
+    }
+    
+    void FriendsScreenModelImpl::handleSerialRequestForPerson(strong<Person> person) {
+        if (serialRequestAlertViewControllerCallback_) {
+            serialRequestAlertViewControllerCallback_(person, false);
+        }
     }
 };

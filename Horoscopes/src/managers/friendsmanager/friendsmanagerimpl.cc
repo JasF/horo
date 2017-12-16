@@ -45,7 +45,7 @@ void FriendsManagerImpl::loadFacebookFriends() {
 }
     
 void FriendsManagerImpl::cancelLoading() {
-    provider_->cancelRequestingFriendsList();
+    provider_->cancelRequest();
 }
     
 void FriendsManagerImpl::birthdayUpdated(strong<Person> person,

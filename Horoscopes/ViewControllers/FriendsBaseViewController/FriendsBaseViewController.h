@@ -12,6 +12,6 @@
 @interface FriendsBaseViewController : UITableViewController
 @property (nonatomic, strong) NSArray<PersonObjc *> *friends;
 @property (assign, nonatomic) NSInteger friendsSection;
-- (void)personStatusChanged:(PersonObjc *)person;
+- (void)reloadCellWithPerson:(PersonObjc *)person;
 - (PersonObjc *)personFromCellAtIndexPath:(NSIndexPath *)indexPath;
 @end

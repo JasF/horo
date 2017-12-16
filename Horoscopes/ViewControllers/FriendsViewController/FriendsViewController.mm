@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet FriendsHeaderView *headerView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (strong, nonatomic) UIAlertController *alertController;
+@property (strong, nonatomic) PersonObjc *requestingPerson;
 
 // For state restoration.
 @property BOOL searchControllerWasActive;
@@ -81,13 +82,24 @@ using namespace horo;
     _viewModel->friendsUpdatedCallback_ = [self_weak_](set<strong<Person>> friends){
         @strongify(self);
         [self updateAllFriends];
-        [self setHeaderViewState: friends.size() ? HeaderViewSomeFriendsLoaded : HeaderViewLoadingFriends];
+        [self setHeaderViewState:friends.size() ? HeaderViewSomeFriendsLoaded : HeaderViewLoadingFriends];
         [self.tableView reloadData];
     };
     _viewModel->personStateChangedCallback_ = [self_weak_](strong<Person> person) {
         @strongify(self);
         NSCParameterAssert(person.get());
-        [self personStatusChanged:(__bridge PersonObjc *)person->wrapper()];
+        [self reloadCellWithPerson:[PersonObjc personWithPerson:person]];
+    };
+    _viewModel->serialRequestAlertViewControllerCallback_ = [self_weak_](strong<Person> person, bool closeAlert) {
+        @strongify(self);
+        if (closeAlert) {
+            [self closeAlertController];
+        }
+        NSCParameterAssert(person.get());
+        [self reloadCellWithPerson:[PersonObjc personWithPerson:person]];
+        if (!closeAlert) {
+            [self showAlertController:[PersonObjc personWithPerson:person]];
+        }
     };
     _headerView.hidden = YES;
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:L(@"cancel")
@@ -217,13 +229,12 @@ using namespace horo;
     self.friends = [_allFriends copy];
 }
 
-- (void)personStatusChanged:(PersonObjc *)person {
-    NSCParameterAssert(person);
-    if (_searchController.active) {
-        [_resultsTableController personStatusChanged:person];
+- (void)reloadCellWithPerson:(PersonObjc *)person {
+    if (self.searchController.active) {
+        [self.resultsTableController reloadCellWithPerson:person];
     }
     else {
-        [super personStatusChanged:person];
+        [super reloadCellWithPerson:person];
     }
 }
 
@@ -239,8 +250,7 @@ using namespace horo;
 }
 
 - (void)didSelectPerson:(PersonObjc *)person {
-    [self showAlertController];
-    // _viewModel->personSelected([person nativeRepresentation]);
+    _viewModel->personSelected([person nativeRepresentation]);
 }
 
 #pragma mark - Observers
@@ -250,7 +260,7 @@ using namespace horo;
 
 - (IBAction)cancelTapped:(id)sender {
     [self setHeaderViewState:HeaderViewStateInvisible];
-    _viewModel->cancelFriendsLoadTapped();
+    _viewModel->cancelOperation(CancelAllFriendsLoad);
 }
 
 - (IBAction)updateFriendsTapped:(id)sender {
@@ -276,22 +286,29 @@ using namespace horo;
 }
 
 #pragma mark - Show Alert Controller
-- (void)showAlertController {
-    NSString *text = [NSString stringWithFormat:L(@"cancel_current_birthday_request_text"), @"Nick Name"];
+- (void)showAlertController:(PersonObjc *)person {
+    NSString *text = [NSString stringWithFormat:L(@"cancel_current_birthday_request_text"), person.name];
     _alertController = [UIAlertController alertControllerWithTitle:@"" message:text preferredStyle:UIAlertControllerStyleAlert];
+    @weakify(self);
     UIAlertAction *yesAction = [UIAlertAction actionWithTitle:L(@"yes")
                                                         style:UIAlertActionStyleDestructive
                                                       handler:^(UIAlertAction *action) {
-                                                          
+                                                          @strongify(self);
+                                                          self.viewModel->cancelOperation(CancelFriendBirthdayLoad);
                                                       }];
     UIAlertAction *noAction = [UIAlertAction actionWithTitle:L(@"no")
                                                         style:UIAlertActionStyleCancel
-                                                      handler:^(UIAlertAction *action) {
-                                                          
-                                                      }];
+                                                      handler:^(UIAlertAction *action) {}];
     [_alertController addAction:yesAction];
     [_alertController addAction:noAction];
     [self presentViewController:self.alertController animated:YES completion:nil];
+}
+
+- (void)closeAlertController {
+    if (_alertController) {
+        [_alertController dismissViewControllerAnimated:YES completion:nil];
+        _alertController = nil;
+    }
 }
 
 @end

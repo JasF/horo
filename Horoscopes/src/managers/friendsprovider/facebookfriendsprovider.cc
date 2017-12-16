@@ -23,7 +23,7 @@ void FacebookFriendsProvider::requestFriendsList(std::function<void(Json::Value 
     executeHomePageRequest();
 }
     
-void FacebookFriendsProvider::cancelRequestingFriendsList() {
+void FacebookFriendsProvider::cancelRequest() {
     if (request_.get()) {
         request_->cancel();
     }

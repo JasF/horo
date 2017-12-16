@@ -11,6 +11,7 @@
 
 #include "base/horobase.h"
 #include "data/person.h"
+#include "friendsscreenmodel.h"
 
 namespace horo {
   
@@ -19,7 +20,7 @@ namespace horo {
         virtual ~_FriendsScreenViewModel(){}
     public:
         virtual void updateFriendsFromFacebook() = 0;
-        virtual void cancelFriendsLoadTapped() = 0;
+        virtual void cancelOperation(enum CancelTypes type) = 0;
         virtual void menuTapped() = 0;
         virtual bool webViewDidLoad(std::string url) = 0;
         virtual list<strong<Person>> allFriends() = 0;
@@ -30,6 +31,7 @@ namespace horo {
         std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_ = nullptr;
         std::function<void(set<strong<Person>> friends)> friendsUpdatedCallback_ = nullptr;
         std::function<void(strong<Person> person)> personStateChangedCallback_ = nullptr;
+        std::function<void(strong<Person> person, bool closeAlert)> serialRequestAlertViewControllerCallback_ = nullptr;
     };
     
     typedef reff<_FriendsScreenViewModel> FriendsScreenViewModel;

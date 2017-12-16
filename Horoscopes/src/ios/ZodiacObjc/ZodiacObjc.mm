@@ -29,6 +29,9 @@
 
 #pragma mark - Getters
 - (NSString *)name {
+    if (_zodiac->type() == horo::Unknown) {
+        return nil;
+    }
     return [[NSString alloc] initWithUTF8String:_zodiac->name().c_str()];
 }
 

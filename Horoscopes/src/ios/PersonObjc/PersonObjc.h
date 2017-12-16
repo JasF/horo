@@ -16,6 +16,7 @@
 @property (readonly, nonatomic) NSString *imageUrl;
 @property (readonly, nonatomic) BOOL updating;
 @property (readonly, nonatomic) ZodiacObjc *zodiac;
++ (instancetype)personWithPerson:(strong<horo::Person>)person;
 - (instancetype)initWithPerson:(strong<horo::Person>)person;
 - (strong<horo::Person>)nativeRepresentation;
 @end

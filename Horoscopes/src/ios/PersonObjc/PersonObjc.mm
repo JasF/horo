@@ -17,8 +17,19 @@
 @implementation PersonObjc
 
 #pragma mark - Initialization
++ (instancetype)personWithPerson:(strong<horo::Person>)person {
+    NSCParameterAssert(person.get());
+    if (person->wrapper()) {
+        return(__bridge PersonObjc *)person->wrapper();
+    }
+    return [[PersonObjc alloc] initWithPerson:person];
+}
+
 - (instancetype)initWithPerson:(strong<horo::Person>)person {
     NSCParameterAssert(person.get());
+    if (person->wrapper()) {
+        return(__bridge PersonObjc *)person->wrapper();
+    }
     if (self = [self init]) {
         _person = person;
         _person->setWrapper((__bridge void *)self);

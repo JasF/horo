@@ -29,17 +29,20 @@ namespace horo {
         void updateFriendsFromFacebook() override;
         bool webViewDidLoad(std::string url) override;
         list<strong<Person>> allFriends() override;
-        void cancelFriendsUpdating() override;
+        void cancelOperation(enum CancelTypes type) override;
         void personSelected(strong<Person> person) override;
         
     private:
         void loadFriends(set<strong<Person>> loadFriends);
+        void handleSerialRequestForPerson(strong<Person> person);
+        
     private:
         strong<CoreComponents> components_;
         strong<FriendsManager> friendsManager_;
         strong<Settings> settings_;
         list<strong<Person>> friendsList_;
         strong<ScreensManager> screensManager_;
+        strong<Person> currentPerson_;
     };
 };
 

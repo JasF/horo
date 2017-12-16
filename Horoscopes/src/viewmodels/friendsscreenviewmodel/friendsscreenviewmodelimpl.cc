@@ -31,6 +31,11 @@ namespace horo {
                 this->personStateChangedCallback_(person);
             }
         };
+        model->serialRequestAlertViewControllerCallback_ = [this](strong<Person> person, bool closeAlert) {
+            if (this->serialRequestAlertViewControllerCallback_) {
+                this->serialRequestAlertViewControllerCallback_(person, closeAlert);
+            }
+        };
     }
     
     FriendsScreenViewModelImpl::~FriendsScreenViewModelImpl() {
@@ -41,8 +46,8 @@ namespace horo {
         model_->updateFriendsFromFacebook();
     }
     
-    void FriendsScreenViewModelImpl::cancelFriendsLoadTapped() {
-        model_->cancelFriendsUpdating();
+    void FriendsScreenViewModelImpl::cancelOperation(enum CancelTypes type) {
+        model_->cancelOperation(type);
     }
     
     void FriendsScreenViewModelImpl::menuTapped() {

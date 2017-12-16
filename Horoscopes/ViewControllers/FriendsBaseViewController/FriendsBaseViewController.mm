@@ -14,14 +14,11 @@ static NSString *const kTableCellNibName = @"FriendsCell";
 
 static CGFloat const kEstimatedRowHeight = 50.f;
 
-@interface FriendsBaseViewController ()
-
-@end
-
 @implementation FriendsBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = YES;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = kEstimatedRowHeight;
     self.tableView.separatorColor = [UIColor clearColor];

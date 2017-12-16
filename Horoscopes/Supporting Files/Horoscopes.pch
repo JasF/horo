@@ -14,7 +14,8 @@
 #import "Categories.h"
 #import <CoreFoundation/CoreFoundation.h>
 #import <Foundation/Foundation.h>
-#include "UIView+TKGeometry.h"
+#import "UIView+TKGeometry.h"
+#import "UIView+Horo.h"
 
 CF_INLINE bool IsEqualFloat(float a, float b) { return ABS(a - b) < pow(10, -10); }
 CF_INLINE bool IsFloatEqual(float a, float b) { return IsEqualFloat(a,b);}

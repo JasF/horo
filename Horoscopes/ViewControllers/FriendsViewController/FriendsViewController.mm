@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *updateFriendsCell;
 @property (strong, nonatomic) IBOutlet FriendsHeaderView *headerView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (strong, nonatomic) UIAlertController *alertController;
 
 // For state restoration.
 @property BOOL searchControllerWasActive;
@@ -238,7 +239,8 @@ using namespace horo;
 }
 
 - (void)didSelectPerson:(PersonObjc *)person {
-    _viewModel->personSelected([person nativeRepresentation]);
+    [self showAlertController];
+    // _viewModel->personSelected([person nativeRepresentation]);
 }
 
 #pragma mark - Observers
@@ -271,6 +273,25 @@ using namespace horo;
 - (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController {
     [self setHeaderViewHidden:YES];
     [self.tableView reloadData];
+}
+
+#pragma mark - Show Alert Controller
+- (void)showAlertController {
+    NSString *text = [NSString stringWithFormat:L(@"cancel_current_birthday_request_text"), @"Nick Name"];
+    _alertController = [UIAlertController alertControllerWithTitle:@"" message:text preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:L(@"yes")
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:^(UIAlertAction *action) {
+                                                          
+                                                      }];
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:L(@"no")
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction *action) {
+                                                          
+                                                      }];
+    [_alertController addAction:yesAction];
+    [_alertController addAction:noAction];
+    [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
 @end

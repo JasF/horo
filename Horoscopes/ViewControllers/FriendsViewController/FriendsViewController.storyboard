@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="-311" y="29"/>
         </scene>
-        <!--MainTableViewController-->
+        <!--FriendsViewController-->
         <scene sceneID="sAe-F7-AfH">
             <objects>
-                <tableViewController storyboardIdentifier="FriendsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ax-ex-6Gm" userLabel="MainTableViewController" customClass="FriendsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FriendsViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ax-ex-6Gm" userLabel="FriendsViewController" customClass="FriendsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="y0T-Np-Hyb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

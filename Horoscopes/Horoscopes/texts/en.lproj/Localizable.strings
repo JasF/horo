@@ -49,3 +49,6 @@
 "person_birthday_status_ready_for_request"="Needs update";
 "person_birthday_status_failed"="Not available";
 "updating"="Updating";
+"cancel_current_birthday_request_text"="Cancel current birthday request for friend %@?";
+"yes"="Yes";
+"no"="No";

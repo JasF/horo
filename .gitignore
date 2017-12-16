@@ -1,5 +1,6 @@
 webrtc/*
 .DS_Store
 *xcuserdata*
+server/credentials.json
 server/node_modules/*
 server/functions/node_modules/*

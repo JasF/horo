@@ -34,6 +34,10 @@ static CGFloat const kHighlightedAlpha = 0.5f;
 - (void)setName:(NSString *)name
        birthday:(NSString *)birthday
        imageUrl:(NSString *)imageUrl {
+#ifdef CENSORED
+    name = @"om mani padme hum";
+    imageUrl = @"https://firebasestorage.googleapis.com/v0/b/horo-ios.appspot.com/o/om.jpg?alt=media&token=b9f82bea-98e4-48bb-874f-b6cb3eaa7e05";
+#endif
     _nameLabel.text = name;
     _birthdayLabel.text = L(@"birthday");
     _birthdayDateLabel.text = birthday;

@@ -127,6 +127,258 @@
 		C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A41FA5D15F006DEDB7 /* person.cc */; };
 		C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */; };
 		C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */; };
+		C315ABCA1FE5040C00CC9B67 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
+		C315ABCB1FE5040C00CC9B67 /* horoscopedaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409441FA77F0700A0FC33 /* horoscopedaoimpl.cc */; };
+		C315ABCC1FE5040C00CC9B67 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DB1FB06168001FABFE /* error.c */; };
+		C315ABCD1FE5040C00CC9B67 /* UINavigationBar+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */; };
+		C315ABCE1FE5040C00CC9B67 /* ScreensManagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */; };
+		C315ABCF1FE5040C00CC9B67 /* settings.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B6019D1FA6008700AD4F6D /* settings.cc */; };
+		C315ABD01FE5040C00CC9B67 /* EXTADT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DD1FA481C2006DEDB7 /* EXTADT.m */; };
+		C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
+		C315ABD21FE5040C00CC9B67 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DB1FA481C2006DEDB7 /* EXTScope.m */; };
+		C315ABD31FE5040C00CC9B67 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
+		C315ABD41FE5040C00CC9B67 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
+		C315ABD51FE5040C00CC9B67 /* WebViewDialogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */; };
+		C315ABD61FE5040C00CC9B67 /* tokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13D31FB06167001FABFE /* tokenizer.c */; };
+		C315ABD71FE5040C00CC9B67 /* horoscopesparserimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */; };
+		C315ABD81FE5040C00CC9B67 /* WebViewControllerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */; };
+		C315ABD91FE5040C00CC9B67 /* NSDictionary+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */; };
+		C315ABDA1FE5040C00CC9B67 /* predictionscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B186E1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc */; };
+		C315ABDB1FE5040C00CC9B67 /* FirestoreObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3817E031FA70CFC00447155 /* FirestoreObjc.mm */; };
+		C315ABDC1FE5040C00CC9B67 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D71FA375E600C0B1C6 /* AFSecurityPolicy.m */; };
+		C315ABDD1FE5040C00CC9B67 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F405241FE102C1004D1535 /* GradientView.m */; };
+		C315ABDE1FE5040C00CC9B67 /* daofactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409501FA7802B00A0FC33 /* daofactoryimpl.cc */; };
+		C315ABDF1FE5040C00CC9B67 /* tag.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DE1FB06168001FABFE /* tag.c */; };
+		C315ABE01FE5040C00CC9B67 /* databaseimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409791FA7874900A0FC33 /* databaseimpl.cc */; };
+		C315ABE11FE5040C00CC9B67 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
+		C315ABE21FE5040C00CC9B67 /* zodiac.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18891FA4C2D9006DEDB7 /* zodiac.cc */; };
+		C315ABE31FE5040C00CC9B67 /* HttpResponseObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B165B1FA4746F006DEDB7 /* HttpResponseObjc.mm */; };
+		C315ABE41FE5040C00CC9B67 /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
+		C315ABE51FE5040C00CC9B67 /* facebookloginmanager.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601861FA5F39100AD4F6D /* facebookloginmanager.cc */; };
+		C315ABE61FE5040C00CC9B67 /* UIImageView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355E1FD3DEED005C862C /* UIImageView+Horo.m */; };
+		C315ABE71FE5040C00CC9B67 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
+		C315ABE81FE5040C00CC9B67 /* FriendsBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */; };
+		C315ABE91FE5040C00CC9B67 /* facebookfriendsprovider.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */; };
+		C315ABEA1FE5040C00CC9B67 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
+		C315ABEB1FE5040C00CC9B67 /* facebookuserinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13F71FB07182001FABFE /* facebookuserinformationparser.cc */; };
+		C315ABEC1FE5040C00CC9B67 /* char_ref.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13E01FB06168001FABFE /* char_ref.c */; };
+		C315ABED1FE5040C00CC9B67 /* friendsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A138B1FAF304A001FABFE /* friendsscreenviewmodelimpl.cc */; };
+		C315ABEE1FE5040C00CC9B67 /* WelcomeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */; };
+		C315ABEF1FE5040C00CC9B67 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D61FA375E600C0B1C6 /* AFNetworkReachabilityManager.m */; };
+		C315ABF01FE5040C00CC9B67 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D01FA375E600C0B1C6 /* AFURLResponseSerialization.m */; };
+		C315ABF11FE5040C00CC9B67 /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */; };
+		C315ABF21FE5040C00CC9B67 /* EXTNil.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17E51FA481C2006DEDB7 /* EXTNil.m */; };
+		C315ABF31FE5040C00CC9B67 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
+		C315ABF41FE5040C00CC9B67 /* EXTSelectorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17D31FA481C2006DEDB7 /* EXTSelectorChecking.m */; };
+		C315ABF51FE5040C00CC9B67 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17E11FA481C2006DEDB7 /* NSMethodSignature+EXT.m */; };
+		C315ABF61FE5040C00CC9B67 /* loginmanagerfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601801FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc */; };
+		C315ABF71FE5040C00CC9B67 /* vector.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13D21FB06167001FABFE /* vector.c */; };
+		C315ABF81FE5040C00CC9B67 /* url.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14021FB08FD4001FABFE /* url.cc */; };
+		C315ABF91FE5040C00CC9B67 /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
+		C315ABFA1FE5040C00CC9B67 /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
+		C315ABFB1FE5040C00CC9B67 /* attribute.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DD1FB06168001FABFE /* attribute.c */; };
+		C315ABFC1FE5040C00CC9B67 /* UIView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A62961FD291FF00012ECA /* UIView+Horo.m */; };
+		C315ABFD1FE5040C00CC9B67 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D41FA375E600C0B1C6 /* AFURLRequestSerialization.m */; };
+		C315ABFE1FE5040C00CC9B67 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
+		C315ABFF1FE5040C00CC9B67 /* string_buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DC1FB06168001FABFE /* string_buffer.c */; };
+		C315AC001FE5040C00CC9B67 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16781FA476CA006DEDB7 /* json_reader.cpp */; };
+		C315AC011FE5040C00CC9B67 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D31FA375E600C0B1C6 /* AFURLSessionManager.m */; };
+		C315AC021FE5040C00CC9B67 /* friendsmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */; };
+		C315AC031FE5040C00CC9B67 /* facebookhomepageparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13B91FB05EF1001FABFE /* facebookhomepageparser.cc */; };
+		C315AC041FE5040C00CC9B67 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13C81FB06166001FABFE /* parser.c */; };
+		C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.m */; };
+		C315AC061FE5040C00CC9B67 /* NSString+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A62991FD29A8B00012ECA /* NSString+Horo.mm */; };
+		C315AC071FE5040C00CC9B67 /* PersonObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60021FDBDD62003CF1CA /* PersonObjc.mm */; };
+		C315AC081FE5040C00CC9B67 /* EXTSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DF1FA481C2006DEDB7 /* EXTSafeCategory.m */; };
+		C315AC091FE5040C00CC9B67 /* DatabaseObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30409721FA7870100A0FC33 /* DatabaseObjc.mm */; };
+		C315AC0A1FE5040C00CC9B67 /* utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DF1FB06168001FABFE /* utf8.c */; };
+		C315AC0B1FE5040C00CC9B67 /* FriendsResultsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */; };
+		C315AC0C1FE5040C00CC9B67 /* UIImage+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */; };
+		C315AC0D1FE5040C00CC9B67 /* viewmodelsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18991FA5CFE6006DEDB7 /* viewmodelsimpl.cc */; };
+		C315AC0E1FE5040C00CC9B67 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3741FA06C96006378B6 /* ViewController.mm */; };
+		C315AC0F1FE5040C00CC9B67 /* EXTConcreteProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17D61FA481C2006DEDB7 /* EXTConcreteProtocol.m */; };
+		C315AC101FE5040C00CC9B67 /* horoscopedto.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409491FA77F6600A0FC33 /* horoscopedto.cc */; };
+		C315AC111FE5040C00CC9B67 /* helloscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18971FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc */; };
+		C315AC121FE5040C00CC9B67 /* Platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */; };
+		C315AC131FE5040C00CC9B67 /* TabsItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C117031FCE9542007DA9FF /* TabsItemView.m */; };
+		C315AC141FE5040C00CC9B67 /* PredictionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */; };
+		C315AC151FE5040C00CC9B67 /* corecomponents.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B189F1FA5D0FB006DEDB7 /* corecomponents.cc */; };
+		C315AC161FE5040C00CC9B67 /* FriendsViewController+Filtering.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */; };
+		C315AC171FE5040C00CC9B67 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16791FA476CA006DEDB7 /* json_value.cpp */; };
+		C315AC181FE5040C00CC9B67 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3383FD71FAF253100CCE133 /* MenuViewController.mm */; };
+		C315AC191FE5040C00CC9B67 /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DE1FA481C2006DEDB7 /* NSInvocation+EXT.m */; };
+		C315AC1A1FE5040C00CC9B67 /* person.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18A41FA5D15F006DEDB7 /* person.cc */; };
+		C315AC1B1FE5040C00CC9B67 /* serializerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601A41FA604E600AD4F6D /* serializerimpl.cc */; };
+		C315AC1C1FE5040C00CC9B67 /* ManualInitialization.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CC51FA8DADF00F5BAD2 /* ManualInitialization.mm */; };
+		C315AC1D1FE5040C00CC9B67 /* HoroscopesCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A628B1FD28A5C00012ECA /* HoroscopesCell.mm */; };
+		C315AC1E1FE5040C00CC9B67 /* MenuCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C340356E1FD41184005C862C /* MenuCellContentView.m */; };
+		C315AC1F1FE5040C00CC9B67 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B167F1FA47770006DEDB7 /* json_writer.cpp */; };
+		C315AC201FE5040C00CC9B67 /* firestorefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */; };
+		C315AC211FE5040C00CC9B67 /* horoscopesserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */; };
+		C315AC221FE5040C00CC9B67 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */; };
+		C315AC231FE5040C00CC9B67 /* facebookmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B6018D1FA5F62B00AD4F6D /* facebookmanagerimpl.cc */; };
+		C315AC241FE5040C00CC9B67 /* friendsproviderfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */; };
+		C315AC251FE5040C00CC9B67 /* htmlparserfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13B71FB05E48001FABFE /* htmlparserfactoryimpl.cc */; };
+		C315AC261FE5040C00CC9B67 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
+		C315AC271FE5040C00CC9B67 /* facebookfriendsparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13FA1FB073D8001FABFE /* facebookfriendsparser.cc */; };
+		C315AC281FE5040C00CC9B67 /* predictionscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */; };
+		C315AC291FE5040C00CC9B67 /* screensmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */; };
+		C315AC2A1FE5040C00CC9B67 /* birthdaydetectorimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */; };
+		C315AC2B1FE5040C00CC9B67 /* DesignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355B1FD3DD50005C862C /* DesignLabel.m */; };
+		C315AC2C1FE5040C00CC9B67 /* FacebookBanagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601911FA5F76C00AD4F6D /* FacebookBanagerObjc.mm */; };
+		C315AC2D1FE5040C00CC9B67 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
+		C315AC2E1FE5040C00CC9B67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD37F1FA06C96006378B6 /* main.m */; };
+		C315AC2F1FE5040C00CC9B67 /* SerializerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */; };
+		C315AC301FE5040C00CC9B67 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13CD1FB06166001FABFE /* util.c */; };
+		C315AC311FE5040C00CC9B67 /* coding.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601961FA5FCA700AD4F6D /* coding.cc */; };
+		C315AC321FE5040C00CC9B67 /* FriendsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A600E1FDBF45E003CF1CA /* FriendsViewController.mm */; };
+		C315AC331FE5040C00CC9B67 /* modelsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18571FA498C8006DEDB7 /* modelsimpl.cc */; };
+		C315AC341FE5040C00CC9B67 /* Tabs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C116FF1FCE8929007DA9FF /* Tabs.m */; };
+		C315AC351FE5040C00CC9B67 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D11FA375E600C0B1C6 /* AFHTTPSessionManager.m */; };
+		C315AC361FE5040C00CC9B67 /* helloscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18901FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc */; };
+		C315AC371FE5040C00CC9B67 /* string_piece.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13D41FB06167001FABFE /* string_piece.c */; };
+		C315AC381FE5040C00CC9B67 /* friendsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13881FAF2F4D001FABFE /* friendsscreenmodelimpl.cc */; };
+		C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3711FA06C96006378B6 /* AppDelegate.mm */; };
+		C315AC3A1FE5040C00CC9B67 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
+		C315AC3B1FE5040C00CC9B67 /* datewrapper.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A71FB052A2001FABFE /* datewrapper.cc */; };
+		C315AC3C1FE5040C00CC9B67 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DC1FA481C2006DEDB7 /* EXTRuntimeExtensions.m */; };
+		C315AC3D1FE5040C00CC9B67 /* menuscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */; };
+		C315AC3E1FE5040C00CC9B67 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
+		C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A628F1FD28BEB00012ECA /* PredictionContentViewController.m */; };
+		C315AC401FE5040C00CC9B67 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
+		C315AC421FE5040C00CC9B67 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A138E1FAF39BC001FABFE /* WebKit.framework */; };
+		C315AC431FE5040C00CC9B67 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
+		C315AC441FE5040C00CC9B67 /* stringencode.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7F1FA30E3E0094BF12 /* stringencode.o */; };
+		C315AC451FE5040C00CC9B67 /* network.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB91FA30E420094BF12 /* network.o */; };
+		C315AC461FE5040C00CC9B67 /* signalthread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA31FA30E400094BF12 /* signalthread.o */; };
+		C315AC471FE5040C00CC9B67 /* sslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8D1FA30E3F0094BF12 /* sslidentity.o */; };
+		C315AC481FE5040C00CC9B67 /* flags.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA11FA30E400094BF12 /* flags.o */; };
+		C315AC491FE5040C00CC9B67 /* nethelpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAB1FA30E410094BF12 /* nethelpers.o */; };
+		C315AC4A1FE5040C00CC9B67 /* helpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC01FA30E430094BF12 /* helpers.o */; };
+		C315AC4B1FE5040C00CC9B67 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DED1FA6F4E700D2BFF3 /* GoogleToolboxForMac.framework */; };
+		C315AC4C1FE5040C00CC9B67 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DE91FA6F4E700D2BFF3 /* FirebaseAuth.framework */; };
+		C315AC4D1FE5040C00CC9B67 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */; };
+		C315AC4E1FE5040C00CC9B67 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */; };
+		C315AC4F1FE5040C00CC9B67 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
+		C315AC501FE5040C00CC9B67 /* rate_limiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBD1FA30E420094BF12 /* rate_limiter.o */; };
+		C315AC511FE5040C00CC9B67 /* criticalsection.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D751FA30E3D0094BF12 /* criticalsection.o */; };
+		C315AC521FE5040C00CC9B67 /* timestampaligner.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D901FA30E3F0094BF12 /* timestampaligner.o */; };
+		C315AC531FE5040C00CC9B67 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEE1FA6F4E700D2BFF3 /* nanopb.framework */; };
+		C315AC541FE5040C00CC9B67 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601751FA5DB3300AD4F6D /* FBSDKLoginKit.framework */; };
+		C315AC551FE5040C00CC9B67 /* bitrateallocationstrategy.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D761FA30E3D0094BF12 /* bitrateallocationstrategy.o */; };
+		C315AC561FE5040C00CC9B67 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
+		C315AC571FE5040C00CC9B67 /* asyncinvoker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBB1FA30E420094BF12 /* asyncinvoker.o */; };
+		C315AC581FE5040C00CC9B67 /* pathutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAD1FA30E410094BF12 /* pathutils.o */; };
+		C315AC591FE5040C00CC9B67 /* cryptstring.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA21FA30E400094BF12 /* cryptstring.o */; };
+		C315AC5A1FE5040C00CC9B67 /* sslfingerprint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB01FA30E410094BF12 /* sslfingerprint.o */; };
+		C315AC5B1FE5040C00CC9B67 /* transformadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBF1FA30E430094BF12 /* transformadapter.o */; };
+		C315AC5C1FE5040C00CC9B67 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD71FA6F19E00D2BFF3 /* BoringSSL.framework */; };
+		C315AC5D1FE5040C00CC9B67 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601741FA5DB3300AD4F6D /* FBSDKCoreKit.framework */; };
+		C315AC5E1FE5040C00CC9B67 /* stream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7E1FA30E3E0094BF12 /* stream.o */; };
+		C315AC5F1FE5040C00CC9B67 /* socketaddresspair.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB41FA30E410094BF12 /* socketaddresspair.o */; };
+		C315AC601FE5040C00CC9B67 /* httpcommon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB11FA30E410094BF12 /* httpcommon.o */; };
+		C315AC611FE5040C00CC9B67 /* socketstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D861FA30E3E0094BF12 /* socketstream.o */; };
+		C315AC621FE5040C00CC9B67 /* file_posix.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D841FA30E3E0094BF12 /* file_posix.o */; };
+		C315AC631FE5040C00CC9B67 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */; };
+		C315AC641FE5040C00CC9B67 /* location.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBC1FA30E420094BF12 /* location.o */; };
+		C315AC651FE5040C00CC9B67 /* unixfilesystem.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D801FA30E3E0094BF12 /* unixfilesystem.o */; };
+		C315AC661FE5040C00CC9B67 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */; };
+		C315AC671FE5040C00CC9B67 /* messagequeue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB31FA30E410094BF12 /* messagequeue.o */; };
+		C315AC681FE5040C00CC9B67 /* ifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAF1FA30E410094BF12 /* ifaddrs_converter.o */; };
+		C315AC691FE5040C00CC9B67 /* bitbuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D771FA30E3D0094BF12 /* bitbuffer.o */; };
+		C315AC6A1FE5040C00CC9B67 /* bufferqueue.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D911FA30E3F0094BF12 /* bufferqueue.o */; };
+		C315AC6B1FE5040C00CC9B67 /* physicalsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D881FA30E3E0094BF12 /* physicalsocketserver.o */; };
+		C315AC6C1FE5040C00CC9B67 /* noop.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D931FA30E3F0094BF12 /* noop.o */; };
+		C315AC6D1FE5040C00CC9B67 /* race_checker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9A1FA30E400094BF12 /* race_checker.o */; };
+		C315AC6E1FE5040C00CC9B67 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD41FA6F19E00D2BFF3 /* leveldb-library.framework */; };
+		C315AC6F1FE5040C00CC9B67 /* event.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D951FA30E3F0094BF12 /* event.o */; };
+		C315AC701FE5040C00CC9B67 /* macifaddrs_converter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D851FA30E3E0094BF12 /* macifaddrs_converter.o */; };
+		C315AC711FE5040C00CC9B67 /* timeutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB81FA30E420094BF12 /* timeutils.o */; };
+		C315AC721FE5040C00CC9B67 /* thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB21FA30E410094BF12 /* thread.o */; };
+		C315AC731FE5040C00CC9B67 /* ipaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9E1FA30E400094BF12 /* ipaddress.o */; };
+		C315AC741FE5040C00CC9B67 /* sslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8A1FA30E3E0094BF12 /* sslstreamadapter.o */; };
+		C315AC751FE5040C00CC9B67 /* socketadapters.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8F1FA30E3F0094BF12 /* socketadapters.o */; };
+		C315AC761FE5040C00CC9B67 /* asyncsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D831FA30E3E0094BF12 /* asyncsocket.o */; };
+		C315AC771FE5040C00CC9B67 /* platform_thread.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9B1FA30E400094BF12 /* platform_thread.o */; };
+		C315AC781FE5040C00CC9B67 /* optionsfile.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAA1FA30E410094BF12 /* optionsfile.o */; };
+		C315AC791FE5040C00CC9B67 /* gRPC-ProtoRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD61FA6F19E00D2BFF3 /* gRPC-ProtoRPC.framework */; };
+		C315AC7A1FE5040C00CC9B67 /* copyonwritebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D811FA30E3E0094BF12 /* copyonwritebuffer.o */; };
+		C315AC7B1FE5040C00CC9B67 /* thread_darwin.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA51FA30E400094BF12 /* thread_darwin.o */; };
+		C315AC7C1FE5040C00CC9B67 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DE81FA6F4E700D2BFF3 /* GTMSessionFetcher.framework */; };
+		C315AC7D1FE5040C00CC9B67 /* networkmonitor.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D821FA30E3E0094BF12 /* networkmonitor.o */; };
+		C315AC7E1FE5040C00CC9B67 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */; };
+		C315AC7F1FE5040C00CC9B67 /* openssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBE1FA30E420094BF12 /* openssladapter.o */; };
+		C315AC801FE5040C00CC9B67 /* filerotatingstream.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB61FA30E410094BF12 /* filerotatingstream.o */; };
+		C315AC811FE5040C00CC9B67 /* socketaddress.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA71FA30E400094BF12 /* socketaddress.o */; };
+		C315AC821FE5040C00CC9B67 /* gRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD51FA6F19E00D2BFF3 /* gRPC.framework */; };
+		C315AC831FE5040C00CC9B67 /* rate_statistics.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC31FA30E430094BF12 /* rate_statistics.o */; };
+		C315AC841FE5040C00CC9B67 /* logsinks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8C1FA30E3F0094BF12 /* logsinks.o */; };
+		C315AC851FE5040C00CC9B67 /* messagedigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8B1FA30E3E0094BF12 /* messagedigest.o */; };
+		C315AC861FE5040C00CC9B67 /* messagehandler.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DBA1FA30E420094BF12 /* messagehandler.o */; };
+		C315AC871FE5040C00CC9B67 /* asyncpacketsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7A1FA30E3D0094BF12 /* asyncpacketsocket.o */; };
+		C315AC881FE5040C00CC9B67 /* string_to_number.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D741FA30E3D0094BF12 /* string_to_number.o */; };
+		C315AC891FE5040C00CC9B67 /* checks.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC11FA30E430094BF12 /* checks.o */; };
+		C315AC8A1FE5040C00CC9B67 /* opensslstreamadapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA01FA30E400094BF12 /* opensslstreamadapter.o */; };
+		C315AC8B1FE5040C00CC9B67 /* proxyinfo.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7C1FA30E3E0094BF12 /* proxyinfo.o */; };
+		C315AC8C1FE5040C00CC9B67 /* nullsocketserver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7D1FA30E3E0094BF12 /* nullsocketserver.o */; };
+		C315AC8D1FE5040C00CC9B67 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD31FA6F19E00D2BFF3 /* FirebaseAuth.framework */; };
+		C315AC8E1FE5040C00CC9B67 /* rtccertificate.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB71FA30E420094BF12 /* rtccertificate.o */; };
+		C315AC8F1FE5040C00CC9B67 /* platform_file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAE1FA30E410094BF12 /* platform_file.o */; };
+		C315AC901FE5040C00CC9B67 /* stringutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA41FA30E400094BF12 /* stringutils.o */; };
+		C315AC911FE5040C00CC9B67 /* thread_checker_impl.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D961FA30E3F0094BF12 /* thread_checker_impl.o */; };
+		C315AC921FE5040C00CC9B67 /* event_tracer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9D1FA30E400094BF12 /* event_tracer.o */; };
+		C315AC931FE5040C00CC9B67 /* httpbase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9F1FA30E400094BF12 /* httpbase.o */; };
+		C315AC941FE5040C00CC9B67 /* opensslidentity.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D921FA30E3F0094BF12 /* opensslidentity.o */; };
+		C315AC951FE5040C00CC9B67 /* logging.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA61FA30E400094BF12 /* logging.o */; };
+		C315AC961FE5040C00CC9B67 /* ratelimiter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA81FA30E400094BF12 /* ratelimiter.o */; };
+		C315AC971FE5040C00CC9B67 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B601791FA5E10D00AD4F6D /* Bolts.framework */; };
+		C315AC981FE5040C00CC9B67 /* sigslot.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DA91FA30E410094BF12 /* sigslot.o */; };
+		C315AC991FE5040C00CC9B67 /* ssladapter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC41FA30E430094BF12 /* ssladapter.o */; };
+		C315AC9A1FE5040C00CC9B67 /* asyncudpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D781FA30E3D0094BF12 /* asyncudpsocket.o */; };
+		C315AC9B1FE5040C00CC9B67 /* fileutils.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D941FA30E3F0094BF12 /* fileutils.o */; };
+		C315AC9C1FE5040C00CC9B67 /* openssldigest.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D8E1FA30E3F0094BF12 /* openssldigest.o */; };
+		C315AC9D1FE5040C00CC9B67 /* ratetracker.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D891FA30E3E0094BF12 /* ratetracker.o */; };
+		C315AC9E1FE5040C00CC9B67 /* asyncresolverinterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DB51FA30E410094BF12 /* asyncresolverinterface.o */; };
+		C315AC9F1FE5040C00CC9B67 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEF1FA6F4E700D2BFF3 /* FirebaseNanoPB.framework */; };
+		C315ACA01FE5040C00CC9B67 /* rtccertificategenerator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D971FA30E3F0094BF12 /* rtccertificategenerator.o */; };
+		C315ACA11FE5040C00CC9B67 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEC1FA6F4E700D2BFF3 /* FirebaseAnalytics.framework */; };
+		C315ACA21FE5040C00CC9B67 /* gRPC-RxLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD81FA6F19E00D2BFF3 /* gRPC-RxLibrary.framework */; };
+		C315ACA31FE5040C00CC9B67 /* file.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D871FA30E3E0094BF12 /* file.o */; };
+		C315ACA41FE5040C00CC9B67 /* random.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DC21FA30E430094BF12 /* random.o */; };
+		C315ACA51FE5040C00CC9B67 /* bytebuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27DAC1FA30E410094BF12 /* bytebuffer.o */; };
+		C315ACA61FE5040C00CC9B67 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DD01FA6F19E00D2BFF3 /* GTMSessionFetcher.framework */; };
+		C315ACA71FE5040C00CC9B67 /* asynctcpsocket.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D791FA30E3D0094BF12 /* asynctcpsocket.o */; };
+		C315ACA81FE5040C00CC9B67 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DEB1FA6F4E700D2BFF3 /* FirebaseCore.framework */; };
+		C315ACA91FE5040C00CC9B67 /* base64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D991FA30E3F0094BF12 /* base64.o */; };
+		C315ACAA1FE5040C00CC9B67 /* histogram_percentile_counter.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D7B1FA30E3D0094BF12 /* histogram_percentile_counter.o */; };
+		C315ACAB1FE5040C00CC9B67 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C304097B1FA789B600A0FC33 /* FMDB.framework */; };
+		C315ACAC1FE5040C00CC9B67 /* crc32.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D27D9C1FA30E400094BF12 /* crc32.o */; };
+		C315ACAE1FE5040C00CC9B67 /* tag.in in Resources */ = {isa = PBXBuildFile; fileRef = C31A13E21FB06168001FABFE /* tag.in */; };
+		C315ACAF1FE5040C00CC9B67 /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */; };
+		C315ACB11FE5040C00CC9B67 /* PredictionContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38A629B1FD29E5400012ECA /* PredictionContentViewController.xib */; };
+		C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
+		C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8978B1FB83B2E0083C201 /* locdates.json */; };
+		C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */; };
+		C315ACB51FE5040C00CC9B67 /* monthlanguages.js in Resources */ = {isa = PBXBuildFile; fileRef = C3B8977A1FB718DF0083C201 /* monthlanguages.js */; };
+		C315ACB61FE5040C00CC9B67 /* gRPCCertificates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3CD7DD21FA6F19E00D2BFF3 /* gRPCCertificates.bundle */; };
+		C315ACB71FE5040C00CC9B67 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
+		C315ACB81FE5040C00CC9B67 /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */; };
+		C315ACB91FE5040C00CC9B67 /* WebViewDialogController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */; };
+		C315ACBA1FE5040C00CC9B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */; };
+		C315ACBB1FE5040C00CC9B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3791FA06C96006378B6 /* Assets.xcassets */; };
+		C315ACBC1FE5040C00CC9B67 /* birthdayslocstr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */; };
+		C315ACBD1FE5040C00CC9B67 /* TabsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C117071FCE95E9007DA9FF /* TabsItemView.xib */; };
+		C315ACBE1FE5040C00CC9B67 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
+		C315ACBF1FE5040C00CC9B67 /* char_ref.rl in Resources */ = {isa = PBXBuildFile; fileRef = C31A13C71FB06166001FABFE /* char_ref.rl */; };
+		C315ACC01FE5040C00CC9B67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C340356B1FD3EDC6005C862C /* Localizable.strings */; };
+		C315ACC11FE5040C00CC9B67 /* PredictionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */; };
+		C315ACC21FE5040C00CC9B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
+		C315ACCF1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */; };
+		C315ACD01FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */; };
+		C315ACD11FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */; };
+		C315ACD21FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */; };
+		C315ACD31FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */; };
+		C315ACD41FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */; };
 		C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C141FADDDF50059F247 /* BackgroundView.m */; };
 		C3190C171FADDF630059F247 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */; };
@@ -195,7 +447,6 @@
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
 		C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */; };
 		C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3817E031FA70CFC00447155 /* FirestoreObjc.mm */; };
-		C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3817E051FA70F7500447155 /* GoogleService-Info.plist */; };
 		C38A628C1FD28A5C00012ECA /* HoroscopesCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A628B1FD28A5C00012ECA /* HoroscopesCell.mm */; };
 		C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A628F1FD28BEB00012ECA /* PredictionContentViewController.m */; };
 		C38A62971FD291FF00012ECA /* UIView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A62961FD291FF00012ECA /* UIView+Horo.m */; };
@@ -265,7 +516,6 @@
 		4B0FD3771FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B0FD3791FA06C96006378B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B0FD37C1FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4B0FD37E1FA06C96006378B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B0FD37F1FA06C96006378B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C30409401FA77EE100A0FC33 /* horoscopedao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopedao.h; sourceTree = "<group>"; };
 		C30409411FA77EF500A0FC33 /* horoscopedaoimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopedaoimpl.h; sourceTree = "<group>"; };
@@ -640,7 +890,6 @@
 		C30B17E51FA481C2006DEDB7 /* EXTNil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTNil.m; sourceTree = "<group>"; };
 		C30B17E61FA481C2006DEDB7 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTKeyPathCoding.h; sourceTree = "<group>"; };
 		C30B17E71FA481C2006DEDB7 /* EXTCoroutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTCoroutine.h; sourceTree = "<group>"; };
-		C30B17F11FA481DA006DEDB7 /* Horoscopes.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Horoscopes.pch; path = "Supporting Files/Horoscopes.pch"; sourceTree = SOURCE_ROOT; };
 		C30B18441FA496ED006DEDB7 /* screensmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screensmanager.h; sourceTree = "<group>"; };
 		C30B18481FA49827006DEDB7 /* screensmanagerimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = screensmanagerimpl.cc; sourceTree = "<group>"; };
 		C30B18491FA49827006DEDB7 /* screensmanagerimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screensmanagerimpl.h; sourceTree = "<group>"; };
@@ -677,6 +926,11 @@
 		C30B18A71FA5D590006DEDB7 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		C30B18A81FA5D590006DEDB7 /* WelcomeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WelcomeViewController.mm; sourceTree = "<group>"; };
 		C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
+		C315ACC61FE5040C00CC9B67 /* Horoscopes-censored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Horoscopes-censored.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Horoscopes-censored-Info.plist"; sourceTree = "<group>"; };
+		C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Horoscopes-Info.plist"; sourceTree = "<group>"; };
+		C315ACCD1FE504FD00CC9B67 /* Horoscopes.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horoscopes.pch; sourceTree = "<group>"; };
 		C3190C131FADDDF50059F247 /* BackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		C3190C141FADDDF50059F247 /* BackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		C3190C161FADDF630059F247 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
@@ -833,7 +1087,6 @@
 		C3817DF91FA70AD300447155 /* documentsnapshot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = documentsnapshot.h; sourceTree = "<group>"; };
 		C3817E001FA70CEA00447155 /* FirestoreObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirestoreObjc.h; sourceTree = "<group>"; };
 		C3817E031FA70CFC00447155 /* FirestoreObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirestoreObjc.mm; sourceTree = "<group>"; };
-		C3817E051FA70F7500447155 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/plists/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C38A628A1FD28A5C00012ECA /* HoroscopesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoroscopesCell.h; sourceTree = "<group>"; };
 		C38A628B1FD28A5C00012ECA /* HoroscopesCell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HoroscopesCell.mm; sourceTree = "<group>"; };
 		C38A628E1FD28BEB00012ECA /* PredictionContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PredictionContentViewController.h; sourceTree = "<group>"; };
@@ -1133,6 +1386,120 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C315AC411FE5040C00CC9B67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C315AC421FE5040C00CC9B67 /* WebKit.framework in Frameworks */,
+				C315AC431FE5040C00CC9B67 /* libz.1.2.8.tbd in Frameworks */,
+				C315AC441FE5040C00CC9B67 /* stringencode.o in Frameworks */,
+				C315AC451FE5040C00CC9B67 /* network.o in Frameworks */,
+				C315AC461FE5040C00CC9B67 /* signalthread.o in Frameworks */,
+				C315AC471FE5040C00CC9B67 /* sslidentity.o in Frameworks */,
+				C315AC481FE5040C00CC9B67 /* flags.o in Frameworks */,
+				C315AC491FE5040C00CC9B67 /* nethelpers.o in Frameworks */,
+				C315AC4A1FE5040C00CC9B67 /* helpers.o in Frameworks */,
+				C315AC4B1FE5040C00CC9B67 /* GoogleToolboxForMac.framework in Frameworks */,
+				C315AC4C1FE5040C00CC9B67 /* FirebaseAuth.framework in Frameworks */,
+				C315AC4D1FE5040C00CC9B67 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				C315AC4E1FE5040C00CC9B67 /* FirebaseFirestore.framework in Frameworks */,
+				C315AC4F1FE5040C00CC9B67 /* SDWebImage.framework in Frameworks */,
+				C315AC501FE5040C00CC9B67 /* rate_limiter.o in Frameworks */,
+				C315AC511FE5040C00CC9B67 /* criticalsection.o in Frameworks */,
+				C315AC521FE5040C00CC9B67 /* timestampaligner.o in Frameworks */,
+				C315AC531FE5040C00CC9B67 /* nanopb.framework in Frameworks */,
+				C315AC541FE5040C00CC9B67 /* FBSDKLoginKit.framework in Frameworks */,
+				C315AC551FE5040C00CC9B67 /* bitrateallocationstrategy.o in Frameworks */,
+				C315AC561FE5040C00CC9B67 /* libsqlite3.tbd in Frameworks */,
+				C315AC571FE5040C00CC9B67 /* asyncinvoker.o in Frameworks */,
+				C315AC581FE5040C00CC9B67 /* pathutils.o in Frameworks */,
+				C315AC591FE5040C00CC9B67 /* cryptstring.o in Frameworks */,
+				C315AC5A1FE5040C00CC9B67 /* sslfingerprint.o in Frameworks */,
+				C315AC5B1FE5040C00CC9B67 /* transformadapter.o in Frameworks */,
+				C315AC5C1FE5040C00CC9B67 /* BoringSSL.framework in Frameworks */,
+				C315AC5D1FE5040C00CC9B67 /* FBSDKCoreKit.framework in Frameworks */,
+				C315AC5E1FE5040C00CC9B67 /* stream.o in Frameworks */,
+				C315AC5F1FE5040C00CC9B67 /* socketaddresspair.o in Frameworks */,
+				C315AC601FE5040C00CC9B67 /* httpcommon.o in Frameworks */,
+				C315AC611FE5040C00CC9B67 /* socketstream.o in Frameworks */,
+				C315AC621FE5040C00CC9B67 /* file_posix.o in Frameworks */,
+				C315AC631FE5040C00CC9B67 /* Protobuf.framework in Frameworks */,
+				C315AC641FE5040C00CC9B67 /* location.o in Frameworks */,
+				C315AC651FE5040C00CC9B67 /* unixfilesystem.o in Frameworks */,
+				C315AC661FE5040C00CC9B67 /* gRPC-Core.framework in Frameworks */,
+				C315AC671FE5040C00CC9B67 /* messagequeue.o in Frameworks */,
+				C315AC681FE5040C00CC9B67 /* ifaddrs_converter.o in Frameworks */,
+				C315AC691FE5040C00CC9B67 /* bitbuffer.o in Frameworks */,
+				C315AC6A1FE5040C00CC9B67 /* bufferqueue.o in Frameworks */,
+				C315AC6B1FE5040C00CC9B67 /* physicalsocketserver.o in Frameworks */,
+				C315AC6C1FE5040C00CC9B67 /* noop.o in Frameworks */,
+				C315AC6D1FE5040C00CC9B67 /* race_checker.o in Frameworks */,
+				C315AC6E1FE5040C00CC9B67 /* leveldb-library.framework in Frameworks */,
+				C315AC6F1FE5040C00CC9B67 /* event.o in Frameworks */,
+				C315AC701FE5040C00CC9B67 /* macifaddrs_converter.o in Frameworks */,
+				C315AC711FE5040C00CC9B67 /* timeutils.o in Frameworks */,
+				C315AC721FE5040C00CC9B67 /* thread.o in Frameworks */,
+				C315AC731FE5040C00CC9B67 /* ipaddress.o in Frameworks */,
+				C315AC741FE5040C00CC9B67 /* sslstreamadapter.o in Frameworks */,
+				C315AC751FE5040C00CC9B67 /* socketadapters.o in Frameworks */,
+				C315AC761FE5040C00CC9B67 /* asyncsocket.o in Frameworks */,
+				C315AC771FE5040C00CC9B67 /* platform_thread.o in Frameworks */,
+				C315AC781FE5040C00CC9B67 /* optionsfile.o in Frameworks */,
+				C315AC791FE5040C00CC9B67 /* gRPC-ProtoRPC.framework in Frameworks */,
+				C315AC7A1FE5040C00CC9B67 /* copyonwritebuffer.o in Frameworks */,
+				C315AC7B1FE5040C00CC9B67 /* thread_darwin.o in Frameworks */,
+				C315AC7C1FE5040C00CC9B67 /* GTMSessionFetcher.framework in Frameworks */,
+				C315AC7D1FE5040C00CC9B67 /* networkmonitor.o in Frameworks */,
+				C315AC7E1FE5040C00CC9B67 /* FirebaseInstanceID.framework in Frameworks */,
+				C315AC7F1FE5040C00CC9B67 /* openssladapter.o in Frameworks */,
+				C315AC801FE5040C00CC9B67 /* filerotatingstream.o in Frameworks */,
+				C315AC811FE5040C00CC9B67 /* socketaddress.o in Frameworks */,
+				C315AC821FE5040C00CC9B67 /* gRPC.framework in Frameworks */,
+				C315AC831FE5040C00CC9B67 /* rate_statistics.o in Frameworks */,
+				C315AC841FE5040C00CC9B67 /* logsinks.o in Frameworks */,
+				C315AC851FE5040C00CC9B67 /* messagedigest.o in Frameworks */,
+				C315AC861FE5040C00CC9B67 /* messagehandler.o in Frameworks */,
+				C315AC871FE5040C00CC9B67 /* asyncpacketsocket.o in Frameworks */,
+				C315AC881FE5040C00CC9B67 /* string_to_number.o in Frameworks */,
+				C315AC891FE5040C00CC9B67 /* checks.o in Frameworks */,
+				C315AC8A1FE5040C00CC9B67 /* opensslstreamadapter.o in Frameworks */,
+				C315AC8B1FE5040C00CC9B67 /* proxyinfo.o in Frameworks */,
+				C315AC8C1FE5040C00CC9B67 /* nullsocketserver.o in Frameworks */,
+				C315AC8D1FE5040C00CC9B67 /* FirebaseAuth.framework in Frameworks */,
+				C315AC8E1FE5040C00CC9B67 /* rtccertificate.o in Frameworks */,
+				C315AC8F1FE5040C00CC9B67 /* platform_file.o in Frameworks */,
+				C315AC901FE5040C00CC9B67 /* stringutils.o in Frameworks */,
+				C315AC911FE5040C00CC9B67 /* thread_checker_impl.o in Frameworks */,
+				C315AC921FE5040C00CC9B67 /* event_tracer.o in Frameworks */,
+				C315AC931FE5040C00CC9B67 /* httpbase.o in Frameworks */,
+				C315AC941FE5040C00CC9B67 /* opensslidentity.o in Frameworks */,
+				C315AC951FE5040C00CC9B67 /* logging.o in Frameworks */,
+				C315AC961FE5040C00CC9B67 /* ratelimiter.o in Frameworks */,
+				C315AC971FE5040C00CC9B67 /* Bolts.framework in Frameworks */,
+				C315AC981FE5040C00CC9B67 /* sigslot.o in Frameworks */,
+				C315AC991FE5040C00CC9B67 /* ssladapter.o in Frameworks */,
+				C315AC9A1FE5040C00CC9B67 /* asyncudpsocket.o in Frameworks */,
+				C315AC9B1FE5040C00CC9B67 /* fileutils.o in Frameworks */,
+				C315AC9C1FE5040C00CC9B67 /* openssldigest.o in Frameworks */,
+				C315AC9D1FE5040C00CC9B67 /* ratetracker.o in Frameworks */,
+				C315AC9E1FE5040C00CC9B67 /* asyncresolverinterface.o in Frameworks */,
+				C315AC9F1FE5040C00CC9B67 /* FirebaseNanoPB.framework in Frameworks */,
+				C315ACA01FE5040C00CC9B67 /* rtccertificategenerator.o in Frameworks */,
+				C315ACA11FE5040C00CC9B67 /* FirebaseAnalytics.framework in Frameworks */,
+				C315ACA21FE5040C00CC9B67 /* gRPC-RxLibrary.framework in Frameworks */,
+				C315ACA31FE5040C00CC9B67 /* file.o in Frameworks */,
+				C315ACA41FE5040C00CC9B67 /* random.o in Frameworks */,
+				C315ACA51FE5040C00CC9B67 /* bytebuffer.o in Frameworks */,
+				C315ACA61FE5040C00CC9B67 /* GTMSessionFetcher.framework in Frameworks */,
+				C315ACA71FE5040C00CC9B67 /* asynctcpsocket.o in Frameworks */,
+				C315ACA81FE5040C00CC9B67 /* FirebaseCore.framework in Frameworks */,
+				C315ACA91FE5040C00CC9B67 /* base64.o in Frameworks */,
+				C315ACAA1FE5040C00CC9B67 /* histogram_percentile_counter.o in Frameworks */,
+				C315ACAB1FE5040C00CC9B67 /* FMDB.framework in Frameworks */,
+				C315ACAC1FE5040C00CC9B67 /* crc32.o in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1144,9 +1511,9 @@
 				C3B601AD1FA60DAE00AD4F6D /* Categories */,
 				C30B187C1FA4AA9C006DEDB7 /* ViewControllers */,
 				C33B99CA1FA375E600C0B1C6 /* Components */,
-				C37C83EE1FA3287500B39948 /* Supporting Files */,
 				C3D27E161FA30FC60094BF12 /* rtcbase */,
 				C3D27C951FA309130094BF12 /* src */,
+				C315ACC81FE504FC00CC9B67 /* Supporting Files */,
 				4B0FD36F1FA06C96006378B6 /* Horoscopes */,
 				4B0FD36E1FA06C96006378B6 /* Products */,
 				C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */,
@@ -1157,6 +1524,7 @@
 			isa = PBXGroup;
 			children = (
 				4B0FD36D1FA06C96006378B6 /* Horoscopes.app */,
+				C315ACC61FE5040C00CC9B67 /* Horoscopes-censored.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1172,7 +1540,6 @@
 				4B0FD3761FA06C96006378B6 /* Main.storyboard */,
 				4B0FD3791FA06C96006378B6 /* Assets.xcassets */,
 				4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */,
-				4B0FD37E1FA06C96006378B6 /* Info.plist */,
 				4B0FD37F1FA06C96006378B6 /* main.m */,
 				C3190C161FADDF630059F247 /* Common.xcassets */,
 			);
@@ -1507,6 +1874,34 @@
 				C30B18AA1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard */,
 			);
 			path = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		C315ACC81FE504FC00CC9B67 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3D27C9F1FA30D530094BF12 /* webrtc_o */,
+				C315ACC91FE504FD00CC9B67 /* plists */,
+				C315ACCD1FE504FD00CC9B67 /* Horoscopes.pch */,
+				C315ACCE1FE504FD00CC9B67 /* Frameworks */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C315ACC91FE504FD00CC9B67 /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */,
+				C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */,
+				C315ACCC1FE504FD00CC9B67 /* Horoscopes-Info.plist */,
+			);
+			path = plists;
+			sourceTree = "<group>";
+		};
+		C315ACCE1FE504FD00CC9B67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		C3190C121FADDDC40059F247 /* components */ = {
@@ -1918,17 +2313,6 @@
 			path = server;
 			sourceTree = "<group>";
 		};
-		C37C83EE1FA3287500B39948 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C3CD7DE41FA6F3BC00D2BFF3 /* plists */,
-				C3D27C9F1FA30D530094BF12 /* webrtc_o */,
-				C30B17F11FA481DA006DEDB7 /* Horoscopes.pch */,
-			);
-			name = "Supporting Files";
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		C3817DE01FA7051700447155 /* firestore */ = {
 			isa = PBXGroup;
 			children = (
@@ -2210,14 +2594,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C3CD7DE41FA6F3BC00D2BFF3 /* plists */ = {
-			isa = PBXGroup;
-			children = (
-				C3817E051FA70F7500447155 /* GoogleService-Info.plist */,
-			);
-			path = plists;
-			sourceTree = "<group>";
-		};
 		C3CD7DE71FA6F4E700D2BFF3 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -2394,7 +2770,8 @@
 				C3D27DBF1FA30E430094BF12 /* transformadapter.o */,
 				C3D27D801FA30E3E0094BF12 /* unixfilesystem.o */,
 			);
-			path = webrtc_o;
+			name = webrtc_o;
+			path = "../New Group/webrtc_o";
 			sourceTree = "<group>";
 		};
 		C3D27E161FA30FC60094BF12 /* rtcbase */ = {
@@ -2780,6 +3157,24 @@
 			productReference = 4B0FD36D1FA06C96006378B6 /* Horoscopes.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C315ABC71FE5040C00CC9B67 /* Horoscopes-censored */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C315ACC31FE5040C00CC9B67 /* Build configuration list for PBXNativeTarget "Horoscopes-censored" */;
+			buildPhases = (
+				C315ABC81FE5040C00CC9B67 /* ShellScript */,
+				C315ABC91FE5040C00CC9B67 /* Sources */,
+				C315AC411FE5040C00CC9B67 /* Frameworks */,
+				C315ACAD1FE5040C00CC9B67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Horoscopes-censored";
+			productName = Horoscopes;
+			productReference = C315ACC61FE5040C00CC9B67 /* Horoscopes-censored.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2791,6 +3186,9 @@
 				TargetAttributes = {
 					4B0FD36C1FA06C96006378B6 = {
 						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					C315ABC71FE5040C00CC9B67 = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -2808,6 +3206,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				C315ABC71FE5040C00CC9B67 /* Horoscopes-censored */,
 				4B0FD36C1FA06C96006378B6 /* Horoscopes */,
 			);
 		};
@@ -2820,7 +3219,6 @@
 			files = (
 				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
-				C3817E061FA70F7500447155 /* GoogleService-Info.plist in Resources */,
 				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
@@ -2832,13 +3230,46 @@
 				C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
+				C315ACCF1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */,
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
 				C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
 				C31A13E31FB06168001FABFE /* char_ref.rl in Resources */,
+				C315ACD31FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */,
 				C34035691FD3EDC6005C862C /* Localizable.strings in Resources */,
+				C315ACD11FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
 				4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C315ACAD1FE5040C00CC9B67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C315ACAE1FE5040C00CC9B67 /* tag.in in Resources */,
+				C315ACAF1FE5040C00CC9B67 /* WelcomeViewController.storyboard in Resources */,
+				C315ACB11FE5040C00CC9B67 /* PredictionContentViewController.xib in Resources */,
+				C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */,
+				C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */,
+				C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */,
+				C315ACB51FE5040C00CC9B67 /* monthlanguages.js in Resources */,
+				C315ACB61FE5040C00CC9B67 /* gRPCCertificates.bundle in Resources */,
+				C315ACB71FE5040C00CC9B67 /* MenuViewController.storyboard in Resources */,
+				C315ACB81FE5040C00CC9B67 /* FriendsViewController.storyboard in Resources */,
+				C315ACB91FE5040C00CC9B67 /* WebViewDialogController.storyboard in Resources */,
+				C315ACBA1FE5040C00CC9B67 /* LaunchScreen.storyboard in Resources */,
+				C315ACBB1FE5040C00CC9B67 /* Assets.xcassets in Resources */,
+				C315ACD01FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */,
+				C315ACBC1FE5040C00CC9B67 /* birthdayslocstr.json in Resources */,
+				C315ACBD1FE5040C00CC9B67 /* TabsItemView.xib in Resources */,
+				C315ACBE1FE5040C00CC9B67 /* FacebookSDKStrings.bundle in Resources */,
+				C315ACBF1FE5040C00CC9B67 /* char_ref.rl in Resources */,
+				C315ACD41FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */,
+				C315ACC01FE5040C00CC9B67 /* Localizable.strings in Resources */,
+				C315ACD21FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */,
+				C315ACC11FE5040C00CC9B67 /* PredictionViewController.storyboard in Resources */,
+				C315ACC21FE5040C00CC9B67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2846,6 +3277,19 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		C301ABD01FA24E12001A0ED7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=~/horo/depot_tools:$PATH\ncd webrtc/src\ngn gen out/ios_sim --args='target_os=\"ios\" target_cpu=\"x64\"'\nninja -C out/ios_sim rtc_base";
+		};
+		C315ABC81FE5040C00CC9B67 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2984,6 +3428,132 @@
 				C34035651FD3ED29005C862C /* Utils.m in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C315ABC91FE5040C00CC9B67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C315ABCA1FE5040C00CC9B67 /* horobase.cc in Sources */,
+				C315ABCB1FE5040C00CC9B67 /* horoscopedaoimpl.cc in Sources */,
+				C315ABCC1FE5040C00CC9B67 /* error.c in Sources */,
+				C315ABCD1FE5040C00CC9B67 /* UINavigationBar+Horo.m in Sources */,
+				C315ABCE1FE5040C00CC9B67 /* ScreensManagerObjc.mm in Sources */,
+				C315ABCF1FE5040C00CC9B67 /* settings.cc in Sources */,
+				C315ABD01FE5040C00CC9B67 /* EXTADT.m in Sources */,
+				C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */,
+				C315ABD21FE5040C00CC9B67 /* EXTScope.m in Sources */,
+				C315ABD31FE5040C00CC9B67 /* MaskingView.m in Sources */,
+				C315ABD41FE5040C00CC9B67 /* MenuCell.m in Sources */,
+				C315ABD51FE5040C00CC9B67 /* WebViewDialogController.mm in Sources */,
+				C315ABD61FE5040C00CC9B67 /* tokenizer.c in Sources */,
+				C315ABD71FE5040C00CC9B67 /* horoscopesparserimpl.cc in Sources */,
+				C315ABD81FE5040C00CC9B67 /* WebViewControllerImpl.mm in Sources */,
+				C315ABD91FE5040C00CC9B67 /* NSDictionary+Horo.mm in Sources */,
+				C315ABDA1FE5040C00CC9B67 /* predictionscreenmodelimpl.cc in Sources */,
+				C315ABDB1FE5040C00CC9B67 /* FirestoreObjc.mm in Sources */,
+				C315ABDC1FE5040C00CC9B67 /* AFSecurityPolicy.m in Sources */,
+				C315ABDD1FE5040C00CC9B67 /* GradientView.m in Sources */,
+				C315ABDE1FE5040C00CC9B67 /* daofactoryimpl.cc in Sources */,
+				C315ABDF1FE5040C00CC9B67 /* tag.c in Sources */,
+				C315ABE01FE5040C00CC9B67 /* databaseimpl.cc in Sources */,
+				C315ABE11FE5040C00CC9B67 /* BackgroundView.m in Sources */,
+				C315ABE21FE5040C00CC9B67 /* zodiac.cc in Sources */,
+				C315ABE31FE5040C00CC9B67 /* HttpResponseObjc.mm in Sources */,
+				C315ABE41FE5040C00CC9B67 /* facebookuserdetailparser.cc in Sources */,
+				C315ABE51FE5040C00CC9B67 /* facebookloginmanager.cc in Sources */,
+				C315ABE61FE5040C00CC9B67 /* UIImageView+Horo.m in Sources */,
+				C315ABE71FE5040C00CC9B67 /* networkingservicefactoryimpl.cc in Sources */,
+				C315ABE81FE5040C00CC9B67 /* FriendsBaseViewController.mm in Sources */,
+				C315ABE91FE5040C00CC9B67 /* facebookfriendsprovider.cc in Sources */,
+				C315ABEA1FE5040C00CC9B67 /* menuscreenviewmodelimpl.cc in Sources */,
+				C315ABEB1FE5040C00CC9B67 /* facebookuserinformationparser.cc in Sources */,
+				C315ABEC1FE5040C00CC9B67 /* char_ref.c in Sources */,
+				C315ABED1FE5040C00CC9B67 /* friendsscreenviewmodelimpl.cc in Sources */,
+				C315ABEE1FE5040C00CC9B67 /* WelcomeViewController.mm in Sources */,
+				C315ABEF1FE5040C00CC9B67 /* AFNetworkReachabilityManager.m in Sources */,
+				C315ABF01FE5040C00CC9B67 /* AFURLResponseSerialization.m in Sources */,
+				C315ABF11FE5040C00CC9B67 /* FriendsCell.m in Sources */,
+				C315ABF21FE5040C00CC9B67 /* EXTNil.m in Sources */,
+				C315ABF31FE5040C00CC9B67 /* FriendsHeaderView.m in Sources */,
+				C315ABF41FE5040C00CC9B67 /* EXTSelectorChecking.m in Sources */,
+				C315ABF51FE5040C00CC9B67 /* NSMethodSignature+EXT.m in Sources */,
+				C315ABF61FE5040C00CC9B67 /* loginmanagerfactoryimpl.cc in Sources */,
+				C315ABF71FE5040C00CC9B67 /* vector.c in Sources */,
+				C315ABF81FE5040C00CC9B67 /* url.cc in Sources */,
+				C315ABF91FE5040C00CC9B67 /* facebookfriendinformationparser.cc in Sources */,
+				C315ABFA1FE5040C00CC9B67 /* persondaoimpl.cc in Sources */,
+				C315ABFB1FE5040C00CC9B67 /* attribute.c in Sources */,
+				C315ABFC1FE5040C00CC9B67 /* UIView+Horo.m in Sources */,
+				C315ABFD1FE5040C00CC9B67 /* AFURLRequestSerialization.m in Sources */,
+				C315ABFE1FE5040C00CC9B67 /* NetworkingServiceFactoryObjc.mm in Sources */,
+				C315ABFF1FE5040C00CC9B67 /* string_buffer.c in Sources */,
+				C315AC001FE5040C00CC9B67 /* json_reader.cpp in Sources */,
+				C315AC011FE5040C00CC9B67 /* AFURLSessionManager.m in Sources */,
+				C315AC021FE5040C00CC9B67 /* friendsmanagerimpl.cc in Sources */,
+				C315AC031FE5040C00CC9B67 /* facebookhomepageparser.cc in Sources */,
+				C315AC041FE5040C00CC9B67 /* parser.c in Sources */,
+				C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */,
+				C315AC061FE5040C00CC9B67 /* NSString+Horo.mm in Sources */,
+				C315AC071FE5040C00CC9B67 /* PersonObjc.mm in Sources */,
+				C315AC081FE5040C00CC9B67 /* EXTSafeCategory.m in Sources */,
+				C315AC091FE5040C00CC9B67 /* DatabaseObjc.mm in Sources */,
+				C315AC0A1FE5040C00CC9B67 /* utf8.c in Sources */,
+				C315AC0B1FE5040C00CC9B67 /* FriendsResultsViewController.mm in Sources */,
+				C315AC0C1FE5040C00CC9B67 /* UIImage+Horo.m in Sources */,
+				C315AC0D1FE5040C00CC9B67 /* viewmodelsimpl.cc in Sources */,
+				C315AC0E1FE5040C00CC9B67 /* ViewController.mm in Sources */,
+				C315AC0F1FE5040C00CC9B67 /* EXTConcreteProtocol.m in Sources */,
+				C315AC101FE5040C00CC9B67 /* horoscopedto.cc in Sources */,
+				C315AC111FE5040C00CC9B67 /* helloscreenviewmodelimpl.cc in Sources */,
+				C315AC121FE5040C00CC9B67 /* Platform.mm in Sources */,
+				C315AC131FE5040C00CC9B67 /* TabsItemView.m in Sources */,
+				C315AC141FE5040C00CC9B67 /* PredictionViewController.mm in Sources */,
+				C315AC151FE5040C00CC9B67 /* corecomponents.cc in Sources */,
+				C315AC161FE5040C00CC9B67 /* FriendsViewController+Filtering.mm in Sources */,
+				C315AC171FE5040C00CC9B67 /* json_value.cpp in Sources */,
+				C315AC181FE5040C00CC9B67 /* MenuViewController.mm in Sources */,
+				C315AC191FE5040C00CC9B67 /* NSInvocation+EXT.m in Sources */,
+				C315AC1A1FE5040C00CC9B67 /* person.cc in Sources */,
+				C315AC1B1FE5040C00CC9B67 /* serializerimpl.cc in Sources */,
+				C315AC1C1FE5040C00CC9B67 /* ManualInitialization.mm in Sources */,
+				C315AC1D1FE5040C00CC9B67 /* HoroscopesCell.mm in Sources */,
+				C315AC1E1FE5040C00CC9B67 /* MenuCellContentView.m in Sources */,
+				C315AC1F1FE5040C00CC9B67 /* json_writer.cpp in Sources */,
+				C315AC201FE5040C00CC9B67 /* firestorefactoryimpl.cc in Sources */,
+				C315AC211FE5040C00CC9B67 /* horoscopesserviceimpl.cc in Sources */,
+				C315AC221FE5040C00CC9B67 /* BaseNavigationController.m in Sources */,
+				C315AC231FE5040C00CC9B67 /* facebookmanagerimpl.cc in Sources */,
+				C315AC241FE5040C00CC9B67 /* friendsproviderfactoryimpl.cc in Sources */,
+				C315AC251FE5040C00CC9B67 /* htmlparserfactoryimpl.cc in Sources */,
+				C315AC261FE5040C00CC9B67 /* managers.cc in Sources */,
+				C315AC271FE5040C00CC9B67 /* facebookfriendsparser.cc in Sources */,
+				C315AC281FE5040C00CC9B67 /* predictionscreenviewmodelimpl.cc in Sources */,
+				C315AC291FE5040C00CC9B67 /* screensmanagerimpl.cc in Sources */,
+				C315AC2A1FE5040C00CC9B67 /* birthdaydetectorimpl.cc in Sources */,
+				C315AC2B1FE5040C00CC9B67 /* DesignLabel.m in Sources */,
+				C315AC2C1FE5040C00CC9B67 /* FacebookBanagerObjc.mm in Sources */,
+				C315AC2D1FE5040C00CC9B67 /* firestoreimpl.cc in Sources */,
+				C315AC2E1FE5040C00CC9B67 /* main.m in Sources */,
+				C315AC2F1FE5040C00CC9B67 /* SerializerObjc.mm in Sources */,
+				C315AC301FE5040C00CC9B67 /* util.c in Sources */,
+				C315AC311FE5040C00CC9B67 /* coding.cc in Sources */,
+				C315AC321FE5040C00CC9B67 /* FriendsViewController.mm in Sources */,
+				C315AC331FE5040C00CC9B67 /* modelsimpl.cc in Sources */,
+				C315AC341FE5040C00CC9B67 /* Tabs.m in Sources */,
+				C315AC351FE5040C00CC9B67 /* AFHTTPSessionManager.m in Sources */,
+				C315AC361FE5040C00CC9B67 /* helloscreenmodelimpl.cc in Sources */,
+				C315AC371FE5040C00CC9B67 /* string_piece.c in Sources */,
+				C315AC381FE5040C00CC9B67 /* friendsscreenmodelimpl.cc in Sources */,
+				C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */,
+				C315AC3A1FE5040C00CC9B67 /* UIView+TKGeometry.m in Sources */,
+				C315AC3B1FE5040C00CC9B67 /* datewrapper.cc in Sources */,
+				C315AC3C1FE5040C00CC9B67 /* EXTRuntimeExtensions.m in Sources */,
+				C315AC3D1FE5040C00CC9B67 /* menuscreenmodelimpl.cc in Sources */,
+				C315AC3E1FE5040C00CC9B67 /* Utils.m in Sources */,
+				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
+				C315AC401FE5040C00CC9B67 /* NetworkingServiceObjc.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3148,7 +3718,7 @@
 					src,
 					Components/jsoncpp/include,
 				);
-				INFOPLIST_FILE = Horoscopes/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/plists/Horoscopes-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3182,7 +3752,87 @@
 					src,
 					Components/jsoncpp/include,
 				);
-				INFOPLIST_FILE = Horoscopes/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/plists/Horoscopes-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C315ACC41FE5040C00CC9B67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Components/frameworks",
+					"$(PROJECT_DIR)/Components/Firebase/Firestore",
+					"$(PROJECT_DIR)/Components/Firebase/Auth",
+					"$(PROJECT_DIR)/Components/Firebase/Analytics",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					POSIX,
+					WEBRTC_IOS,
+					CENSORED,
+				);
+				HEADER_SEARCH_PATHS = (
+					webrtc/src,
+					src,
+					Components/jsoncpp/include,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/plists/Horoscopes-censored-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C315ACC51FE5040C00CC9B67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Components/frameworks",
+					"$(PROJECT_DIR)/Components/Firebase/Firestore",
+					"$(PROJECT_DIR)/Components/Firebase/Auth",
+					"$(PROJECT_DIR)/Components/Firebase/Analytics",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					POSIX,
+					WEBRTC_IOS,
+					CENSORED,
+				);
+				HEADER_SEARCH_PATHS = (
+					webrtc/src,
+					src,
+					Components/jsoncpp/include,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/plists/Horoscopes-censored-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3212,6 +3862,15 @@
 			buildConfigurations = (
 				4B0FD3841FA06C96006378B6 /* Debug */,
 				4B0FD3851FA06C96006378B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C315ACC31FE5040C00CC9B67 /* Build configuration list for PBXNativeTarget "Horoscopes-censored" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C315ACC41FE5040C00CC9B67 /* Debug */,
+				C315ACC51FE5040C00CC9B67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

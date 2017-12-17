@@ -1,0 +1,4 @@
+modify
+/etc/rc.local on UBUNTU 16.04
+just write needed code - full path to updater_bootstrap.sh
+

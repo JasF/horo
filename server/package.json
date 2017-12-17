@@ -13,6 +13,9 @@
   "dependencies": {
     "@google-cloud/firestore": "^0.8.2",
     "express": "~3.4.7",
-    "json-lint": "~0.1.0"
+    "json-lint": "~0.1.0",
+    "zombie": "~5.0.7",
+    "gumbo-parser": "0.3.0",
+    "jsonfile": "4.0.0"
   }
 }

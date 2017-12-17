@@ -1,3 +1,4 @@
 *.sql
+.datastore.swp
 node_modules/*
 functions/node_modules/*

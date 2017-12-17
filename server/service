@@ -1,0 +1,8 @@
+[Unit]
+Description=Updater service
+
+[Service]
+ExecStart=/home/andreivoe/serverscripts/updater_bootstrap.sh
+
+[Install]
+WantedBy=multi-user.target

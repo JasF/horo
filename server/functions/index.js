@@ -1,6 +1,6 @@
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 const functions = require('firebase-functions');
-
+const fs = require('memfs');
 // The Firebase Admin SDK to access the Firebase Realtime Database. 
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
@@ -17,14 +17,14 @@ credentialsJson = {
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/redactor%40horo-ios.iam.gserviceaccount.com"
 }
-
+const util = require('util');
 const Firestore = require('@google-cloud/firestore');
 const Browser = require('zombie');
 var gumbo = require("gumbo-parser");
 var jsonfile = require('jsonfile')
 
 
-var newCredentialsFilename = './credentials.json'
+var newCredentialsFilename = '/credentials.json'
 var firestore = null
 
 
@@ -33,7 +33,32 @@ var firestore = null
 exports.addNextMessage = functions.https.onRequest((req, res) => {
   // Grab the text parameter.
   const original = req.query.text;
-                                                   
+  
+  fs.writeFileSync(newCredentialsFilename, 'World!');
+  
+                              
+  firestore = new Firestore({projectId: 'horo-ios', keyFilename: newCredentialsFilename });
+   string = "str-init";
+   if (firestore == null) {
+     string = "err-null"
+   }
+
+                                                   admin.database().ref('/messages').push({original: string}).then(snapshot => {
+                                                                                                                        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+                                                                                                                        res.redirect(303, snapshot.ref);
+                                                                                                                        });
+/*
+  jsonfile.writeFile(newCredentialsFilename, credentialsJson, function (err) {
+                     string = "str-init";
+                     if (err == null) {
+                        string = "err-null"
+                     }
+                     else {
+                       string = util.inspect(err, { showHidden: true, depth: null })
+                     }
+  });
+                                                    */
+/*
   jsonfile.writeFile(newCredentialsFilename, credentialsJson, function (err) {
       console.error(err)
       firestore = new Firestore({projectId: 'horo-ios', keyFilename: newCredentialsFilename });
@@ -42,13 +67,9 @@ exports.addNextMessage = functions.https.onRequest((req, res) => {
                      const document = firestore.doc(path)
                      document.set({ content : "hello publication" }).then(() => {
   // Push the new message into the Realtime Database using the Firebase Admin SDK.
-                                             admin.database().ref('/messages').push({original: "something added"}).then(snapshot => {
-                                            // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-                                                res.redirect(303, snapshot.ref);
-                                             });
                             });
   });
-             
+*/
                                                    
 });
 

@@ -30,7 +30,7 @@ PredictionScreenModelImpl::~PredictionScreenModelImpl() {
 }
     
 void PredictionScreenModelImpl::loadData() {
-    horoscopesService_->fetchHoroscopes([this](strong<HoroscopeDTO> yesterday,
+    horoscopesService_->fetchHoroscopes(zodiac(), [this](strong<HoroscopeDTO> yesterday,
                                            strong<HoroscopeDTO> today,
                                            strong<HoroscopeDTO> tomorrow,
                                            strong<HoroscopeDTO> week,

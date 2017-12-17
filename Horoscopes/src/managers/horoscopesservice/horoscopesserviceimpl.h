@@ -33,10 +33,10 @@ namespace horo {
         ~HoroscopesServiceImpl() override {}
         
     public:
-        void fetchHoroscopes(HoroscopesServiceCallback callback) override;
+        void fetchHoroscopes(strong<Zodiac> zodiac, HoroscopesServiceCallback callback) override;
         
     private:
-        void offlineFetchHoroscopes(HoroscopesServiceCallback callback);
+        void offlineFetchHoroscopes(strong<Zodiac> zodiac, HoroscopesServiceCallback callback);
         
     private:
         strong<Firestore> firestore_;

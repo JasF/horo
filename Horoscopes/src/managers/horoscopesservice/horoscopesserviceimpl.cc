@@ -14,9 +14,10 @@ namespace horo {
         return false;
     }
     
-    void HoroscopesServiceImpl::fetchHoroscopes(HoroscopesServiceCallback callback) {
+    void HoroscopesServiceImpl::fetchHoroscopes(strong<Zodiac> zodiac, HoroscopesServiceCallback callback) {
+        SCParameterAssert(zodiac.get());
         if (isOffline()) {
-            offlineFetchHoroscopes(callback);
+            offlineFetchHoroscopes(zodiac, callback);
             return;
         }
         strong<CollectionReference> collectionReference = firestore_->collectionWithPath("horoscopes");
@@ -27,7 +28,7 @@ namespace horo {
             }
             return;
         }
-        strong<DocumentReference> documentReference = collectionReference->documentWithPath("capricorn");
+        strong<DocumentReference> documentReference = collectionReference->documentWithPath(zodiac->name());
         SCParameterAssert(documentReference.get());
         if (!documentReference.get()) {
             if (callback) {
@@ -68,7 +69,7 @@ namespace horo {
         });
     }
     
-    void HoroscopesServiceImpl::offlineFetchHoroscopes(HoroscopesServiceCallback callback) {
+    void HoroscopesServiceImpl::offlineFetchHoroscopes(strong<Zodiac> zodiac, HoroscopesServiceCallback callback) {
         time_t timestempTime = timestempToTime(localtime());
         tm local_tm = *::localtime(&timestempTime);
         int wday = local_tm.tm_wday;

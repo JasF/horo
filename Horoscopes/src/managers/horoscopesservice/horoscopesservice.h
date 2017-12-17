@@ -23,7 +23,7 @@ namespace horo {
     class _HoroscopesService {
     public:
         virtual ~_HoroscopesService() {}
-        virtual void fetchHoroscopes(HoroscopesServiceCallback callback) = 0;
+        virtual void fetchHoroscopes(strong<Zodiac> zodiac, HoroscopesServiceCallback callback) = 0;
     };
     
     typedef reff<_HoroscopesService> HoroscopesService;

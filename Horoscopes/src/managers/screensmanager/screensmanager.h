@@ -22,6 +22,7 @@ public:
     virtual void showWelcomeViewController() = 0;
     virtual void showMenuViewController(bool animated) = 0;
     virtual void showFriendsViewController() = 0;
+    virtual void showAccountViewController() = 0;
 };
     
 typedef reff<_ScreensManager> ScreensManager;

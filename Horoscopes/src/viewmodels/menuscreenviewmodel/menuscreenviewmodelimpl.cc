@@ -45,7 +45,7 @@ namespace horo {
     }
     
     void MenuScreenViewModelImpl::accountTapped() {
-        
+        screensManager_->showAccountViewController();
     }
     
     void MenuScreenViewModelImpl::notificationsTapped() {

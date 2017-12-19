@@ -35,6 +35,7 @@ namespace horo {
         strong<HelloScreenModel> helloScreenModel() override;
         strong<MenuScreenModel> menuScreenModel() override;
         strong<FriendsScreenModel> friendsScreenModel() override;
+        strong<AccountScreenModel> accountScreenModel() override;
         
     private:
         strong<CoreComponents> components_;

@@ -14,6 +14,7 @@
 #include "viewmodels/helloscreenviewmodel/helloscreenviewmodel.h"
 #include "viewmodels/menuscreenviewmodel/menuscreenviewmodel.h"
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodel.h"
+#include "viewmodels/accountscreenviewmodel/accountscreenviewmodel.h"
 
 namespace horo {
   
@@ -26,6 +27,7 @@ namespace horo {
         virtual strong<HelloScreenViewModel> helloScreenViewModel()=0;
         virtual strong<MenuScreenViewModel> menuScreenViewModel()=0;
         virtual strong<FriendsScreenViewModel> friendsScreenViewModel()=0;
+        virtual strong<AccountScreenViewModel> accountScreenViewModel()=0;
     };
     
     typedef reff<_ViewModels> ViewModels;

@@ -52,4 +52,10 @@ namespace horo {
             g_privateInstance->showFriendsViewController();
         }
     }
+    
+    void ScreensManagerImpl::showAccountViewController() {
+        if (g_privateInstance) {
+            g_privateInstance->showAccountViewController();
+        }
+    }
 };

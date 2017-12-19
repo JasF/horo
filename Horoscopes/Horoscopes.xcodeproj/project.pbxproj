@@ -443,6 +443,14 @@
 		C34035651FD3ED29005C862C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
 		C34035691FD3EDC6005C862C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C340356B1FD3EDC6005C862C /* Localizable.strings */; };
 		C340356F1FD41184005C862C /* MenuCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C340356E1FD41184005C862C /* MenuCellContentView.m */; };
+		C34233CF1FE8F23100428768 /* AccountViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C34233CE1FE8F23100428768 /* AccountViewController.mm */; };
+		C34233D01FE8F23100428768 /* AccountViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C34233CE1FE8F23100428768 /* AccountViewController.mm */; };
+		C34233D21FE8F24100428768 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34233D11FE8F24100428768 /* AccountViewController.storyboard */; };
+		C34233D31FE8F24100428768 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34233D11FE8F24100428768 /* AccountViewController.storyboard */; };
+		C34233DE1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233DD1FE8F64900428768 /* accountscreenmodelimpl.cc */; };
+		C34233DF1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233DD1FE8F64900428768 /* accountscreenmodelimpl.cc */; };
+		C34233E51FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
+		C34233E61FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
@@ -1075,6 +1083,15 @@
 		C340356A1FD3EDC6005C862C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C340356D1FD41184005C862C /* MenuCellContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCellContentView.h; sourceTree = "<group>"; };
 		C340356E1FD41184005C862C /* MenuCellContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCellContentView.m; sourceTree = "<group>"; };
+		C34233CD1FE8F23100428768 /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		C34233CE1FE8F23100428768 /* AccountViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AccountViewController.mm; sourceTree = "<group>"; };
+		C34233D11FE8F24100428768 /* AccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
+		C34233D61FE8F5FC00428768 /* accountscreenmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = accountscreenmodel.h; sourceTree = "<group>"; };
+		C34233D81FE8F60C00428768 /* accountscreenviewmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = accountscreenviewmodel.h; sourceTree = "<group>"; };
+		C34233D91FE8F63800428768 /* accountscreenmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = accountscreenmodelimpl.h; sourceTree = "<group>"; };
+		C34233DD1FE8F64900428768 /* accountscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accountscreenmodelimpl.cc; sourceTree = "<group>"; };
+		C34233E01FE8F66300428768 /* accountscreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = accountscreenviewmodelimpl.h; sourceTree = "<group>"; };
+		C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accountscreenviewmodelimpl.cc; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1749,6 +1766,7 @@
 		C30B186A1FA49AFF006DEDB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C34233D41FE8F5DE00428768 /* accountscreenmodel */,
 				C31A13861FAF2F4D001FABFE /* friendsscreenmodel */,
 				C3383FE01FAF26C800CCE133 /* menuscreenmodel */,
 				C30B189B1FA5D0D8006DEDB7 /* corecomponents */,
@@ -1771,6 +1789,7 @@
 		C30B18701FA49DCD006DEDB7 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				C34233D51FE8F5E800428768 /* accountscreenviewmodel */,
 				C31A13811FAF2F45001FABFE /* friendsscreenviewmodel */,
 				C3383FDB1FAF26AA00CCE133 /* menuscreenviewmodel */,
 				C30B18921FA5CF20006DEDB7 /* helloscreenviewmodel */,
@@ -1801,6 +1820,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C34233CC1FE8F21500428768 /* AccountViewController */,
 				C3E602731FDFB1C100E89115 /* FriendsBaseViewController */,
 				C32A60271FDC245A003CF1CA /* WebViewDialogController */,
 				C32A60041FDBF45E003CF1CA /* FriendsViewController */,
@@ -2305,6 +2325,36 @@
 				C340356E1FD41184005C862C /* MenuCellContentView.m */,
 			);
 			path = MenuCellContentView;
+			sourceTree = "<group>";
+		};
+		C34233CC1FE8F21500428768 /* AccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C34233CD1FE8F23100428768 /* AccountViewController.h */,
+				C34233CE1FE8F23100428768 /* AccountViewController.mm */,
+				C34233D11FE8F24100428768 /* AccountViewController.storyboard */,
+			);
+			path = AccountViewController;
+			sourceTree = "<group>";
+		};
+		C34233D41FE8F5DE00428768 /* accountscreenmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C34233D61FE8F5FC00428768 /* accountscreenmodel.h */,
+				C34233D91FE8F63800428768 /* accountscreenmodelimpl.h */,
+				C34233DD1FE8F64900428768 /* accountscreenmodelimpl.cc */,
+			);
+			path = accountscreenmodel;
+			sourceTree = "<group>";
+		};
+		C34233D51FE8F5E800428768 /* accountscreenviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C34233D81FE8F60C00428768 /* accountscreenviewmodel.h */,
+				C34233E01FE8F66300428768 /* accountscreenviewmodelimpl.h */,
+				C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */,
+			);
+			path = accountscreenviewmodel;
 			sourceTree = "<group>";
 		};
 		C36F77F71FD2DCD300581631 /* MaskingView */ = {
@@ -3245,6 +3295,7 @@
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C315ACCF1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */,
+				C34233D31FE8F24100428768 /* AccountViewController.storyboard in Resources */,
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
 				C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
@@ -3275,6 +3326,7 @@
 				C315ACBA1FE5040C00CC9B67 /* LaunchScreen.storyboard in Resources */,
 				C315ACBB1FE5040C00CC9B67 /* Assets.xcassets in Resources */,
 				C315ACD01FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */,
+				C34233D21FE8F24100428768 /* AccountViewController.storyboard in Resources */,
 				C315ACBC1FE5040C00CC9B67 /* birthdayslocstr.json in Resources */,
 				C315ACBD1FE5040C00CC9B67 /* TabsItemView.xib in Resources */,
 				C315ACBE1FE5040C00CC9B67 /* FacebookSDKStrings.bundle in Resources */,
@@ -3383,6 +3435,7 @@
 				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
 				C31A13E41FB06168001FABFE /* parser.c in Sources */,
 				C32A60251FDC148B003CF1CA /* Controllers.m in Sources */,
+				C34233D01FE8F23100428768 /* AccountViewController.mm in Sources */,
 				C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */,
 				C32A60031FDBDD62003CF1CA /* PersonObjc.mm in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
@@ -3395,6 +3448,7 @@
 				C30B17E91FA481C2006DEDB7 /* EXTConcreteProtocol.m in Sources */,
 				C304094A1FA77F6600A0FC33 /* horoscopedto.cc in Sources */,
 				C30B18981FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc in Sources */,
+				C34233DF1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */,
 				C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */,
 				C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */,
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
@@ -3440,6 +3494,7 @@
 				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
 				C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */,
+				C34233E61FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */,
 				C34035651FD3ED29005C862C /* Utils.m in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
@@ -3510,6 +3565,7 @@
 				C315AC031FE5040C00CC9B67 /* facebookhomepageparser.cc in Sources */,
 				C315AC041FE5040C00CC9B67 /* parser.c in Sources */,
 				C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */,
+				C34233CF1FE8F23100428768 /* AccountViewController.mm in Sources */,
 				C315AC061FE5040C00CC9B67 /* NSString+Horo.mm in Sources */,
 				C315AC071FE5040C00CC9B67 /* PersonObjc.mm in Sources */,
 				C315AC081FE5040C00CC9B67 /* EXTSafeCategory.m in Sources */,
@@ -3522,6 +3578,7 @@
 				C315AC0F1FE5040C00CC9B67 /* EXTConcreteProtocol.m in Sources */,
 				C315AC101FE5040C00CC9B67 /* horoscopedto.cc in Sources */,
 				C315AC111FE5040C00CC9B67 /* helloscreenviewmodelimpl.cc in Sources */,
+				C34233DE1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */,
 				C315AC121FE5040C00CC9B67 /* Platform.mm in Sources */,
 				C315AC131FE5040C00CC9B67 /* TabsItemView.m in Sources */,
 				C315AC141FE5040C00CC9B67 /* PredictionViewController.mm in Sources */,
@@ -3567,6 +3624,7 @@
 				C315AC3B1FE5040C00CC9B67 /* datewrapper.cc in Sources */,
 				C315AC3C1FE5040C00CC9B67 /* EXTRuntimeExtensions.m in Sources */,
 				C315AC3D1FE5040C00CC9B67 /* menuscreenmodelimpl.cc in Sources */,
+				C34233E51FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */,
 				C315AC3E1FE5040C00CC9B67 /* Utils.m in Sources */,
 				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
 				C315AC401FE5040C00CC9B67 /* NetworkingServiceObjc.mm in Sources */,

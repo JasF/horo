@@ -21,6 +21,7 @@
     BackgroundView *backgroundView = [BackgroundView new];
     [self.view horo_addFillingSubview:backgroundView];
     [self.view sendSubviewToBack:backgroundView];
+    self.navigationBar.translucent = YES;
 }
 
 - (void)didReceiveMemoryWarning {

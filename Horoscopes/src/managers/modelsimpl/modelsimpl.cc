@@ -12,6 +12,7 @@
 #import "models/menuscreenmodel/menuscreenmodelimpl.h"
 #import "models/friendsscreenmodel/friendsscreenmodelimpl.h"
 #import "managers/loginmanager/loginmanagerfactoryimpl.h"
+#import "models/accountscreenmodel/accountscreenmodelimpl.h"
 #import "managers/managers.h"
 
 namespace horo {
@@ -63,7 +64,11 @@ namespace horo {
     strong<FriendsScreenModel> ModelsImpl::friendsScreenModel() {
         return new FriendsScreenModelImpl(components_,
                                           Managers::shared().friendsManager(),
-                                       settings_,
+                                          settings_,
                                           screensManager_);
+    }
+    
+    strong<AccountScreenModel> ModelsImpl::accountScreenModel() {
+        return new AccountScreenModelImpl(settings_);
     }
 };

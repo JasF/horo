@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #include "viewmodels/accountscreenviewmodel/accountscreenviewmodel.h"
 
-using namespace horo;
-
 @interface AccountViewController : UIViewController
-@property (assign, nonatomic) strong<AccountScreenViewModel> viewModel;
+@property (assign, nonatomic) strong<horo::AccountScreenViewModel> viewModel;
 @end

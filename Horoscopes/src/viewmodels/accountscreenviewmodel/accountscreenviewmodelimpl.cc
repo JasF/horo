@@ -10,7 +10,11 @@
 
 namespace horo {
   
-AccountScreenViewModelImpl::AccountScreenViewModelImpl(strong<AccountScreenModel> model, strong<ScreensManager> screensManager) {
+AccountScreenViewModelImpl::AccountScreenViewModelImpl(strong<AccountScreenModel> model, strong<ScreensManager> screensManager)
+    : model_(model),
+      screensManager_(screensManager) {
+    SCParameterAssert(model_.get());
+    SCParameterAssert(screensManager_.get());
     
 }
     

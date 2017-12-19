@@ -6,8 +6,8 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#ifndef accountscreenviewmodel
-#define accountscreenviewmodel
+#ifndef accountscreenviewmodel_h
+#define accountscreenviewmodel_h
 
 #include "base/horobase.h"
 

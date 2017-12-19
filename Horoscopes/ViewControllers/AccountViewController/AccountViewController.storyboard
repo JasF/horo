@@ -37,15 +37,15 @@
                         <viewLayoutGuide key="safeArea" id="Kwl-Qz-tmq"/>
                     </view>
                     <navigationItem key="navigationItem" id="7yu-gj-QVm">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="nPq-vy-cei">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sWb-nr-SwI">
-                                <rect key="frame" x="16" y="11" width="77" height="22"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Jxr-ld-jXx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qeG-25-ivK">
+                                <rect key="frame" x="16" y="11" width="23" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="menuIcon"/>
+                                <connections>
+                                    <action selector="menuTapped:" destination="0GB-8c-MA5" eventType="touchUpInside" id="Lvc-dG-ipR"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="menuTapped:" destination="0GB-8c-MA5" id="v2n-VH-re5"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>

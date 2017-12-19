@@ -7,6 +7,7 @@
 //
 
 #import "ScreensManagerObjc.h"
+#import "AccountViewController.h"
 #include "managers/screensmanager/screensmanagerimpl.h"
 #import "PredictionViewController.h"
 #import "WelcomeViewController.h"
@@ -100,19 +101,16 @@ namespace horo {
             delegate.window.rootViewController = navigationController;
         }
         
-        void showAccountViewController() {
-            
+        void showAccountViewController() override {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AccountViewController"
+                                                                 bundle: nil];
+            UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
+            AccountViewController *accountViewController = (AccountViewController *)navigationController.topViewController;
+            accountViewController.viewModel = impl_->viewModels()->accountScreenViewModel();
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = navigationController;
         }
         
-        /*
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AccountViewController"
-                                                             bundle: nil];
-        UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
-        AccountViewController *accountViewController = (AccountViewController *)navigationController.topViewController;
-        accountViewController.viewModel = impl_->viewModels()->accountScreenViewModel();
-        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        delegate.window.rootViewController = navigationController;
-        */
         void showFriendsViewController() override {
             if (@YES.boolValue) {
                 showTableSearch();

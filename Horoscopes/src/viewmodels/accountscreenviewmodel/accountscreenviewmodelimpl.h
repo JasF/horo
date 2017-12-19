@@ -26,7 +26,6 @@ namespace horo {
     private:
         strong<AccountScreenModel> model_;
         strong<ScreensManager> screensManager_;
-        std::function<void(bool success)> userLoggedInCallback_;
     };
 };
 

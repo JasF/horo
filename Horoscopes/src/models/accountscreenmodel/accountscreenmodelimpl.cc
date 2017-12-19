@@ -7,3 +7,15 @@
 //
 
 #include "accountscreenmodelimpl.h"
+
+namespace horo {
+  
+AccountScreenModelImpl::AccountScreenModelImpl(strong<Settings> settings) {
+    
+}
+
+AccountScreenModelImpl::~AccountScreenModelImpl() {
+    
+}
+    
+};

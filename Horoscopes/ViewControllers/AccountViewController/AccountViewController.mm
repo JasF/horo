@@ -46,6 +46,7 @@ static CGFloat const kAvatarAlphaWithImage = 1.f;
         [self updatePersonInfo];
     };
     self.navigationItem.title = L(@"account");
+    _avatarImageView.layer.cornerRadius = _avatarImageView.height/2;
 }
 
 - (IBAction)menuTapped:(id)sender {
@@ -69,7 +70,6 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
     _viewModel->userLoggedOut();
     [self updatePersonInfo];
-    NSLog(@"DidLogout");
 }
 
 - (void)viewWillLayoutSubviews {

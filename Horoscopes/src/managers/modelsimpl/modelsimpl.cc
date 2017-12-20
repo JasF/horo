@@ -69,6 +69,6 @@ namespace horo {
     }
     
     strong<AccountScreenModel> ModelsImpl::accountScreenModel() {
-        return new AccountScreenModelImpl(settings_);
+        return new AccountScreenModelImpl(components_, settings_, new LoginManagerFactoryImpl(facebookManager_));
     }
 };

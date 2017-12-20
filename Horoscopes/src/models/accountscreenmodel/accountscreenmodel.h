@@ -16,6 +16,12 @@ namespace horo {
     class _AccountScreenModel {
     public:
         virtual ~_AccountScreenModel() {}
+        virtual void loggedInOnFacebook()=0;
+        virtual void personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback)=0;
+        virtual void userLoggedOut()=0;
+        virtual void birthdayDateChanged(DateWrapper wrapper)=0;        
+    public:
+        std::function<void(bool success)> personGatheredCallback_ = nullptr;
     };
     
     typedef reff<_AccountScreenModel> AccountScreenModel;

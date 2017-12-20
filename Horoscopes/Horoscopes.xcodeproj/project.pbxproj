@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3711FA06C96006378B6 /* AppDelegate.mm */; };
 		4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3741FA06C96006378B6 /* ViewController.mm */; };
-		4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3791FA06C96006378B6 /* Assets.xcassets */; };
 		4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */; };
 		4B0FD3801FA06C96006378B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD37F1FA06C96006378B6 /* main.m */; };
@@ -372,7 +371,6 @@
 		C315ACBF1FE5040C00CC9B67 /* char_ref.rl in Resources */ = {isa = PBXBuildFile; fileRef = C31A13C71FB06166001FABFE /* char_ref.rl */; };
 		C315ACC01FE5040C00CC9B67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C340356B1FD3EDC6005C862C /* Localizable.strings */; };
 		C315ACC11FE5040C00CC9B67 /* PredictionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */; };
-		C315ACC21FE5040C00CC9B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		C315ACCF1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */; };
 		C315ACD01FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCA1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist */; };
 		C315ACD11FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C315ACCB1FE504FD00CC9B67 /* GoogleService-Info.plist */; };
@@ -452,6 +450,8 @@
 		C34233E51FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
 		C34233E61FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
+		C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
+		C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -3250,7 +3250,7 @@
 				TargetAttributes = {
 					4B0FD36C1FA06C96006378B6 = {
 						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C315ABC71FE5040C00CC9B67 = {
 						ProvisioningStyle = Automatic;
@@ -3284,6 +3284,7 @@
 				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
+				C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
@@ -3304,7 +3305,6 @@
 				C34035691FD3EDC6005C862C /* Localizable.strings in Resources */,
 				C315ACD11FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */,
 				C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */,
-				4B0FD3781FA06C96006378B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3315,6 +3315,7 @@
 				C315ACAE1FE5040C00CC9B67 /* tag.in in Resources */,
 				C315ACAF1FE5040C00CC9B67 /* WelcomeViewController.storyboard in Resources */,
 				C315ACB11FE5040C00CC9B67 /* PredictionContentViewController.xib in Resources */,
+				C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
 				C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */,
 				C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */,
 				C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */,
@@ -3335,7 +3336,6 @@
 				C315ACC01FE5040C00CC9B67 /* Localizable.strings in Resources */,
 				C315ACD21FE504FD00CC9B67 /* GoogleService-Info.plist in Resources */,
 				C315ACC11FE5040C00CC9B67 /* PredictionViewController.storyboard in Resources */,
-				C315ACC21FE5040C00CC9B67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3776,8 +3776,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3799,8 +3799,9 @@
 					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
+				PRODUCT_BUNDLE_IDENTIFIER = by.lucky.horoscopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3810,8 +3811,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3833,8 +3834,9 @@
 					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
+				PRODUCT_BUNDLE_IDENTIFIER = by.lucky.horoscopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3844,8 +3846,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				DEVELOPMENT_TEAM = 5892LD7JW5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3874,8 +3877,9 @@
 					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
+				PRODUCT_BUNDLE_IDENTIFIER = by.lucky.horoscopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3885,8 +3889,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38E2YSTEWN;
+				DEVELOPMENT_TEAM = 5892LD7JW5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3913,8 +3918,9 @@
 					"$(PROJECT_DIR)/src/friends/scripts/node_modules/gumbo-parser/build/Release",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = lucky.horo.net;
+				PRODUCT_BUNDLE_IDENTIFIER = by.lucky.horoscopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

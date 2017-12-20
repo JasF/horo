@@ -38,11 +38,11 @@ void FacebookLoginManager::requestUserInformation(std::function<void(strong<Pers
     facebookManager_->requestPersonalInformation([callback](dictionary data){
         LOG(LS_WARNING) << "FB userInfo: " << data.toStyledString();
         string birthday = data["birthday"].asString();
-        // string email = data["email"];
         string name = data["name"].asString();
         string genderString = data["gender"].asString();
+        string id = data["id"].asString();
+        string imageUrl = "https://graph.facebook.com/" + id + "/picture?type=normal";
         std::vector<std::string> birthdayVector = toVector(birthday, '/');
-        
         if (birthdayVector.size() != 3 || !name.length()) {
             if (callback) {
                 callback(nullptr);
@@ -67,16 +67,10 @@ void FacebookLoginManager::requestUserInformation(std::function<void(strong<Pers
         Gender gender = (Gender)genders[genderString].asInt();
         
         strong<Zodiac> zodiac = new Zodiac(type);
-        strong<Person> person = new Person(zodiac, name, "", "", gender, StatusCompleted, TypeUser, DateWrapper(day, month, year), true);
+        strong<Person> person = new Person(zodiac, name, imageUrl, "", gender, StatusCompleted, TypeUser, DateWrapper(day, month, year), true);
         if (callback) {
             callback(person);
         }
-        /*
-        _Person(strong<Zodiac> zodiac,
-                std::string name,
-                Gender gender,
-                PersonStatus status,);
-        */
     });
 }
     

@@ -14,7 +14,16 @@
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseFirestore/FirebaseFirestore.h>
 
+typedef NS_ENUM(NSInteger, RowTypes) {
+    TopSpaceRow,
+    HiRow,
+    FacebookLoginRow,
+    PickerRow,
+    RowsCount
+};
+
 static CGFloat const kRowHeight = 100;
+static CGFloat const kFacebookLoginCellHeight = 44.f;
 
 @interface WelcomeViewController () <UITableViewDelegate, UITableViewDataSource, FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) IBOutlet UITableViewCell *topSpaceCell;
@@ -22,7 +31,7 @@ static CGFloat const kRowHeight = 100;
 @property (strong, nonatomic) IBOutlet UITableViewCell *facebookLoginCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *pickerCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (strong, nonatomic) FBSDKLoginButton *loginButton;
 @property (strong, nonatomic) id selfLocker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *pickerView;
 @end
@@ -40,7 +49,11 @@ static CGFloat const kRowHeight = 100;
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
     
-    //_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // 20 or 64pt on top
+    _loginButton = [FBSDKLoginButton new];
+    _loginButton.delegate = self;
+    _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
+    [_facebookLoginCell.contentView addSubview:_loginButton];    
+    
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = kRowHeight;
     _tableView.contentInset = UIEdgeInsetsZero;
@@ -66,7 +79,19 @@ static CGFloat const kRowHeight = 100;
     [_pickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
     _pickerView.maximumDate = [NSDate date];
 }
-    
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutFacebookLoginButton];
+}
+
+- (void)layoutFacebookLoginButton {
+    CGSize containerSize = CGSizeMake(self.view.width, kFacebookLoginCellHeight);
+    CGRect frame = _loginButton.frame;
+    frame.origin = CGPointMake(containerSize.width/2-frame.size.width/2, containerSize.height/2-frame.size.height/2);
+    _loginButton.frame = frame;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -74,6 +99,9 @@ static CGFloat const kRowHeight = 100;
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == FacebookLoginRow) {
+        return kFacebookLoginCellHeight;
+    }
     return UITableViewAutomaticDimension;
 }
 
@@ -83,21 +111,22 @@ static CGFloat const kRowHeight = 100;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return RowsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = nil;
     switch (indexPath.row) {
-        case 0: return self.topSpaceCell;
-        case 1: return self.hiCell;
-        case 2: return self.facebookLoginCell;
-        case 3: return self.pickerCell;
+        case TopSpaceRow: cell = self.topSpaceCell; break;
+        case HiRow: cell = self.hiCell; break;
+        case FacebookLoginRow: cell = self.facebookLoginCell; break;
+        case PickerRow: cell = self.pickerCell; break;
     }
-    return [UITableViewCell new];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 #pragma mark - FBSDKLoginButtonDelegate
-
 - (void)loginButton:(FBSDKLoginButton *)loginButton
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
               error:(NSError *)error {

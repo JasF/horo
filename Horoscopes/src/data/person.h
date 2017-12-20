@@ -53,7 +53,7 @@ namespace horo {
         string uniqueIdentifier();
         string name() const { return name_; }
         DateWrapper birthdayDate() const { return birthdayDate_; }
-        void setBirthdayDate(DateWrapper date) { birthdayDate_ = date; }
+        void setBirthdayDate(DateWrapper date);
         PersonStatus status() const { return status_; }
         void setPersonStatus(PersonStatus status) { status_ = status; }
         PersonType type() const { return type_; }
@@ -65,6 +65,7 @@ namespace horo {
         void setUpdating(bool updating) { updating_ = updating; }
         void *wrapper() { return wrapper_; }
         void setWrapper(void *wrapper) { wrapper_ = wrapper; }
+        void logout();
     private:
         std::string name_; // utf-8§
         std::string imageUrl_;

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,74 @@
                     <view key="view" contentMode="scaleToFill" id="v15-d5-6b2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pit-Jp-Ql4" userLabel="User Informaction Container View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="125"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="jm6-2E-MHA">
+                                        <rect key="frame" x="20" y="20" width="85" height="85"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jm6-2E-MHA" secondAttribute="height" multiplier="1:1" id="V5m-8P-B1w"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-J4-mzP">
+                                        <rect key="frame" x="121" y="0.0" width="254" height="125"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jm6-2E-MHA" firstAttribute="top" secondItem="Pit-Jp-Ql4" secondAttribute="top" constant="20" id="Ase-J5-dRT"/>
+                                    <constraint firstItem="4NC-J4-mzP" firstAttribute="trailing" secondItem="Pit-Jp-Ql4" secondAttribute="trailing" id="Ayl-ci-yJ6"/>
+                                    <constraint firstItem="4NC-J4-mzP" firstAttribute="height" secondItem="Pit-Jp-Ql4" secondAttribute="height" id="EV5-XV-g37"/>
+                                    <constraint firstAttribute="height" constant="125" id="aJv-MW-1vS"/>
+                                    <constraint firstItem="4NC-J4-mzP" firstAttribute="leading" secondItem="jm6-2E-MHA" secondAttribute="trailing" constant="16" id="d8x-sq-2Yu"/>
+                                    <constraint firstItem="4NC-J4-mzP" firstAttribute="top" secondItem="Pit-Jp-Ql4" secondAttribute="top" id="mvD-RI-4F9"/>
+                                    <constraint firstAttribute="bottom" secondItem="jm6-2E-MHA" secondAttribute="bottom" constant="20" id="t7c-9n-UnE"/>
+                                    <constraint firstItem="jm6-2E-MHA" firstAttribute="leading" secondItem="Pit-Jp-Ql4" secondAttribute="leading" constant="20" id="uEW-oB-2T3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZW-PQ-nvQ">
+                                <rect key="frame" x="0.0" y="189" width="375" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="cR0-yt-9AP"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="you_birthday_date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYf-zL-bVW">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="XzA-ih-R4s">
+                                <rect key="frame" x="0.0" y="267" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="535461145.01901901">
+                                    <!--2017-12-20 11:12:25 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerValueChanged:" destination="0GB-8c-MA5" eventType="valueChanged" id="7cG-Ed-DKf"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XzA-ih-R4s" firstAttribute="top" secondItem="dYf-zL-bVW" secondAttribute="top" constant="20" id="3WC-7A-x9d"/>
+                            <constraint firstItem="Kwl-Qz-tmq" firstAttribute="trailing" secondItem="dYf-zL-bVW" secondAttribute="trailing" id="4CJ-8q-Nck"/>
+                            <constraint firstItem="oZW-PQ-nvQ" firstAttribute="leading" secondItem="Pit-Jp-Ql4" secondAttribute="leading" id="6fX-b1-OdM"/>
+                            <constraint firstItem="Pit-Jp-Ql4" firstAttribute="width" secondItem="v15-d5-6b2" secondAttribute="width" id="LSS-Iq-LGl"/>
+                            <constraint firstItem="dYf-zL-bVW" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="NeI-C4-KUg"/>
+                            <constraint firstItem="oZW-PQ-nvQ" firstAttribute="top" secondItem="Pit-Jp-Ql4" secondAttribute="bottom" id="UvL-5g-9if"/>
+                            <constraint firstItem="Pit-Jp-Ql4" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="Z5x-4k-Bmq"/>
+                            <constraint firstItem="Pit-Jp-Ql4" firstAttribute="top" secondItem="Kwl-Qz-tmq" secondAttribute="top" id="cbo-fz-AZU"/>
+                            <constraint firstItem="Kwl-Qz-tmq" firstAttribute="trailing" secondItem="XzA-ih-R4s" secondAttribute="trailing" id="dra-Np-cuC"/>
+                            <constraint firstItem="XzA-ih-R4s" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="pGi-Za-2Yr"/>
+                            <constraint firstItem="oZW-PQ-nvQ" firstAttribute="width" secondItem="v15-d5-6b2" secondAttribute="width" id="yE4-wh-Cvj"/>
+                            <constraint firstItem="dYf-zL-bVW" firstAttribute="top" secondItem="oZW-PQ-nvQ" secondAttribute="bottom" constant="24" id="zWu-Mt-DWU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Kwl-Qz-tmq"/>
                     </view>
                     <navigationItem key="navigationItem" id="7yu-gj-QVm">
@@ -48,13 +116,21 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="avatarImageView" destination="jm6-2E-MHA" id="s3Y-6B-MSM"/>
+                        <outlet property="datePicker" destination="XzA-ih-R4s" id="jsQ-Yr-xZR"/>
+                        <outlet property="facebookLoginContainerView" destination="oZW-PQ-nvQ" id="2Nh-JN-PFn"/>
+                        <outlet property="nameLabel" destination="4NC-J4-mzP" id="g9e-1y-O4o"/>
+                        <outlet property="youBirthdayDateLabel" destination="dYf-zL-bVW" id="Bt6-N4-vsv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5I7-8c-09R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="114"/>
+            <point key="canvasLocation" x="-271.19999999999999" y="113.79310344827587"/>
         </scene>
     </scenes>
     <resources>
         <image name="menuIcon" width="23" height="19"/>
+        <image name="userpic" width="85" height="85"/>
     </resources>
 </document>

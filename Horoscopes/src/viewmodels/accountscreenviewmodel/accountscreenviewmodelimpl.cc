@@ -15,7 +15,11 @@ AccountScreenViewModelImpl::AccountScreenViewModelImpl(strong<AccountScreenModel
       screensManager_(screensManager) {
     SCParameterAssert(model_.get());
     SCParameterAssert(screensManager_.get());
-    
+      model_->personGatheredCallback_ = [this](bool success) {
+          if (personGatheredCallback_) {
+              personGatheredCallback_(success);
+          }
+      };
 }
     
 AccountScreenViewModelImpl::~AccountScreenViewModelImpl() {
@@ -24,6 +28,22 @@ AccountScreenViewModelImpl::~AccountScreenViewModelImpl() {
     
 void AccountScreenViewModelImpl::menuTapped() {
     screensManager_->showMenuViewController(true);
+}
+
+void AccountScreenViewModelImpl::loggedInOnFacebook() {
+    model_->loggedInOnFacebook();
+}
+
+void AccountScreenViewModelImpl::personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback) {
+    model_->personRepresentation(callback);
+}
+
+void AccountScreenViewModelImpl::userLoggedOut() {
+    model_->userLoggedOut();
+}
+
+void AccountScreenViewModelImpl::birthdayDateChanged(DateWrapper wrapper) {
+    model_->birthdayDateChanged(wrapper);
 }
 
 };

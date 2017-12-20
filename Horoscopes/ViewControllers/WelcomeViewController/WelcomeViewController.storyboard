@@ -70,7 +70,6 @@
                     <connections>
                         <outlet property="facebookLoginCell" destination="6Xd-At-QtL" id="bOs-kv-qO5"/>
                         <outlet property="hiCell" destination="NIx-da-7Q3" id="OgO-X9-M84"/>
-                        <outlet property="loginButton" destination="2BC-C4-Skw" id="bSN-FN-woC"/>
                         <outlet property="pickerCell" destination="cYh-vJ-fJE" id="ZFF-8P-ugu"/>
                         <outlet property="pickerView" destination="VVt-FR-8lh" id="OuB-co-sQs"/>
                         <outlet property="tableView" destination="hy3-1m-Trz" id="hr0-Ch-xAd"/>
@@ -139,30 +138,10 @@
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6Xd-At-QtL">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Xd-At-QtL" id="vzK-kv-4UA">
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Xd-At-QtL" id="vzK-kv-4UA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BC-C4-Skw" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="164.5" y="-42.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="or enter date manually" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUB-3C-37O">
-                                <rect key="frame" x="19.5" y="2.5" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2BC-C4-Skw" firstAttribute="top" secondItem="vzK-kv-4UA" secondAttribute="top" constant="20" symbolic="YES" id="ELL-aI-uqP"/>
-                            <constraint firstAttribute="bottom" secondItem="GUB-3C-37O" secondAttribute="bottom" constant="20" id="ONi-yO-iQA"/>
-                            <constraint firstItem="GUB-3C-37O" firstAttribute="centerX" secondItem="vzK-kv-4UA" secondAttribute="centerX" id="R9u-6t-1wP"/>
-                            <constraint firstItem="2BC-C4-Skw" firstAttribute="centerX" secondItem="vzK-kv-4UA" secondAttribute="centerX" id="VlW-MU-YvA"/>
-                            <constraint firstItem="GUB-3C-37O" firstAttribute="width" secondItem="vzK-kv-4UA" secondAttribute="width" constant="-40" id="WpI-FN-Y86"/>
-                            <constraint firstItem="GUB-3C-37O" firstAttribute="top" secondItem="2BC-C4-Skw" secondAttribute="bottom" constant="30" id="XoV-b6-Fz8"/>
-                        </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
@@ -173,8 +152,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="216.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="or enter date manually" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUB-3C-37O">
+                                <rect key="frame" x="20" y="0.0" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VVt-FR-8lh">
-                                <rect key="frame" x="20" y="0.0" width="335" height="162"/>
+                                <rect key="frame" x="20" y="11" width="335" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="533399033.06592101">
                                     <!--2017-11-26 14:23:53 +0000-->
                                 </date>
@@ -202,10 +187,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VVt-FR-8lh" firstAttribute="width" secondItem="QPa-tn-fU4" secondAttribute="width" constant="-40" id="47d-kz-KBc"/>
+                            <constraint firstItem="VVt-FR-8lh" firstAttribute="top" secondItem="GUB-3C-37O" secondAttribute="bottom" id="HrE-AY-omC"/>
                             <constraint firstItem="Awg-Md-inF" firstAttribute="width" secondItem="QPa-tn-fU4" secondAttribute="width" constant="-40" id="TT7-lZ-4Ud"/>
                             <constraint firstItem="Awg-Md-inF" firstAttribute="centerX" secondItem="QPa-tn-fU4" secondAttribute="centerX" id="Yad-9c-dKy"/>
                             <constraint firstItem="VVt-FR-8lh" firstAttribute="centerX" secondItem="QPa-tn-fU4" secondAttribute="centerX" id="cMj-0P-Vt1"/>
-                            <constraint firstItem="VVt-FR-8lh" firstAttribute="top" secondItem="QPa-tn-fU4" secondAttribute="top" id="dAm-Av-PcA"/>
+                            <constraint firstItem="GUB-3C-37O" firstAttribute="top" secondItem="QPa-tn-fU4" secondAttribute="top" constant="16" id="iXN-Mh-YbF"/>
+                            <constraint firstItem="GUB-3C-37O" firstAttribute="trailing" secondItem="QPa-tn-fU4" secondAttribute="trailing" constant="-20" id="lDT-Zn-GqM"/>
+                            <constraint firstItem="GUB-3C-37O" firstAttribute="leading" secondItem="QPa-tn-fU4" secondAttribute="leading" constant="20" id="p9Q-1T-aQa"/>
                             <constraint firstAttribute="bottom" secondItem="Awg-Md-inF" secondAttribute="bottom" id="tVN-Fi-9g9"/>
                             <constraint firstItem="Awg-Md-inF" firstAttribute="top" secondItem="VVt-FR-8lh" secondAttribute="bottom" constant="10" id="wqh-MS-7pB"/>
                         </constraints>

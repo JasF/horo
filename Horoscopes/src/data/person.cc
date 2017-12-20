@@ -103,4 +103,19 @@ namespace horo {
         }
         return url.path();
     }
+    
+    void _Person::logout() {
+        name_ = "";
+        imageUrl_ = "";
+        gender_ = GenderUnknown;
+        withFacebook_ = false;
+        personUrl_ = "";
+    }
+    
+    void _Person::setBirthdayDate(DateWrapper date) {
+        birthdayDate_ = date;
+        ZodiacTypes type = Zodiac::zodiacTypeByDate(birthdayDate_);
+        strong<Zodiac> zodiac = new Zodiac(type);
+        setZodiac(zodiac);
+    }
 };

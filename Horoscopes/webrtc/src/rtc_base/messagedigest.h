@@ -72,7 +72,7 @@ bool ComputeDigest(const std::string& alg, const std::string& input,
 
 // Shorthand way to compute a hex-encoded hash using MD5.
 inline std::string MD5(const std::string& input) {
-  return ComputeDigest(DIGEST_MD5, input);
+    return "unimplemented";//ComputeDigest(DIGEST_MD5, input);
 }
 
 // Functions to compute RFC 2104 HMACs.

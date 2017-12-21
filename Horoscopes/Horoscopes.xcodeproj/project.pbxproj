@@ -334,7 +334,6 @@
 		C373D41F1FEBBDD300D3BA16 /* asyncresolverinterface_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D11FEBBDCB00D3BA16 /* asyncresolverinterface_forxcode.cc */; };
 		C373D4201FEBBDD300D3BA16 /* messagehandler_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D21FEBBDCB00D3BA16 /* messagehandler_forxcode.cc */; };
 		C373D4221FEBBDD300D3BA16 /* httpbase_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D41FEBBDCC00D3BA16 /* httpbase_forxcode.cc */; };
-		C373D4241FEBBDD300D3BA16 /* task_queue_libevent_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D61FEBBDCC00D3BA16 /* task_queue_libevent_forxcode.cc */; };
 		C373D4251FEBBDD300D3BA16 /* unixfilesystem_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D71FEBBDCC00D3BA16 /* unixfilesystem_forxcode.cc */; };
 		C373D4261FEBBDD300D3BA16 /* bufferqueue_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D81FEBBDCD00D3BA16 /* bufferqueue_forxcode.cc */; };
 		C373D4271FEBBDD300D3BA16 /* asyncsocket_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D91FEBBDCD00D3BA16 /* asyncsocket_forxcode.cc */; };
@@ -419,7 +418,6 @@
 		C373D4831FEBBDDB00D3BA16 /* string_to_number_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3CE1FEBBDCB00D3BA16 /* string_to_number_forxcode.cc */; };
 		C373D4841FEBBDDB00D3BA16 /* stringencode_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3C11FEBBDC800D3BA16 /* stringencode_forxcode.cc */; };
 		C373D4851FEBBDDB00D3BA16 /* stringutils_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3DE1FEBBDCE00D3BA16 /* stringutils_forxcode.cc */; };
-		C373D4861FEBBDDB00D3BA16 /* task_queue_libevent_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3D61FEBBDCC00D3BA16 /* task_queue_libevent_forxcode.cc */; };
 		C373D4871FEBBDDB00D3BA16 /* thread_checker_impl_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3E31FEBBDD000D3BA16 /* thread_checker_impl_forxcode.cc */; };
 		C373D4881FEBBDDB00D3BA16 /* thread_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3ED1FEBBDD200D3BA16 /* thread_forxcode.cc */; };
 		C373D4891FEBBDDB00D3BA16 /* timestampaligner_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3BD1FEBBDC700D3BA16 /* timestampaligner_forxcode.cc */; };
@@ -430,8 +428,6 @@
 		C373D48F1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D48D1FEBBFD600D3BA16 /* task_queue_gcd.cc */; };
 		C373D4911FEBC04400D3BA16 /* event.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4901FEBC04400D3BA16 /* event.cc */; };
 		C373D4921FEBC04400D3BA16 /* event.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4901FEBC04400D3BA16 /* event.cc */; };
-		C373D4941FEBC07E00D3BA16 /* thread.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4931FEBC07E00D3BA16 /* thread.cc */; };
-		C373D4951FEBC07E00D3BA16 /* thread.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4931FEBC07E00D3BA16 /* thread.cc */; };
 		C373D4971FEBC16000D3BA16 /* task_queue_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4961FEBC16000D3BA16 /* task_queue_posix.cc */; };
 		C373D4981FEBC16000D3BA16 /* task_queue_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4961FEBC16000D3BA16 /* task_queue_posix.cc */; };
 		C373D49A1FEBC19400D3BA16 /* thread_darwin.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4991FEBC19400D3BA16 /* thread_darwin.mm */; };
@@ -826,7 +822,6 @@
 		C373D3F01FEBBDD300D3BA16 /* socketadapters_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = socketadapters_forxcode.cc; path = webrtc/src/rtc_base/socketadapters_forxcode.cc; sourceTree = SOURCE_ROOT; };
 		C373D48D1FEBBFD600D3BA16 /* task_queue_gcd.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_gcd.cc; path = webrtc/src/rtc_base/task_queue_gcd.cc; sourceTree = SOURCE_ROOT; };
 		C373D4901FEBC04400D3BA16 /* event.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = event.cc; path = webrtc/src/rtc_base/event.cc; sourceTree = SOURCE_ROOT; };
-		C373D4931FEBC07E00D3BA16 /* thread.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread.cc; path = webrtc/src/rtc_base/thread.cc; sourceTree = SOURCE_ROOT; };
 		C373D4961FEBC16000D3BA16 /* task_queue_posix.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_posix.cc; path = webrtc/src/rtc_base/task_queue_posix.cc; sourceTree = SOURCE_ROOT; };
 		C373D4991FEBC19400D3BA16 /* thread_darwin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = thread_darwin.mm; path = webrtc/src/rtc_base/thread_darwin.mm; sourceTree = SOURCE_ROOT; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1830,7 +1825,6 @@
 			children = (
 				C373D4991FEBC19400D3BA16 /* thread_darwin.mm */,
 				C373D4961FEBC16000D3BA16 /* task_queue_posix.cc */,
-				C373D4931FEBC07E00D3BA16 /* thread.cc */,
 				C373D4901FEBC04400D3BA16 /* event.cc */,
 				C373D48D1FEBBFD600D3BA16 /* task_queue_gcd.cc */,
 				C373D3E41FEBBDD000D3BA16 /* asyncinvoker_forxcode.cc */,
@@ -2590,7 +2584,6 @@
 				C32A60251FDC148B003CF1CA /* Controllers.m in Sources */,
 				C34233D01FE8F23100428768 /* AccountViewController.mm in Sources */,
 				C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */,
-				C373D4951FEBC07E00D3BA16 /* thread.cc in Sources */,
 				C32A60031FDBDD62003CF1CA /* PersonObjc.mm in Sources */,
 				C30B17EE1FA481C2006DEDB7 /* EXTSafeCategory.m in Sources */,
 				C373D4891FEBBDDB00D3BA16 /* timestampaligner_forxcode.cc in Sources */,
@@ -2630,7 +2623,6 @@
 				C373D4481FEBBDDB00D3BA16 /* bufferqueue_forxcode.cc in Sources */,
 				C373D46F1FEBBDDB00D3BA16 /* proxyinfo_forxcode.cc in Sources */,
 				C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */,
-				C373D4861FEBBDDB00D3BA16 /* task_queue_libevent_forxcode.cc in Sources */,
 				C38A628C1FD28A5C00012ECA /* HoroscopesCell.mm in Sources */,
 				C340356F1FD41184005C862C /* MenuCellContentView.m in Sources */,
 				C30B16811FA47771006DEDB7 /* json_writer.cpp in Sources */,
@@ -2701,7 +2693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C373D4241FEBBDD300D3BA16 /* task_queue_libevent_forxcode.cc in Sources */,
 				C315ABCA1FE5040C00CC9B67 /* horobase.cc in Sources */,
 				C315ABCB1FE5040C00CC9B67 /* horoscopedaoimpl.cc in Sources */,
 				C315ABCC1FE5040C00CC9B67 /* error.c in Sources */,
@@ -2792,7 +2783,6 @@
 				C315AC041FE5040C00CC9B67 /* parser.c in Sources */,
 				C373D4221FEBBDD300D3BA16 /* httpbase_forxcode.cc in Sources */,
 				C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */,
-				C373D4941FEBC07E00D3BA16 /* thread.cc in Sources */,
 				C34233CF1FE8F23100428768 /* AccountViewController.mm in Sources */,
 				C315AC061FE5040C00CC9B67 /* NSString+Horo.mm in Sources */,
 				C373D4271FEBBDD300D3BA16 /* asyncsocket_forxcode.cc in Sources */,
@@ -2974,6 +2964,13 @@
 					WEBRTC_IOS,
 					WEBRTC_POSIX,
 					WEBRTC_MAC,
+					DNS_USE_CPU_CLOCK_FOR_ID,
+					HAVE_STRUCT_IN6_ADDR,
+					HAVE_STRTOK_R,
+					HAVE_SYS_SOCKET_H,
+					HAVE_UNISTD_H,
+					HAVE_FCNTL_H,
+					HAVE_STRSEP,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2985,6 +2982,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = Components/libevent/compat;
 			};
 			name = Debug;
 		};
@@ -3029,6 +3027,13 @@
 					WEBRTC_IOS,
 					WEBRTC_POSIX,
 					WEBRTC_MAC,
+					DNS_USE_CPU_CLOCK_FOR_ID,
+					HAVE_STRUCT_IN6_ADDR,
+					HAVE_STRTOK_R,
+					HAVE_SYS_SOCKET_H,
+					HAVE_UNISTD_H,
+					HAVE_FCNTL_H,
+					HAVE_STRSEP,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -3039,6 +3044,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = Components/libevent/compat;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

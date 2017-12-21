@@ -19,7 +19,7 @@ namespace horo {
         ResultSetObjc(FMResultSet *result) : results_(result) {}
         ~ResultSetObjc() override {}
     public:
-        BOOL next() override {
+        bool next() override {
             return [results_ next];
         }
         int intForColumn(std::string columnName) override {

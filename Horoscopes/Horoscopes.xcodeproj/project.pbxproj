@@ -751,8 +751,6 @@
 		C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accountscreenviewmodelimpl.cc; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
-		C373D3A01FEBB8B100D3BA16 /* ofiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofiles.h; sourceTree = SOURCE_ROOT; };
-		C373D3A11FEBB8CC00D3BA16 /* copyfiles.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = copyfiles.py; sourceTree = "<group>"; };
 		C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ifaddrs_converter_forxcode.cc; path = webrtc/src/rtc_base/ifaddrs_converter_forxcode.cc; sourceTree = SOURCE_ROOT; };
 		C373D3A41FEBBDC300D3BA16 /* fileutils_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fileutils_forxcode.cc; path = webrtc/src/rtc_base/fileutils_forxcode.cc; sourceTree = SOURCE_ROOT; };
 		C373D3A51FEBBDC300D3BA16 /* copyonwritebuffer_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = copyonwritebuffer_forxcode.cc; path = webrtc/src/rtc_base/copyonwritebuffer_forxcode.cc; sourceTree = SOURCE_ROOT; };
@@ -1017,9 +1015,6 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
-				C373D3A21FEBBD8A00D3BA16 /* forxcode */,
-				C373D3A11FEBB8CC00D3BA16 /* copyfiles.py */,
-				C373D3A01FEBB8B100D3BA16 /* ofiles.h */,
 				C3C116FC1FCE86BE007DA9FF /* classes */,
 				C37657731FAC2E0500874188 /* server */,
 				C3B601AD1FA60DAE00AD4F6D /* Categories */,
@@ -1358,6 +1353,7 @@
 		C315ACC81FE504FC00CC9B67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C373D3A21FEBBD8A00D3BA16 /* forxcode */,
 				C315ACC91FE504FD00CC9B67 /* plists */,
 				C315ACCD1FE504FD00CC9B67 /* Horoscopes.pch */,
 				C315ACCE1FE504FD00CC9B67 /* Frameworks */,

@@ -15,3 +15,4 @@
 - (Json::Value)horo_jsonValue;
 
 @end
+

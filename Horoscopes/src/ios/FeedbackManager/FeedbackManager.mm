@@ -7,6 +7,7 @@
 //
 
 #import <MessageUI/MessageUI.h>
+#include "managers/managers.h"
 #import "FeedbackManager.h"
 
 @interface FeedbackManager () <MFMailComposeViewControllerDelegate>
@@ -58,14 +59,8 @@
 }
 
 - (NSString *)getDefaultFeedbackTextBody {
-    NSString *token = @"";//[MRHManagers shared].remoteNotificationsService.token;
-    NSString *uid = @"";//[MRHManagers shared].remoteNotificationsService.uid;
-    if (token.length == 0) {
-        token = @"";
-    }
-    if (uid.length == 0) {
-        uid = @"";
-    }
+    NSCParameterAssert(horo::Managers::shared().notifications().get());
+    NSString *token = [NSString stringWithUTF8String:horo::Managers::shared().notifications()->deviceToken().c_str()];
     NSString *formatString = L(@"feedback_text");
     formatString = [formatString stringByReplacingOccurrencesOfString:@"$^" withString:@"%@"];
     NSMutableString *result = [[NSString stringWithFormat:formatString, [UIDevice horo_systemVersion], token] mutableCopy];

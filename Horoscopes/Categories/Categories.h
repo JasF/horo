@@ -6,5 +6,14 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#import <CoreFoundation/CoreFoundation.h>
-#import "UIDevice+Horo.h"
+#ifdef __OBJC__
+
+    #import <CoreFoundation/CoreFoundation.h>
+    #import "UINavigationBar+Horo.h"
+    #import "UIView+TKGeometry.h"
+    #import "UIImageView+Horo.h"
+    #import "UIDevice+Horo.h"
+    #import "UIImage+Horo.h"
+    #import "UIView+Horo.h"
+
+#endif

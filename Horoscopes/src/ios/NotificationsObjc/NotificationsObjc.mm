@@ -18,7 +18,7 @@ namespace horo {
     public:
         static NotificationsCC *shared() {
             static NotificationsCC *sharedInstance = nullptr;
-            if (sharedInstance) {
+            if (!sharedInstance) {
                 sharedInstance = new NotificationsCC();
             }
             return sharedInstance;
@@ -31,36 +31,7 @@ namespace horo {
             if (@available (iOS 10, *)) {
                 currentNotificationCenter().delegate = [NotificationsObjc shared];
             }
-            /*
-            [self registerForRemoteNotifications];
-            
-            [self sendGetUIDorSetSettings:YES];
-            @weakify(self);
-            self.enterBackgroundObserver =
-            [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification
-                                                              object:nil
-                                                               queue:nil
-                                                          usingBlock:^(NSNotification *note) {
-                                                              @strongify(self);
-                                                              self.setSettingsSended = NO;
-                                                              [self sendGetUIDorSetSettings:NO];
-                                                          }];
-            self.becomeActiveObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification
-                                                                                          object:nil
-                                                                                           queue:nil
-                                                                                      usingBlock:^(NSNotification *note) {
-                                                                                          @strongify(self);
-                                                                                          [self updatePushRegistrationState];
-                                                                                          if (self.settings.logIfUserAllowedPushes) {
-                                                                                              if ([UIApplication sharedApplication].isRegisteredForRemoteNotifications) {
-                                                                                                  self.settings.logIfUserAllowedPushes = NO;
-                                                                                                  [self.eventsModel logUserAllowedPushes];
-                                                                                              }
-                                                                                          }
-                                                                                      }];
-            
-            [self logPushSettings];
-            */
+            registerForRemoteNotifications();
         }
         
         void registerForRemoteNotifications() {
@@ -75,20 +46,9 @@ namespace horo {
                 if (@available (iOS 10, *)) {
                     registerForUserNotification();
                 }
-                updatePushRegistrationState();
             });
         }
 
-        void updatePushRegistrationState() {
-            /*
-            PushRegistrationStates state = (isRegisteredForRemoteNotifications()) ? PushRegistrationRegistered : PushRegistrationUnregistered;
-            if (state == PushRegistrationRegistered && _settings.pushRegistrationState == PushRegistrationUnregistered) {
-                [_settings setPushDisabled:NO];
-            }
-            _settings.pushRegistrationState = state;
-        */
-        }
-        
         void registerForUserNotification() {
             if (@available (iOS 10, *)) {
                 [currentNotificationCenter() requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound |
@@ -125,6 +85,23 @@ namespace horo {
             return true;
         }
         
+        string deviceToken() override {
+            return deviceToken_;
+        }
+        
+        void didReceiveRemoteNotification(Json::Value userInfo) override {
+            
+        }
+        
+        void didRegisterForRemoteNotificationsWithDeviceToken(string token) override {
+            deviceToken_ = token;
+        }
+        
+        void didFailToRegisterForRemoteNotificationsWithError(error err) override {
+            
+        }
+
+    private:
         UNUserNotificationCenter *currentNotificationCenter() {
             if (@available (iOS 10, *)) {
                 static BOOL g_exception_handled = NO;
@@ -145,6 +122,8 @@ namespace horo {
             }
             return nil;
         }
+    private:
+        string deviceToken_;
     };
 };
 
@@ -160,6 +139,11 @@ namespace horo {
         sharedInstance = [NotificationsObjc new];
     });
     return sharedInstance;
+}
+
+#pragma mark - Public Methods
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    
 }
 
 #pragma mark - UNUserNotificationCenterDelegate

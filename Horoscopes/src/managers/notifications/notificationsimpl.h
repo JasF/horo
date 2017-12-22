@@ -22,6 +22,11 @@ public:
     void initialize() override;
     void openSettings() override;
     bool isRegisteredForRemoteNotifications() override;
+    string deviceToken() override;
+    // for AppDelegate
+    void didReceiveRemoteNotification(Json::Value userInfo) override;
+    void didRegisterForRemoteNotificationsWithDeviceToken(string token) override;
+    void didFailToRegisterForRemoteNotificationsWithError(error err) override;
 };
     
 }

@@ -21,16 +21,17 @@ namespace horo {
     }
     
     ScreensManagerImpl::~ScreensManagerImpl() {
-        
     }
     
     void ScreensManagerImpl::showPredictionViewController() {
+        initializeNotifications();
         if (g_privateInstance) {
             g_privateInstance->showPredictionViewController();
         }
     }
     
     void ScreensManagerImpl::showPredictionViewController(strong<Person> person) {
+        initializeNotifications();
         if (g_privateInstance) {
             g_privateInstance->showPredictionViewController(person);
         }
@@ -63,6 +64,13 @@ namespace horo {
     void ScreensManagerImpl::showFeedViewController() {
         if (g_privateInstance) {
             g_privateInstance->showFeedViewController();
+        }
+    }
+    
+    void ScreensManagerImpl::initializeNotifications() {
+        if (!notificationsInitialized_) {
+            notificationsInitialized_ = true;
+            notifications_->initialize();
         }
     }
 };

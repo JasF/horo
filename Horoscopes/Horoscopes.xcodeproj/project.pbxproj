@@ -436,12 +436,16 @@
 		C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */; };
 		C373D4E81FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
 		C373D4E91FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
-		C373D4ED1FED1B6200D3BA16 /* FeedbackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */; };
-		C373D4EE1FED1B6200D3BA16 /* FeedbackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */; };
+		C373D4ED1FED1B6200D3BA16 /* FeedbackManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.mm */; };
+		C373D4EE1FED1B6200D3BA16 /* FeedbackManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.mm */; };
 		C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */; };
 		C373D4F21FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */; };
 		C373D4F41FED2C9C00D3BA16 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */; };
 		C373D4F51FED2CA100D3BA16 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */; };
+		C373D4F81FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */; };
+		C373D4F91FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */; };
+		C373D4FB1FED418500D3BA16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4FA1FED417E00D3BA16 /* MessageUI.framework */; };
+		C373D4FC1FED41BF00D3BA16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4FA1FED417E00D3BA16 /* MessageUI.framework */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -839,10 +843,13 @@
 		C373D4E61FECFCD400D3BA16 /* NotificationsObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsObjc.h; sourceTree = "<group>"; };
 		C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsObjc.mm; sourceTree = "<group>"; };
 		C373D4EB1FED1B6200D3BA16 /* FeedbackManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackManager.h; sourceTree = "<group>"; };
-		C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackManager.m; sourceTree = "<group>"; };
+		C373D4EC1FED1B6200D3BA16 /* FeedbackManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FeedbackManager.mm; sourceTree = "<group>"; };
 		C373D4EF1FED1EB500D3BA16 /* UIDevice+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Horo.h"; sourceTree = "<group>"; };
 		C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Horo.m"; sourceTree = "<group>"; };
 		C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C373D4F61FED3B4A00D3BA16 /* NSError+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+Horo.h"; sourceTree = "<group>"; };
+		C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSError+Horo.mm"; sourceTree = "<group>"; };
+		C373D4FA1FED417E00D3BA16 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -966,6 +973,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C373D4FC1FED41BF00D3BA16 /* MessageUI.framework in Frameworks */,
 				C373D4F51FED2CA100D3BA16 /* UserNotifications.framework in Frameworks */,
 				C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */,
 				C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */,
@@ -1001,6 +1009,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C373D4FB1FED418500D3BA16 /* MessageUI.framework in Frameworks */,
 				C373D4F41FED2C9C00D3BA16 /* UserNotifications.framework in Frameworks */,
 				C315AC421FE5040C00CC9B67 /* WebKit.framework in Frameworks */,
 				C315AC431FE5040C00CC9B67 /* libz.1.2.8.tbd in Frameworks */,
@@ -1951,7 +1960,7 @@
 			isa = PBXGroup;
 			children = (
 				C373D4EB1FED1B6200D3BA16 /* FeedbackManager.h */,
-				C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */,
+				C373D4EC1FED1B6200D3BA16 /* FeedbackManager.mm */,
 			);
 			path = FeedbackManager;
 			sourceTree = "<group>";
@@ -2134,9 +2143,9 @@
 		C3B601AD1FA60DAE00AD4F6D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C3B601AE1FA60DBE00AD4F6D /* Categories.h */,
 				C3190C181FADE4D60059F247 /* UIView+TKGeometry.h */,
 				C3190C191FADE4D60059F247 /* UIView+TKGeometry.m */,
-				C3B601AE1FA60DBE00AD4F6D /* Categories.h */,
 				C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */,
 				C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */,
 				C38A62951FD291FF00012ECA /* UIView+Horo.h */,
@@ -2151,6 +2160,8 @@
 				C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */,
 				C373D4EF1FED1EB500D3BA16 /* UIDevice+Horo.h */,
 				C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */,
+				C373D4F61FED3B4A00D3BA16 /* NSError+Horo.h */,
+				C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2276,6 +2287,7 @@
 		C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C373D4FA1FED417E00D3BA16 /* MessageUI.framework */,
 				C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */,
 				C375BF211FD13C86007D6AC8 /* Foundation.framework */,
 				C31A13FD1FB087D2001FABFE /* JavaScriptCore.framework */,
@@ -2684,6 +2696,7 @@
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
 				C373D4401FEBBDDB00D3BA16 /* asyncpacketsocket_forxcode.cc in Sources */,
 				C373D4841FEBBDDB00D3BA16 /* stringencode_forxcode.cc in Sources */,
+				C373D4F91FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */,
 				C373D45B1FEBBDDB00D3BA16 /* logging_forxcode.cc in Sources */,
 				C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */,
 				C373D47A1FEBBDDB00D3BA16 /* socketadapters_forxcode.cc in Sources */,
@@ -2746,7 +2759,7 @@
 				C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
-				C373D4EE1FED1B6200D3BA16 /* FeedbackManager.m in Sources */,
+				C373D4EE1FED1B6200D3BA16 /* FeedbackManager.mm in Sources */,
 				C373D4821FEBBDDB00D3BA16 /* stream_forxcode.cc in Sources */,
 				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
@@ -2888,6 +2901,7 @@
 				C373D4111FEBBDD300D3BA16 /* random_forxcode.cc in Sources */,
 				C315AC161FE5040C00CC9B67 /* FriendsViewController+Filtering.mm in Sources */,
 				C315AC171FE5040C00CC9B67 /* json_value.cpp in Sources */,
+				C373D4F81FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */,
 				C373D4291FEBBDD300D3BA16 /* location_forxcode.cc in Sources */,
 				C315AC181FE5040C00CC9B67 /* MenuViewController.mm in Sources */,
 				C373D3FA1FEBBDD300D3BA16 /* signalthread_forxcode.cc in Sources */,
@@ -2950,7 +2964,7 @@
 				C373D4E41FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				C315ACD91FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
 				C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */,
-				C373D4ED1FED1B6200D3BA16 /* FeedbackManager.m in Sources */,
+				C373D4ED1FED1B6200D3BA16 /* FeedbackManager.mm in Sources */,
 				C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */,
 				C315AC3A1FE5040C00CC9B67 /* UIView+TKGeometry.m in Sources */,
 				C315AC3B1FE5040C00CC9B67 /* datewrapper.cc in Sources */,

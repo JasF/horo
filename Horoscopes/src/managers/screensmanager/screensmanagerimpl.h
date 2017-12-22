@@ -30,6 +30,9 @@ namespace horo {
         void showFriendsViewController() override;
         void showAccountViewController() override;
         void showFeedViewController() override;
+        
+    private:
+        void initializeNotifications();
     public:
         void setViewModels(strong<ViewModels> viewModels) { viewModels_ = viewModels; }
         strong<ViewModels> viewModels() {return viewModels_;};

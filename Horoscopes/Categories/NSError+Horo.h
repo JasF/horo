@@ -1,5 +1,5 @@
 //
-//  NotificationsObjc.h
+//  NSError+Horo.h
 //  Horoscopes
 //
 //  Created by Jasf on 22.12.2017.
@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#include "base/horobase.h"
 
-@interface NotificationsObjc : NSObject
-+ (instancetype)shared;
+@interface NSError (Horo)
+- (horo::error)horo_error;
 @end

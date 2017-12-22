@@ -45,4 +45,32 @@ bool NotificationsImpl::isRegisteredForRemoteNotifications() {
     return false;
 }
 
+string NotificationsImpl::deviceToken() {
+    if (privateInstance) {
+        return privateInstance->deviceToken();
+    }
+    return "";
+}
+
+void NotificationsImpl::didReceiveRemoteNotification(Json::Value userInfo) {
+    SCParameterAssert(privateInstance);
+    if (privateInstance) {
+        privateInstance->didReceiveRemoteNotification(userInfo);
+    }
+}
+
+void NotificationsImpl::didRegisterForRemoteNotificationsWithDeviceToken(string token) {
+    SCParameterAssert(privateInstance);
+    if (privateInstance) {
+        privateInstance->didRegisterForRemoteNotificationsWithDeviceToken(token);
+    }
+}
+
+void NotificationsImpl::didFailToRegisterForRemoteNotificationsWithError(error err) {
+    SCParameterAssert(privateInstance);
+    if (privateInstance) {
+        privateInstance->didFailToRegisterForRemoteNotificationsWithError(err);
+    }
+}
+
 };

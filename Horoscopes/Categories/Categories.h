@@ -15,5 +15,6 @@
     #import "UIDevice+Horo.h"
     #import "UIImage+Horo.h"
     #import "UIView+Horo.h"
+    #import "NSData+Horo.h"
 
 #endif

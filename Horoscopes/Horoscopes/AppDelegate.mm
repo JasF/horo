@@ -41,7 +41,7 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken {
-    _notifications->didRegisterForRemoteNotificationsWithDeviceToken((const char *)deviceToken.bytes);
+    _notifications->didRegisterForRemoteNotificationsWithDeviceToken([deviceToken horo_hexString].UTF8String);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(nonnull NSError *)error {

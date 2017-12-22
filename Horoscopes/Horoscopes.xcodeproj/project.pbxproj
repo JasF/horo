@@ -446,6 +446,8 @@
 		C373D4F91FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */; };
 		C373D4FB1FED418500D3BA16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4FA1FED417E00D3BA16 /* MessageUI.framework */; };
 		C373D4FC1FED41BF00D3BA16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4FA1FED417E00D3BA16 /* MessageUI.framework */; };
+		C373D4FF1FED437F00D3BA16 /* NSData+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */; };
+		C373D5001FED437F00D3BA16 /* NSData+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -850,6 +852,8 @@
 		C373D4F61FED3B4A00D3BA16 /* NSError+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+Horo.h"; sourceTree = "<group>"; };
 		C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSError+Horo.mm"; sourceTree = "<group>"; };
 		C373D4FA1FED417E00D3BA16 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C373D4FD1FED437F00D3BA16 /* NSData+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Horo.h"; sourceTree = "<group>"; };
+		C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Horo.m"; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -2162,6 +2166,8 @@
 				C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */,
 				C373D4F61FED3B4A00D3BA16 /* NSError+Horo.h */,
 				C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */,
+				C373D4FD1FED437F00D3BA16 /* NSData+Horo.h */,
+				C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2599,6 +2605,7 @@
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
 				C373D4441FEBBDDB00D3BA16 /* asyncudpsocket_forxcode.cc in Sources */,
 				C373D4791FEBBDDB00D3BA16 /* sigslot_forxcode.cc in Sources */,
+				C373D5001FED437F00D3BA16 /* NSData+Horo.m in Sources */,
 				C373D4781FEBBDDB00D3BA16 /* signalthread_forxcode.cc in Sources */,
 				C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */,
 				C32A60211FDC1420003CF1CA /* WebViewControllerImpl.mm in Sources */,
@@ -2804,6 +2811,7 @@
 				C315ABD81FE5040C00CC9B67 /* WebViewControllerImpl.mm in Sources */,
 				C315ABD91FE5040C00CC9B67 /* NSDictionary+Horo.mm in Sources */,
 				C315ABDA1FE5040C00CC9B67 /* predictionscreenmodelimpl.cc in Sources */,
+				C373D4FF1FED437F00D3BA16 /* NSData+Horo.m in Sources */,
 				C373D42B1FEBBDD300D3BA16 /* asyncudpsocket_forxcode.cc in Sources */,
 				C373D40A1FEBBDD300D3BA16 /* timeutils_forxcode.cc in Sources */,
 				C315ABDB1FE5040C00CC9B67 /* FirestoreObjc.mm in Sources */,
@@ -3282,6 +3290,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
 					POSIX,
 					WEBRTC_IOS,
 					CENSORED,

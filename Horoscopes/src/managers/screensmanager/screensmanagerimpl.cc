@@ -16,7 +16,8 @@ namespace horo {
     }
     
     ScreensManagerImpl::ScreensManagerImpl(strong<Notifications> notifications)
-    : notifications_(notifications) {
+    : notifications_(notifications)
+    , notificationsInitialized_(false) {
         SCParameterAssert(notifications_.get());
     }
     

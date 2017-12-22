@@ -64,6 +64,8 @@
     NSString *formatString = L(@"feedback_text");
     formatString = [formatString stringByReplacingOccurrencesOfString:@"$^" withString:@"%@"];
     NSMutableString *result = [[NSString stringWithFormat:formatString, [UIDevice horo_systemVersion], token] mutableCopy];
+    NSString *logs = [[Logger shared] readAll];
+    [result appendFormat:@"\n\n%@", logs];
     return result;
 }
 

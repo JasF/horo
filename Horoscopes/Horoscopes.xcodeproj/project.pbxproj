@@ -448,6 +448,10 @@
 		C373D4FC1FED41BF00D3BA16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4FA1FED417E00D3BA16 /* MessageUI.framework */; };
 		C373D4FF1FED437F00D3BA16 /* NSData+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */; };
 		C373D5001FED437F00D3BA16 /* NSData+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */; };
+		C373D5031FED5C4100D3BA16 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D5021FED5C4100D3BA16 /* FirebaseMessaging.framework */; };
+		C373D5041FED5C4100D3BA16 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D5021FED5C4100D3BA16 /* FirebaseMessaging.framework */; };
+		C373D5081FED5DA900D3BA16 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D5071FED5DA900D3BA16 /* Logger.m */; };
+		C373D5091FED5DA900D3BA16 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D5071FED5DA900D3BA16 /* Logger.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -512,6 +516,29 @@
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
 		C3F405251FE102C1004D1535 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F405241FE102C1004D1535 /* GradientView.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C340C4AF1FED6C4E00E1F6E8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C340C4C01FED6CB400E1F6E8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B0FD36D1FA06C96006378B6 /* Horoscopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Horoscopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -854,6 +881,9 @@
 		C373D4FA1FED417E00D3BA16 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C373D4FD1FED437F00D3BA16 /* NSData+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Horo.h"; sourceTree = "<group>"; };
 		C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Horo.m"; sourceTree = "<group>"; };
+		C373D5021FED5C4100D3BA16 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = "<group>"; };
+		C373D5061FED5DA900D3BA16 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		C373D5071FED5DA900D3BA16 /* Logger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -983,6 +1013,7 @@
 				C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */,
 				C3CD7DF61FA6F4E800D2BFF3 /* GoogleToolboxForMac.framework in Frameworks */,
 				C3CD7DF31FA6F4E800D2BFF3 /* FirebaseAuth.framework in Frameworks */,
+				C373D5041FED5C4100D3BA16 /* FirebaseMessaging.framework in Frameworks */,
 				C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */,
 				C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */,
@@ -1019,6 +1050,7 @@
 				C315AC431FE5040C00CC9B67 /* libz.1.2.8.tbd in Frameworks */,
 				C315AC4B1FE5040C00CC9B67 /* GoogleToolboxForMac.framework in Frameworks */,
 				C315AC4C1FE5040C00CC9B67 /* FirebaseAuth.framework in Frameworks */,
+				C373D5031FED5C4100D3BA16 /* FirebaseMessaging.framework in Frameworks */,
 				C315AC4D1FE5040C00CC9B67 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				C315AC4E1FE5040C00CC9B67 /* FirebaseFirestore.framework in Frameworks */,
 				C315AC4F1FE5040C00CC9B67 /* SDWebImage.framework in Frameworks */,
@@ -1690,6 +1722,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C373D5051FED5D9D00D3BA16 /* Logger */,
 				C373D4EA1FED1B4F00D3BA16 /* FeedbackManager */,
 				C373D4DC1FECF8EC00D3BA16 /* NotificationsObjc */,
 				C315ACD61FE512CB00CC9B67 /* ZodiacObjc */,
@@ -1969,6 +2002,23 @@
 			path = FeedbackManager;
 			sourceTree = "<group>";
 		};
+		C373D5011FED5C4100D3BA16 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				C373D5021FED5C4100D3BA16 /* FirebaseMessaging.framework */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		C373D5051FED5D9D00D3BA16 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				C373D5061FED5DA900D3BA16 /* Logger.h */,
+				C373D5071FED5DA900D3BA16 /* Logger.m */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		C37657731FAC2E0500874188 /* server */ = {
 			isa = PBXGroup;
 			children = (
@@ -2234,6 +2284,7 @@
 		C3CD7DCB1FA6F19E00D2BFF3 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				C373D5011FED5C4100D3BA16 /* Messaging */,
 				C3CD7DEA1FA6F4E700D2BFF3 /* Analytics */,
 				C3CD7DE71FA6F4E700D2BFF3 /* Auth */,
 				C3CD7DCC1FA6F19E00D2BFF3 /* Firestore */,
@@ -2409,6 +2460,7 @@
 				4B0FD3691FA06C96006378B6 /* Sources */,
 				4B0FD36A1FA06C96006378B6 /* Frameworks */,
 				4B0FD36B1FA06C96006378B6 /* Resources */,
+				C340C4AF1FED6C4E00E1F6E8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -2427,6 +2479,7 @@
 				C315ABC91FE5040C00CC9B67 /* Sources */,
 				C315AC411FE5040C00CC9B67 /* Frameworks */,
 				C315ACAD1FE5040C00CC9B67 /* Resources */,
+				C340C4C01FED6CB400E1F6E8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -2722,6 +2775,7 @@
 				C3817DF81FA708B200447155 /* firestorefactoryimpl.cc in Sources */,
 				C373D46C1FEBBDDB00D3BA16 /* physicalsocketserver_forxcode.cc in Sources */,
 				C373D4511FEBBDDB00D3BA16 /* file_posix_forxcode.cc in Sources */,
+				C373D5091FED5DA900D3BA16 /* Logger.m in Sources */,
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
 				C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
@@ -2928,6 +2982,7 @@
 				C315AC201FE5040C00CC9B67 /* firestorefactoryimpl.cc in Sources */,
 				C315AC211FE5040C00CC9B67 /* horoscopesserviceimpl.cc in Sources */,
 				C373D4171FEBBDD300D3BA16 /* race_checker_forxcode.cc in Sources */,
+				C373D5081FED5DA900D3BA16 /* Logger.m in Sources */,
 				C315AC221FE5040C00CC9B67 /* BaseNavigationController.m in Sources */,
 				C373D3FC1FEBBDD300D3BA16 /* file_forxcode.cc in Sources */,
 				C315AC231FE5040C00CC9B67 /* facebookmanagerimpl.cc in Sources */,
@@ -3166,6 +3221,7 @@
 					"$(PROJECT_DIR)/Components/Firebase/Firestore",
 					"$(PROJECT_DIR)/Components/Firebase/Auth",
 					"$(PROJECT_DIR)/Components/Firebase/Analytics",
+					"$(PROJECT_DIR)/Components/Firebase/Messaging",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
@@ -3204,6 +3260,7 @@
 					"$(PROJECT_DIR)/Components/Firebase/Firestore",
 					"$(PROJECT_DIR)/Components/Firebase/Auth",
 					"$(PROJECT_DIR)/Components/Firebase/Analytics",
+					"$(PROJECT_DIR)/Components/Firebase/Messaging",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
@@ -3242,6 +3299,7 @@
 					"$(PROJECT_DIR)/Components/Firebase/Firestore",
 					"$(PROJECT_DIR)/Components/Firebase/Auth",
 					"$(PROJECT_DIR)/Components/Firebase/Analytics",
+					"$(PROJECT_DIR)/Components/Firebase/Messaging",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";
@@ -3286,6 +3344,7 @@
 					"$(PROJECT_DIR)/Components/Firebase/Firestore",
 					"$(PROJECT_DIR)/Components/Firebase/Auth",
 					"$(PROJECT_DIR)/Components/Firebase/Analytics",
+					"$(PROJECT_DIR)/Components/Firebase/Messaging",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Horoscopes.pch";

@@ -9,6 +9,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #include <FirebaseCore/FirebaseCore.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
 #include "managers/managers.h"
 #import "NSError+Horo.h"
 #import "AppDelegate.h"
@@ -16,12 +17,14 @@
 #import "NSDictionary+Horo.h"
 #import "NSError+Horo.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <FIRMessagingDelegate>
 @property (assign, nonatomic) strong<horo::Notifications> notifications;
 @end
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    Log(@"\n\n\n*****SESSION START*****\napplication:didFinishLaunchingWithOptions: %@", launchOptions);
+    [FIRMessaging messaging].delegate = self;
     [FIRApp configure];
     [FBSDKLoginButton class];
     _notifications = horo::Managers::shared().notifications();
@@ -33,6 +36,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    Log(@"application:didReceiveRemoteNotification:fetchCompletionHandler: %@", userInfo);
     Json::Value dictionary = [userInfo horo_jsonValue];
     _notifications->didReceiveRemoteNotification(dictionary);
     if (completionHandler) {
@@ -41,10 +45,12 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken {
+    Log(@"application:didRegisterForRemoteNotificationsWithDeviceToken: %@", [deviceToken horo_hexString]);
     _notifications->didRegisterForRemoteNotificationsWithDeviceToken([deviceToken horo_hexString].UTF8String);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(nonnull NSError *)error {
+    Log(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
     _notifications->didFailToRegisterForRemoteNotificationsWithError([error horo_error]);
 }
 
@@ -94,6 +100,21 @@
         horo::Managers::shared().screensManager()->showMenuViewController(false);
         horo::Managers::shared().screensManager()->showWelcomeViewController();
     }
+}
+
+#pragma mark - FIRMessagingDelegate
+- (void)messaging:(nonnull FIRMessaging *)messaging
+didReceiveMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage {
+    Log(@"messaging:didReceiveMessage: %@ - %@", messaging, remoteMessage);
+}
+
+- (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage {
+    Log(@"applicationReceivedRemoteMessage: %@", remoteMessage);
+}
+
+- (void)messaging:(nonnull FIRMessaging *)messaging
+didReceiveRegistrationToken:(nonnull NSString *)fcmToken {
+    Log(@"messaging:didReceiveRegistrationToken: %@", fcmToken);
 }
 
 @end

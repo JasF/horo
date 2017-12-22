@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>497634587055-gpbktcmv5v0ac9jpovoahdr4gu8nf2ar.apps.googleusercontent.com</string>
+	<string>497634587055-bm5ptao8q2lkioalscdi26hqsjr4fk6l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.497634587055-gpbktcmv5v0ac9jpovoahdr4gu8nf2ar</string>
+	<string>com.googleusercontent.apps.497634587055-bm5ptao8q2lkioalscdi26hqsjr4fk6l</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBlRWLP0G3_-KwvwMGyIy0QG4EofRakLCg</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>lucky.horo.net</string>
+	<string>by.lucky.horoscopes</string>
 	<key>PROJECT_ID</key>
 	<string>horo-ios</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:497634587055:ios:f03a6f9ab931303c</string>
+	<string>1:497634587055:ios:3a87efcff5b6519a</string>
 	<key>DATABASE_URL</key>
 	<string>https://horo-ios.firebaseio.com</string>
 </dict>

@@ -53,7 +53,7 @@ namespace horo {
     }
     
     void MenuScreenViewModelImpl::feedbackTapped() {
-        
+        screensManager_->showFeedViewController();
     }
     
     void MenuScreenViewModelImpl::closeTapped() {

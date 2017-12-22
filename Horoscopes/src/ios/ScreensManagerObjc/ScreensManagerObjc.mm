@@ -6,17 +6,18 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#import "ScreensManagerObjc.h"
-#import "AccountViewController.h"
 #include "managers/screensmanager/screensmanagerimpl.h"
 #import "PredictionViewController.h"
+#import "AccountViewController.h"
 #import "WelcomeViewController.h"
+#import "FriendsViewController.h"
+#import "ScreensManagerObjc.h"
 #include "managers/managers.h"
 #import "MenuViewController.h"
+#import "FeedbackManager.h"
+#import "Controllers.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "FriendsViewController.h"
-#import "Controllers.h"
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -117,6 +118,12 @@ namespace horo {
                 return;
             }
         }
+        
+        void showFeedViewController() override {
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            [[FeedbackManager shared] showFeedbackController:delegate.window.rootViewController];
+        }
+        
     private:
         strong<ScreensManager> original_;
         ScreensManagerImpl *impl_;

@@ -59,4 +59,10 @@ namespace horo {
             g_privateInstance->showAccountViewController();
         }
     }
+    
+    void ScreensManagerImpl::showFeedViewController() {
+        if (g_privateInstance) {
+            g_privateInstance->showFeedViewController();
+        }
+    }
 };

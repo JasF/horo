@@ -118,6 +118,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (IBAction)zodiacsTapped:(id)sender {
     _viewModel->zodiacsTapped();
 }
+
 - (IBAction)closeTapped:(id)sender {
     _viewModel->closeTapped();
 }

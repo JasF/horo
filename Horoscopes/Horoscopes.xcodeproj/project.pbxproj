@@ -436,6 +436,10 @@
 		C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */; };
 		C373D4E81FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
 		C373D4E91FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
+		C373D4ED1FED1B6200D3BA16 /* FeedbackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */; };
+		C373D4EE1FED1B6200D3BA16 /* FeedbackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */; };
+		C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */; };
+		C373D4F21FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -832,6 +836,10 @@
 		C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = notificationsimpl.cc; sourceTree = "<group>"; };
 		C373D4E61FECFCD400D3BA16 /* NotificationsObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsObjc.h; sourceTree = "<group>"; };
 		C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsObjc.mm; sourceTree = "<group>"; };
+		C373D4EB1FED1B6200D3BA16 /* FeedbackManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackManager.h; sourceTree = "<group>"; };
+		C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackManager.m; sourceTree = "<group>"; };
+		C373D4EF1FED1EB500D3BA16 /* UIDevice+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Horo.h"; sourceTree = "<group>"; };
+		C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Horo.m"; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1664,6 +1672,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C373D4EA1FED1B4F00D3BA16 /* FeedbackManager */,
 				C373D4DC1FECF8EC00D3BA16 /* NotificationsObjc */,
 				C315ACD61FE512CB00CC9B67 /* ZodiacObjc */,
 				C32A60001FDBDD4D003CF1CA /* PersonObjc */,
@@ -1933,6 +1942,15 @@
 			path = notifications;
 			sourceTree = "<group>";
 		};
+		C373D4EA1FED1B4F00D3BA16 /* FeedbackManager */ = {
+			isa = PBXGroup;
+			children = (
+				C373D4EB1FED1B6200D3BA16 /* FeedbackManager.h */,
+				C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */,
+			);
+			path = FeedbackManager;
+			sourceTree = "<group>";
+		};
 		C37657731FAC2E0500874188 /* server */ = {
 			isa = PBXGroup;
 			children = (
@@ -2126,6 +2144,8 @@
 				C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */,
 				C3AE95FC1FDA619A00A9C73E /* UIImage+Horo.h */,
 				C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */,
+				C373D4EF1FED1EB500D3BA16 /* UIDevice+Horo.h */,
+				C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2579,6 +2599,7 @@
 				C373D4721FEBBDDB00D3BA16 /* rate_limiter_forxcode.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
 				C373D4571FEBBDDB00D3BA16 /* httpcommon_forxcode.cc in Sources */,
+				C373D4F21FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
 				C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
 				C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */,
@@ -2719,6 +2740,7 @@
 				C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
+				C373D4EE1FED1B6200D3BA16 /* FeedbackManager.m in Sources */,
 				C373D4821FEBBDDB00D3BA16 /* stream_forxcode.cc in Sources */,
 				C31A13A81FB052A2001FABFE /* datewrapper.cc in Sources */,
 				C30B17EB1FA481C2006DEDB7 /* EXTRuntimeExtensions.m in Sources */,
@@ -2781,6 +2803,7 @@
 				C315ABE41FE5040C00CC9B67 /* facebookuserdetailparser.cc in Sources */,
 				C315ABE51FE5040C00CC9B67 /* facebookloginmanager.cc in Sources */,
 				C315ABE61FE5040C00CC9B67 /* UIImageView+Horo.m in Sources */,
+				C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
 				C315ABE71FE5040C00CC9B67 /* networkingservicefactoryimpl.cc in Sources */,
 				C373D4191FEBBDD300D3BA16 /* crc32_forxcode.cc in Sources */,
 				C373D3F91FEBBDD300D3BA16 /* pathutils_forxcode.cc in Sources */,
@@ -2921,6 +2944,7 @@
 				C373D4E41FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				C315ACD91FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
 				C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */,
+				C373D4ED1FED1B6200D3BA16 /* FeedbackManager.m in Sources */,
 				C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */,
 				C315AC3A1FE5040C00CC9B67 /* UIView+TKGeometry.m in Sources */,
 				C315AC3B1FE5040C00CC9B67 /* datewrapper.cc in Sources */,

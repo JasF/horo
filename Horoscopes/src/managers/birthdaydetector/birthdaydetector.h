@@ -14,13 +14,12 @@
 
 namespace horo {
     class _BirthdayDetector {
-        public:
+    public:
         virtual ~_BirthdayDetector(){}
         virtual list<string> isLocalizedBirthdayString(std::string birthdayString) = 0;
         virtual DateWrapper timestampForDateString(string dateString, list<string> languageCodes) = 0;
     };
     typedef reff<_BirthdayDetector> BirthdayDetector;
 };
-
 
 #endif /* birthdaydetector_h */

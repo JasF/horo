@@ -432,6 +432,10 @@
 		C373D4981FEBC16000D3BA16 /* task_queue_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4961FEBC16000D3BA16 /* task_queue_posix.cc */; };
 		C373D49A1FEBC19400D3BA16 /* thread_darwin.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4991FEBC19400D3BA16 /* thread_darwin.mm */; };
 		C373D49B1FEBC19400D3BA16 /* thread_darwin.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4991FEBC19400D3BA16 /* thread_darwin.mm */; };
+		C373D4E41FECF92C00D3BA16 /* notificationsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */; };
+		C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */; };
+		C373D4E81FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
+		C373D4E91FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -822,6 +826,12 @@
 		C373D4901FEBC04400D3BA16 /* event.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = event.cc; path = webrtc/src/rtc_base/event.cc; sourceTree = SOURCE_ROOT; };
 		C373D4961FEBC16000D3BA16 /* task_queue_posix.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = task_queue_posix.cc; path = webrtc/src/rtc_base/task_queue_posix.cc; sourceTree = SOURCE_ROOT; };
 		C373D4991FEBC19400D3BA16 /* thread_darwin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = thread_darwin.mm; path = webrtc/src/rtc_base/thread_darwin.mm; sourceTree = SOURCE_ROOT; };
+		C373D4DA1FECF65500D3BA16 /* Horoscopes-AppStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Horoscopes-AppStore.entitlements"; sourceTree = "<group>"; };
+		C373D4DE1FECF90B00D3BA16 /* notifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notifications.h; sourceTree = "<group>"; };
+		C373D4DF1FECF91900D3BA16 /* notificationsimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationsimpl.h; sourceTree = "<group>"; };
+		C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = notificationsimpl.cc; sourceTree = "<group>"; };
+		C373D4E61FECFCD400D3BA16 /* NotificationsObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsObjc.h; sourceTree = "<group>"; };
+		C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsObjc.mm; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1353,6 +1363,7 @@
 		C315ACC81FE504FC00CC9B67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C373D4DB1FECF66E00D3BA16 /* entitlements */,
 				C373D3A21FEBBD8A00D3BA16 /* forxcode */,
 				C315ACC91FE504FD00CC9B67 /* plists */,
 				C315ACCD1FE504FD00CC9B67 /* Horoscopes.pch */,
@@ -1653,6 +1664,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C373D4DC1FECF8EC00D3BA16 /* NotificationsObjc */,
 				C315ACD61FE512CB00CC9B67 /* ZodiacObjc */,
 				C32A60001FDBDD4D003CF1CA /* PersonObjc */,
 				C38D8CC81FA8DD7D00F5BAD2 /* Platform */,
@@ -1892,6 +1904,33 @@
 				C373D3D71FEBBDCC00D3BA16 /* unixfilesystem_forxcode.cc */,
 			);
 			path = forxcode;
+			sourceTree = "<group>";
+		};
+		C373D4DB1FECF66E00D3BA16 /* entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				C373D4DA1FECF65500D3BA16 /* Horoscopes-AppStore.entitlements */,
+			);
+			path = entitlements;
+			sourceTree = "<group>";
+		};
+		C373D4DC1FECF8EC00D3BA16 /* NotificationsObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C373D4E61FECFCD400D3BA16 /* NotificationsObjc.h */,
+				C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */,
+			);
+			path = NotificationsObjc;
+			sourceTree = "<group>";
+		};
+		C373D4DD1FECF8FB00D3BA16 /* notifications */ = {
+			isa = PBXGroup;
+			children = (
+				C373D4DE1FECF90B00D3BA16 /* notifications.h */,
+				C373D4DF1FECF91900D3BA16 /* notificationsimpl.h */,
+				C373D4E31FECF92C00D3BA16 /* notificationsimpl.cc */,
+			);
+			path = notifications;
 			sourceTree = "<group>";
 		};
 		C37657731FAC2E0500874188 /* server */ = {
@@ -2242,6 +2281,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C373D4DD1FECF8FB00D3BA16 /* notifications */,
 				C3B897801FB836E70083C201 /* birthdaydetector */,
 				C31A139D1FAF50EE001FABFE /* friendsproviderfactory */,
 				C31A13961FAF4FC0001FABFE /* friendsmanager */,
@@ -2365,9 +2405,19 @@
 					4B0FD36C1FA06C96006378B6 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					C315ABC71FE5040C00CC9B67 = {
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -2641,6 +2691,7 @@
 				C373D45C1FEBBDDB00D3BA16 /* logsinks_forxcode.cc in Sources */,
 				C373D46E1FEBBDDB00D3BA16 /* platform_thread_forxcode.cc in Sources */,
 				C373D46A1FEBBDDB00D3BA16 /* optionsfile_forxcode.cc in Sources */,
+				C373D4E91FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */,
 				C340355C1FD3DD50005C862C /* DesignLabel.m in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
@@ -2665,6 +2716,7 @@
 				C31A13E81FB06168001FABFE /* string_piece.c in Sources */,
 				C31A138A1FAF2F4E001FABFE /* friendsscreenmodelimpl.cc in Sources */,
 				C315ACDA1FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
+				C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
 				C373D4821FEBBDDB00D3BA16 /* stream_forxcode.cc in Sources */,
@@ -2841,6 +2893,7 @@
 				C315AC2B1FE5040C00CC9B67 /* DesignLabel.m in Sources */,
 				C373D4261FEBBDD300D3BA16 /* bufferqueue_forxcode.cc in Sources */,
 				C315AC2C1FE5040C00CC9B67 /* FacebookBanagerObjc.mm in Sources */,
+				C373D4E81FECFCD400D3BA16 /* NotificationsObjc.mm in Sources */,
 				C315AC2D1FE5040C00CC9B67 /* firestoreimpl.cc in Sources */,
 				C315AC2E1FE5040C00CC9B67 /* main.m in Sources */,
 				C373D43E1FEBBDD300D3BA16 /* socketadapters_forxcode.cc in Sources */,
@@ -2865,6 +2918,7 @@
 				C315AC371FE5040C00CC9B67 /* string_piece.c in Sources */,
 				C373D4391FEBBDD300D3BA16 /* ratetracker_forxcode.cc in Sources */,
 				C315AC381FE5040C00CC9B67 /* friendsscreenmodelimpl.cc in Sources */,
+				C373D4E41FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				C315ACD91FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
 				C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */,
 				C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */,
@@ -3050,6 +3104,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
@@ -3087,6 +3142,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
@@ -3124,6 +3180,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
@@ -3167,6 +3224,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5892LD7JW5;

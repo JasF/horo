@@ -15,8 +15,9 @@ namespace horo {
         g_privateInstance = privateInstance;
     }
     
-    ScreensManagerImpl::ScreensManagerImpl() {
-        
+    ScreensManagerImpl::ScreensManagerImpl(strong<Notifications> notifications)
+    : notifications_(notifications) {
+        SCParameterAssert(notifications_.get());
     }
     
     ScreensManagerImpl::~ScreensManagerImpl() {

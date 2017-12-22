@@ -27,6 +27,7 @@ namespace horo {
         void friendsTapped() override;
         void accountTapped() override;
         void notificationsTapped() override;
+        void feedbackTapped() override;
         void closeTapped() override;
         
     private:

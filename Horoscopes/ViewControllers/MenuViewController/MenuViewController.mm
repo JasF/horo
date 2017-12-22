@@ -9,6 +9,15 @@
 #import "MenuViewController.h"
 #import "MenuCell.h"
 
+typedef NS_ENUM(NSInteger, MenuRows) {
+    CloseRow,
+    FriendsRow,
+    AccountRow,
+    NotifcationsRow,
+    FeedbackRow,
+    RowsCount
+};
+
 static CGFloat const kRowHeight = 100;
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -17,6 +26,7 @@ static CGFloat const kRowHeight = 100;
 @property (strong, nonatomic) IBOutlet MenuCell *friendsCell;
 @property (strong, nonatomic) IBOutlet MenuCell *accountCell;
 @property (strong, nonatomic) IBOutlet MenuCell *notificationsCell;
+@property (strong, nonatomic) IBOutlet MenuCell *feedbackCell;
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
@@ -48,6 +58,11 @@ static CGFloat const kRowHeight = 100;
         self.viewModel->notificationsTapped();
         return NO;
     };
+    _feedbackCell.tappedBlock = ^BOOL{
+        @strongify(self);
+        self.viewModel->feedbackTapped();
+        return NO;
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,10 +77,11 @@ static CGFloat const kRowHeight = 100;
 #pragma mark - UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: return self.closeCell;
-        case 1: return self.friendsCell;
-        case 2: return self.accountCell;
-        case 3: return self.notificationsCell;
+        case CloseRow: return self.closeCell;
+        case FriendsRow: return self.friendsCell;
+        case AccountRow: return self.accountCell;
+        case NotifcationsRow: return self.notificationsCell;
+        case FeedbackRow: return self.feedbackCell;
     }
     return [UITableViewCell new];
 }
@@ -91,7 +107,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return RowsCount;
 }
 
 #pragma mark - Observer

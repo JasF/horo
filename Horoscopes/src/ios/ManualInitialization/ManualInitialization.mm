@@ -13,6 +13,7 @@
 #import "FacebookBanagerObjc.h"
 #import "ScreensManagerObjc.h"
 #import "NetworkingServiceFactoryObjc.h"
+#import "NotificationsObjc.h"
 
 @implementation ManualInitialization
 + (void)load {
@@ -24,7 +25,8 @@
                        [FirestoreObjc class],
                        [FacebookBanagerObjc class],
                        [ScreensManagerObjc class],
-                       [NetworkingServiceFactoryObjc class]];
+                       [NetworkingServiceFactoryObjc class],
+                       [NotificationsObjc class]];
     for (Class cls in array) {
         NSCAssert([cls respondsToSelector:@selector(doLoading)], @"Unknown classObjc: %@", cls);
         if ([cls respondsToSelector:@selector(doLoading)]) {

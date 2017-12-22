@@ -24,6 +24,7 @@
 #include "managers/friendsmanager/friendsmanagerimpl.h"
 #include "friends/htmlparserfactory/htmlparserfactoryimpl.h"
 #include "managers/birthdaydetector/birthdaydetectorimpl.h"
+#include "managers/notifications/notificationsimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -81,7 +82,7 @@ Managers &Managers::shared() {
     strong<ScreensManager> Managers::screensManager() {
         static strong<ScreensManagerImpl> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new ScreensManagerImpl();
+            sharedInstance = new ScreensManagerImpl(notifications());
             sharedInstance->setViewModels(viewModels());
         }
         return sharedInstance;
@@ -190,6 +191,14 @@ Managers &Managers::shared() {
         static strong<BirthdayDetector> sharedInstance = nullptr;
         if (!sharedInstance) {
             sharedInstance = new BirthdayDetectorImpl();
+        }
+        return sharedInstance;
+    }
+    
+    strong<Notifications> Managers::notifications() {
+        static strong<Notifications> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new NotificationsImpl();
         }
         return sharedInstance;
     }

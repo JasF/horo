@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="accountCell" destination="8g6-ZC-VpB" id="Yow-Po-pgo"/>
                         <outlet property="closeCell" destination="hTy-Rh-Kd1" id="Tjq-Fd-S3Q"/>
+                        <outlet property="feedbackCell" destination="toE-8W-Que" id="hPf-S4-f0u"/>
                         <outlet property="friendsCell" destination="qAx-0M-ccH" id="DEh-By-RXe"/>
                         <outlet property="notificationsCell" destination="zqf-uQ-exO" id="AgE-BT-6Bd"/>
                         <outlet property="tableView" destination="ATg-3S-ZKj" id="Iru-rq-SAi"/>
@@ -254,7 +255,6 @@
                                 <connections>
                                     <outlet property="descriptionLabel" destination="nVu-eb-7yk" id="TeV-wE-N8c"/>
                                     <outlet property="label" destination="TAY-4L-XeF" id="M0f-Fn-SYx"/>
-                                    <outlet property="recognizer" destination="a8z-9x-wIi" id="FZR-9M-KJg"/>
                                     <outletCollection property="gestureRecognizers" destination="a8z-9x-wIi" appends="YES" id="ecM-i1-BGe"/>
                                 </connections>
                             </view>
@@ -273,6 +273,61 @@
                         <outlet property="containerView" destination="BT2-Aj-pGn" id="5vL-5d-Ceo"/>
                     </connections>
                 </tableViewCell>
+                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="toE-8W-Que" customClass="MenuCell">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="toE-8W-Que" id="aG7-wI-9g4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Pg-XU2" userLabel="Feedback Container View" customClass="MenuCellContentView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="feedback" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egI-mq-daY" customClass="DesignLabel">
+                                        <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ok?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kia-tr-oNo">
+                                        <rect key="frame" x="20" y="43.5" width="335" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kia-tr-oNo" firstAttribute="top" secondItem="egI-mq-daY" secondAttribute="bottom" id="5x2-7A-9je"/>
+                                    <constraint firstItem="Kia-tr-oNo" firstAttribute="width" secondItem="5n5-Pg-XU2" secondAttribute="width" constant="-40" id="9zo-oW-puf"/>
+                                    <constraint firstItem="egI-mq-daY" firstAttribute="width" secondItem="5n5-Pg-XU2" secondAttribute="width" constant="-40" id="B9K-8J-oMQ"/>
+                                    <constraint firstItem="egI-mq-daY" firstAttribute="top" secondItem="5n5-Pg-XU2" secondAttribute="top" id="FMP-vg-N4T"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kia-tr-oNo" secondAttribute="bottom" id="eBb-sf-Slr"/>
+                                    <constraint firstItem="egI-mq-daY" firstAttribute="leading" secondItem="5n5-Pg-XU2" secondAttribute="leading" constant="20" id="faH-qE-LRR"/>
+                                    <constraint firstItem="Kia-tr-oNo" firstAttribute="leading" secondItem="5n5-Pg-XU2" secondAttribute="leading" constant="20" id="irH-dA-5Wn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="Kia-tr-oNo" id="RXX-tL-BOF"/>
+                                    <outlet property="label" destination="egI-mq-daY" id="9Ia-Xg-3q8"/>
+                                    <outlet property="recognizer" destination="QJL-BG-sdL" id="Ook-7O-ntg"/>
+                                    <outletCollection property="gestureRecognizers" destination="QJL-BG-sdL" appends="YES" id="oc8-V7-P7Q"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5n5-Pg-XU2" firstAttribute="top" secondItem="aG7-wI-9g4" secondAttribute="top" id="FTP-qG-zLQ"/>
+                            <constraint firstAttribute="bottom" secondItem="5n5-Pg-XU2" secondAttribute="bottom" id="PSN-h1-k2d"/>
+                            <constraint firstItem="5n5-Pg-XU2" firstAttribute="leading" secondItem="aG7-wI-9g4" secondAttribute="leading" id="b3d-o4-nTz"/>
+                            <constraint firstItem="5n5-Pg-XU2" firstAttribute="width" secondItem="aG7-wI-9g4" secondAttribute="width" id="zMm-4O-uA8"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outlet property="containerView" destination="5n5-Pg-XU2" id="Uo5-6v-b1g"/>
+                    </connections>
+                </tableViewCell>
                 <tapGestureRecognizer delaysTouchesEnded="NO" id="gt2-xT-AXR">
                     <connections>
                         <action selector="tapped:" destination="4iT-7X-XQb" id="aeD-nG-Sex"/>
@@ -289,6 +344,12 @@
                     <connections>
                         <action selector="tapped:" destination="BT2-Aj-pGn" id="Dbl-wY-vQi"/>
                         <outlet property="delegate" destination="BT2-Aj-pGn" id="8gs-Qk-2NO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="QJL-BG-sdL">
+                    <connections>
+                        <action selector="tapped:" destination="5n5-Pg-XU2" id="pRF-uW-LWb"/>
+                        <outlet property="delegate" destination="5n5-Pg-XU2" id="hvg-a4-wAn"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

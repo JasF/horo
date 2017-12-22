@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "screensmanager.h"
 #include "managers/viewmodelsimpl/viewmodelsimpl.h"
+#include "managers/notifications/notificationsimpl.h"
 
 namespace horo {
   
@@ -19,7 +20,7 @@ namespace horo {
     public:
         static void setPrivateInstance(ScreensManager *privateInstance);
     public:
-        ScreensManagerImpl();
+        ScreensManagerImpl(strong<Notifications> notifications);
         ~ScreensManagerImpl() override;
     public:
         void showPredictionViewController() override;
@@ -33,6 +34,8 @@ namespace horo {
         strong<ViewModels> viewModels() {return viewModels_;};
     private:
         strong<ViewModels> viewModels_;
+        strong<Notifications> notifications_;
+        bool notificationsInitialized_;
     };
     
 };

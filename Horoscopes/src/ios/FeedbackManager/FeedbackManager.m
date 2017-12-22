@@ -10,6 +10,7 @@
 #import "FeedbackManager.h"
 
 @interface FeedbackManager () <MFMailComposeViewControllerDelegate>
+@property (strong, nonatomic) UIViewController *parentViewController;
 @end
 
 @implementation FeedbackManager
@@ -28,7 +29,8 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *controller = [self createFeedbackMailController];
         if (controller) {
-            [parentViewController presentViewController:controller animated:YES completion:nil];
+            _parentViewController = parentViewController;
+            [_parentViewController presentViewController:controller animated:YES completion:nil];
         }
     }
     else {
@@ -74,7 +76,17 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(nullable NSError *)error {
-    
+    @weakify(self);
+    [controller dismissViewControllerAnimated:YES completion:^{
+        @strongify(self);
+        if (result == MFMailComposeResultSent && self.parentViewController) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:L(@"send_feedback_thanks") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self.parentViewController presentViewController:alert animated:YES completion:nil];
+        }
+        self.parentViewController = nil;
+    }];
 }
 
 @end

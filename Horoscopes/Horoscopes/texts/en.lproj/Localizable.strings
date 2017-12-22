@@ -56,3 +56,4 @@
 "feedback"="Feedback";
 "feedback_text"="\n\n\n\n----------------------------------------------------\nPlease do not delete this information. %.1f\nToken: $^";
 "lucky_horoscope_feedback"="Lucky Horoscope Feedback";
+"send_feedback_thanks"="Thank You for feedback!";

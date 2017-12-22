@@ -19,9 +19,9 @@ public:
 public:
     NotificationsImpl();
     ~NotificationsImpl() override;
-    
-public:
     void initialize() override;
+    void openSettings() override;
+    bool isRegisteredForRemoteNotifications() override;
 };
     
 }

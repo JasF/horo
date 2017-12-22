@@ -30,4 +30,19 @@ void NotificationsImpl::initialize() {
     }
 }
 
+void NotificationsImpl::openSettings() {
+    SCParameterAssert(privateInstance);
+    if (privateInstance) {
+        privateInstance->openSettings();
+    }
+}
+
+bool NotificationsImpl::isRegisteredForRemoteNotifications() {
+    SCParameterAssert(privateInstance);
+    if (privateInstance) {
+        privateInstance->isRegisteredForRemoteNotifications();
+    }
+    return false;
+}
+
 };

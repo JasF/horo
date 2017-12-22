@@ -16,6 +16,8 @@ namespace horo {
     public:
         virtual ~_Notifications(){}
         virtual void initialize()=0;
+        virtual void openSettings()=0;
+        virtual bool isRegisteredForRemoteNotifications()=0;
     };
     typedef reff<_Notifications> Notifications;
 };

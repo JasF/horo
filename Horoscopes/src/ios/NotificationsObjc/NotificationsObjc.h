@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NotificationsObjc : NSObject
-
++ (instancetype)shared;
 @end

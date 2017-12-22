@@ -440,6 +440,8 @@
 		C373D4EE1FED1B6200D3BA16 /* FeedbackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */; };
 		C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */; };
 		C373D4F21FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */; };
+		C373D4F41FED2C9C00D3BA16 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */; };
+		C373D4F51FED2CA100D3BA16 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */; };
 		C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C3817DDF1FA6FD9800447155 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */; };
 		C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DE51FA7055200447155 /* firestoreimpl.cc */; };
@@ -840,6 +842,7 @@
 		C373D4EC1FED1B6200D3BA16 /* FeedbackManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackManager.m; sourceTree = "<group>"; };
 		C373D4EF1FED1EB500D3BA16 /* UIDevice+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Horo.h"; sourceTree = "<group>"; };
 		C373D4F01FED1EB500D3BA16 /* UIDevice+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Horo.m"; sourceTree = "<group>"; };
+		C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -963,6 +966,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C373D4F51FED2CA100D3BA16 /* UserNotifications.framework in Frameworks */,
 				C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */,
 				C3817DDD1FA6F70000447155 /* libz.1.2.8.tbd in Frameworks */,
 				C3CD7DF61FA6F4E800D2BFF3 /* GoogleToolboxForMac.framework in Frameworks */,
@@ -997,6 +1001,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C373D4F41FED2C9C00D3BA16 /* UserNotifications.framework in Frameworks */,
 				C315AC421FE5040C00CC9B67 /* WebKit.framework in Frameworks */,
 				C315AC431FE5040C00CC9B67 /* libz.1.2.8.tbd in Frameworks */,
 				C315AC4B1FE5040C00CC9B67 /* GoogleToolboxForMac.framework in Frameworks */,
@@ -2271,6 +2276,7 @@
 		C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */,
 				C375BF211FD13C86007D6AC8 /* Foundation.framework */,
 				C31A13FD1FB087D2001FABFE /* JavaScriptCore.framework */,
 				C31A138E1FAF39BC001FABFE /* WebKit.framework */,

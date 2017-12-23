@@ -1,0 +1,4 @@
+target 'Horoscopes' do
+  use_frameworks!
+  pod 'PushNotifications'
+end

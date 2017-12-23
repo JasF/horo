@@ -9,6 +9,7 @@
 #import "managers/notifications/notificationsimpl.h"
 #import <UserNotifications/UserNotifications.h>
 #import "NotificationsObjc.h"
+#import <libPusher/Pusher/Pusher.h>
 
 @interface NotificationsObjc () <UNUserNotificationCenterDelegate>
 @end

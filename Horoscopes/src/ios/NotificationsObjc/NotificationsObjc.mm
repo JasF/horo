@@ -10,6 +10,7 @@
 #import <UserNotifications/UserNotifications.h>
 #import "NotificationsObjc.h"
 #import <libPusher/Pusher/Pusher.h>
+#import "NSString+Horo.h"
 
 #ifdef CENSORED
 #import "Horoscopes_censored-Swift.h"
@@ -105,10 +106,12 @@ namespace horo {
         
         void didRegisterForRemoteNotificationsWithDeviceToken(string token) override {
             deviceToken_ = token;
+            NSString *tokenString = [[NSString alloc] initWithUTF8String:token.c_str()];
+            NSData *tokenData = [tokenString horo_dataFromHex];
+            [pushNotificationsWrapper_ registeredWithDeviceToken:tokenData];
         }
         
         void didFailToRegisterForRemoteNotificationsWithError(error err) override {
-            
         }
 
     private:

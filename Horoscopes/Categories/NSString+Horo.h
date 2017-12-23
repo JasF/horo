@@ -13,5 +13,6 @@
 @interface NSString (Horo)
 
 + (NSArray *)horo_stringsArrayWithList:(std::list<std::string>)list;
+- (NSData *)horo_dataFromHex;
 
 @end

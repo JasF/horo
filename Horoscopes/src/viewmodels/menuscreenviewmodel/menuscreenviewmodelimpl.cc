@@ -49,7 +49,7 @@ namespace horo {
     }
     
     void MenuScreenViewModelImpl::notificationsTapped() {
-        
+        screensManager_->showNotificationsViewController();
     }
     
     void MenuScreenViewModelImpl::feedbackTapped() {

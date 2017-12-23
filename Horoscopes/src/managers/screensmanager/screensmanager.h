@@ -24,6 +24,7 @@ public:
     virtual void showFriendsViewController() = 0;
     virtual void showAccountViewController() = 0;
     virtual void showFeedViewController() = 0;
+    virtual void showNotificationsViewController() = 0;
 };
     
 typedef reff<_ScreensManager> ScreensManager;

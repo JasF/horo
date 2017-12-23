@@ -16,6 +16,7 @@
 #include "managers/firestore/firestore.h"
 #include "managers/horoscopesservice/horoscopesservice.h"
 #include "managers/screensmanager/screensmanager.h"
+#include "managers/notifications/notifications.h"
 #include "data/person.h"
 
 namespace horo {
@@ -27,7 +28,8 @@ namespace horo {
                    strong<Settings> settings,
                    strong<Firestore> firestore,
                    strong<HoroscopesService> horoscopesService,
-                   strong<ScreensManager> screensManager);
+                   strong<ScreensManager> screensManager,
+                   strong<Notifications> notifications);
         ~ModelsImpl() override;
     public:
         strong<PredictionScreenModel> predictionScreenModel() override;
@@ -36,6 +38,7 @@ namespace horo {
         strong<MenuScreenModel> menuScreenModel() override;
         strong<FriendsScreenModel> friendsScreenModel() override;
         strong<AccountScreenModel> accountScreenModel() override;
+        strong<NotificationsScreenModel> notificationsScreenModel() override;
         
     private:
         strong<CoreComponents> components_;
@@ -44,6 +47,7 @@ namespace horo {
         strong<Firestore> firestore_;
         strong<HoroscopesService> horoscopesService_;
         strong<ScreensManager> screensManager_;
+        strong<Notifications> notifications_;
     };
     
 };

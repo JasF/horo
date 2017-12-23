@@ -29,6 +29,7 @@ namespace horo {
         strong<MenuScreenViewModel> menuScreenViewModel() override;
         strong<FriendsScreenViewModel> friendsScreenViewModel() override;
         strong<AccountScreenViewModel> accountScreenViewModel() override;
+        strong<NotificationsScreenViewModel> notificationsScreenViewModel() override;
         
     private:
         strong<Models> models_;

@@ -7,6 +7,7 @@
 //
 
 #include "managers/screensmanager/screensmanagerimpl.h"
+#import "NotificationsViewController.h"
 #import "PredictionViewController.h"
 #import "AccountViewController.h"
 #import "WelcomeViewController.h"
@@ -122,6 +123,16 @@ namespace horo {
         void showFeedViewController() override {
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             [[FeedbackManager shared] showFeedbackController:delegate.window.rootViewController];
+        }
+        
+        void showNotificationsViewController() override {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NotificationsViewController"
+                                                                 bundle:nil];
+            UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
+            NotificationsViewController *viewController = (NotificationsViewController *)navigationController.topViewController;
+            viewController.viewModel = impl_->viewModels()->notificationsScreenViewModel();
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = navigationController;
         }
         
     private:

@@ -30,6 +30,7 @@ namespace horo {
         void showFriendsViewController() override;
         void showAccountViewController() override;
         void showFeedViewController() override;
+        void showNotificationsViewController() override;
         
     private:
         void initializeNotifications();

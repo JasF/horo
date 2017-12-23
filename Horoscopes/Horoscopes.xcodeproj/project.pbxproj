@@ -253,6 +253,14 @@
 		C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
 		C3292C941FEE887200A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3292C961FEE889100A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C3292C9A1FEEA00D00A3698B /* NotificationsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */; };
+		C3292C9B1FEEA00D00A3698B /* NotificationsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */; };
+		C3292C9D1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */; };
+		C3292C9E1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */; };
+		C3292CA51FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3292CA41FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc */; };
+		C3292CA61FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3292CA41FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc */; };
+		C3292CA91FEEA27300A3698B /* notificationsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3292CA81FEEA27300A3698B /* notificationsscreenmodelimpl.cc */; };
+		C3292CAA1FEEA27300A3698B /* notificationsscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3292CA81FEEA27300A3698B /* notificationsscreenmodelimpl.cc */; };
 		C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */; };
 		C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */; };
 		C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */; };
@@ -734,6 +742,15 @@
 		C31A14171FB19612001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
 		C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookuserdetailparser.cc; sourceTree = "<group>"; };
 		C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
+		C3292C981FEEA00D00A3698B /* NotificationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsViewController.mm; sourceTree = "<group>"; };
+		C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsViewController.storyboard; sourceTree = "<group>"; };
+		C3292CA11FEEA24100A3698B /* notificationsscreenmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationsscreenmodel.h; sourceTree = "<group>"; };
+		C3292CA21FEEA24E00A3698B /* notificationsscreenviewmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationsscreenviewmodel.h; sourceTree = "<group>"; };
+		C3292CA31FEEA25F00A3698B /* notificationsscreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationsscreenviewmodelimpl.h; sourceTree = "<group>"; };
+		C3292CA41FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = notificationsscreenviewmodelimpl.cc; sourceTree = "<group>"; };
+		C3292CA71FEEA27300A3698B /* notificationsscreenmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationsscreenmodelimpl.h; sourceTree = "<group>"; };
+		C3292CA81FEEA27300A3698B /* notificationsscreenmodelimpl.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = notificationsscreenmodelimpl.cc; sourceTree = "<group>"; };
 		C32A5FF71FDBD2AC003CF1CA /* FriendsResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsResultsViewController.h; sourceTree = "<group>"; };
 		C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsResultsViewController.mm; sourceTree = "<group>"; };
 		C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsCell.xib; sourceTree = "<group>"; };
@@ -1321,6 +1338,7 @@
 		C30B186A1FA49AFF006DEDB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C3292C9F1FEEA21300A3698B /* notificationsscreenmodel */,
 				C34233D41FE8F5DE00428768 /* accountscreenmodel */,
 				C31A13861FAF2F4D001FABFE /* friendsscreenmodel */,
 				C3383FE01FAF26C800CCE133 /* menuscreenmodel */,
@@ -1344,6 +1362,7 @@
 		C30B18701FA49DCD006DEDB7 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				C3292CA01FEEA22400A3698B /* notificationsscreenviewmodel */,
 				C34233D51FE8F5E800428768 /* accountscreenviewmodel */,
 				C31A13811FAF2F45001FABFE /* friendsscreenviewmodel */,
 				C3383FDB1FAF26AA00CCE133 /* menuscreenviewmodel */,
@@ -1375,6 +1394,7 @@
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C3292C971FEE9FED00A3698B /* NotificationsViewController */,
 				C34233CC1FE8F21500428768 /* AccountViewController */,
 				C3E602731FDFB1C100E89115 /* FriendsBaseViewController */,
 				C32A60271FDC245A003CF1CA /* WebViewDialogController */,
@@ -1654,6 +1674,36 @@
 				C31A14091FB0B254001FABFE /* persondaoimpl.cc */,
 			);
 			path = persondao;
+			sourceTree = "<group>";
+		};
+		C3292C971FEE9FED00A3698B /* NotificationsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3292C981FEEA00D00A3698B /* NotificationsViewController.h */,
+				C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */,
+				C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */,
+			);
+			path = NotificationsViewController;
+			sourceTree = "<group>";
+		};
+		C3292C9F1FEEA21300A3698B /* notificationsscreenmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C3292CA11FEEA24100A3698B /* notificationsscreenmodel.h */,
+				C3292CA71FEEA27300A3698B /* notificationsscreenmodelimpl.h */,
+				C3292CA81FEEA27300A3698B /* notificationsscreenmodelimpl.cc */,
+			);
+			path = notificationsscreenmodel;
+			sourceTree = "<group>";
+		};
+		C3292CA01FEEA22400A3698B /* notificationsscreenviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C3292CA21FEEA24E00A3698B /* notificationsscreenviewmodel.h */,
+				C3292CA31FEEA25F00A3698B /* notificationsscreenviewmodelimpl.h */,
+				C3292CA41FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc */,
+			);
+			path = notificationsscreenviewmodel;
 			sourceTree = "<group>";
 		};
 		C32A5FF61FDBD273003CF1CA /* FriendsResultsViewController */ = {
@@ -2599,6 +2649,7 @@
 				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
+				C3292C9E1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */,
 				C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
@@ -2630,6 +2681,7 @@
 				C315ACAE1FE5040C00CC9B67 /* tag.in in Resources */,
 				C315ACAF1FE5040C00CC9B67 /* WelcomeViewController.storyboard in Resources */,
 				C315ACB11FE5040C00CC9B67 /* PredictionContentViewController.xib in Resources */,
+				C3292C9D1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */,
 				C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
 				C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */,
 				C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */,
@@ -2734,6 +2786,7 @@
 				C373D4F21FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
 				C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */,
 				C3B601871FA5F39100AD4F6D /* facebookloginmanager.cc in Sources */,
+				C3292CAA1FEEA27300A3698B /* notificationsscreenmodelimpl.cc in Sources */,
 				C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */,
 				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
 				C373D45F1FEBBDDB00D3BA16 /* messagehandler_forxcode.cc in Sources */,
@@ -2839,6 +2892,7 @@
 				C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */,
 				C31A13B81FB05E48001FABFE /* htmlparserfactoryimpl.cc in Sources */,
 				C3D27C991FA309130094BF12 /* managers.cc in Sources */,
+				C3292C9B1FEEA00D00A3698B /* NotificationsViewController.mm in Sources */,
 				C31A13FC1FB073D8001FABFE /* facebookfriendsparser.cc in Sources */,
 				C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C30B184A1FA49827006DEDB7 /* screensmanagerimpl.cc in Sources */,
@@ -2888,6 +2942,7 @@
 				C373D4881FEBBDDB00D3BA16 /* thread_forxcode.cc in Sources */,
 				C373D43F1FEBBDDB00D3BA16 /* asyncinvoker_forxcode.cc in Sources */,
 				C373D44D1FEBBDDB00D3BA16 /* criticalsection_forxcode.cc in Sources */,
+				C3292CA61FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C373D4461FEBBDDB00D3BA16 /* bitbuffer_forxcode.cc in Sources */,
 				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
@@ -2942,6 +2997,7 @@
 				C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
 				C315ABE71FE5040C00CC9B67 /* networkingservicefactoryimpl.cc in Sources */,
 				C373D4191FEBBDD300D3BA16 /* crc32_forxcode.cc in Sources */,
+				C3292CA91FEEA27300A3698B /* notificationsscreenmodelimpl.cc in Sources */,
 				C373D3F91FEBBDD300D3BA16 /* pathutils_forxcode.cc in Sources */,
 				C315ABE81FE5040C00CC9B67 /* FriendsBaseViewController.mm in Sources */,
 				C315ABE91FE5040C00CC9B67 /* facebookfriendsprovider.cc in Sources */,
@@ -3047,6 +3103,7 @@
 				C373D4161FEBBDD300D3BA16 /* network_forxcode.cc in Sources */,
 				C315AC241FE5040C00CC9B67 /* friendsproviderfactoryimpl.cc in Sources */,
 				C315AC251FE5040C00CC9B67 /* htmlparserfactoryimpl.cc in Sources */,
+				C3292C9A1FEEA00D00A3698B /* NotificationsViewController.mm in Sources */,
 				C315AC261FE5040C00CC9B67 /* managers.cc in Sources */,
 				C315AC271FE5040C00CC9B67 /* facebookfriendsparser.cc in Sources */,
 				C373D40F1FEBBDD300D3BA16 /* stringencode_forxcode.cc in Sources */,
@@ -3096,6 +3153,7 @@
 				C373D3FE1FEBBDD300D3BA16 /* httpcommon_forxcode.cc in Sources */,
 				C373D4071FEBBDD300D3BA16 /* cryptstring_forxcode.cc in Sources */,
 				C373D3F31FEBBDD300D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */,
+				C3292CA51FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
 				C315AC401FE5040C00CC9B67 /* NetworkingServiceObjc.mm in Sources */,
 				C373D4151FEBBDD300D3BA16 /* filerotatingstream_forxcode.cc in Sources */,

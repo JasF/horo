@@ -12,6 +12,7 @@
 #include "viewmodels/menuscreenviewmodel/menuscreenviewmodelimpl.h"
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodelimpl.h"
 #include "viewmodels/accountscreenviewmodel/accountscreenviewmodelimpl.h"
+#include "viewmodels/notificationsscreenviewmodel/notificationsscreenviewmodelimpl.h"
 
 namespace horo {
     
@@ -57,6 +58,12 @@ namespace horo {
     strong<AccountScreenViewModel> ViewModelsImpl::accountScreenViewModel() {
         strong<AccountScreenModel> model = models_->accountScreenModel();
         AccountScreenViewModelImpl *viewModel = new AccountScreenViewModelImpl(model, screensManager_);
+        return viewModel;
+    }
+    
+    strong<NotificationsScreenViewModel> ViewModelsImpl::notificationsScreenViewModel() {
+        strong<NotificationsScreenModel> model = models_->notificationsScreenModel();
+        strong<NotificationsScreenViewModel> viewModel = new NotificationsScreenViewModelImpl(model, screensManager_);
         return viewModel;
     }
 };

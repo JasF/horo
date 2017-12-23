@@ -13,6 +13,7 @@
 #import "models/friendsscreenmodel/friendsscreenmodelimpl.h"
 #import "managers/loginmanager/loginmanagerfactoryimpl.h"
 #import "models/accountscreenmodel/accountscreenmodelimpl.h"
+#import "models/notificationsscreenmodel/notificationsscreenmodelimpl.h"
 #import "managers/managers.h"
 
 namespace horo {
@@ -22,19 +23,22 @@ namespace horo {
                            strong<Settings> settings,
                            strong<Firestore> firestore,
                            strong<HoroscopesService> horoscopesService,
-                           strong<ScreensManager> screensManager)
+                           strong<ScreensManager> screensManager,
+                           strong<Notifications> notifications)
     : components_(components)
     , facebookManager_(facebookManager)
     , settings_(settings)
     , firestore_(firestore)
     , horoscopesService_(horoscopesService)
-    , screensManager_(screensManager) {
+    , screensManager_(screensManager)
+    , notifications_(notifications) {
         SCParameterAssert(components_.get());
         SCParameterAssert(facebookManager_.get());
         SCParameterAssert(settings_.get());
         SCParameterAssert(firestore_.get());
         SCParameterAssert(horoscopesService_.get());
         SCParameterAssert(screensManager_.get());
+        SCParameterAssert(notifications_.get());
     }
     
     ModelsImpl::~ModelsImpl() {
@@ -70,5 +74,9 @@ namespace horo {
     
     strong<AccountScreenModel> ModelsImpl::accountScreenModel() {
         return new AccountScreenModelImpl(components_, settings_, new LoginManagerFactoryImpl(facebookManager_));
+    }
+    
+    strong<NotificationsScreenModel> ModelsImpl::notificationsScreenModel() {
+        return new NotificationsScreenModelImpl(components_, settings_, notifications_);
     }
 };

@@ -68,6 +68,12 @@ namespace horo {
         }
     }
     
+    void ScreensManagerImpl::showNotificationsViewController() {
+        if (g_privateInstance) {
+            g_privateInstance->showNotificationsViewController();
+        }
+    }
+    
     void ScreensManagerImpl::initializeNotifications() {
         if (!notificationsInitialized_) {
             notificationsInitialized_ = true;

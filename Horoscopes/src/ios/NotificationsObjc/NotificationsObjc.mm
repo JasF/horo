@@ -11,6 +11,12 @@
 #import "NotificationsObjc.h"
 #import <libPusher/Pusher/Pusher.h>
 
+#ifdef CENSORED
+#import "Horoscopes_censored-Swift.h"
+#else
+#import "Horoscopes-Swift.h"
+#endif
+
 @interface NotificationsObjc () <UNUserNotificationCenterDelegate>
 @end
 
@@ -25,7 +31,10 @@ namespace horo {
             return sharedInstance;
         }
     public:
-        NotificationsCC() {}
+        NotificationsCC() : pushNotificationsWrapper_([[PushNotificationsWrapper alloc] init]) {
+            NSCParameterAssert(pushNotificationsWrapper_);
+            [pushNotificationsWrapper_ registerInstanceId];
+        }
         ~NotificationsCC() override {}
     public:
         void initialize() override {
@@ -125,6 +134,7 @@ namespace horo {
         }
     private:
         string deviceToken_;
+        PushNotificationsWrapper *pushNotificationsWrapper_;
     };
 };
 

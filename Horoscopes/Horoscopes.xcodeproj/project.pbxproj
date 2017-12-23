@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0856464E6E64247BDC7F7445 /* Pods_Horoscopes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 268F4494458F9F6B0D46BE2C /* Pods_Horoscopes.framework */; };
 		4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3711FA06C96006378B6 /* AppDelegate.mm */; };
 		4B0FD3751FA06C96006378B6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FD3741FA06C96006378B6 /* ViewController.mm */; };
 		4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3791FA06C96006378B6 /* Assets.xcassets */; };
@@ -251,6 +250,9 @@
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
 		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
 		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
+		C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
+		C3292C941FEE887200A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C3292C961FEE889100A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C32A5FF91FDBD2AC003CF1CA /* FriendsResultsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FF81FDBD2AC003CF1CA /* FriendsResultsViewController.mm */; };
 		C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */; };
 		C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A5FFE1FDBD560003CF1CA /* FriendsCell.m */; };
@@ -295,6 +297,8 @@
 		C34233E51FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
 		C34233E61FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
+		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
+		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
 		C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */; };
@@ -513,6 +517,9 @@
 		C3CD7DF91FA6F4E800D2BFF3 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF01FA6F4E700D2BFF3 /* FirebaseInstanceID.framework */; };
 		C3CD7DFA1FA6F4E800D2BFF3 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DF11FA6F4E700D2BFF3 /* FirebaseCoreDiagnostics.framework */; };
 		C3D27C991FA309130094BF12 /* managers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3D27C971FA309130094BF12 /* managers.cc */; };
+		C3D432131FEE7A3A008B0E03 /* PushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432141FEE7A3A008B0E03 /* PushNotifications.framework */; };
+		C3D432151FEE7A40008B0E03 /* PushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; };
+		C3D4321C1FEE7E44008B0E03 /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
 		C3E602761FDFB1EB00E89115 /* FriendsBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */; };
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
@@ -521,24 +528,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C340C4AF1FED6C4E00E1F6E8 /* Embed App Extensions */ = {
+		C3292C931FEE885000A3698B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolderSpec = 10;
 			files = (
+				C3292C941FEE887200A3698B /* PushNotifications.framework in Embed Frameworks */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C340C4C01FED6CB400E1F6E8 /* Embed App Extensions */ = {
+		C3292C951FEE887A00A3698B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolderSpec = 10;
 			files = (
+				C3292C961FEE889100A3698B /* PushNotifications.framework in Embed Frameworks */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -998,6 +1007,10 @@
 		C3D27C971FA309130094BF12 /* managers.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = managers.cc; sourceTree = "<group>"; };
 		C3D27C981FA309130094BF12 /* managers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = managers.h; sourceTree = "<group>"; };
 		C3D27C9C1FA309740094BF12 /* networkingservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservice.h; sourceTree = "<group>"; };
+		C3D432141FEE7A3A008B0E03 /* PushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D432161FEE7A40008B0E03 /* PushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D432191FEE7E44008B0E03 /* Horoscopes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Horoscopes-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsWrapper.swift; sourceTree = "<group>"; };
 		C3E602741FDFB1EB00E89115 /* FriendsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsBaseViewController.h; sourceTree = "<group>"; };
 		C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsBaseViewController.mm; sourceTree = "<group>"; };
 		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
@@ -1015,6 +1028,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D432131FEE7A3A008B0E03 /* PushNotifications.framework in Frameworks */,
 				C340C4C51FEE5E3300E1F6E8 /* libicucore.tbd in Frameworks */,
 				C373D4FC1FED41BF00D3BA16 /* MessageUI.framework in Frameworks */,
 				C373D4F51FED2CA100D3BA16 /* UserNotifications.framework in Frameworks */,
@@ -1047,7 +1061,6 @@
 				C3CD7DDC1FA6F19F00D2BFF3 /* GTMSessionFetcher.framework in Frameworks */,
 				C3CD7DF41FA6F4E800D2BFF3 /* FirebaseCore.framework in Frameworks */,
 				C304097C1FA789B600A0FC33 /* FMDB.framework in Frameworks */,
-				0856464E6E64247BDC7F7445 /* Pods_Horoscopes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,6 +1068,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D432151FEE7A40008B0E03 /* PushNotifications.framework in Frameworks */,
 				C340C4C61FEE5E3700E1F6E8 /* libicucore.tbd in Frameworks */,
 				C373D4FB1FED418500D3BA16 /* MessageUI.framework in Frameworks */,
 				C373D4F41FED2C9C00D3BA16 /* UserNotifications.framework in Frameworks */,
@@ -2368,6 +2382,8 @@
 		C3CD7DFB1FA6F52F00D2BFF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3D432161FEE7A40008B0E03 /* PushNotifications.framework */,
+				C3D432141FEE7A3A008B0E03 /* PushNotifications.framework */,
 				C340C4C41FEE5E3300E1F6E8 /* libicucore.tbd */,
 				C373D4FA1FED417E00D3BA16 /* MessageUI.framework */,
 				C373D4F31FED2C9C00D3BA16 /* UserNotifications.framework */,
@@ -2386,6 +2402,7 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C3D432171FEE7E26008B0E03 /* swift */,
 				C31A13C21FB06111001FABFE /* thirdparty */,
 				C31A13A91FB05CE9001FABFE /* friends */,
 				C304096B1FA7864900A0FC33 /* database */,
@@ -2439,6 +2456,15 @@
 			path = networkingservice;
 			sourceTree = "<group>";
 		};
+		C3D432171FEE7E26008B0E03 /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */,
+				C3D432191FEE7E44008B0E03 /* Horoscopes-Bridging-Header.h */,
+			);
+			path = swift;
+			sourceTree = "<group>";
+		};
 		C3E602731FDFB1C100E89115 /* FriendsBaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2482,14 +2508,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B0FD3831FA06C96006378B6 /* Build configuration list for PBXNativeTarget "Horoscopes" */;
 			buildPhases = (
-				552BC8843815C34D7C542A60 /* [CP] Check Pods Manifest.lock */,
 				C301ABD01FA24E12001A0ED7 /* ShellScript */,
 				4B0FD3691FA06C96006378B6 /* Sources */,
 				4B0FD36A1FA06C96006378B6 /* Frameworks */,
 				4B0FD36B1FA06C96006378B6 /* Resources */,
-				C340C4AF1FED6C4E00E1F6E8 /* Embed App Extensions */,
-				D67462BC8D4D93E3069773A7 /* [CP] Embed Pods Frameworks */,
-				A1E6C8CCFA30D0D42CAEEA5C /* [CP] Copy Pods Resources */,
+				C3292C951FEE887A00A3698B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2508,7 +2531,7 @@
 				C315ABC91FE5040C00CC9B67 /* Sources */,
 				C315AC411FE5040C00CC9B67 /* Frameworks */,
 				C315ACAD1FE5040C00CC9B67 /* Resources */,
-				C340C4C01FED6CB400E1F6E8 /* Embed App Extensions */,
+				C3292C931FEE885000A3698B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2530,6 +2553,7 @@
 				TargetAttributes = {
 					4B0FD36C1FA06C96006378B6 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -2538,6 +2562,7 @@
 						};
 					};
 					C315ABC71FE5040C00CC9B67 = {
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -2632,39 +2657,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		552BC8843815C34D7C542A60 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Horoscopes-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1E6C8CCFA30D0D42CAEEA5C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Horoscopes/Pods-Horoscopes-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C301ABD01FA24E12001A0ED7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2690,24 +2682,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=~/horo/depot_tools:$PATH\ncd webrtc/src\ngn gen out/ios_sim --args='target_os=\"ios\" target_cpu=\"x64\"'\nninja -C out/ios_sim rtc_base";
-		};
-		D67462BC8D4D93E3069773A7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Horoscopes/Pods-Horoscopes-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PushNotifications/PushNotifications.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PushNotifications.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Horoscopes/Pods-Horoscopes-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2787,6 +2761,7 @@
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
 				C31A13E61FB06168001FABFE /* vector.c in Sources */,
+				C3D4321C1FEE7E44008B0E03 /* PushNotificationsWrapper.swift in Sources */,
 				C31A14031FB08FD4001FABFE /* url.cc in Sources */,
 				C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */,
 				C373D4751FEBBDDB00D3BA16 /* ratetracker_forxcode.cc in Sources */,
@@ -2832,6 +2807,7 @@
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
 				C373D4561FEBBDDB00D3BA16 /* httpbase_forxcode.cc in Sources */,
 				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,
+				C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */,
 				C3B027F41FE3A7200013E1C9 /* FriendsViewController+Filtering.mm in Sources */,
 				C30B167E1FA476CA006DEDB7 /* json_value.cpp in Sources */,
 				C373D4401FEBBDDB00D3BA16 /* asyncpacketsocket_forxcode.cc in Sources */,
@@ -2993,6 +2969,7 @@
 				C315ABF61FE5040C00CC9B67 /* loginmanagerfactoryimpl.cc in Sources */,
 				C315ABF71FE5040C00CC9B67 /* vector.c in Sources */,
 				C373D4311FEBBDD300D3BA16 /* thread_checker_impl_forxcode.cc in Sources */,
+				C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */,
 				C373D4371FEBBDD300D3BA16 /* socketstream_forxcode.cc in Sources */,
 				C315ABF81FE5040C00CC9B67 /* url.cc in Sources */,
 				C315ABF91FE5040C00CC9B67 /* facebookfriendinformationparser.cc in Sources */,
@@ -3038,6 +3015,7 @@
 				C315AC121FE5040C00CC9B67 /* Platform.mm in Sources */,
 				C315AC131FE5040C00CC9B67 /* TabsItemView.m in Sources */,
 				C315AC141FE5040C00CC9B67 /* PredictionViewController.mm in Sources */,
+				C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */,
 				C315AC151FE5040C00CC9B67 /* corecomponents.cc in Sources */,
 				C373D4111FEBBDD300D3BA16 /* random_forxcode.cc in Sources */,
 				C315AC161FE5040C00CC9B67 /* FriendsViewController+Filtering.mm in Sources */,
@@ -3186,6 +3164,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3253,6 +3232,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -3288,12 +3268,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D618E3602591BB28E8448185 /* Pods-Horoscopes.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3320,6 +3303,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d07f8701-f768-4a1b-820e-bae3ede3f304";
 				PROVISIONING_PROFILE_SPECIFIER = "Lucky Horoscopes AppStore";
+				SWIFT_OBJC_BRIDGING_HEADER = "src/swift/Horoscopes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3328,12 +3314,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFFF147E34254C7CC87CC84D /* Pods-Horoscopes.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3360,6 +3349,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d07f8701-f768-4a1b-820e-bae3ede3f304";
 				PROVISIONING_PROFILE_SPECIFIER = "Lucky Horoscopes AppStore";
+				SWIFT_OBJC_BRIDGING_HEADER = "src/swift/Horoscopes-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3367,12 +3358,15 @@
 		C315ACC41FE5040C00CC9B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3405,6 +3399,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = by.lucky.horoscopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "src/swift/Horoscopes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3412,12 +3409,15 @@
 		C315ACC51FE5040C00CC9B67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Supporting Files/entitlements/Horoscopes-AppStore.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5892LD7JW5;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Components/frameworks",
@@ -3449,6 +3449,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = by.lucky.horoscopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "src/swift/Horoscopes-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

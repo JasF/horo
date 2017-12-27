@@ -9,6 +9,7 @@
 #include "managers/screensmanager/screensmanagerimpl.h"
 #import "NotificationsViewController.h"
 #import "PredictionViewController.h"
+#import "PushTimeViewController.h"
 #import "AccountViewController.h"
 #import "WelcomeViewController.h"
 #import "FriendsViewController.h"
@@ -133,6 +134,16 @@ namespace horo {
             viewController.viewModel = impl_->viewModels()->notificationsScreenViewModel();
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             delegate.window.rootViewController = navigationController;
+        }
+        
+        void showPushTimeViewController() override {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PushTimeViewController"
+                                                                 bundle:nil];
+            PushTimeViewController *viewController = (PushTimeViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+           // viewController.viewModel = impl_->viewModels()->pushTimeScreenViewModel();
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            UINavigationController *navigationController =(UINavigationController *)delegate.window.rootViewController;
+            [navigationController pushViewController:viewController animated:YES];
         }
         
     private:

@@ -74,6 +74,12 @@ namespace horo {
         }
     }
     
+    void ScreensManagerImpl::showPushTimeViewController() {
+        if (g_privateInstance) {
+            g_privateInstance->showPushTimeViewController();
+        }
+    }
+    
     void ScreensManagerImpl::initializeNotifications() {
         if (!notificationsInitialized_) {
             notificationsInitialized_ = true;

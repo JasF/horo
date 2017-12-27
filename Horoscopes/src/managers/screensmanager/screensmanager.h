@@ -25,6 +25,7 @@ public:
     virtual void showAccountViewController() = 0;
     virtual void showFeedViewController() = 0;
     virtual void showNotificationsViewController() = 0;
+    virtual void showPushTimeViewController() = 0;
 };
     
 typedef reff<_ScreensManager> ScreensManager;

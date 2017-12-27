@@ -31,6 +31,7 @@ namespace horo {
         void showAccountViewController() override;
         void showFeedViewController() override;
         void showNotificationsViewController() override;
+        void showPushTimeViewController() override;
         
     private:
         void initializeNotifications();

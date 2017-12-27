@@ -19,6 +19,7 @@ namespace horo {
         virtual ~_NotificationsScreenViewModel(){}
     public:
         virtual void menuTapped() = 0;
+        virtual void pushTimeTapped() = 0;
     };
     
     typedef reff<_NotificationsScreenViewModel> NotificationsScreenViewModel;

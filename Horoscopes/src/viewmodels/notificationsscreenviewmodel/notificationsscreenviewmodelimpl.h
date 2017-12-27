@@ -22,6 +22,7 @@ namespace horo {
         
     public:
         void menuTapped() override;
+        void pushTimeTapped() override;
         
     private:
         strong<NotificationsScreenModel> model_;

@@ -25,4 +25,8 @@ void NotificationsScreenViewModelImpl::menuTapped() {
     screensManager_->showMenuViewController(true);
 }
 
+void NotificationsScreenViewModelImpl::pushTimeTapped() {
+    screensManager_->showPushTimeViewController();
+}
+
 };

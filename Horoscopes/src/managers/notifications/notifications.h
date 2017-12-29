@@ -23,6 +23,13 @@ namespace horo {
         virtual void didReceiveRemoteNotification(Json::Value userInfo)=0;
         virtual void didRegisterForRemoteNotificationsWithDeviceToken(string token)=0;
         virtual void didFailToRegisterForRemoteNotificationsWithError(error err)=0;
+        virtual int pushTime()=0;
+        virtual void setPushTime(int pushTime)=0;
+        virtual void sendSettingsIfNeeded()=0;
+        virtual bool notificationsDisabled()=0;
+        
+// private methods
+        virtual void sendSettingsForZodiacName(string zodiacName)=0;
     };
     typedef reff<_Notifications> Notifications;
 };

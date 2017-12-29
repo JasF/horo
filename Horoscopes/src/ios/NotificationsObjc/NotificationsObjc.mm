@@ -11,6 +11,7 @@
 #import "NotificationsObjc.h"
 #import <libPusher/Pusher/Pusher.h>
 #import "NSString+Horo.h"
+#include "managers.h"
 
 #ifdef CENSORED
 #import "Horoscopes_censored-Swift.h"
@@ -23,17 +24,20 @@
 
 namespace horo {
     class NotificationsCC : public Notifications {
+        friend class NotificationsImpl;
     public:
         static NotificationsCC *shared() {
             static NotificationsCC *sharedInstance = nullptr;
             if (!sharedInstance) {
-                sharedInstance = new NotificationsCC();
+                sharedInstance = new NotificationsCC(Managers::shared().settings());
             }
             return sharedInstance;
         }
     public:
-        NotificationsCC() : pushNotificationsWrapper_([[PushNotificationsWrapper alloc] init]) {
+        NotificationsCC(strong<Settings> settings) : pushNotificationsWrapper_([[PushNotificationsWrapper alloc] init]),
+        settings_(settings) {
             NSCParameterAssert(pushNotificationsWrapper_);
+            NSCParameterAssert(settings_);
             [pushNotificationsWrapper_ registerInstanceId];
         }
         ~NotificationsCC() override {}
@@ -100,9 +104,7 @@ namespace horo {
             return deviceToken_;
         }
         
-        void didReceiveRemoteNotification(Json::Value userInfo) override {
-            
-        }
+        void didReceiveRemoteNotification(Json::Value userInfo) override {}
         
         void didRegisterForRemoteNotificationsWithDeviceToken(string token) override {
             deviceToken_ = token;
@@ -111,9 +113,29 @@ namespace horo {
             [pushNotificationsWrapper_ registeredWithDeviceToken:tokenData];
         }
         
-        void didFailToRegisterForRemoteNotificationsWithError(error err) override {
+        void didFailToRegisterForRemoteNotificationsWithError(error err) override {}
+        
+        int pushTime() override {
+            return settings_->pushTime();
+        }
+        
+        void setPushTime(int aPushTime) override {
+            return settings_->setPushTime(aPushTime);
         }
 
+        void sendSettingsIfNeeded() override {
+            NSCAssert(false, @"Must be implemented in manager class");
+        }
+        
+        bool notificationsDisabled() override {
+            NSCAssert(false, @"Must be implemented in manager class");
+            return false;
+        }
+        
+        void sendSettingsForZodiacName(string zodiacName) override {
+            
+        }
+        
     private:
         UNUserNotificationCenter *currentNotificationCenter() {
             if (@available (iOS 10, *)) {
@@ -138,6 +160,7 @@ namespace horo {
     private:
         string deviceToken_;
         PushNotificationsWrapper *pushNotificationsWrapper_;
+        strong<Settings> settings_;
     };
 };
 

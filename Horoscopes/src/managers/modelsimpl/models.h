@@ -17,6 +17,7 @@
 #include "models/friendsscreenmodel/friendsscreenmodel.h"
 #include "models/accountscreenmodel/accountscreenmodel.h"
 #include "models/notificationsscreenmodel/notificationsscreenmodel.h"
+#include "models/pushtimescreenmodel/pushtimescreenmodel.h"
 
 namespace horo {
     
@@ -31,6 +32,7 @@ namespace horo {
         virtual strong<FriendsScreenModel> friendsScreenModel()=0;
         virtual strong<AccountScreenModel> accountScreenModel()=0;
         virtual strong<NotificationsScreenModel> notificationsScreenModel()=0;
+        virtual strong<PushTimeScreenModel> pushTimeScreenModel()=0;
     };
     
     typedef reff<_Models> Models;

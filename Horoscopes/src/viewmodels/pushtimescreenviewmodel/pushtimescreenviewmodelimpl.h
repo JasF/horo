@@ -17,16 +17,16 @@
 namespace horo {
     class PushTimeScreenViewModelImpl : public PushTimeScreenViewModel {
     public:
-        PushTimeScreenViewModelImpl(strong<NotificationsScreenModel> model, strong<ScreensManager> screensManager);
+        PushTimeScreenViewModelImpl(strong<PushTimeScreenModel> model);
         ~PushTimeScreenViewModelImpl() override;
         
     public:
-        void menuTapped() override;
-        void pushTimeTapped() override;
+        int pushTime() override;
+        void setPushTime(int pushTime) override;
+        void sendSettingsIfNeeded() override;
         
     private:
-        strong<NotificationsScreenModel> model_;
-        strong<ScreensManager> screensManager_;
+        strong<PushTimeScreenModel> model_;
     };
 };
 

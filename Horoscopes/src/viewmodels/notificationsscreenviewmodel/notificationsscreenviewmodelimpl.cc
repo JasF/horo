@@ -29,4 +29,8 @@ void NotificationsScreenViewModelImpl::pushTimeTapped() {
     screensManager_->showPushTimeViewController();
 }
 
+void NotificationsScreenViewModelImpl::sendSettingsIfNeeded() {
+    model_->sendSettingsIfNeeded();
+}
+
 };

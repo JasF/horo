@@ -10,12 +10,16 @@
 
 namespace horo {
   
-NotificationsScreenModelImpl::NotificationsScreenModelImpl(strong<CoreComponents> components, strong<Settings> settings, strong<Notifications> notifications) {
-    
+NotificationsScreenModelImpl::NotificationsScreenModelImpl(strong<Notifications> notifications) : notifications_(notifications) {
+    SCParameterAssert(notifications_);
 }
 
 NotificationsScreenModelImpl::~NotificationsScreenModelImpl() {
     
+}
+    
+void NotificationsScreenModelImpl::sendSettingsIfNeeded() {
+    notifications_->sendSettingsIfNeeded();
 }
 
 };

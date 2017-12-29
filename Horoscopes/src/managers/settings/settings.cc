@@ -10,11 +10,17 @@
 #include "json/writer.h"
 #include "json/reader.h"
 
+static int const kPushTimeDefaultValue = 11;
+
 namespace horo {
   
     _Settings::_Settings(strong<Serializer> serializer)
     : serializer_(serializer) {
         SCParameterAssert(serializer_.get());
+        if (!readInt("initialized")) {
+            initializeDefaults();
+            saveInt("initialized", 1);
+        }
     }
     
     _Settings::~_Settings() {
@@ -33,6 +39,22 @@ namespace horo {
     
     void _Settings::setCurrentPerson(strong<Person> person) {
         saveObject("currentPerson", person.get());
+    }
+    
+    int _Settings::pushTime() {
+        return readInt("pushTime");
+    }
+    
+    void _Settings::setPushTime(int pushTime) {
+        saveInt("pushTime", pushTime);
+    }
+    
+    bool _Settings::notificationsDisabled() {
+        return readBool("notificationsDisabled");
+    }
+    
+    void _Settings::setNotificationsDisabled(bool disabled) {
+        saveBool("notificationsDisabled", disabled);
     }
     
 // private methods
@@ -67,4 +89,33 @@ namespace horo {
         encoder->encode(root);
         return root;
     }
+    
+    void _Settings::saveInt(string key, int value) {
+        Json::Value dictionary;
+        dictionary[key] = value;
+        saveDictionary(key, dictionary);
+    }
+    
+    int _Settings::readInt(string key) {
+        Json::Value dictionary = dictionaryWithKey(key);
+        int result = dictionary[key].asInt();
+        return result;
+    }
+    
+    void _Settings::saveBool(string key, bool value) {
+        Json::Value dictionary;
+        dictionary[key] = value;
+        saveDictionary(key, dictionary);
+    }
+    
+    bool _Settings::readBool(string key) {
+        Json::Value dictionary = dictionaryWithKey(key);
+        bool result = dictionary[key].asInt();
+        return result;
+    }
+    
+    void _Settings::initializeDefaults() {
+        setPushTime(kPushTimeDefaultValue);
+    }
+    
 };

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "viewmodels/pushtimescreenviewmodel/pushtimescreenviewmodel.h"
 
 @interface PushTimeViewController : UIViewController
-
+@property (assign, nonatomic) strong<horo::PushTimeScreenViewModel> viewModel;
 @end

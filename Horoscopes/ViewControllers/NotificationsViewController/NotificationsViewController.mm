@@ -35,6 +35,11 @@ typedef NS_ENUM(NSInteger, RowsCount) {
     }
     _tableView.contentInset = UIEdgeInsetsMake(kTableTopInset, 0, 0, 0);
     _enablePushesCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.navigationItem.title = L(@"notifications");
+}
+
+- (void)dealloc {
+    _viewModel->sendSettingsIfNeeded();
 }
 
 - (IBAction)menuTapped:(id)sender {

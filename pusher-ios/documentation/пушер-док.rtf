@@ -10,10 +10,10 @@
 \pard\pardeftab720\sl320\partightenfactor0
 
 \f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 curl -\cf4 \strokec4 H\cf2 \strokec2  \cf5 \strokec5 "Content-Type: application/json"\cf2 \strokec2  \\\
-     -\cf4 \strokec4 H\cf2 \strokec2  \cf5 \strokec5 "Authorization: Bearer C14C4D4FCE687A45EB5B791A2596DCC"\cf2 \strokec2  \\\
-     -\cf4 \strokec4 X\cf2 \strokec2  \cf4 \strokec4 POST\cf2 \strokec2  \cf5 \strokec5 "https://54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com/publish_api/v1/instances/54423f63-b8dd-4f21-8563-b009f25c399f/publishes"\cf2 \strokec2  \\\
-     -d '\{\cf5 \strokec5 "interests"\cf2 \strokec2 :[\cf5 \strokec5 "hello"\cf2 \strokec2 ],\cf5 \strokec5 "apns"\cf2 \strokec2 :\{\cf5 \strokec5 "aps"\cf2 \strokec2 :\{\cf5 \strokec5 "alert"\cf2 \strokec2 :\{\cf5 \strokec5 "title"\cf2 \strokec2 :\cf5 \strokec5 "Hello"\cf2 \strokec2 ,\cf5 \strokec5 "body"\cf2 \strokec2 :\cf5 \strokec5 "Hello, world!"\cf2 \strokec2 \}\}\}\}'
+curl -\cf4 H\cf2  \cf5 "Content-Type: application/json"\cf2  \\\
+     -\cf4 H\cf2  \cf5 "Authorization: Bearer C14C4D4FCE687A45EB5B791A2596DCC"\cf2  \\\
+     -\cf4 X\cf2  \cf4 POST\cf2  \cf5 "https://54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com/publish_api/v1/instances/54423f63-b8dd-4f21-8563-b009f25c399f/publishes"\cf2  \\\
+     -d '\{\cf5 "interests"\cf2 :[\cf5 "hello"\cf2 ],\cf5 "apns"\cf2 :\{\cf5 "aps"\cf2 :\{\cf5 "alert"\cf2 :\{\cf5 "title"\cf2 :\cf5 "Hello"\cf2 ,\cf5 "body"\cf2 :\cf5 "Hello, world!"\cf2 \}\}\}\}'
 \f1 \
 \
 \
@@ -42,6 +42,9 @@ sendPushes?sign=aries&time=23\
 \uc0\u1085 \u1091 \u1078 \u1077 \u1085  \u1074 \u1085 \u1080 \u1084 \u1072 \u1090 \u1077 \u1083 \u1100 \u1085 \u1099 \u1081  unsubscribe, \u1095 \u1090 \u1086 -\u1073 \u1099  \u1085 \u1080 \u1075 \u1076 \u1077  \u1085 \u1080 \u1095 \u1077 \u1075 \u1086  \u1085 \u1077  \u1087 \u1088 \u1086 \u1089 \u1082 \u1072 \u1082 \u1080 \u1074 \u1072 \u1083 \u1086 .\
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\f0\fs18 \cf6 \cb7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 unsubscribeAll \uc0\u1072  \u1090 \u1086 \u1083 \u1100 \u1082 \u1086  \u1087 \u1086 \u1090 \u1086 \u1084  subscribe.\
+\f0\fs18 \cf6 \cb7 \kerning1\expnd0\expndtw0 unsubscribeAll \uc0\u1072  \u1090 \u1086 \u1083 \u1100 \u1082 \u1086  \u1087 \u1086 \u1090 \u1086 \u1084  subscribe.\
+\
+\
+\uc0\u1048  \u1082 \u1072 \u1082  \u1085 \u1072 \u1082 \u1086 \u1076 \u1080 \u1090 \u1100  \u1090 \u1086  \u1074 \u1082 \u1083 /\u1074 \u1099 \u1082 \u1083 ? \u1044 \u1072  \u1086 \u1095 \u1077 \u1085 \u1100  \u1087 \u1088 \u1086 \u1089 \u1090 \u1086 ! \u1045 \u1089 \u1083 \u1080  isRegisteredForRemoteNotifications == YES \u1072  \u1090 \u1072 \u1082  \u1078 \u1077  \u1074  \u1085 \u1072 \u1089 \u1090 \u1088 \u1086 \u1081 \u1082 \u1072 \u1093  \u1085 \u1077  \u1076 \u1080 \u1089 \u1077 \u1081 \u1073 \u1083 \u1077 \u1076 , \u1079 \u1085 \u1072 \u1095 \u1080 \u1090  \u1074 \u1082 \u1083 \u1102 \u1095 \u1077 \u1085 \u1086 . \u1048 \u1085 \u1072 \u1095 \u1077  \u1074 \u1099 \u1082 \u1083 \u1102 \u1095 \u1077 \u1085 \u1086 .\
 \
 }

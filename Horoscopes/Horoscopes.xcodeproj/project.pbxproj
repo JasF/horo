@@ -273,8 +273,8 @@
 		C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */; };
 		C337E8F51FF3E5280063ACF1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F41FF3E5280063ACF1 /* SettingsCell.m */; };
 		C337E8F61FF3E5280063ACF1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F41FF3E5280063ACF1 /* SettingsCell.m */; };
-		C337E8FA1FF3FBEA0063ACF1 /* PushTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.m */; };
-		C337E8FB1FF3FBEA0063ACF1 /* PushTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.m */; };
+		C337E8FA1FF3FBEA0063ACF1 /* PushTimeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.mm */; };
+		C337E8FB1FF3FBEA0063ACF1 /* PushTimeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.mm */; };
 		C337E8FD1FF3FBF40063ACF1 /* PushTimeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C337E8FC1FF3FBF40063ACF1 /* PushTimeViewController.storyboard */; };
 		C337E8FE1FF3FBF40063ACF1 /* PushTimeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C337E8FC1FF3FBF40063ACF1 /* PushTimeViewController.storyboard */; };
 		C337E9071FF4054A0063ACF1 /* pushtimescreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C337E9061FF4054A0063ACF1 /* pushtimescreenviewmodelimpl.cc */; };
@@ -783,7 +783,7 @@
 		C337E8F31FF3E5280063ACF1 /* SettingsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
 		C337E8F41FF3E5280063ACF1 /* SettingsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
 		C337E8F81FF3FBEA0063ACF1 /* PushTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushTimeViewController.h; sourceTree = "<group>"; };
-		C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushTimeViewController.m; sourceTree = "<group>"; };
+		C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PushTimeViewController.mm; sourceTree = "<group>"; };
 		C337E8FC1FF3FBF40063ACF1 /* PushTimeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PushTimeViewController.storyboard; sourceTree = "<group>"; };
 		C337E9011FF405260063ACF1 /* pushtimescreenviewmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pushtimescreenviewmodel.h; sourceTree = "<group>"; };
 		C337E9021FF405370063ACF1 /* pushtimescreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pushtimescreenviewmodelimpl.h; sourceTree = "<group>"; };
@@ -1813,7 +1813,7 @@
 			isa = PBXGroup;
 			children = (
 				C337E8F81FF3FBEA0063ACF1 /* PushTimeViewController.h */,
-				C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.m */,
+				C337E8F91FF3FBEA0063ACF1 /* PushTimeViewController.mm */,
 				C337E8FC1FF3FBF40063ACF1 /* PushTimeViewController.storyboard */,
 			);
 			path = PushTimeViewController;
@@ -2967,7 +2967,7 @@
 				C373D4541FEBBDDB00D3BA16 /* flags_forxcode.cc in Sources */,
 				C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */,
 				C373D46B1FEBBDDB00D3BA16 /* pathutils_forxcode.cc in Sources */,
-				C337E8FB1FF3FBEA0063ACF1 /* PushTimeViewController.m in Sources */,
+				C337E8FB1FF3FBEA0063ACF1 /* PushTimeViewController.mm in Sources */,
 				C373D45C1FEBBDDB00D3BA16 /* logsinks_forxcode.cc in Sources */,
 				C373D46E1FEBBDDB00D3BA16 /* platform_thread_forxcode.cc in Sources */,
 				C373D46A1FEBBDDB00D3BA16 /* optionsfile_forxcode.cc in Sources */,
@@ -3182,7 +3182,7 @@
 				C315AC281FE5040C00CC9B67 /* predictionscreenviewmodelimpl.cc in Sources */,
 				C315AC291FE5040C00CC9B67 /* screensmanagerimpl.cc in Sources */,
 				C315AC2A1FE5040C00CC9B67 /* birthdaydetectorimpl.cc in Sources */,
-				C337E8FA1FF3FBEA0063ACF1 /* PushTimeViewController.m in Sources */,
+				C337E8FA1FF3FBEA0063ACF1 /* PushTimeViewController.mm in Sources */,
 				C315AC2B1FE5040C00CC9B67 /* DesignLabel.m in Sources */,
 				C373D4261FEBBDD300D3BA16 /* bufferqueue_forxcode.cc in Sources */,
 				C315AC2C1FE5040C00CC9B67 /* FacebookBanagerObjc.mm in Sources */,

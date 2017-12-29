@@ -59,3 +59,5 @@
 "send_feedback_thanks"="Thank You for feedback!";
 "pushes_enabled"="Everyday notifications";
 "push_time"="Notifications Time";
+"notifications"="Notifications";
+"push_time_title"="Notifications Time";

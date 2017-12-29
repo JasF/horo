@@ -14,6 +14,7 @@
 #import "managers/loginmanager/loginmanagerfactoryimpl.h"
 #import "models/accountscreenmodel/accountscreenmodelimpl.h"
 #import "models/notificationsscreenmodel/notificationsscreenmodelimpl.h"
+#import "models/pushtimescreenmodel/pushtimescreenmodelimpl.h"
 #import "managers/managers.h"
 
 namespace horo {
@@ -77,6 +78,10 @@ namespace horo {
     }
     
     strong<NotificationsScreenModel> ModelsImpl::notificationsScreenModel() {
-        return new NotificationsScreenModelImpl(components_, settings_, notifications_);
+        return new NotificationsScreenModelImpl(notifications_);
+    }
+    
+    strong<PushTimeScreenModel> ModelsImpl::pushTimeScreenModel() {
+        return new PushTimeScreenModelImpl(notifications_);
     }
 };

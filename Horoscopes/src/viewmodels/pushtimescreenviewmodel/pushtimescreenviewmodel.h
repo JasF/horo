@@ -18,6 +18,9 @@ namespace horo {
         _PushTimeScreenViewModel(){}
         virtual ~_PushTimeScreenViewModel(){}
     public:
+        virtual int pushTime()=0;
+        virtual void setPushTime(int pushTime)=0;
+        virtual void sendSettingsIfNeeded()=0;
     };
     
     typedef reff<_PushTimeScreenViewModel> PushTimeScreenViewModel;

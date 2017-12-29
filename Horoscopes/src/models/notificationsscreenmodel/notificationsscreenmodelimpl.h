@@ -19,8 +19,12 @@
 namespace horo {
     class NotificationsScreenModelImpl : public NotificationsScreenModel {
     public:
-        NotificationsScreenModelImpl(strong<CoreComponents> components, strong<Settings> settings, strong<Notifications> notifications);
+        NotificationsScreenModelImpl(strong<Notifications> notifications);
         ~NotificationsScreenModelImpl() override;
+    public:
+        void sendSettingsIfNeeded() override;
+    private:
+        strong<Notifications> notifications_;
     };
 };
 

@@ -13,6 +13,7 @@
 #include "viewmodels/friendsscreenviewmodel/friendsscreenviewmodelimpl.h"
 #include "viewmodels/accountscreenviewmodel/accountscreenviewmodelimpl.h"
 #include "viewmodels/notificationsscreenviewmodel/notificationsscreenviewmodelimpl.h"
+#include "viewmodels/pushtimescreenviewmodel/pushtimescreenviewmodelimpl.h"
 
 namespace horo {
     
@@ -66,4 +67,11 @@ namespace horo {
         strong<NotificationsScreenViewModel> viewModel = new NotificationsScreenViewModelImpl(model, screensManager_);
         return viewModel;
     }
+    
+    strong<PushTimeScreenViewModel> ViewModelsImpl::pushTimeScreenViewModel() {
+        strong<PushTimeScreenModel> model = models_->pushTimeScreenModel();
+        strong<PushTimeScreenViewModel> viewModel = new PushTimeScreenViewModelImpl(model);
+        return viewModel;
+    }
+    
 };

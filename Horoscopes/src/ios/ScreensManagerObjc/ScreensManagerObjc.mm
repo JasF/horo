@@ -140,7 +140,7 @@ namespace horo {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PushTimeViewController"
                                                                  bundle:nil];
             PushTimeViewController *viewController = (PushTimeViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
-           // viewController.viewModel = impl_->viewModels()->pushTimeScreenViewModel();
+            viewController.viewModel = impl_->viewModels()->pushTimeScreenViewModel();
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             UINavigationController *navigationController =(UINavigationController *)delegate.window.rootViewController;
             [navigationController pushViewController:viewController animated:YES];

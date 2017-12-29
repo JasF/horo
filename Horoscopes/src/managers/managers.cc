@@ -199,7 +199,7 @@ Managers &Managers::shared() {
     strong<Notifications> Managers::notifications() {
         static strong<Notifications> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new NotificationsImpl();
+            sharedInstance = new NotificationsImpl(coreComponents(), settings());
         }
         return sharedInstance;
     }

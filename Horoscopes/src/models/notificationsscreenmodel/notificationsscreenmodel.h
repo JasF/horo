@@ -17,6 +17,8 @@ namespace horo {
     public:
         _NotificationsScreenModel(){}
         virtual ~_NotificationsScreenModel() {}
+    public:
+        virtual void sendSettingsIfNeeded()=0;
     };
     
     typedef reff<_NotificationsScreenModel> NotificationsScreenModel;

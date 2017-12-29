@@ -23,12 +23,23 @@ namespace horo {
     public:
         strong<Person> currentPerson();
         void setCurrentPerson(strong<Person> person);
+        int pushTime();
+        void setPushTime(int pushTime);
+        bool notificationsDisabled();
+        void setNotificationsDisabled(bool disabled);
+        
+    private:
+        void initializeDefaults();
         
     private:
         dictionary dictionaryWithKey(std::string key);
         void saveDictionary(std::string key, dictionary dictionary);
         Json::Value valueWithEncoder(Coding *encoder);
         void saveObject(std::string key, Coding *encoder);
+        void saveInt(string key, int value);
+        int readInt(string key);
+        void saveBool(string key, bool value);
+        bool readBool(string key);
         strong<Serializer> serializer_;
     };
     

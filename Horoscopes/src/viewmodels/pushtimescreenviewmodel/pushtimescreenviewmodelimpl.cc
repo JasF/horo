@@ -10,23 +10,25 @@
 
 namespace horo {
     
-    PushTimeScreenViewModelImpl::PushTimeScreenViewModelImpl(strong<PushTimeScreenModel> model, strong<ScreensManager> screensManager)
-    : model_(model)
-    , screensManager_(screensManager) {
+    PushTimeScreenViewModelImpl::PushTimeScreenViewModelImpl(strong<PushTimeScreenModel> model)
+    : model_(model) {
         SCParameterAssert(model_.get());
-        SCParameterAssert(screensManager_.get());
     }
     
     PushTimeScreenViewModelImpl::~PushTimeScreenViewModelImpl() {
         
     }
     
-    void PushTimeScreenViewModelImpl::menuTapped() {
-        screensManager_->showMenuViewController(true);
+    int PushTimeScreenViewModelImpl::pushTime() {
+        return model_->pushTime();
     }
     
-    void PushTimeScreenViewModelImpl::pushTimeTapped() {
-        screensManager_->showPushTimeViewController();
+    void PushTimeScreenViewModelImpl::setPushTime(int pushTime) {
+        model_->setPushTime(pushTime);
+    }
+    
+    void PushTimeScreenViewModelImpl::sendSettingsIfNeeded() {
+        model_->sendSettingsIfNeeded();
     }
     
 };

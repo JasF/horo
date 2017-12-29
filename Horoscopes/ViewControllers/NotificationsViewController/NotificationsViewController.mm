@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, RowsCount) {
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet SettingsCell *enablePushesCell;
 @property (strong, nonatomic) IBOutlet SettingsCell *pushTimeCell;
-
+@property (weak, nonatomic) IBOutlet UISwitch *swither;
 @end
 
 @implementation NotificationsViewController
@@ -36,10 +36,17 @@ typedef NS_ENUM(NSInteger, RowsCount) {
     _tableView.contentInset = UIEdgeInsetsMake(kTableTopInset, 0, 0, 0);
     _enablePushesCell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.navigationItem.title = L(@"notifications");
+    _swither.on = !_viewModel->notificationsDisabled();
 }
 
 - (void)dealloc {
     _viewModel->sendSettingsIfNeeded();
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _pushTimeCell.descriptionText = [NSString stringWithFormat:@"%@:00", @(_viewModel->pushTime())];
+    [self.tableView reloadData];
 }
 
 - (IBAction)menuTapped:(id)sender {
@@ -82,7 +89,7 @@ typedef NS_ENUM(NSInteger, RowsCount) {
 
 #pragma mark - Observers
 - (IBAction)enablePushSwitchChanged:(id)sender {
-    
+    _viewModel->setNotificationsDisabled(!_swither.on);
 }
 
 @end

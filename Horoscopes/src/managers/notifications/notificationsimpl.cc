@@ -94,9 +94,18 @@ void NotificationsImpl::sendSettingsForZodiacName(string zodiacName) {
 }
 
 bool NotificationsImpl::notificationsDisabled() {
-    return settings_->notificationsDisabled();
+    return (settings_->notificationsDisabled() || !isRegisteredForRemoteNotifications());
 }
 
+void NotificationsImpl::setNotificationsDisabled(bool disabled) {
+    settings_->setNotificationsDisabled(disabled);
+    if (!disabled) {
+        if (!isRegisteredForRemoteNotifications()) {
+            openSettings();
+        }
+    }
+}
+    
 void NotificationsImpl::sendSettings() {
     SCParameterAssert(components_->person_.get());
     SCParameterAssert(components_->person_->zodiac().get());

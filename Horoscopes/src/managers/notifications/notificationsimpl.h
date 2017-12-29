@@ -34,6 +34,7 @@ public:
     void sendSettingsIfNeeded() override;
     void sendSettingsForZodiacName(string zodiacName) override;
     bool notificationsDisabled() override;
+    void setNotificationsDisabled(bool disabled) override;
     
 private:
     string generatePushSettingsString();

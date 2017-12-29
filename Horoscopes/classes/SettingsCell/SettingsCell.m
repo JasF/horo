@@ -12,6 +12,7 @@ static CGFloat kSelectedBackgroundViewAlpha = 0.2f;
 
 @interface SettingsCell ()
 @property (strong, nonatomic) IBOutlet UILabel *mainTextLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionTextLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *switcher;
 @end
 
@@ -31,6 +32,14 @@ static CGFloat kSelectedBackgroundViewAlpha = 0.2f;
 
 - (void)setText:(NSString *)text {
     _mainTextLabel.text = text;
+}
+
+- (NSString *)descriptionText {
+    return _descriptionTextLabel.text;
+}
+
+- (void)setDescriptionText:(NSString *)descriptionText {
+    _descriptionTextLabel.text = descriptionText;
 }
 
 #pragma mark - Public Methods

@@ -22,4 +22,16 @@ void NotificationsScreenModelImpl::sendSettingsIfNeeded() {
     notifications_->sendSettingsIfNeeded();
 }
 
+bool NotificationsScreenModelImpl::notificationsDisabled() {
+    return notifications_->notificationsDisabled();
+}
+
+void NotificationsScreenModelImpl::setNotificationsDisabled(bool disabled) {
+    notifications_->setNotificationsDisabled(disabled);
+}
+  
+int NotificationsScreenModelImpl::pushTime() {
+    return notifications_->pushTime();
+}
+
 };

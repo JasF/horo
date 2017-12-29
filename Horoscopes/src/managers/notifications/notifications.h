@@ -27,6 +27,7 @@ namespace horo {
         virtual void setPushTime(int pushTime)=0;
         virtual void sendSettingsIfNeeded()=0;
         virtual bool notificationsDisabled()=0;
+        virtual void setNotificationsDisabled(bool disabled)=0;
         
 // private methods
         virtual void sendSettingsForZodiacName(string zodiacName)=0;

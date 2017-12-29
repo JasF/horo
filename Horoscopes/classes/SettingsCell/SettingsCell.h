@@ -10,5 +10,6 @@
 
 @interface SettingsCell : UITableViewCell
 @property (strong, nonatomic) NSString *text;
+@property (strong, nonatomic) NSString *descriptionText;
 - (void)setSwitcherOn:(BOOL)on;
 @end

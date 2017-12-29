@@ -24,6 +24,9 @@ namespace horo {
         void menuTapped() override;
         void pushTimeTapped() override;
         void sendSettingsIfNeeded() override;
+        bool notificationsDisabled() override;
+        void setNotificationsDisabled(bool disabled) override;
+        int pushTime() override;
         
     private:
         strong<NotificationsScreenModel> model_;

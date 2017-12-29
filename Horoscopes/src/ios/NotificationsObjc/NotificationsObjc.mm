@@ -95,7 +95,8 @@ namespace horo {
         
         bool isRegisteredForRemoteNotifications() override {
             if ([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
-                return(bool)[UIApplication sharedApplication].isRegisteredForRemoteNotifications;
+                bool result = (bool)[UIApplication sharedApplication].isRegisteredForRemoteNotifications;
+                return result;
             }
             return true;
         }
@@ -130,6 +131,10 @@ namespace horo {
         bool notificationsDisabled() override {
             NSCAssert(false, @"Must be implemented in manager class");
             return false;
+        }
+        
+        void setNotificationsDisabled(bool disabled) override {
+            NSCAssert(false, @"Must be implemented in manager class");
         }
         
         void sendSettingsForZodiacName(string zodiacName) override {

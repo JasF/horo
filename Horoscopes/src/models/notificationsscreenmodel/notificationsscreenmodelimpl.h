@@ -23,6 +23,10 @@ namespace horo {
         ~NotificationsScreenModelImpl() override;
     public:
         void sendSettingsIfNeeded() override;
+        bool notificationsDisabled() override;
+        void setNotificationsDisabled(bool disabled) override;
+        int pushTime() override;
+        
     private:
         strong<Notifications> notifications_;
     };

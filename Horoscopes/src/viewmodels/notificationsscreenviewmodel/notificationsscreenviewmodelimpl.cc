@@ -33,4 +33,16 @@ void NotificationsScreenViewModelImpl::sendSettingsIfNeeded() {
     model_->sendSettingsIfNeeded();
 }
 
+bool NotificationsScreenViewModelImpl::notificationsDisabled() {
+    return model_->notificationsDisabled();
+}
+
+void NotificationsScreenViewModelImpl::setNotificationsDisabled(bool disabled) {
+    model_->setNotificationsDisabled(disabled);
+}
+    
+int NotificationsScreenViewModelImpl::pushTime() {
+    return model_->pushTime();
+}
+    
 };

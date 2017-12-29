@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="enablePushesCell" destination="8FI-RC-aMa" id="qGs-2m-O9J"/>
                         <outlet property="pushTimeCell" destination="M1p-7a-3ny" id="xWt-M1-QOT"/>
+                        <outlet property="swither" destination="V9C-1r-QRH" id="h41-kK-OSe"/>
                         <outlet property="tableView" destination="Ea0-gR-4tF" id="paF-oy-VEh"/>
                     </connections>
                 </viewController>
@@ -130,13 +131,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="push_time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UON-DV-Y8G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="push_time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UON-DV-Y8G">
                                 <rect key="frame" x="20" y="0.0" width="322" height="43.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43.5" id="FA0-9h-8hT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCV-gt-mTj">
+                                <rect key="frame" x="166" y="0.0" width="42" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="disclosureIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="G7x-BH-BAe">
@@ -148,17 +155,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BCV-gt-mTj" firstAttribute="trailing" secondItem="G7x-BH-BAe" secondAttribute="leading" constant="-8" id="8IV-ZS-IAY"/>
                             <constraint firstAttribute="bottom" secondItem="UON-DV-Y8G" secondAttribute="bottom" id="8XD-Hh-ZpO"/>
+                            <constraint firstItem="BCV-gt-mTj" firstAttribute="bottom" secondItem="VmU-ni-PWM" secondAttribute="bottom" id="Dnn-Qp-Hfh"/>
+                            <constraint firstItem="UON-DV-Y8G" firstAttribute="trailing" secondItem="BCV-gt-mTj" secondAttribute="leading" priority="750" id="Ebh-IO-wue"/>
                             <constraint firstItem="G7x-BH-BAe" firstAttribute="bottom" secondItem="VmU-ni-PWM" secondAttribute="bottom" id="Gn3-zp-fQr"/>
+                            <constraint firstItem="BCV-gt-mTj" firstAttribute="top" secondItem="VmU-ni-PWM" secondAttribute="top" id="QCA-nh-Xax"/>
                             <constraint firstItem="UON-DV-Y8G" firstAttribute="leading" secondItem="VmU-ni-PWM" secondAttribute="leading" constant="20" id="hz7-O1-nYH"/>
                             <constraint firstItem="G7x-BH-BAe" firstAttribute="trailing" secondItem="VmU-ni-PWM" secondAttribute="trailing" constant="-8" id="k6r-AG-J7l"/>
                             <constraint firstItem="UON-DV-Y8G" firstAttribute="top" secondItem="VmU-ni-PWM" secondAttribute="top" id="lHh-1d-QO1"/>
-                            <constraint firstItem="UON-DV-Y8G" firstAttribute="trailing" secondItem="G7x-BH-BAe" secondAttribute="leading" priority="750" id="luR-gU-dLr"/>
                             <constraint firstItem="G7x-BH-BAe" firstAttribute="top" secondItem="VmU-ni-PWM" secondAttribute="top" id="tPw-fD-RRu"/>
                         </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
+                        <outlet property="descriptionTextLabel" destination="BCV-gt-mTj" id="bqW-SO-dnv"/>
                         <outlet property="mainTextLabel" destination="UON-DV-Y8G" id="mch-hU-RIJ"/>
                     </connections>
                 </tableViewCell>

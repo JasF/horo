@@ -250,6 +250,8 @@
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
 		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
 		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
+		C31BA9A21FF7F08100BF0746 /* testpusher.js in Resources */ = {isa = PBXBuildFile; fileRef = C31BA9A11FF7F08100BF0746 /* testpusher.js */; };
+		C31BA9A31FF7F08100BF0746 /* testpusher.js in Resources */ = {isa = PBXBuildFile; fileRef = C31BA9A11FF7F08100BF0746 /* testpusher.js */; };
 		C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
 		C3292C941FEE887200A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3292C961FEE889100A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -752,6 +754,8 @@
 		C31A14171FB19612001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
 		C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookuserdetailparser.cc; sourceTree = "<group>"; };
 		C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
+		C31BA9A11FF7F08100BF0746 /* testpusher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testpusher.js; sourceTree = "<group>"; };
+		C31BA9A41FF7F08700BF0746 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../server/functions/index.js; sourceTree = "<group>"; };
 		C3292C981FEEA00D00A3698B /* NotificationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
 		C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsViewController.mm; sourceTree = "<group>"; };
 		C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsViewController.storyboard; sourceTree = "<group>"; };
@@ -2172,6 +2176,8 @@
 		C37657731FAC2E0500874188 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				C31BA9A41FF7F08700BF0746 /* index.js */,
+				C31BA9A11FF7F08100BF0746 /* testpusher.js */,
 				C3B8977F1FB726880083C201 /* prettyoutputdates.js */,
 				C3B8977E1FB726880083C201 /* prettyoutputstrokes.js */,
 				C3B8977A1FB718DF0083C201 /* monthlanguages.js */,
@@ -2723,6 +2729,7 @@
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				C32A60191FDBF493003CF1CA /* FriendsViewController.storyboard in Resources */,
+				C31BA9A31FF7F08100BF0746 /* testpusher.js in Resources */,
 				C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
@@ -2756,6 +2763,7 @@
 				C315ACB61FE5040C00CC9B67 /* gRPCCertificates.bundle in Resources */,
 				C315ACB71FE5040C00CC9B67 /* MenuViewController.storyboard in Resources */,
 				C315ACB81FE5040C00CC9B67 /* FriendsViewController.storyboard in Resources */,
+				C31BA9A21FF7F08100BF0746 /* testpusher.js in Resources */,
 				C315ACB91FE5040C00CC9B67 /* WebViewDialogController.storyboard in Resources */,
 				C315ACBA1FE5040C00CC9B67 /* LaunchScreen.storyboard in Resources */,
 				C315ACBB1FE5040C00CC9B67 /* Assets.xcassets in Resources */,

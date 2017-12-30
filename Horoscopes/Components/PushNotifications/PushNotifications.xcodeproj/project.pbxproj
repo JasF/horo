@@ -62,6 +62,7 @@
 		A19ECF861FCF09A500688DAF /* InterestPersistableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestPersistableTests.swift; path = ../../Tests/InterestPersistableTests.swift; sourceTree = "<group>"; };
 		A19ECF871FCF09A500688DAF /* MockPushNotificationsSubscribable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockPushNotificationsSubscribable.swift; path = ../../Tests/MockPushNotificationsSubscribable.swift; sourceTree = "<group>"; };
 		A1ED00141F9E392700A029F2 /* PushNotificationsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PushNotificationsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C31BA9A01FF7CEBD00BF0746 /* testpusher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = testpusher.js; path = ../../server/testpusher.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		A155BFA91F9E38040070A609 = {
 			isa = PBXGroup;
 			children = (
+				C31BA9A01FF7CEBD00BF0746 /* testpusher.js */,
 				A155BFB51F9E38040070A609 /* PushNotifications */,
 				A155BFC01F9E38040070A609 /* PushNotificationsTests */,
 				A155BFB41F9E38040070A609 /* Products */,

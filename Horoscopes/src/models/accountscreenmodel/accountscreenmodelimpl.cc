@@ -10,13 +10,18 @@
 
 namespace horo {
   
-AccountScreenModelImpl::AccountScreenModelImpl(strong<CoreComponents> components, strong<Settings> settings, strong<LoginManagerFactory> loginManagerFactory)
+    AccountScreenModelImpl::AccountScreenModelImpl(strong<CoreComponents> components,
+                                                   strong<Settings> settings,
+                                                   strong<LoginManagerFactory> loginManagerFactory,
+                                                   strong<Notifications> notifications)
     : components_(components),
     settings_(settings),
-    loginManagerFactory_(loginManagerFactory) {
+    loginManagerFactory_(loginManagerFactory),
+    notifications_(notifications) {
     SCParameterAssert(components_.get());
     SCParameterAssert(settings_.get());
     SCParameterAssert(loginManagerFactory_.get());
+    SCParameterAssert(notifications_.get());
 }
 
 AccountScreenModelImpl::~AccountScreenModelImpl() {
@@ -44,6 +49,10 @@ void AccountScreenModelImpl::loggedInOnFacebook() {
 void AccountScreenModelImpl::userLoggedOut() {
     strong<Person> person = components_->person_;
     person->logout();
+}
+
+void AccountScreenModelImpl::sendSettingsIfNeeded() {
+    notifications_->sendSettingsIfNeeded();
 }
 
 void AccountScreenModelImpl::personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback) {

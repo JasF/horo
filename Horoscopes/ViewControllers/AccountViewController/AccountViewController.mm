@@ -49,6 +49,10 @@ static CGFloat const kAvatarAlphaWithImage = 1.f;
     _avatarImageView.layer.cornerRadius = _avatarImageView.height/2;
 }
 
+- (void)dealloc {
+    _viewModel->sendSettingsIfNeeded();
+}
+
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
 }

@@ -25,6 +25,7 @@ namespace horo {
         void loggedInOnFacebook() override;
         void personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback) override;
         void userLoggedOut() override;
+        void sendSettingsIfNeeded() override;
         void birthdayDateChanged(DateWrapper wrapper) override;
         
     private:

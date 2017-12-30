@@ -42,6 +42,10 @@ void AccountScreenViewModelImpl::userLoggedOut() {
     model_->userLoggedOut();
 }
 
+void AccountScreenViewModelImpl::sendSettingsIfNeeded() {
+    model_->sendSettingsIfNeeded();
+}
+
 void AccountScreenViewModelImpl::birthdayDateChanged(DateWrapper wrapper) {
     model_->birthdayDateChanged(wrapper);
 }

@@ -60,7 +60,7 @@ public final class PushNotifications {
 
      - Precondition: `interest` should not be nil.
      */
-    public func subscribe(interest: String, completion: @escaping () -> Void = {}) {
+    public func subscribe(interest: String, completion: @escaping () -> Void = {}) -> Void {
         guard
             let deviceId = self.deviceId,
             let instanceId = self.instanceId,
@@ -71,10 +71,8 @@ public final class PushNotifications {
         let networkService: PushNotificationsRegisterable & PushNotificationsSubscribable = NetworkService(url: url, session: session)
         let persistenceService: InterestPersistable = PersistenceService(service: UserDefaults(suiteName: "PushNotifications")!)
 
-        if persistenceService.persist(interest: interest) {
-            networkService.subscribe {
-                completion()
-            }
+        networkService.subscribe {
+            completion()
         }
     }
 
@@ -108,7 +106,7 @@ public final class PushNotifications {
      Unsubscribe from an interest.
 
      - Parameter interest: Interest that you want to unsubscribe to.
-     - Parameter completion: The block to execute when subscription to the interest is successfully cancelled.
+     - Parameter completion: The block to execute when subscription to the interest is successfully cancelledf.
 
      - Precondition: `interest` should not be nil.
      */

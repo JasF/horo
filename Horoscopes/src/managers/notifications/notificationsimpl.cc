@@ -43,7 +43,7 @@ void NotificationsImpl::openSettings() {
 bool NotificationsImpl::isRegisteredForRemoteNotifications() {
     SCParameterAssert(privateInstance);
     if (privateInstance) {
-        privateInstance->isRegisteredForRemoteNotifications();
+        return privateInstance->isRegisteredForRemoteNotifications();
     }
     return false;
 }
@@ -137,6 +137,7 @@ string NotificationsImpl::generatePushSettingsString() {
     Json::Value value;
     value["type"]=type;
     value["time"]=pushTime();
+    value["disabled"]=settings_->notificationsDisabled();
     string result = value.toStyledString();
     return result;
 }

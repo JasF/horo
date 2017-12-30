@@ -138,7 +138,13 @@ namespace horo {
         }
         
         void sendSettingsForZodiacName(string zodiacName) override {
-            
+            if (settings_->notificationsDisabled()) {
+                [pushNotificationsWrapper_ unsubscribe];
+            }
+            else {
+                NSString *roomName = [NSString stringWithFormat:@"%@%@", [NSString stringWithUTF8String:zodiacName.c_str()], @(pushTime())];
+                [pushNotificationsWrapper_ subscribeToRoomWithRoomName:roomName];
+            }
         }
         
     private:

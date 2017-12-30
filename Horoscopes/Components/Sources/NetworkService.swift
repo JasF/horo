@@ -54,7 +54,9 @@ struct NetworkService: PushNotificationsRegisterable, PushNotificationsSubscriba
     }
 
     func unsubscribeAll(completion: @escaping () -> Void = {}) {
-        self.setSubscriptions(interests: [])
+        self.setSubscriptions(interests: [], completion: {
+            completion()
+        })
     }
 
     //MARK: Networking Layer

@@ -1,5 +1,5 @@
 const Firestore = require('@google-cloud/firestore');
-credentialsFilename = "/home/andreivoe/serverscripts/horo-ios-287dcbc8f4c6.json"
+credentialsFilename = "./horo-ios-287dcbc8f4c6.json"
 const Browser = require('zombie');
 var gumbo = require("gumbo-parser");
 

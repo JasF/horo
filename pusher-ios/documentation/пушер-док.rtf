@@ -33,7 +33,7 @@ curl -\cf4 H\cf2  \cf5 "Content-Type: application/json"\cf2  \\\
 \CocoaLigature1 "\cf2 ],\cf5 "apns"\cf2 :\{\cf5 "aps"\cf2 :\{\cf5 "alert"\cf2 :\{\cf5 "title"\cf2 :\cf5 "Hello"\cf2 ,\cf5 "body"\cf2 :\cf5 "Hello, world!"\cf2 \}\}\}\}'
 \f1 \
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 
 \f0\fs22 \cf7 \cb8 \kerning1\expnd0\expndtw0 \CocoaLigature0 https://us-central1-horo-ios.cloudfunctions.net/addNextMessage?
 \f1\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
@@ -73,87 +73,117 @@ sendPushes?sign=aries&time=23\
 \pard\pardeftab720\sl300\partightenfactor0
 
 \fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec10 <key>\cf12 \strokec12 NSAppTransportSecurity\cf10 \strokec10 </key>\cf12 \strokec12 \
-\cf10 \strokec10 <dict>\cf12 \strokec12 \
-    \cf10 \strokec10 <key>\cf12 \strokec12 NSAllowsArbitraryLoads\cf10 \strokec10 </key>\cf12 \strokec12 \
-    \cf10 \strokec10 <true/>\cf12 \strokec12 \
-\cf10 \strokec10 </dict>\cf13 \strokec13 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+<key>\cf12 NSAppTransportSecurity\cf10 </key>\cf12 \
+\cf10 <dict>\cf12 \
+    \cf10 <key>\cf12 NSAllowsArbitraryLoads\cf10 </key>\cf12 \
+    \cf10 <true/>\cf12 \
+\cf10 </dict>\cf13 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 
-\f4\fs24 \cf0 \cb9 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f4\fs24 \cf0 \cb9 \kerning1\expnd0\expndtw0 \
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\f0\fs18 \cf6 \cb9     \cf14 \cb9 //MARK: PushNotificationsSubscribable
+\f0\fs18 \cf6     \cf14 //MARK: PushNotificationsSubscribable
 \f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9     \cf15 \cb9 func\cf6 \cb9  subscribe(completion: \cf15 \cb9 @escaping\cf6 \cb9  () -> \cf16 \cb9 Void\cf6 \cb9  = \{\}) \{
-\f4\fs24 \cf0 \cb9 \
-
-\f0\fs18 \cf6 \cb9         \cf15 \cb9 let\cf6 \cb9  request = \cf15 \cb9 self\cf6 \cb9 .\cf17 \cb9 setRequest\cf6 \cb9 (url: \cf15 \cb9 self\cf6 \cb9 .\cf18 \cb9 url\cf6 \cb9 , httpMethod: .\cf17 \cb9 POST\cf6 \cb9 )
-\f4\fs24 \cf0 \cb9 \
-\
-
-\f0\fs18 \cf6 \cb9         \cf15 \cb9 self\cf6 \cb9 .\cf17 \cb9 networkRequest\cf6 \cb9 (request, session: \cf15 \cb9 self\cf6 \cb9 .\cf18 \cb9 session\cf6 \cb9 ) \{ (response) \cf15 \cb9 in
+\f0\fs18 \cf6     \cf15 func\cf6  subscribe(completion: \cf15 @escaping\cf6  () -> \cf16 Void\cf6  = \{\}) \{
 \f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9             completion()
-\f4\fs24 \cf0 \cb9 \
-
-\f0\fs18 \cf6 \cb9         \}
-\f4\fs24 \cf0 \cb9 \
-
-\f0\fs18 \cf6 \cb9     \}
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6         \cf15 let\cf6  request = \cf15 self\cf6 .\cf17 setRequest\cf6 (url: \cf15 self\cf6 .\cf18 url\cf6 , httpMethod: .\cf17 POST\cf6 )
+\f4\fs24 \cf0 \
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs18 \cf6         \cf15 self\cf6 .\cf17 networkRequest\cf6 (request, session: \cf15 self\cf6 .\cf18 session\cf6 ) \{ (response) \cf15 in
+\f4\fs24 \cf0 \
+
+\f0\fs18 \cf6             completion()
+\f4\fs24 \cf0 \
+
+\f0\fs18 \cf6         \}
+\f4\fs24 \cf0 \
+
+\f0\fs18 \cf6     \}
+\f4\fs24 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 \cf0 \
 \
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\f0\fs18 \cf6 \cb9     \cf14 \cb9 //MARK: Networking Layer
+\f0\fs18 \cf6     \cf14 //MARK: Networking Layer
 \f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9     \cf15 \cb9 private\cf6 \cb9  \cf15 \cb9 func\cf6 \cb9  networkRequest(\cf15 \cb9 _\cf6 \cb9  request: \cf16 \cb9 URLRequest\cf6 \cb9 , session: \cf16 \cb9 URLSession\cf6 \cb9 , completion: \cf15 \cb9 @escaping\cf6 \cb9  \cf18 \cb9 NetworkCompletionHandler\cf6 \cb9 ) \{
-\f4\fs24 \cf0 \cb9 \
-
-\f0\fs18 \cf6 \cb9         session.\cf19 \cb9 dataTask\cf6 \cb9 (with: request, completionHandler: \{ (data, response, error) \cf15 \cb9 in
+\f0\fs18 \cf6     \cf15 private\cf6  \cf15 func\cf6  networkRequest(\cf15 _\cf6  request: \cf16 URLRequest\cf6 , session: \cf16 URLSession\cf6 , completion: \cf15 @escaping\cf6  \cf18 NetworkCompletionHandler\cf6 ) \{
 \f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9             \cf15 \cb9 guard\cf6 \cb9  \cf15 \cb9 let\cf6 \cb9  data = data \cf15 \cb9 else\cf6 \cb9  \{ \cf15 \cb9 return\cf6 \cb9  \}
-\f4\fs24 \cf0 \cb9 \
-
-\f0\fs18 \cf6 \cb9             \cf15 \cb9 guard
+\f0\fs18 \cf6         session.\cf19 dataTask\cf6 (with: request, completionHandler: \{ (data, response, error) \cf15 in
 \f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9                 \cf15 \cb9 let\cf6 \cb9  httpURLResponse = response \cf15 \cb9 as\cf6 \cb9 ? \cf16 \cb9 HTTPURLResponse\cf6 \cb9 , httpURLResponse.\cf16 \cb9 statusCode\cf6 \cb9  == \cf20 \cb9 200\cf6 \cb9 , error == \cf15 \cb9 nil
+\f0\fs18 \cf6             \cf15 guard\cf6  \cf15 let\cf6  data = data \cf15 else\cf6  \{ \cf15 return\cf6  \}
 \f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9             \cf15 \cb9 else\cf6 \cb9  \{
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6             \cf15 guard
+\f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9                 \cf15 \cb9 guard\cf6 \cb9  \cf15 \cb9 let\cf6 \cb9  reason = \cf15 \cb9 try\cf6 \cb9 ? \cf16 \cb9 JSONDecoder\cf6 \cb9 ().\cf19 \cb9 decode\cf6 \cb9 (\cf18 \cb9 Reason\cf6 \cb9 .\cf15 \cb9 self\cf6 \cb9 , from: data) \cf15 \cb9 else\cf6 \cb9  \{ \cf15 \cb9 return\cf6 \cb9  \}
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6                 \cf15 let\cf6  httpURLResponse = response \cf15 as\cf6 ? \cf16 HTTPURLResponse\cf6 , httpURLResponse.\cf16 statusCode\cf6  == \cf20 200\cf6 , error == \cf15 nil
+\f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9                 \cf15 \cb9 return\cf6 \cb9  completion(\cf18 \cb9 NetworkResponse\cf6 \cb9 .\cf17 \cb9 Failure\cf6 \cb9 (description: reason.\cf18 \cb9 description\cf6 \cb9 ))
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6             \cf15 else\cf6  \{
+\f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9             \}
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6                 \cf15 guard\cf6  \cf15 let\cf6  reason = \cf15 try\cf6 ? \cf16 JSONDecoder\cf6 ().\cf19 decode\cf6 (\cf18 Reason\cf6 .\cf15 self\cf6 , from: data) \cf15 else\cf6  \{ \cf15 return\cf6  \}
+\f4\fs24 \cf0 \
+
+\f0\fs18 \cf6                 \cf15 return\cf6  completion(\cf18 NetworkResponse\cf6 .\cf17 Failure\cf6 (description: reason.\cf18 description\cf6 ))
+\f4\fs24 \cf0 \
+
+\f0\fs18 \cf6             \}
+\f4\fs24 \cf0 \
 \
 
-\f0\fs18 \cf6 \cb9             completion(\cf18 \cb9 NetworkResponse\cf6 \cb9 .\cf17 \cb9 Success\cf6 \cb9 (data: data))
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6             completion(\cf18 NetworkResponse\cf6 .\cf17 Success\cf6 (data: data))
+\f4\fs24 \cf0 \
 \
 
-\f0\fs18 \cf6 \cb9         \}).\cf19 \cb9 resume\cf6 \cb9 ()
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6         \}).\cf19 resume\cf6 ()
+\f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9     \}\
+\f0\fs18 \cf6     \}\
 \
 \uc0\u1087 \u1091 \u1096 \u1080  \u1089 \u1076 \u1077 \u1083 \u1072 \u1085 \u1099 . \u1089 \u1083 \u1077 \u1076 \u1091 \u1102 \u1097 \u1080 \u1081  \u1096 \u1072 \u1075  - \u1089 \u1077 \u1088 \u1074 \u1077 \u1088 \u1085 \u1099 \u1077  \u1087 \u1091 \u1096 \u1080 .\
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
 
 \fs22 \cf7 \cb8 \CocoaLigature0 https://us-central1-horo-ios.cloudfunctions.net/addNextMessage?
 \fs18 \cf6 \cb9 \CocoaLigature1 title=title&text=text&roomname=
-\fs22 \cf7 \cb8 \CocoaLigature0 gemini11}
+\fs22 \cf7 \cb8 \CocoaLigature0 gemini11\
+\
+\
+\
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+
+\fs18 \cf15 \cb9 \CocoaLigature1 var\cf6 \cb9  schedule = require(\cf20 \cb9 'node-schedule'\cf6 \cb9 );
+\f4\fs24 \cf0 \cb9 \
+
+\f0\fs18 \cf15 var\cf6 \cb9  rule = \cf15 \cb9 new\cf6 \cb9  schedule.RecurrenceRule();
+\f4\fs24 \cf0 \cb9 \
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+
+\f0\fs18 \cf6 \cb9 rule.second = \cf20 \cb9 5\cf6 \cb9 ;
+\f4\fs24 \cf0 \cb9 \
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+
+\f0\fs18 \cf15 var\cf6 \cb9  j = schedule.scheduleJob(rule, \cf15 \cb9 function\cf6 \cb9 ()\{
+\f4\fs24 \cf0 \cb9 \
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+
+\f0\fs18 \cf6 \cb9   console.log(\cf20 \cb9 'The answer to life, the universe, and everything!'\cf6 \cb9 );
+\f4\fs24 \cf0 \cb9 \
+
+\f0\fs18 \cf6 \cb9 \});
+\f4\fs24 \cf0 \cb9 \
+\
+\
+\uc0\u1074 \u1099 \u1087 \u1086 \u1083 \u1085 \u1103 \u1077 \u1090 \u1089 \u1103  \u1082 \u1072 \u1078 \u1076 \u1091 \u1102  \u1084 \u1080 \u1085 \u1091 \u1090 \u1091  \u1074  5-\u1102  \u1089 \u1077 \u1082 \u1091 \u1085 \u1076 \u1091 .!\
+\uc0\u1058 \u1077 \u1087 \u1077 \u1088 \u1100  \u1076 \u1086 \u1089 \u1090 \u1072 \u1090 \u1086 \u1095 \u1085 \u1086  \u1082 \u1072 \u1078 \u1076 \u1099 \u1081  1, 5, 12, 18 \u1095 \u1072 \u1089  \u1074 \u1099 \u1087 \u1086 \u1083 \u1085 \u1103 \u1090 \u1100  updater.sh\
+}

@@ -21,6 +21,10 @@ namespace horo {
         ~DocumentSnapshotObjc() override {}
     public:
         Json::Value data() const override {
+            if (!snapshot_.data) {
+                Json::Value empty;
+                return empty;
+            }
             NSData *data = [NSJSONSerialization dataWithJSONObject:snapshot_.data options:0 error:nil];
             std::string jsonString((const char *)data.bytes, data.length);
             Json::Reader reader;

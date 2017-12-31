@@ -756,6 +756,16 @@
 		C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
 		C31BA9A11FF7F08100BF0746 /* testpusher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testpusher.js; sourceTree = "<group>"; };
 		C31BA9A41FF7F08700BF0746 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../server/functions/index.js; sourceTree = "<group>"; };
+		C31BA9A51FF90C8300BF0746 /* scheduler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = scheduler.js; path = ../../server/scheduler.js; sourceTree = "<group>"; };
+		C31BA9A61FF91AD200BF0746 /* datastoreupdate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = datastoreupdate.sh; path = ../../server/datastoreupdate.sh; sourceTree = "<group>"; };
+		C31BA9A71FF9233F00BF0746 /* updater_bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = updater_bootstrap.sh; path = ../../server/updater_bootstrap.sh; sourceTree = "<group>"; };
+		C31BA9A81FF9252000BF0746 /* updater.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = updater.sh; path = ../../server/updater.sh; sourceTree = "<group>"; };
+		C31BA9A91FF9252B00BF0746 /* ttyupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ttyupdate.js; path = ../../server/ttyupdate.js; sourceTree = "<group>"; };
+		C31BA9AA1FF9252C00BF0746 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
+		C31BA9EB1FF92F2100BF0746 /* scheduler_bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = scheduler_bootstrap.sh; path = ../../server/scheduler_bootstrap.sh; sourceTree = "<group>"; };
+		C31BA9EC1FF92FBB00BF0746 /* updater_original.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = updater_original.sh; path = ../../server/updater_original.sh; sourceTree = "<group>"; };
+		C31BA9ED1FF93D8500BF0746 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../server/functions/index.js; sourceTree = "<group>"; };
+		C31BA9EE1FF93E2700BF0746 /* sendpushtoroom.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = sendpushtoroom.js; path = ../../server/sendpushtoroom.js; sourceTree = "<group>"; };
 		C3292C981FEEA00D00A3698B /* NotificationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
 		C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsViewController.mm; sourceTree = "<group>"; };
 		C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsViewController.storyboard; sourceTree = "<group>"; };
@@ -2176,6 +2186,16 @@
 		C37657731FAC2E0500874188 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				C31BA9EE1FF93E2700BF0746 /* sendpushtoroom.js */,
+				C31BA9EB1FF92F2100BF0746 /* scheduler_bootstrap.sh */,
+				C31BA9AA1FF9252C00BF0746 /* datastoreupdate.js */,
+				C31BA9ED1FF93D8500BF0746 /* index.js */,
+				C31BA9A91FF9252B00BF0746 /* ttyupdate.js */,
+				C31BA9A81FF9252000BF0746 /* updater.sh */,
+				C31BA9EC1FF92FBB00BF0746 /* updater_original.sh */,
+				C31BA9A71FF9233F00BF0746 /* updater_bootstrap.sh */,
+				C31BA9A61FF91AD200BF0746 /* datastoreupdate.sh */,
+				C31BA9A51FF90C8300BF0746 /* scheduler.js */,
 				C31BA9A41FF7F08700BF0746 /* index.js */,
 				C31BA9A11FF7F08100BF0746 /* testpusher.js */,
 				C3B8977F1FB726880083C201 /* prettyoutputdates.js */,

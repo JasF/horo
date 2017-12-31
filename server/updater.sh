@@ -1,7 +1,7 @@
 #i/bin/bash
 
-echo "pre datastore" >> /home/andreivoe/updater.txt
-bash /home/andreivoe/serverscripts/datastoreupdate.sh
-echo "pre ttyupdate" >> /home/andreivoe/updater.txt
-bash /home/andreivoe/serverscripts/ttyupdate.sh
+echo "pre scheduler" >> /home/andreivoe/updater.txt
+bash ./scheduler_bootstrap.sh
+echo "post scheduler" >> /home/andreivoe/updater.txt
+
 

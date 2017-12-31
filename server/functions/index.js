@@ -15,6 +15,7 @@ var jsonfile = require('jsonfile')
 var Curl = require( 'node-libcurl' ).Curl;
 var newCredentialsFilename = '/credentials.json'
 var firestore = null
+var CronJob = require('cron').CronJob;
 
 // Take the text parameter passed to this HTTP endpoint and insert it into the
 // Realtime Database under the path /messages/:pushId/original
@@ -44,5 +45,4 @@ exports.sendPush = functions.https.onRequest((req, res) => {
           });
    curl.on( 'error', curl.close.bind( curl ) );
 });
-
 

@@ -1,0 +1,18 @@
+{
+  "name": "pusher",
+  "version": "1.0.0",
+  "description": "Pusher for dear users of Lucky Horoscopes",
+  "main": "bootstrap.js",
+  "scripts": {
+    "test": "console.log('Hello updater')"
+  },
+  "author": "Om",
+  "license": "ISC",
+  "dependencies": {
+    "async-arrays": "^1.0.1",
+    "gumbo-parser": "^0.3.0",
+    "node-schedule": "^1.2.5",
+    "seq-queue": "0.0.5",
+    "winston": "^2.4.0"
+  }
+}

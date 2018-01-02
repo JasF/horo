@@ -3,7 +3,8 @@ downloader = require('./horoscopesdownloader.js');
 async = require('async');
 var arrays = require('async-arrays');
 var parser = require('./horoscopesparser');
-var storage = require('./horostorage');
+var storage = require('../common/horostorage');
+var common = require('../common/common');
 
 exports.beginUpdate = function (completion) {
   logs.info('begin update')

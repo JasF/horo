@@ -764,6 +764,15 @@
 		C3232D7B1FFBB2530027089E /* networkingservice.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = networkingservice.js; sourceTree = "<group>"; };
 		C3232D7C1FFBB71E0027089E /* horoscopesparser.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesparser.js; sourceTree = "<group>"; };
 		C3232D7D1FFBBF2E0027089E /* horostorage.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horostorage.js; sourceTree = "<group>"; };
+		C3232D7E1FFBC4070027089E /* common.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = common.js; sourceTree = "<group>"; };
+		C3232D851FFBC8C10027089E /* ttycreator.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ttycreator.js; sourceTree = "<group>"; };
+		C3232D871FFBC8C10027089E /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		C3232D881FFBC8C10027089E /* jobsmanager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jobsmanager.js; sourceTree = "<group>"; };
+		C3232D891FFBC8C20027089E /* bootstrap.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
+		C32330F61FFBD2D10027089E /* sendpushtoroom.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = sendpushtoroom.js; path = ../sendpushtoroom.js; sourceTree = "<group>"; };
+		C32330F81FFBD5D20027089E /* bootstrap.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
+		C32330F91FFBD5EE0027089E /* jobsmanager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jobsmanager.js; sourceTree = "<group>"; };
+		C32330FA1FFBD73E0027089E /* pushsender.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = pushsender.js; sourceTree = "<group>"; };
 		C3292C981FEEA00D00A3698B /* NotificationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
 		C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsViewController.mm; sourceTree = "<group>"; };
 		C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsViewController.storyboard; sourceTree = "<group>"; };
@@ -1711,10 +1720,11 @@
 		C3232D671FFB8BAC0027089E /* server */ = {
 			isa = PBXGroup;
 			children = (
-				C3232D781FFB8FFC0027089E /* needs-refactoring */,
+				C32330F71FFBD5910027089E /* pusher */,
 				C3232D6F1FFB8C200027089E /* common */,
+				C3232D841FFBC8A90027089E /* ttyupdater */,
 				C3232D691FFB8BDE0027089E /* updater */,
-				C3232D6A1FFB8BEF0027089E /* pusher */,
+				C3232D781FFB8FFC0027089E /* needs-refactoring */,
 			);
 			name = server;
 			path = ../server;
@@ -1723,7 +1733,6 @@
 		C3232D691FFB8BDE0027089E /* updater */ = {
 			isa = PBXGroup;
 			children = (
-				C3232D7D1FFBBF2E0027089E /* horostorage.js */,
 				C3232D6E1FFB8C150027089E /* bootstrap.js */,
 				C3232D6C1FFB8C150027089E /* package.json */,
 				C3232D731FFB8D3A0027089E /* jobsmanager.js */,
@@ -1734,19 +1743,14 @@
 			path = updater;
 			sourceTree = "<group>";
 		};
-		C3232D6A1FFB8BEF0027089E /* pusher */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = pusher;
-			sourceTree = "<group>";
-		};
 		C3232D6F1FFB8C200027089E /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C3232D7D1FFBBF2E0027089E /* horostorage.js */,
 				C3232D701FFB8C200027089E /* logger.js */,
 				C3232D7B1FFBB2530027089E /* networkingservice.js */,
 				C3232D711FFB8C200027089E /* scheduler.js */,
+				C3232D7E1FFBC4070027089E /* common.js */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1754,12 +1758,34 @@
 		C3232D781FFB8FFC0027089E /* needs-refactoring */ = {
 			isa = PBXGroup;
 			children = (
+				C32330F61FFBD2D10027089E /* sendpushtoroom.js */,
 				C3232D771FFB8FE80027089E /* ttyupdate.js */,
 				C3232D751FFB8FD10027089E /* updater_original.sh */,
 				C3232D761FFB8FE10027089E /* datastoreupdate.js */,
 				C3232D741FFB8DCA0027089E /* scheduler.js */,
 			);
 			path = "needs-refactoring";
+			sourceTree = "<group>";
+		};
+		C3232D841FFBC8A90027089E /* ttyupdater */ = {
+			isa = PBXGroup;
+			children = (
+				C3232D891FFBC8C20027089E /* bootstrap.js */,
+				C3232D881FFBC8C10027089E /* jobsmanager.js */,
+				C3232D871FFBC8C10027089E /* package.json */,
+				C3232D851FFBC8C10027089E /* ttycreator.js */,
+			);
+			path = ttyupdater;
+			sourceTree = "<group>";
+		};
+		C32330F71FFBD5910027089E /* pusher */ = {
+			isa = PBXGroup;
+			children = (
+				C32330F91FFBD5EE0027089E /* jobsmanager.js */,
+				C32330F81FFBD5D20027089E /* bootstrap.js */,
+				C32330FA1FFBD73E0027089E /* pushsender.js */,
+			);
+			path = pusher;
 			sourceTree = "<group>";
 		};
 		C3292C971FEE9FED00A3698B /* NotificationsViewController */ = {

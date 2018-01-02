@@ -1,16 +1,9 @@
-logs = require('../common/logger').getLogger();
-const Firestore = require('@google-cloud/firestore');
-credentialsFilename = "./../horo-ios-287dcbc8f4c6.json"
-
-const firestore = new Firestore({projectId: 'horo-ios',
-                                keyFilename: credentialsFilename });
-
-function dateToDateString(aDate) {
+function dateToDateString (aDate) {
     var result = "" + aDate.getDate()+ "." + Number(parseInt(aDate.getMonth(), 10) + 1) + "." + aDate.getFullYear()
     return result;
 }
 
-function dateStringFromType(type) {
+exports.dateStringFromType = function (type) {
     var date = new Date();
     dateFunctions = {today:function () {
         return dateToDateString(date)
@@ -51,12 +44,18 @@ function dateStringFromType(type) {
     return dateString;
 }
 
-exports.writeHoroscope = function (zodiacName, tabsType, horoscope, callback) {
-    dateString = dateStringFromType(tabsType)
-    path = 'storage/' + tabsType + '/' + zodiacName + '/' + dateString
-    logs.info('firestore document patch is: ' + path);
-    const document = firestore.doc(path)
-    document.set({ content : horoscope }).then(() => {
-                                          callback()
-                                          });
+var HoroTypeDay = "days"
+var HoroTypeWeek = "week"
+var HoroTypeMonth = "month"
+var HoroTypeYear = "year"
+
+horoTypes = {yesterday:HoroTypeDay,
+today:HoroTypeDay,
+tomorrow:HoroTypeDay,
+weekly:HoroTypeWeek,
+monthly:HoroTypeMonth,
+    year:HoroTypeYear};
+
+exports.horoTypeByTabsType = function (tabsType) {
+    return horoTypes[tabsType];
 }

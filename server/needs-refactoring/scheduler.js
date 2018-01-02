@@ -77,7 +77,6 @@ function scheduleJobForTime(time) {
                              sendPredictionPushToRoom(time, zodiacName)
                            })
                          });
-    console.log('time: ' + time)
 }
 
 

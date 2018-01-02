@@ -1,6 +1,5 @@
 var schedule = require('node-schedule');
 logs = require('./logger').getLogger();
-logs.info('Hello winston');
 
 exports.scheduleJobAtHour = function (hour, callback) {
   rule = new schedule.RecurrenceRule();

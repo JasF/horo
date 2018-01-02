@@ -198,7 +198,6 @@
 		C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3190C161FADDF630059F247 /* Common.xcassets */; };
 		C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8978B1FB83B2E0083C201 /* locdates.json */; };
 		C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32A5FFB1FDBD420003CF1CA /* FriendsCell.xib */; };
-		C315ACB51FE5040C00CC9B67 /* monthlanguages.js in Resources */ = {isa = PBXBuildFile; fileRef = C3B8977A1FB718DF0083C201 /* monthlanguages.js */; };
 		C315ACB61FE5040C00CC9B67 /* gRPCCertificates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3CD7DD21FA6F19E00D2BFF3 /* gRPCCertificates.bundle */; };
 		C315ACB71FE5040C00CC9B67 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C315ACB81FE5040C00CC9B67 /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */; };
@@ -250,8 +249,6 @@
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
 		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
 		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
-		C31BA9A21FF7F08100BF0746 /* testpusher.js in Resources */ = {isa = PBXBuildFile; fileRef = C31BA9A11FF7F08100BF0746 /* testpusher.js */; };
-		C31BA9A31FF7F08100BF0746 /* testpusher.js in Resources */ = {isa = PBXBuildFile; fileRef = C31BA9A11FF7F08100BF0746 /* testpusher.js */; };
 		C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
 		C3292C941FEE887200A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3292C961FEE889100A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -509,7 +506,6 @@
 		C3B601A61FA604E600AD4F6D /* serializerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601A41FA604E600AD4F6D /* serializerimpl.cc */; };
 		C3B601AC1FA605B300AD4F6D /* SerializerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601AB1FA605B300AD4F6D /* SerializerObjc.mm */; };
 		C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */; };
-		C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */ = {isa = PBXBuildFile; fileRef = C3B8977A1FB718DF0083C201 /* monthlanguages.js */; };
 		C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */; };
 		C3B8ABF01FB83B350083C201 /* locdates.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8978B1FB83B2E0083C201 /* locdates.json */; };
 		C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */; };
@@ -754,18 +750,20 @@
 		C31A14171FB19612001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
 		C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = facebookuserdetailparser.cc; sourceTree = "<group>"; };
 		C31A141B1FB19625001FABFE /* facebookuserdetailparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebookuserdetailparser.h; sourceTree = "<group>"; };
-		C31BA9A11FF7F08100BF0746 /* testpusher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testpusher.js; sourceTree = "<group>"; };
-		C31BA9A41FF7F08700BF0746 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../server/functions/index.js; sourceTree = "<group>"; };
-		C31BA9A51FF90C8300BF0746 /* scheduler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = scheduler.js; path = ../../server/scheduler.js; sourceTree = "<group>"; };
-		C31BA9A61FF91AD200BF0746 /* datastoreupdate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = datastoreupdate.sh; path = ../../server/datastoreupdate.sh; sourceTree = "<group>"; };
-		C31BA9A71FF9233F00BF0746 /* updater_bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = updater_bootstrap.sh; path = ../../server/updater_bootstrap.sh; sourceTree = "<group>"; };
-		C31BA9A81FF9252000BF0746 /* updater.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = updater.sh; path = ../../server/updater.sh; sourceTree = "<group>"; };
-		C31BA9A91FF9252B00BF0746 /* ttyupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ttyupdate.js; path = ../../server/ttyupdate.js; sourceTree = "<group>"; };
-		C31BA9AA1FF9252C00BF0746 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
-		C31BA9EB1FF92F2100BF0746 /* scheduler_bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = scheduler_bootstrap.sh; path = ../../server/scheduler_bootstrap.sh; sourceTree = "<group>"; };
-		C31BA9EC1FF92FBB00BF0746 /* updater_original.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = updater_original.sh; path = ../../server/updater_original.sh; sourceTree = "<group>"; };
-		C31BA9ED1FF93D8500BF0746 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../server/functions/index.js; sourceTree = "<group>"; };
-		C31BA9EE1FF93E2700BF0746 /* sendpushtoroom.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = sendpushtoroom.js; path = ../../server/sendpushtoroom.js; sourceTree = "<group>"; };
+		C3232D6C1FFB8C150027089E /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		C3232D6E1FFB8C150027089E /* bootstrap.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
+		C3232D701FFB8C200027089E /* logger.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = logger.js; sourceTree = "<group>"; };
+		C3232D711FFB8C200027089E /* scheduler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scheduler.js; sourceTree = "<group>"; };
+		C3232D731FFB8D3A0027089E /* jobsmanager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jobsmanager.js; sourceTree = "<group>"; };
+		C3232D741FFB8DCA0027089E /* scheduler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scheduler.js; sourceTree = "<group>"; };
+		C3232D751FFB8FD10027089E /* updater_original.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = updater_original.sh; sourceTree = "<group>"; };
+		C3232D761FFB8FE10027089E /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = datastoreupdate.js; sourceTree = "<group>"; };
+		C3232D771FFB8FE80027089E /* ttyupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ttyupdate.js; sourceTree = "<group>"; };
+		C3232D791FFB92A40027089E /* horoscopesdownloader.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesdownloader.js; sourceTree = "<group>"; };
+		C3232D7A1FFB93620027089E /* horoscopesupdater.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesupdater.js; sourceTree = "<group>"; };
+		C3232D7B1FFBB2530027089E /* networkingservice.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = networkingservice.js; sourceTree = "<group>"; };
+		C3232D7C1FFBB71E0027089E /* horoscopesparser.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horoscopesparser.js; sourceTree = "<group>"; };
+		C3232D7D1FFBBF2E0027089E /* horostorage.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = horostorage.js; sourceTree = "<group>"; };
 		C3292C981FEEA00D00A3698B /* NotificationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
 		C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsViewController.mm; sourceTree = "<group>"; };
 		C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsViewController.storyboard; sourceTree = "<group>"; };
@@ -953,7 +951,6 @@
 		C373D5061FED5DA900D3BA16 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		C373D5071FED5DA900D3BA16 /* Logger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		C375BF211FD13C86007D6AC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C37657741FAC2E2300874188 /* datastoreupdate.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = datastoreupdate.js; path = ../../server/datastoreupdate.js; sourceTree = "<group>"; };
 		C3817DDE1FA6FD9800447155 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C3817DE11FA7053000447155 /* firestore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestore.h; sourceTree = "<group>"; };
 		C3817DE21FA7053C00447155 /* firestoreimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firestoreimpl.h; sourceTree = "<group>"; };
@@ -1020,9 +1017,6 @@
 		C3B601AE1FA60DBE00AD4F6D /* Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		C3B601AF1FA60DD000AD4F6D /* NSDictionary+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Horo.h"; sourceTree = "<group>"; };
 		C3B601B21FA60E4400AD4F6D /* NSDictionary+Horo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSDictionary+Horo.mm"; sourceTree = "<group>"; };
-		C3B8977A1FB718DF0083C201 /* monthlanguages.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = monthlanguages.js; path = src/friends/scripts/monthlanguages.js; sourceTree = SOURCE_ROOT; };
-		C3B8977E1FB726880083C201 /* prettyoutputstrokes.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = prettyoutputstrokes.js; path = src/friends/scripts/prettyoutputstrokes.js; sourceTree = SOURCE_ROOT; };
-		C3B8977F1FB726880083C201 /* prettyoutputdates.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = prettyoutputdates.js; path = src/friends/scripts/prettyoutputdates.js; sourceTree = SOURCE_ROOT; };
 		C3B897811FB8375F0083C201 /* birthdaydetectorimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthdaydetectorimpl.h; sourceTree = "<group>"; };
 		C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = birthdaydetectorimpl.cc; sourceTree = "<group>"; };
 		C3B897861FB8377E0083C201 /* birthdaydetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthdaydetector.h; sourceTree = "<group>"; };
@@ -1171,8 +1165,8 @@
 		4B0FD3641FA06C96006378B6 = {
 			isa = PBXGroup;
 			children = (
+				C3232D671FFB8BAC0027089E /* server */,
 				C3C116FC1FCE86BE007DA9FF /* classes */,
-				C37657731FAC2E0500874188 /* server */,
 				C3B601AD1FA60DAE00AD4F6D /* Categories */,
 				C30B187C1FA4AA9C006DEDB7 /* ViewControllers */,
 				C33B99CA1FA375E600C0B1C6 /* Components */,
@@ -1714,6 +1708,60 @@
 			path = persondao;
 			sourceTree = "<group>";
 		};
+		C3232D671FFB8BAC0027089E /* server */ = {
+			isa = PBXGroup;
+			children = (
+				C3232D781FFB8FFC0027089E /* needs-refactoring */,
+				C3232D6F1FFB8C200027089E /* common */,
+				C3232D691FFB8BDE0027089E /* updater */,
+				C3232D6A1FFB8BEF0027089E /* pusher */,
+			);
+			name = server;
+			path = ../server;
+			sourceTree = "<group>";
+		};
+		C3232D691FFB8BDE0027089E /* updater */ = {
+			isa = PBXGroup;
+			children = (
+				C3232D7D1FFBBF2E0027089E /* horostorage.js */,
+				C3232D6E1FFB8C150027089E /* bootstrap.js */,
+				C3232D6C1FFB8C150027089E /* package.json */,
+				C3232D731FFB8D3A0027089E /* jobsmanager.js */,
+				C3232D791FFB92A40027089E /* horoscopesdownloader.js */,
+				C3232D7A1FFB93620027089E /* horoscopesupdater.js */,
+				C3232D7C1FFBB71E0027089E /* horoscopesparser.js */,
+			);
+			path = updater;
+			sourceTree = "<group>";
+		};
+		C3232D6A1FFB8BEF0027089E /* pusher */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pusher;
+			sourceTree = "<group>";
+		};
+		C3232D6F1FFB8C200027089E /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C3232D701FFB8C200027089E /* logger.js */,
+				C3232D7B1FFBB2530027089E /* networkingservice.js */,
+				C3232D711FFB8C200027089E /* scheduler.js */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		C3232D781FFB8FFC0027089E /* needs-refactoring */ = {
+			isa = PBXGroup;
+			children = (
+				C3232D771FFB8FE80027089E /* ttyupdate.js */,
+				C3232D751FFB8FD10027089E /* updater_original.sh */,
+				C3232D761FFB8FE10027089E /* datastoreupdate.js */,
+				C3232D741FFB8DCA0027089E /* scheduler.js */,
+			);
+			path = "needs-refactoring";
+			sourceTree = "<group>";
+		};
 		C3292C971FEE9FED00A3698B /* NotificationsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2181,29 +2229,6 @@
 				C373D5071FED5DA900D3BA16 /* Logger.m */,
 			);
 			path = Logger;
-			sourceTree = "<group>";
-		};
-		C37657731FAC2E0500874188 /* server */ = {
-			isa = PBXGroup;
-			children = (
-				C31BA9EE1FF93E2700BF0746 /* sendpushtoroom.js */,
-				C31BA9EB1FF92F2100BF0746 /* scheduler_bootstrap.sh */,
-				C31BA9AA1FF9252C00BF0746 /* datastoreupdate.js */,
-				C31BA9ED1FF93D8500BF0746 /* index.js */,
-				C31BA9A91FF9252B00BF0746 /* ttyupdate.js */,
-				C31BA9A81FF9252000BF0746 /* updater.sh */,
-				C31BA9EC1FF92FBB00BF0746 /* updater_original.sh */,
-				C31BA9A71FF9233F00BF0746 /* updater_bootstrap.sh */,
-				C31BA9A61FF91AD200BF0746 /* datastoreupdate.sh */,
-				C31BA9A51FF90C8300BF0746 /* scheduler.js */,
-				C31BA9A41FF7F08700BF0746 /* index.js */,
-				C31BA9A11FF7F08100BF0746 /* testpusher.js */,
-				C3B8977F1FB726880083C201 /* prettyoutputdates.js */,
-				C3B8977E1FB726880083C201 /* prettyoutputstrokes.js */,
-				C3B8977A1FB718DF0083C201 /* monthlanguages.js */,
-				C37657741FAC2E2300874188 /* datastoreupdate.js */,
-			);
-			path = server;
 			sourceTree = "<group>";
 		};
 		C3817DE01FA7051700447155 /* firestore */ = {
@@ -2745,11 +2770,9 @@
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
-				C3B8977B1FB718DF0083C201 /* monthlanguages.js in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				C32A60191FDBF493003CF1CA /* FriendsViewController.storyboard in Resources */,
-				C31BA9A31FF7F08100BF0746 /* testpusher.js in Resources */,
 				C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
@@ -2779,11 +2802,9 @@
 				C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */,
 				C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */,
 				C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */,
-				C315ACB51FE5040C00CC9B67 /* monthlanguages.js in Resources */,
 				C315ACB61FE5040C00CC9B67 /* gRPCCertificates.bundle in Resources */,
 				C315ACB71FE5040C00CC9B67 /* MenuViewController.storyboard in Resources */,
 				C315ACB81FE5040C00CC9B67 /* FriendsViewController.storyboard in Resources */,
-				C31BA9A21FF7F08100BF0746 /* testpusher.js in Resources */,
 				C315ACB91FE5040C00CC9B67 /* WebViewDialogController.storyboard in Resources */,
 				C315ACBA1FE5040C00CC9B67 /* LaunchScreen.storyboard in Resources */,
 				C315ACBB1FE5040C00CC9B67 /* Assets.xcassets in Resources */,

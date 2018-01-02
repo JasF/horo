@@ -5,12 +5,16 @@
 \red213\green58\blue6;\red0\green0\blue0;\red0\green0\blue0;\red255\green255\blue255;\red255\green255\blue255;
 \red104\green26\blue29;\red235\green236\blue237;\red36\green38\blue41;\red43\green39\blue19;\red0\green116\blue0;
 \red170\green13\blue145;\red92\green38\blue153;\red38\green71\blue75;\red63\green110\blue116;\red46\green13\blue110;
-\red28\green0\blue207;}
+\red28\green0\blue207;\red205\green205\blue205;\red194\green229\blue166;\red255\green252\blue171;\red230\green230\blue230;
+\red230\green230\blue230;\red252\green118\blue111;\red134\green205\blue77;\red0\green0\blue0;\red230\green243\blue125;
+}
 {\*\expandedcolortbl;;\cssrgb\c20000\c20000\c20000;\cssrgb\c100000\c100000\c100000;\cssrgb\c65490\c11373\c36471;
 \cssrgb\c87451\c31373\c0;\csgenericrgb\c0\c0\c0;\csgray\c0;\csgray\c100000;\csgenericrgb\c100000\c100000\c100000;
 \cssrgb\c49020\c15294\c15294;\cssrgb\c93725\c94118\c94510;\cssrgb\c18824\c20000\c21176;\cssrgb\c22353\c20000\c9412;\csgenericrgb\c0\c45600\c0;
 \csgenericrgb\c66500\c5200\c56900;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c14900\c27800\c29400;\csgenericrgb\c24700\c43100\c45600;\csgenericrgb\c18100\c5200\c43100;
-\csgenericrgb\c11000\c0\c81000;}
+\csgenericrgb\c11000\c0\c81000;\csgray\c84070;\cssrgb\c80097\c91038\c70905;\cssrgb\c99995\c98371\c72572;\csgray\c92143;
+\csgray\c92143;\cssrgb\c100000\c55025\c50890;\cssrgb\c58755\c82661\c37297;\cssrgb\c0\c0\c0;\cssrgb\c91995\c95207\c56130;
+}
 \paperw11900\paperh16840\margl1440\margr1440\vieww11840\viewh6780\viewkind0
 \deftab720
 \pard\pardeftab720\sl320\partightenfactor0
@@ -28,7 +32,7 @@ curl -\cf4 H\cf2  \cf5 "Content-Type: application/json"\cf2  \\\
      -\cf4 H\cf2  \cf5 "Authorization: Bearer C14C4D4FCE687A45EB5B791A2596DCC"\cf2  \\\
      -\cf4 X\cf2  \cf4 POST\cf2  \cf5 "https://54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com/publish_api/v1/instances/54423f63-b8dd-4f21-8563-b009f25c399f/publishes"\cf2  \\\
      -d '\{\cf5 "interests"\cf2 :[\cf5 "
-\f2\b\fs18 \cf6 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 gemini11
+\f2\b\fs18 \cf6 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 capricorn19
 \f0\b0\fs28 \cf5 \cb3 \expnd0\expndtw0\kerning0
 \CocoaLigature1 "\cf2 ],\cf5 "apns"\cf2 :\{\cf5 "aps"\cf2 :\{\cf5 "alert"\cf2 :\{\cf5 "title"\cf2 :\cf5 "Hello"\cf2 ,\cf5 "body"\cf2 :\cf5 "Hello, world!"\cf2 \}\}\}\}'
 \f1 \
@@ -162,28 +166,47 @@ sendPushes?sign=aries&time=23\
 \
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\fs18 \cf15 \cb9 \CocoaLigature1 var\cf6 \cb9  schedule = require(\cf20 \cb9 'node-schedule'\cf6 \cb9 );
-\f4\fs24 \cf0 \cb9 \
+\fs18 \cf15 \cb9 \CocoaLigature1 var\cf6  schedule = require(\cf20 'node-schedule'\cf6 );
+\f4\fs24 \cf0 \
 
-\f0\fs18 \cf15 var\cf6 \cb9  rule = \cf15 \cb9 new\cf6 \cb9  schedule.RecurrenceRule();
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf15 var\cf6  rule = \cf15 new\cf6  schedule.RecurrenceRule();
+\f4\fs24 \cf0 \
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\f0\fs18 \cf6 \cb9 rule.second = \cf20 \cb9 5\cf6 \cb9 ;
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6 rule.second = \cf20 5\cf6 ;
+\f4\fs24 \cf0 \
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\f0\fs18 \cf15 var\cf6 \cb9  j = schedule.scheduleJob(rule, \cf15 \cb9 function\cf6 \cb9 ()\{
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf15 var\cf6  j = schedule.scheduleJob(rule, \cf15 function\cf6 ()\{
+\f4\fs24 \cf0 \
 \pard\tx445\pardeftab445\pardirnatural\partightenfactor0
 
-\f0\fs18 \cf6 \cb9   console.log(\cf20 \cb9 'The answer to life, the universe, and everything!'\cf6 \cb9 );
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6   console.log(\cf20 'The answer to life, the universe, and everything!'\cf6 );
+\f4\fs24 \cf0 \
 
-\f0\fs18 \cf6 \cb9 \});
-\f4\fs24 \cf0 \cb9 \
+\f0\fs18 \cf6 \});
+\f4\fs24 \cf0 \
 \
 \
 \uc0\u1074 \u1099 \u1087 \u1086 \u1083 \u1085 \u1103 \u1077 \u1090 \u1089 \u1103  \u1082 \u1072 \u1078 \u1076 \u1091 \u1102  \u1084 \u1080 \u1085 \u1091 \u1090 \u1091  \u1074  5-\u1102  \u1089 \u1077 \u1082 \u1091 \u1085 \u1076 \u1091 .!\
 \uc0\u1058 \u1077 \u1087 \u1077 \u1088 \u1100  \u1076 \u1086 \u1089 \u1090 \u1072 \u1090 \u1086 \u1095 \u1085 \u1086  \u1082 \u1072 \u1078 \u1076 \u1099 \u1081  1, 5, 12, 18 \u1095 \u1072 \u1089  \u1074 \u1099 \u1087 \u1086 \u1083 \u1085 \u1103 \u1090 \u1100  updater.sh\
+\
+\
+\
+\
+\uc0\u1058 \u1077 \u1082 \u1089 \u1090 \u1086 \u1074 \u1072 \u1103  \u1086 \u1087 \u1086 \u1088 \u1072 \
+\uc0\u1056 \u1077 \u1092 \u1072 \u1082 \u1090 \u1086 \u1088 \u1080 \u1085 \u1075  \u1089 \u1077 \u1088 \u1074 \u1077 \u1088 \u1085 \u1086 \u1081  \u1095 \u1072 \u1089 \u1090 \u1080 . \cf21 \uc0\u1057 \u1090 \u1088 \u1072 \u1085 \u1085 \u1086 , \u1087 \u1080 \u1089 \u1072 \u1090 \u1100  \u1086 \u1090 \u1088 \u1077 \u1092 \u1072 \u1082 \u1090 \u1086 \u1088 \u1077 \u1085 \u1085 \u1099 \u1081  \u1082 \u1086 \u1076  \u1085 \u1072  ios \u1080  \u1089 \u1086 \u1074 \u1077 \u1088 \u1096 \u1077 \u1085 \u1085 \u1086  \u1073 \u1077 \u1079 \u1086 \u1083 \u1072 \u1073 \u1077 \u1088 \u1085 \u1086  \u1086 \u1090 \u1085 \u1077 \u1089 \u1090 \u1080 \u1089 \u1100  \u1082  \u1089 \u1077 \u1088 \u1074 \u1077 \u1088 \u1085 \u1086 \u1081  \cf22 \uc0\u1095 \u1072 \u1089 \u1090 \u1080 \cf23 . :)\cf21 \
+\
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+\cf0 \uc0\u1042  \u1089 \u1077 \u1088 \u1074 \u1077 \u1088 \u1085 \u1086 \u1081  \u1078 \u1077  \u1095 \u1072 \u1089 \u1090 \u1080  \cf24 \uc0\u1089 \u1080 \u1083 \u1100 \u1085 \u1086  \u1088 \u1072 \u1089 \u1089 \u1077 \u1103 \u1085 \u1086  \u1074 \u1085 \u1080 \u1084 \u1072 \u1085 \u1080 \u1077  \u1087 \u1086 \u1089 \u1083 \u1077  \u1082 \u1091 \u1088 \u1077 \u1085 \u1080 \u1103  \cf25 \cb9 \
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+\cf26 \cb27 - \uc0\u1085 \u1072 \u1074 \u1077 \u1089 \u1090 \u1080  \u1087 \u1072 \u1087 \u1086 \u1095 \u1082 \u1080  \u1074  xcodeproj\cf28 \cb9 \
+\pard\tx445\pardeftab445\pardirnatural\partightenfactor0
+\cf27 \cb29 - \uc0\u1085 \u1072 \u1089 \u1090 \u1088 \u1086 \u1080 \u1090 \u1100  js-\u1083 \u1086 \u1075 \u1080 \u1088 \u1086 \u1074 \u1072 \u1085 \u1080 \u1077  - 30 \u1084 \u1080 \u1085 \u1091 \u1090  (12:30)\cf28 \cb9 \
+- \uc0\u1088 \u1072 \u1089 \u1075 \u1088 \u1091 \u1087 \u1080 \u1088 \u1086 \u1074 \u1072 \u1090 \u1100  \u1082 \u1086 \u1076  \u1087 \u1086  \u1090 \u1080 \u1087 \u1072 \u1084 , \u1089 \u1084 \u1099 \u1089 \u1083 \u1091 , \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1103 \u1084  1 \u1095 \u1072 \u1089 ?\
+- \uc0\u1085 \u1072 \u1082 \u1072 \u1090 \u1080 \u1090 \u1100  \u1085 \u1072  gsmall\
+\cf0 \
+\
+\
+\
 }

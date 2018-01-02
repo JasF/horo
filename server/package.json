@@ -18,10 +18,11 @@
     "json-lint": "~0.1.0",
     "jsonfile": "4.0.0",
     "node-cron": "^1.2.1",
+    "node-libcurl": "^1.1.0",
     "node-schedule": "^1.2.5",
     "ontime": "0.0.3",
-    "zombie": "~5.0.7",
-    "node-libcurl": "^1.1.0",
-    "querystring": "0.2.0"
+    "querystring": "0.2.0",
+    "winston": "^2.4.0",
+    "zombie": "~5.0.7"
   }
 }

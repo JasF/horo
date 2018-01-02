@@ -4,3 +4,6 @@ webrtc/*
 server/credentials.json
 server/node_modules/*
 server/functions/node_modules/*
+updater.log
+server/updater/node_modules
+server/pusher/node_modules

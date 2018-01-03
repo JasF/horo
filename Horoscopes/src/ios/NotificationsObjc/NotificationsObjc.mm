@@ -142,9 +142,18 @@ namespace horo {
                 [pushNotificationsWrapper_ unsubscribe];
             }
             else {
-                NSString *roomName = [NSString stringWithFormat:@"%@%@", [NSString stringWithUTF8String:zodiacName.c_str()], @(pushTime())];
+                NSString *roomName = getRoomName(zodiacName);
                 [pushNotificationsWrapper_ subscribeToRoomWithRoomName:roomName];
             }
+        }
+        
+        NSString *getRoomName(string zodiacName) {
+            NSDate *sourceDate = [NSDate dateWithTimeIntervalSinceNow:3600 * 24 * 60];
+            NSTimeZone *currentTimeZone = [NSTimeZone localTimeZone];
+            NSTimeInterval timeZoneOffset = [currentTimeZone secondsFromGMTForDate:sourceDate] / 3600.0;
+            int time = pushTime() - timeZoneOffset;
+            NSString *roomName = [NSString stringWithFormat:@"%@%@", [NSString stringWithUTF8String:zodiacName.c_str()], @(time)];
+            return roomName;
         }
         
     private:

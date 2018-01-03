@@ -1,0 +1,18 @@
+0000000000000000000000000000000000000000 950c5271f8a3d5e66e49d096ffea95e2d402972f Andrei Vayavoda <andreivoe@gmail.com> 1513500799 +0100	commit (initial): initial commit
+950c5271f8a3d5e66e49d096ffea95e2d402972f 25d579f0c660e237b35fa3f35576bb42d3854436 Andrei Vayavoda <andreivoe@gmail.com> 1513502177 +0100	commit: updating
+25d579f0c660e237b35fa3f35576bb42d3854436 64c2becf13816d256d822bea890021dc993d1e96 Andrei Vayavoda <andreivoe@gmail.com> 1513512669 +0100	pull origin master: Fast-forward
+64c2becf13816d256d822bea890021dc993d1e96 5766df39ed99b4bf654c90adf6440af0fd2c8664 Andrei Vayavoda <andreivoe@gmail.com> 1514724742 +0300	commit: pushing new scheduler code
+5766df39ed99b4bf654c90adf6440af0fd2c8664 f7e98ae63ea4d7ad1f56b372d6ffa9ba394518a8 Andrei Vayavoda <andreivoe@gmail.com> 1514726002 +0300	pull origin master: Fast-forward
+f7e98ae63ea4d7ad1f56b372d6ffa9ba394518a8 31792762fe977a2466f665009dacd7d52f1b7b2a Andrei Vayavoda <andreivoe@gmail.com> 1514726699 +0300	pull origin master: Fast-forward
+31792762fe977a2466f665009dacd7d52f1b7b2a f8990942c2b4334e545ad233324b498883ff9a2d Andrei Vayavoda <andreivoe@gmail.com> 1514727231 +0300	commit: scheduler update
+f8990942c2b4334e545ad233324b498883ff9a2d d35fabf0cf0ca2dcb6eb58025075fb805326e7b7 Andrei Vayavoda <andreivoe@gmail.com> 1514727831 +0300	commit: test
+d35fabf0cf0ca2dcb6eb58025075fb805326e7b7 ad43ad74d44b5e9a1415f458264c0d9d2c794684 Andrei Vayavoda <andreivoe@gmail.com> 1514727955 +0300	commit: bugfix
+ad43ad74d44b5e9a1415f458264c0d9d2c794684 019c195228fa4e655b6036b315977e46a1c5cea5 Andrei Vayavoda <andreivoe@gmail.com> 1514728444 +0300	commit: test updated scheduler
+019c195228fa4e655b6036b315977e46a1c5cea5 998267311864dc598d01ae08d6b24af5f53e0a43 Andrei Vayavoda <andreivoe@gmail.com> 1514728494 +0300	pull origin master: Fast-forward
+998267311864dc598d01ae08d6b24af5f53e0a43 e0e5570204035167c98ec015f445a62dcb09d72d Andrei Vayavoda <andreivoe@gmail.com> 1514729143 +0300	pull origin master: Fast-forward
+e0e5570204035167c98ec015f445a62dcb09d72d d240038369c1bae506651ba2d3b7abfe91a9e287 Andrei Vayavoda <andreivoe@gmail.com> 1514730530 +0300	commit: .
+d240038369c1bae506651ba2d3b7abfe91a9e287 68ccba187f8d9a753983966f6ac24df79eee9c45 Andrei Vayavoda <andreivoe@gmail.com> 1514730610 +0300	commit: .
+68ccba187f8d9a753983966f6ac24df79eee9c45 3e8513057f8a49a516b68427347857c42e5274ca Andrei Vayavoda <andreivoe@gmail.com> 1514730647 +0300	commit (merge): .
+3e8513057f8a49a516b68427347857c42e5274ca adf9f8ee782cf4add832a5d9201378547c850496 Andrei Vayavoda <andreivoe@gmail.com> 1514731005 +0300	commit: .
+adf9f8ee782cf4add832a5d9201378547c850496 179f0926b6034b873451596be2b7ace4d40119ea Andrei Vayavoda <andreivoe@gmail.com> 1514733971 +0300	commit: .
+179f0926b6034b873451596be2b7ace4d40119ea 3c0d48491a539ee9586443350e75134bd181fc7e Andrei Vayavoda <andreivoe@gmail.com> 1514734045 +0300	merge scheduler: Merge made by the 'recursive' strategy.

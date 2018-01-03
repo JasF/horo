@@ -18,6 +18,7 @@ function sendPushRequest(title, text) {
         'apns' : {'aps' : {'alert':{'title':title,'body':text}}}
     };
     data = JSON.stringify( data );
+    console.log('POST body: ' + data);
     curl.setOpt( Curl.option.URL, 'https://54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com/publish_api/v1/instances/54423f63-b8dd-4f21-8563-b009f25c399f/publishes' );
     curl.setOpt( Curl.option.POSTFIELDS, data );
     curl.setOpt( Curl.option.HTTPHEADER, ['Content-Type: application/json', 'Authorization: Bearer C14C4D4FCE687A45EB5B791A2596DCC'] );

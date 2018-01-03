@@ -15,7 +15,7 @@
 \csgenericrgb\c11000\c0\c81000;\csgray\c84070;\cssrgb\c80097\c91038\c70905;\cssrgb\c99995\c98371\c72572;\csgray\c92143;
 \csgray\c92143;\cssrgb\c100000\c55025\c50890;\cssrgb\c58755\c82661\c37297;\cssrgb\c0\c0\c0;\cssrgb\c91995\c95207\c56130;
 }
-\paperw11900\paperh16840\margl1440\margr1440\vieww11840\viewh6780\viewkind0
+\paperw11900\paperh16840\margl1440\margr1440\vieww31560\viewh15640\viewkind0
 \deftab720
 \pard\pardeftab720\sl320\partightenfactor0
 
@@ -207,6 +207,97 @@ sendPushes?sign=aries&time=23\
 - \uc0\u1085 \u1072 \u1082 \u1072 \u1090 \u1080 \u1090 \u1100  \u1085 \u1072  gsmall\
 \cf0 \
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf7 \cb8 \CocoaLigature0 mbp-andrei:pusher jasf$ node bootstrap\
+info: prediction for capricorn length: 536; roomname: capricorn11\
+info: JSON payload: \{"interests":["capricorn11"],"apns":\{"aps":\{"alert":\{"title":"capricorn","body":"\\n\\nJan 2, 2018 - It seems that you're ready for a major change in your life, Capricorn. But take care that you don't implement change merely for the sake of change. Think carefully about what you really want to do. Some introspection just might reveal that the changes you seek are minor rather than major. You may simply want to begin working on your health a bit more. Jogging a few days a week and vowing to eat salads at lunch rather than sandwiches may bring about a wonderful ripple effect of health and well-being in your life.\\n\\n\\n"\}\}\}\}\
+*   Trying 50.19.217.10...\
+* TCP_NODELAY set\
+* Connected to 54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com (50.19.217.10) port 443 (#0)\
+* ALPN, offering http/1.1\
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH\
+* successfully set certificate verify locations:\
+*   CAfile: /etc/ssl/cert.pem\
+  CApath: none\
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256\
+* ALPN, server accepted to use http/1.1\
+* Server certificate:\
+*  subject: OU=Domain Control Validated; OU=Gandi Standard Wildcard SSL; CN=*.pushnotifications.pusher.com\
+*  start date: Nov 17 00:00:00 2017 GMT\
+*  expire date: Nov 17 23:59:59 2018 GMT\
+*  subjectAltName: host "54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com" matched cert's "*.pushnotifications.pusher.com"\
+*  issuer: C=FR; ST=Paris; L=Paris; O=Gandi; CN=Gandi Standard SSL CA 2\
+*  SSL certificate verify ok.\
+> POST /publish_api/v1/instances/54423f63-b8dd-4f21-8563-b009f25c399f/publishes HTTP/1.1\
+Host: 54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com\
+Accept: */*\
+Content-Type: application/json\
+Authorization: Bearer C14C4D4FCE687A45EB5B791A2596DCC\
+Content-Length: 627\
+\
+* upload completely sent off: 627 out of 627 bytes\
+< HTTP/1.1 200 OK\
+< Server: Cowboy\
+< Connection: keep-alive\
+< Date: Wed, 03 Jan 2018 07:05:03 GMT\
+< Content-Length: 59\
+< Content-Type: text/plain; charset=utf-8\
+< Via: 1.1 vegur\
+< \
+* Connection #0 to host 54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com left intact\
+info: pushSended: 200; body: \{"publishId":"pubid-4b0fd332-375a-4e96-a2dc-0c18a79a144c"\}\
+\
+mbp-andrei:pusher jasf$ cd ..\
+mbp-andrei:server jasf$ mbp-andrei:node sendpushtoroom.js 11 capricorn\
+-bash: mbp-andrei:node: command not found\
+mbp-andrei:server jasf$ node sendpushtoroom.js 11 capricorn\
+setting document: storage/days/capricorn/3.1.2018\
+sending push to room: capricorn11\
+data content is: \
+\
+Jan 2, 2018 - It seems that you're ready for a major change in your life, Capricorn. But take care that you don't implement change merely for the sake of change. Think carefully about what you really want to do. Some introspection just might reveal that the changes you seek are minor rather than major. You may simply want to begin working on your health a bit more. Jogging a few days a week and vowing to eat salads at lunch rather than sandwiches may bring about a wonderful ripple effect of health and well-being in your life.\
 \
 \
-}
+\
+POST body: \{"interests":["capricorn11"],"apns":\{"aps":\{"alert":\{"title":"capricorn","body":"\\n\\nJan 2, 2018 - It seems that you're ready for a major change in your life, Capricorn. But take care that you don't implement change merely for the sake of change. Think carefully about what you really want to do. Some introspection just might reveal that the changes you seek are minor rather than major. You may simply want to begin working on your health a bit more. Jogging a few days a week and vowing to eat salads at lunch rather than sandwiches may bring about a wonderful ripple effect of health and well-being in your life.\\n\\n\\n"\}\}\}\}\
+*   Trying 50.19.217.10...\
+* TCP_NODELAY set\
+* Connected to 54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com (50.19.217.10) port 443 (#0)\
+* ALPN, offering http/1.1\
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH\
+* successfully set certificate verify locations:\
+*   CAfile: /etc/ssl/cert.pem\
+  CApath: none\
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256\
+* ALPN, server accepted to use http/1.1\
+* Server certificate:\
+*  subject: OU=Domain Control Validated; OU=Gandi Standard Wildcard SSL; CN=*.pushnotifications.pusher.com\
+*  start date: Nov 17 00:00:00 2017 GMT\
+*  expire date: Nov 17 23:59:59 2018 GMT\
+*  subjectAltName: host "54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com" matched cert's "*.pushnotifications.pusher.com"\
+*  issuer: C=FR; ST=Paris; L=Paris; O=Gandi; CN=Gandi Standard SSL CA 2\
+*  SSL certificate verify ok.\
+> POST /publish_api/v1/instances/54423f63-b8dd-4f21-8563-b009f25c399f/publishes HTTP/1.1\
+Host: 54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com\
+Accept: */*\
+Content-Type: application/json\
+Authorization: Bearer C14C4D4FCE687A45EB5B791A2596DCC\
+Content-Length: 627\
+\
+* upload completely sent off: 627 out of 627 bytes\
+< HTTP/1.1 200 OK\
+< Server: Cowboy\
+< Connection: keep-alive\
+< Date: Wed, 03 Jan 2018 07:05:31 GMT\
+< Content-Length: 59\
+< Content-Type: text/plain; charset=utf-8\
+< Via: 1.1 vegur\
+< \
+* Connection #0 to host 54423f63-b8dd-4f21-8563-b009f25c399f.pushnotifications.pusher.com left intact\
+statusCode: 200; body: \{"publishId":"pubid-b2c9e644-8613-4c52-a79b-0d8ca7b86dad"\}\
+\
+\{"interests":["capricorn11"],"apns":\{"aps":\{"alert":\{"title":"capricorn","body":"\\n\\nJan 2, 2018 - It seems that you're ready for a major change in your life, Capricorn. But take care that you don't implement change merely for the sake of change. Think carefully about what you really want to do. Some introspection just might reveal that the changes you seek are minor rather than major. You may simply want to begin working on your health a bit more. Jogging a few days a week and vowing to eat salads at lunch rather than sandwiches may bring about a wonderful ripple effect of health and well-being in your life.\\n\\n\\n"\}\}\}\}\
+\
+\
+\{"interests":["capricorn11"],"apns":\{"aps":\{"alert":\{"title":"capricorn","body":"\\n\\nJan 2, 2018 - It seems that you're ready for a major change in your life, Capricorn. But take care that you don't implement change merely for the sake of change. Think carefully about what you really want to do. Some introspection just might reveal that the changes you seek are minor rather than major. You may simply want to begin working on your health a bit more. Jogging a few days a week and vowing to eat salads at lunch rather than sandwiches may bring about a wonderful ripple effect of health and well-being in your life.\\n\\n\\n"\}\}\}\}}

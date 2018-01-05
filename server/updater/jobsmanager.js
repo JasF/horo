@@ -11,7 +11,13 @@ function makeJobs() {
 
 exports.scheduleJobs = function () {
     makeJobs()
-    scheduler.scheduleJobAtMinute(54, function(){
-      //logs.debug('hi from minute job horoscopesUpdater.beginUpdate')
+    scheduler.scheduleJobAtHour(2, function(){
+                                makeJobs()
     })
+    scheduler.scheduleJobAtHour(12, function(){
+                                makeJobs()
+                                })
+    scheduler.scheduleJobAtHour(18, function(){
+                                makeJobs()
+                                })
 }

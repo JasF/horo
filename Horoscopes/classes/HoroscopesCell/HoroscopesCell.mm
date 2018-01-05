@@ -163,11 +163,11 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)updateHeight {
-    _heightConstraint.constant = [self getHeight];
+    _heightConstraint.constant = [_selectedViewController getHeight];
 }
 
 - (CGFloat)getHeight {
-    return [_selectedViewController getHeight];
+    return _heightConstraint.constant;
 }
 
 @end

@@ -25,26 +25,13 @@ typedef NS_ENUM(NSInteger, PredictionRows) {
     RowsCount
 };
 
-static CGFloat const kRowHeight = 100.f;
+static CGFloat const kTitleRowHeight = 106.f;
+static CGFloat const kTabsRowHeight = 48.f;
+static CGFloat const kPredictionRowAddedHeight = 12.f;
 static NSInteger const kTodayTabIndex = 1;
 
-@interface TableView : UITableView
-@end
-
-@implementation TableView
-- (void)setContentOffset:(CGPoint)contentOffset {
-    [super setContentOffset:contentOffset];
-    DDLogWarn(@"SCO: %@", NSStringFromCGPoint(contentOffset));
-}
-
-- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated {
-    [super setContentOffset:contentOffset animated:animated];
-    DDLogWarn(@"SCOA: %@", NSStringFromCGPoint(contentOffset));
-}
-@end
-
 @interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet TableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacDateLabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
@@ -78,8 +65,6 @@ static NSInteger const kTodayTabIndex = 1;
     [_horoscopesContainerView horo_addFillingSubview:_horoscopesPageViewController.view];
     [_horoscopesPageViewController didMoveToParentViewController:self];
     
-    _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedRowHeight = kRowHeight;
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
@@ -138,7 +123,16 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+    NSDictionary *dictionary = @{@(TitleRow):^CGFloat{return kTitleRowHeight;},
+                                 @(TabsRow):^CGFloat{return kTabsRowHeight;},
+                                 @(PredictionRow):^CGFloat{return [_horoscopesCell getHeight] + kPredictionRowAddedHeight;}};
+    
+    CGFloat (^heightBlock)() = dictionary[@(indexPath.row)];
+    NSCAssert(heightBlock, @"Unknown cell: %@", indexPath);
+    if (!heightBlock) {
+        return 0.f;
+    }
+    return heightBlock();
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -184,8 +178,9 @@ static NSInteger const kTodayTabIndex = 1;
 - (void)updatePredictionHeight {
     // dispatch_async is fixing Page View Controller Assertion Issue Inside HoroscopesCell https://stackoverflow.com/questions/24000712/pageviewcontroller-setviewcontrollers-crashes-with-invalid-parameter-not-satisf
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView beginUpdates];
         [_horoscopesCell updateHeight];
+      //  [self.tableView reloadData];
+        [self.tableView beginUpdates];
         [self.tableView endUpdates];
     });
 }

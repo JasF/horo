@@ -2,9 +2,9 @@ webrtc/*
 .DS_Store
 *xcuserdata*
 server/credentials.json
+updater.log
 server/node_modules/*
 server/functions/node_modules/*
-updater.log
 server/updater/node_modules
 server/pusher/node_modules
 server/ttyupdater/node_modules

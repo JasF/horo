@@ -17,7 +17,10 @@ UIPageViewControllerDataSource>
 @property (weak, nonatomic, nullable) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (copy, nonatomic, nullable) void (^draggingProgress)(CGFloat completed, Direction direction);
 @property (copy, nonatomic, nullable) void (^selectedPageChanged)(NSInteger previous, NSInteger current);
-- (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t)completion;
+@property (readonly, nonatomic, nullable) UIScrollView *scrollView;
+@property (strong, nonatomic, nullable) dispatch_block_t didEndDeceleratingBlock;
+@property (strong, nonatomic, nullable) dispatch_block_t didEndScrollingAnimationBlock;
+- (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t _Nullable)completion;
 - (void)updateHeight;
 - (CGFloat)getHeight;
 @end

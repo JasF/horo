@@ -79,7 +79,7 @@ static NSInteger const kTodayTabIndex = 1;
         }
         self.tabs.titles = localizedStrings;
         self.horoscopesCell.texts = [NSString horo_stringsArrayWithList:self.viewModel->horoscopesText()];
-        [self updatePredictionHeight];
+        [self updatePredictionHeight:YES];
         if (self.tabs.titles.count > kTodayTabIndex) {
             [self.tabs setItemSelected:kTodayTabIndex
                              animation:TabsAnimationNone
@@ -157,7 +157,7 @@ static NSInteger const kTodayTabIndex = 1;
     _horoscopesCell.selectedPageChanged = ^(NSInteger previous, NSInteger current) {
         @strongify(self);
         [self.tabs setItemSelected:current animation:TabsAnimationFrameOnly];
-        [self updatePredictionHeight];
+        [self updatePredictionHeight:NO];
     };
 }
 
@@ -170,16 +170,35 @@ static NSInteger const kTodayTabIndex = 1;
                                    completion:^{
             @strongify(self);
             self.allowCustomAnimationWithTabs = YES;
-            [self updatePredictionHeight];
+            [self updatePredictionHeight:YES];
         }];
     };
 }
 
-- (void)updatePredictionHeight {
-    // dispatch_async is fixing Page View Controller Assertion Issue Inside HoroscopesCell https://stackoverflow.com/questions/24000712/pageviewcontroller-setviewcontrollers-crashes-with-invalid-parameter-not-satisf
+- (void)updatePredictionHeight:(BOOL)force {
+    if (force) {
+        [self performReloadData];
+        return;
+    }
+    if (self.horoscopesCell.scrollView.decelerating) {
+        @weakify(self);
+        self.horoscopesCell.didEndDeceleratingBlock = ^{
+            @strongify(self);
+            self.horoscopesCell.didEndDeceleratingBlock = nil;
+            [self performReloadData];
+        };
+    }
+    else {
+        [self performReloadData];
+    }
+}
+
+- (void)performReloadData {
+    /* dispatch_async is fixing Page View Controller Assertion Issue Inside HoroscopesCell
+     https://stackoverflow.com/questions/24000712/pageviewcontroller-setviewcontrollers-crashes-with-invalid-parameter-not-satisf
+     */
     dispatch_async(dispatch_get_main_queue(), ^{
         [_horoscopesCell updateHeight];
-      //  [self.tableView reloadData];
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
     });

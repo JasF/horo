@@ -7,30 +7,31 @@ var storage = require('../common/horostorage');
 var common = require('../common/common');
 
 exports.beginUpdate = function (completion) {
-  logs.info('begin update')
+  logs.debug('begin update')
   tabsTypes = ["yesterday", "today", "tomorrow", "weekly", "monthly"];
   indexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   arrays.map(tabsTypes.slice(), function(tabType, tabsCallback){
-    logs.info('tabs type: ' + tabType);
+    logs.debug('tabs type: ' + tabType);
     arrays.map(indexes.slice(), function(index, indexCallback){
-      logs.info('request with zodiacIndex: ' + index);
+      logs.debug('request with zodiacIndex: ' + index);
       downloader.performDownloadHoroscope(index, tabType, function (body, error) {
         if (body == null) {
           logs.error('body is nil');
           indexCallback();
           return;
         }
-        logs.info('response! length: ' + body.length + '; error: ' + error);
+        logs.debug('response! length: ' + body.length + '; error: ' + error);
         try {
           parser.parse(body, function(zodiacName, predictionText) {
-            logs.info('parsed. zodiacName: ' + zodiacName + '; predictionText: ' + predictionText);
+            predictionText = common.trim(predictionText)
+            logs.debug('parsed. zodiacName: ' + zodiacName + '; predictionText: ' + predictionText);
             storage.writeHoroscope(zodiacName, tabType, predictionText, function () {
-              logs.info('saved!')
+              logs.debug('saved!')
               indexCallback()
             })
           })
         } catch (err) {
-          logs.info('err: ' + err)
+          logs.debug('err: ' + err)
         }
                                           
       })

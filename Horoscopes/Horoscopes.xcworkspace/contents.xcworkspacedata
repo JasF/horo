@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Components/PushNotifications/PushNotifications.xcodeproj">
+      location = "group:Horoscopes.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Horoscopes.xcodeproj">
+      location = "group:Components/PushNotifications/PushNotifications.xcodeproj">
    </FileRef>
 </Workspace>

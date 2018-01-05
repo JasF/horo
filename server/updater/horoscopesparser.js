@@ -80,9 +80,9 @@ function invokePayloadData(tree, completion) {
 exports.parse = function (text, completion) {
     var tree = gumbo(text);
     var root = tree["root"]
-    logs.info('root: ' + root);
+    logs.debug('root: ' + root);
     invokePayloadData(root, function (zodiacName, predictionText) {
-        logs.info('zodiacName: ' + zodiacName + '; predictionText length: ' + (predictionText != null) ? predictionText.length : 0)
+        logs.debug('zodiacName: ' + zodiacName + '; predictionText length: ' + (predictionText != null) ? predictionText.length : 0)
         completion(zodiacName, predictionText)
     })
 }

@@ -8,10 +8,14 @@ const firestore = new Firestore({projectId: 'horo-ios',
 
 exports.writeHoroscope = function (zodiacName, tabsType, horoscope, callback) {
     horoType = common.horoTypeByTabsType(tabsType);
-    dateString = common.dateStringFromType(tabsType)
-    logs.info('horoType for ' + tabsType + ' is ' + horoType);
+    dateString = common.dateStringFromPredictionText(horoscope, tabsType)
+    logs.debug('cannot obtain date from horoscope text: ' + path);
+    if (dateString.length == 0) {
+        process.exit(1);
+    }
+    logs.debug('horoType for ' + tabsType + ' is ' + horoType);
     path = 'storage/' + horoType + '/' + zodiacName + '/' + dateString
-    logs.info('firestore document patch is: ' + path);
+    logs.debug('firestore document patch is: ' + path);
     const document = firestore.doc(path)
     document.set({ content : horoscope }).then(() => {
                                           callback()
@@ -19,7 +23,7 @@ exports.writeHoroscope = function (zodiacName, tabsType, horoscope, callback) {
 }
 
 exports.getDocumentData = function (path, completion) {
-    logs.info('getting document from path: ' + path);
+    logs.debug('getting document from path: ' + path);
     const document = firestore.doc(path);
     document.get().then(doc => {
       data = doc.data()
@@ -51,7 +55,7 @@ exports.createTTYDocument = function (zodiacName, yesterday, today, tomorrow, we
     path = 'horoscopes/' + zodiacName
     const document = firestore.doc(path);
     document.set(object).then(() => {
-                              logs.info('TTY document created');
+                              logs.debug('TTY document created');
                               completion()
                               });
 }

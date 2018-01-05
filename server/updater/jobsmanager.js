@@ -12,6 +12,6 @@ function makeJobs() {
 exports.scheduleJobs = function () {
     makeJobs()
     scheduler.scheduleJobAtMinute(54, function(){
-      //logs.info('hi from minute job horoscopesUpdater.beginUpdate')
+      //logs.debug('hi from minute job horoscopesUpdater.beginUpdate')
     })
 }

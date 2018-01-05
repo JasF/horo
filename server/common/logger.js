@@ -23,7 +23,7 @@ const logger = createLogger({
 var logger = new (winston.Logger)({
                                   transports: [
                                                new (winston.transports.Console)({
-                                                                                level: 'debug'
+                                                                                level: 'verbose'
                                                                                 }),
                                                new (winston.transports.File)({
                                                                              filename: './../../updater.log',

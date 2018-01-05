@@ -3,8 +3,8 @@ scheduler = require('../common/scheduler')
 creator = require('./ttycreator')
 
 exports.scheduleJobs = function () {
-    logs.info('scheduler!');
+    logs.debug('scheduler!');
     creator.createTTYHoroscopes(function () {
-      logs.info('creation TTY completed!');
+      logs.debug('creation TTY completed!');
     })
 }

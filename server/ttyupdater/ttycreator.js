@@ -9,7 +9,7 @@ function requestPredictionsForZodiac(zodiacName, rootCompletion) {
     dictionary = {}
     types = ["yesterday", "today", "tomorrow", "weekly", "monthly"]
     arrays.map(types.slice(), function(tabsType, tabsCallback){
-        logs.info('creating tty for: ' + tabsType);
+        logs.debug('creating tty for: ' + tabsType);
         horoType = common.horoTypeByTabsType(tabsType);
         dateString = common.dateStringFromType(tabsType);
         path = 'storage/' + horoType + '/' + zodiacName + '/' + dateString
@@ -18,22 +18,22 @@ function requestPredictionsForZodiac(zodiacName, rootCompletion) {
           tabsCallback()
         });
     }, function (err) {
-        logs.info('tty creating finitshed. err: ' + err + '; dictionary length: ' + JSON.stringify(dictionary).length);
+        logs.debug('tty creating finitshed. err: ' + err + '; dictionary length: ' + JSON.stringify(dictionary).length);
         rootCompletion(dictionary.yesterday, dictionary.today, dictionary.tomorrow, dictionary.weekly, dictionary.monthly, dictionary.year);
     });
 }
 
 exports.createTTYHoroscopes = function(rootCompletion) {
     arrays.map(zodiacs.slice(), function(signName, signCallback){
-        logs.info('creating tty for: ' + signName);
+        logs.debug('creating tty for: ' + signName);
         requestPredictionsForZodiac(signName, function (yesterday, today, tomorrow, weekly, monthly, year) {
           storage.createTTYDocument(signName, yesterday, today, tomorrow, weekly, monthly, year, function (){
-            logs.info('createTTYDocument for ' + signName + ' finished');
+            logs.debug('createTTYDocument for ' + signName + ' finished');
             signCallback()
           });
         });
     }, function (err) {
-        logs.info('tty creating finitshed. err: ' + err);
+        logs.debug('tty creating finitshed. err: ' + err);
         rootCompletion()
     });
 }

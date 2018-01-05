@@ -19,4 +19,5 @@ UIPageViewControllerDataSource>
 @property (copy, nonatomic, nullable) void (^selectedPageChanged)(NSInteger previous, NSInteger current);
 - (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t)completion;
 - (void)updateHeight;
+- (CGFloat)getHeight;
 @end

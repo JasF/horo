@@ -13,11 +13,38 @@
 #import "UIView+Horo.h"
 #import "Tabs.h"
 
+typedef NS_ENUM(NSInteger, PredictionSections) {
+    MainSection,
+    SectionsCount
+};
+
+typedef NS_ENUM(NSInteger, PredictionRows) {
+    TitleRow,
+    TabsRow,
+    PredictionRow,
+    RowsCount
+};
+
 static CGFloat const kRowHeight = 100.f;
 static NSInteger const kTodayTabIndex = 1;
 
+@interface TableView : UITableView
+@end
+
+@implementation TableView
+- (void)setContentOffset:(CGPoint)contentOffset {
+    [super setContentOffset:contentOffset];
+    DDLogWarn(@"SCO: %@", NSStringFromCGPoint(contentOffset));
+}
+
+- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated {
+    [super setContentOffset:contentOffset animated:animated];
+    DDLogWarn(@"SCOA: %@", NSStringFromCGPoint(contentOffset));
+}
+@end
+
 @interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet TableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacDateLabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
@@ -98,14 +125,14 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return RowsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: return self.zodiacTitleCell;
-        case 1: return self.tabsCell;
-        case 2: return self.horoscopesCell;
+        case TitleRow: return self.zodiacTitleCell;
+        case TabsRow: return self.tabsCell;
+        case PredictionRow: return self.horoscopesCell;
     }
     return [UITableViewCell new];
 }
@@ -145,7 +172,8 @@ static NSInteger const kTodayTabIndex = 1;
     _tabs.tabsItemViewSelected = ^(NSInteger previousIndex, NSInteger currentIndex) {
         @strongify(self);
         self.allowCustomAnimationWithTabs = NO;
-        [self.horoscopesCell setSelectedIndex:currentIndex completion:^{
+        [self.horoscopesCell setSelectedIndex:currentIndex
+                                   completion:^{
             @strongify(self);
             self.allowCustomAnimationWithTabs = YES;
             [self updatePredictionHeight];
@@ -154,9 +182,11 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)updatePredictionHeight {
-    [_horoscopesCell updateHeight];
+    // dispatch_async is fixing Page View Controller Assertion Issue Inside HoroscopesCell https://stackoverflow.com/questions/24000712/pageviewcontroller-setviewcontrollers-crashes-with-invalid-parameter-not-satisf
     dispatch_async(dispatch_get_main_queue(), ^{
-        [_tableView reloadData];
+        [self.tableView beginUpdates];
+        [_horoscopesCell updateHeight];
+        [self.tableView endUpdates];
     });
 }
 

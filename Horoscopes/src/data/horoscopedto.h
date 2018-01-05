@@ -34,7 +34,7 @@ namespace horo {
     public:
         ZodiacTypes zodiac() const { return zodiac_; }
         HoroscopeType type() const { return type_; }
-        std::string content() const { return content_; }
+        std::string content() const;
         uint64_t date() const { return date_; }
         
     private:

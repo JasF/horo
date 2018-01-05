@@ -24,4 +24,8 @@ namespace horo {
         zodiac_ = (ZodiacTypes) coder["zodiac"].asInt();
     }
     
+    std::string _HoroscopeDTO::content() const {
+        return content_ + content_;
+    }
+    
 };

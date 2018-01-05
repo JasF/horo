@@ -26,10 +26,6 @@ static NSInteger const kTodayTabIndex = 1;
     _viewControllers = [NSMutableDictionary new];
 }
 
-- (void)dealloc {
-    
-}
-
 #pragma mark - Accessors
 - (void)setPageViewController:(UIPageViewController *)pageViewController {
     [[self scrollView] setDelegate:nil];
@@ -167,7 +163,11 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)updateHeight {
-    _heightConstraint.constant = [_selectedViewController getHeight];
+    _heightConstraint.constant = [self getHeight];
+}
+
+- (CGFloat)getHeight {
+    return [_selectedViewController getHeight];
 }
 
 @end

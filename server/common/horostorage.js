@@ -9,7 +9,7 @@ const firestore = new Firestore({projectId: 'horo-ios',
 exports.writeHoroscope = function (zodiacName, tabsType, horoscope, callback) {
     horoType = common.horoTypeByTabsType(tabsType);
     dateString = common.dateStringFromPredictionText(horoscope, tabsType)
-    logs.debug('cannot obtain date from horoscope text: ' + path);
+    logs.debug('cannot obtain date from horoscope text: ' + horoscope);
     if (dateString.length == 0) {
         process.exit(1);
     }
@@ -26,9 +26,15 @@ exports.getDocumentData = function (path, completion) {
     logs.debug('getting document from path: ' + path);
     const document = firestore.doc(path);
     document.get().then(doc => {
-      data = doc.data()
-      completion(data.content)
-    });
+                        try {
+                          data = doc.data()
+                          completion(data.content)
+                        }
+                        catch (err) {
+                          logs.info('error getting document: ' + err);
+                          completion("")
+                        }
+                      });
 }
 
 exports.createTTYDocument = function (zodiacName, yesterday, today, tomorrow, weekly, monthly, year, completion) {

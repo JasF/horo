@@ -26,12 +26,12 @@ exports.beginUpdate = function (completion) {
             predictionText = common.trim(predictionText)
             logs.debug('parsed. zodiacName: ' + zodiacName + '; predictionText: ' + predictionText);
             storage.writeHoroscope(zodiacName, tabType, predictionText, function () {
-              logs.debug('saved!')
+              logs.info('saved: ' + zodiacName + '; type: ' + tabType)
               indexCallback()
             })
           })
         } catch (err) {
-          logs.debug('err: ' + err)
+          logs.debug('writting horoscope error: ' + err)
         }
                                           
       })

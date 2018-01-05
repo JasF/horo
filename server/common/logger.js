@@ -27,7 +27,7 @@ var logger = new (winston.Logger)({
                                                                                 }),
                                                new (winston.transports.File)({
                                                                              filename: './../../updater.log',
-                                                                             level: 'debug'
+                                                                             level: 'verbose'
                                                                              })
                                                ]
                                   });

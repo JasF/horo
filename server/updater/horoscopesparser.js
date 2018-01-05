@@ -68,9 +68,7 @@ function invokePayloadData(tree, completion) {
         if (child.nodeType == 1 /*1 == Element*/) {
             invokePayloadData(child, null)
         }
-        if (child.nodeType == 3) {
-            // console.log(child.textContent)
-        }
+        
     }
     if (completion != null) {
         completion(zodiacKey, textStorage)

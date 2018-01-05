@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -181,13 +181,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQt-oH-XxP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="293.5"/>
+                                <rect key="frame" x="0.0" y="10" width="375" height="283.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eQt-oH-XxP" firstAttribute="top" secondItem="lX4-h5-CGo" secondAttribute="top" id="GXN-po-JIU"/>
+                            <constraint firstItem="eQt-oH-XxP" firstAttribute="top" secondItem="lX4-h5-CGo" secondAttribute="top" constant="10" id="GXN-po-JIU"/>
                             <constraint firstItem="eQt-oH-XxP" firstAttribute="width" secondItem="lX4-h5-CGo" secondAttribute="width" id="R1N-UN-rQY"/>
                             <constraint firstItem="eQt-oH-XxP" firstAttribute="bottom" secondItem="lX4-h5-CGo" secondAttribute="bottom" constant="250" id="RGT-en-lpG"/>
                             <constraint firstAttribute="bottom" secondItem="y5V-gw-2tp" secondAttribute="bottom" id="af9-6n-6mr"/>

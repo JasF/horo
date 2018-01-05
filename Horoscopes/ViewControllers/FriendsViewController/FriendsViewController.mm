@@ -285,6 +285,10 @@ using namespace horo;
     [self.tableView reloadData];
 }
 
+- (void)webViewControllerWillCloseScreenByUser:(id<WebViewController>)webViewController {
+    [self cancelTapped:nil];
+}
+
 #pragma mark - Show Alert Controller
 - (void)showAlertController:(PersonObjc *)person {
     NSString *text = [NSString stringWithFormat:L(@"cancel_current_birthday_request_text"), person.name];

@@ -17,6 +17,7 @@
 #import "UIView+TKGeometry.h"
 #import "UIView+Horo.h"
 #import "Logger.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 CF_INLINE bool IsEqualFloat(float a, float b) { return ABS(a - b) < pow(10, -10); }
 CF_INLINE bool IsFloatEqual(float a, float b) { return IsEqualFloat(a,b);}
@@ -37,6 +38,12 @@ typedef NS_ENUM (NSInteger, TouchState) {
 typedef BOOL (^TappedBlock)(void);
 
 #define Log(fmt, ...) [[Logger shared] log:fmt, ##__VA_ARGS__]
+
+#if DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+#endif
 
 #endif
 

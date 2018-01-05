@@ -249,6 +249,8 @@
 		C31A140A1FB0B254001FABFE /* persondaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14091FB0B254001FABFE /* persondaoimpl.cc */; };
 		C31A14161FB1927C001FABFE /* facebookfriendinformationparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A14151FB1927C001FABFE /* facebookfriendinformationparser.cc */; };
 		C31A141C1FB19625001FABFE /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
+		C32330FC1FFCCFC60027089E /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32330FB1FFCCD560027089E /* CocoaLumberjack.framework */; };
+		C32330FD1FFCCFC60027089E /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32330FB1FFCCD560027089E /* CocoaLumberjack.framework */; };
 		C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
 		C3292C941FEE887200A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3292C961FEE889100A3698B /* PushNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -773,6 +775,7 @@
 		C32330F81FFBD5D20027089E /* bootstrap.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
 		C32330F91FFBD5EE0027089E /* jobsmanager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jobsmanager.js; sourceTree = "<group>"; };
 		C32330FA1FFBD73E0027089E /* pushsender.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = pushsender.js; sourceTree = "<group>"; };
+		C32330FB1FFCCD560027089E /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = "<group>"; };
 		C3292C981FEEA00D00A3698B /* NotificationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
 		C3292C991FEEA00D00A3698B /* NotificationsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationsViewController.mm; sourceTree = "<group>"; };
 		C3292C9C1FEEA04600A3698B /* NotificationsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsViewController.storyboard; sourceTree = "<group>"; };
@@ -1115,6 +1118,7 @@
 				C3CD7DE31FA6F19F00D2BFF3 /* gRPC-RxLibrary.framework in Frameworks */,
 				C3CD7DDC1FA6F19F00D2BFF3 /* GTMSessionFetcher.framework in Frameworks */,
 				C3CD7DF41FA6F4E800D2BFF3 /* FirebaseCore.framework in Frameworks */,
+				C32330FC1FFCCFC60027089E /* CocoaLumberjack.framework in Frameworks */,
 				C304097C1FA789B600A0FC33 /* FMDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1155,6 +1159,7 @@
 				C315ACA21FE5040C00CC9B67 /* gRPC-RxLibrary.framework in Frameworks */,
 				C315ACA61FE5040C00CC9B67 /* GTMSessionFetcher.framework in Frameworks */,
 				C315ACA81FE5040C00CC9B67 /* FirebaseCore.framework in Frameworks */,
+				C32330FD1FFCCFC60027089E /* CocoaLumberjack.framework in Frameworks */,
 				C315ACAB1FE5040C00CC9B67 /* FMDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2351,6 +2356,7 @@
 		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C32330FB1FFCCD560027089E /* CocoaLumberjack.framework */,
 				C340C4C11FEE5D4D00E1F6E8 /* libPusher.framework */,
 				C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */,
 				C304097B1FA789B600A0FC33 /* FMDB.framework */,

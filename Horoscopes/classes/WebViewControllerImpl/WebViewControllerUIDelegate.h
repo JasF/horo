@@ -14,4 +14,5 @@
 - (UIViewController *)parentViewControllerForWebViewController:(id<WebViewController>)webViewController;
 - (BOOL)webViewController:(id<WebViewController>)webViewController webViewDidLoad:(NSURL *)url;
 - (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController;
+- (void)webViewControllerWillCloseScreenByUser:(id<WebViewController>)webViewController;
 @end

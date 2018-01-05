@@ -10,6 +10,8 @@
 #import <WebKit/WKWebView.h>
 
 @interface WebViewDialogController : UIViewController
+@property (copy, nonatomic) dispatch_block_t closeTappedBlock;
+@property (copy, nonatomic) dispatch_block_t willDisappearBlock;
 @property (strong, nonatomic) WKWebView *webView;
 + (instancetype)create;
 @end

@@ -27,14 +27,27 @@
 }
 
 - (void)viewDidLoad {
+    DDLogInfo(@"viewDidLoad");
     [super viewDidLoad];
     _webView = [[WKWebView alloc] initWithFrame:CGRectZero];
     [_containerView horo_addFillingSubview:_webView];
     self.navigationController.navigationBar.translucent = YES;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    DDLogInfo(@"viewWillDisappear");
+    [super viewWillDisappear:animated];
+    if (_willDisappearBlock) {
+        _willDisappearBlock();
+    }
+}
+
 #pragma mark - Observers
 - (IBAction)closeTapped:(id)sender {
+    DDLogInfo(@"closeTapped");
+    if (_closeTappedBlock) {
+        _closeTappedBlock();
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

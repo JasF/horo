@@ -49,8 +49,8 @@ void PredictionScreenModelImpl::handleFetchedHoroscopes(strong<HoroscopeDTO> yes
                                                         strong<HoroscopeDTO> year) {
     list<string> predictions;
     list<string> tabsTitles;
-    vector<string> allTabsTitles = {"yesterday", "today", "tomorrow", "week", "month", "year"};
-    vector<strong<HoroscopeDTO>> allHoroscopes = {yesterday, today, tomorrow, week, month, year};
+    vector<string> allTabsTitles = {"yesterday", "today", "week", "month", "year"};
+    vector<strong<HoroscopeDTO>> allHoroscopes = {yesterday, today, week, month, year};
     int i=0;
     for (auto h:allHoroscopes) {
         string title = allTabsTitles[i];

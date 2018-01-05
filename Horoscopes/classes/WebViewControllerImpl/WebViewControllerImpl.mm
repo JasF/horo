@@ -35,6 +35,17 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 - (id)init {
     if (self = [super init]) {
         _dialog = [WebViewDialogController create];
+        @weakify(self);
+        _dialog.closeTappedBlock = ^{
+            @strongify(self);
+            if ([self.delegate respondsToSelector:@selector(webViewControllerWillCloseScreenByUser:)]) {
+                [self.delegate webViewControllerWillCloseScreenByUser:self];
+            }
+        };
+        _dialog.willDisappearBlock = ^{
+            @strongify(self);
+            self.dialogPresented = NO;
+        };
         _dialogNavigationController = _dialog.navigationController;
         _webView = [_dialog webView];
         _webView.UIDelegate = self;
@@ -50,6 +61,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 #pragma mark - WebViewController
 - (void)loadURLWithPath:(NSURL *)URL
              completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
+    DDLogInfo(@"URL: %@", URL);
     NSCParameterAssert(URL);
     NSCParameterAssert(completion);
     _workingURL = URL;
@@ -67,6 +79,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 - (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
     self.webViewDidLoadCompletion = completion;
+    DDLogInfo(@"triggerSwipeToBottomWithCompletion");
     [self launchCyclicBottomSwiping];
 }
 
@@ -94,11 +107,13 @@ static CGFloat const kCancelSwipingDelay = 5.f;
         _dialogPresented = NO;
         [_dialogNavigationController dismissViewControllerAnimated:YES completion:nil];
     }
+    DDLogInfo(@"didFinishNavigation: %@; _dialogPresented: %@; needsShowDialog: %@", webView.URL, @(_dialogPresented), @(needsShowDialog));
     [self performSuccessCallback:YES];
 }
 
 #pragma mark - WKNavigationDelegate
 - (void)performSuccessCallback:(BOOL)withClean {
+    DDLogInfo(@"performSuccessCallback withClean: %@", @(withClean));
     @weakify(self);
     if (![_webView.URL.path isEqual:_workingURL.path]) {
         return;
@@ -131,6 +146,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    DDLogInfo(@"didFailNavigation URL: %@", webView.URL);
     if (![_webView.URL.path isEqual:_workingURL.path]) {
         return;
     }
@@ -143,11 +159,13 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 #pragma mark - Private Methods
 - (void)launchCyclicBottomSwiping {
+    DDLogInfo(@"launchCyclicBottomSwiping");
     _swipingActive = YES;
     [self doCyclic:NO];
 }
 
 - (void)doCyclic:(BOOL)withNotify {
+    DDLogInfo(@"doCyclic: %@", @(withNotify));
     if (!self.swipingActive) {
         return;
     }

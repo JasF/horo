@@ -16,7 +16,7 @@ typedef NS_ENUM (NSInteger, TabItemViewTouchState) {
 
 @interface TabsItemView : UIView
 @property (nonatomic, copy) void (^touchesBlock)(TabItemViewTouchState state);
-- (void)setTitle:(NSString *)title;
+@property (nonatomic, strong) NSString *title;
 - (void)setItemHighlighted:(BOOL)highlighted;
 - (void)setItemHighlighted:(BOOL)highlighted syncLabelColor:(BOOL)syncLabelColor;
 - (void)setItemSemiHighlighted;

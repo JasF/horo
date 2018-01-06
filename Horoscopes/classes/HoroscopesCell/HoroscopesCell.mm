@@ -28,7 +28,7 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - Accessors
 - (void)setPageViewController:(UIPageViewController *)pageViewController {
-    DDLogDebug(@"page setPageViewController");
+    // DDLogDebug(@"page setPageViewController");
     [[self scrollView] setDelegate:nil];
     _pageViewController = pageViewController;
     _pageViewController.delegate = self;
@@ -37,7 +37,7 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)setTexts:(NSArray *)texts {
-    DDLogDebug(@"page setTexts %@", @(texts.count));
+    // DDLogDebug(@"page setTexts %@", @(texts.count));
     NSCParameterAssert(_pageViewController);
     _texts = texts;
     if (!texts.count) {
@@ -56,7 +56,7 @@ static NSInteger const kTodayTabIndex = 1;
 #pragma mark - UIPageViewControllerDataSource
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(PredictionContentViewController *)viewController {
-    DDLogDebug(@"pageViewController:viewControllerBeforeViewController %@", @(viewController.index));
+    // DDLogDebug(@"pageViewController:viewControllerBeforeViewController %@", @(viewController.index));
     if (!viewController.index) {
         return nil;
     }
@@ -64,7 +64,7 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(PredictionContentViewController *)viewController {
-    DDLogDebug(@"pageViewController:viewControllerAfterViewController %@", @(viewController.index));
+    // DDLogDebug(@"pageViewController:viewControllerAfterViewController %@", @(viewController.index));
     if (viewController.index >= _texts.count-1) {
         return nil;
     }
@@ -74,7 +74,10 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - UIPageViewControllerDelegate
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-    DDLogDebug(@"pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted: %@", @(completed));
+    if (!completed) {
+        return;
+    }
+    // DDLogDebug(@"pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted: %@", @(completed));
     PredictionContentViewController *viewController = _pageViewController.viewControllers.firstObject;
     if ([_selectedViewController isEqual:viewController]) {
         return;
@@ -88,7 +91,7 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - Private Methods
 - (PredictionContentViewController *)allocateViewControllerWithIndex:(NSInteger)index {
-    DDLogDebug(@"allocateViewControllerWithIndex: %@", @(index));
+    // DDLogDebug(@"allocateViewControllerWithIndex: %@", @(index));
     NSCAssert(index < _texts.count, @"index out of bounds");
     if (index >= _texts.count) {
         return nil;
@@ -103,7 +106,7 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (PredictionContentViewController *)viewControllerByIndex:(NSInteger)index {
-    DDLogDebug(@"viewControllerByIndex: %@", @(index));
+    // DDLogDebug(@"viewControllerByIndex: %@", @(index));
     PredictionContentViewController *resultViewController = _viewControllers[@(index)];
     if (!resultViewController) {
         resultViewController = [self allocateViewControllerWithIndex:index];
@@ -112,7 +115,7 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (UIScrollView *)scrollView {
-    DDLogDebug(@"page scrollView");
+    // DDLogDebug(@"page scrollView");
     for (UIView *view in _pageViewController.view.subviews) {
         if ([view isKindOfClass:[UIScrollView class]]) {
             return(UIScrollView *)view;
@@ -124,6 +127,7 @@ static NSInteger const kTodayTabIndex = 1;
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     Direction direction = (scrollView.contentOffset.x > scrollView.width) ? DirectionForwardToLeft : DirectionBackToRight;
+    DDLogDebug(@"sv.co.x: %@; sv.w: %@; dir: %@", @(scrollView.contentOffset.x), @(scrollView.width), @(direction));
     CGFloat delta = (direction == DirectionForwardToLeft) ? scrollView.contentOffset.x - scrollView.width : scrollView.width - scrollView.contentOffset.x;
     if (IsEqualFloat(0, delta)) {
         return;
@@ -135,7 +139,7 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    DDLogDebug(@"page scrollViewDidEndDecelerating");
+    // DDLogDebug(@"page scrollViewDidEndDecelerating");
     if (_didEndDeceleratingBlock) {
         _didEndDeceleratingBlock();
     }
@@ -149,7 +153,7 @@ static NSInteger const kTodayTabIndex = 1;
 
 #pragma mark - Public Methods
 - (void)setSelectedIndex:(NSInteger)index completion:(dispatch_block_t)completion {
-    DDLogDebug(@"page setSelectedIndex: %@ completion:", @(index));
+    // DDLogDebug(@"page setSelectedIndex: %@ completion:", @(index));
     if (_selectedViewController.index == index) {
         if (completion) {
             completion();
@@ -179,12 +183,12 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 - (void)updateHeight {
-    DDLogDebug(@"page updateHeight");
+    // DDLogDebug(@"page updateHeight");
     _heightConstraint.constant = [_selectedViewController getHeight];
 }
 
 - (CGFloat)getHeight {
-    DDLogDebug(@"page getHeight");
+    // DDLogDebug(@"page getHeight");
     return _heightConstraint.constant;
 }
 

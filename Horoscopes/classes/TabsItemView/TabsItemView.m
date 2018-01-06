@@ -26,6 +26,10 @@ static CGFloat const kSemiHighlightedItemViewAlpha = kHighlightedItemViewAlpha /
     _labelSecond.text = title;
 }
 
+- (NSString *)title {
+    return _labelFirst.text;
+}
+
 #pragma mark - Observers
 - (IBAction)tapped:(id)sender {
     [self executeCallback:TabItemViewTouchFinished];

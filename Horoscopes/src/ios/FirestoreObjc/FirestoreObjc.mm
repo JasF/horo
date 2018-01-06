@@ -21,7 +21,7 @@ namespace horo {
         ~DocumentSnapshotObjc() override {}
     public:
         Json::Value data() const override {
-            if (!snapshot_.data) {
+            if (!snapshot_.exists) {
                 Json::Value empty;
                 return empty;
             }

@@ -14,14 +14,12 @@ function requestPredictionsForZodiac(zodiacName, rootCompletion) {
         dateString = common.dateStringFromType(tabsType);
         path = 'storage/' + horoType + '/' + zodiacName + '/' + dateString
         storage.getDocumentData(path, function (content) {
-          if (content.length != null) {
-              dictionary[tabsType] = content
-          }
+          dictionary[tabsType] = content
           tabsCallback()
         });
     }, function (err) {
         logs.debug('tty creating finitshed. err: ' + err + '; dictionary length: ' + JSON.stringify(dictionary).length);
-      //  rootCompletion(dictionary.yesterday, dictionary.today, dictionary.tomorrow, dictionary.weekly, dictionary.monthly, dictionary.year);
+        rootCompletion(dictionary.yesterday, dictionary.today, dictionary.tomorrow, dictionary.weekly, dictionary.monthly, dictionary.year);
     });
 }
 

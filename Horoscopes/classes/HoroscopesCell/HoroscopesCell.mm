@@ -40,6 +40,9 @@ static NSInteger const kTodayTabIndex = 1;
     DDLogDebug(@"page setTexts %@", @(texts.count));
     NSCParameterAssert(_pageViewController);
     _texts = texts;
+    if (!texts.count) {
+        return;
+    }
     NSInteger index = (texts.count > kTodayTabIndex) ? kTodayTabIndex : 0;
     PredictionContentViewController *viewController = [self viewControllerByIndex:index];
     _selectedViewController = viewController;

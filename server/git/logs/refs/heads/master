@@ -18,3 +18,4 @@ adf9f8ee782cf4add832a5d9201378547c850496 179f0926b6034b873451596be2b7ace4d40119e
 179f0926b6034b873451596be2b7ace4d40119ea 3c0d48491a539ee9586443350e75134bd181fc7e Andrei Vayavoda <andreivoe@gmail.com> 1514734045 +0300	merge scheduler: Merge made by the 'recursive' strategy.
 3c0d48491a539ee9586443350e75134bd181fc7e 15663cdf8812957b34ab44e0e9dace4b2f937158 Andrei Vayavoda <andreivoe@gmail.com> 1515153858 +0300	merge scheduler: Merge made by the 'recursive' strategy.
 15663cdf8812957b34ab44e0e9dace4b2f937158 bc746ceaa365e4fee916a5a02f8e85a088d72256 Andrei Vayavoda <andreivoe@gmail.com> 1515154698 +0300	pull origin master: Fast-forward
+bc746ceaa365e4fee916a5a02f8e85a088d72256 83ddfdb90b9dc348e721afdd9fc05b1ba0cac88c Andrei Vayavoda <andreivoe@gmail.com> 1515215356 +0300	commit: работоспособность ttycreator

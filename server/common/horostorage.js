@@ -38,6 +38,7 @@ exports.getDocumentData = function (path, completion) {
 }
 
 exports.createTTYDocument = function (zodiacName, yesterday, today, tomorrow, weekly, monthly, year, completion) {
+    logs.info('createTTYDocument');
     array = []
     if (yesterday != null) {
         array.push({ type:"yesterday", content:yesterday, date:common.dateStringFromType("yesterday")})
@@ -61,7 +62,7 @@ exports.createTTYDocument = function (zodiacName, yesterday, today, tomorrow, we
     path = 'horoscopes/' + zodiacName
     const document = firestore.doc(path);
     document.set(object).then(() => {
-                              logs.debug('TTY document created');
+                              logs.info('TTY document created');
                               completion()
                               });
 }

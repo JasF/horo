@@ -17,6 +17,7 @@
 #include "managers/horoscopesservice/horoscopesservice.h"
 #include "managers/screensmanager/screensmanager.h"
 #include "managers/notifications/notifications.h"
+#include "managers/ntp/ntp.h"
 #include "data/person.h"
 
 namespace horo {
@@ -29,7 +30,8 @@ namespace horo {
                    strong<Firestore> firestore,
                    strong<HoroscopesService> horoscopesService,
                    strong<ScreensManager> screensManager,
-                   strong<Notifications> notifications);
+                   strong<Notifications> notifications,
+                   strong<Ntp> ntp);
         ~ModelsImpl() override;
     public:
         strong<PredictionScreenModel> predictionScreenModel() override;
@@ -49,6 +51,7 @@ namespace horo {
         strong<HoroscopesService> horoscopesService_;
         strong<ScreensManager> screensManager_;
         strong<Notifications> notifications_;
+        strong<Ntp> ntp_;
     };
     
 };

@@ -28,6 +28,7 @@
 #include "friends/htmlparserfactory/htmlparserfactory.h"
 #include "managers/birthdaydetector/birthdaydetector.h"
 #include "managers/notifications/notifications.h"
+#include "managers/ntp/ntp.h"
 
 namespace horo {
   
@@ -58,6 +59,7 @@ namespace horo {
         strong<HtmlParserFactory> htmlParserFactory();
         strong<BirthdayDetector> birthdayDetector();
         strong<Notifications> notifications();
+        strong<Ntp> ntp();
     };
     
 };

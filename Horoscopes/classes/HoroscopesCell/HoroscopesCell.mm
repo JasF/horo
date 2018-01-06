@@ -127,7 +127,6 @@ static NSInteger const kTodayTabIndex = 1;
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     Direction direction = (scrollView.contentOffset.x > scrollView.width) ? DirectionForwardToLeft : DirectionBackToRight;
-    DDLogDebug(@"sv.co.x: %@; sv.w: %@; dir: %@", @(scrollView.contentOffset.x), @(scrollView.width), @(direction));
     CGFloat delta = (direction == DirectionForwardToLeft) ? scrollView.contentOffset.x - scrollView.width : scrollView.width - scrollView.contentOffset.x;
     if (IsEqualFloat(0, delta)) {
         return;

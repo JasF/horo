@@ -14,6 +14,7 @@
 #import "ScreensManagerObjc.h"
 #import "NetworkingServiceFactoryObjc.h"
 #import "NotificationsObjc.h"
+#import "NtpObjc.h"
 
 @implementation ManualInitialization
 + (void)load {
@@ -26,7 +27,8 @@
                        [FacebookBanagerObjc class],
                        [ScreensManagerObjc class],
                        [NetworkingServiceFactoryObjc class],
-                       [NotificationsObjc class]];
+                       [NotificationsObjc class],
+                       [NtpObjc class]];
     for (Class cls in array) {
         NSCAssert([cls respondsToSelector:@selector(doLoading)], @"Unknown classObjc: %@", cls);
         if ([cls respondsToSelector:@selector(doLoading)]) {

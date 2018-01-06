@@ -36,10 +36,26 @@ namespace horo {
         return timenum;
     }
     
+    tm timeToTm(time_t time) {
+        tm result = *std::localtime(&time);
+        return result;
+    }
+    
+    string tmToString(struct tm *t) {
+        char buffer[32];
+        std::strftime(buffer, 32, "%Y-%m-%d %H:%M:%S", t);
+        return buffer;
+    }
+    
     long long timeToTimestemp(time_t time) {
         auto unix_timestamp = std::chrono::seconds(time);
         long long nTimestemp = std::chrono::seconds(unix_timestamp).count();
         return nTimestemp;
+    }
+    
+    long long tmToTimestamp(tm *time) {
+        time_t t = mktime(time);
+        return timeToTimestemp(t);
     }
     
     long long localtime() {

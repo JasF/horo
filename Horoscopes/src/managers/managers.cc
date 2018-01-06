@@ -25,6 +25,7 @@
 #include "friends/htmlparserfactory/htmlparserfactoryimpl.h"
 #include "managers/birthdaydetector/birthdaydetectorimpl.h"
 #include "managers/notifications/notificationsimpl.h"
+#include "managers/ntp/ntpimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -75,7 +76,8 @@ Managers &Managers::shared() {
                                             firestore(),
                                             horoscopesService(),
                                             screensManager(),
-                                            notifications());
+                                            notifications(),
+                                            ntp());
         }
         return sharedInstance;
     }
@@ -203,4 +205,13 @@ Managers &Managers::shared() {
         }
         return sharedInstance;
     }
+    
+    strong<Ntp> Managers::ntp() {
+        static strong<Ntp> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new NtpImpl();
+        }
+        return sharedInstance;
+    }
+    
 };

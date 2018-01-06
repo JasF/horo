@@ -25,14 +25,16 @@ namespace horo {
                            strong<Firestore> firestore,
                            strong<HoroscopesService> horoscopesService,
                            strong<ScreensManager> screensManager,
-                           strong<Notifications> notifications)
+                           strong<Notifications> notifications,
+                           strong<Ntp> ntp)
     : components_(components)
     , facebookManager_(facebookManager)
     , settings_(settings)
     , firestore_(firestore)
     , horoscopesService_(horoscopesService)
     , screensManager_(screensManager)
-    , notifications_(notifications) {
+    , notifications_(notifications)
+    , ntp_(ntp) {
         SCParameterAssert(components_.get());
         SCParameterAssert(facebookManager_.get());
         SCParameterAssert(settings_.get());
@@ -40,6 +42,7 @@ namespace horo {
         SCParameterAssert(horoscopesService_.get());
         SCParameterAssert(screensManager_.get());
         SCParameterAssert(notifications_.get());
+        SCParameterAssert(ntp_.get());
     }
     
     ModelsImpl::~ModelsImpl() {
@@ -51,7 +54,7 @@ namespace horo {
     }
     
     strong<PredictionScreenModel> ModelsImpl::predictionScreenModel(strong<Person> person) {
-        return new PredictionScreenModelImpl(components_, horoscopesService_, person);
+        return new PredictionScreenModelImpl(components_, horoscopesService_, person, ntp_);
     }
     
     strong<HelloScreenModel> ModelsImpl::helloScreenModel() {

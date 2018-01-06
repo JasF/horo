@@ -15,6 +15,7 @@
 #include "models/corecomponents/corecomponents.h"
 #include "data/person.h"
 #include "managers/horoscopesservice/horoscopesservice.h"
+#include "managers/ntp/ntp.h"
 
 namespace horo {
   
@@ -22,7 +23,8 @@ namespace horo {
     public:
         PredictionScreenModelImpl(strong<CoreComponents> components,
                                   strong<HoroscopesService> horoscopesService,
-                                  strong<Person> person);
+                                  strong<Person> person,
+                                  strong<Ntp> ntp);
         ~PredictionScreenModelImpl() override;
     public:
         void loadData() override;
@@ -34,6 +36,7 @@ namespace horo {
         
         strong<Zodiac> zodiac();
     private:
+        void processFetchedHoroscopes();
         void handleFetchedHoroscopes(strong<HoroscopeDTO> yesterday,
                                      strong<HoroscopeDTO> today,
                                      strong<HoroscopeDTO> tomorrow,
@@ -44,9 +47,22 @@ namespace horo {
         strong<CoreComponents> components_;
         strong<Person> person_;
         strong<HoroscopesService> horoscopesService_;
+        strong<Ntp> ntp_;
         list<string> predictions_;
         list<string> tabsTitles_;
         std::function<void(bool success)> callback_;
+        
+        long long yesterdayTimestamp_;
+        long long todayTimestamp_;
+        long long weekTimestamp_;
+        long long monthTimestamp_;
+        
+        strong<HoroscopeDTO> yesterday_;
+        strong<HoroscopeDTO> today_;
+        strong<HoroscopeDTO> tomorrow_;
+        strong<HoroscopeDTO> week_;
+        strong<HoroscopeDTO> month_;
+        strong<HoroscopeDTO> year_;
     };
     
 };

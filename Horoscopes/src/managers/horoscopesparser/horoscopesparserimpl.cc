@@ -96,7 +96,8 @@ namespace horo {
             Json::Value mapped;
             mapped["content"] = object["content"];
             mapped["zodiac"] = zodiac;
-            int64_t date = dateStringToDate(object["date"].asString());
+            string dateString = object["date"].asString();
+            int64_t date = dateStringToDate(dateString);
             mapped["date"] = date;
             mapped["type"] = types[object["type"].asString()].asInt();
             

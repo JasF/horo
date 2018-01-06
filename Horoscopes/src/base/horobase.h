@@ -46,6 +46,9 @@ namespace horo {
     vector<string> separateString(string str, char delimeter);
     time_t timestempToTime(int64_t timestemp);
     long long timeToTimestemp(time_t time);
+    long long tmToTimestamp(tm *time);
+    tm timeToTm(time_t time);
+    string tmToString(struct tm *t);
     long long localtime();
     string findInSet(std::set<std::string> storage, string pattern);
     string ReplaceAll(string str, const string& from, const string& to);

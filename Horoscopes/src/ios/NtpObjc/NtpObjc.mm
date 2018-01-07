@@ -39,7 +39,9 @@ namespace horo {
         void getServerTimeWithCompletion(std::function<void(double ti)> callback) override {
             callback_ = callback;
             if (hasError_) {
-                timeout();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    timeout();
+                });
                 return;
             }
             [[NtpObjc shared] subscribeForTimeout];

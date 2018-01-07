@@ -32,7 +32,7 @@ exports.getDocumentData = function (path, completion) {
                         }
                         catch (err) {
                           logs.info('error getting document: ' + err);
-                          completion("data not found")
+                          completion("")
                         }
                       });
 }

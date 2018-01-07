@@ -23,7 +23,8 @@ PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> comp
     , todayTimestamp_(0)
     , tomorrowTimestamp_(0)
     , weekTimestamp_(0)
-    , monthTimestamp_(0) {
+    , monthTimestamp_(0)
+    , requestCompleted_(false) {
         SCParameterAssert(components_.get());
         SCParameterAssert(horoscopesService_.get());
         SCParameterAssert(ntp_.get());
@@ -36,19 +37,26 @@ PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> comp
 PredictionScreenModelImpl::~PredictionScreenModelImpl() {
         
 }
-    
-    void zerous(tm *time) {
-        time->tm_sec = 0;
-        time->tm_min = 0;
-        time->tm_hour = 0;
-        time->tm_wday = 0;
-        time->tm_yday = 0;
-        time->tm_isdst = 0;
-        time->tm_gmtoff = 0;
-        time->tm_zone = 0;
-    }
-    
+
+void zerous(tm *time) {
+    time->tm_sec = 0;
+    time->tm_min = 0;
+    time->tm_hour = 0;
+    time->tm_wday = 0;
+    time->tm_yday = 0;
+    time->tm_isdst = 0;
+    time->tm_gmtoff = 0;
+    time->tm_zone = 0;
+}
+
 void PredictionScreenModelImpl::loadData() {
+    requestCompleted_ = false;
+    yesterdayTimestamp_ = false;
+    todayTimestamp_ = false;
+    tomorrowTimestamp_ = false;
+    weekTimestamp_ = false;
+    monthTimestamp_ = false;
+    
     ntp_->getServerTimeWithCompletion([this](double ti){
         double offset = timezoneOffset() * 60 * 60;
         ti += offset;
@@ -84,7 +92,7 @@ void PredictionScreenModelImpl::loadData() {
         weekTimestamp_ = tmToTimestamp(&weekStartTime);
         monthTimestamp_ = tmToTimestamp(&monthStartTime);
         
-        if (yesterday_.get() || today_.get() || tomorrow_.get() || week_.get() || month_.get() || year_.get()) {
+        if (requestCompleted_) {
             processFetchedHoroscopes();
         }
     });
@@ -94,6 +102,7 @@ void PredictionScreenModelImpl::loadData() {
                                            strong<HoroscopeDTO> week,
                                            strong<HoroscopeDTO> month,
                                            strong<HoroscopeDTO> year){
+        requestCompleted_ = true;
         yesterday_ = yesterday;
         today_ = today;
         tomorrow_ = tomorrow;

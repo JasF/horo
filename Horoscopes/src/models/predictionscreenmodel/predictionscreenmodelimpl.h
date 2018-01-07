@@ -58,6 +58,7 @@ namespace horo {
         long long tomorrowTimestamp_;
         long long weekTimestamp_;
         long long monthTimestamp_;
+        bool requestCompleted_;
         
         strong<HoroscopeDTO> yesterday_;
         strong<HoroscopeDTO> today_;

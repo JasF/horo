@@ -11,12 +11,19 @@
 #import "ios-ntp.h"
 #import "NetAssociation.h"
 
+static CGFloat const kTimeoutDelay = 4.f;
 static NSString *const kDefaultNtpServer = @"time.apple.com";
+
+@interface NtpObjc ()
++ (instancetype)shared;
+- (void)subscribeForTimeout;
+@end
 
 namespace horo {
     class NtpCC : public Ntp {
     public:
-        NtpCC() : net_([[NetAssociation alloc] initWithServerName:[NetAssociation ipAddrFromName:kDefaultNtpServer]]) {
+        NtpCC() : net_([[NetAssociation alloc] initWithServerName:[NetAssociation ipAddrFromName:kDefaultNtpServer]])
+        , hasError_(false) {
             NSCParameterAssert(net_);
             net_.delegate = [NtpObjc shared];
         }
@@ -31,6 +38,11 @@ namespace horo {
         
         void getServerTimeWithCompletion(std::function<void(double ti)> callback) override {
             callback_ = callback;
+            if (hasError_) {
+                timeout();
+                return;
+            }
+            [[NtpObjc shared] subscribeForTimeout];
             [net_ sendTimeQuery];
         }
         
@@ -42,9 +54,18 @@ namespace horo {
             }
         }
         
+        void timeout() {
+            hasError_ = true;
+            if (callback_) {
+                callback_([NSDate date].timeIntervalSince1970);
+                callback_ = nullptr;
+            }
+        }
+        
     private:
         std::function<void(double referenceTI)> callback_;
         NetAssociation *net_;
+        bool hasError_;
     };
 };
 
@@ -66,7 +87,18 @@ namespace horo {
 
 #pragma mark - NetAssociationDelegate
 - (void)reportFromDelegate {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeout) object:nil];
     horo::NtpCC::shared()->reportFromDelegate();
+}
+
+- (void)subscribeForTimeout {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeout) object:nil];
+    [self performSelector:@selector(timeout) withObject:nil afterDelay:kTimeoutDelay];
+}
+
+#pragma mark - Observers
+- (void)timeout {
+    horo::NtpCC::shared()->timeout();
 }
 
 @end

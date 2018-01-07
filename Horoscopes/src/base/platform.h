@@ -17,6 +17,7 @@ namespace horo {
     string toLowerCase(string source);
     string loc(string term);
     string urlDecode(string decodedUrl);
+    double timezoneOffset();
 };
 
 #endif /* platform_h */

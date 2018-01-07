@@ -57,6 +57,13 @@ namespace horo {
         }
         return [restored UTF8String];
     }
+    
+    double timezoneOffset() {
+        NSDate *sourceDate = [NSDate dateWithTimeIntervalSinceNow:3600 * 24 * 60];
+        NSTimeZone* destinationTimeZone = [NSTimeZone systemTimeZone];
+        NSTimeInterval timeZoneOffset = [destinationTimeZone secondsFromGMTForDate:sourceDate] / 3600.0;
+        return timeZoneOffset;
+    }
 };
 
 @implementation Platform

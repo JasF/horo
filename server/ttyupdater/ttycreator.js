@@ -9,10 +9,10 @@ function requestPredictionsForZodiac(zodiacName, rootCompletion) {
     dictionary = {}
     types = ["yesterday", "today", "tomorrow", "weekly", "monthly"]
     arrays.map(types.slice(), function(tabsType, tabsCallback){
-        logs.debug('creating tty for: ' + tabsType);
         horoType = common.horoTypeByTabsType(tabsType);
         dateString = common.dateStringFromType(tabsType);
         path = 'storage/' + horoType + '/' + zodiacName + '/' + dateString
+        logs.debug('creating tty for: ' + tabsType + '; dateString: ' + dateString);
         storage.getDocumentData(path, function (content) {
           dictionary[tabsType] = content
           tabsCallback()

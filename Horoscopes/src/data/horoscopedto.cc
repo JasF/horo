@@ -25,7 +25,7 @@ namespace horo {
     }
     
     std::string _HoroscopeDTO::content() const {
-        return content_ + content_;
+        return content_;
     }
     
 };

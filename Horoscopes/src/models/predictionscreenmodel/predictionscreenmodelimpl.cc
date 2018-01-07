@@ -45,14 +45,21 @@ PredictionScreenModelImpl::~PredictionScreenModelImpl() {
     
 void PredictionScreenModelImpl::loadData() {
     ntp_->getServerTimeWithCompletion([this](double ti){
+        double offset = timezoneOffset() * 60 * 60;
+        ti += offset;
+        tm todayTime = timeToTm(timestempToTime(ti));
+        zerous(&todayTime);
+        mktime(&todayTime);
+        
         tm yesterdayTime = timeToTm(timestempToTime(ti));
         yesterdayTime.tm_mday--;
         zerous(&yesterdayTime);
         mktime(&yesterdayTime);
         
-        tm todayTime = timeToTm(timestempToTime(ti));
-        zerous(&todayTime);
-        mktime(&todayTime);
+        tm tomorrowTime = timeToTm(timestempToTime(ti));
+        tomorrowTime.tm_mday++;
+        zerous(&tomorrowTime);
+        mktime(&tomorrowTime);
         
         tm weekStartTime = timeToTm(timestempToTime(ti));
         while(weekStartTime.tm_wday != 1) {
@@ -68,17 +75,13 @@ void PredictionScreenModelImpl::loadData() {
         
         yesterdayTimestamp_ = tmToTimestamp(&yesterdayTime);
         todayTimestamp_ = tmToTimestamp(&todayTime);
+        tomorrowTimestamp_ = tmToTimestamp(&tomorrowTime);
         weekTimestamp_ = tmToTimestamp(&weekStartTime);
         monthTimestamp_ = tmToTimestamp(&monthStartTime);
         
         if (yesterday_.get() || today_.get() || tomorrow_.get() || week_.get() || month_.get() || year_.get()) {
             processFetchedHoroscopes();
         }
-        
-        LOG(LS_WARNING) << "today: " << tmToString(&todayTime);
-        LOG(LS_WARNING) << "yesterday: " << tmToString(&yesterdayTime);
-        LOG(LS_WARNING) << "week start: " << tmToString(&weekStartTime);
-        LOG(LS_WARNING) << "month start: " << tmToString(&monthStartTime);
     });
     horoscopesService_->fetchHoroscopes(zodiac(), [this](strong<HoroscopeDTO> yesterday,
                                            strong<HoroscopeDTO> today,
@@ -86,7 +89,6 @@ void PredictionScreenModelImpl::loadData() {
                                            strong<HoroscopeDTO> week,
                                            strong<HoroscopeDTO> month,
                                            strong<HoroscopeDTO> year){
-        LOG(LS_WARNING) << "fetched!";
         yesterday_ = yesterday;
         today_ = today;
         tomorrow_ = tomorrow;
@@ -96,52 +98,6 @@ void PredictionScreenModelImpl::loadData() {
         if (yesterdayTimestamp_ || todayTimestamp_) {
             processFetchedHoroscopes();
         }
-        
-        /*
-        tm horoscopeTimeTm = {
-            0,
-            0,
-            0,
-            day,
-            month - 1,
-            year - 1900,
-            0,
-            0,
-            0,
-            0,
-            nullptr
-        };
-        
-        time_t horoscopeTime = timegm(&horoscopeTimeTm);
-        */
-     //   yesterday = nullptr;
-     //   today = nullptr;
-        /*
-        if (yesterday.get()) {
-            tm value = timeToTm(timestempToTime(yesterday->date()));
-            LOG(LS_WARNING) << "yesterday date: " << tmToString(&value);
-        }
-        if (today.get()) {
-            tm value = timeToTm(timestempToTime(today->date()));
-            LOG(LS_WARNING) << "today date: " << tmToString(&value);
-        }
-        if (tomorrow.get()) {
-            tm value = timeToTm(timestempToTime(tomorrow->date()));
-            LOG(LS_WARNING) << "tomorrow date: " << tmToString(&value);
-        }
-        if (week.get()) {
-            tm value = timeToTm(timestempToTime(week->date()));
-            LOG(LS_WARNING) << "week date: " << tmToString(&value);
-        }
-        if (month.get()) {
-            tm value = timeToTm(timestempToTime(month->date()));
-            LOG(LS_WARNING) << "month date: " << tmToString(&value);
-        }
-        if (year.get()) {
-            tm value = timeToTm(timestempToTime(year->date()));
-            LOG(LS_WARNING) << "year date: " << tmToString(&value);
-        }
-         */
     });
 }
 
@@ -175,15 +131,16 @@ void PredictionScreenModelImpl::handleFetchedHoroscopes(strong<HoroscopeDTO> yes
     list<string> predictions;
     list<string> tabsTitles;
     
-    vector<strong<HoroscopeDTO>> daysHoroscopes = {yesterday, today};
+    vector<strong<HoroscopeDTO>> daysHoroscopes = {yesterday, today, tomorrow};
     strong<HoroscopeDTO> newYesterdayHoroscope = hasHoroscopeWithDate(yesterdayTimestamp_, daysHoroscopes);
     strong<HoroscopeDTO> newTodayHoroscope = hasHoroscopeWithDate(todayTimestamp_, daysHoroscopes);
+    strong<HoroscopeDTO> newTomorrowHoroscope = hasHoroscopeWithDate(tomorrowTimestamp_, daysHoroscopes);
     strong<HoroscopeDTO> newWeekHoroscope = hasHoroscopeWithDate(weekTimestamp_, {week});
     strong<HoroscopeDTO> newYearHoroscope = hasHoroscopeWithDate(monthTimestamp_, {month});
     
-    vector<string> allTabsTitles = {"yesterday", "today", "week", "month", "year"};
+    vector<string> allTabsTitles = {"yesterday", "today", "tomorrow", "week", "month", "year"};
     
-    vector<strong<HoroscopeDTO>> allHoroscopes = {newYesterdayHoroscope, newTodayHoroscope, newWeekHoroscope, newYearHoroscope, year};
+    vector<strong<HoroscopeDTO>> allHoroscopes = {newYesterdayHoroscope, newTodayHoroscope, newTomorrowHoroscope, newWeekHoroscope, newYearHoroscope, year};
     int i=0;
     for (auto h:allHoroscopes) {
         string title = allTabsTitles[i];

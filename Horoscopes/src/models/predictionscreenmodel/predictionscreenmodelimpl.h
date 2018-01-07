@@ -54,6 +54,7 @@ namespace horo {
         
         long long yesterdayTimestamp_;
         long long todayTimestamp_;
+        long long tomorrowTimestamp_;
         long long weekTimestamp_;
         long long monthTimestamp_;
         

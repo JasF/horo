@@ -24,6 +24,7 @@ namespace horo {
         virtual list<string> tabsTitles() = 0;
         virtual list<string> horoscopesText() = 0;
         virtual void setDataFetchedCallback(std::function<void(bool success)> callback) = 0;
+        virtual void noConnectionTapped() = 0;
     };
     
     typedef reff<_PredictionScreenModel> PredictionScreenModel;

@@ -18,7 +18,12 @@ PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> comp
     : components_(components)
     , horoscopesService_(horoscopesService)
     , person_(person)
-    , ntp_(ntp) {
+    , ntp_(ntp)
+    , yesterdayTimestamp_(0)
+    , todayTimestamp_(0)
+    , tomorrowTimestamp_(0)
+    , weekTimestamp_(0)
+    , monthTimestamp_(0) {
         SCParameterAssert(components_.get());
         SCParameterAssert(horoscopesService_.get());
         SCParameterAssert(ntp_.get());
@@ -180,6 +185,10 @@ std::string PredictionScreenModelImpl::zodiacDateString() {
     
 void PredictionScreenModelImpl::setDataFetchedCallback(std::function<void(bool success)> callback) {
     callback_ = callback;
+}
+
+void PredictionScreenModelImpl::noConnectionTapped() {
+    loadData();
 }
 
 strong<Zodiac> PredictionScreenModelImpl::zodiac() {

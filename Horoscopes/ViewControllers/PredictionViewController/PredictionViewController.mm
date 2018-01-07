@@ -33,8 +33,15 @@ typedef NS_ENUM(NSInteger, PredictionRows) {
     RowsCount
 };
 
+typedef NS_ENUM(NSInteger, NoConnectionRows) {
+    NoConnectionTitleRow,
+    NoConnectionRow,
+    NoConnectionRowsCount
+};
+
 static CGFloat const kTitleRowHeight = 106.f;
 static CGFloat const kTabsRowHeight = 48.f;
+static CGFloat const kNoConnectionRowHeight = 62.f;
 static CGFloat const kPredictionRowAddedHeight = 12.f;
 static NSInteger const kTodayTabIndex = 1;
 static CGFloat const kActivityIndicatorSize = 50.f;
@@ -51,6 +58,10 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 @property (weak, nonatomic) IBOutlet UIView *horoscopesContainerView;
 @property (assign, nonatomic) BOOL allowCustomAnimationWithTabs;
 @property (strong, nonatomic) MBProgressHUD *hud;
+@property (assign, nonatomic) BOOL showNoConnectionView;
+@property (weak, nonatomic) IBOutlet UILabel *networkErrorLabel;
+@property (weak, nonatomic) IBOutlet UIButton *networkErrorButton;
+@property (strong, nonatomic) IBOutlet UITableViewCell *noConnectionCell;
 
 @end
 
@@ -76,6 +87,13 @@ static CGFloat const kActivityIndicatorSize = 50.f;
     [_horoscopesContainerView horo_addFillingSubview:_horoscopesPageViewController.view];
     [_horoscopesPageViewController didMoveToParentViewController:self];
     
+    _networkErrorLabel.text = L(_networkErrorLabel.text);
+    
+    NSMutableAttributedString *attributedString = [[_networkErrorButton attributedTitleForState:UIControlStateNormal] mutableCopy];
+    [attributedString replaceCharactersInRange:NSMakeRange(0, attributedString.string.length) withString:L(attributedString.string)];
+    [_networkErrorButton setAttributedTitle:attributedString
+                                   forState:UIControlStateNormal];
+    
     _tableView.contentInset = UIEdgeInsetsZero;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
@@ -88,6 +106,11 @@ static CGFloat const kActivityIndicatorSize = 50.f;
         [self hideProgressHUD];
         NSMutableArray *localizedStrings = [NSMutableArray new];
         auto titles = self.viewModel->tabsTitles();
+        if (!titles.size()) {
+            self.showNoConnectionView = YES;
+            [self.tableView reloadData];
+            return;
+        }
         for (NSString *string in [NSString horo_stringsArrayWithList:titles]) {
             [localizedStrings addObject:L(string)];
         }
@@ -99,7 +122,6 @@ static CGFloat const kActivityIndicatorSize = 50.f;
                              animation:TabsAnimationNone
                             withNotify:NO];
         }
-        [self.tableView reloadData];
     });
     _viewModel->didActivated();
     
@@ -125,14 +147,22 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return RowsCount;
+    return (_showNoConnectionView) ? NoConnectionRowsCount : RowsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case TitleRow: return self.zodiacTitleCell;
-        case TabsRow: return self.tabsCell;
-        case PredictionRow: return self.horoscopesCell;
+    if (_showNoConnectionView) {
+        switch (indexPath.row) {
+            case NoConnectionTitleRow: return self.zodiacTitleCell;
+            case NoConnectionRow: return self.noConnectionCell;
+        }
+    }
+    else {
+        switch (indexPath.row) {
+            case TitleRow: return self.zodiacTitleCell;
+            case TabsRow: return self.tabsCell;
+            case PredictionRow: return self.horoscopesCell;
+        }
     }
     return [UITableViewCell new];
 }
@@ -141,6 +171,11 @@ static CGFloat const kActivityIndicatorSize = 50.f;
     NSDictionary *dictionary = @{@(TitleRow):^CGFloat{return kTitleRowHeight;},
                                  @(TabsRow):^CGFloat{return kTabsRowHeight;},
                                  @(PredictionRow):^CGFloat{return [_horoscopesCell getHeight] + kPredictionRowAddedHeight;}};
+    
+    if (_showNoConnectionView) {
+        dictionary = @{@(NoConnectionTitleRow):^CGFloat{return kTitleRowHeight;},
+                       @(NoConnectionRow):^CGFloat{return kNoConnectionRowHeight;}};
+    }
     
     CGFloat (^heightBlock)() = dictionary[@(indexPath.row)];
     NSCAssert(heightBlock, @"Unknown cell: %@", indexPath);
@@ -240,4 +275,12 @@ static CGFloat const kActivityIndicatorSize = 50.f;
     indicator.hidden = YES;
 }
 
+#pragma mark - Observers
+
+- (IBAction)noConnectionTapped:(id)sender {
+    _showNoConnectionView = NO;
+    [self.tableView reloadData];
+    [self showProgressHUD];
+    _viewModel->noConnectionTapped();
+}
 @end

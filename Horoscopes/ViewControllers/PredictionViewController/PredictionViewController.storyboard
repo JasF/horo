@@ -77,7 +77,7 @@
                             </constraints>
                         </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="5Up-MP-jby">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHh-d4-pOc">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hHh-d4-pOc">
                                 <rect key="frame" x="340" y="9" width="19" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="sharing"/>
@@ -87,6 +87,9 @@
                     <connections>
                         <outlet property="horoscopesCell" destination="awj-Iq-iRn" id="a3d-mh-HSJ"/>
                         <outlet property="horoscopesContainerView" destination="eQt-oH-XxP" id="tDr-Wu-u42"/>
+                        <outlet property="networkErrorButton" destination="r9D-a3-h8m" id="Oxp-PE-esG"/>
+                        <outlet property="networkErrorLabel" destination="dPY-TP-7en" id="Fqh-zZ-VEJ"/>
+                        <outlet property="noConnectionCell" destination="9Mx-Vu-eXH" id="Fj0-4H-p2d"/>
                         <outlet property="tableView" destination="2T4-6u-Aw4" id="scs-17-UIq"/>
                         <outlet property="tabs" destination="ahf-Nn-LpW" id="vXQ-dO-Jzu"/>
                         <outlet property="tabsCell" destination="Wir-U2-iHY" id="3j7-mZ-tCW"/>
@@ -190,6 +193,52 @@
                         <outlet property="containerView" destination="eQt-oH-XxP" id="Fj4-w8-Frt"/>
                         <outlet property="heightConstraint" destination="6bi-5M-suE" id="oXj-zN-b0z"/>
                     </connections>
+                </tableViewCell>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Mx-Vu-eXH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Mx-Vu-eXH" id="nsc-kb-ID9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cannot_download_horoscopes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPY-TP-7en">
+                                <rect key="frame" x="0.0" y="12" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="f2v-Rr-UC7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9D-a3-h8m">
+                                <rect key="frame" x="91.5" y="29" width="191" height="33.5"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="no_connection_repeat">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="noConnectionTapped:" destination="kmh-mk-xBG" eventType="touchUpInside" id="HuH-lq-PkJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="r9D-a3-h8m" secondAttribute="bottom" priority="750" constant="8" id="6yi-W3-K8W"/>
+                            <constraint firstItem="r9D-a3-h8m" firstAttribute="centerX" secondItem="nsc-kb-ID9" secondAttribute="centerX" id="8ow-4S-0eN"/>
+                            <constraint firstItem="dPY-TP-7en" firstAttribute="leading" secondItem="nsc-kb-ID9" secondAttribute="leading" id="FTv-2S-4AA"/>
+                            <constraint firstItem="dPY-TP-7en" firstAttribute="trailing" secondItem="nsc-kb-ID9" secondAttribute="trailing" id="V4Q-SP-16S"/>
+                            <constraint firstItem="dPY-TP-7en" firstAttribute="top" secondItem="nsc-kb-ID9" secondAttribute="top" constant="12" id="bhg-qa-j2a"/>
+                            <constraint firstItem="r9D-a3-h8m" firstAttribute="top" secondItem="dPY-TP-7en" secondAttribute="bottom" priority="750" constant="8" id="im4-eb-daq"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableViewCell>
             </objects>
             <point key="canvasLocation" x="-1111" y="-85"/>

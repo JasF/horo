@@ -35,6 +35,7 @@ namespace horo {
         list<string> tabsTitles() override;
         list<string> horoscopesText() override;
         void setDataFetchedCallback(std::function<void(bool success)> callback) override;
+        void noConnectionTapped() override;
         
     private:
         strong<PredictionScreenModel> model_;

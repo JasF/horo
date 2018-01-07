@@ -71,4 +71,9 @@ namespace horo {
     void PredictionScreenViewModelImpl::didActivated() {
         LOG(LS_WARNING) << "didActivated";
     }
+    
+    void PredictionScreenViewModelImpl::noConnectionTapped() {
+        model_->noConnectionTapped();
+    }
+    
 };

@@ -34,6 +34,8 @@ static NSInteger const kTodayTabIndex = 1;
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
     [[self scrollView] setDelegate:self];
+    _pageViewController.view.clipsToBounds = NO;
+    [self scrollView].clipsToBounds = NO;
 }
 
 - (void)setTexts:(NSArray *)texts {
@@ -54,7 +56,6 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 #pragma mark - UIPageViewControllerDataSource
-
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(PredictionContentViewController *)viewController {
     // DDLogDebug(@"pageViewController:viewControllerBeforeViewController %@", @(viewController.index));
     if (!viewController.index) {

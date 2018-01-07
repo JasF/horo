@@ -6,6 +6,7 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
+#import <MBProgressHUD/MBProgressHUD.h>
 #import "PredictionViewController.h"
 #import "UINavigationBar+Horo.h"
 #import "HoroscopesCell.h"
@@ -13,6 +14,13 @@
 #import "UIView+Horo.h"
 #import "Tabs.h"
 
+#ifdef CENSORED
+#import "Horoscopes_censored-Swift.h"
+#else
+#import "Horoscopes-Swift.h"
+#endif
+
+static CGFloat const kAcitivityIndicatorColorAlpha = 0.8f;
 typedef NS_ENUM(NSInteger, PredictionSections) {
     MainSection,
     SectionsCount
@@ -29,8 +37,9 @@ static CGFloat const kTitleRowHeight = 106.f;
 static CGFloat const kTabsRowHeight = 48.f;
 static CGFloat const kPredictionRowAddedHeight = 12.f;
 static NSInteger const kTodayTabIndex = 1;
+static CGFloat const kActivityIndicatorSize = 50.f;
 
-@interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacDateLabel;
@@ -41,6 +50,8 @@ static NSInteger const kTodayTabIndex = 1;
 @property (strong, nonatomic) IBOutlet HoroscopesCell *horoscopesCell;
 @property (weak, nonatomic) IBOutlet UIView *horoscopesContainerView;
 @property (assign, nonatomic) BOOL allowCustomAnimationWithTabs;
+@property (strong, nonatomic) MBProgressHUD *hud;
+
 @end
 
 @implementation PredictionViewController
@@ -69,12 +80,15 @@ static NSInteger const kTodayTabIndex = 1;
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = [UIColor clearColor];
     _tableView.allowsSelection = NO;
-    
+                                              
     @weakify(self);
+    [self showProgressHUD];
     _viewModel->setDataFetchedCallback([self_weak_](bool success) {
         @strongify(self);
+        [self hideProgressHUD];
         NSMutableArray *localizedStrings = [NSMutableArray new];
-        for (NSString *string in [NSString horo_stringsArrayWithList:self.viewModel->tabsTitles()]) {
+        auto titles = self.viewModel->tabsTitles();
+        for (NSString *string in [NSString horo_stringsArrayWithList:titles]) {
             [localizedStrings addObject:L(string)];
         }
         self.tabs.titles = localizedStrings;
@@ -85,6 +99,7 @@ static NSInteger const kTodayTabIndex = 1;
                              animation:TabsAnimationNone
                             withNotify:NO];
         }
+        [self.tableView reloadData];
     });
     _viewModel->didActivated();
     
@@ -202,6 +217,27 @@ static NSInteger const kTodayTabIndex = 1;
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
     });
+}
+
+#pragma mark - Private Methods
+- (void)showProgressHUD {
+    NVActivityIndicatorView *activityIndicator = [[NVActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kActivityIndicatorSize, kActivityIndicatorSize)];
+    activityIndicator.color = [[UIColor whiteColor] colorWithAlphaComponent:kAcitivityIndicatorColorAlpha];
+    _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _hud.mode = MBProgressHUDModeCustomView;
+    _hud.customView = activityIndicator;
+    [activityIndicator startAnimating];
+}
+
+- (void)hideProgressHUD {
+    [_hud hideAnimated:YES];
+}
+
+#pragma mark - MBProgressHUDDelegate
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+    NVActivityIndicatorView *indicator = (NVActivityIndicatorView *)hud.customView;
+    [indicator stopAnimating];
+    indicator.hidden = YES;
 }
 
 @end

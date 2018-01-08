@@ -11,6 +11,7 @@
 
 static CGFloat const kAnimationDuration = 0.5f;
 static CGFloat const kHighlightedAlpha = 0.5f;
+static CGFloat const kMainImageViewHalfHeight = 25.f;
 
 @interface FriendsCell ()
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -29,6 +30,8 @@ static CGFloat const kHighlightedAlpha = 0.5f;
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    _mainImageView.layer.cornerRadius = kMainImageViewHalfHeight;
+    _mainImageView.layer.masksToBounds = YES;
 }
 
 #pragma mark - Public Methods

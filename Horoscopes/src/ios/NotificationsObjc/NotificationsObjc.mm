@@ -8,8 +8,9 @@
 
 #import "managers/notifications/notificationsimpl.h"
 #import <UserNotifications/UserNotifications.h>
-#import "NotificationsObjc.h"
 #import <libPusher/Pusher/Pusher.h>
+#import "NotificationsObjc.h"
+#import "base/platform.h"
 #import "NSString+Horo.h"
 #include "managers.h"
 
@@ -148,10 +149,7 @@ namespace horo {
         }
         
         NSString *getRoomName(string zodiacName) {
-            NSDate *sourceDate = [NSDate dateWithTimeIntervalSinceNow:3600 * 24 * 60];
-            NSTimeZone *currentTimeZone = [NSTimeZone localTimeZone];
-            NSTimeInterval timeZoneOffset = [currentTimeZone secondsFromGMTForDate:sourceDate] / 3600.0;
-            int time = pushTime() - timeZoneOffset;
+            int time = pushTime() - timezoneOffset();
             NSString *roomName = [NSString stringWithFormat:@"%@%@", [NSString stringWithUTF8String:zodiacName.c_str()], @(time)];
             return roomName;
         }

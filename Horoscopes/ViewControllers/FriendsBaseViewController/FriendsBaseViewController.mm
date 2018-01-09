@@ -26,6 +26,12 @@ static CGFloat const kEstimatedRowHeight = 50.f;
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+}
+
 - (void)reloadCellWithPerson:(PersonObjc *)person {
     FriendsCell *neededCell = nil;
     for (FriendsCell *cell in self.tableView.visibleCells) {

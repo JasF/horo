@@ -30,7 +30,7 @@ namespace horo {
         }
         ~ScreensManagerObjc() override {}
     public:
-       void showPredictionViewController(strong<Person> person) override {
+       void showPredictionViewController(strong<Person> person, bool push = false) override {
            SCParameterAssert( !person.get() || (person.get() && person->zodiac().get()) );
            if (person.get() && !person->zodiac().get()) {
                return;
@@ -44,8 +44,15 @@ namespace horo {
            PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
            viewController.horoscopesPageViewController = pageViewController;
            viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
-            
+           
            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+           if (push) {
+               viewController.hideMenuButton = YES;
+               UINavigationController *controller = (UINavigationController *)delegate.window.rootViewController;
+               NSCAssert([controller isKindOfClass:[UINavigationController class]], @"must be navigation controller");
+               [controller pushViewController:viewController animated:YES];
+               return;
+           }
            delegate.window.rootViewController = navigationController;
         }
         

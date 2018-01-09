@@ -149,8 +149,17 @@ static CGFloat const kFriendCellHeight = 65.f;
     UIImage *image = [UIImage imageNamed:iconName];
     NSCAssert(image, @"image cannot be nil");
     _titleImageView.image = image;
-    [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
     _viewModel->tabsTitles();
+    if (_hideMenuButton) {
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        self.navigationController.navigationBar.translucent = YES;
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    }
+    else {
+        [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
+    }
     // Do any additional setup after loading the view.
 }
 

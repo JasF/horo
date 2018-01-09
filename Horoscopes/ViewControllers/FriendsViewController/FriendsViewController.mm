@@ -73,9 +73,6 @@ using namespace horo;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.delegate = self;
     
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    
     for (UIView *subview in self.tableView.subviews) {
         subview.backgroundColor = [UIColor clearColor];
     }

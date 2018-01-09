@@ -531,6 +531,10 @@
 		C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */; };
 		C3C037962004962600DB82B8 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C037952004962600DB82B8 /* FriendCell.m */; };
 		C3C037972004962600DB82B8 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C037952004962600DB82B8 /* FriendCell.m */; };
+		C3C0379C2004A6B900DB82B8 /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379B2004A6B900DB82B8 /* PushAnimator.m */; };
+		C3C0379D2004A6B900DB82B8 /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379B2004A6B900DB82B8 /* PushAnimator.m */; };
+		C3C037A02004A6C200DB82B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379F2004A6C200DB82B8 /* PopAnimator.m */; };
+		C3C037A12004A6C200DB82B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379F2004A6C200DB82B8 /* PopAnimator.m */; };
 		C3C117001FCE8929007DA9FF /* Tabs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C116FF1FCE8929007DA9FF /* Tabs.m */; };
 		C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C117031FCE9542007DA9FF /* TabsItemView.m */; };
 		C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C117071FCE95E9007DA9FF /* TabsItemView.xib */; };
@@ -1155,6 +1159,10 @@
 		C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = birthdayslocstr.json; sourceTree = "<group>"; };
 		C3C037942004962600DB82B8 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		C3C037952004962600DB82B8 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		C3C0379A2004A6B900DB82B8 /* PushAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushAnimator.h; sourceTree = "<group>"; };
+		C3C0379B2004A6B900DB82B8 /* PushAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushAnimator.m; sourceTree = "<group>"; };
+		C3C0379E2004A6C200DB82B8 /* PopAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
+		C3C0379F2004A6C200DB82B8 /* PopAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
 		C3C116FE1FCE8929007DA9FF /* Tabs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tabs.h; sourceTree = "<group>"; };
 		C3C116FF1FCE8929007DA9FF /* Tabs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tabs.m; sourceTree = "<group>"; };
 		C3C117021FCE9542007DA9FF /* TabsItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabsItemView.h; sourceTree = "<group>"; };
@@ -2700,9 +2708,29 @@
 			path = FriendCell;
 			sourceTree = "<group>";
 		};
+		C3C037982004A6A400DB82B8 /* PushAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				C3C0379A2004A6B900DB82B8 /* PushAnimator.h */,
+				C3C0379B2004A6B900DB82B8 /* PushAnimator.m */,
+			);
+			path = PushAnimator;
+			sourceTree = "<group>";
+		};
+		C3C037992004A6AC00DB82B8 /* PopAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				C3C0379E2004A6C200DB82B8 /* PopAnimator.h */,
+				C3C0379F2004A6C200DB82B8 /* PopAnimator.m */,
+			);
+			path = PopAnimator;
+			sourceTree = "<group>";
+		};
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3C037992004A6AC00DB82B8 /* PopAnimator */,
+				C3C037982004A6A400DB82B8 /* PushAnimator */,
 				C3C037932004960A00DB82B8 /* FriendCell */,
 				C337E8F21FF3E3AE0063ACF1 /* SettingsCell */,
 				C3F405221FE102B1004D1535 /* GradientView */,
@@ -3206,10 +3234,12 @@
 				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
 				C373D4491FEBBDDB00D3BA16 /* bytebuffer_forxcode.cc in Sources */,
 				C373D4981FEBC16000D3BA16 /* task_queue_posix.cc in Sources */,
+				C3C0379D2004A6B900DB82B8 /* PushAnimator.m in Sources */,
 				C3B6019E1FA6008700AD4F6D /* settings.cc in Sources */,
 				C373D44B1FEBBDDB00D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */,
 				C3C7ABBF20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
+				C3C037A12004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C373D4711FEBBDDB00D3BA16 /* random_forxcode.cc in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
@@ -3467,10 +3497,12 @@
 				C315ABCF1FE5040C00CC9B67 /* settings.cc in Sources */,
 				C373D4971FEBC16000D3BA16 /* task_queue_posix.cc in Sources */,
 				C373D4181FEBBDD300D3BA16 /* bytebuffer_forxcode.cc in Sources */,
+				C3C0379C2004A6B900DB82B8 /* PushAnimator.m in Sources */,
 				C373D42A1FEBBDD300D3BA16 /* platform_thread_forxcode.cc in Sources */,
 				C315ABD01FE5040C00CC9B67 /* EXTADT.m in Sources */,
 				C3C7ABBE20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				C373D42E1FEBBDD300D3BA16 /* platform_file_forxcode.cc in Sources */,
+				C3C037A02004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */,
 				C315ABD21FE5040C00CC9B67 /* EXTScope.m in Sources */,
 				C315ABD31FE5040C00CC9B67 /* MaskingView.m in Sources */,

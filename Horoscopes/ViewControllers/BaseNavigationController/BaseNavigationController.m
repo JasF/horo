@@ -8,9 +8,11 @@
 
 #import "BaseNavigationController.h"
 #import "BackgroundView.h"
+#import "PushAnimator.h"
+#import "PopAnimator.h"
 #import "UIView+Horo.h"
 
-@interface BaseNavigationController ()
+@interface BaseNavigationController () <UINavigationControllerDelegate>
 
 @end
 
@@ -18,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     BackgroundView *backgroundView = [BackgroundView new];
     [self.view horo_addFillingSubview:backgroundView];
     [self.view sendSubviewToBack:backgroundView];
@@ -32,14 +35,22 @@
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UINavigationControllerDelegate
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC {
+    NSDictionary *dictionary = @{
+        @(UINavigationControllerOperationPush):[PushAnimator class],
+        @(UINavigationControllerOperationPop):[PopAnimator class]
+    };
+    Class animatorClass = dictionary[@(operation)];
+    NSCAssert(animatorClass, @"Animator for operation: %@ not found", @(operation));
+    if (!animatorClass) {
+        return nil;
+    }
+    return [animatorClass new];
 }
-*/
 
 @end

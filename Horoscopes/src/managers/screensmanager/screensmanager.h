@@ -18,7 +18,7 @@ class _ScreensManager {
 public:
     virtual ~_ScreensManager() {}
     virtual void showPredictionViewController() = 0;
-    virtual void showPredictionViewController(strong<Person> person) = 0;
+    virtual void showPredictionViewController(strong<Person> person, bool push = false) = 0;
     virtual void showWelcomeViewController() = 0;
     virtual void showMenuViewController(bool animated) = 0;
     virtual void showFriendsViewController() = 0;

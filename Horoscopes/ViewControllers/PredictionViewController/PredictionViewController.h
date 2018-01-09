@@ -12,4 +12,5 @@
 @interface PredictionViewController : UIViewController
 @property UIPageViewController *horoscopesPageViewController;
 @property (assign, nonatomic) strong<horo::PredictionScreenViewModel> viewModel;
+@property (assign, nonatomic) BOOL hideMenuButton;
 @end

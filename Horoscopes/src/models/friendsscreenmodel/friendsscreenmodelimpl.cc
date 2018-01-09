@@ -66,13 +66,17 @@ namespace horo {
         }
     }
     
+    void FriendsScreenModelImpl::showPersonViewController(strong<Person> person) {
+        screensManager_->showPredictionViewController(person, true);
+    }
+    
     void FriendsScreenModelImpl::personSelected(strong<Person> person) {
         SCParameterAssert(person.get());
         if (!person.get()) {
             return;
         }
         if (person->status() == StatusCompleted) {
-            screensManager_->showPredictionViewController(person);
+            showPersonViewController(person);
         }
         else if (person->status() == StatusReadyForRequest) {
             if (currentPerson_.get() && currentPerson_ != person) {
@@ -90,7 +94,7 @@ namespace horo {
                     this->personStateChangedCallback_(person);
                 }
                 if (success) {
-                    screensManager_->showPredictionViewController(person);
+                    showPersonViewController(person);
                 }
                 else {
                     LOG(LS_ERROR) << "Show error message about unknown birthday date";

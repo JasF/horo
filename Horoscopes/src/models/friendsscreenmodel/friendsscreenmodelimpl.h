@@ -35,6 +35,7 @@ namespace horo {
     private:
         void loadFriends(set<strong<Person>> loadFriends);
         void handleSerialRequestForPerson(strong<Person> person);
+        void showPersonViewController(strong<Person> person);
         
     private:
         strong<CoreComponents> components_;

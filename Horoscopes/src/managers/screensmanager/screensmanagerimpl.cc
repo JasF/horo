@@ -31,10 +31,10 @@ namespace horo {
         }
     }
     
-    void ScreensManagerImpl::showPredictionViewController(strong<Person> person) {
+    void ScreensManagerImpl::showPredictionViewController(strong<Person> person, bool push) {
         initializeNotifications();
         if (g_privateInstance) {
-            g_privateInstance->showPredictionViewController(person);
+            g_privateInstance->showPredictionViewController(person, push);
         }
     }
     

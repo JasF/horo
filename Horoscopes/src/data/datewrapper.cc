@@ -9,9 +9,7 @@
 #include "datewrapper.h"
 
 namespace horo {
-    using namespace std;
-    
-    void DateWrapper::fromString(std::string string) {
+    void DateWrapper::fromString(string string) {
         int counter = 0;
         for(auto part : separateString(string, '.')) {
             int value = stoi(part);
@@ -23,10 +21,15 @@ namespace horo {
         }
     }
     
-    std::string DateWrapper::toString() {
+    string DateWrapper::toString() {
         if (!day_ && !month_ && !year_) {
             return "";
         }
-        return std::to_string(day_) + '.' + std::to_string(month_) + '.' + std::to_string(year_);
+        string result = to_string(day_) + "." + to_string(month_);
+        if (year_) {
+            result += "." + std::to_string(year_);
+        }
+        return result;
     }
+    
 };

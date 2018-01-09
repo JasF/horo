@@ -43,21 +43,25 @@ static CGFloat const kRowHeight = 100;
     _tableView.allowsSelection = NO;
     _friendsDescriptionLabel.text = L(@"begin_update");
     @weakify(self);
+    [_friendsCell setTitle:L(@"menu_cell_friends")];
     _friendsCell.tappedBlock = ^BOOL{
         @strongify(self);
         self.viewModel->friendsTapped();
         return YES;
     };
+    [_accountCell setTitle:L(@"menu_cell_account")];
     _accountCell.tappedBlock = ^BOOL{
         @strongify(self);
         self.viewModel->accountTapped();
         return YES;
     };
+    [_notificationsCell setTitle:L(@"menu_cell_notifications")];
     _notificationsCell.tappedBlock = ^BOOL{
         @strongify(self);
         self.viewModel->notificationsTapped();
         return NO;
     };
+    [_feedbackCell setTitle:L(@"menu_cell_feedback")];
     _feedbackCell.tappedBlock = ^BOOL{
         @strongify(self);
         self.viewModel->feedbackTapped();

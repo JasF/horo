@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -85,6 +86,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="friendCell" destination="pjR-th-NP7" id="0uB-Hy-Vl1"/>
                         <outlet property="horoscopesCell" destination="awj-Iq-iRn" id="a3d-mh-HSJ"/>
                         <outlet property="horoscopesContainerView" destination="eQt-oH-XxP" id="tDr-Wu-u42"/>
                         <outlet property="networkErrorButton" destination="r9D-a3-h8m" id="Oxp-PE-esG"/>
@@ -100,6 +102,52 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQQ-kt-BJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pjR-th-NP7" customClass="FriendCell">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pjR-th-NP7" id="8yo-3c-6Ky">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIc-1i-CkP">
+                                <rect key="frame" x="20" y="15" width="28.5" height="28.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eIc-1i-CkP" secondAttribute="height" multiplier="1:1" id="ydq-M9-8uB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYG-Q2-YzI">
+                                <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnd-q3-wXs">
+                                <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gnd-q3-wXs" firstAttribute="leading" secondItem="cYG-Q2-YzI" secondAttribute="trailing" constant="8" id="8b8-5P-CAK"/>
+                            <constraint firstItem="cYG-Q2-YzI" firstAttribute="leading" secondItem="eIc-1i-CkP" secondAttribute="trailing" constant="8" id="8z2-cH-Laa"/>
+                            <constraint firstItem="eIc-1i-CkP" firstAttribute="bottom" secondItem="8yo-3c-6Ky" secondAttribute="bottom" id="OmZ-l2-C0w"/>
+                            <constraint firstItem="eIc-1i-CkP" firstAttribute="top" secondItem="8yo-3c-6Ky" secondAttribute="top" constant="15" id="cCZ-zH-nxL"/>
+                            <constraint firstItem="cYG-Q2-YzI" firstAttribute="bottom" secondItem="eIc-1i-CkP" secondAttribute="bottom" id="glC-hw-2j0"/>
+                            <constraint firstItem="eIc-1i-CkP" firstAttribute="leading" secondItem="8yo-3c-6Ky" secondAttribute="leading" constant="20" id="hNL-xR-kFU"/>
+                            <constraint firstItem="gnd-q3-wXs" firstAttribute="top" secondItem="eIc-1i-CkP" secondAttribute="top" id="naz-sK-FMN"/>
+                            <constraint firstItem="gnd-q3-wXs" firstAttribute="bottom" secondItem="eIc-1i-CkP" secondAttribute="bottom" id="nt5-bX-kX9"/>
+                            <constraint firstItem="cYG-Q2-YzI" firstAttribute="top" secondItem="eIc-1i-CkP" secondAttribute="top" id="v07-nW-iSF"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="birthdayLabel" destination="gnd-q3-wXs" id="Uue-iU-kG4"/>
+                        <outlet property="mainImageView" destination="eIc-1i-CkP" id="GEY-Io-1hk"/>
+                        <outlet property="nameLabel" destination="cYG-Q2-YzI" id="zK3-4D-g3M"/>
+                    </connections>
+                </tableViewCell>
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wir-U2-iHY">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>

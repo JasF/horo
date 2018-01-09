@@ -12,6 +12,7 @@
 #import "HoroscopesCell.h"
 #import "NSString+Horo.h"
 #import "UIView+Horo.h"
+#import "FriendCell.h"
 #import "Tabs.h"
 
 #ifdef CENSORED
@@ -20,13 +21,16 @@
 #import "Horoscopes-Swift.h"
 #endif
 
-static CGFloat const kAcitivityIndicatorColorAlpha = 0.8f;
+using namespace std;
+using namespace horo;
+
 typedef NS_ENUM(NSInteger, PredictionSections) {
     MainSection,
     SectionsCount
 };
 
 typedef NS_ENUM(NSInteger, PredictionRows) {
+    FriendRow,
     TitleRow,
     TabsRow,
     PredictionRow,
@@ -34,17 +38,20 @@ typedef NS_ENUM(NSInteger, PredictionRows) {
 };
 
 typedef NS_ENUM(NSInteger, NoConnectionRows) {
+    NoConnectionFriendRow,
     NoConnectionTitleRow,
     NoConnectionRow,
     NoConnectionRowsCount
 };
 
+static CGFloat const kAcitivityIndicatorColorAlpha = 0.8f;
 static CGFloat const kTitleRowHeight = 106.f;
 static CGFloat const kTabsRowHeight = 48.f;
 static CGFloat const kNoConnectionRowHeight = 62.f;
 static CGFloat const kPredictionRowAddedHeight = 12.f;
 static NSInteger const kTodayTabIndex = 1;
 static CGFloat const kActivityIndicatorSize = 50.f;
+static CGFloat const kFriendCellHeight = 65.f;
 
 @interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -62,6 +69,7 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 @property (weak, nonatomic) IBOutlet UILabel *networkErrorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *networkErrorButton;
 @property (strong, nonatomic) IBOutlet UITableViewCell *noConnectionCell;
+@property (strong, nonatomic) IBOutlet FriendCell *friendCell;
 
 @end
 
@@ -76,12 +84,21 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    self.allowCustomAnimationWithTabs = YES;
     NSCParameterAssert(_viewModel);
     NSCParameterAssert(_horoscopesPageViewController);
+    [super viewDidLoad];
+    self.allowCustomAnimationWithTabs = YES;
     [self initializeHoroscopeCell];
     [self initializeTabs];
+    if (_viewModel->personExists()) {
+        @weakify(self);
+        _viewModel->personData([self_weak_](string imageUrl, string name, string birthday) {
+            @strongify(self);
+            [self.friendCell setImageURL:[NSURL URLWithString:[NSString stringWithUTF8String:imageUrl.c_str()]]
+                                    name:[NSString stringWithUTF8String:name.c_str()]
+                                birthday:[NSString stringWithUTF8String:birthday.c_str()]];
+        });
+    }
     _horoscopesPageViewController.view.frame = self.view.frame;
     [self addChildViewController:_horoscopesPageViewController];
     [_horoscopesContainerView horo_addFillingSubview:_horoscopesPageViewController.view];
@@ -133,7 +150,6 @@ static CGFloat const kActivityIndicatorSize = 50.f;
     NSCAssert(image, @"image cannot be nil");
     _titleImageView.image = image;
     [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
-    
     _viewModel->tabsTitles();
     // Do any additional setup after loading the view.
 }
@@ -153,12 +169,14 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_showNoConnectionView) {
         switch (indexPath.row) {
+            case NoConnectionFriendRow: self.friendCell;
             case NoConnectionTitleRow: return self.zodiacTitleCell;
             case NoConnectionRow: return self.noConnectionCell;
         }
     }
     else {
         switch (indexPath.row) {
+            case FriendRow: return self.friendCell;
             case TitleRow: return self.zodiacTitleCell;
             case TabsRow: return self.tabsCell;
             case PredictionRow: return self.horoscopesCell;
@@ -168,7 +186,8 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dictionary = @{@(TitleRow):^CGFloat{return kTitleRowHeight;},
+    NSDictionary *dictionary = @{@(FriendRow):^CGFloat{return _viewModel->personExists() ? kFriendCellHeight : 0.f;},
+                                 @(TitleRow):^CGFloat{return kTitleRowHeight;},
                                  @(TabsRow):^CGFloat{return kTabsRowHeight;},
                                  @(PredictionRow):^CGFloat{return [_horoscopesCell getHeight] + kPredictionRowAddedHeight;}};
     

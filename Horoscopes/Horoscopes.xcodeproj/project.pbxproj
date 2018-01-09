@@ -329,6 +329,10 @@
 		C34233DF1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233DD1FE8F64900428768 /* accountscreenmodelimpl.cc */; };
 		C34233E51FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
 		C34233E61FE8F67100428768 /* accountscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */; };
+		C342BDBA2003602A00BC0B95 /* MenuCellContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */; };
+		C342BDBB2003602A00BC0B95 /* MenuCellContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */; };
+		C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
+		C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
 		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
@@ -525,6 +529,8 @@
 		C3B897851FB837700083C201 /* birthdaydetectorimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B897841FB837700083C201 /* birthdaydetectorimpl.cc */; };
 		C3B8ABF01FB83B350083C201 /* locdates.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8978B1FB83B2E0083C201 /* locdates.json */; };
 		C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */; };
+		C3C037962004962600DB82B8 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C037952004962600DB82B8 /* FriendCell.m */; };
+		C3C037972004962600DB82B8 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C037952004962600DB82B8 /* FriendCell.m */; };
 		C3C117001FCE8929007DA9FF /* Tabs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C116FF1FCE8929007DA9FF /* Tabs.m */; };
 		C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C117031FCE9542007DA9FF /* TabsItemView.m */; };
 		C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C117071FCE95E9007DA9FF /* TabsItemView.xib */; };
@@ -980,6 +986,9 @@
 		C34233DD1FE8F64900428768 /* accountscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accountscreenmodelimpl.cc; sourceTree = "<group>"; };
 		C34233E01FE8F66300428768 /* accountscreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = accountscreenviewmodelimpl.h; sourceTree = "<group>"; };
 		C34233E41FE8F67100428768 /* accountscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accountscreenviewmodelimpl.cc; sourceTree = "<group>"; };
+		C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCellContentView.xib; sourceTree = "<group>"; };
+		C342BDBC2003627000BC0B95 /* NSBundle+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Horo.h"; sourceTree = "<group>"; };
+		C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Horo.m"; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ifaddrs_converter_forxcode.cc; path = webrtc/src/rtc_base/ifaddrs_converter_forxcode.cc; sourceTree = SOURCE_ROOT; };
@@ -1144,6 +1153,8 @@
 		C3B897861FB8377E0083C201 /* birthdaydetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthdaydetector.h; sourceTree = "<group>"; };
 		C3B8978B1FB83B2E0083C201 /* locdates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locdates.json; sourceTree = "<group>"; };
 		C3B8ABEB1FB83B340083C201 /* birthdayslocstr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = birthdayslocstr.json; sourceTree = "<group>"; };
+		C3C037942004962600DB82B8 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		C3C037952004962600DB82B8 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		C3C116FE1FCE8929007DA9FF /* Tabs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tabs.h; sourceTree = "<group>"; };
 		C3C116FF1FCE8929007DA9FF /* Tabs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tabs.m; sourceTree = "<group>"; };
 		C3C117021FCE9542007DA9FF /* TabsItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabsItemView.h; sourceTree = "<group>"; };
@@ -2289,6 +2300,7 @@
 			children = (
 				C340356D1FD41184005C862C /* MenuCellContentView.h */,
 				C340356E1FD41184005C862C /* MenuCellContentView.m */,
+				C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */,
 			);
 			path = MenuCellContentView;
 			sourceTree = "<group>";
@@ -2654,6 +2666,8 @@
 				C373D4F71FED3B4A00D3BA16 /* NSError+Horo.mm */,
 				C373D4FD1FED437F00D3BA16 /* NSData+Horo.h */,
 				C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */,
+				C342BDBC2003627000BC0B95 /* NSBundle+Horo.h */,
+				C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2677,9 +2691,19 @@
 			path = scripts;
 			sourceTree = "<group>";
 		};
+		C3C037932004960A00DB82B8 /* FriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				C3C037942004962600DB82B8 /* FriendCell.h */,
+				C3C037952004962600DB82B8 /* FriendCell.m */,
+			);
+			path = FriendCell;
+			sourceTree = "<group>";
+		};
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3C037932004960A00DB82B8 /* FriendCell */,
 				C337E8F21FF3E3AE0063ACF1 /* SettingsCell */,
 				C3F405221FE102B1004D1535 /* GradientView */,
 				C3E857C61FDD3880002949D9 /* FriendsHeaderView */,
@@ -3070,6 +3094,7 @@
 				C31A13EF1FB06168001FABFE /* tag.in in Resources */,
 				C30B18AB1FA5D5A1006DEDB7 /* WelcomeViewController.storyboard in Resources */,
 				C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */,
+				C342BDBB2003602A00BC0B95 /* MenuCellContentView.xib in Resources */,
 				C3292C9E1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */,
 				C337E8FE1FF3FBF40063ACF1 /* PushTimeViewController.storyboard in Resources */,
 				C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
@@ -3104,6 +3129,7 @@
 				C315ACAE1FE5040C00CC9B67 /* tag.in in Resources */,
 				C315ACAF1FE5040C00CC9B67 /* WelcomeViewController.storyboard in Resources */,
 				C315ACB11FE5040C00CC9B67 /* PredictionContentViewController.xib in Resources */,
+				C342BDBA2003602A00BC0B95 /* MenuCellContentView.xib in Resources */,
 				C3292C9D1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */,
 				C337E8FD1FF3FBF40063ACF1 /* PushTimeViewController.storyboard in Resources */,
 				C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
@@ -3190,6 +3216,7 @@
 				C373D48B1FEBBDDB00D3BA16 /* transformadapter_forxcode.cc in Sources */,
 				C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */,
 				C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */,
+				C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */,
 				C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */,
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
 				C373D4441FEBBDDB00D3BA16 /* asyncudpsocket_forxcode.cc in Sources */,
@@ -3413,6 +3440,7 @@
 				C373D43F1FEBBDDB00D3BA16 /* asyncinvoker_forxcode.cc in Sources */,
 				C373D44D1FEBBDDB00D3BA16 /* criticalsection_forxcode.cc in Sources */,
 				C3C7ABAB20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
+				C3C037972004962600DB82B8 /* FriendCell.m in Sources */,
 				C3292CA61FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C3C7ABBD20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
@@ -3449,6 +3477,7 @@
 				C315ABD41FE5040C00CC9B67 /* MenuCell.m in Sources */,
 				C315ABD51FE5040C00CC9B67 /* WebViewDialogController.mm in Sources */,
 				C315ABD61FE5040C00CC9B67 /* tokenizer.c in Sources */,
+				C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */,
 				C315ABD71FE5040C00CC9B67 /* horoscopesparserimpl.cc in Sources */,
 				C315ABD81FE5040C00CC9B67 /* WebViewControllerImpl.mm in Sources */,
 				C315ABD91FE5040C00CC9B67 /* NSDictionary+Horo.mm in Sources */,
@@ -3672,6 +3701,7 @@
 				C373D4071FEBBDD300D3BA16 /* cryptstring_forxcode.cc in Sources */,
 				C373D3F31FEBBDD300D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */,
 				C3C7ABAA20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
+				C3C037962004962600DB82B8 /* FriendCell.m in Sources */,
 				C3292CA51FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
 				C3C7ABBC20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,

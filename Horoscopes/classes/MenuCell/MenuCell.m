@@ -15,6 +15,18 @@
 
 @implementation MenuCell
 
+#pragma mark - Initialization
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    _containerView =(MenuCellContentView *)[NSBundle horo_loadTopViewFromNibNamed:@"MenuCellContentView"];
+    [self.contentView horo_addFillingSubview:_containerView];
+}
+
+#pragma mark - Public Methods
+- (void)setTitle:(NSString *)title {
+    [_containerView setTitle:title];
+}
+
 #pragma mark - Accessors
 - (void)setTappedBlock:(TappedBlock)tappedBlock {
     _containerView.tappedBlock = tappedBlock;

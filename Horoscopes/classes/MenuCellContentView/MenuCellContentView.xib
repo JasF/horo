@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tapGestureRecognizer id="xeB-xo-iii">
+            <connections>
+                <action selector="tapped:" destination="awe-LX-wRy" id="vCa-cO-uQq"/>
+                <outlet property="delegate" destination="awe-LX-wRy" id="KEa-ud-x89"/>
+            </connections>
+        </tapGestureRecognizer>
+        <view contentMode="scaleToFill" id="awe-LX-wRy" customClass="MenuCellContentView">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSC-0p-3Gt" customClass="DesignLabel">
+                    <rect key="frame" x="12" y="0.0" width="343" height="65"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="OSC-0p-3Gt" firstAttribute="top" secondItem="awe-LX-wRy" secondAttribute="top" id="4sQ-2v-avw"/>
+                <constraint firstItem="OSC-0p-3Gt" firstAttribute="leading" secondItem="awe-LX-wRy" secondAttribute="leading" constant="12" id="Cxk-r8-iF0"/>
+                <constraint firstItem="OSC-0p-3Gt" firstAttribute="trailing" secondItem="awe-LX-wRy" secondAttribute="trailing" id="iN4-Yr-9AP"/>
+                <constraint firstAttribute="bottom" secondItem="OSC-0p-3Gt" secondAttribute="bottom" id="jd5-K8-XM3"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="label" destination="OSC-0p-3Gt" id="t7O-xr-EFf"/>
+                <outletCollection property="gestureRecognizers" destination="xeB-xo-iii" appends="YES" id="qeS-er-ZD7"/>
+            </connections>
+            <point key="canvasLocation" x="14.5" y="-961.5"/>
+        </view>
+    </objects>
+</document>

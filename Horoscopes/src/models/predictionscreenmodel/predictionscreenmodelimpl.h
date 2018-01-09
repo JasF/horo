@@ -34,6 +34,8 @@ namespace horo {
         list<string> horoscopesText() override;
         void setDataFetchedCallback(std::function<void(bool success)> callback) override;
         void noConnectionTapped() override;
+        bool personExists() override;
+        void personData(std::function<void(string imageUrl, string name, string birthday)> callback) override;
         
         strong<Zodiac> zodiac();
     private:

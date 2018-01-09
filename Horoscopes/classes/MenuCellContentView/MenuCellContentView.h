@@ -11,5 +11,6 @@
 
 @interface MenuCellContentView : UIView
 @property (nonatomic, copy, nullable) TappedBlock tappedBlock;
+- (void)setTitle:(NSString *)title;
 - (void)prepareForShowing;
 @end

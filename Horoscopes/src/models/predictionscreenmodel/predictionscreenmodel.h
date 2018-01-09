@@ -25,6 +25,8 @@ namespace horo {
         virtual list<string> horoscopesText() = 0;
         virtual void setDataFetchedCallback(std::function<void(bool success)> callback) = 0;
         virtual void noConnectionTapped() = 0;
+        virtual bool personExists() = 0;
+        virtual void personData(std::function<void(string imageUrl, string name, string birthday)> callback) = 0;
     };
     
     typedef reff<_PredictionScreenModel> PredictionScreenModel;

@@ -27,8 +27,13 @@
     [_label animateHighligh:NO];
 }
 
+#pragma mark - Public Methods
 - (void)prepareForShowing {
     [_label animateHighligh:NO];
+}
+
+- (void)setTitle:(NSString *)title {
+    _label.text = title;
 }
 
 #pragma mark - Observers

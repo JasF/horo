@@ -12,9 +12,10 @@
     #import "UINavigationBar+Horo.h"
     #import "UIView+TKGeometry.h"
     #import "UIImageView+Horo.h"
+    #import "NSBundle+Horo.h"
     #import "UIDevice+Horo.h"
     #import "UIImage+Horo.h"
     #import "UIView+Horo.h"
     #import "NSData+Horo.h"
-
+    
 #endif

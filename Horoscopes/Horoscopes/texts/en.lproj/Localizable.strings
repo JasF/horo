@@ -63,3 +63,7 @@
 "push_time_title"="Notifications Time";
 "cannot_download_horoscopes"="Network error";
 "no_connection_repeat"="Repeat";
+"menu_cell_friends"="Friends";
+"menu_cell_account"="Account";
+"menu_cell_notifications"="Notifications";
+"menu_cell_feedback"="Feedback";

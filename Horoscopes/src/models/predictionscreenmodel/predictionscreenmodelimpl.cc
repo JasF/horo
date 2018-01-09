@@ -215,5 +215,22 @@ list<string> PredictionScreenModelImpl::horoscopesText() {
     return predictions_;
 }
 
+bool PredictionScreenModelImpl::personExists() {
+    return !(person_ == components_->person_);
+}
+    
+void PredictionScreenModelImpl::personData(std::function<void(string imageUrl, string name, string birthday)> callback) {
+    SCParameterAssert(callback);
+    SCAssert(person_.get(), "Person must be initialized");
+    if (!person_.get()) {
+        return;
+    }
+    if (personExists()) {
+        callback(person_->imageUrl(), person_->name(), person_->birthdayDate().toString());
+        return;
+    }
+    callback("", "", "");
+}
+
 };
 

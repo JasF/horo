@@ -76,4 +76,12 @@ namespace horo {
         model_->noConnectionTapped();
     }
     
+    bool PredictionScreenViewModelImpl::personExists() {
+        return model_->personExists();
+    }
+    
+    void PredictionScreenViewModelImpl::personData(std::function<void(string imageUrl, string name, string birthday)> callback) {
+        model_->personData(callback);
+    }
+
 };

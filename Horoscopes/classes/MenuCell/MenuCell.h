@@ -11,4 +11,5 @@
 
 @interface MenuCell : UITableViewCell
 @property (nonatomic, copy, nullable) TappedBlock tappedBlock;
+- (void)setTitle:(NSString *)title;
 @end

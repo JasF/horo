@@ -117,53 +117,9 @@
                     <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qAx-0M-ccH" id="9gH-WA-Qap">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iT-7X-XQb" customClass="MenuCellContentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="friends" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mq7-Hq-bQY" customClass="DesignLabel">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="95.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="begin_update" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHP-Uw-1cu">
-                                        <rect key="frame" x="20" y="95.5" width="335" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="UHP-Uw-1cu" firstAttribute="top" secondItem="mq7-Hq-bQY" secondAttribute="bottom" id="2UZ-OK-osH"/>
-                                    <constraint firstItem="UHP-Uw-1cu" firstAttribute="width" secondItem="4iT-7X-XQb" secondAttribute="width" constant="-40" id="4UD-sS-cmh"/>
-                                    <constraint firstItem="mq7-Hq-bQY" firstAttribute="top" secondItem="4iT-7X-XQb" secondAttribute="top" id="9Vb-hN-7aR"/>
-                                    <constraint firstItem="UHP-Uw-1cu" firstAttribute="leading" secondItem="4iT-7X-XQb" secondAttribute="leading" constant="20" id="WFr-7Y-OtA"/>
-                                    <constraint firstItem="mq7-Hq-bQY" firstAttribute="width" secondItem="4iT-7X-XQb" secondAttribute="width" constant="-40" id="eVg-kz-tua"/>
-                                    <constraint firstAttribute="bottom" secondItem="UHP-Uw-1cu" secondAttribute="bottom" id="hAu-gg-no5"/>
-                                    <constraint firstItem="mq7-Hq-bQY" firstAttribute="leading" secondItem="4iT-7X-XQb" secondAttribute="leading" constant="20" id="jnr-1V-C6X"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="descriptionLabel" destination="UHP-Uw-1cu" id="y2X-Rp-E00"/>
-                                    <outlet property="label" destination="mq7-Hq-bQY" id="O4c-Xf-Ire"/>
-                                    <outlet property="recognizer" destination="gt2-xT-AXR" id="d9X-Oa-Iuf"/>
-                                    <outletCollection property="gestureRecognizers" destination="gt2-xT-AXR" appends="YES" id="ha9-hF-M4Z"/>
-                                </connections>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="4iT-7X-XQb" firstAttribute="leading" secondItem="9gH-WA-Qap" secondAttribute="leading" id="5do-n8-uLh"/>
-                            <constraint firstAttribute="bottom" secondItem="4iT-7X-XQb" secondAttribute="bottom" id="aKo-xB-vS1"/>
-                            <constraint firstItem="4iT-7X-XQb" firstAttribute="width" secondItem="9gH-WA-Qap" secondAttribute="width" id="yCM-au-NP0"/>
-                            <constraint firstItem="4iT-7X-XQb" firstAttribute="top" secondItem="9gH-WA-Qap" secondAttribute="top" id="yFr-Gz-FPr"/>
-                        </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="containerView" destination="4iT-7X-XQb" id="tQd-vN-gxR"/>
-                    </connections>
                 </tableViewCell>
                 <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8g6-ZC-VpB" customClass="MenuCell">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -171,53 +127,9 @@
                     <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8g6-ZC-VpB" id="4zT-mF-bAm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqz-si-fNv" customClass="MenuCellContentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="account" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk5-Gg-2uB" customClass="DesignLabel">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="95.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="birthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLy-9X-e3P">
-                                        <rect key="frame" x="20" y="95.5" width="335" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Zk5-Gg-2uB" firstAttribute="leading" secondItem="Bqz-si-fNv" secondAttribute="leading" constant="20" id="Hbm-dz-dJ3"/>
-                                    <constraint firstItem="Zk5-Gg-2uB" firstAttribute="top" secondItem="Bqz-si-fNv" secondAttribute="top" id="L79-x0-cFg"/>
-                                    <constraint firstItem="yLy-9X-e3P" firstAttribute="top" secondItem="Zk5-Gg-2uB" secondAttribute="bottom" id="S0r-KL-PEN"/>
-                                    <constraint firstAttribute="bottom" secondItem="yLy-9X-e3P" secondAttribute="bottom" id="V6u-tf-wfL"/>
-                                    <constraint firstItem="yLy-9X-e3P" firstAttribute="width" secondItem="Bqz-si-fNv" secondAttribute="width" constant="-40" id="ZvV-gL-NNJ"/>
-                                    <constraint firstItem="Zk5-Gg-2uB" firstAttribute="width" secondItem="Bqz-si-fNv" secondAttribute="width" constant="-40" id="nNe-cu-KCF"/>
-                                    <constraint firstItem="yLy-9X-e3P" firstAttribute="leading" secondItem="Bqz-si-fNv" secondAttribute="leading" constant="20" id="zgG-Zk-klh"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="descriptionLabel" destination="yLy-9X-e3P" id="Dx6-9R-8Sd"/>
-                                    <outlet property="label" destination="Zk5-Gg-2uB" id="rmf-Te-054"/>
-                                    <outlet property="recognizer" destination="POv-gd-K6O" id="lfH-Cz-5pA"/>
-                                    <outletCollection property="gestureRecognizers" destination="POv-gd-K6O" appends="YES" id="fxx-F0-vkt"/>
-                                </connections>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Bqz-si-fNv" firstAttribute="width" secondItem="4zT-mF-bAm" secondAttribute="width" id="5Nm-Yw-w7b"/>
-                            <constraint firstAttribute="bottom" secondItem="Bqz-si-fNv" secondAttribute="bottom" id="b7Y-fa-OTg"/>
-                            <constraint firstItem="Bqz-si-fNv" firstAttribute="leading" secondItem="4zT-mF-bAm" secondAttribute="leading" id="drH-KP-jsw"/>
-                            <constraint firstItem="Bqz-si-fNv" firstAttribute="top" secondItem="4zT-mF-bAm" secondAttribute="top" id="i9X-gE-xT7"/>
-                        </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="containerView" destination="Bqz-si-fNv" id="3MI-Xy-o6P"/>
-                    </connections>
                 </tableViewCell>
                 <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zqf-uQ-exO" customClass="MenuCell">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -225,53 +137,10 @@
                     <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zqf-uQ-exO" id="piM-U8-2mK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BT2-Aj-pGn" userLabel="Notifications Container View" customClass="MenuCellContentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="notifications" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAY-4L-XeF" customClass="DesignLabel">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="95.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="everyday_pushes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVu-eb-7yk">
-                                        <rect key="frame" x="20" y="95.5" width="335" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="TAY-4L-XeF" firstAttribute="top" secondItem="BT2-Aj-pGn" secondAttribute="top" id="KJp-ZM-UhY"/>
-                                    <constraint firstItem="TAY-4L-XeF" firstAttribute="width" secondItem="BT2-Aj-pGn" secondAttribute="width" constant="-40" id="Ze2-HX-7GV"/>
-                                    <constraint firstAttribute="bottom" secondItem="nVu-eb-7yk" secondAttribute="bottom" id="bme-ZR-0kc"/>
-                                    <constraint firstItem="nVu-eb-7yk" firstAttribute="leading" secondItem="BT2-Aj-pGn" secondAttribute="leading" constant="20" id="mvE-eA-m9W"/>
-                                    <constraint firstItem="nVu-eb-7yk" firstAttribute="width" secondItem="BT2-Aj-pGn" secondAttribute="width" constant="-40" id="re8-An-JhM"/>
-                                    <constraint firstItem="TAY-4L-XeF" firstAttribute="leading" secondItem="BT2-Aj-pGn" secondAttribute="leading" constant="20" id="zf8-0a-eV0"/>
-                                    <constraint firstItem="nVu-eb-7yk" firstAttribute="top" secondItem="TAY-4L-XeF" secondAttribute="bottom" id="zhG-Bw-ZKq"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="descriptionLabel" destination="nVu-eb-7yk" id="TeV-wE-N8c"/>
-                                    <outlet property="label" destination="TAY-4L-XeF" id="M0f-Fn-SYx"/>
-                                    <outletCollection property="gestureRecognizers" destination="a8z-9x-wIi" appends="YES" id="ecM-i1-BGe"/>
-                                </connections>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="BT2-Aj-pGn" firstAttribute="leading" secondItem="piM-U8-2mK" secondAttribute="leading" id="Nbd-ZK-5uj"/>
-                            <constraint firstAttribute="bottom" secondItem="BT2-Aj-pGn" secondAttribute="bottom" id="pMC-vR-KO6"/>
-                            <constraint firstItem="BT2-Aj-pGn" firstAttribute="width" secondItem="piM-U8-2mK" secondAttribute="width" id="uad-iP-df0"/>
-                            <constraint firstItem="BT2-Aj-pGn" firstAttribute="top" secondItem="piM-U8-2mK" secondAttribute="top" id="wr7-SL-6P5"/>
-                        </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
-                    <connections>
-                        <outlet property="containerView" destination="BT2-Aj-pGn" id="5vL-5d-Ceo"/>
-                    </connections>
                 </tableViewCell>
                 <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="toE-8W-Que" customClass="MenuCell">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -279,79 +148,11 @@
                     <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="toE-8W-Que" id="aG7-wI-9g4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Pg-XU2" userLabel="Feedback Container View" customClass="MenuCellContentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="feedback" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egI-mq-daY" customClass="DesignLabel">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ok?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kia-tr-oNo">
-                                        <rect key="frame" x="20" y="43.5" width="335" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Kia-tr-oNo" firstAttribute="top" secondItem="egI-mq-daY" secondAttribute="bottom" id="5x2-7A-9je"/>
-                                    <constraint firstItem="Kia-tr-oNo" firstAttribute="width" secondItem="5n5-Pg-XU2" secondAttribute="width" constant="-40" id="9zo-oW-puf"/>
-                                    <constraint firstItem="egI-mq-daY" firstAttribute="width" secondItem="5n5-Pg-XU2" secondAttribute="width" constant="-40" id="B9K-8J-oMQ"/>
-                                    <constraint firstItem="egI-mq-daY" firstAttribute="top" secondItem="5n5-Pg-XU2" secondAttribute="top" id="FMP-vg-N4T"/>
-                                    <constraint firstAttribute="bottom" secondItem="Kia-tr-oNo" secondAttribute="bottom" id="eBb-sf-Slr"/>
-                                    <constraint firstItem="egI-mq-daY" firstAttribute="leading" secondItem="5n5-Pg-XU2" secondAttribute="leading" constant="20" id="faH-qE-LRR"/>
-                                    <constraint firstItem="Kia-tr-oNo" firstAttribute="leading" secondItem="5n5-Pg-XU2" secondAttribute="leading" constant="20" id="irH-dA-5Wn"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="descriptionLabel" destination="Kia-tr-oNo" id="RXX-tL-BOF"/>
-                                    <outlet property="label" destination="egI-mq-daY" id="9Ia-Xg-3q8"/>
-                                    <outlet property="recognizer" destination="QJL-BG-sdL" id="Ook-7O-ntg"/>
-                                    <outletCollection property="gestureRecognizers" destination="QJL-BG-sdL" appends="YES" id="oc8-V7-P7Q"/>
-                                </connections>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="5n5-Pg-XU2" firstAttribute="top" secondItem="aG7-wI-9g4" secondAttribute="top" id="FTP-qG-zLQ"/>
-                            <constraint firstAttribute="bottom" secondItem="5n5-Pg-XU2" secondAttribute="bottom" id="PSN-h1-k2d"/>
-                            <constraint firstItem="5n5-Pg-XU2" firstAttribute="leading" secondItem="aG7-wI-9g4" secondAttribute="leading" id="b3d-o4-nTz"/>
-                            <constraint firstItem="5n5-Pg-XU2" firstAttribute="width" secondItem="aG7-wI-9g4" secondAttribute="width" id="zMm-4O-uA8"/>
-                        </constraints>
                     </tableViewCellContentView>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
-                    <connections>
-                        <outlet property="containerView" destination="5n5-Pg-XU2" id="Uo5-6v-b1g"/>
-                    </connections>
                 </tableViewCell>
-                <tapGestureRecognizer delaysTouchesEnded="NO" id="gt2-xT-AXR">
-                    <connections>
-                        <action selector="tapped:" destination="4iT-7X-XQb" id="aeD-nG-Sex"/>
-                        <outlet property="delegate" destination="4iT-7X-XQb" id="zc5-W3-75K"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="POv-gd-K6O">
-                    <connections>
-                        <action selector="tapped:" destination="Bqz-si-fNv" id="ecI-KT-haN"/>
-                        <outlet property="delegate" destination="Bqz-si-fNv" id="f7W-Sr-YAP"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="a8z-9x-wIi">
-                    <connections>
-                        <action selector="tapped:" destination="BT2-Aj-pGn" id="Dbl-wY-vQi"/>
-                        <outlet property="delegate" destination="BT2-Aj-pGn" id="8gs-Qk-2NO"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="QJL-BG-sdL">
-                    <connections>
-                        <action selector="tapped:" destination="5n5-Pg-XU2" id="pRF-uW-LWb"/>
-                        <outlet property="delegate" destination="5n5-Pg-XU2" id="hvg-a4-wAn"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="151" y="122"/>
         </scene>

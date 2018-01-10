@@ -134,7 +134,7 @@
 		C315AC1F1FE5040C00CC9B67 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B167F1FA47770006DEDB7 /* json_writer.cpp */; };
 		C315AC201FE5040C00CC9B67 /* firestorefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3817DF71FA708B200447155 /* firestorefactoryimpl.cc */; };
 		C315AC211FE5040C00CC9B67 /* horoscopesserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */; };
-		C315AC221FE5040C00CC9B67 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */; };
+		C315AC221FE5040C00CC9B67 /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.mm */; };
 		C315AC231FE5040C00CC9B67 /* facebookmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B6018D1FA5F62B00AD4F6D /* facebookmanagerimpl.cc */; };
 		C315AC241FE5040C00CC9B67 /* friendsproviderfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13A21FAF5115001FABFE /* friendsproviderfactoryimpl.cc */; };
 		C315AC251FE5040C00CC9B67 /* htmlparserfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13B71FB05E48001FABFE /* htmlparserfactoryimpl.cc */; };
@@ -510,7 +510,7 @@
 		C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */; };
 		C3AE95FE1FDA619A00A9C73E /* UIImage+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */; };
 		C3B027F41FE3A7200013E1C9 /* FriendsViewController+Filtering.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */; };
-		C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */; };
+		C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.mm */; };
 		C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */; };
 		C3B3AA981FA84DDC00D74180 /* horoscopesparserimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B3AA971FA84DDC00D74180 /* horoscopesparserimpl.cc */; };
 		C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B601731FA5DB3300AD4F6D /* FacebookSDKStrings.bundle */; };
@@ -535,6 +535,10 @@
 		C3C0379D2004A6B900DB82B8 /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379B2004A6B900DB82B8 /* PushAnimator.m */; };
 		C3C037A02004A6C200DB82B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379F2004A6C200DB82B8 /* PopAnimator.m */; };
 		C3C037A12004A6C200DB82B8 /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C0379F2004A6C200DB82B8 /* PopAnimator.m */; };
+		C3C03C462005E5C600DB82B8 /* themesmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3C03C452005E5C600DB82B8 /* themesmanagerimpl.cc */; };
+		C3C03C472005E5C600DB82B8 /* themesmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3C03C452005E5C600DB82B8 /* themesmanagerimpl.cc */; };
+		C3C03C4E2005E80700DB82B8 /* darkthemeimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3C03C4D2005E80700DB82B8 /* darkthemeimpl.cc */; };
+		C3C03C4F2005E80700DB82B8 /* darkthemeimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3C03C4D2005E80700DB82B8 /* darkthemeimpl.cc */; };
 		C3C117001FCE8929007DA9FF /* Tabs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C116FF1FCE8929007DA9FF /* Tabs.m */; };
 		C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C117031FCE9542007DA9FF /* TabsItemView.m */; };
 		C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C117071FCE95E9007DA9FF /* TabsItemView.xib */; };
@@ -1118,7 +1122,7 @@
 		C3B027F21FE3A7200013E1C9 /* FriendsViewController+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FriendsViewController+Filtering.h"; sourceTree = "<group>"; };
 		C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "FriendsViewController+Filtering.mm"; sourceTree = "<group>"; };
 		C3B06E3C1FCAFDBC008E66CE /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
-		C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
 		C3B3AA8B1FA83B5A00D74180 /* horoscopesservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesservice.h; sourceTree = "<group>"; };
 		C3B3AA8C1FA83B6C00D74180 /* horoscopesserviceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesserviceimpl.h; sourceTree = "<group>"; };
 		C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopesserviceimpl.cc; sourceTree = "<group>"; };
@@ -1163,6 +1167,12 @@
 		C3C0379B2004A6B900DB82B8 /* PushAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushAnimator.m; sourceTree = "<group>"; };
 		C3C0379E2004A6C200DB82B8 /* PopAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
 		C3C0379F2004A6C200DB82B8 /* PopAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
+		C3C03C412005E55E00DB82B8 /* theme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theme.h; sourceTree = "<group>"; };
+		C3C03C432005E5B000DB82B8 /* themesmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = themesmanager.h; sourceTree = "<group>"; };
+		C3C03C442005E5C600DB82B8 /* themesmanagerimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = themesmanagerimpl.h; sourceTree = "<group>"; };
+		C3C03C452005E5C600DB82B8 /* themesmanagerimpl.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = themesmanagerimpl.cc; sourceTree = "<group>"; };
+		C3C03C492005E7E600DB82B8 /* darkthemeimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darkthemeimpl.h; sourceTree = "<group>"; };
+		C3C03C4D2005E80700DB82B8 /* darkthemeimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = darkthemeimpl.cc; sourceTree = "<group>"; };
 		C3C116FE1FCE8929007DA9FF /* Tabs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tabs.h; sourceTree = "<group>"; };
 		C3C116FF1FCE8929007DA9FF /* Tabs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tabs.m; sourceTree = "<group>"; };
 		C3C117021FCE9542007DA9FF /* TabsItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabsItemView.h; sourceTree = "<group>"; };
@@ -2549,7 +2559,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B06E3C1FCAFDBC008E66CE /* BaseNavigationController.h */,
-				C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.m */,
+				C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.mm */,
 			);
 			path = BaseNavigationController;
 			sourceTree = "<group>";
@@ -2724,6 +2734,34 @@
 				C3C0379F2004A6C200DB82B8 /* PopAnimator.m */,
 			);
 			path = PopAnimator;
+			sourceTree = "<group>";
+		};
+		C3C03C402005E54900DB82B8 /* themes */ = {
+			isa = PBXGroup;
+			children = (
+				C3C03C482005E7D600DB82B8 /* darkthemeimpl */,
+				C3C03C412005E55E00DB82B8 /* theme.h */,
+			);
+			path = themes;
+			sourceTree = "<group>";
+		};
+		C3C03C422005E59B00DB82B8 /* themesmanager */ = {
+			isa = PBXGroup;
+			children = (
+				C3C03C432005E5B000DB82B8 /* themesmanager.h */,
+				C3C03C442005E5C600DB82B8 /* themesmanagerimpl.h */,
+				C3C03C452005E5C600DB82B8 /* themesmanagerimpl.cc */,
+			);
+			path = themesmanager;
+			sourceTree = "<group>";
+		};
+		C3C03C482005E7D600DB82B8 /* darkthemeimpl */ = {
+			isa = PBXGroup;
+			children = (
+				C3C03C492005E7E600DB82B8 /* darkthemeimpl.h */,
+				C3C03C4D2005E80700DB82B8 /* darkthemeimpl.cc */,
+			);
+			path = darkthemeimpl;
 			sourceTree = "<group>";
 		};
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
@@ -2924,6 +2962,7 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C3C03C402005E54900DB82B8 /* themes */,
 				C3D432171FEE7E26008B0E03 /* swift */,
 				C31A13C21FB06111001FABFE /* thirdparty */,
 				C31A13A91FB05CE9001FABFE /* friends */,
@@ -2941,6 +2980,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3C03C422005E59B00DB82B8 /* themesmanager */,
 				C32331012001FD1F0027089E /* ntp */,
 				C373D4DD1FECF8FB00D3BA16 /* notifications */,
 				C3B897801FB836E70083C201 /* birthdaydetector */,
@@ -3273,6 +3313,7 @@
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
 				C373D4721FEBBDDB00D3BA16 /* rate_limiter_forxcode.cc in Sources */,
 				C30B165C1FA4746F006DEDB7 /* HttpResponseObjc.mm in Sources */,
+				C3C03C472005E5C600DB82B8 /* themesmanagerimpl.cc in Sources */,
 				C3C7ABC920022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				C373D4571FEBBDDB00D3BA16 /* httpcommon_forxcode.cc in Sources */,
 				C373D4F21FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
@@ -3401,7 +3442,7 @@
 				C373D4511FEBBDDB00D3BA16 /* file_posix_forxcode.cc in Sources */,
 				C373D5091FED5DA900D3BA16 /* Logger.m in Sources */,
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
-				C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.m in Sources */,
+				C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.mm in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
 				C373D4731FEBBDDB00D3BA16 /* rate_statistics_forxcode.cc in Sources */,
 				C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */,
@@ -3471,6 +3512,7 @@
 				C373D44D1FEBBDDB00D3BA16 /* criticalsection_forxcode.cc in Sources */,
 				C3C7ABAB20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				C3C037972004962600DB82B8 /* FriendCell.m in Sources */,
+				C3C03C4F2005E80700DB82B8 /* darkthemeimpl.cc in Sources */,
 				C3292CA61FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C3C7ABBD20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
@@ -3536,6 +3578,7 @@
 				C315ABE31FE5040C00CC9B67 /* HttpResponseObjc.mm in Sources */,
 				C315ABE41FE5040C00CC9B67 /* facebookuserdetailparser.cc in Sources */,
 				C315ABE51FE5040C00CC9B67 /* facebookloginmanager.cc in Sources */,
+				C3C03C462005E5C600DB82B8 /* themesmanagerimpl.cc in Sources */,
 				C3C7ABC820022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				C315ABE61FE5040C00CC9B67 /* UIImageView+Horo.m in Sources */,
 				C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
@@ -3663,7 +3706,7 @@
 				C315AC211FE5040C00CC9B67 /* horoscopesserviceimpl.cc in Sources */,
 				C373D4171FEBBDD300D3BA16 /* race_checker_forxcode.cc in Sources */,
 				C373D5081FED5DA900D3BA16 /* Logger.m in Sources */,
-				C315AC221FE5040C00CC9B67 /* BaseNavigationController.m in Sources */,
+				C315AC221FE5040C00CC9B67 /* BaseNavigationController.mm in Sources */,
 				C373D3FC1FEBBDD300D3BA16 /* file_forxcode.cc in Sources */,
 				C315AC231FE5040C00CC9B67 /* facebookmanagerimpl.cc in Sources */,
 				C373D42D1FEBBDD300D3BA16 /* bitbuffer_forxcode.cc in Sources */,
@@ -3734,6 +3777,7 @@
 				C373D3F31FEBBDD300D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */,
 				C3C7ABAA20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				C3C037962004962600DB82B8 /* FriendCell.m in Sources */,
+				C3C03C4E2005E80700DB82B8 /* darkthemeimpl.cc in Sources */,
 				C3292CA51FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
 				C3C7ABBC20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,

@@ -12,12 +12,13 @@
 #include "viewmodels.h"
 #include "models.h"
 #include "managers/screensmanager/screensmanager.h"
+#include "managers/themesmanager/themesmanager.h"
 
 namespace horo {
     
     class ViewModelsImpl : public ViewModels {
     public:
-        ViewModelsImpl(strong<Models> models);
+        ViewModelsImpl(strong<Models> models, strong<ThemesManager> themesManager);
         ~ViewModelsImpl() override;
         
         void setScreensManager(strong<ScreensManager> screensManager) { screensManager_ = screensManager; }
@@ -35,6 +36,7 @@ namespace horo {
     private:
         strong<Models> models_;
         strong<ScreensManager> screensManager_;
+        strong<ThemesManager> themesManager_;
     };
     
 };

@@ -19,6 +19,7 @@ namespace horo {
         virtual void getServerTimeWithCompletion(std::function<void(double ti)> callback)=0;
     };
     typedef reff<_Ntp> Ntp;
+    
 };
 
 

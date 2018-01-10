@@ -29,6 +29,7 @@
 #include "managers/birthdaydetector/birthdaydetector.h"
 #include "managers/notifications/notifications.h"
 #include "managers/ntp/ntp.h"
+#include "managers/themesmanager/themesmanager.h"
 
 namespace horo {
   
@@ -60,6 +61,7 @@ namespace horo {
         strong<BirthdayDetector> birthdayDetector();
         strong<Notifications> notifications();
         strong<Ntp> ntp();
+        strong<ThemesManager> themesManager();
     };
     
 };

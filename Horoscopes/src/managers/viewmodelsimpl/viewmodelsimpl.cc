@@ -17,9 +17,11 @@
 
 namespace horo {
     
-    ViewModelsImpl::ViewModelsImpl(strong<Models> models)
-    : models_(models) {
-        SCParameterAssert(models_);
+    ViewModelsImpl::ViewModelsImpl(strong<Models> models, strong<ThemesManager> themesManager)
+    : models_(models)
+    , themesManager_(themesManager) {
+        SCParameterAssert(models_.get());
+        SCParameterAssert(themesManager_.get());
     }
     
     ViewModelsImpl::~ViewModelsImpl() {
@@ -28,13 +30,13 @@ namespace horo {
     
     strong<PredictionScreenViewModel> ViewModelsImpl::predictionScreenViewModel() {
         strong<PredictionScreenModel> model = models_->predictionScreenModel();
-        PredictionScreenViewModelImpl *viewModel = new PredictionScreenViewModelImpl(model, screensManager_);
+        PredictionScreenViewModelImpl *viewModel = new PredictionScreenViewModelImpl(model, screensManager_, themesManager_);
         return viewModel;
     }
     
     strong<PredictionScreenViewModel> ViewModelsImpl::predictionScreenViewModel(strong<Person> person) {
         strong<PredictionScreenModel> model = models_->predictionScreenModel(person);
-        PredictionScreenViewModelImpl *viewModel = new PredictionScreenViewModelImpl(model, screensManager_);
+        PredictionScreenViewModelImpl *viewModel = new PredictionScreenViewModelImpl(model, screensManager_, themesManager_);
         return viewModel;
     }
     
@@ -52,7 +54,7 @@ namespace horo {
     
     strong<FriendsScreenViewModel> ViewModelsImpl::friendsScreenViewModel() {
         strong<FriendsScreenModel> model = models_->friendsScreenModel();
-        FriendsScreenViewModelImpl *viewModel = new FriendsScreenViewModelImpl(model, screensManager_);
+        FriendsScreenViewModelImpl *viewModel = new FriendsScreenViewModelImpl(model, screensManager_, themesManager_);
         return viewModel;
     }
     

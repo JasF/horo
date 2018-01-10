@@ -29,6 +29,7 @@
 // For state restoration.
 @property BOOL searchControllerWasActive;
 @property BOOL searchControllerSearchFieldWasFirstResponder;
+@property dispatch_block_t cancelSearchCompletion;
 
 @end
 
@@ -53,9 +54,6 @@ using namespace horo;
         [self didSelectPerson:person];
     };
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
-    self.searchController.searchResultsUpdater = self;
-    [self.searchController.searchBar sizeToFit];
-	
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
@@ -157,6 +155,10 @@ using namespace horo;
 
 - (void)didDismissSearchController:(UISearchController *)searchController {
     [self cleanSearchBarBackground];
+    if (_cancelSearchCompletion) {
+        _cancelSearchCompletion();
+        _cancelSearchCompletion = nil;
+    }
 }
 
 - (void)cleanSearchBarBackground {
@@ -214,6 +216,16 @@ using namespace horo;
 }
 
 #pragma mark - Private
+- (void)cancelSearchIfNeeded:(dispatch_block_t)completion {
+    if (_viewModel->needsCancelSearchBeforeSegue() && _searchController.active) {
+        _cancelSearchCompletion = completion;
+        _searchController.active = NO;
+    }
+    else {
+        completion();
+    }
+}
+
 - (void)updateAllFriends {
     NSMutableArray *array = [NSMutableArray new];
     for (strong<Person> person : _viewModel->allFriends()) {
@@ -247,7 +259,9 @@ using namespace horo;
 }
 
 - (void)didSelectPerson:(PersonObjc *)person {
-    _viewModel->personSelected([person nativeRepresentation]);
+    [self cancelSearchIfNeeded:^{
+        _viewModel->personSelected([person nativeRepresentation]);
+    }];
 }
 
 #pragma mark - Observers

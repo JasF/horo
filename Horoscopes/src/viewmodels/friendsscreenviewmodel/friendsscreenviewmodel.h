@@ -25,6 +25,7 @@ namespace horo {
         virtual bool webViewDidLoad(std::string url) = 0;
         virtual list<strong<Person>> allFriends() = 0;
         virtual void personSelected(strong<Person> person) = 0;
+        virtual bool needsCancelSearchBeforeSegue() = 0;
         
     public:
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;

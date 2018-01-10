@@ -12,13 +12,15 @@
 #include "predictionscreenviewmodel.h"
 #include "models/predictionscreenmodel/predictionscreenmodel.h"
 #include "managers/screensmanager/screensmanager.h"
+#include "managers/themesmanager/themesmanager.h"
 
 namespace horo {
   
     class PredictionScreenViewModelImpl : public PredictionScreenViewModel {
     public:
         PredictionScreenViewModelImpl(strong<PredictionScreenModel> model,
-                                      strong<ScreensManager> screensManager);
+                                      strong<ScreensManager> screensManager,
+                                      strong<ThemesManager> themesManager);
         ~PredictionScreenViewModelImpl() override;
     public:
         void didActivated() override;
@@ -40,9 +42,13 @@ namespace horo {
         void personData(std::function<void(string imageUrl, string name, string birthday)> callback) override;
         
     private:
+        strong<Theme> theme() { return themesManager_->activeTheme(); }
+        
+    private:
         strong<PredictionScreenModel> model_;
         strong<ScreensManager> screensManager_;
         std::function<void(bool success)> callback_;
+        strong<ThemesManager> themesManager_;
     };
     
 };

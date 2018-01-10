@@ -26,6 +26,7 @@
 #include "managers/birthdaydetector/birthdaydetectorimpl.h"
 #include "managers/notifications/notificationsimpl.h"
 #include "managers/ntp/ntpimpl.h"
+#include "managers/themesmanager/themesmanagerimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -61,7 +62,7 @@ Managers &Managers::shared() {
     strong<ViewModels> Managers::viewModels() {
         static strong<ViewModelsImpl> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new ViewModelsImpl(models());
+            sharedInstance = new ViewModelsImpl(models(), themesManager());
             sharedInstance->setScreensManager(screensManager());
         }
         return sharedInstance;
@@ -214,4 +215,11 @@ Managers &Managers::shared() {
         return sharedInstance;
     }
     
+    strong<ThemesManager> Managers::themesManager() {
+        static strong<ThemesManager> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new ThemesManagerImpl();
+        }
+        return sharedInstance;
+    }
 };

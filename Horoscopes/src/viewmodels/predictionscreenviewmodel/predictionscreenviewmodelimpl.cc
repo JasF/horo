@@ -10,16 +10,19 @@
 
 namespace horo {
     PredictionScreenViewModelImpl::PredictionScreenViewModelImpl(strong<PredictionScreenModel> model,
-                                                                 strong<ScreensManager> screensManager)
-    : model_(model),
-     screensManager_(screensManager) {
-         SCParameterAssert(model_);
-         SCParameterAssert(screensManager_);
-         model_->setDataFetchedCallback([this](bool success){
-             if (callback_) {
-                 callback_(success);
-             }
-         });
+                                                                 strong<ScreensManager> screensManager,
+                                                                 strong<ThemesManager> themesManager)
+    : model_(model)
+    , screensManager_(screensManager)
+    , themesManager_(themesManager) {
+        SCParameterAssert(model_.get());
+        SCParameterAssert(screensManager_.get());
+        SCParameterAssert(themesManager_.get());
+        model_->setDataFetchedCallback([this](bool success){
+            if (callback_) {
+                callback_(success);
+            }
+        });
      }
     
     PredictionScreenViewModelImpl::~PredictionScreenViewModelImpl() {

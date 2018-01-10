@@ -11,14 +11,20 @@
 #import "PushAnimator.h"
 #import "PopAnimator.h"
 #import "UIView+Horo.h"
+#include "managers/managers.h"
+
+using namespace std;
+using namespace horo;
 
 @interface BaseNavigationController () <UINavigationControllerDelegate>
-
+@property (assign, nonatomic) strong<ThemesManager> themesManager;
 @end
 
 @implementation BaseNavigationController
 
 - (void)viewDidLoad {
+    _themesManager = Managers::shared().themesManager();
+    NSCParameterAssert(_themesManager.get());
     [super viewDidLoad];
     self.delegate = self;
     BackgroundView *backgroundView = [BackgroundView new];
@@ -41,6 +47,9 @@
                                             animationControllerForOperation:(UINavigationControllerOperation)operation
                                                          fromViewController:(UIViewController *)fromVC
                                                            toViewController:(UIViewController *)toVC {
+    if (_themesManager->activeTheme()->nativeNavigationTransition()) {
+        return nil;
+    }
     NSDictionary *dictionary = @{
         @(UINavigationControllerOperationPush):[PushAnimator class],
         @(UINavigationControllerOperationPop):[PopAnimator class]

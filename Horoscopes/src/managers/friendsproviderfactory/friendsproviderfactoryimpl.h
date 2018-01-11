@@ -10,13 +10,13 @@
 #define friendsproviderfactoryimpl_h
 
 #include "friendsproviderfactory.h"
-#include "managers/networkingservice/networkingservicefactory.h"
+#include "managers/webviewservice/webviewservicefactory.h"
 #include "friends/htmlparserfactory/htmlparserfactory.h"
 
 namespace horo {
     class FriendsProviderFactoryImpl : public FriendsProviderFactory {
     public:
-        FriendsProviderFactoryImpl(strong<NetworkingServiceFactory> factory,
+        FriendsProviderFactoryImpl(strong<WebViewServiceFactory> factory,
                                    strong<HtmlParserFactory> parserFactory)
         : factory_(factory),
         parserFactory_(parserFactory)
@@ -28,7 +28,7 @@ namespace horo {
         strong<FriendsProvider> createFacebookFriendsProvider() override;
         
     private:
-        strong<NetworkingServiceFactory> factory_;
+        strong<WebViewServiceFactory> factory_;
         strong<HtmlParserFactory> parserFactory_;
     };
 };

@@ -10,7 +10,7 @@
 #define managers_hpp
 
 #include <stdio.h>
-#include "networkingservice.h"
+#include "webviewservice.h"
 #include "modelsimpl/models.h"
 #include "viewmodelsimpl/viewmodels.h"
 #include "screensmanager/screensmanager.h"
@@ -24,7 +24,7 @@
 #include "managers/horoscopesparser/horoscopesparser.h"
 #include "managers/friendsproviderfactory/friendsproviderfactory.h"
 #include "managers/friendsmanager/friendsmanager.h"
-#include "managers/networkingservice/networkingservicefactory.h"
+#include "managers/webviewservice/webviewservicefactory.h"
 #include "friends/htmlparserfactory/htmlparserfactory.h"
 #include "managers/birthdaydetector/birthdaydetector.h"
 #include "managers/notifications/notifications.h"
@@ -42,7 +42,6 @@ namespace horo {
         std::string databaseFilePath();
         
     public:
-        strong<NetworkingService> networkingService();
         strong<ViewModels> viewModels();
         strong<Models> models();
         strong<ScreensManager> screensManager();
@@ -56,7 +55,7 @@ namespace horo {
         strong<HoroscopesParser> horoscopesParser();
         strong<FriendsProviderFactory> friendsProviderFactory();
         strong<FriendsManager> friendsManager();
-        NetworkingServiceFactory *sharedNetworkingServiceFactory();
+        WebViewServiceFactory *sharedWebViewServiceFactory();
         strong<HtmlParserFactory> htmlParserFactory();
         strong<BirthdayDetector> birthdayDetector();
         strong<Notifications> notifications();

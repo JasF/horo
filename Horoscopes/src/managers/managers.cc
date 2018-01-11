@@ -7,7 +7,7 @@
 //
 
 #include "managers.h"
-#include "networkingservicefactoryimpl.h"
+#include "webviewservicefactoryimpl.h"
 #include "modelsimpl/modelsimpl.h"
 #include "viewmodelsimpl/viewmodelsimpl.h"
 #include "screensmanager/screensmanagerimpl.h"
@@ -46,17 +46,12 @@ Managers &Managers::shared() {
         
     }
 
-    NetworkingServiceFactory *Managers::sharedNetworkingServiceFactory() {
-        static NetworkingServiceFactory *sharedInstance = nullptr;
+    WebViewServiceFactory *Managers::sharedWebViewServiceFactory() {
+        static WebViewServiceFactory *sharedInstance = nullptr;
         if (sharedInstance == nullptr) {
-            sharedInstance = new NetworkingServiceFactoryImpl();
+            sharedInstance = new WebViewServiceFactoryImpl();
         }
         return sharedInstance;
-    }
-    
-    strong<NetworkingService> Managers::networkingService() {
-        rtc::scoped_refptr<NetworkingService> service = sharedNetworkingServiceFactory()->createNetworkingService();
-        return service;
     }
     
     strong<ViewModels> Managers::viewModels() {
@@ -174,7 +169,7 @@ Managers &Managers::shared() {
     strong<FriendsProviderFactory> Managers::friendsProviderFactory() {
         static strong<FriendsProviderFactory> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new FriendsProviderFactoryImpl(sharedNetworkingServiceFactory(), htmlParserFactory());
+            sharedInstance = new FriendsProviderFactoryImpl(sharedWebViewServiceFactory(), htmlParserFactory());
         }
         return sharedInstance;
     }

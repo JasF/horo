@@ -75,7 +75,7 @@
 		C315ABE41FE5040C00CC9B67 /* facebookuserdetailparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A141A1FB19625001FABFE /* facebookuserdetailparser.cc */; };
 		C315ABE51FE5040C00CC9B67 /* facebookloginmanager.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B601861FA5F39100AD4F6D /* facebookloginmanager.cc */; };
 		C315ABE61FE5040C00CC9B67 /* UIImageView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355E1FD3DEED005C862C /* UIImageView+Horo.m */; };
-		C315ABE71FE5040C00CC9B67 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
+		C315ABE71FE5040C00CC9B67 /* webviewservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* webviewservicefactoryimpl.cc */; };
 		C315ABE81FE5040C00CC9B67 /* FriendsBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */; };
 		C315ABE91FE5040C00CC9B67 /* facebookfriendsprovider.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13941FAF4ECC001FABFE /* facebookfriendsprovider.cc */; };
 		C315ABEA1FE5040C00CC9B67 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
@@ -98,7 +98,7 @@
 		C315ABFB1FE5040C00CC9B67 /* attribute.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DD1FB06168001FABFE /* attribute.c */; };
 		C315ABFC1FE5040C00CC9B67 /* UIView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A62961FD291FF00012ECA /* UIView+Horo.m */; };
 		C315ABFD1FE5040C00CC9B67 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D41FA375E600C0B1C6 /* AFURLRequestSerialization.m */; };
-		C315ABFE1FE5040C00CC9B67 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
+		C315ABFE1FE5040C00CC9B67 /* WebViewServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm */; };
 		C315ABFF1FE5040C00CC9B67 /* string_buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DC1FB06168001FABFE /* string_buffer.c */; };
 		C315AC001FE5040C00CC9B67 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30B16781FA476CA006DEDB7 /* json_reader.cpp */; };
 		C315AC011FE5040C00CC9B67 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D31FA375E600C0B1C6 /* AFURLSessionManager.m */; };
@@ -164,7 +164,7 @@
 		C315AC3D1FE5040C00CC9B67 /* menuscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */; };
 		C315AC3E1FE5040C00CC9B67 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
 		C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A628F1FD28BEB00012ECA /* PredictionContentViewController.m */; };
-		C315AC401FE5040C00CC9B67 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
+		C315AC401FE5040C00CC9B67 /* WebViewServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* WebViewServiceObjc.mm */; };
 		C315AC421FE5040C00CC9B67 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A138E1FAF39BC001FABFE /* WebKit.framework */; };
 		C315AC431FE5040C00CC9B67 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DFD1FA6F54E00D2BFF3 /* libz.1.2.8.tbd */; };
 		C315AC4B1FE5040C00CC9B67 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DED1FA6F4E700D2BFF3 /* GoogleToolboxForMac.framework */; };
@@ -300,9 +300,9 @@
 		C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3383FD91FAF255000CCE133 /* MenuViewController.storyboard */; };
 		C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FDD1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc */; };
 		C3383FE41FAF26C800CCE133 /* menuscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */; };
-		C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */; };
-		C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */; };
-		C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */; };
+		C33B99BF1FA3726800C0B1C6 /* webviewservicefactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99BE1FA3726800C0B1C6 /* webviewservicefactoryimpl.cc */; };
+		C33B99C51FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C41FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm */; };
+		C33B99C91FA3752400C0B1C6 /* WebViewServiceObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C33B99C81FA3752400C0B1C6 /* WebViewServiceObjc.mm */; };
 		C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D01FA375E600C0B1C6 /* AFURLResponseSerialization.m */; };
 		C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D11FA375E600C0B1C6 /* AFHTTPSessionManager.m */; };
 		C33B99DB1FA375E600C0B1C6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99D31FA375E600C0B1C6 /* AFURLSessionManager.m */; };
@@ -948,13 +948,13 @@
 		C3383FE11FAF26C800CCE133 /* menuscreenmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menuscreenmodelimpl.cc; sourceTree = "<group>"; };
 		C3383FE21FAF26C800CCE133 /* menuscreenmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuscreenmodel.h; sourceTree = "<group>"; };
 		C3383FE31FAF26C800CCE133 /* menuscreenmodelimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuscreenmodelimpl.h; sourceTree = "<group>"; };
-		C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactoryimpl.h; sourceTree = "<group>"; };
-		C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservicefactory.h; sourceTree = "<group>"; };
-		C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = networkingservicefactoryimpl.cc; sourceTree = "<group>"; };
-		C33B99C11FA3730C00C0B1C6 /* NetworkingServiceFactoryObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingServiceFactoryObjc.h; sourceTree = "<group>"; };
-		C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingServiceFactoryObjc.mm; sourceTree = "<group>"; };
-		C33B99C71FA3752400C0B1C6 /* NetworkingServiceObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingServiceObjc.h; sourceTree = "<group>"; };
-		C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingServiceObjc.mm; sourceTree = "<group>"; };
+		C33B99B61FA36F1C00C0B1C6 /* webviewservicefactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webviewservicefactoryimpl.h; sourceTree = "<group>"; };
+		C33B99B81FA36F3200C0B1C6 /* webviewservicefactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webviewservicefactory.h; sourceTree = "<group>"; };
+		C33B99BE1FA3726800C0B1C6 /* webviewservicefactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = webviewservicefactoryimpl.cc; sourceTree = "<group>"; };
+		C33B99C11FA3730C00C0B1C6 /* WebViewServiceFactoryObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewServiceFactoryObjc.h; sourceTree = "<group>"; };
+		C33B99C41FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewServiceFactoryObjc.mm; sourceTree = "<group>"; };
+		C33B99C71FA3752400C0B1C6 /* WebViewServiceObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewServiceObjc.h; sourceTree = "<group>"; };
+		C33B99C81FA3752400C0B1C6 /* WebViewServiceObjc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewServiceObjc.mm; sourceTree = "<group>"; };
 		C33B99CC1FA375E600C0B1C6 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
 		C33B99CD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		C33B99CE1FA375E600C0B1C6 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
@@ -1244,7 +1244,7 @@
 		C3CD7DFE1FA6F57A00D2BFF3 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		C3D27C971FA309130094BF12 /* managers.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = managers.cc; sourceTree = "<group>"; };
 		C3D27C981FA309130094BF12 /* managers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = managers.h; sourceTree = "<group>"; };
-		C3D27C9C1FA309740094BF12 /* networkingservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networkingservice.h; sourceTree = "<group>"; };
+		C3D27C9C1FA309740094BF12 /* webviewservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webviewservice.h; sourceTree = "<group>"; };
 		C3D432141FEE7A3A008B0E03 /* PushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D432161FEE7A40008B0E03 /* PushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D432191FEE7E44008B0E03 /* Horoscopes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Horoscopes-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -2206,28 +2206,28 @@
 				C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */,
 				C30B16591FA47465006DEDB7 /* HttpResponseObjc */,
 				C33B99DF1FA376A800C0B1C6 /* HTTPSessionManager */,
-				C33B99C61FA3752400C0B1C6 /* NetworkingServiceObjc */,
-				C33B99C01FA372FC00C0B1C6 /* NetworkingServiceFactoryImpl */,
+				C33B99C61FA3752400C0B1C6 /* WebViewServiceObjc */,
+				C33B99C01FA372FC00C0B1C6 /* WebViewServiceFactoryImpl */,
 			);
 			path = ios;
 			sourceTree = "<group>";
 		};
-		C33B99C01FA372FC00C0B1C6 /* NetworkingServiceFactoryImpl */ = {
+		C33B99C01FA372FC00C0B1C6 /* WebViewServiceFactoryImpl */ = {
 			isa = PBXGroup;
 			children = (
-				C33B99C41FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm */,
-				C33B99C11FA3730C00C0B1C6 /* NetworkingServiceFactoryObjc.h */,
+				C33B99C41FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm */,
+				C33B99C11FA3730C00C0B1C6 /* WebViewServiceFactoryObjc.h */,
 			);
-			path = NetworkingServiceFactoryImpl;
+			path = WebViewServiceFactoryImpl;
 			sourceTree = "<group>";
 		};
-		C33B99C61FA3752400C0B1C6 /* NetworkingServiceObjc */ = {
+		C33B99C61FA3752400C0B1C6 /* WebViewServiceObjc */ = {
 			isa = PBXGroup;
 			children = (
-				C33B99C71FA3752400C0B1C6 /* NetworkingServiceObjc.h */,
-				C33B99C81FA3752400C0B1C6 /* NetworkingServiceObjc.mm */,
+				C33B99C71FA3752400C0B1C6 /* WebViewServiceObjc.h */,
+				C33B99C81FA3752400C0B1C6 /* WebViewServiceObjc.mm */,
 			);
-			path = NetworkingServiceObjc;
+			path = WebViewServiceObjc;
 			sourceTree = "<group>";
 		};
 		C33B99CA1FA375E600C0B1C6 /* Components */ = {
@@ -3000,23 +3000,23 @@
 				C30B184C1FA49882006DEDB7 /* modelsimpl */,
 				C30B184B1FA4987D006DEDB7 /* viewmodelsimpl */,
 				C30B18431FA496C2006DEDB7 /* screensmanager */,
-				C3D27C9A1FA3093C0094BF12 /* networkingservice */,
+				C3D27C9A1FA3093C0094BF12 /* webviewservice */,
 				C3D27C971FA309130094BF12 /* managers.cc */,
 				C3D27C981FA309130094BF12 /* managers.h */,
 			);
 			path = managers;
 			sourceTree = "<group>";
 		};
-		C3D27C9A1FA3093C0094BF12 /* networkingservice */ = {
+		C3D27C9A1FA3093C0094BF12 /* webviewservice */ = {
 			isa = PBXGroup;
 			children = (
-				C33B99BE1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc */,
-				C3D27C9C1FA309740094BF12 /* networkingservice.h */,
-				C33B99B61FA36F1C00C0B1C6 /* networkingservicefactoryimpl.h */,
-				C33B99B81FA36F3200C0B1C6 /* networkingservicefactory.h */,
+				C33B99BE1FA3726800C0B1C6 /* webviewservicefactoryimpl.cc */,
+				C3D27C9C1FA309740094BF12 /* webviewservice.h */,
+				C33B99B61FA36F1C00C0B1C6 /* webviewservicefactoryimpl.h */,
+				C33B99B81FA36F3200C0B1C6 /* webviewservicefactory.h */,
 				C30B16581FA4725C006DEDB7 /* httpresponse.h */,
 			);
-			path = networkingservice;
+			path = webviewservice;
 			sourceTree = "<group>";
 		};
 		C3D432171FEE7E26008B0E03 /* swift */ = {
@@ -3323,7 +3323,7 @@
 				C3292CAA1FEEA27300A3698B /* notificationsscreenmodelimpl.cc in Sources */,
 				C3C7ABC520022D5000CFDDD2 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */,
-				C33B99BF1FA3726800C0B1C6 /* networkingservicefactoryimpl.cc in Sources */,
+				C33B99BF1FA3726800C0B1C6 /* webviewservicefactoryimpl.cc in Sources */,
 				C373D45F1FEBBDDB00D3BA16 /* messagehandler_forxcode.cc in Sources */,
 				C3C7ABC120022D5000CFDDD2 /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				C3E602761FDFB1EB00E89115 /* FriendsBaseViewController.mm in Sources */,
@@ -3365,7 +3365,7 @@
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
 				C373D4431FEBBDDB00D3BA16 /* asynctcpsocket_forxcode.cc in Sources */,
 				C373D4741FEBBDDB00D3BA16 /* ratelimiter_forxcode.cc in Sources */,
-				C33B99C51FA3734B00C0B1C6 /* NetworkingServiceFactoryObjc.mm in Sources */,
+				C33B99C51FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm in Sources */,
 				C31A13EA1FB06168001FABFE /* string_buffer.c in Sources */,
 				C373D44F1FEBBDDB00D3BA16 /* event_tracer_forxcode.cc in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
@@ -3517,7 +3517,7 @@
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
 				C3C7ABBD20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				C373D4461FEBBDDB00D3BA16 /* bitbuffer_forxcode.cc in Sources */,
-				C33B99C91FA3752400C0B1C6 /* NetworkingServiceObjc.mm in Sources */,
+				C33B99C91FA3752400C0B1C6 /* WebViewServiceObjc.mm in Sources */,
 				C3C7ABDF20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3582,7 +3582,7 @@
 				C3C7ABC820022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				C315ABE61FE5040C00CC9B67 /* UIImageView+Horo.m in Sources */,
 				C373D4F11FED1EB500D3BA16 /* UIDevice+Horo.m in Sources */,
-				C315ABE71FE5040C00CC9B67 /* networkingservicefactoryimpl.cc in Sources */,
+				C315ABE71FE5040C00CC9B67 /* webviewservicefactoryimpl.cc in Sources */,
 				C373D4191FEBBDD300D3BA16 /* crc32_forxcode.cc in Sources */,
 				C337E90C1FF4056F0063ACF1 /* pushtimescreenmodelimpl.cc in Sources */,
 				C3292CA91FEEA27300A3698B /* notificationsscreenmodelimpl.cc in Sources */,
@@ -3627,7 +3627,7 @@
 				C373D43A1FEBBDD300D3BA16 /* messagequeue_forxcode.cc in Sources */,
 				C315ABFC1FE5040C00CC9B67 /* UIView+Horo.m in Sources */,
 				C315ABFD1FE5040C00CC9B67 /* AFURLRequestSerialization.m in Sources */,
-				C315ABFE1FE5040C00CC9B67 /* NetworkingServiceFactoryObjc.mm in Sources */,
+				C315ABFE1FE5040C00CC9B67 /* WebViewServiceFactoryObjc.mm in Sources */,
 				C373D3F71FEBBDD300D3BA16 /* flags_forxcode.cc in Sources */,
 				C373D4061FEBBDD300D3BA16 /* stream_forxcode.cc in Sources */,
 				C315ABFF1FE5040C00CC9B67 /* string_buffer.c in Sources */,
@@ -3781,7 +3781,7 @@
 				C3292CA51FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
 				C3C7ABBC20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
-				C315AC401FE5040C00CC9B67 /* NetworkingServiceObjc.mm in Sources */,
+				C315AC401FE5040C00CC9B67 /* WebViewServiceObjc.mm in Sources */,
 				C373D4151FEBBDD300D3BA16 /* filerotatingstream_forxcode.cc in Sources */,
 				C3C7ABDE20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 			);

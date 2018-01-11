@@ -1,12 +1,12 @@
 //
-//  NetworkingServiceImpl.m
+//  WebViewServiceImpl.m
 //  Horoscopes
 //
 //  Created by Jasf on 27.10.2017.
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#import "NetworkingServiceObjc.h"
+#import "WebViewServiceObjc.h"
 #include "rtc_base/logging.h"
 #import "AFHTTPSessionManager.h"
 #import "HTTPSessionManager.h"
@@ -20,15 +20,15 @@ namespace horo {
     
     using namespace std;
     
-NetworkingServiceObjc::NetworkingServiceObjc(strong<NetworkingServiceFactory> factory) : factory_(factory),
+WebViewServiceObjc::WebViewServiceObjc(strong<WebViewServiceFactory> factory) : factory_(factory),
     usingWebViewServices_(false) {
     NSCParameterAssert(factory.get());
 }
 
-NetworkingServiceObjc::~NetworkingServiceObjc() {
+WebViewServiceObjc::~WebViewServiceObjc() {
 }
 
-void NetworkingServiceObjc::beginRequest(std::string path,
+void WebViewServiceObjc::beginRequest(std::string path,
                                              Json::Value parameters,
                                              std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                              std::function<void(error err)> failBlock) {
@@ -112,7 +112,7 @@ void NetworkingServiceObjc::beginRequest(std::string path,
     }];
 }
 
-void NetworkingServiceObjc::cancel() {
+void WebViewServiceObjc::cancel() {
     if (task_) {
         [task_ cancel];
         task_ = nil;

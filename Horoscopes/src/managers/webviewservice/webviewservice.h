@@ -1,13 +1,13 @@
 //
-//  networkingservice.hpp
+//  webviewservice.hpp
 //  Horoscopes
 //
 //  Created by Jasf on 27.10.2017.
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
-#ifndef networkingservice_hpp
-#define networkingservice_hpp
+#ifndef webviewservice_hpp
+#define webviewservice_hpp
 
 #include <stdio.h>
 #include <functional>
@@ -17,9 +17,9 @@
 
 namespace horo {
   
-    class _NetworkingService {
+    class _WebViewService {
     public:
-        virtual ~_NetworkingService() {}
+        virtual ~_WebViewService() {}
         virtual void beginRequest(std::string path,
                                   Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
@@ -27,7 +27,7 @@ namespace horo {
         virtual void cancel()=0;
     };
     
-    typedef reff<_NetworkingService> NetworkingService;
+    typedef reff<_WebViewService> WebViewService;
 };
 
-#endif /* networkingservice_hpp */
+#endif /* webviewservice_hpp */

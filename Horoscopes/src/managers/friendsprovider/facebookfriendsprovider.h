@@ -10,15 +10,15 @@
 #define facebookfriendsprovider_h
 
 #include "friendsprovider.h"
-#include "managers/networkingservice/networkingservicefactory.h"
-#include "managers/networkingservice/networkingservice.h"
+#include "managers/webviewservice/webviewservicefactory.h"
+#include "managers/webviewservice/webviewservice.h"
 #include "friends/htmlparserfactory/htmlparserfactory.h"
-#include "managers/networkingservice/httpresponse.h"
+#include "managers/webviewservice/httpresponse.h"
 
 namespace horo {
     class FacebookFriendsProvider : public FriendsProvider {
     public:
-        FacebookFriendsProvider(strong<NetworkingServiceFactory> factory,
+        FacebookFriendsProvider(strong<WebViewServiceFactory> factory,
                                 strong<HtmlParserFactory> parserFactory)
         : factory_(factory)
         , parserFactory_(parserFactory)
@@ -58,8 +58,8 @@ namespace horo {
         
     private:
         strong<HtmlParserFactory> parserFactory_;
-        strong<NetworkingServiceFactory> factory_;
-        strong<NetworkingService> request_;
+        strong<WebViewServiceFactory> factory_;
+        strong<WebViewService> request_;
         std::function<void(Json::Value friends,
                            std::string nextUrl,
                            RequestStatus status)> callback_;

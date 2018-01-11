@@ -111,7 +111,7 @@ void FacebookFriendsProvider::executeRequest() {
     
 void FacebookFriendsProvider::executeRequest(Json::Value parameters) {
     strong<FacebookFriendsProvider> aProvider(this);
-    request_ = factory_->createNetworkingService();
+    request_ = factory_->createWebViewService();
     auto aCallback = currentCallback_;
     parameters_ = parameters;
     parameters_["webViewFriendsLoading"]=1;

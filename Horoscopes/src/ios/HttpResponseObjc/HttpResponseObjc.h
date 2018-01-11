@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#include "managers/networkingservice/httpresponse.h"
+#include "managers/webviewservice/httpresponse.h"
 
 namespace horo {
     

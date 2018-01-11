@@ -12,7 +12,7 @@
 #import "FirestoreObjc.h"
 #import "FacebookBanagerObjc.h"
 #import "ScreensManagerObjc.h"
-#import "NetworkingServiceFactoryObjc.h"
+#import "WebViewServiceFactoryObjc.h"
 #import "NotificationsObjc.h"
 #import "NtpObjc.h"
 
@@ -26,7 +26,7 @@
                        [FirestoreObjc class],
                        [FacebookBanagerObjc class],
                        [ScreensManagerObjc class],
-                       [NetworkingServiceFactoryObjc class],
+                       [WebViewServiceFactoryObjc class],
                        [NotificationsObjc class],
                        [NtpObjc class]];
     for (Class cls in array) {

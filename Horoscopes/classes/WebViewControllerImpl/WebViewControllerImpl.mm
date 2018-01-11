@@ -74,7 +74,6 @@ static CGFloat const kCancelSwipingDelay = 5.f;
     if ([self.delegate respondsToSelector:@selector(parentViewControllerForWebViewController:)]) {
         viewController = [self.delegate parentViewControllerForWebViewController:self];
     }
-    _webView.frame = viewController.view.frame;
 }
 
 - (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
@@ -85,6 +84,13 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 - (void)setUIDelegate:(id<WebViewControllerUIDelegate>)delegate {
     _delegate = delegate;
+    [self updateWebViewFrame];
+}
+
+- (void)updateWebViewFrame {
+    if ([self.delegate respondsToSelector:@selector(parentViewControllerForWebViewController:)]) {
+        _webView.frame = [self.delegate parentViewControllerForWebViewController:self].view.bounds;
+    }
 }
 
 - (void)cancel {
@@ -100,15 +106,27 @@ static CGFloat const kCancelSwipingDelay = 5.f;
     }
     
     if (!_dialogPresented && needsShowDialog) {
-        _dialogPresented = YES;
-        [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialogNavigationController animated:YES completion:nil];
+        [self showDialog];
     }
     else if (_dialogPresented && !needsShowDialog) {
-        _dialogPresented = NO;
-        [_dialogNavigationController dismissViewControllerAnimated:YES completion:nil];
+        [self hideDialog];
     }
     DDLogInfo(@"didFinishNavigation: %@; _dialogPresented: %@; needsShowDialog: %@", webView.URL, @(_dialogPresented), @(needsShowDialog));
     [self performSuccessCallback:YES];
+}
+
+- (void)showDialog {
+    _dialogPresented = YES;
+    [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialogNavigationController animated:YES completion:nil];
+}
+
+- (void)hideDialog {
+    _dialogPresented = NO;
+    [_dialogNavigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)dialogShowed {
+    return _dialogPresented;
 }
 
 #pragma mark - WKNavigationDelegate

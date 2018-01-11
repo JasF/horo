@@ -12,6 +12,7 @@
 #import "FriendsHeaderView.h"
 #import "UIView+TKGeometry.h"
 #import "FriendsViewController+Filtering.h"
+#import "Controllers.h"
 
 @interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
@@ -267,6 +268,10 @@ using namespace horo;
 #pragma mark - Observers
 - (IBAction)menuTapped:(id)sender {
     _viewModel->menuTapped();
+}
+
+- (IBAction)debugButtonTapped:(id)sender {
+    [[Controllers shared].webViewController showDialog];
 }
 
 - (IBAction)cancelTapped:(id)sender {

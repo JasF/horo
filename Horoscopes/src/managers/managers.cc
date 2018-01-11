@@ -27,6 +27,7 @@
 #include "managers/notifications/notificationsimpl.h"
 #include "managers/ntp/ntpimpl.h"
 #include "managers/themesmanager/themesmanagerimpl.h"
+#include "managers/timerfactory/timerfactoryimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -169,7 +170,7 @@ Managers &Managers::shared() {
     strong<FriendsProviderFactory> Managers::friendsProviderFactory() {
         static strong<FriendsProviderFactory> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new FriendsProviderFactoryImpl(sharedWebViewServiceFactory(), htmlParserFactory());
+            sharedInstance = new FriendsProviderFactoryImpl(sharedWebViewServiceFactory(), htmlParserFactory(), timerFactory());
         }
         return sharedInstance;
     }
@@ -217,4 +218,13 @@ Managers &Managers::shared() {
         }
         return sharedInstance;
     }
+    
+    strong<TimerFactory> Managers::timerFactory() {
+        static strong<TimerFactory> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new TimerFactoryImpl();
+        }
+        return sharedInstance;
+    }
+    
 };

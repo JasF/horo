@@ -646,6 +646,12 @@
 		C3D432131FEE7A3A008B0E03 /* PushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432141FEE7A3A008B0E03 /* PushNotifications.framework */; };
 		C3D432151FEE7A40008B0E03 /* PushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D432161FEE7A40008B0E03 /* PushNotifications.framework */; };
 		C3D4321C1FEE7E44008B0E03 /* PushNotificationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */; };
+		C3DD104420072BA500883328 /* timerfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104320072BA500883328 /* timerfactoryimpl.cc */; };
+		C3DD104520072BA500883328 /* timerfactoryimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104320072BA500883328 /* timerfactoryimpl.cc */; };
+		C3DD104920072D2800883328 /* TimerFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104820072D2800883328 /* TimerFactoryObjc.mm */; };
+		C3DD104A20072D2800883328 /* TimerFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104820072D2800883328 /* TimerFactoryObjc.mm */; };
+		C3DD104E20072DAB00883328 /* TimerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104D20072DAB00883328 /* TimerObjc.mm */; };
+		C3DD104F20072DAB00883328 /* TimerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104D20072DAB00883328 /* TimerObjc.mm */; };
 		C3E602761FDFB1EB00E89115 /* FriendsBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */; };
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
@@ -1249,6 +1255,14 @@
 		C3D432161FEE7A40008B0E03 /* PushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D432191FEE7E44008B0E03 /* Horoscopes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Horoscopes-Bridging-Header.h"; sourceTree = "<group>"; };
 		C3D4321A1FEE7E44008B0E03 /* PushNotificationsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsWrapper.swift; sourceTree = "<group>"; };
+		C3DD103C20072B3200883328 /* timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		C3DD103E20072B8100883328 /* timerfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timerfactory.h; sourceTree = "<group>"; };
+		C3DD103F20072B8E00883328 /* timerfactoryimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timerfactoryimpl.h; sourceTree = "<group>"; };
+		C3DD104320072BA500883328 /* timerfactoryimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timerfactoryimpl.cc; sourceTree = "<group>"; };
+		C3DD104720072D2800883328 /* TimerFactoryObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerFactoryObjc.h; sourceTree = "<group>"; };
+		C3DD104820072D2800883328 /* TimerFactoryObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerFactoryObjc.mm; sourceTree = "<group>"; };
+		C3DD104C20072DAB00883328 /* TimerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerObjc.h; sourceTree = "<group>"; };
+		C3DD104D20072DAB00883328 /* TimerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerObjc.mm; sourceTree = "<group>"; };
 		C3E602741FDFB1EB00E89115 /* FriendsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsBaseViewController.h; sourceTree = "<group>"; };
 		C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsBaseViewController.mm; sourceTree = "<group>"; };
 		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
@@ -2191,6 +2205,8 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C3DD104B20072D9B00883328 /* TimerObjc */,
+				C3DD104620072D1B00883328 /* TimerFactoryObjc */,
 				C32331072001FF0F0027089E /* NtpObjc */,
 				C373D5051FED5D9D00D3BA16 /* Logger */,
 				C373D4EA1FED1B4F00D3BA16 /* FeedbackManager */,
@@ -2962,6 +2978,7 @@
 		C3D27C951FA309130094BF12 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C3DD103A20072B0700883328 /* classes */,
 				C3C03C402005E54900DB82B8 /* themes */,
 				C3D432171FEE7E26008B0E03 /* swift */,
 				C31A13C21FB06111001FABFE /* thirdparty */,
@@ -2980,6 +2997,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3DD103D20072B7300883328 /* timerfactory */,
 				C3C03C422005E59B00DB82B8 /* themesmanager */,
 				C32331012001FD1F0027089E /* ntp */,
 				C373D4DD1FECF8FB00D3BA16 /* notifications */,
@@ -3026,6 +3044,50 @@
 				C3D432191FEE7E44008B0E03 /* Horoscopes-Bridging-Header.h */,
 			);
 			path = swift;
+			sourceTree = "<group>";
+		};
+		C3DD103A20072B0700883328 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD103B20072B0E00883328 /* timer */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		C3DD103B20072B0E00883328 /* timer */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD103C20072B3200883328 /* timer.h */,
+			);
+			path = timer;
+			sourceTree = "<group>";
+		};
+		C3DD103D20072B7300883328 /* timerfactory */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD103E20072B8100883328 /* timerfactory.h */,
+				C3DD103F20072B8E00883328 /* timerfactoryimpl.h */,
+				C3DD104320072BA500883328 /* timerfactoryimpl.cc */,
+			);
+			path = timerfactory;
+			sourceTree = "<group>";
+		};
+		C3DD104620072D1B00883328 /* TimerFactoryObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD104720072D2800883328 /* TimerFactoryObjc.h */,
+				C3DD104820072D2800883328 /* TimerFactoryObjc.mm */,
+			);
+			path = TimerFactoryObjc;
+			sourceTree = "<group>";
+		};
+		C3DD104B20072D9B00883328 /* TimerObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD104C20072DAB00883328 /* TimerObjc.h */,
+				C3DD104D20072DAB00883328 /* TimerObjc.mm */,
+			);
+			path = TimerObjc;
 			sourceTree = "<group>";
 		};
 		C3E602731FDFB1C100E89115 /* FriendsBaseViewController */ = {
@@ -3261,6 +3323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3DD104A20072D2800883328 /* TimerFactoryObjc.mm in Sources */,
 				C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */,
 				C30409451FA77F0700A0FC33 /* horoscopedaoimpl.cc in Sources */,
 				C373D45D1FEBBDDB00D3BA16 /* macifaddrs_converter_forxcode.cc in Sources */,
@@ -3301,6 +3364,7 @@
 				C3B601B31FA60E4400AD4F6D /* NSDictionary+Horo.mm in Sources */,
 				C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */,
 				C3C7ABCD20022D5000CFDDD2 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
+				C3DD104520072BA500883328 /* timerfactoryimpl.cc in Sources */,
 				C373D4501FEBBDDB00D3BA16 /* file_forxcode.cc in Sources */,
 				C373D4551FEBBDDB00D3BA16 /* histogram_percentile_counter_forxcode.cc in Sources */,
 				C3817E041FA70CFC00447155 /* FirestoreObjc.mm in Sources */,
@@ -3373,6 +3437,7 @@
 				C31A139C1FAF4FED001FABFE /* friendsmanagerimpl.cc in Sources */,
 				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
 				C31A13E41FB06168001FABFE /* parser.c in Sources */,
+				C3DD104F20072DAB00883328 /* TimerObjc.mm in Sources */,
 				C32A60251FDC148B003CF1CA /* Controllers.m in Sources */,
 				C323310B2001FF1C0027089E /* NtpObjc.mm in Sources */,
 				C34233D01FE8F23100428768 /* AccountViewController.mm in Sources */,
@@ -3526,6 +3591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3DD104920072D2800883328 /* TimerFactoryObjc.mm in Sources */,
 				C315ABCA1FE5040C00CC9B67 /* horobase.cc in Sources */,
 				C315ABCB1FE5040C00CC9B67 /* horoscopedaoimpl.cc in Sources */,
 				C315ABCC1FE5040C00CC9B67 /* error.c in Sources */,
@@ -3566,6 +3632,7 @@
 				C373D4301FEBBDD300D3BA16 /* physicalsocketserver_forxcode.cc in Sources */,
 				C315ABDC1FE5040C00CC9B67 /* AFSecurityPolicy.m in Sources */,
 				C3C7ABCC20022D5000CFDDD2 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
+				C3DD104420072BA500883328 /* timerfactoryimpl.cc in Sources */,
 				C315ABDD1FE5040C00CC9B67 /* GradientView.m in Sources */,
 				C373D4281FEBBDD300D3BA16 /* file_posix_forxcode.cc in Sources */,
 				C373D41D1FEBBDD300D3BA16 /* checks_forxcode.cc in Sources */,
@@ -3638,6 +3705,7 @@
 				C315AC021FE5040C00CC9B67 /* friendsmanagerimpl.cc in Sources */,
 				C315AC031FE5040C00CC9B67 /* facebookhomepageparser.cc in Sources */,
 				C315AC041FE5040C00CC9B67 /* parser.c in Sources */,
+				C3DD104E20072DAB00883328 /* TimerObjc.mm in Sources */,
 				C373D4221FEBBDD300D3BA16 /* httpbase_forxcode.cc in Sources */,
 				C323310A2001FF1C0027089E /* NtpObjc.mm in Sources */,
 				C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */,

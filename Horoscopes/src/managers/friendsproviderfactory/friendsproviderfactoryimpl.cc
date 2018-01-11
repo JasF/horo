@@ -12,7 +12,7 @@
 namespace horo {
   
 strong<FriendsProvider> FriendsProviderFactoryImpl::createFacebookFriendsProvider() {
-    return new FacebookFriendsProvider(factory_, parserFactory_);
+    return new FacebookFriendsProvider(factory_, parserFactory_, timerFactory_);
 }
 
 };

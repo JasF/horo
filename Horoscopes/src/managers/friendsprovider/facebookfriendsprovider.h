@@ -14,17 +14,21 @@
 #include "managers/webviewservice/webviewservice.h"
 #include "friends/htmlparserfactory/htmlparserfactory.h"
 #include "managers/webviewservice/httpresponse.h"
+#include "managers/timerfactory/timerfactory.h"
 
 namespace horo {
     class FacebookFriendsProvider : public FriendsProvider {
     public:
         FacebookFriendsProvider(strong<WebViewServiceFactory> factory,
-                                strong<HtmlParserFactory> parserFactory)
+                                strong<HtmlParserFactory> parserFactory,
+                                strong<TimerFactory> timerFactory)
         : factory_(factory)
         , parserFactory_(parserFactory)
+        , timerFactory_(timerFactory)
         {
             SCParameterAssert(factory_.get());
             SCParameterAssert(parserFactory_.get());
+            SCParameterAssert(timerFactory_.get());
         }
         ~FacebookFriendsProvider() override {}
     public:
@@ -65,6 +69,8 @@ namespace horo {
         std::string friendsUrl_;
         std::function<void(DateWrapper birthday, bool success)> userInformationCompletion_;
         std::function<void(strong<HttpResponse> response, Json::Value value)> currentCallback_;
+        strong<TimerFactory> timerFactory_;
+        strong<Timer> responseTimeoutTimer_;
     };
 };
 

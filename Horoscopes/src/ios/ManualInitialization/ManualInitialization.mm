@@ -15,6 +15,7 @@
 #import "WebViewServiceFactoryObjc.h"
 #import "NotificationsObjc.h"
 #import "NtpObjc.h"
+#import "TimerFactoryObjc.h"
 
 @implementation ManualInitialization
 + (void)load {
@@ -28,7 +29,8 @@
                        [ScreensManagerObjc class],
                        [WebViewServiceFactoryObjc class],
                        [NotificationsObjc class],
-                       [NtpObjc class]];
+                       [NtpObjc class],
+                       [TimerFactoryObjc class]];
     for (Class cls in array) {
         NSCAssert([cls respondsToSelector:@selector(doLoading)], @"Unknown classObjc: %@", cls);
         if ([cls respondsToSelector:@selector(doLoading)]) {

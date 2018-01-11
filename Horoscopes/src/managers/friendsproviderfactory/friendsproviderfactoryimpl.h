@@ -12,16 +12,21 @@
 #include "friendsproviderfactory.h"
 #include "managers/webviewservice/webviewservicefactory.h"
 #include "friends/htmlparserfactory/htmlparserfactory.h"
+#include "managers/timerfactory/timerfactory.h"
 
 namespace horo {
     class FriendsProviderFactoryImpl : public FriendsProviderFactory {
     public:
         FriendsProviderFactoryImpl(strong<WebViewServiceFactory> factory,
-                                   strong<HtmlParserFactory> parserFactory)
-        : factory_(factory),
-        parserFactory_(parserFactory)
+                                   strong<HtmlParserFactory> parserFactory,
+                                   strong<TimerFactory> timerFactory)
+        : factory_(factory)
+        , parserFactory_(parserFactory)
+        , timerFactory_(timerFactory)
         {
             SCParameterAssert(factory_.get());
+            SCParameterAssert(parserFactory_.get());
+            SCParameterAssert(timerFactory_.get());
         }
         ~FriendsProviderFactoryImpl() override {}
     public:
@@ -30,6 +35,7 @@ namespace horo {
     private:
         strong<WebViewServiceFactory> factory_;
         strong<HtmlParserFactory> parserFactory_;
+        strong<TimerFactory> timerFactory_;
     };
 };
 

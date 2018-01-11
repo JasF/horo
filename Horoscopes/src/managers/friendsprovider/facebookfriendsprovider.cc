@@ -30,9 +30,11 @@ void FacebookFriendsProvider::cancelRequest() {
 }
 
 void FacebookFriendsProvider::executeHomePageRequest() {
-    strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest("home.php", [aProvider](strong<HttpResponse> response, Json::Value json) {
-        aProvider->parseHomePage(json);
+    responseTimeoutTimer_ = timerFactory_->scheduledTimer(2, true, [this]{
+        LOG(LS_WARNING) << "fired fired";
+    });
+    executeRequest("home.php", [this](strong<HttpResponse> response, Json::Value json) {
+        parseHomePage(json);
     });
 }
     
@@ -41,9 +43,8 @@ void FacebookFriendsProvider::executeUserInformationPageRequest(string path) {
     if (!path.length()) {
         return;
     }
-    strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
-        aProvider->parseUserInformationPage(json);
+    executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
+        parseUserInformationPage(json);
     });
 }
     
@@ -60,9 +61,8 @@ void FacebookFriendsProvider::executeFriendsPageRequest(std::string path) {
         };
     }
     friendsUrl_ = path;
-    strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest(path, [aProvider](strong<HttpResponse> response, Json::Value json) {
-        aProvider->parseFriendsPage(json);
+    executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
+        parseFriendsPage(json);
     });
 }
     
@@ -79,9 +79,8 @@ void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
 }
 
 void FacebookFriendsProvider::executeRequestFriendsNextPage() {
-    strong<FacebookFriendsProvider> aProvider(this);
-    executeRequest(friendsUrl_, [aProvider](strong<HttpResponse> response, Json::Value json) {
-        aProvider->parseFriendsPage(json);
+    executeRequest(friendsUrl_, [this](strong<HttpResponse> response, Json::Value json) {
+        parseFriendsPage(json);
     }, true);
 }
 
@@ -99,12 +98,11 @@ void FacebookFriendsProvider::executeRequest(std::string path, std::function<voi
 }
     
 void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
-    strong<FacebookFriendsProvider> aProvider(this);
     request_ = factory_->createWebViewService();
     auto aCallback = currentCallback_;
     
-    function<void(strong<HttpResponse> response, Json::Value json)> successBlock = [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
-        if (aProvider->isRequiredAuthorizationResponse(response)) {
+    function<void(strong<HttpResponse> response, Json::Value json)> successBlock = [this, aCallback](strong<HttpResponse> response, Json::Value json) {
+        if (isRequiredAuthorizationResponse(response)) {
             return;
         }
         if (aCallback) {
@@ -112,8 +110,8 @@ void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
         }
     };
     
-    function<void(error aErr)> failBlock = [aProvider](error aErr) {
-        aProvider->operationDidFinishedWithError();
+    function<void(error aErr)> failBlock = [this](error aErr) {
+        operationDidFinishedWithError();
     };
     
     if (swipeToBottom) {

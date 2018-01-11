@@ -18,13 +18,15 @@ namespace horo {
         WebViewServiceObjc(strong<WebViewServiceFactory> factory);
         ~WebViewServiceObjc() override;
         void beginRequest(std::string path,
-                              Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   std::function<void(error err)> failBlock) override;
+        void swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) override;
         void cancel() override;
+        
+    private:
+        void requestCompleted(NSURL *url, id JSON, std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock);
+        
     private:
         strong<WebViewServiceFactory> factory_;
-        __strong NSURLSessionDataTask *task_;
-        bool usingWebViewServices_;
     };
 };

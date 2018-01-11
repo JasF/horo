@@ -80,19 +80,12 @@ void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
 
 void FacebookFriendsProvider::executeRequestFriendsNextPage() {
     strong<FacebookFriendsProvider> aProvider(this);
-    Json::Value parameters;
-    parameters["triggerSwipeToBottom"]=1;
-    executeRequest(friendsUrl_, parameters, [aProvider](strong<HttpResponse> response, Json::Value json) {
+    executeRequest(friendsUrl_, [aProvider](strong<HttpResponse> response, Json::Value json) {
         aProvider->parseFriendsPage(json);
-    });
+    }, true);
 }
 
-void FacebookFriendsProvider::executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback) {
-    Json::Value parameters;
-    executeRequest(path, parameters, callback);
-}
-    
-void FacebookFriendsProvider::executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback)
+void FacebookFriendsProvider::executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom)
 {
     if (path.find("http") != string::npos) {
         path = ReplaceAll(path, "https://m.facebook.com/", "");
@@ -102,29 +95,33 @@ void FacebookFriendsProvider::executeRequest(std::string path, Json::Value param
     }
     currentPath_ = path;
     currentCallback_ = callback;
-    executeRequest(parameters);
-}
-
-void FacebookFriendsProvider::executeRequest() {
-    executeRequest(parameters_);
+    executeRequest(swipeToBottom);
 }
     
-void FacebookFriendsProvider::executeRequest(Json::Value parameters) {
+void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
     strong<FacebookFriendsProvider> aProvider(this);
     request_ = factory_->createWebViewService();
     auto aCallback = currentCallback_;
-    parameters_ = parameters;
-    parameters_["webViewFriendsLoading"]=1;
-    request_->beginRequest(currentPath_, parameters_, [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
+    
+    function<void(strong<HttpResponse> response, Json::Value json)> successBlock = [aProvider, aCallback](strong<HttpResponse> response, Json::Value json) {
         if (aProvider->isRequiredAuthorizationResponse(response)) {
             return;
         }
         if (aCallback) {
             aCallback(response, json);
         }
-    }, [aProvider](error aErr) {
+    };
+    
+    function<void(error aErr)> failBlock = [aProvider](error aErr) {
         aProvider->operationDidFinishedWithError();
-    });
+    };
+    
+    if (swipeToBottom) {
+        request_->swipeToBottom(successBlock, failBlock);
+    }
+    else {
+        request_->beginRequest(currentPath_, successBlock, failBlock);
+    }
 }
 
 bool FacebookFriendsProvider::isRequiredAuthorizationResponse(strong<HttpResponse> response) {

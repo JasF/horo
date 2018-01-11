@@ -21,9 +21,9 @@ namespace horo {
     public:
         virtual ~_WebViewService() {}
         virtual void beginRequest(std::string path,
-                                  Json::Value parameters,
                                   std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   std::function<void(error err)> failBlock) = 0;
+        virtual void swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) = 0;
         virtual void cancel()=0;
     };
     

@@ -58,7 +58,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(finishSwiping) object:nil];
 }
 
-#pragma mark - WebViewController
+#pragma mark - WebViewController overriden methods
 - (void)loadURLWithPath:(NSURL *)URL
              completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
     DDLogInfo(@"URL: %@", URL);
@@ -112,6 +112,27 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 }
 
 #pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    DDLogInfo(@"didFailNavigation URL: %@", webView.URL);
+    if (![_webView.URL.path isEqual:_workingURL.path]) {
+        return;
+    }
+    if (self.webViewDidLoadCompletion) {
+        auto cb = self.webViewDidLoadCompletion;
+        self.webViewDidLoadCompletion = nil;
+        cb(nil, webView.URL, error);
+    }
+}
+
+#pragma mark - Private Methods
 - (void)performSuccessCallback:(BOOL)withClean {
     DDLogInfo(@"performSuccessCallback withClean: %@", @(withClean));
     @weakify(self);
@@ -145,19 +166,6 @@ static CGFloat const kCancelSwipingDelay = 5.f;
     }
 }
 
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    DDLogInfo(@"didFailNavigation URL: %@", webView.URL);
-    if (![_webView.URL.path isEqual:_workingURL.path]) {
-        return;
-    }
-    if (self.webViewDidLoadCompletion) {
-        auto cb = self.webViewDidLoadCompletion;
-        self.webViewDidLoadCompletion = nil;
-        cb(nil, webView.URL, error);
-    }
-}
-
-#pragma mark - Private Methods
 - (void)launchCyclicBottomSwiping {
     DDLogInfo(@"launchCyclicBottomSwiping");
     _swipingActive = YES;

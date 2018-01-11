@@ -29,8 +29,4 @@
     return _webViewController;
 }
 
-- (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
-    
-}
-
 @end

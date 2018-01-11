@@ -48,10 +48,8 @@ namespace horo {
         void executeFriendsPageRequest(std::string path);
         void executeUserDetailPageRequest(string path);
         void executeRequestFriendsNextPage();
-        void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback);
-        void executeRequest(std::string path, Json::Value parameters, std::function<void(strong<HttpResponse> response, Json::Value value)> callback);
-        void executeRequest();
-        void executeRequest(Json::Value parameters);
+        void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom=false);
+        void executeRequest(bool swipeToBottom=false);
         
     public:
         bool isRequiredAuthorizationResponse(strong<HttpResponse> response);
@@ -64,7 +62,6 @@ namespace horo {
                            std::string nextUrl,
                            RequestStatus status)> callback_;
         std::string currentPath_;
-        Json::Value parameters_;
         std::string friendsUrl_;
         std::function<void(DateWrapper birthday, bool success)> userInformationCompletion_;
         std::function<void(strong<HttpResponse> response, Json::Value value)> currentCallback_;

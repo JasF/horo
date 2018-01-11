@@ -15,4 +15,5 @@
 - (BOOL)webViewController:(id<WebViewController>)webViewController webViewDidLoad:(NSURL *)url;
 - (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController;
 - (void)webViewControllerWillCloseScreenByUser:(id<WebViewController>)webViewController;
+- (CGFloat)swipingTimeoutDelayForWebViewController:(id<WebViewController>)webViewController;
 @end

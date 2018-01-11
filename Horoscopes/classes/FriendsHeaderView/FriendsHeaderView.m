@@ -13,7 +13,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @end
 
-@implementation FriendsHeaderView
+@implementation FriendsHeaderView {
+    HeaderViewStates _headerViewState;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -28,8 +30,13 @@
     _label.attributedText = text;
 }
 
+- (HeaderViewStates)headerViewState {
+    return _headerViewState;
+}
+
 - (void)setHeaderViewState:(HeaderViewStates)state
            allFriendsCount:(NSInteger)allFriendsCount {
+    _headerViewState = state;
     NSDictionary *dictionary = @{@(HeaderViewStateInvisible):@(YES),
                                  @(HeaderViewStateAuthorizing):@(NO),
                                  @(HeaderViewLoadingFriends):@(NO),

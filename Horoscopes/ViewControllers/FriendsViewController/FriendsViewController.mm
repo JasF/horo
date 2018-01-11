@@ -14,6 +14,9 @@
 #import "FriendsViewController+Filtering.h"
 #import "Controllers.h"
 
+static CGFloat const kActiveCancelSwipingDelay = 5.f;
+static CGFloat const kInitialCancelSwipingDelay = 15.f;
+
 @interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
 @property (nonatomic, strong) UISearchController *searchController;
@@ -299,6 +302,14 @@ using namespace horo;
 - (void)swipingToBottomFinishedInWebViewController:(id<WebViewController>)webViewController {
     [self setHeaderViewHidden:YES];
     [self.tableView reloadData];
+}
+
+- (CGFloat)swipingTimeoutDelayForWebViewController:(id<WebViewController>)webViewController {
+    if (_headerView.headerViewState == HeaderViewLoadingFriends ||
+        _headerView.headerViewState == HeaderViewSomeFriendsLoaded) {
+        return kActiveCancelSwipingDelay;
+    }
+    return kInitialCancelSwipingDelay;
 }
 
 - (void)webViewControllerWillCloseScreenByUser:(id<WebViewController>)webViewController {

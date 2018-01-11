@@ -15,7 +15,6 @@
 #include <string>
 
 static CGFloat const kCyclicSwipeDuration = 0.8f;
-static CGFloat const kCancelSwipingDelay = 5.f;
 
 @interface WebViewControllerImpl () <WKUIDelegate, WKNavigationDelegate>
 @property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
@@ -183,7 +182,8 @@ static CGFloat const kCancelSwipingDelay = 5.f;
                 return;
             }
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(finishSwiping) object:nil];
-            [self performSelector:@selector(finishSwiping) withObject:nil afterDelay:kCancelSwipingDelay];
+            CGFloat delay = [self.delegate swipingTimeoutDelayForWebViewController:self];
+            [self performSelector:@selector(finishSwiping) withObject:nil afterDelay:delay];
             _cachedPageContent = object;
             auto cb = self.webViewDidLoadCompletion;
             self.webViewDidLoadCompletion = nil;
@@ -195,9 +195,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 - (void)finishSwiping {
     self.swipingActive = NO;
-    if ([_delegate respondsToSelector:@selector(swipingToBottomFinishedInWebViewController:)]) {
-        [_delegate swipingToBottomFinishedInWebViewController:self];
-    }
+    [_delegate swipingToBottomFinishedInWebViewController:self];
 }
 
 - (void)launchCyclicBottomSwiping {

@@ -16,5 +16,6 @@ typedef NS_ENUM(NSInteger, HeaderViewStates) {
 };
 
 @interface FriendsHeaderView : UIView
+- (HeaderViewStates)headerViewState;
 - (void)setHeaderViewState:(HeaderViewStates)state allFriendsCount:(NSInteger)allFriendsCount;
 @end

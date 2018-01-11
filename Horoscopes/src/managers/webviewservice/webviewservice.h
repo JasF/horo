@@ -17,12 +17,18 @@
 
 namespace horo {
   
+    typedef enum {
+        WebViewServiceWillShowDialog,
+        WebViewServiceWillHideDialog
+    } WebViewServiceMessages;
+    
     class _WebViewService {
     public:
         virtual ~_WebViewService() {}
-        virtual void beginRequest(std::string path,
-                                  std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
-                                  std::function<void(error err)> failBlock) = 0;
+        virtual void beginRequest(string path,
+                                  function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
+                                  function<void(error err)> failBlock,
+                                  function<void(WebViewServiceMessages message)> serviceBlock) = 0;
         virtual void swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) = 0;
         virtual void cancel()=0;
     };

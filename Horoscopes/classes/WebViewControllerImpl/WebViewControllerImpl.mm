@@ -19,6 +19,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 @interface WebViewControllerImpl () <WKUIDelegate, WKNavigationDelegate>
 @property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);
+@property (nonatomic, copy) void (^serviceBlock)(horo::WebViewServiceMessages message);
 @property (strong, nonatomic) id<WebViewControllerUIDelegate> delegate;
 @property (strong, nonatomic) WKWebView *webView;
 @property (strong, nonatomic) NSURL *workingURL;
@@ -28,6 +29,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 @property (assign, nonatomic) BOOL swipingActive;
 @property (strong, nonatomic) NSString *cachedPageContent;
 @property (assign, nonatomic) BOOL dialogPresented;
+@property (strong, nonatomic) WKNavigation *currentNavigationRequest;
 @end
 
 @implementation WebViewControllerImpl
@@ -60,15 +62,17 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 #pragma mark - WebViewController overriden methods
 - (void)loadURLWithPath:(NSURL *)URL
-             completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion {
+             completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion
+           serviceBlock:(void(^)(horo::WebViewServiceMessages message))serviceBlock {
     DDLogInfo(@"URL: %@", URL);
     NSCParameterAssert(URL);
     NSCParameterAssert(completion);
     _workingURL = URL;
     self.webViewDidLoadCompletion = completion;
+    self.serviceBlock = serviceBlock;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:_workingURL];
     _cachedPageContent = nil;
-    [_webView loadRequest:request];
+    _currentNavigationRequest = [_webView loadRequest:request];
     
     UIViewController *viewController = nil;
     if ([self.delegate respondsToSelector:@selector(parentViewControllerForWebViewController:)]) {
@@ -116,11 +120,17 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 }
 
 - (void)showDialog {
+    if (_serviceBlock) {
+        _serviceBlock(horo::WebViewServiceWillShowDialog);
+    }
     _dialogPresented = YES;
     [[self.delegate parentViewControllerForWebViewController:self] presentViewController:_dialogNavigationController animated:YES completion:nil];
 }
 
 - (void)hideDialog {
+    if (_serviceBlock) {
+        _serviceBlock(horo::WebViewServiceWillHideDialog);
+    }
     _dialogPresented = NO;
     [_dialogNavigationController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -140,12 +150,17 @@ static CGFloat const kCancelSwipingDelay = 5.f;
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     DDLogInfo(@"didFailNavigation URL: %@", webView.URL);
+    if (navigation != _currentNavigationRequest) {
+        DDLogDebug(@"ignoring didFailNavigation error on obsolete request");
+        return;
+    }
     if (![_webView.URL.path isEqual:_workingURL.path]) {
         return;
     }
     if (self.webViewDidLoadCompletion) {
         auto cb = self.webViewDidLoadCompletion;
         self.webViewDidLoadCompletion = nil;
+        self.serviceBlock = nil;
         cb(nil, webView.URL, error);
     }
 }
@@ -172,6 +187,7 @@ static CGFloat const kCancelSwipingDelay = 5.f;
             _cachedPageContent = object;
             auto cb = self.webViewDidLoadCompletion;
             self.webViewDidLoadCompletion = nil;
+            self.serviceBlock = nil;
             cb(object, self.webView.URL, error);
         }
     }];

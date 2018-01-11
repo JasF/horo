@@ -12,6 +12,7 @@
 #include <string>
 #include "data/url.h"
 #include "data/datewrapper.h"
+#include "classes/rungtimer/rungtimer.h"
 
 namespace horo {
     using namespace std;
@@ -30,10 +31,27 @@ void FacebookFriendsProvider::cancelRequest() {
 }
 
 void FacebookFriendsProvider::executeHomePageRequest() {
-    responseTimeoutTimer_ = timerFactory_->scheduledTimer(2, true, [this]{
-        LOG(LS_WARNING) << "fired fired";
+    vector<int> timeouts = {2,3,4,5,6,7};
+    responseTimeoutTimer_ = new RungTimer(timerFactory_, timeouts, [this]() {
+        LOG(LS_WARNING) << "\n\n\n*************** RESTARTING DUE INACTIVITY *********\n\n\n";
+        if (request_) {
+            request_->cancel();
+            request_ = nullptr;
+        }
+        doExecuteHomePageRequest();
+        return true;
     });
+    doExecuteHomePageRequest();
+}
+
+void FacebookFriendsProvider::doExecuteHomePageRequest() {
+    serviceBlock_ = [this](WebViewServiceMessages message) {
+        responseTimeoutTimer_ = nullptr;
+        serviceBlock_ = nullptr;
+    };
     executeRequest("home.php", [this](strong<HttpResponse> response, Json::Value json) {
+        responseTimeoutTimer_ = nullptr;
+        serviceBlock_ = nullptr;
         parseHomePage(json);
     });
 }
@@ -118,7 +136,11 @@ void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
         request_->swipeToBottom(successBlock, failBlock);
     }
     else {
-        request_->beginRequest(currentPath_, successBlock, failBlock);
+        request_->beginRequest(currentPath_, successBlock, failBlock, [this](WebViewServiceMessages message) {
+            if (serviceBlock_) {
+                serviceBlock_(message);
+            }
+        });
     }
 }
 

@@ -27,9 +27,10 @@ WebViewServiceObjc::WebViewServiceObjc(strong<WebViewServiceFactory> factory) : 
 WebViewServiceObjc::~WebViewServiceObjc() {
 }
 
-void WebViewServiceObjc::beginRequest(std::string path,
-                                             std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
-                                             std::function<void(error err)> failBlock) {
+void WebViewServiceObjc::beginRequest(string path,
+                                      function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
+                                      function<void(error err)> failBlock,
+                                      function<void(WebViewServiceMessages message)> serviceBlock) {
     
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
     NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
@@ -38,10 +39,15 @@ void WebViewServiceObjc::beginRequest(std::string path,
                                                  completion:^(NSString *html, NSURL *url, NSError *error) {
                                                      NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
                                                      requestCompleted(url, data, successBlock, failBlock);
-                                                 }];
+                                                 }
+                                               serviceBlock:^(WebViewServiceMessages message) {
+                                                   if (serviceBlock) {
+                                                       serviceBlock(message);
+                                                   }
+                                               }];
 }
 
-void WebViewServiceObjc::swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) {
+void WebViewServiceObjc::swipeToBottom(function<void(strong<HttpResponse> response, Json::Value value)> successBlock, function<void(error err)> failBlock) {
     [[Controllers shared].webViewController triggerSwipeToBottomWithCompletion:^(NSString *html, NSURL *url, NSError *error) {
         NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
         requestCompleted(url, data, successBlock, failBlock);

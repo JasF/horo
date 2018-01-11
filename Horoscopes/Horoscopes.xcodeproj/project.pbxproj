@@ -105,7 +105,7 @@
 		C315AC021FE5040C00CC9B67 /* friendsmanagerimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A139B1FAF4FED001FABFE /* friendsmanagerimpl.cc */; };
 		C315AC031FE5040C00CC9B67 /* facebookhomepageparser.cc in Sources */ = {isa = PBXBuildFile; fileRef = C31A13B91FB05EF1001FABFE /* facebookhomepageparser.cc */; };
 		C315AC041FE5040C00CC9B67 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13C81FB06166001FABFE /* parser.c */; };
-		C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.m */; };
+		C315AC051FE5040C00CC9B67 /* Controllers.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.mm */; };
 		C315AC061FE5040C00CC9B67 /* NSString+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38A62991FD29A8B00012ECA /* NSString+Horo.mm */; };
 		C315AC071FE5040C00CC9B67 /* PersonObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60021FDBDD62003CF1CA /* PersonObjc.mm */; };
 		C315AC081FE5040C00CC9B67 /* EXTSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DF1FA481C2006DEDB7 /* EXTSafeCategory.m */; };
@@ -283,7 +283,7 @@
 		C32A60151FDBF45E003CF1CA /* FriendsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A600E1FDBF45E003CF1CA /* FriendsViewController.mm */; };
 		C32A60191FDBF493003CF1CA /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A60171FDBF492003CF1CA /* FriendsViewController.storyboard */; };
 		C32A60211FDC1420003CF1CA /* WebViewControllerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */; };
-		C32A60251FDC148B003CF1CA /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.m */; };
+		C32A60251FDC148B003CF1CA /* Controllers.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60241FDC148B003CF1CA /* Controllers.mm */; };
 		C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */; };
 		C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32A602B1FDC24BE003CF1CA /* WebViewDialogController.storyboard */; };
 		C337E8F51FF3E5280063ACF1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E8F41FF3E5280063ACF1 /* SettingsCell.m */; };
@@ -929,7 +929,7 @@
 		C32A601F1FDC1420003CF1CA /* WebViewControllerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewControllerImpl.h; sourceTree = "<group>"; };
 		C32A60201FDC1420003CF1CA /* WebViewControllerImpl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewControllerImpl.mm; sourceTree = "<group>"; };
 		C32A60231FDC148B003CF1CA /* Controllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Controllers.h; sourceTree = "<group>"; };
-		C32A60241FDC148B003CF1CA /* Controllers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Controllers.m; sourceTree = "<group>"; };
+		C32A60241FDC148B003CF1CA /* Controllers.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Controllers.mm; sourceTree = "<group>"; };
 		C32A60261FDC17D7003CF1CA /* WebViewControllerUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewControllerUIDelegate.h; sourceTree = "<group>"; };
 		C32A60281FDC2490003CF1CA /* WebViewDialogController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewDialogController.h; sourceTree = "<group>"; };
 		C32A60291FDC2490003CF1CA /* WebViewDialogController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WebViewDialogController.mm; sourceTree = "<group>"; };
@@ -1263,6 +1263,7 @@
 		C3DD104820072D2800883328 /* TimerFactoryObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerFactoryObjc.mm; sourceTree = "<group>"; };
 		C3DD104C20072DAB00883328 /* TimerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerObjc.h; sourceTree = "<group>"; };
 		C3DD104D20072DAB00883328 /* TimerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerObjc.mm; sourceTree = "<group>"; };
+		C3DD1051200732ED00883328 /* rungtimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rungtimer.h; sourceTree = "<group>"; };
 		C3E602741FDFB1EB00E89115 /* FriendsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsBaseViewController.h; sourceTree = "<group>"; };
 		C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsBaseViewController.mm; sourceTree = "<group>"; };
 		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
@@ -2118,7 +2119,7 @@
 			isa = PBXGroup;
 			children = (
 				C32A60231FDC148B003CF1CA /* Controllers.h */,
-				C32A60241FDC148B003CF1CA /* Controllers.m */,
+				C32A60241FDC148B003CF1CA /* Controllers.mm */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3049,6 +3050,7 @@
 		C3DD103A20072B0700883328 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3DD1050200732D800883328 /* rungtimer */,
 				C3DD103B20072B0E00883328 /* timer */,
 			);
 			path = classes;
@@ -3088,6 +3090,14 @@
 				C3DD104D20072DAB00883328 /* TimerObjc.mm */,
 			);
 			path = TimerObjc;
+			sourceTree = "<group>";
+		};
+		C3DD1050200732D800883328 /* rungtimer */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD1051200732ED00883328 /* rungtimer.h */,
+			);
+			path = rungtimer;
 			sourceTree = "<group>";
 		};
 		C3E602731FDFB1C100E89115 /* FriendsBaseViewController */ = {
@@ -3438,7 +3448,7 @@
 				C31A13BA1FB05EF1001FABFE /* facebookhomepageparser.cc in Sources */,
 				C31A13E41FB06168001FABFE /* parser.c in Sources */,
 				C3DD104F20072DAB00883328 /* TimerObjc.mm in Sources */,
-				C32A60251FDC148B003CF1CA /* Controllers.m in Sources */,
+				C32A60251FDC148B003CF1CA /* Controllers.mm in Sources */,
 				C323310B2001FF1C0027089E /* NtpObjc.mm in Sources */,
 				C34233D01FE8F23100428768 /* AccountViewController.mm in Sources */,
 				C38A629A1FD29A8B00012ECA /* NSString+Horo.mm in Sources */,
@@ -3708,7 +3718,7 @@
 				C3DD104E20072DAB00883328 /* TimerObjc.mm in Sources */,
 				C373D4221FEBBDD300D3BA16 /* httpbase_forxcode.cc in Sources */,
 				C323310A2001FF1C0027089E /* NtpObjc.mm in Sources */,
-				C315AC051FE5040C00CC9B67 /* Controllers.m in Sources */,
+				C315AC051FE5040C00CC9B67 /* Controllers.mm in Sources */,
 				C34233CF1FE8F23100428768 /* AccountViewController.mm in Sources */,
 				C315AC061FE5040C00CC9B67 /* NSString+Horo.mm in Sources */,
 				C373D4271FEBBDD300D3BA16 /* asyncsocket_forxcode.cc in Sources */,

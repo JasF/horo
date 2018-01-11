@@ -15,6 +15,7 @@
 #include "friends/htmlparserfactory/htmlparserfactory.h"
 #include "managers/webviewservice/httpresponse.h"
 #include "managers/timerfactory/timerfactory.h"
+#include "classes/rungtimer/rungtimer.h"
 
 namespace horo {
     class FacebookFriendsProvider : public FriendsProvider {
@@ -48,6 +49,7 @@ namespace horo {
         
     private:
         void executeHomePageRequest();
+        void doExecuteHomePageRequest();
         void executeUserInformationPageRequest(std::string path);
         void executeFriendsPageRequest(std::string path);
         void executeUserDetailPageRequest(string path);
@@ -70,7 +72,8 @@ namespace horo {
         std::function<void(DateWrapper birthday, bool success)> userInformationCompletion_;
         std::function<void(strong<HttpResponse> response, Json::Value value)> currentCallback_;
         strong<TimerFactory> timerFactory_;
-        strong<Timer> responseTimeoutTimer_;
+        strong<RungTimer> responseTimeoutTimer_;
+        function<void(WebViewServiceMessages message)> serviceBlock_;
     };
 };
 

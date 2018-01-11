@@ -17,9 +17,10 @@ namespace horo {
     public:
         WebViewServiceObjc(strong<WebViewServiceFactory> factory);
         ~WebViewServiceObjc() override;
-        void beginRequest(std::string path,
-                                  std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
-                                  std::function<void(error err)> failBlock) override;
+        void beginRequest(string path,
+                          function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
+                          function<void(error err)> failBlock,
+                          function<void(WebViewServiceMessages message)> serviceBlock) override;
         void swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) override;
         void cancel() override;
         

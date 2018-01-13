@@ -16,17 +16,19 @@
 #import "NotificationsObjc.h"
 #import "NtpObjc.h"
 #import "TimerFactoryObjc.h"
+#import "UIViewControllerInjector.h"
 
 @implementation ManualInitialization
 + (void)load {
     [self doLoading];
 }
 + (void)doLoading {
-    NSArray *array = @[[DatabaseObjc class],
+    NSArray *array = @[[UIViewControllerInjector class],
+                       [DatabaseObjc class],
                        [SerializerObjc class],
                        [FirestoreObjc class],
                        [FacebookBanagerObjc class],
-                       [ScreensManagerObjc class],
+                       [ScreensManagerOBJC class],
                        [WebViewServiceFactoryObjc class],
                        [NotificationsObjc class],
                        [NtpObjc class],

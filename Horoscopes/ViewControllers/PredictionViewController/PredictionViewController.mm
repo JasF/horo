@@ -111,10 +111,10 @@ static CGFloat const kFriendCellHeight = 65.f;
     [_networkErrorButton setAttributedTitle:attributedString
                                    forState:UIControlStateNormal];
     
-    _tableView.contentInset = UIEdgeInsetsZero;
-    _tableView.separatorInset = UIEdgeInsetsZero;
-    _tableView.separatorColor = [UIColor clearColor];
-    _tableView.allowsSelection = NO;
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.allowsSelection = NO;
                                               
     @weakify(self);
     [self showProgressHUD];

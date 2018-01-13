@@ -54,11 +54,11 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
     _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
     [_facebookLoginCell.contentView addSubview:_loginButton];    
     
-    _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedRowHeight = kRowHeight;
-    _tableView.contentInset = UIEdgeInsetsZero;
-    _tableView.separatorInset = UIEdgeInsetsZero;
-    _tableView.separatorColor = [UIColor clearColor];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = kRowHeight;
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorColor = [UIColor clearColor];
     
     _loginButton.delegate = self;
     _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
@@ -73,7 +73,7 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     [blurEffectView setFrame:self.view.bounds];
-    [self.view insertSubview:blurEffectView belowSubview:_tableView];
+    [self.view insertSubview:blurEffectView belowSubview:self.tableView];
     
     _pickerView.datePickerMode = UIDatePickerModeDate;
     [_pickerView setValue:[UIColor whiteColor] forKey:@"textColor"];

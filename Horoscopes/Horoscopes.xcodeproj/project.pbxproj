@@ -35,7 +35,7 @@
 		C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18571FA498C8006DEDB7 /* modelsimpl.cc */; };
 		C30B186F1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B186E1FA49AFF006DEDB7 /* predictionscreenmodelimpl.cc */; };
 		C30B18771FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */; };
-		C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */; };
+		C30B187B1FA4A731006DEDB7 /* ScreensManagerOBJC.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerOBJC.mm */; };
 		C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */; };
 		C30B18821FA4AAD1006DEDB7 /* PredictionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */; };
 		C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30B18891FA4C2D9006DEDB7 /* zodiac.cc */; };
@@ -50,7 +50,7 @@
 		C315ABCB1FE5040C00CC9B67 /* horoscopedaoimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C30409441FA77F0700A0FC33 /* horoscopedaoimpl.cc */; };
 		C315ABCC1FE5040C00CC9B67 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = C31A13DB1FB06168001FABFE /* error.c */; };
 		C315ABCD1FE5040C00CC9B67 /* UINavigationBar+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */; };
-		C315ABCE1FE5040C00CC9B67 /* ScreensManagerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */; };
+		C315ABCE1FE5040C00CC9B67 /* ScreensManagerOBJC.mm in Sources */ = {isa = PBXBuildFile; fileRef = C30B187A1FA4A731006DEDB7 /* ScreensManagerOBJC.mm */; };
 		C315ABCF1FE5040C00CC9B67 /* settings.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3B6019D1FA6008700AD4F6D /* settings.cc */; };
 		C315ABD01FE5040C00CC9B67 /* EXTADT.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B17DD1FA481C2006DEDB7 /* EXTADT.m */; };
 		C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
@@ -312,6 +312,20 @@
 		C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E11FA376BD00C0B1C6 /* HTTPSessionManager.m */; };
 		C33B99E61FA46FA200C0B1C6 /* horobase.cc in Sources */ = {isa = PBXBuildFile; fileRef = C33B99E41FA46FA200C0B1C6 /* horobase.cc */; };
 		C33E3E5E1FD675E200DBADEB /* UINavigationBar+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */; };
+		C33F4AC1200A31BF00ADFC4C /* LGSideMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4AB8200A31BF00ADFC4C /* LGSideMenuHelper.m */; };
+		C33F4AC2200A31BF00ADFC4C /* LGSideMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4AB8200A31BF00ADFC4C /* LGSideMenuHelper.m */; };
+		C33F4AC3200A31BF00ADFC4C /* LGSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABA200A31BF00ADFC4C /* LGSideMenuView.m */; };
+		C33F4AC4200A31BF00ADFC4C /* LGSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABA200A31BF00ADFC4C /* LGSideMenuView.m */; };
+		C33F4AC5200A31BF00ADFC4C /* LGSideMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABB200A31BF00ADFC4C /* LGSideMenuSegue.m */; };
+		C33F4AC6200A31BF00ADFC4C /* LGSideMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABB200A31BF00ADFC4C /* LGSideMenuSegue.m */; };
+		C33F4AC7200A31BF00ADFC4C /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABC200A31BF00ADFC4C /* LGSideMenuController.m */; };
+		C33F4AC8200A31BF00ADFC4C /* LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABC200A31BF00ADFC4C /* LGSideMenuController.m */; };
+		C33F4AC9200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABD200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m */; };
+		C33F4ACA200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABD200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m */; };
+		C33F4ACB200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABE200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m */; };
+		C33F4ACC200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4ABE200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m */; };
+		C33F4ACD200A31BF00ADFC4C /* LGSideMenuBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4AC0200A31BF00ADFC4C /* LGSideMenuBorderView.m */; };
+		C33F4ACE200A31BF00ADFC4C /* LGSideMenuBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C33F4AC0200A31BF00ADFC4C /* LGSideMenuBorderView.m */; };
 		C340355C1FD3DD50005C862C /* DesignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355B1FD3DD50005C862C /* DesignLabel.m */; };
 		C340355F1FD3DEED005C862C /* UIImageView+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C340355E1FD3DEED005C862C /* UIImageView+Horo.m */; };
 		C34035651FD3ED29005C862C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C34035641FD3ED29005C862C /* Utils.m */; };
@@ -336,8 +350,6 @@
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
 		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
-		C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
-		C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0FD3761FA06C96006378B6 /* Main.storyboard */; };
 		C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */; };
 		C373D3F21FEBBDD300D3BA16 /* fileutils_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A41FEBBDC300D3BA16 /* fileutils_forxcode.cc */; };
 		C373D3F31FEBBDD300D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A51FEBBDC300D3BA16 /* copyonwritebuffer_forxcode.cc */; };
@@ -656,6 +668,18 @@
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
+		C3ECFF60200A38C00034C096 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.m */; };
+		C3ECFF61200A38C00034C096 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.m */; };
+		C3ECFF64200A3BF80034C096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFF5F200A38C00034C096 /* Main.storyboard */; };
+		C3ECFF65200A3BF80034C096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFF5F200A38C00034C096 /* Main.storyboard */; };
+		C3ECFF6A200A3C5C0034C096 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF66200A3C5C0034C096 /* LeftViewController.m */; };
+		C3ECFF6B200A3C5C0034C096 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF66200A3C5C0034C096 /* LeftViewController.m */; };
+		C3ECFF6C200A3C5C0034C096 /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF69200A3C5C0034C096 /* LeftViewCell.m */; };
+		C3ECFF6D200A3C5C0034C096 /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF69200A3C5C0034C096 /* LeftViewCell.m */; };
+		C3ECFF71200A3D4D0034C096 /* UIViewControllerInjector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF70200A3D4D0034C096 /* UIViewControllerInjector.mm */; };
+		C3ECFF72200A3D4D0034C096 /* UIViewControllerInjector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF70200A3D4D0034C096 /* UIViewControllerInjector.mm */; };
+		C3ECFF74200A3F4C0034C096 /* JGMethodSwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */; };
+		C3ECFF75200A3F4C0034C096 /* JGMethodSwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */; };
 		C3F405251FE102C1004D1535 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F405241FE102C1004D1535 /* GradientView.m */; };
 /* End PBXBuildFile section */
 
@@ -691,7 +715,6 @@
 		4B0FD3711FA06C96006378B6 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		4B0FD3731FA06C96006378B6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4B0FD3741FA06C96006378B6 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		4B0FD3771FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B0FD3791FA06C96006378B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B0FD37C1FA06C96006378B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B0FD37F1FA06C96006378B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -761,8 +784,8 @@
 		C30B18721FA49E01006DEDB7 /* predictionscreenviewmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = predictionscreenviewmodel.h; sourceTree = "<group>"; };
 		C30B18731FA49E0A006DEDB7 /* predictionscreenviewmodelimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = predictionscreenviewmodelimpl.h; sourceTree = "<group>"; };
 		C30B18761FA49E8A006DEDB7 /* predictionscreenviewmodelimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = predictionscreenviewmodelimpl.cc; sourceTree = "<group>"; };
-		C30B18791FA4A731006DEDB7 /* ScreensManagerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreensManagerObjc.h; sourceTree = "<group>"; };
-		C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreensManagerObjc.mm; sourceTree = "<group>"; };
+		C30B18791FA4A731006DEDB7 /* ScreensManagerOBJC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreensManagerOBJC.h; sourceTree = "<group>"; };
+		C30B187A1FA4A731006DEDB7 /* ScreensManagerOBJC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreensManagerOBJC.mm; sourceTree = "<group>"; };
 		C30B187E1FA4AABC006DEDB7 /* PredictionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PredictionViewController.h; sourceTree = "<group>"; };
 		C30B187F1FA4AABC006DEDB7 /* PredictionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PredictionViewController.mm; sourceTree = "<group>"; };
 		C30B18811FA4AAD1006DEDB7 /* PredictionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PredictionViewController.storyboard; sourceTree = "<group>"; };
@@ -980,6 +1003,21 @@
 		C33B99E51FA46FA200C0B1C6 /* horobase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horobase.h; sourceTree = "<group>"; };
 		C33E3E5C1FD675E200DBADEB /* UINavigationBar+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Horo.h"; sourceTree = "<group>"; };
 		C33E3E5D1FD675E200DBADEB /* UINavigationBar+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Horo.m"; sourceTree = "<group>"; };
+		C33F4AAB200A2C0900ADFC4C /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C33F4AB3200A31BF00ADFC4C /* LGSideMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuSegue.h; sourceTree = "<group>"; };
+		C33F4AB4200A31BF00ADFC4C /* LGSideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuView.h; sourceTree = "<group>"; };
+		C33F4AB5200A31BF00ADFC4C /* LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuController.h; sourceTree = "<group>"; };
+		C33F4AB6200A31BF00ADFC4C /* LGSideMenuGesturesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuGesturesHandler.h; sourceTree = "<group>"; };
+		C33F4AB7200A31BF00ADFC4C /* LGSideMenuBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuBorderView.h; sourceTree = "<group>"; };
+		C33F4AB8200A31BF00ADFC4C /* LGSideMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuHelper.m; sourceTree = "<group>"; };
+		C33F4AB9200A31BF00ADFC4C /* UIViewController+LGSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LGSideMenuController.h"; sourceTree = "<group>"; };
+		C33F4ABA200A31BF00ADFC4C /* LGSideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuView.m; sourceTree = "<group>"; };
+		C33F4ABB200A31BF00ADFC4C /* LGSideMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuSegue.m; sourceTree = "<group>"; };
+		C33F4ABC200A31BF00ADFC4C /* LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuController.m; sourceTree = "<group>"; };
+		C33F4ABD200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuGesturesHandler.m; sourceTree = "<group>"; };
+		C33F4ABE200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LGSideMenuController.m"; sourceTree = "<group>"; };
+		C33F4ABF200A31BF00ADFC4C /* LGSideMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMenuHelper.h; sourceTree = "<group>"; };
+		C33F4AC0200A31BF00ADFC4C /* LGSideMenuBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMenuBorderView.m; sourceTree = "<group>"; };
 		C340355A1FD3DD50005C862C /* DesignLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignLabel.h; sourceTree = "<group>"; };
 		C340355B1FD3DD50005C862C /* DesignLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignLabel.m; sourceTree = "<group>"; };
 		C340355D1FD3DEED005C862C /* UIImageView+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Horo.h"; sourceTree = "<group>"; };
@@ -1271,6 +1309,15 @@
 		C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		C3EAE0261FD91D7E00EC9C3E /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		C3ECFF5E200A38C00034C096 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C3ECFF5F200A38C00034C096 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C3ECFF66200A3C5C0034C096 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		C3ECFF67200A3C5C0034C096 /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
+		C3ECFF68200A3C5C0034C096 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		C3ECFF69200A3C5C0034C096 /* LeftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewCell.m; sourceTree = "<group>"; };
+		C3ECFF6F200A3D4D0034C096 /* UIViewControllerInjector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewControllerInjector.h; sourceTree = "<group>"; };
+		C3ECFF70200A3D4D0034C096 /* UIViewControllerInjector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UIViewControllerInjector.mm; sourceTree = "<group>"; };
+		C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JGMethodSwizzler.framework; sourceTree = "<group>"; };
 		C3F405231FE102C1004D1535 /* GradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		C3F405241FE102C1004D1535 /* GradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		D618E3602591BB28E8448185 /* Pods-Horoscopes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Horoscopes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Horoscopes/Pods-Horoscopes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1283,6 +1330,7 @@
 			files = (
 				C3D432131FEE7A3A008B0E03 /* PushNotifications.framework in Frameworks */,
 				C340C4C51FEE5E3300E1F6E8 /* libicucore.tbd in Frameworks */,
+				C3ECFF75200A3F4C0034C096 /* JGMethodSwizzler.framework in Frameworks */,
 				C373D4FC1FED41BF00D3BA16 /* MessageUI.framework in Frameworks */,
 				C373D4F51FED2CA100D3BA16 /* UserNotifications.framework in Frameworks */,
 				C31A13FE1FB087ED001FABFE /* WebKit.framework in Frameworks */,
@@ -1325,6 +1373,7 @@
 			files = (
 				C3D432151FEE7A40008B0E03 /* PushNotifications.framework in Frameworks */,
 				C340C4C61FEE5E3700E1F6E8 /* libicucore.tbd in Frameworks */,
+				C3ECFF74200A3F4C0034C096 /* JGMethodSwizzler.framework in Frameworks */,
 				C373D4FB1FED418500D3BA16 /* MessageUI.framework in Frameworks */,
 				C373D4F41FED2C9C00D3BA16 /* UserNotifications.framework in Frameworks */,
 				C315AC421FE5040C00CC9B67 /* WebKit.framework in Frameworks */,
@@ -1407,7 +1456,6 @@
 				4B0FD3711FA06C96006378B6 /* AppDelegate.mm */,
 				4B0FD3731FA06C96006378B6 /* ViewController.h */,
 				4B0FD3741FA06C96006378B6 /* ViewController.mm */,
-				4B0FD3761FA06C96006378B6 /* Main.storyboard */,
 				4B0FD3791FA06C96006378B6 /* Assets.xcassets */,
 				4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */,
 				4B0FD37F1FA06C96006378B6 /* main.m */,
@@ -1624,18 +1672,20 @@
 			path = predictionscreenviewmodel;
 			sourceTree = "<group>";
 		};
-		C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */ = {
+		C30B18781FA4A721006DEDB7 /* ScreensManagerOBJC */ = {
 			isa = PBXGroup;
 			children = (
-				C30B18791FA4A731006DEDB7 /* ScreensManagerObjc.h */,
-				C30B187A1FA4A731006DEDB7 /* ScreensManagerObjc.mm */,
+				C30B18791FA4A731006DEDB7 /* ScreensManagerOBJC.h */,
+				C30B187A1FA4A731006DEDB7 /* ScreensManagerOBJC.mm */,
 			);
-			path = ScreensManagerObjc;
+			path = ScreensManagerOBJC;
 			sourceTree = "<group>";
 		};
 		C30B187C1FA4AA9C006DEDB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C33F4AB2200A31BF00ADFC4C /* LGSideMenuController */,
+				C33F4AAA200A2BAB00ADFC4C /* MainViewController */,
 				C337E8F71FF3FBC30063ACF1 /* PushTimeViewController */,
 				C3292C971FEE9FED00A3698B /* NotificationsViewController */,
 				C34233CC1FE8F21500428768 /* AccountViewController */,
@@ -2206,6 +2256,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C3ECFF6E200A3D2F0034C096 /* UIViewControllerInjector */,
 				C3DD104B20072D9B00883328 /* TimerObjc */,
 				C3DD104620072D1B00883328 /* TimerFactoryObjc */,
 				C32331072001FF0F0027089E /* NtpObjc */,
@@ -2220,7 +2271,7 @@
 				C3817DFF1FA70CCF00447155 /* FirestoreObjc */,
 				C3B601A71FA6059400AD4F6D /* SerializerObjc */,
 				C3B6018F1FA5F75500AD4F6D /* FacebookManagerObjc */,
-				C30B18781FA4A721006DEDB7 /* ScreensManagerObjc */,
+				C30B18781FA4A721006DEDB7 /* ScreensManagerOBJC */,
 				C30B16591FA47465006DEDB7 /* HttpResponseObjc */,
 				C33B99DF1FA376A800C0B1C6 /* HTTPSessionManager */,
 				C33B99C61FA3752400C0B1C6 /* WebViewServiceObjc */,
@@ -2302,6 +2353,41 @@
 				C38D8CC71FA8DD5800F5BAD2 /* platform.h */,
 			);
 			path = base;
+			sourceTree = "<group>";
+		};
+		C33F4AAA200A2BAB00ADFC4C /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3ECFF67200A3C5C0034C096 /* LeftViewCell.h */,
+				C3ECFF69200A3C5C0034C096 /* LeftViewCell.m */,
+				C3ECFF68200A3C5C0034C096 /* LeftViewController.h */,
+				C3ECFF66200A3C5C0034C096 /* LeftViewController.m */,
+				C33F4AAB200A2C0900ADFC4C /* MainViewController.h */,
+				C3ECFF5E200A38C00034C096 /* MainViewController.m */,
+				C3ECFF5F200A38C00034C096 /* Main.storyboard */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		C33F4AB2200A31BF00ADFC4C /* LGSideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				C33F4AB3200A31BF00ADFC4C /* LGSideMenuSegue.h */,
+				C33F4AB4200A31BF00ADFC4C /* LGSideMenuView.h */,
+				C33F4AB5200A31BF00ADFC4C /* LGSideMenuController.h */,
+				C33F4AB6200A31BF00ADFC4C /* LGSideMenuGesturesHandler.h */,
+				C33F4AB7200A31BF00ADFC4C /* LGSideMenuBorderView.h */,
+				C33F4AB8200A31BF00ADFC4C /* LGSideMenuHelper.m */,
+				C33F4AB9200A31BF00ADFC4C /* UIViewController+LGSideMenuController.h */,
+				C33F4ABA200A31BF00ADFC4C /* LGSideMenuView.m */,
+				C33F4ABB200A31BF00ADFC4C /* LGSideMenuSegue.m */,
+				C33F4ABC200A31BF00ADFC4C /* LGSideMenuController.m */,
+				C33F4ABD200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m */,
+				C33F4ABE200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m */,
+				C33F4ABF200A31BF00ADFC4C /* LGSideMenuHelper.h */,
+				C33F4AC0200A31BF00ADFC4C /* LGSideMenuBorderView.m */,
+			);
+			path = LGSideMenuController;
 			sourceTree = "<group>";
 		};
 		C34035591FD3DD1F005C862C /* DesignLabel */ = {
@@ -2604,6 +2690,7 @@
 		C3B601721FA5DAAC00AD4F6D /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */,
 				C3C7ABEC2002369000CFDDD2 /* MBProgressHUD.framework */,
 				C32330FB1FFCCD560027089E /* CocoaLumberjack.framework */,
 				C340C4C11FEE5D4D00E1F6E8 /* libPusher.framework */,
@@ -3127,6 +3214,15 @@
 			path = MenuCell;
 			sourceTree = "<group>";
 		};
+		C3ECFF6E200A3D2F0034C096 /* UIViewControllerInjector */ = {
+			isa = PBXGroup;
+			children = (
+				C3ECFF6F200A3D4D0034C096 /* UIViewControllerInjector.h */,
+				C3ECFF70200A3D4D0034C096 /* UIViewControllerInjector.mm */,
+			);
+			path = UIViewControllerInjector;
+			sourceTree = "<group>";
+		};
 		C3F405221FE102B1004D1535 /* GradientView */ = {
 			isa = PBXGroup;
 			children = (
@@ -3237,8 +3333,8 @@
 				C342BDBB2003602A00BC0B95 /* MenuCellContentView.xib in Resources */,
 				C3292C9E1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */,
 				C337E8FE1FF3FBF40063ACF1 /* PushTimeViewController.storyboard in Resources */,
-				C373D39F1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
 				C3190C171FADDF630059F247 /* Common.xcassets in Resources */,
+				C3ECFF65200A3BF80034C096 /* Main.storyboard in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C323311C2002085D0027089E /* Notes in Resources */,
 				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
@@ -3272,8 +3368,8 @@
 				C342BDBA2003602A00BC0B95 /* MenuCellContentView.xib in Resources */,
 				C3292C9D1FEEA04600A3698B /* NotificationsViewController.storyboard in Resources */,
 				C337E8FD1FF3FBF40063ACF1 /* PushTimeViewController.storyboard in Resources */,
-				C373D39E1FEAA1F500D3BA16 /* Main.storyboard in Resources */,
 				C315ACB21FE5040C00CC9B67 /* Common.xcassets in Resources */,
+				C3ECFF64200A3BF80034C096 /* Main.storyboard in Resources */,
 				C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */,
 				C323311B2002085D0027089E /* Notes in Resources */,
 				C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */,
@@ -3344,7 +3440,7 @@
 				C3C7ABA520022D5000CFDDD2 /* NVActivityIndicatorShape.swift in Sources */,
 				C33E3E5E1FD675E200DBADEB /* UINavigationBar+Horo.m in Sources */,
 				C3C7ABC320022D5000CFDDD2 /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
-				C30B187B1FA4A731006DEDB7 /* ScreensManagerObjc.mm in Sources */,
+				C30B187B1FA4A731006DEDB7 /* ScreensManagerOBJC.mm in Sources */,
 				C373D4491FEBBDDB00D3BA16 /* bytebuffer_forxcode.cc in Sources */,
 				C373D4981FEBC16000D3BA16 /* task_queue_posix.cc in Sources */,
 				C3C0379D2004A6B900DB82B8 /* PushAnimator.m in Sources */,
@@ -3362,6 +3458,7 @@
 				C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */,
 				C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */,
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
+				C3ECFF61200A38C00034C096 /* MainViewController.m in Sources */,
 				C373D4441FEBBDDB00D3BA16 /* asyncudpsocket_forxcode.cc in Sources */,
 				C373D4791FEBBDDB00D3BA16 /* sigslot_forxcode.cc in Sources */,
 				C3C7ABB320022D5000CFDDD2 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
@@ -3382,6 +3479,7 @@
 				C3F405251FE102C1004D1535 /* GradientView.m in Sources */,
 				C30409511FA7802B00A0FC33 /* daofactoryimpl.cc in Sources */,
 				C31A13EC1FB06168001FABFE /* tag.c in Sources */,
+				C33F4AC2200A31BF00ADFC4C /* LGSideMenuHelper.m in Sources */,
 				C304097A1FA7874A00A0FC33 /* databaseimpl.cc in Sources */,
 				C3190C151FADDDF50059F247 /* BackgroundView.m in Sources */,
 				C30B188A1FA4C2D9006DEDB7 /* zodiac.cc in Sources */,
@@ -3404,6 +3502,7 @@
 				C31A13951FAF4ECC001FABFE /* facebookfriendsprovider.cc in Sources */,
 				C3383FDF1FAF26AA00CCE133 /* menuscreenviewmodelimpl.cc in Sources */,
 				C31A13F91FB07182001FABFE /* facebookuserinformationparser.cc in Sources */,
+				C3ECFF6D200A3C5C0034C096 /* LeftViewCell.m in Sources */,
 				C373D4591FEBBDDB00D3BA16 /* ipaddress_forxcode.cc in Sources */,
 				C3C7ABAF20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				C373D46D1FEBBDDB00D3BA16 /* platform_file_forxcode.cc in Sources */,
@@ -3425,6 +3524,7 @@
 				C373D47D1FEBBDDB00D3BA16 /* socketstream_forxcode.cc in Sources */,
 				C30B17E81FA481C2006DEDB7 /* EXTSelectorChecking.m in Sources */,
 				C30B17EF1FA481C2006DEDB7 /* NSMethodSignature+EXT.m in Sources */,
+				C33F4AC8200A31BF00ADFC4C /* LGSideMenuController.m in Sources */,
 				C3B601811FA5F35000AD4F6D /* loginmanagerfactoryimpl.cc in Sources */,
 				C31A13E61FB06168001FABFE /* vector.c in Sources */,
 				C3D4321C1FEE7E44008B0E03 /* PushNotificationsWrapper.swift in Sources */,
@@ -3473,6 +3573,7 @@
 				C373D49B1FEBC19400D3BA16 /* thread_darwin.mm in Sources */,
 				C373D4631FEBBDDB00D3BA16 /* networkmonitor_forxcode.cc in Sources */,
 				C30B18981FA5CF4A006DEDB7 /* helloscreenviewmodelimpl.cc in Sources */,
+				C3ECFF72200A3D4D0034C096 /* UIViewControllerInjector.mm in Sources */,
 				C34233DF1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */,
 				C3C7ABB520022D5000CFDDD2 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */,
@@ -3534,14 +3635,17 @@
 				C373D46B1FEBBDDB00D3BA16 /* pathutils_forxcode.cc in Sources */,
 				C337E8FB1FF3FBEA0063ACF1 /* PushTimeViewController.mm in Sources */,
 				C373D45C1FEBBDDB00D3BA16 /* logsinks_forxcode.cc in Sources */,
+				C33F4AC4200A31BF00ADFC4C /* LGSideMenuView.m in Sources */,
 				C373D46E1FEBBDDB00D3BA16 /* platform_thread_forxcode.cc in Sources */,
 				C373D46A1FEBBDDB00D3BA16 /* optionsfile_forxcode.cc in Sources */,
 				C340355C1FD3DD50005C862C /* DesignLabel.m in Sources */,
+				C33F4ACE200A31BF00ADFC4C /* LGSideMenuBorderView.m in Sources */,
 				C3C7ABAD20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				C323311E2002085D0027089E /* NetAssociation.m in Sources */,
 				C3C7ABD720022D5000CFDDD2 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
+				C33F4ACA200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m in Sources */,
 				C373D4521FEBBDDB00D3BA16 /* filerotatingstream_forxcode.cc in Sources */,
 				C373D4601FEBBDDB00D3BA16 /* messagequeue_forxcode.cc in Sources */,
 				4B0FD3801FA06C96006378B6 /* main.m in Sources */,
@@ -3559,6 +3663,7 @@
 				C373D48F1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C3C117001FCE8929007DA9FF /* Tabs.m in Sources */,
+				C33F4ACC200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
 				C3C7ABEB20022D5000CFDDD2 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				C30B18911FA5CF1A006DEDB7 /* helloscreenmodelimpl.cc in Sources */,
@@ -3587,6 +3692,7 @@
 				C373D44D1FEBBDDB00D3BA16 /* criticalsection_forxcode.cc in Sources */,
 				C3C7ABAB20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				C3C037972004962600DB82B8 /* FriendCell.m in Sources */,
+				C3ECFF6B200A3C5C0034C096 /* LeftViewController.m in Sources */,
 				C3C03C4F2005E80700DB82B8 /* darkthemeimpl.cc in Sources */,
 				C3292CA61FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C38A62911FD28BEB00012ECA /* PredictionContentViewController.m in Sources */,
@@ -3594,6 +3700,7 @@
 				C373D4461FEBBDDB00D3BA16 /* bitbuffer_forxcode.cc in Sources */,
 				C33B99C91FA3752400C0B1C6 /* WebViewServiceObjc.mm in Sources */,
 				C3C7ABDF20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
+				C33F4AC6200A31BF00ADFC4C /* LGSideMenuSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3610,7 +3717,7 @@
 				C3C7ABA220022D5000CFDDD2 /* NVActivityIndicatorViewable.swift in Sources */,
 				C315ABCD1FE5040C00CC9B67 /* UINavigationBar+Horo.m in Sources */,
 				C3C7ABA420022D5000CFDDD2 /* NVActivityIndicatorShape.swift in Sources */,
-				C315ABCE1FE5040C00CC9B67 /* ScreensManagerObjc.mm in Sources */,
+				C315ABCE1FE5040C00CC9B67 /* ScreensManagerOBJC.mm in Sources */,
 				C3C7ABC220022D5000CFDDD2 /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
 				C315ABCF1FE5040C00CC9B67 /* settings.cc in Sources */,
 				C373D4971FEBC16000D3BA16 /* task_queue_posix.cc in Sources */,
@@ -3630,6 +3737,7 @@
 				C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */,
 				C315ABD71FE5040C00CC9B67 /* horoscopesparserimpl.cc in Sources */,
 				C315ABD81FE5040C00CC9B67 /* WebViewControllerImpl.mm in Sources */,
+				C3ECFF60200A38C00034C096 /* MainViewController.m in Sources */,
 				C315ABD91FE5040C00CC9B67 /* NSDictionary+Horo.mm in Sources */,
 				C315ABDA1FE5040C00CC9B67 /* predictionscreenmodelimpl.cc in Sources */,
 				C3C7ABB220022D5000CFDDD2 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
@@ -3650,6 +3758,7 @@
 				C315ABDF1FE5040C00CC9B67 /* tag.c in Sources */,
 				C315ABE01FE5040C00CC9B67 /* databaseimpl.cc in Sources */,
 				C315ABE11FE5040C00CC9B67 /* BackgroundView.m in Sources */,
+				C33F4AC1200A31BF00ADFC4C /* LGSideMenuHelper.m in Sources */,
 				C315ABE21FE5040C00CC9B67 /* zodiac.cc in Sources */,
 				C373D40D1FEBBDD300D3BA16 /* base64_forxcode.cc in Sources */,
 				C315ABE31FE5040C00CC9B67 /* HttpResponseObjc.mm in Sources */,
@@ -3672,6 +3781,7 @@
 				C373D40C1FEBBDD300D3BA16 /* ratelimiter_forxcode.cc in Sources */,
 				C373D43D1FEBBDD300D3BA16 /* noop_forxcode.cc in Sources */,
 				C373D4041FEBBDD300D3BA16 /* logsinks_forxcode.cc in Sources */,
+				C3ECFF6C200A3C5C0034C096 /* LeftViewCell.m in Sources */,
 				C315ABEA1FE5040C00CC9B67 /* menuscreenviewmodelimpl.cc in Sources */,
 				C3C7ABAE20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				C315ABEB1FE5040C00CC9B67 /* facebookuserinformationparser.cc in Sources */,
@@ -3693,6 +3803,7 @@
 				C373D4081FEBBDD300D3BA16 /* socketaddress_forxcode.cc in Sources */,
 				C373D4031FEBBDD300D3BA16 /* transformadapter_forxcode.cc in Sources */,
 				C315ABF61FE5040C00CC9B67 /* loginmanagerfactoryimpl.cc in Sources */,
+				C33F4AC7200A31BF00ADFC4C /* LGSideMenuController.m in Sources */,
 				C315ABF71FE5040C00CC9B67 /* vector.c in Sources */,
 				C373D4311FEBBDD300D3BA16 /* thread_checker_impl_forxcode.cc in Sources */,
 				C3292C921FEE859F00A3698B /* PushNotificationsWrapper.swift in Sources */,
@@ -3741,6 +3852,7 @@
 				C315AC0F1FE5040C00CC9B67 /* EXTConcreteProtocol.m in Sources */,
 				C315AC101FE5040C00CC9B67 /* horoscopedto.cc in Sources */,
 				C315AC111FE5040C00CC9B67 /* helloscreenviewmodelimpl.cc in Sources */,
+				C3ECFF71200A3D4D0034C096 /* UIViewControllerInjector.mm in Sources */,
 				C373D3FD1FEBBDD300D3BA16 /* rate_statistics_forxcode.cc in Sources */,
 				C3C7ABB420022D5000CFDDD2 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				C34233DE1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */,
@@ -3802,14 +3914,17 @@
 				C315AC2A1FE5040C00CC9B67 /* birthdaydetectorimpl.cc in Sources */,
 				C337E8FA1FF3FBEA0063ACF1 /* PushTimeViewController.mm in Sources */,
 				C315AC2B1FE5040C00CC9B67 /* DesignLabel.m in Sources */,
+				C33F4AC3200A31BF00ADFC4C /* LGSideMenuView.m in Sources */,
 				C373D4261FEBBDD300D3BA16 /* bufferqueue_forxcode.cc in Sources */,
 				C315AC2C1FE5040C00CC9B67 /* FacebookBanagerObjc.mm in Sources */,
 				C315AC2D1FE5040C00CC9B67 /* firestoreimpl.cc in Sources */,
+				C33F4ACD200A31BF00ADFC4C /* LGSideMenuBorderView.m in Sources */,
 				C3C7ABAC20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				C323311D2002085D0027089E /* NetAssociation.m in Sources */,
 				C3C7ABD620022D5000CFDDD2 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				C315AC2E1FE5040C00CC9B67 /* main.m in Sources */,
 				C373D43E1FEBBDD300D3BA16 /* socketadapters_forxcode.cc in Sources */,
+				C33F4AC9200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m in Sources */,
 				C315AC2F1FE5040C00CC9B67 /* SerializerObjc.mm in Sources */,
 				C373D4331FEBBDD300D3BA16 /* macifaddrs_converter_forxcode.cc in Sources */,
 				C373D41F1FEBBDD300D3BA16 /* asyncresolverinterface_forxcode.cc in Sources */,
@@ -3827,6 +3942,7 @@
 				C373D48E1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */,
 				C373D4361FEBBDD300D3BA16 /* asynctcpsocket_forxcode.cc in Sources */,
 				C315AC341FE5040C00CC9B67 /* Tabs.m in Sources */,
+				C33F4ACB200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */,
 				C315AC351FE5040C00CC9B67 /* AFHTTPSessionManager.m in Sources */,
 				C3C7ABEA20022D5000CFDDD2 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				C315AC361FE5040C00CC9B67 /* helloscreenmodelimpl.cc in Sources */,
@@ -3855,6 +3971,7 @@
 				C373D3F31FEBBDD300D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */,
 				C3C7ABAA20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				C3C037962004962600DB82B8 /* FriendCell.m in Sources */,
+				C3ECFF6A200A3C5C0034C096 /* LeftViewController.m in Sources */,
 				C3C03C4E2005E80700DB82B8 /* darkthemeimpl.cc in Sources */,
 				C3292CA51FEEA25F00A3698B /* notificationsscreenviewmodelimpl.cc in Sources */,
 				C315AC3F1FE5040C00CC9B67 /* PredictionContentViewController.m in Sources */,
@@ -3862,20 +3979,13 @@
 				C315AC401FE5040C00CC9B67 /* WebViewServiceObjc.mm in Sources */,
 				C373D4151FEBBDD300D3BA16 /* filerotatingstream_forxcode.cc in Sources */,
 				C3C7ABDE20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
+				C33F4AC5200A31BF00ADFC4C /* LGSideMenuSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4B0FD3761FA06C96006378B6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B0FD3771FA06C96006378B6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4B0FD37B1FA06C96006378B6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

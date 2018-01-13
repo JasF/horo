@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #include "viewmodels/menuscreenviewmodel/menuscreenviewmodel.h"
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UITableViewController
 @property (assign, nonatomic) strong<horo::MenuScreenViewModel> viewModel;
 @end

@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, RowsCount) {
     for (SettingsCell *cell in [self cellsDictionary].allValues) {
         [cell setText:L(cell.text)];
     }
-    _tableView.contentInset = UIEdgeInsetsMake(kTableTopInset, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kTableTopInset, 0, 0, 0);
     _enablePushesCell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.navigationItem.title = L(@"notifications");
     _swither.on = !_viewModel->notificationsDisabled();

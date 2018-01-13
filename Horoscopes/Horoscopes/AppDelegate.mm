@@ -13,12 +13,14 @@
 #include "managers/managers.h"
 #import "NSError+Horo.h"
 #import "AppDelegate.h"
-
+#import "ScreensManagerOBJC.h"
 #import "NSDictionary+Horo.h"
 #import "NSError+Horo.h"
 
 @interface AppDelegate () <FIRMessagingDelegate>
 @property (assign, nonatomic) strong<horo::Notifications> notifications;
+@property (strong, nonatomic) MainViewController *mainViewController;
+@property (strong, nonatomic) UIStoryboard *storyboard;
 @end
 
 @implementation AppDelegate
@@ -102,13 +104,45 @@
     strong<horo::Settings> settings = horo::Managers::shared().settings();
     strong<horo::Person> person = settings->currentPerson();
     horo::Managers::shared().coreComponents()->person_ = person;
+    strong<horo::ScreensManager> screensManager = horo::Managers::shared().screensManager();
+    [self initializeSideMenu];
+    /*
     if (person.get()) {
-        horo::Managers::shared().screensManager()->showPredictionViewController();
+        screensManager->showPredictionViewController();
     }
     else {
-        horo::Managers::shared().screensManager()->showMenuViewController(false);
-        horo::Managers::shared().screensManager()->showWelcomeViewController();
+        screensManager->showMenuViewController(false);
+        screensManager->showWelcomeViewController();
     }
+     */
+}
+
+- (void)initializeSideMenu {
+    
+    NSInteger index = 0; /*of 12*/
+    _storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navigationController = [_storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+    
+    if (index == 10) {
+        [navigationController setViewControllers:@[[_storyboard instantiateViewControllerWithIdentifier:@"OtherViewController"]]];
+    }
+    else {
+        [navigationController setViewControllers:@[[_storyboard instantiateViewControllerWithIdentifier:@"ViewController"]]];
+    }
+    
+    _mainViewController = [_storyboard instantiateInitialViewController];
+    _mainViewController.rootViewController = navigationController;
+    [_mainViewController setupWithType:index];
+    
+    _window = [UIWindow new];
+    [_window makeKeyAndVisible];
+   _window.rootViewController = _mainViewController;
+    
+    [UIView transitionWithView:_window
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:nil
+                    completion:nil];
 }
 
 #pragma mark - FIRMessagingDelegate

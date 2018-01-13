@@ -21,7 +21,6 @@ typedef NS_ENUM(NSInteger, MenuRows) {
 static CGFloat const kRowHeight = 100;
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *closeCell;
 @property (strong, nonatomic) IBOutlet MenuCell *friendsCell;
 @property (strong, nonatomic) IBOutlet MenuCell *accountCell;
@@ -32,15 +31,20 @@ static CGFloat const kRowHeight = 100;
 
 @implementation MenuViewController
 
+- (void)injectViewModel:(NSValue *)viewModelValue {
+    strong<horo::MenuScreenViewModel> *viewModel =(strong<horo::MenuScreenViewModel> * )[viewModelValue pointerValue];
+    _viewModel = *viewModel;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
-    _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedRowHeight = kRowHeight;
-    _tableView.contentInset = UIEdgeInsetsZero;
-    _tableView.separatorInset = UIEdgeInsetsZero;
-    _tableView.separatorColor = [UIColor clearColor];
-    _tableView.allowsSelection = NO;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = kRowHeight;
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.allowsSelection = NO;
     _friendsDescriptionLabel.text = L(@"begin_update");
     @weakify(self);
     [_friendsCell setTitle:L(@"menu_cell_friends")];
@@ -71,7 +75,7 @@ static CGFloat const kRowHeight = 100;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

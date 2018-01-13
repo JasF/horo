@@ -85,6 +85,12 @@ namespace horo {
             }
         }
         void showMenuViewController(bool animated) override {
+            UINavigationController *navigationController = createMenuNavigationController();
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = navigationController;
+        }
+        
+        UINavigationController *createMenuNavigationController() {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MenuViewController"
                                                                  bundle:nil];
             
@@ -92,9 +98,7 @@ namespace horo {
                                                                                      instantiateViewControllerWithIdentifier:@"navigationController"];
             MenuViewController *viewController = (MenuViewController *)navigationController.topViewController;
             viewController.viewModel = impl_->viewModels()->menuScreenViewModel();
-            
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate.window.rootViewController = navigationController;
+            return navigationController;
         }
         
         void showTableSearch() {
@@ -159,11 +163,22 @@ namespace horo {
     };
 };
 
-@implementation ScreensManagerObjc
+static horo::ScreensManagerObjc *sharedInstance = nullptr;
+@implementation ScreensManagerOBJC
 + (void)doLoading {
-    static horo::ScreensManagerObjc *sharedInstance = nullptr;
     sharedInstance = new horo::ScreensManagerObjc(horo::Managers::shared().screensManager());
     horo::ScreensManagerImpl::setPrivateInstance(sharedInstance);
+}
+
++ (UINavigationController *)createMenuNavigationController {
+    return sharedInstance->createMenuNavigationController();
+}
+
++ (MainViewController *)createMainViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainViewController"
+                                                         bundle:nil];
+    MainViewController *viewController = (MainViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+    return viewController;
 }
 
 @end

@@ -31,6 +31,14 @@ static const char * kSQLSelect = ""\
 "persons "\
 "WHERE uniqueIdentifier = :uniqueIdentifier;";
 
+static const char * kSQLSelectById = ""\
+"SELECT "\
+"* "\
+"FROM "\
+"persons "\
+"WHERE id = :id;";
+
+
 static const char * kSQLReadFacebookFriends = ""\
 "SELECT "\
 "* "\
@@ -125,6 +133,18 @@ namespace horo {
         }
         Json::Value parameters = person->encoded();
         parameters["id"] = rowid;
+        
+        Json::Value idParameter;
+        idParameter["id"] = rowid;
+        strong<ResultSet> resultSet = database_->executeQuery(kSQLSelectById, idParameter);
+        if (resultSet->next()) {
+            strong<Person> fbFriend = resultSetToJsonValue<Person>(resultSet);
+            if (fbFriend->status() == StatusCompleted ||
+                fbFriend->status() == StatusFailed) {
+                return false;
+            }
+        }
+        
         bool result = database_->executeUpdate(kSQLUpdate, parameters);
         return result;
     }

@@ -31,7 +31,7 @@ void FacebookFriendsProvider::cancelRequest() {
 }
 
 void FacebookFriendsProvider::executeHomePageRequest() {
-    vector<int> timeouts = {2,3,4,5,6,7};
+    vector<int> timeouts = {2,3,4,5,6,7,8,9,10,11,12};
     responseTimeoutTimer_ = new RungTimer(timerFactory_, timeouts, [this]() {
         LOG(LS_WARNING) << "\n\n\n*************** RESTARTING DUE INACTIVITY *********\n\n\n";
         if (request_) {

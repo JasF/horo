@@ -11,11 +11,6 @@
 #import "UIView+Horo.h"
 #import "MaskingView.h"
 
-@interface MaskingView ()
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIView *maskingView;
-@end
-
 @implementation MaskingView
 - (void)didMoveToSuperview {
     self.superview.opaque = NO;

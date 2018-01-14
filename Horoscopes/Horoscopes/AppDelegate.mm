@@ -105,7 +105,7 @@
     strong<horo::Person> person = settings->currentPerson();
     horo::Managers::shared().coreComponents()->person_ = person;
     strong<horo::ScreensManager> screensManager = horo::Managers::shared().screensManager();
-    [self initializeSideMenu];
+    [[ScreensManagerOBJC shared] setupViewControllers];
     /*
     if (person.get()) {
         screensManager->showPredictionViewController();
@@ -115,34 +115,6 @@
         screensManager->showWelcomeViewController();
     }
      */
-}
-
-- (void)initializeSideMenu {
-    
-    NSInteger index = 0; /*of 12*/
-    _storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navigationController = [_storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-    
-    if (index == 10) {
-        [navigationController setViewControllers:@[[_storyboard instantiateViewControllerWithIdentifier:@"OtherViewController"]]];
-    }
-    else {
-        [navigationController setViewControllers:@[[_storyboard instantiateViewControllerWithIdentifier:@"ViewController"]]];
-    }
-    
-    _mainViewController = [_storyboard instantiateInitialViewController];
-    _mainViewController.rootViewController = navigationController;
-    [_mainViewController setupWithType:index];
-    
-    _window = [UIWindow new];
-    [_window makeKeyAndVisible];
-   _window.rootViewController = _mainViewController;
-    
-    [UIView transitionWithView:_window
-                      duration:0.3
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:nil
-                    completion:nil];
 }
 
 #pragma mark - FIRMessagingDelegate

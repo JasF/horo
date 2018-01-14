@@ -11,6 +11,10 @@
 @class MainViewController;
 
 @interface ScreensManagerOBJC : NSObject
+@property (nonatomic, readonly) MainViewController *mainViewController;
+@property (nonatomic, readonly) UIWindow *window;
 + (UINavigationController *)createMenuNavigationController;
-+ (MainViewController *)createMainViewController;
++ (instancetype)shared;
+- (MainViewController *)mainViewController;
+- (void)setupViewControllers;
 @end

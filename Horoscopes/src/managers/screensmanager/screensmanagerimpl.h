@@ -32,6 +32,8 @@ namespace horo {
         void showFeedViewController() override;
         void showNotificationsViewController() override;
         void showPushTimeViewController() override;
+        void showMenu() override;
+        void hideMenu() override;
         
     private:
         void initializeNotifications();

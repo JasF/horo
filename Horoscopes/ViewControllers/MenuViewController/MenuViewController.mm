@@ -120,15 +120,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - Observer
 - (IBAction)friendsTapped:(id)sender {
+    [self hideMenu];
     _viewModel->friendsTapped();
 }
 
 - (IBAction)zodiacsTapped:(id)sender {
+    [self hideMenu];
     _viewModel->zodiacsTapped();
 }
 
 - (IBAction)closeTapped:(id)sender {
+    [self hideMenu];
     _viewModel->closeTapped();
+}
+
+#pragma mark - Private Methods
+- (void)hideMenu {
+    _viewModel->hideMenu();
+    //[mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
 
 @end

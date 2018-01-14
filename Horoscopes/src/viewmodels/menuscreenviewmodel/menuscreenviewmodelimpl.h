@@ -29,6 +29,7 @@ namespace horo {
         void notificationsTapped() override;
         void feedbackTapped() override;
         void closeTapped() override;
+        void hideMenu() override;
         
     private:
         strong<MenuScreenModel> model_;

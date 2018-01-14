@@ -86,4 +86,17 @@ namespace horo {
             notifications_->initialize();
         }
     }
+    
+    void ScreensManagerImpl::showMenu() {
+        if (g_privateInstance) {
+            g_privateInstance->showMenu();
+        }
+    }
+    
+    void ScreensManagerImpl::hideMenu() {
+        if (g_privateInstance) {
+            g_privateInstance->hideMenu();
+        }
+    }
+    
 };

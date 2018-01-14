@@ -25,7 +25,6 @@
         <!--Menu View Controller-->
         <scene sceneID="fOz-9g-CjJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YiI-Rm-XiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="LeftViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9nD-Rt-5hf" customClass="MenuViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="A0n-qE-F5f">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="668"/>
@@ -86,6 +85,7 @@
                         <outlet property="notificationsCell" destination="Fqu-IM-IrM" id="O31-0n-Dsu"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YiI-Rm-XiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oZy-cM-g9Z" customClass="MenuCell">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask"/>
@@ -152,66 +152,6 @@
             </objects>
             <point key="canvasLocation" x="-851" y="1339"/>
         </scene>
-        <!--Right View Controller-->
-        <scene sceneID="Cxj-n3-JK8">
-            <objects>
-                <tableViewController storyboardIdentifier="RightViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MRq-JZ-L0N" customClass="RightViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gRx-mE-qJI">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="668"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="ihu-iL-D2L" customClass="RightViewCell">
-                                <rect key="frame" x="0.0" y="22" width="100" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ihu-iL-D2L" id="JmT-rG-tya">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-6F-Gfi">
-                                            <rect key="frame" x="8" y="4" width="84" height="35"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mY-dV-qcE">
-                                            <rect key="frame" x="8" y="43" width="92" height="1"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="YuG-iy-RKU"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="yYt-6F-Gfi" secondAttribute="trailing" constant="8" id="6nd-ni-t74"/>
-                                        <constraint firstItem="yYt-6F-Gfi" firstAttribute="leading" secondItem="JmT-rG-tya" secondAttribute="leading" constant="8" id="8Ga-SK-rjf"/>
-                                        <constraint firstAttribute="bottom" secondItem="4mY-dV-qcE" secondAttribute="bottom" id="BnU-V4-3xo"/>
-                                        <constraint firstItem="4mY-dV-qcE" firstAttribute="leading" secondItem="JmT-rG-tya" secondAttribute="leading" constant="8" id="S7p-0K-pN6"/>
-                                        <constraint firstAttribute="trailing" secondItem="4mY-dV-qcE" secondAttribute="trailing" id="gjB-Dr-e2e"/>
-                                        <constraint firstItem="yYt-6F-Gfi" firstAttribute="top" secondItem="JmT-rG-tya" secondAttribute="top" constant="4" id="n4P-cP-U8J"/>
-                                        <constraint firstItem="4mY-dV-qcE" firstAttribute="top" secondItem="yYt-6F-Gfi" secondAttribute="bottom" constant="4" id="tX4-Rg-hFZ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="separatorView" destination="4mY-dV-qcE" id="DnH-Fp-h1t"/>
-                                    <outlet property="titleLabel" destination="yYt-6F-Gfi" id="gD1-gp-VWm"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="MRq-JZ-L0N" id="kg7-AP-GKs"/>
-                            <outlet property="delegate" destination="MRq-JZ-L0N" id="gvg-zw-VIe"/>
-                        </connections>
-                    </tableView>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="100" height="668"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e8M-n7-gxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-531" y="1339"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="FD9-Pe-zX1">
             <objects>
@@ -250,7 +190,6 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="9nD-Rt-5hf" kind="custom" identifier="left" customClass="LGSideMenuSegue" id="fCk-ka-htG"/>
-                        <segue destination="MRq-JZ-L0N" kind="custom" identifier="right" customClass="LGSideMenuSegue" id="BsC-s5-VZg"/>
                         <segue destination="W26-8j-p1z" kind="custom" identifier="root" customClass="LGSideMenuSegue" id="m4g-GV-Irt"/>
                     </connections>
                 </viewController>

@@ -13,13 +13,15 @@
 #import "AccountViewController.h"
 #import "WelcomeViewController.h"
 #import "FriendsViewController.h"
-#import "ScreensManagerObjc.h"
+#import "ScreensManagerOBJC.h"
 #include "managers/managers.h"
 #import "MenuViewController.h"
 #import "FeedbackManager.h"
 #import "Controllers.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+
+static NSString *kStoryboardName = @"Main";
 
 namespace horo {
     class ScreensManagerObjc : public ScreensManager {
@@ -157,14 +159,37 @@ namespace horo {
             [navigationController pushViewController:viewController animated:YES];
         }
         
+        void showMenu() override {
+            
+        }
+        
+        void hideMenu() override {
+            
+        }
+        
     private:
         strong<ScreensManager> original_;
         ScreensManagerImpl *impl_;
     };
 };
 
+@interface ScreensManagerOBJC ()
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) UIStoryboard *storyboard;
+@property (nonatomic, strong) MainViewController *mainViewController;
+@end
+
 static horo::ScreensManagerObjc *sharedInstance = nullptr;
 @implementation ScreensManagerOBJC
+
++ (instancetype)shared {
+    static ScreensManagerOBJC *sharedInstance = nullptr;
+    if (!sharedInstance) {
+        sharedInstance = [ScreensManagerOBJC new];
+    }
+    return sharedInstance;
+}
+
 + (void)doLoading {
     sharedInstance = new horo::ScreensManagerObjc(horo::Managers::shared().screensManager());
     horo::ScreensManagerImpl::setPrivateInstance(sharedInstance);
@@ -174,11 +199,44 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     return sharedInstance->createMenuNavigationController();
 }
 
-+ (MainViewController *)createMainViewController {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainViewController"
-                                                         bundle:nil];
-    MainViewController *viewController = (MainViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
-    return viewController;
+#pragma mark - Accessors
+- (MainViewController *)mainViewController {
+    if (!_mainViewController) {
+        UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        [navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"]]];
+        _mainViewController = [_storyboard instantiateInitialViewController];
+        _mainViewController.rootViewController = navigationController;
+       // [_mainViewController.leftViewController.navigationController setNavigationBarHidden:YES animated:NO];
+        [_mainViewController setupWithType:0];
+        self.window.rootViewController = _mainViewController;
+    }
+    return _mainViewController;
+}
+
+- (UIStoryboard *)storyboard {
+    if (!_storyboard) {
+        _storyboard = [UIStoryboard storyboardWithName:kStoryboardName bundle:nil];
+    }
+    return _storyboard;
+}
+
+
+
+- (UIWindow *)window {
+    if (!_window) {
+        _window = [UIWindow new];
+        [_window makeKeyAndVisible];
+        [UIView transitionWithView:_window
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:nil
+                        completion:nil];
+    }
+    return _window;
+}
+
+- (void)setupViewControllers {
+    [self mainViewController];
 }
 
 @end

@@ -279,10 +279,12 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
         }
         @catch (NSException *exception) {}
 
+        /*
         @try {
             [self performSegueWithIdentifier:LGSideMenuSegueRightIdentifier sender:nil];
         }
         @catch (NSException *exception) {}
+         */
     }
 }
 

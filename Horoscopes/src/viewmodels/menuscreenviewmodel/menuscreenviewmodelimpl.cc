@@ -59,4 +59,8 @@ namespace horo {
     void MenuScreenViewModelImpl::closeTapped() {
         screensManager_->showPredictionViewController();
     }
+    
+    void MenuScreenViewModelImpl::hideMenu() {
+        screensManager_->hideMenu();
+    }
 };

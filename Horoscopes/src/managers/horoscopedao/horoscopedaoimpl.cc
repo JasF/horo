@@ -58,7 +58,7 @@ bool HoroscopeDAOImpl::writeHoroscope(strong<HoroscopeDTO> horoscope) {
     horoscope->encode(parameters);
     
     strong<ResultSet> results = database_->executeQuery(kSQLSelect, parameters);
-    if (results->next()) {
+    if (results.get() && results->next()) {
         int rowid = results->intForColumn("id");
         Json::Value mutableParameters(parameters);
         mutableParameters["id"] = rowid;
@@ -78,7 +78,7 @@ strong<HoroscopeDTO> HoroscopeDAOImpl::readHoroscope(uint64_t date, HoroscopeTyp
     parameters["date"] = date;
     parameters["type"] = type;
     strong<ResultSet> results = database_->executeQuery(kSQLSelectByDateType, parameters);
-    if (results->next()) {
+    if (results.get() && results->next()) {
         strong<HoroscopeDTO> result = resultSetToJsonValue<HoroscopeDTO>(results);
         return result;
     }

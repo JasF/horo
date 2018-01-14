@@ -83,6 +83,10 @@ static CGFloat const kFriendCellHeight = 65.f;
     return UIStatusBarStyleLightContent;
 }
 
+- (void)dealloc {
+    
+}
+
 - (void)viewDidLoad {
     NSCParameterAssert(_viewModel);
     NSCParameterAssert(_horoscopesPageViewController);

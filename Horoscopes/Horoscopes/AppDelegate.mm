@@ -106,6 +106,8 @@
     horo::Managers::shared().coreComponents()->person_ = person;
     strong<horo::ScreensManager> screensManager = horo::Managers::shared().screensManager();
     [[ScreensManagerOBJC shared] setupViewControllers];
+    
+    screensManager->showWelcomeViewController();
     /*
     if (person.get()) {
         screensManager->showPredictionViewController();

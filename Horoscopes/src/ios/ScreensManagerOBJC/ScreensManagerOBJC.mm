@@ -21,6 +21,18 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+@interface ScreensManagerOBJC () {
+@public
+    horo::ScreensManagerImpl *impl_;
+}
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) UIStoryboard *storyboard;
+@property (nonatomic, strong) MainViewController *mainViewController;
+@property (nonatomic, strong) UINavigationController *navigationController;
+
+- (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push;
+@end
+
 static NSString *kStoryboardName = @"Main";
 
 namespace horo {
@@ -28,7 +40,7 @@ namespace horo {
     public:
         ScreensManagerObjc(strong<ScreensManager> original) : original_(original), impl_((ScreensManagerImpl *)original.get()) {
             NSCParameterAssert(original);
-            
+            [ScreensManagerOBJC shared]->impl_ = impl_;
         }
         ~ScreensManagerObjc() override {}
     public:
@@ -37,59 +49,23 @@ namespace horo {
            if (person.get() && !person->zodiac().get()) {
                return;
            }
-           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController"
-                                                                bundle:nil];
-            
-           UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                           instantiateViewControllerWithIdentifier:@"navigationController"];
-           UIPageViewController *pageViewController = (UIPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HoroscopesPageViewController"];
-           PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
-           viewController.horoscopesPageViewController = pageViewController;
-           viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
-           
-           AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-           if (push) {
-               viewController.hideMenuButton = YES;
-               UINavigationController *controller = (UINavigationController *)delegate.window.rootViewController;
-               NSCAssert([controller isKindOfClass:[UINavigationController class]], @"must be navigation controller");
-               [controller pushViewController:viewController animated:YES];
-               return;
-           }
-           delegate.window.rootViewController = navigationController;
+           [[ScreensManagerOBJC shared] showPredictionViewController:person push:push];
         }
         
         void showPredictionViewController() override {
             showPredictionViewController(nullptr);
         }
+        
         void showWelcomeViewController() override {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WelcomeViewController"
-                                                                 bundle: nil];
-            
-            UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
-            WelcomeViewController *viewController = (WelcomeViewController *)navigationController.topViewController;
-            viewController.viewModel = impl_->viewModels()->helloScreenViewModel();
-            
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
-            if ([navController isKindOfClass:[UINavigationController class]]) {
-                CGRect frame = navController.view.bounds;
-                frame.origin.y = frame.size.height;
-                viewController.view.frame = frame;
-                [navController.view addSubview:viewController.view];
-                [viewController didMoveToParentViewController:navController];
-                frame.origin.y = 0.f;
-                viewController.view.frame = frame;
-                [viewController lockSelf];
-            }
-            else {
-                delegate.window.rootViewController = navigationController;
-            }
+            [[ScreensManagerOBJC shared] showWelcomeViewController];
         }
         void showMenuViewController(bool animated) override {
+            [[ScreensManagerOBJC shared] showMenuViewController];
+            /*
             UINavigationController *navigationController = createMenuNavigationController();
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             delegate.window.rootViewController = navigationController;
+             */
         }
         
         UINavigationController *createMenuNavigationController() {
@@ -173,14 +149,9 @@ namespace horo {
     };
 };
 
-@interface ScreensManagerOBJC ()
-@property (nonatomic, strong) UIWindow *window;
-@property (nonatomic, strong) UIStoryboard *storyboard;
-@property (nonatomic, strong) MainViewController *mainViewController;
-@end
-
 static horo::ScreensManagerObjc *sharedInstance = nullptr;
-@implementation ScreensManagerOBJC
+@implementation ScreensManagerOBJC {
+}
 
 + (instancetype)shared {
     static ScreensManagerOBJC *sharedInstance = nullptr;
@@ -203,6 +174,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 - (MainViewController *)mainViewController {
     if (!_mainViewController) {
         UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        self.navigationController = navigationController;
         [navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"]]];
         _mainViewController = [_storyboard instantiateInitialViewController];
         _mainViewController.rootViewController = navigationController;
@@ -237,6 +209,62 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 
 - (void)setupViewControllers {
     [self mainViewController];
+}
+
+- (void)showWelcomeViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WelcomeViewController"
+                                                         bundle: nil];
+    UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                                             instantiateViewControllerWithIdentifier:@"navigationController"];
+    WelcomeViewController *viewController = (WelcomeViewController *)navigationController.topViewController;
+    viewController.viewModel = impl_->viewModels()->helloScreenViewModel();
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setViewControllers:@[viewController]];
+    
+    /*
+    UINavigationController *createWelcomeNavigationController() {
+        
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+     
+         UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
+         if ([navController isKindOfClass:[UINavigationController class]]) {
+         CGRect frame = navController.view.bounds;
+         frame.origin.y = frame.size.height;
+         viewController.view.frame = frame;
+         [navController.view addSubview:viewController.view];
+         [viewController didMoveToParentViewController:navController];
+         frame.origin.y = 0.f;
+         viewController.view.frame = frame;
+         [viewController lockSelf];
+         }
+         else {
+         delegate.window.rootViewController = navigationController;
+         }
+     
+    }
+    UINavigationController *navigationController = createWelcomeNavigationController();
+     */
+}
+
+- (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController" bundle:nil];
+    UINavigationController *navigationController =(UINavigationController *)[storyboard
+    instantiateViewControllerWithIdentifier:@"navigationController"];
+    UIPageViewController *pageViewController = (UIPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HoroscopesPageViewController"];
+    PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
+    viewController.horoscopesPageViewController = pageViewController;
+    viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
+    if (push) {
+        viewController.hideMenuButton = YES;
+    }
+    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.viewControllers = @[viewController];
+}
+
+- (void)showMenuViewController {
+    [self.mainViewController showLeftViewAnimated:YES completionHandler:^{
+        DDLogInfo(@"dlog");
+    }];
 }
 
 @end

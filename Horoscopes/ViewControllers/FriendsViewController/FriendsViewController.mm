@@ -106,6 +106,9 @@ using namespace horo;
                                                                                                NSForegroundColorAttributeName:[UIColor whiteColor] }];
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     [self.tableView addSubview:_headerView];
+    
+    self.automaticallyAdjustsScrollViewInsets = true;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

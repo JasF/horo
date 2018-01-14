@@ -12,7 +12,10 @@
 #import "UIView+Horo.h"
 #include <string>
 
-
+typedef NS_ENUM(NSInteger, WebViewResponseType) {
+    WebViewResponseActionCallback,
+    WebViewResponseDidFinishNotification
+};
 
 static CGFloat const kCyclicSwipeDuration = 0.8f;
 
@@ -29,6 +32,7 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 @property (strong, nonatomic) NSString *cachedPageContent;
 @property (assign, nonatomic) BOOL dialogPresented;
 @property (strong, nonatomic) WKNavigation *currentNavigationRequest;
+@property (assign, nonatomic) WebViewResponseType responseType;
 @end
 
 @implementation WebViewControllerImpl
@@ -51,6 +55,7 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
         _webView = [_dialog webView];
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
+        _responseType = WebViewResponseDidFinishNotification;
     }
     return self;
 }
@@ -104,6 +109,11 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     DDLogDebug(@"didFinishNavigation: %@", webView.URL);
+    if (navigation != _currentNavigationRequest) {
+        return;
+    }
+    
+    [self handleResponseWithURL:webView.URL force:YES];
 }
 
 - (void)showDialog {
@@ -135,9 +145,17 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
     DDLogInfo(@"decidePolicyForNavigationResponse: %@", navigationResponse.response.URL);
     NSURL *url = navigationResponse.response.URL;
+    [self handleResponseWithURL:url force:NO];
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+- (void)handleResponseWithURL:(NSURL *)url force:(BOOL)force {
     BOOL needsShowDialog = NO;
     if ([_delegate respondsToSelector:@selector(webViewController:webViewDidLoad:)]) {
         needsShowDialog = [_delegate webViewController:self webViewDidLoad:url];
+    }
+    if (needsShowDialog && !force) {
+        return;
     }
     
     if (!_dialogPresented && needsShowDialog) {
@@ -147,8 +165,8 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
         [self hideDialog];
     }
     [self performSuccessCallback:YES];
-    DDLogInfo(@"decidePolicyForNavigationResponse: %@; webViewURL: %@; _dialogPresented: %@; needsShowDialog: %@", url, webView.URL, @(_dialogPresented), @(needsShowDialog));
-    decisionHandler(WKNavigationResponsePolicyAllow);
+    DDLogInfo(@"handleResponseWithURL: %@; webViewURL: %@; _dialogPresented: %@; needsShowDialog: %@", url, _webView.URL, @(_dialogPresented), @(needsShowDialog));
+    
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {

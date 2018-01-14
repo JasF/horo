@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     DDLogInfo(@"viewDidLoad");
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+  
     _webView = [[WKWebView alloc] initWithFrame:CGRectZero];
     [_containerView horo_addFillingSubview:_webView];
     self.navigationController.navigationBar.translucent = YES;

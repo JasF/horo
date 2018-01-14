@@ -4179,7 +4179,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "src/swift/Horoscopes-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -4224,7 +4224,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Lucky Horoscopes AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "src/swift/Horoscopes-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

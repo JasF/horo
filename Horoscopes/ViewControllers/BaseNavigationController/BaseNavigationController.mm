@@ -50,7 +50,8 @@ using namespace horo;
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self.view sendSubviewToBack:_backgroundView];
-    _backgroundView.frame = self.view.bounds;
+    CGRect frame = self.view.bounds;
+    _backgroundView.frame = frame;
 }
 
 #pragma mark - Public Methods

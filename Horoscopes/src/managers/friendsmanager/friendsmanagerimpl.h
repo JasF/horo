@@ -35,7 +35,7 @@ namespace horo {
         void cancelLoading() override;
         bool webViewDidLoad(std::string url) override;
         set<strong<Person>> readFacebookFriendsFromDatabase() override;
-        void updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) override;
+        void updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback, void *webViewControllerUIDelegate) override;
         
     private:
         strong<FriendsProvider> friendsProvider();

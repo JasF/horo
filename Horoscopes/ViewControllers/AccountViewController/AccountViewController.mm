@@ -47,6 +47,9 @@ static CGFloat const kAvatarAlphaWithImage = 1.f;
     };
     self.navigationItem.title = L(@"account");
     _avatarImageView.layer.cornerRadius = _avatarImageView.height/2;
+    if (@available (iOS 11, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    }
 }
 
 - (void)dealloc {

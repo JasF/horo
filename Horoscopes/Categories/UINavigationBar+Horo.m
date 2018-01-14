@@ -12,11 +12,21 @@
 
 #pragma mark - Public Methods
 - (void)horo_makeWhiteAndTransparent {
+    [self horo_makeWhite];
+    self.backgroundColor = [UIColor clearColor];
     [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.shadowImage = [UIImage new];
+}
+
+- (void)horo_makeWhite {
     self.opaque = YES;
     self.translucent = YES;
-    self.backgroundColor = [UIColor clearColor];
+    [self setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    if (@available (iOS 11, *)) {
+        self.largeTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    }
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[ [UISearchBar class] ]]
+     setTintColor:[UIColor whiteColor]];
     [self setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     if (@available (iOS 11, *)) {
         self.largeTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};

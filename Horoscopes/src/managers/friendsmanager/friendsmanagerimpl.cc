@@ -63,7 +63,7 @@ void FriendsManagerImpl::birthdayUpdated(strong<Person> person,
     personDAO_->writePerson(person);
 }
 
-void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback) {
+void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, std::function<void(bool success)> callback, void *webViewControllerUIDelegate) {
     SCParameterAssert(person.get());
     std::function<void(DateWrapper birthday, bool success)> safeCompletion = [this, person, callback](DateWrapper birthday, bool success) {
         birthdayUpdated(person, birthday, success, callback);
@@ -76,7 +76,7 @@ void FriendsManagerImpl::updateUserInformationForPerson(strong<Person> person, s
         }
         return;
     }
-    provider_->requestUserInformation(person->personUrl(), safeCompletion);
+    provider_->requestUserInformation(person->personUrl(), safeCompletion, webViewControllerUIDelegate);
 }
 
 bool FriendsManagerImpl::webViewDidLoad(std::string url) {

@@ -162,7 +162,9 @@ static CGFloat const kFriendCellHeight = 65.f;
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     }
     else {
-        [self.navigationController.navigationBar horo_makeWhiteAndTransparent];
+        if (@available (iOS 11, *)) {
+            self.navigationController.navigationBar.prefersLargeTitles = NO;
+        }
     }
     // Do any additional setup after loading the view.
 }

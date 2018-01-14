@@ -16,6 +16,7 @@
 
 static CGFloat const kActiveCancelSwipingDelay = 5.f;
 static CGFloat const kInitialCancelSwipingDelay = 15.f;
+static CGFloat const kHeaderViewHeight = 50.f;
 
 @interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
@@ -56,6 +57,7 @@ using namespace horo;
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     if (@available(iOS 11, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         self.navigationItem.searchController = self.searchController;
@@ -106,6 +108,7 @@ using namespace horo;
                                                                                                NSForegroundColorAttributeName:[UIColor whiteColor] }];
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     [self.tableView addSubview:_headerView];
+    [self.navigationController.navigationBar horo_makeWhite];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -180,7 +183,7 @@ using namespace horo;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return (_headerView.hidden) ? 0.f : _headerView.height;
+    return (_headerView.hidden) ? 0.f : kHeaderViewHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

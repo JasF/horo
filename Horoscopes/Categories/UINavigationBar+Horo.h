@@ -10,4 +10,5 @@
 
 @interface UINavigationBar (Horo)
 - (void)horo_makeWhiteAndTransparent;
+- (void)horo_makeWhite;
 @end

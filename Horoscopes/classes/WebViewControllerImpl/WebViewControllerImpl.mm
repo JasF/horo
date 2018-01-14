@@ -150,12 +150,12 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 }
 
 - (void)handleResponseWithURL:(NSURL *)url force:(BOOL)force {
+    if (!force) {
+        return;
+    }
     BOOL needsShowDialog = NO;
     if ([_delegate respondsToSelector:@selector(webViewController:webViewDidLoad:)]) {
         needsShowDialog = [_delegate webViewController:self webViewDidLoad:url];
-    }
-    if (needsShowDialog && !force) {
-        return;
     }
     
     if (!_dialogPresented && needsShowDialog) {

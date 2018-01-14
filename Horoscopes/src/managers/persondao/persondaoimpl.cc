@@ -133,7 +133,7 @@ namespace horo {
         }
         Json::Value parameters = person->encoded();
         parameters["id"] = rowid;
-        
+        /*
         Json::Value idParameter;
         idParameter["id"] = rowid;
         strong<ResultSet> resultSet = database_->executeQuery(kPersonsSQLSelectById, idParameter);
@@ -144,7 +144,7 @@ namespace horo {
                 return false;
             }
         }
-        
+        */
         bool result = database_->executeUpdate(kPersonsSQLUpdate, parameters);
         return result;
     }

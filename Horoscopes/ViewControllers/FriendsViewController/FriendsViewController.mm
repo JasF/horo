@@ -56,6 +56,7 @@ using namespace horo;
     _searchController.searchResultsUpdater = self;
     [_searchController.searchBar sizeToFit];
     _searchController.searchBar.backgroundImage = [[UIImage alloc] init];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     if (@available(iOS 11, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
         self.navigationItem.searchController = self.searchController;
@@ -106,6 +107,7 @@ using namespace horo;
                                                                                                NSForegroundColorAttributeName:[UIColor whiteColor] }];
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     [self.tableView addSubview:_headerView];
+    [self.navigationController.navigationBar horo_makeWhite];
     
     self.automaticallyAdjustsScrollViewInsets = true;
     self.edgesForExtendedLayout = UIRectEdgeNone;

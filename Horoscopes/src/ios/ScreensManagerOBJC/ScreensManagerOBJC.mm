@@ -230,11 +230,14 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
     viewController.horoscopesPageViewController = pageViewController;
     viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
+    [self.navigationController setNavigationBarHidden:NO];
     if (push) {
         viewController.hideMenuButton = YES;
+        [self.navigationController pushViewController:viewController animated:YES];
     }
-    [self.navigationController setNavigationBarHidden:NO];
-    self.navigationController.viewControllers = @[viewController];
+    else {
+        self.navigationController.viewControllers = @[viewController];
+    }
 }
 
 - (void)showMenuViewController {

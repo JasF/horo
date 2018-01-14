@@ -28,6 +28,7 @@ static NSInteger const kNumberOfRowsInComponents = 24;
         return;
     }
     [_pickerView selectRow:pushTime inComponent:0 animated:NO];
+    [self.navigationController.navigationBar horo_makeWhite];
 }
 
 #pragma mark - UIPickerViewDataSource

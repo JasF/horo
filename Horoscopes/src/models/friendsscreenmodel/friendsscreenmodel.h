@@ -31,10 +31,11 @@ namespace horo {
         virtual void personSelected(strong<Person> person) = 0;
         
     public:
-        std::function<void(std::string url, std::vector<std::string> allowedPatterns)> authorizationUrlCallback_ = nullptr;
-        std::function<void(set<strong<Person>> friends)> friendsUpdatedCallback_ = nullptr;
-        std::function<void(strong<Person> person)> personStateChangedCallback_ = nullptr;
-        std::function<void(strong<Person> person, bool closeAlert)> serialRequestAlertViewControllerCallback_ = nullptr;
+        function<void(string url, vector<string> allowedPatterns)> authorizationUrlCallback_ = nullptr;
+        function<void(set<strong<Person>> friends)> friendsUpdatedCallback_ = nullptr;
+        function<void(strong<Person> person)> personStateChangedCallback_ = nullptr;
+        function<void(strong<Person> person, bool closeAlert)> serialRequestAlertViewControllerCallback_ = nullptr;
+        function<void *()> webViewControllerUICalback_ = nullptr;
     };
     
     typedef reff<_FriendsScreenModel> FriendsScreenModel;

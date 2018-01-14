@@ -33,7 +33,7 @@ namespace horo {
         }
         ~FacebookFriendsProvider() override {}
     public:
-        void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion) override;
+        void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion, void *webViewControllerUIDelegate) override;
         void cancelRequest() override;
         bool webViewDidLoad(std::string url) override;
         void requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) override;
@@ -74,6 +74,7 @@ namespace horo {
         strong<TimerFactory> timerFactory_;
         strong<RungTimer> responseTimeoutTimer_;
         function<void(WebViewServiceMessages message)> serviceBlock_;
+        void *webViewControllerUIDelegate_;
     };
 };
 

@@ -107,16 +107,13 @@
     strong<horo::ScreensManager> screensManager = horo::Managers::shared().screensManager();
     [[ScreensManagerOBJC shared] setupViewControllers];
     
-    screensManager->showWelcomeViewController();
-    /*
     if (person.get()) {
         screensManager->showPredictionViewController();
     }
     else {
-        screensManager->showMenuViewController(false);
+        //screensManager->showMenuViewController(false);
         screensManager->showWelcomeViewController();
     }
-     */
 }
 
 #pragma mark - FIRMessagingDelegate

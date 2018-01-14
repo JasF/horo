@@ -23,8 +23,7 @@
     [self doLoading];
 }
 + (void)doLoading {
-    NSArray *array = @[[UIViewControllerInjector class],
-                       [DatabaseObjc class],
+    NSArray *array = @[[DatabaseObjc class], // Must be first
                        [SerializerObjc class],
                        [FirestoreObjc class],
                        [FacebookBanagerObjc class],
@@ -32,7 +31,9 @@
                        [WebViewServiceFactoryObjc class],
                        [NotificationsObjc class],
                        [NtpObjc class],
-                       [TimerFactoryObjc class]];
+                       [TimerFactoryObjc class],
+                       [UIViewControllerInjector class],
+                       ];
     for (Class cls in array) {
         NSCAssert([cls respondsToSelector:@selector(doLoading)], @"Unknown classObjc: %@", cls);
         if ([cls respondsToSelector:@selector(doLoading)]) {

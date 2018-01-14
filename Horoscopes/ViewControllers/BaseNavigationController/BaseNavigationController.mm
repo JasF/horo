@@ -18,6 +18,7 @@ using namespace horo;
 
 @interface BaseNavigationController () <UINavigationControllerDelegate>
 @property (assign, nonatomic) strong<ThemesManager> themesManager;
+@property (strong, nonatomic) BackgroundView *backgroundView;
 @end
 
 @implementation BaseNavigationController
@@ -25,11 +26,14 @@ using namespace horo;
 - (void)viewDidLoad {
     _themesManager = Managers::shared().themesManager();
     NSCParameterAssert(_themesManager.get());
+    
+    self.view.backgroundColor = [UIColor greenColor];
+    
+    
     [super viewDidLoad];
-    self.delegate = self;
-    BackgroundView *backgroundView = [BackgroundView new];
-    [self.view horo_addFillingSubview:backgroundView];
-    [self.view sendSubviewToBack:backgroundView];
+ //   self.delegate = self;
+    _backgroundView = [BackgroundView new];
+    [self.view addSubview:_backgroundView];
     self.navigationBar.translucent = YES;
 }
 
@@ -40,6 +44,12 @@ using namespace horo;
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self.view sendSubviewToBack:_backgroundView];
+    _backgroundView.frame = self.view.bounds;
 }
 
 #pragma mark - UINavigationControllerDelegate

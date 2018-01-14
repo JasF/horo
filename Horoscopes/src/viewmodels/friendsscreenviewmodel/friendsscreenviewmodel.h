@@ -33,6 +33,7 @@ namespace horo {
         std::function<void(set<strong<Person>> friends)> friendsUpdatedCallback_ = nullptr;
         std::function<void(strong<Person> person)> personStateChangedCallback_ = nullptr;
         std::function<void(strong<Person> person, bool closeAlert)> serialRequestAlertViewControllerCallback_ = nullptr;
+        function<void *()> webViewControllerUICalback_ = nullptr;
     };
     
     typedef reff<_FriendsScreenViewModel> FriendsScreenViewModel;

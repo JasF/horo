@@ -19,8 +19,9 @@ namespace horo {
   
 void FacebookFriendsProvider::requestFriendsList(std::function<void(Json::Value friends,
                                                                     std::string nextUrl,
-                                                                    RequestStatus status)> completion) {
+                                                                    RequestStatus status)> completion, void *webViewControllerUIDelegate) {
     callback_ = completion;
+    webViewControllerUIDelegate_ = webViewControllerUIDelegate;
     executeHomePageRequest();
 }
     
@@ -140,7 +141,7 @@ void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
             if (serviceBlock_) {
                 serviceBlock_(message);
             }
-        });
+        }, webViewControllerUIDelegate_);
     }
 }
 

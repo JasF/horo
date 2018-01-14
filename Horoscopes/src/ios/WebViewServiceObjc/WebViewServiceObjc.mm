@@ -30,17 +30,22 @@ WebViewServiceObjc::~WebViewServiceObjc() {
 void WebViewServiceObjc::beginRequest(string path,
                                       function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                       function<void(error err)> failBlock,
-                                      function<void(WebViewServiceMessages message)> serviceBlock) {
+                                      function<void(WebViewServiceMessages message)> serviceBlock,
+                                      void *webViewControllerUIDelegate) {
     
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
     NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
     NSString *urlString = [baseUrl stringByAppendingString:pathString];
-    [[Controllers shared].webViewController loadURLWithPath:[NSURL URLWithString:urlString]
-                                                 completion:^(NSString *html, NSURL *url, NSError *error) {
+    
+    id delegate = (__bridge id)webViewControllerUIDelegate;
+    id<WebViewController> webViewController = [Controllers shared].webViewController;
+    [webViewController setUIDelegate:delegate];
+    [webViewController loadURLWithPath:[NSURL URLWithString:urlString]
+                            completion:^(NSString *html, NSURL *url, NSError *error) {
                                                      NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
                                                      requestCompleted(url, data, successBlock, failBlock);
                                                  }
-                                               serviceBlock:^(WebViewServiceMessages message) {
+                          serviceBlock:^(WebViewServiceMessages message) {
                                                    if (serviceBlock) {
                                                        serviceBlock(message);
                                                    }

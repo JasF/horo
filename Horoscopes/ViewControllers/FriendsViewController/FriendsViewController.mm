@@ -41,13 +41,8 @@ using namespace std;
 using namespace horo;
 
 @implementation FriendsViewController
-- (void)dealloc {
-    [_webViewController setUIDelegate:nil];
-}
-
 - (void)viewDidLoad {
     NSCParameterAssert(_viewModel);
-    NSCParameterAssert(_webViewController);
     [super viewDidLoad];
     [self updateAllFriends];
     self.navigationItem.title = L(self.navigationItem.title);
@@ -100,12 +95,16 @@ using namespace horo;
             [self showAlertController:[PersonObjc personWithPerson:person]];
         }
     };
+    _viewModel->webViewControllerUICalback_ = [self_weak_]() {
+        @strongify(self);
+        void *pointer = (__bridge void *)self;
+        return pointer;
+    };
     _headerView.hidden = YES;
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:L(@"cancel")
                                                                                   attributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle), NSBackgroundColorAttributeName:[UIColor clearColor],
                                                                                                NSForegroundColorAttributeName:[UIColor whiteColor] }];
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
-    [_webViewController setUIDelegate:self];
     [self.tableView addSubview:_headerView];
 }
 

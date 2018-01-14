@@ -39,6 +39,12 @@ namespace horo {
                 this->serialRequestAlertViewControllerCallback_(person, closeAlert);
             }
         };
+        model->webViewControllerUICalback_ = [this]() {
+            if (this->webViewControllerUICalback_) {
+                return this->webViewControllerUICalback_();
+            }
+            return(void *)nullptr;
+        };
     }
     
     FriendsScreenViewModelImpl::~FriendsScreenViewModelImpl() {

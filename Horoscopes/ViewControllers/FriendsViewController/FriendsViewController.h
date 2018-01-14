@@ -4,5 +4,4 @@
 
 @interface FriendsViewController : FriendsBaseViewController
 @property (assign, nonatomic) strong<horo::FriendsScreenViewModel> viewModel;
-@property (strong, nonatomic) id<WebViewController> webViewController;
 @end

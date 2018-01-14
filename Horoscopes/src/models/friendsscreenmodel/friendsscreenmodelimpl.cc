@@ -41,7 +41,10 @@ namespace horo {
     }
     
     void FriendsScreenModelImpl::updateFriendsFromFacebook() {
-        friendsManager_->loadFacebookFriends();
+        SCAssert(webViewControllerUICalback_, "callback must be declared");
+        void *delegate = webViewControllerUICalback_();
+        SCAssert(delegate, "delegate must be non nil");
+        friendsManager_->loadFacebookFriends(delegate);
     }
     
     void FriendsScreenModelImpl::cancelOperation(enum CancelTypes type) {

@@ -9,7 +9,7 @@
 #include "persondaoimpl.h"
 #include "data/url.h"
 
-static const char * kSQLCreate = ""\
+static const char * kPersonsSQLCreate = ""\
 "CREATE TABLE IF NOT EXISTS persons ("\
 "id INTEGER PRIMARY KEY AUTOINCREMENT, "\
 "name TEXT, "\
@@ -24,14 +24,14 @@ static const char * kSQLCreate = ""\
 "uniqueIdentifier STRING"\
 ");";
 
-static const char * kSQLSelect = ""\
+static const char * kPersonsSQLSelect = ""\
 "SELECT "\
 "id "\
 "FROM "\
 "persons "\
 "WHERE uniqueIdentifier = :uniqueIdentifier;";
 
-static const char * kSQLSelectById = ""\
+static const char * kPersonsSQLSelectById = ""\
 "SELECT "\
 "* "\
 "FROM "\
@@ -39,7 +39,7 @@ static const char * kSQLSelectById = ""\
 "WHERE id = :id;";
 
 
-static const char * kSQLReadFacebookFriends = ""\
+static const char * kPersonsSQLReadFacebookFriends = ""\
 "SELECT "\
 "* "\
 "FROM "\
@@ -47,7 +47,7 @@ static const char * kSQLReadFacebookFriends = ""\
 "WHERE withFacebook != 0 AND type = 2 "
 "ORDER BY name;"; // type=2 means friend (1==user, 0==unknown)
 
-static const char * kSQLUpdate = ""\
+static const char * kPersonsSQLUpdate = ""\
 "UPDATE "\
 "persons "\
 "SET "\
@@ -64,7 +64,7 @@ static const char * kSQLUpdate = ""\
 "WHERE "\
 "id = :id;";
 
-static const char * kSQLInsert = ""\
+static const char * kPersonsSQLInsert = ""\
 "INSERT INTO "\
 "persons ("\
 "name, "\
@@ -103,19 +103,19 @@ namespace horo {
         
         Json::Value value = person->encoded();
         LOG(LS_WARNING) << "value: " << value.toStyledString();
-        strong<ResultSet> resultSet = database_->executeQuery(kSQLSelect, value);
-        if (resultSet->next()) {
+        strong<ResultSet> resultSet = database_->executeQuery(kPersonsSQLSelect, value);
+        if (resultSet.get() && resultSet->next()) {
             int rowid = resultSet->intForColumn("id");
             return update(person, rowid);
         }
-        bool result = database_->executeUpdate(kSQLInsert, value);
+        bool result = database_->executeUpdate(kPersonsSQLInsert, value);
         return result;
     }
     
     set<strong<Person>> PersonDAOImpl::readFacebookFriends() {
         set<strong<Person>> result;
-        strong<ResultSet> resultSet = database_->executeQuery(kSQLReadFacebookFriends);
-        while (resultSet->next()) {
+        strong<ResultSet> resultSet = database_->executeQuery(kPersonsSQLReadFacebookFriends);
+        while (resultSet.get() && resultSet->next()) {
             strong<Person> fbFriend = resultSetToJsonValue<Person>(resultSet);
             result.insert(fbFriend);
         }
@@ -123,7 +123,7 @@ namespace horo {
     }
     
     void PersonDAOImpl::create() {
-        bool result = database_->executeUpdate(kSQLCreate);
+        bool result = database_->executeUpdate(kPersonsSQLCreate);
         LOG(LS_INFO) << "creation persons result is: " << result;
     }
     
@@ -136,8 +136,8 @@ namespace horo {
         
         Json::Value idParameter;
         idParameter["id"] = rowid;
-        strong<ResultSet> resultSet = database_->executeQuery(kSQLSelectById, idParameter);
-        if (resultSet->next()) {
+        strong<ResultSet> resultSet = database_->executeQuery(kPersonsSQLSelectById, idParameter);
+        if (resultSet.get() && resultSet->next()) {
             strong<Person> fbFriend = resultSetToJsonValue<Person>(resultSet);
             if (fbFriend->status() == StatusCompleted ||
                 fbFriend->status() == StatusFailed) {
@@ -145,7 +145,7 @@ namespace horo {
             }
         }
         
-        bool result = database_->executeUpdate(kSQLUpdate, parameters);
+        bool result = database_->executeUpdate(kPersonsSQLUpdate, parameters);
         return result;
     }
 };

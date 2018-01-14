@@ -31,7 +31,7 @@ namespace horo {
         ~FriendsManagerImpl() override {}
     
     public:
-        void loadFacebookFriends() override;
+        void loadFacebookFriends(void *webViewControllerUIDelegate) override;
         void cancelLoading() override;
         bool webViewDidLoad(std::string url) override;
         set<strong<Person>> readFacebookFriendsFromDatabase() override;

@@ -60,6 +60,7 @@ static CGFloat const kAnimationDuration = 50.f;
                                                        constant:0.f]];
         [self addConstraints:array];
     }
+    self.backgroundColor = [UIColor yellowColor];
     _imageView.image = [UIImage imageNamed:@"bg-cyclic"];
 }
 
@@ -73,6 +74,7 @@ static CGFloat const kAnimationDuration = 50.f;
     if (seed != self.animationSeed) {
         return;
     }
+    /*
     [self.layer removeAllAnimations];
     self.imageView.xOrigin = 0.f;
     @weakify(self);
@@ -84,5 +86,7 @@ static CGFloat const kAnimationDuration = 50.f;
         self.imageView.xOrigin = 0.f;
         [self doAnimation:seed];
     }];
+     */
 }
+
 @end

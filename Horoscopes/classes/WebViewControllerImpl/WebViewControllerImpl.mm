@@ -14,7 +14,7 @@
 
 
 
-static CGFloat const kCyclicSwipeDuration = 0.8f;
+static CGFloat const kCyclicSwipeDuration = 0.5f;
 
 @interface WebViewControllerImpl () <WKUIDelegate, WKNavigationDelegate>
 @property (nonatomic, copy) void (^webViewDidLoadCompletion)(NSString *html, NSURL *url, NSError *error);

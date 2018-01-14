@@ -20,7 +20,7 @@ namespace horo {
         void beginRequest(string path,
                           function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                           function<void(error err)> failBlock,
-                          function<void(WebViewServiceMessages message)> serviceBlock) override;
+                          function<void(WebViewServiceMessages message)> serviceBlock, void *webViewControllerUIDelegate) override;
         void swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) override;
         void cancel() override;
         

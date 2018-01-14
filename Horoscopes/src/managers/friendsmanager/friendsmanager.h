@@ -18,7 +18,7 @@ namespace horo {
     public:
         virtual ~_FriendsManager(){}
     public:
-        virtual void loadFacebookFriends()=0;
+        virtual void loadFacebookFriends(void *webViewControllerUIDelegate)=0;
         virtual void cancelLoading()=0;
         virtual bool webViewDidLoad(std::string url)=0;
         virtual set<strong<Person>> readFacebookFriendsFromDatabase()=0;

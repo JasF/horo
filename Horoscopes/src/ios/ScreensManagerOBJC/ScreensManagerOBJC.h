@@ -21,4 +21,5 @@
 - (void)showWelcomeViewController;
 - (void)showPredictionViewController;
 - (void)showMenuViewController;
+- (void)showAccountViewController;
 @end

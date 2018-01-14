@@ -21,6 +21,8 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+static NSInteger const kSlideMenuActivationMode = 8;
+
 @interface ScreensManagerOBJC () {
 @public
     horo::ScreensManagerImpl *impl_;
@@ -31,6 +33,9 @@
 @property (nonatomic, strong) UINavigationController *navigationController;
 
 - (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push;
+- (void)showNotificationsViewController;
+- (void)showFriendsViewController;
+- (void)showAccountViewController;
 @end
 
 static NSString *kStoryboardName = @"Main";
@@ -61,11 +66,6 @@ namespace horo {
         }
         void showMenuViewController(bool animated) override {
             [[ScreensManagerOBJC shared] showMenuViewController];
-            /*
-            UINavigationController *navigationController = createMenuNavigationController();
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate.window.rootViewController = navigationController;
-             */
         }
         
         UINavigationController *createMenuNavigationController() {
@@ -80,27 +80,11 @@ namespace horo {
         }
         
         void showTableSearch() {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
-                                                                 bundle: nil];
-            
-            UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                                                     instantiateViewControllerWithIdentifier:@"RootNavController"];
-            FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
-            viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
-            viewController.webViewController = [Controllers shared].webViewController;
-            
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate.window.rootViewController = navigationController;
+            [[ScreensManagerOBJC shared] showFriendsViewController];
         }
         
         void showAccountViewController() override {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AccountViewController"
-                                                                 bundle: nil];
-            UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
-            AccountViewController *accountViewController = (AccountViewController *)navigationController.topViewController;
-            accountViewController.viewModel = impl_->viewModels()->accountScreenViewModel();
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate.window.rootViewController = navigationController;
+            [[ScreensManagerOBJC shared] showAccountViewController];
         }
         
         void showFriendsViewController() override {
@@ -111,18 +95,11 @@ namespace horo {
         }
         
         void showFeedViewController() override {
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            [[FeedbackManager shared] showFeedbackController:delegate.window.rootViewController];
+            [[FeedbackManager shared] showFeedbackController:[ScreensManagerOBJC shared].window.rootViewController];
         }
         
         void showNotificationsViewController() override {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NotificationsViewController"
-                                                                 bundle:nil];
-            UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
-            NotificationsViewController *viewController = (NotificationsViewController *)navigationController.topViewController;
-            viewController.viewModel = impl_->viewModels()->notificationsScreenViewModel();
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate.window.rootViewController = navigationController;
+            [[ScreensManagerOBJC shared] showNotificationsViewController];
         }
         
         void showPushTimeViewController() override {
@@ -130,8 +107,7 @@ namespace horo {
                                                                  bundle:nil];
             PushTimeViewController *viewController = (PushTimeViewController *)[storyboard instantiateViewControllerWithIdentifier:@"viewController"];
             viewController.viewModel = impl_->viewModels()->pushTimeScreenViewModel();
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UINavigationController *navigationController =(UINavigationController *)delegate.window.rootViewController;
+            UINavigationController *navigationController =[ScreensManagerOBJC shared].navigationController;
             [navigationController pushViewController:viewController animated:YES];
         }
         
@@ -179,7 +155,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
         _mainViewController = [_storyboard instantiateInitialViewController];
         _mainViewController.rootViewController = navigationController;
        // [_mainViewController.leftViewController.navigationController setNavigationBarHidden:YES animated:NO];
-        [_mainViewController setupWithType:0];
+        [_mainViewController setupWithType:kSlideMenuActivationMode];
         self.window.rootViewController = _mainViewController;
     }
     return _mainViewController;
@@ -265,6 +241,39 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     [self.mainViewController showLeftViewAnimated:YES completionHandler:^{
         DDLogInfo(@"dlog");
     }];
+}
+
+- (void)showNotificationsViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NotificationsViewController"
+                                                         bundle:nil];
+    UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
+    NotificationsViewController *viewController = (NotificationsViewController *)navigationController.topViewController;
+    viewController.viewModel = impl_->viewModels()->notificationsScreenViewModel();
+    
+    self.navigationController.viewControllers = @[viewController];
+    [self.mainViewController hideLeftViewAnimated];
+}
+
+- (void)showFriendsViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
+                                                     bundle: nil];
+
+    UINavigationController *navigationController =(UINavigationController *)[storyboard
+                                                                         instantiateViewControllerWithIdentifier:@"RootNavController"];
+    FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
+    viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
+    self.navigationController.viewControllers = @[viewController];
+    [self.mainViewController hideLeftViewAnimated];
+}
+
+- (void)showAccountViewController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AccountViewController"
+                                                         bundle: nil];
+    UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
+    AccountViewController *accountViewController = (AccountViewController *)navigationController.topViewController;
+    accountViewController.viewModel = impl_->viewModels()->accountScreenViewModel();
+    self.navigationController.viewControllers = @[accountViewController];
+    [self.mainViewController hideLeftViewAnimated];
 }
 
 @end

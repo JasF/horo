@@ -16,7 +16,7 @@ strong<FriendsProvider> FriendsManagerImpl::friendsProvider() {
     return provider;
 }
     
-void FriendsManagerImpl::loadFacebookFriends() {
+void FriendsManagerImpl::loadFacebookFriends(void *webViewControllerUIDelegate) {
     LOG(LS_ERROR) << "ACHTUNG SUPERSTRONG RETAIN CYCLE (DOUBLE-CLOSE-LOCK)";
     strong<FriendsManagerImpl> aThis = this;
     std::function<void(Json::Value friends, std::string url, FriendsProvider::RequestStatus status)> safeCompletion = [aThis](Json::Value friends, std::string url, FriendsProvider::RequestStatus status) {
@@ -41,7 +41,7 @@ void FriendsManagerImpl::loadFacebookFriends() {
             }
         }
     };
-    provider_->requestFriendsList(safeCompletion);
+    provider_->requestFriendsList(safeCompletion, webViewControllerUIDelegate);
 }
     
 void FriendsManagerImpl::cancelLoading() {

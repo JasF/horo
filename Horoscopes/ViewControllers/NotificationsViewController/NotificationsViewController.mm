@@ -37,6 +37,9 @@ typedef NS_ENUM(NSInteger, RowsCount) {
     _enablePushesCell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.navigationItem.title = L(@"notifications");
     _swither.on = !_viewModel->notificationsDisabled();
+    if (@available (iOS 11, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    }
 }
 
 - (void)dealloc {

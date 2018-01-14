@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @class MainViewController;
+@class BaseNavigationController;
 
 @interface ScreensManagerOBJC : NSObject
 @property (nonatomic, readonly) MainViewController *mainViewController;
 @property (nonatomic, readonly) UIWindow *window;
-@property (nonatomic, readonly) UINavigationController *navigationController;
+@property (nonatomic, readonly) BaseNavigationController *navigationController;
 + (UINavigationController *)createMenuNavigationController;
 + (instancetype)shared;
 - (MainViewController *)mainViewController;

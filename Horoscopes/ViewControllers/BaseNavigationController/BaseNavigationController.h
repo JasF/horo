@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseNavigationController : UINavigationController
-
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(dispatch_block_t)completion;
 @end

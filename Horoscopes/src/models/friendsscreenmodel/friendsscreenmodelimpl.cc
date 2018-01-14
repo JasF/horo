@@ -44,6 +44,9 @@ namespace horo {
         SCAssert(webViewControllerUICalback_, "callback must be declared");
         void *delegate = webViewControllerUICalback_();
         SCAssert(delegate, "delegate must be non nil");
+        if (!delegate) {
+            return;
+        }
         friendsManager_->loadFacebookFriends(delegate);
     }
     
@@ -78,6 +81,13 @@ namespace horo {
         if (!person.get()) {
             return;
         }
+        SCAssert(webViewControllerUICalback_, "callback must be declared");
+        void *delegate = webViewControllerUICalback_();
+        SCAssert(delegate, "delegate must be non nil");
+        if (!delegate) {
+            return;
+        }
+        
         if (person->status() == StatusCompleted) {
             showPersonViewController(person);
         }
@@ -105,7 +115,7 @@ namespace horo {
                 if (this->currentPerson_ == person) {
                     this->currentPerson_ = nullptr;
                 }
-            });
+            }, delegate);
         }
         else if (person->status() == StatusFailed) {
             LOG(LS_ERROR) << "Show error message about unknown birthday date";

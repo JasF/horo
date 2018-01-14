@@ -9,6 +9,7 @@
 #include "managers/screensmanager/screensmanagerimpl.h"
 #import "NotificationsViewController.h"
 #import "PredictionViewController.h"
+#import "BaseNavigationController.h"
 #import "PushTimeViewController.h"
 #import "AccountViewController.h"
 #import "WelcomeViewController.h"
@@ -17,6 +18,7 @@
 #include "managers/managers.h"
 #import "MenuViewController.h"
 #import "FeedbackManager.h"
+#import "ViewController.h"
 #import "Controllers.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
@@ -30,7 +32,7 @@ static NSInteger const kSlideMenuActivationMode = 8;
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) UIStoryboard *storyboard;
 @property (nonatomic, strong) MainViewController *mainViewController;
-@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) BaseNavigationController *navigationController;
 
 - (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push;
 - (void)showNotificationsViewController;
@@ -58,7 +60,7 @@ namespace horo {
         }
         
         void showPredictionViewController() override {
-            showPredictionViewController(nullptr);
+            showPredictionViewController(Managers::shared().coreComponents()->person_);
         }
         
         void showWelcomeViewController() override {
@@ -195,34 +197,34 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     WelcomeViewController *viewController = (WelcomeViewController *)navigationController.topViewController;
     viewController.viewModel = impl_->viewModels()->helloScreenViewModel();
     [self.navigationController setNavigationBarHidden:YES];
-    [self.navigationController setViewControllers:@[viewController]];
-    
-    /*
-    UINavigationController *createWelcomeNavigationController() {
-        
-        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-     
-         UINavigationController *navController = (UINavigationController *)delegate.window.rootViewController;
-         if ([navController isKindOfClass:[UINavigationController class]]) {
-         CGRect frame = navController.view.bounds;
-         frame.origin.y = frame.size.height;
-         viewController.view.frame = frame;
-         [navController.view addSubview:viewController.view];
-         [viewController didMoveToParentViewController:navController];
-         frame.origin.y = 0.f;
-         viewController.view.frame = frame;
-         [viewController lockSelf];
-         }
-         else {
-         delegate.window.rootViewController = navigationController;
-         }
-     
+    [self pushViewController:viewController];
+}
+
+- (BOOL)canIgnorePushingViewController:(Class)cls person:(strong<horo::Person>)person {
+    if ([[self.navigationController.topViewController class] isEqual:[PredictionViewController class]] && [cls isEqual:[PredictionViewController class]]) {
+        PredictionViewController *viewController =(PredictionViewController *)self.navigationController.topViewController;
+        if (viewController.viewModel->model()->zodiac()->type() == person->zodiac()->type()) {
+            if (self.mainViewController.isLeftViewVisible) {
+                [self.mainViewController hideLeftViewAnimated];
+            }
+            return YES;
+        }
     }
-    UINavigationController *navigationController = createWelcomeNavigationController();
-     */
+    else if ([[self.navigationController.topViewController class] isEqual:cls]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canIgnorePushingViewController:(Class)cls {
+    return [self canIgnorePushingViewController:cls person:nil];
 }
 
 - (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push {
+    [self.mainViewController hideLeftViewAnimated];
+    if ([self canIgnorePushingViewController:[PredictionViewController class] person:person]) {
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController" bundle:nil];
     UINavigationController *navigationController =(UINavigationController *)[storyboard
     instantiateViewControllerWithIdentifier:@"navigationController"];
@@ -236,7 +238,31 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
         [self.navigationController pushViewController:viewController animated:YES];
     }
     else {
+        [self pushViewController:viewController];
+    }
+}
+
+- (BOOL)allowReplaceWithViewController:(UIViewController *)viewController {
+    if (!self.navigationController.viewControllers.count) {
+        return YES;
+    }
+    if (self.navigationController.viewControllers.count == 1 &&
+        [self.navigationController.viewControllers.firstObject isKindOfClass:[ViewController class]]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)pushViewController:(UIViewController *)viewController {
+    if ([self allowReplaceWithViewController:viewController]) {
         self.navigationController.viewControllers = @[viewController];
+    }
+    else {
+        [self.navigationController pushViewController:viewController animated:YES completion:^{
+            if (self.navigationController.viewControllers.count > 1) {
+                self.navigationController.viewControllers = @[viewController];
+            }
+        }];
     }
 }
 
@@ -247,17 +273,23 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (void)showNotificationsViewController {
+    [self.mainViewController hideLeftViewAnimated];
+    if ([self canIgnorePushingViewController:[NotificationsViewController class]]) {
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NotificationsViewController"
                                                          bundle:nil];
     UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
     NotificationsViewController *viewController = (NotificationsViewController *)navigationController.topViewController;
     viewController.viewModel = impl_->viewModels()->notificationsScreenViewModel();
-    
-    self.navigationController.viewControllers = @[viewController];
-    [self.mainViewController hideLeftViewAnimated];
+    [self pushViewController:viewController];
 }
 
 - (void)showFriendsViewController {
+    [self.mainViewController hideLeftViewAnimated];
+    if ([self canIgnorePushingViewController:[FriendsViewController class]]) {
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendsViewController"
                                                      bundle: nil];
 
@@ -265,18 +297,20 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
                                                                          instantiateViewControllerWithIdentifier:@"RootNavController"];
     FriendsViewController *viewController = (FriendsViewController *)navigationController.topViewController;
     viewController.viewModel = impl_->viewModels()->friendsScreenViewModel();
-    self.navigationController.viewControllers = @[viewController];
-    [self.mainViewController hideLeftViewAnimated];
+    [self pushViewController:viewController];
 }
 
 - (void)showAccountViewController {
+    [self.mainViewController hideLeftViewAnimated];
+    if ([self canIgnorePushingViewController:[AccountViewController class]]) {
+        return;
+    }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AccountViewController"
                                                          bundle: nil];
     UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
-    AccountViewController *accountViewController = (AccountViewController *)navigationController.topViewController;
-    accountViewController.viewModel = impl_->viewModels()->accountScreenViewModel();
-    self.navigationController.viewControllers = @[accountViewController];
-    [self.mainViewController hideLeftViewAnimated];
+    AccountViewController *viewController = (AccountViewController *)navigationController.topViewController;
+    viewController.viewModel = impl_->viewModels()->accountScreenViewModel();
+    [self pushViewController:viewController];
 }
 
 @end

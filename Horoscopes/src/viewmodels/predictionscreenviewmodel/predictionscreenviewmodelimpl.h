@@ -40,6 +40,9 @@ namespace horo {
         void noConnectionTapped() override;
         bool personExists() override;
         void personData(std::function<void(string imageUrl, string name, string birthday)> callback) override;
+        strong<PredictionScreenModel> model() override {
+            return model_;
+        }
         
     private:
         strong<Theme> theme() { return themesManager_->activeTheme(); }

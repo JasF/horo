@@ -201,9 +201,10 @@ void PredictionScreenModelImpl::noConnectionTapped() {
 }
 
 strong<Zodiac> PredictionScreenModelImpl::zodiac() {
-    if (person_.get()) {
+    if (person_.get() && person_.get()->zodiac()) {
         return person_->zodiac();
     }
+    
     return nullptr;
 }
 

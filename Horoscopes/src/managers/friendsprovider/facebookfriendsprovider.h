@@ -36,7 +36,7 @@ namespace horo {
         void requestFriendsList(std::function<void(Json::Value friends, std::string nextUrl, RequestStatus status)> completion, void *webViewControllerUIDelegate) override;
         void cancelRequest() override;
         bool webViewDidLoad(std::string url) override;
-        void requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) override;
+        void requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion, void *webViewControllerUIDelegate) override;
         
     private:
         void parseHomePage(Json::Value json);

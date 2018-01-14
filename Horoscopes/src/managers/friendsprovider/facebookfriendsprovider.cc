@@ -171,7 +171,8 @@ bool FacebookFriendsProvider::webViewDidLoad(std::string url) {
     return false;
 }
     
-void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion) {
+void FacebookFriendsProvider::requestUserInformation(string path, std::function<void(DateWrapper birthday, bool success)> completion, void *webViewControllerUIDelegate) {
+    webViewControllerUIDelegate_ = webViewControllerUIDelegate;
     userInformationCompletion_ = completion;
     if (path.find("profile.php") == string::npos) {
         size_t index = path.find("?");

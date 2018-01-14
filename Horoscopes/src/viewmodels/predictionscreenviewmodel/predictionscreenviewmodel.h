@@ -10,6 +10,7 @@
 #define predictionscreenviewmodel_h
 
 #include "base/horobase.h"
+#include "models/predictionscreenmodel/predictionscreenmodel.h"
 
 namespace horo {
   
@@ -32,6 +33,7 @@ namespace horo {
         virtual void noConnectionTapped() = 0;
         virtual bool personExists() = 0;
         virtual void personData(std::function<void(string imageUrl, string name, string birthday)> callback) = 0;
+        virtual strong<PredictionScreenModel> model() = 0;
     };
     
     typedef reff<_PredictionScreenViewModel> PredictionScreenViewModel;

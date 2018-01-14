@@ -16,6 +16,7 @@
 
 static CGFloat const kActiveCancelSwipingDelay = 5.f;
 static CGFloat const kInitialCancelSwipingDelay = 15.f;
+static CGFloat const kHeaderViewHeight = 50.f;
 
 @interface FriendsViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UIScrollViewDelegate, WebViewControllerUIDelegate>
 
@@ -108,9 +109,6 @@ using namespace horo;
     [_cancelButton setAttributedTitle:attributedString forState:UIControlStateNormal];
     [self.tableView addSubview:_headerView];
     [self.navigationController.navigationBar horo_makeWhite];
-    
-    self.automaticallyAdjustsScrollViewInsets = true;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -185,7 +183,7 @@ using namespace horo;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return (_headerView.hidden) ? 0.f : _headerView.height;
+    return (_headerView.hidden) ? 0.f : kHeaderViewHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

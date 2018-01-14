@@ -36,8 +36,7 @@ namespace horo {
         void noConnectionTapped() override;
         bool personExists() override;
         void personData(std::function<void(string imageUrl, string name, string birthday)> callback) override;
-        
-        strong<Zodiac> zodiac();
+        strong<Zodiac> zodiac() override;
     private:
         void processFetchedHoroscopes();
         void handleFetchedHoroscopes(strong<HoroscopeDTO> yesterday,

@@ -1174,6 +1174,7 @@
 		C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "FriendsViewController+Filtering.mm"; sourceTree = "<group>"; };
 		C3B06E3C1FCAFDBC008E66CE /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseNavigationController.mm; sourceTree = "<group>"; };
+		C3B086E1200DBCE500622CAB /* pushtest.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = pushtest.js; sourceTree = "<group>"; };
 		C3B3AA8B1FA83B5A00D74180 /* horoscopesservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesservice.h; sourceTree = "<group>"; };
 		C3B3AA8C1FA83B6C00D74180 /* horoscopesserviceimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = horoscopesserviceimpl.h; sourceTree = "<group>"; };
 		C3B3AA8F1FA83B7F00D74180 /* horoscopesserviceimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = horoscopesserviceimpl.cc; sourceTree = "<group>"; };
@@ -2043,6 +2044,7 @@
 				C32330F91FFBD5EE0027089E /* jobsmanager.js */,
 				C32330F81FFBD5D20027089E /* bootstrap.js */,
 				C32330FA1FFBD73E0027089E /* pushsender.js */,
+				C3B086E1200DBCE500622CAB /* pushtest.js */,
 			);
 			path = pusher;
 			sourceTree = "<group>";

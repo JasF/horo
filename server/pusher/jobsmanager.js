@@ -15,10 +15,8 @@ function scheduleJobForTime(time) {
 }
 
 exports.scheduleJobs = function () {
-    sender.sendTodayPushToZodiacName(11, "capricorn")
-    /*
+    //sender.sendTodayPushToZodiacName(11, "capricorn")
     times.forEach(function(time){
       scheduleJobForTime(time)
     });
-     */
 }

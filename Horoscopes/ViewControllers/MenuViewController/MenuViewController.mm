@@ -6,11 +6,12 @@
 //  Copyright © 2017 Mail.Ru. All rights reserved.
 //
 
+#import "LGSideMenuController.h"
 #import "MenuViewController.h"
-#import "MenuCell.h"
+#import "MenuSimpleCell.h"
 
 typedef NS_ENUM(NSInteger, MenuRows) {
-    CloseRow,
+    PredictionRow,
     FriendsRow,
     AccountRow,
     NotifcationsRow,
@@ -19,13 +20,18 @@ typedef NS_ENUM(NSInteger, MenuRows) {
 };
 
 static CGFloat const kRowHeight = 100;
+static CGFloat const kHeaderViewHeight = 100.f;
+static CGFloat const kSeparatorAlpha = 0.2f;
+static CGFloat const kSelectedCellBackgroundAlpha = 0.2f;
+
+static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableViewCell *closeCell;
-@property (strong, nonatomic) IBOutlet MenuCell *friendsCell;
-@property (strong, nonatomic) IBOutlet MenuCell *accountCell;
-@property (strong, nonatomic) IBOutlet MenuCell *notificationsCell;
-@property (strong, nonatomic) IBOutlet MenuCell *feedbackCell;
+@property (strong, nonatomic) MenuSimpleCell *predictionCell;
+@property (strong, nonatomic) MenuSimpleCell *friendsCell;
+@property (strong, nonatomic) MenuSimpleCell *accountCell;
+@property (strong, nonatomic) MenuSimpleCell *notificationsCell;
+@property (strong, nonatomic) MenuSimpleCell *feedbackCell;
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
@@ -36,6 +42,10 @@ static CGFloat const kRowHeight = 100;
     _viewModel = *viewModel;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
@@ -43,34 +53,10 @@ static CGFloat const kRowHeight = 100;
     self.tableView.estimatedRowHeight = kRowHeight;
     self.tableView.contentInset = UIEdgeInsetsZero;
     self.tableView.separatorInset = UIEdgeInsetsZero;
-    self.tableView.separatorColor = [UIColor clearColor];
-    self.tableView.allowsSelection = NO;
+    self.tableView.separatorColor = [[UIColor whiteColor] colorWithAlphaComponent:kSeparatorAlpha];
     _friendsDescriptionLabel.text = L(@"begin_update");
-    @weakify(self);
-    [_friendsCell setTitle:L(@"menu_cell_friends")];
-    _friendsCell.tappedBlock = ^BOOL{
-        @strongify(self);
-        self.viewModel->friendsTapped();
-        return YES;
-    };
-    [_accountCell setTitle:L(@"menu_cell_account")];
-    _accountCell.tappedBlock = ^BOOL{
-        @strongify(self);
-        self.viewModel->accountTapped();
-        return YES;
-    };
-    [_notificationsCell setTitle:L(@"menu_cell_notifications")];
-    _notificationsCell.tappedBlock = ^BOOL{
-        @strongify(self);
-        self.viewModel->notificationsTapped();
-        return NO;
-    };
-    [_feedbackCell setTitle:L(@"menu_cell_feedback")];
-    _feedbackCell.tappedBlock = ^BOOL{
-        @strongify(self);
-        self.viewModel->feedbackTapped();
-        return NO;
-    };
+    [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide:) name:LGSideMenuDidHideLeftViewNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,61 +69,61 @@ static CGFloat const kRowHeight = 100;
 }
 
 #pragma mark - UITableViewDataSource
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case CloseRow: return self.closeCell;
-        case FriendsRow: return self.friendsCell;
-        case AccountRow: return self.accountCell;
-        case NotifcationsRow: return self.notificationsCell;
-        case FeedbackRow: return self.feedbackCell;
-    }
-    return [UITableViewCell new];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return RowsCount;
 }
 
-- (void)tableView:(UITableView *)tableView
-  willDisplayCell:(MenuCell *)cell
-forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([cell isKindOfClass:[MenuCell class]]) {
-       // [cell prepareForShowing];
-    }
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MenuSimpleCell *cell =(MenuSimpleCell *)[tableView dequeueReusableCellWithIdentifier:kMenuSimpleCell];
+    cell.selectedBackgroundView = [UIView new];
+    cell.selectedBackgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:kSelectedCellBackgroundAlpha];
+    NSCParameterAssert(cell);
+    NSDictionary *titles = @{@(PredictionRow):@"menu_cell_prediction",
+                             @(FriendsRow):@"menu_cell_friends",
+                             @(AccountRow):@"menu_cell_account",
+                             @(NotifcationsRow):@"menu_cell_notifications",
+                             @(FeedbackRow):@"menu_cell_feedback"};
+    NSString *title = L(titles[@(indexPath.row)]);
+    NSCParameterAssert(title.length);
+    [cell setText:title];
+    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [UIView new];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return kHeaderViewHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    switch (indexPath.row) {
+        case PredictionRow:
+            _viewModel->closeTapped();
+            break;
+        case FriendsRow:
+            _viewModel->friendsTapped();
+            break;
+        case AccountRow:
+            _viewModel->accountTapped();
+            break;
+        case NotifcationsRow:
+            _viewModel->notificationsTapped();
+            break;
+        case FeedbackRow:
+            _viewModel->feedbackTapped();
+            break;
+    }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return RowsCount;
-}
-
-#pragma mark - Observer
-- (IBAction)friendsTapped:(id)sender {
-    [self hideMenu];
-    _viewModel->friendsTapped();
-}
-
-- (IBAction)zodiacsTapped:(id)sender {
-    [self hideMenu];
-    _viewModel->zodiacsTapped();
-}
-
-- (IBAction)closeTapped:(id)sender {
-    [self hideMenu];
-    _viewModel->closeTapped();
-}
-
-#pragma mark - Private Methods
-- (void)hideMenu {
-    _viewModel->hideMenu();
-    //[mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+#pragma mark - Observers
+- (void)menuDidHide:(id)sender {
+    [self.tableView reloadData];
 }
 
 @end

@@ -151,7 +151,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 #pragma mark - Accessors
 - (MainViewController *)mainViewController {
     if (!_mainViewController) {
-        UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        BaseNavigationController *navigationController =(BaseNavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
         self.navigationController = navigationController;
         [navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"]]];
         _mainViewController = [_storyboard instantiateInitialViewController];
@@ -205,7 +205,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
         PredictionViewController *viewController =(PredictionViewController *)self.navigationController.topViewController;
         if (viewController.viewModel->model()->zodiac()->type() == person->zodiac()->type()) {
             if (self.mainViewController.isLeftViewVisible) {
-                [self.mainViewController hideLeftViewAnimated];
+                [self closeMenu];
             }
             return YES;
         }
@@ -221,7 +221,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push {
-    [self.mainViewController hideLeftViewAnimated];
+    [self closeMenu];
     if ([self canIgnorePushingViewController:[PredictionViewController class] person:person]) {
         return;
     }
@@ -273,7 +273,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (void)showNotificationsViewController {
-    [self.mainViewController hideLeftViewAnimated];
+    [self closeMenu];
     if ([self canIgnorePushingViewController:[NotificationsViewController class]]) {
         return;
     }
@@ -286,7 +286,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (void)showFriendsViewController {
-    [self.mainViewController hideLeftViewAnimated];
+    [self closeMenu];
     if ([self canIgnorePushingViewController:[FriendsViewController class]]) {
         return;
     }
@@ -301,7 +301,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (void)showAccountViewController {
-    [self.mainViewController hideLeftViewAnimated];
+    [self closeMenu];
     if ([self canIgnorePushingViewController:[AccountViewController class]]) {
         return;
     }
@@ -311,6 +311,10 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     AccountViewController *viewController = (AccountViewController *)navigationController.topViewController;
     viewController.viewModel = impl_->viewModels()->accountScreenViewModel();
     [self pushViewController:viewController];
+}
+
+- (void)closeMenu {
+    [self.mainViewController hideLeftViewAnimated];
 }
 
 @end

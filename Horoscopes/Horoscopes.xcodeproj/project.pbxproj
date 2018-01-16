@@ -520,6 +520,10 @@
 		C38A629C1FD29E5400012ECA /* PredictionContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38A629B1FD29E5400012ECA /* PredictionContentViewController.xib */; };
 		C38D8CC61FA8DADF00F5BAD2 /* ManualInitialization.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CC51FA8DADF00F5BAD2 /* ManualInitialization.mm */; };
 		C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */; };
+		C3A50BF5200DA53A00A178AC /* MenuSimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A50BF4200DA53A00A178AC /* MenuSimpleCell.m */; };
+		C3A50BF6200DA53A00A178AC /* MenuSimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A50BF4200DA53A00A178AC /* MenuSimpleCell.m */; };
+		C3A50BF8200DA54900A178AC /* MenuSimpleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A50BF7200DA54900A178AC /* MenuSimpleCell.xib */; };
+		C3A50BF9200DA54900A178AC /* MenuSimpleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A50BF7200DA54900A178AC /* MenuSimpleCell.xib */; };
 		C3AE95FE1FDA619A00A9C73E /* UIImage+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */; };
 		C3B027F41FE3A7200013E1C9 /* FriendsViewController+Filtering.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B027F31FE3A7200013E1C9 /* FriendsViewController+Filtering.mm */; };
 		C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3B06E3D1FCAFDBC008E66CE /* BaseNavigationController.mm */; };
@@ -1161,6 +1165,9 @@
 		C38D8CC91FA8DD9500F5BAD2 /* Platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		C38D8CCA1FA8DD9500F5BAD2 /* Platform.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Platform.mm; sourceTree = "<group>"; };
 		C38D8CCC1FA8E19500F5BAD2 /* resultset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resultset.h; sourceTree = "<group>"; };
+		C3A50BF3200DA53A00A178AC /* MenuSimpleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuSimpleCell.h; sourceTree = "<group>"; };
+		C3A50BF4200DA53A00A178AC /* MenuSimpleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuSimpleCell.m; sourceTree = "<group>"; };
+		C3A50BF7200DA54900A178AC /* MenuSimpleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSimpleCell.xib; sourceTree = "<group>"; };
 		C3AE95FC1FDA619A00A9C73E /* UIImage+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Horo.h"; sourceTree = "<group>"; };
 		C3AE95FD1FDA619A00A9C73E /* UIImage+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Horo.m"; sourceTree = "<group>"; };
 		C3B027F21FE3A7200013E1C9 /* FriendsViewController+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FriendsViewController+Filtering.h"; sourceTree = "<group>"; };
@@ -2658,6 +2665,16 @@
 			path = Platform;
 			sourceTree = "<group>";
 		};
+		C3A50BF2200DA50700A178AC /* MenuSimpleCell */ = {
+			isa = PBXGroup;
+			children = (
+				C3A50BF3200DA53A00A178AC /* MenuSimpleCell.h */,
+				C3A50BF4200DA53A00A178AC /* MenuSimpleCell.m */,
+				C3A50BF7200DA54900A178AC /* MenuSimpleCell.xib */,
+			);
+			path = MenuSimpleCell;
+			sourceTree = "<group>";
+		};
 		C3B06E3B1FCAFD95008E66CE /* BaseNavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2871,6 +2888,7 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3A50BF2200DA50700A178AC /* MenuSimpleCell */,
 				C3C037992004A6AC00DB82B8 /* PopAnimator */,
 				C3C037982004A6A400DB82B8 /* PushAnimator */,
 				C3C037932004960A00DB82B8 /* FriendCell */,
@@ -3349,6 +3367,7 @@
 				C3B8BD7B1FB83B3B0083C201 /* birthdayslocstr.json in Resources */,
 				C3C117081FCE95E9007DA9FF /* TabsItemView.xib in Resources */,
 				C3C7ABA920022D5000CFDDD2 /* Info.plist in Resources */,
+				C3A50BF9200DA54900A178AC /* MenuSimpleCell.xib in Resources */,
 				C3B601761FA5DB3300AD4F6D /* FacebookSDKStrings.bundle in Resources */,
 				C31A13E31FB06168001FABFE /* char_ref.rl in Resources */,
 				C315ACD31FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */,
@@ -3384,6 +3403,7 @@
 				C315ACBC1FE5040C00CC9B67 /* birthdayslocstr.json in Resources */,
 				C315ACBD1FE5040C00CC9B67 /* TabsItemView.xib in Resources */,
 				C3C7ABA820022D5000CFDDD2 /* Info.plist in Resources */,
+				C3A50BF8200DA54900A178AC /* MenuSimpleCell.xib in Resources */,
 				C315ACBE1FE5040C00CC9B67 /* FacebookSDKStrings.bundle in Resources */,
 				C315ACBF1FE5040C00CC9B67 /* char_ref.rl in Resources */,
 				C315ACD41FE504FD00CC9B67 /* Horoscopes-Info.plist in Resources */,
@@ -3675,6 +3695,7 @@
 				C337E8F61FF3E5280063ACF1 /* SettingsCell.m in Sources */,
 				C373D4E51FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				4B0FD3721FA06C96006378B6 /* AppDelegate.mm in Sources */,
+				C3A50BF6200DA53A00A178AC /* MenuSimpleCell.m in Sources */,
 				C3190C1A1FADE4D60059F247 /* UIView+TKGeometry.m in Sources */,
 				C373D4EE1FED1B6200D3BA16 /* FeedbackManager.mm in Sources */,
 				C373D4821FEBBDDB00D3BA16 /* stream_forxcode.cc in Sources */,
@@ -3954,6 +3975,7 @@
 				C337E8F51FF3E5280063ACF1 /* SettingsCell.m in Sources */,
 				C373D4E41FECF92C00D3BA16 /* notificationsimpl.cc in Sources */,
 				C315ACD91FE512E200CC9B67 /* ZodiacObjc.mm in Sources */,
+				C3A50BF5200DA53A00A178AC /* MenuSimpleCell.m in Sources */,
 				C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */,
 				C373D4ED1FED1B6200D3BA16 /* FeedbackManager.mm in Sources */,
 				C315AC391FE5040C00CC9B67 /* AppDelegate.mm in Sources */,

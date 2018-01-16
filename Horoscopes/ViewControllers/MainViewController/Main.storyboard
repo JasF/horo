@@ -77,81 +77,8 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="250" height="668"/>
-                    <connections>
-                        <outlet property="accountCell" destination="oZy-cM-g9Z" id="iYf-cy-VAX"/>
-                        <outlet property="closeCell" destination="QpP-my-Hte" id="1wp-zl-d1U"/>
-                        <outlet property="feedbackCell" destination="C52-0s-aEF" id="GtW-fV-cd2"/>
-                        <outlet property="friendsCell" destination="tPp-ah-cOn" id="TjL-wH-Tth"/>
-                        <outlet property="notificationsCell" destination="Fqu-IM-IrM" id="O31-0n-Dsu"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiI-Rm-XiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oZy-cM-g9Z" customClass="MenuCell">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oZy-cM-g9Z" id="hWL-qR-iQM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tableViewCellContentView>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableViewCell>
-                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QpP-my-Hte">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QpP-my-Hte" id="Npm-23-n21">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbz-25-qcg">
-                                <rect key="frame" x="20" y="20" width="27" height="3.5"/>
-                                <state key="normal" image="close_small"/>
-                                <connections>
-                                    <action selector="closeTapped:" destination="9nD-Rt-5hf" eventType="touchUpInside" id="z2E-I9-lH2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Gbz-25-qcg" secondAttribute="bottom" constant="20" id="EKN-g1-mJo"/>
-                            <constraint firstItem="Gbz-25-qcg" firstAttribute="leading" secondItem="Npm-23-n21" secondAttribute="leading" constant="20" id="QKl-Sd-slC"/>
-                            <constraint firstItem="Gbz-25-qcg" firstAttribute="top" secondItem="Npm-23-n21" secondAttribute="top" constant="20" id="f84-VT-OPV"/>
-                        </constraints>
-                    </tableViewCellContentView>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableViewCell>
-                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="C52-0s-aEF" customClass="MenuCell">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C52-0s-aEF" id="fcz-Sd-j9I">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tableViewCellContentView>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <gestureRecognizers/>
-                </tableViewCell>
-                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tPp-ah-cOn" customClass="MenuCell">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tPp-ah-cOn" id="XEL-a2-M7J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tableViewCellContentView>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <gestureRecognizers/>
-                </tableViewCell>
-                <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Fqu-IM-IrM" customClass="MenuCell">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fqu-IM-IrM" id="SDp-H5-8Ap">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tableViewCellContentView>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="-851" y="1339"/>
         </scene>
@@ -302,7 +229,6 @@
     </scenes>
     <resources>
         <image name="Stars.png" width="16" height="16"/>
-        <image name="close_small" width="27" height="27"/>
         <image name="imageRoot.png" width="1024" height="1024"/>
     </resources>
 </document>

@@ -33,6 +33,7 @@
     }
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[ [UISearchBar class] ]]
      setTintColor:[UIColor whiteColor]];
+    self.tintColor = [UIColor whiteColor];
 }
 
 @end

@@ -19,8 +19,10 @@ typedef NS_ENUM(NSInteger, MenuRows) {
     RowsCount
 };
 
+static CGFloat const kGenericOffset = 8.f;
 static CGFloat const kRowHeight = 100;
 static CGFloat const kHeaderViewHeight = 100.f;
+static CGFloat const kHoroscopeCellBottomOffset = 20.f;
 static CGFloat const kSeparatorAlpha = 0.2f;
 static CGFloat const kSelectedCellBackgroundAlpha = 0.2f;
 
@@ -83,9 +85,13 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
                              @(AccountRow):@"menu_cell_account",
                              @(NotifcationsRow):@"menu_cell_notifications",
                              @(FeedbackRow):@"menu_cell_feedback"};
+    NSDictionary *bottomOffsets = @{@(PredictionRow) : @(kHoroscopeCellBottomOffset)};
     NSString *title = L(titles[@(indexPath.row)]);
     NSCParameterAssert(title.length);
     [cell setText:title];
+    NSNumber *value = bottomOffsets[@(indexPath.row)];
+    CGFloat offset = (value) ? value.floatValue : kGenericOffset;
+    [cell setOffset:offset];
     return cell;
 }
 

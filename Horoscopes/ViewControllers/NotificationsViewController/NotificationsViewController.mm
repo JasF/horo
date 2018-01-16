@@ -9,16 +9,15 @@
 #import "NotificationsViewController.h"
 #import "SettingsCell.h"
 
-static CGFloat const kTableTopInset = 20.f;
-
 typedef NS_ENUM(NSInteger, RowsCount) {
     EnablePushesRow,
     PushTimeRow,
     PushesRowsCount
 };
 
+static CGFloat const kSeparatorColorAlpha = 0.2f;
+
 @interface NotificationsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet SettingsCell *enablePushesCell;
 @property (strong, nonatomic) IBOutlet SettingsCell *pushTimeCell;
 @property (weak, nonatomic) IBOutlet UISwitch *swither;
@@ -28,18 +27,21 @@ typedef NS_ENUM(NSInteger, RowsCount) {
 
 - (void)viewDidLoad {
     NSCParameterAssert(_viewModel.get());
+    
+    self.definesPresentationContext = YES;
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = YES;
     for (SettingsCell *cell in [self cellsDictionary].allValues) {
         [cell setText:L(cell.text)];
     }
-    self.tableView.contentInset = UIEdgeInsetsMake(kTableTopInset, 0, 0, 0);
     _enablePushesCell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.navigationItem.title = L(@"notifications");
     _swither.on = !_viewModel->notificationsDisabled();
     if (@available (iOS 11, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = NO;
     }
+    [self.navigationController.navigationBar horo_makeWhite];
+    self.tableView.separatorColor = [[UIColor whiteColor] colorWithAlphaComponent:kSeparatorColorAlpha];
 }
 
 - (void)dealloc {

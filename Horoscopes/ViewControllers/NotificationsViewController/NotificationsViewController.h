@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #include "viewmodels/notificationsscreenviewmodel/notificationsscreenviewmodel.h"
 
-@interface NotificationsViewController : UIViewController
+@interface NotificationsViewController : UITableViewController
 @property (assign, nonatomic) strong<horo::NotificationsScreenViewModel> viewModel;
 @end

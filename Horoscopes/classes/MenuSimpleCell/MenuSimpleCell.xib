@@ -35,7 +35,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bottomConstraint" destination="pad-p9-2E6" id="T55-5Y-UY5"/>
                 <outlet property="label" destination="kmo-Wn-MRZ" id="RF8-sh-yni"/>
+                <outlet property="topConstraint" destination="jB6-5s-IMk" id="Jwf-wr-7bL"/>
             </connections>
         </tableViewCell>
     </objects>

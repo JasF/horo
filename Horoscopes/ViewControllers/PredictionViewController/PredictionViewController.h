@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #include "viewmodels/predictionscreenviewmodel/predictionscreenviewmodel.h"
 
-@interface PredictionViewController : UIViewController
+@interface PredictionViewController : UITableViewController
 @property UIPageViewController *horoscopesPageViewController;
 @property (assign, nonatomic) strong<horo::PredictionScreenViewModel> viewModel;
 @property (assign, nonatomic) BOOL hideMenuButton;

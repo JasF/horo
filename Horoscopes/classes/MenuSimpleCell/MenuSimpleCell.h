@@ -10,4 +10,5 @@
 
 @interface MenuSimpleCell : UITableViewCell
 - (void)setText:(NSString *)text;
+- (void)setOffset:(CGFloat)bottomOffset;
 @end

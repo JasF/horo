@@ -31,6 +31,11 @@ static NSInteger const kNumberOfRowsInComponents = 24;
     [self.navigationController.navigationBar horo_makeWhite];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _viewModel->sendSettingsIfNeeded();
+}
+
 #pragma mark - UIPickerViewDataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return kNumberOfComponents;

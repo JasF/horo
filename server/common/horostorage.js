@@ -1,4 +1,4 @@
-logs = require('../common/logger').getLogger();
+logs = require('../common/logger').getCommonLogger();
 const Firestore = require('@google-cloud/firestore');
 var common = require('../common/common');
 credentialsFilename = "./../horo-ios-287dcbc8f4c6.json"
@@ -9,8 +9,8 @@ const firestore = new Firestore({projectId: 'horo-ios',
 exports.writeHoroscope = function (zodiacName, tabsType, horoscope, callback) {
     horoType = common.horoTypeByTabsType(tabsType);
     dateString = common.dateStringFromPredictionText(horoscope, tabsType)
-    logs.debug('cannot obtain date from horoscope text: ' + horoscope);
     if (dateString.length == 0) {
+        logs.debug('cannot obtain date from horoscope text: ' + horoscope);
         process.exit(1);
     }
     logs.debug('horoType for ' + tabsType + ' is ' + horoType);

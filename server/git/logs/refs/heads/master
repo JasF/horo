@@ -20,3 +20,4 @@ adf9f8ee782cf4add832a5d9201378547c850496 179f0926b6034b873451596be2b7ace4d40119e
 15663cdf8812957b34ab44e0e9dace4b2f937158 bc746ceaa365e4fee916a5a02f8e85a088d72256 Andrei Vayavoda <andreivoe@gmail.com> 1515154698 +0300	pull origin master: Fast-forward
 bc746ceaa365e4fee916a5a02f8e85a088d72256 83ddfdb90b9dc348e721afdd9fc05b1ba0cac88c Andrei Vayavoda <andreivoe@gmail.com> 1515215356 +0300	commit: работоспособность ttycreator
 83ddfdb90b9dc348e721afdd9fc05b1ba0cac88c 3bf2f453f941f25b0751530ebda78437c5ab033c Andrei Vayavoda <andreivoe@gmail.com> 1516080753 +0300	commit: совмещение апдейтера и пушера
+3bf2f453f941f25b0751530ebda78437c5ab033c 267e60910ea60f666acf7ff47dded43c8497c688 Andrei Vayavoda <andreivoe@gmail.com> 1516171928 +0300	commit: обновил скрипты - улучшил парсинг гороскопов а так же в пушере исправил преждевременную рассылку

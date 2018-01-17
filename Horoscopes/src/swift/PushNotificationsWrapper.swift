@@ -14,6 +14,7 @@ class PushNotificationsWrapper: NSObject {
     let pushNotifications = PushNotifications.shared
     var delayedRoomName = ""
     var isRegistered = false
+    var needsSubscribe = false
     var subscribedToRoom = ""
     func registerInstanceId() -> Void {
         self.pushNotifications.register(instanceId: "54423f63-b8dd-4f21-8563-b009f25c399f")
@@ -22,11 +23,15 @@ class PushNotificationsWrapper: NSObject {
     func registered(deviceToken :Data) -> Void {
         self.pushNotifications.registerDeviceToken(deviceToken, completion: {
             self.isRegistered = true
-            self.performSubscription()
+            if (self.needsSubscribe) {
+                self.needsSubscribe = false;
+                self.performSubscription()
+            }
         })
     }
     
     func subscribeToRoom(roomName :String) -> Void {
+        needsSubscribe = true
         delayedRoomName = roomName
         performSubscription()
     }
@@ -35,6 +40,7 @@ class PushNotificationsWrapper: NSObject {
         if (self.isRegistered == false) {
             return;
         }
+        needsSubscribe = false;
         DispatchQueue.main.async {
             self.pushNotifications.unsubscribeAll {
                 self.performSubscriptionToRoom(roomName: self.delayedRoomName)

@@ -1,4 +1,4 @@
-logs = require('../common/logger').getLogger();
+logs = require('../common/logger').getCommonLogger();
 const Browser = require('zombie');
 
 exports.performRequest = function (url, completion) {

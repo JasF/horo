@@ -1,4 +1,4 @@
-logs = require('../common/logger').getLogger();
+logs = require('../common/logger').getPusherLogger();
 var Curl = require('node-libcurl').Curl;
 var storage = require('../common/horostorage');
 

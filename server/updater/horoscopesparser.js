@@ -21,7 +21,7 @@ function invokeTextFromTreeWithZodiacKey(tree, key) {
         }
     }
     
-    if (!key.length) {
+    if (!key.length || classValue.length > 0) {
         return
     }
     
@@ -50,6 +50,7 @@ function invokePayloadData(tree, completion) {
             attribute = tree.attributes[y];
             if (attribute.name == "class" && attribute.value == "horoscope-content") {
                 textStorage = ""
+                logs.debug('**** pre invokeTextFromTreeWithZodiacKey')
                 invokeTextFromTreeWithZodiacKey(tree, zodiacKey)
             }
         }

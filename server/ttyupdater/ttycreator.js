@@ -1,4 +1,4 @@
-logs = require('../common/logger').getLogger();
+logs = require('../common/logger').getTTYLogger();
 var arrays = require('async-arrays');
 var storage = require('../common/horostorage');
 var common = require('../common/common');

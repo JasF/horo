@@ -20,21 +20,56 @@ const logger = createLogger({
                             });
 */
 
-var logger = new (winston.Logger)({
-                                  transports: [
-                                               new (winston.transports.Console)({
-                                                                                level: 'silly'
-                                                                                }),
-                                               new (winston.transports.File)({
-                                                                             filename: './../../updater.log',
-                                                                             level: 'verbose'
-                                                                             })
-                                               ]
-                                  });
+var logger = null;
+logger = new (winston.Logger)({
+                     transports: [
+                                  new (winston.transports.Console)({
+                                                                   level: 'silly'
+                                                                   }),
+                                  new (winston.transports.File)({
+                                                                filename: './../../updater.log',
+                                                                level: 'verbose'
+                                                                })
+                                  ]
+                     });
+var pusherLogger = null;
+var ttyLogger = null;
+var commonLogger = null;
 
 exports.getLogger =  function() {
     return logger;
 }
+
+exports.getPusherLogger =  function() {
+    return exports.getLogger()
+    /*
+    if (pusherLogger == null) {
+        pusherLogger = createLogger('pusher.log');
+    }
+    return pusherLogger;
+     */
+}
+
+exports.getTTYLogger =  function() {
+    return exports.getLogger()
+    /*
+    if (ttyLogger == null) {
+        ttyLogger = createLogger('ttyupdater.log');
+    }
+    return ttyLogger;
+     */
+}
+
+exports.getCommonLogger =  function() {
+     return exports.getLogger()
+     /*
+    if (commonLogger == null) {
+        commonLogger = createLogger('common.log');
+    }
+    return commonLogger;
+     */
+}
+
 
 /*
  const levels = {

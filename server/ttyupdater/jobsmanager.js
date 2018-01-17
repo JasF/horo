@@ -1,4 +1,4 @@
-logs = require('../common/logger').getLogger();
+logs = require('../common/logger').getTTYLogger();
 scheduler = require('../common/scheduler')
 creator = require('./ttycreator')
 

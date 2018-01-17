@@ -16,10 +16,11 @@ void NotificationsImpl::setPrivateInstance(Notifications *instance) {
     privateInstance = instance;
 }
 
-NotificationsImpl::NotificationsImpl(strong<CoreComponents> components, strong<Settings> settings) : components_(components),
-    settings_(settings) {
+NotificationsImpl::NotificationsImpl(strong<CoreComponents> components, strong<Settings> settings, strong<Serializer> serializer) : components_(components),
+    settings_(settings), serializer_(serializer) {
     SCParameterAssert(components_.get());
     SCParameterAssert(settings_.get());
+    SCParameterAssert(serializer_.get());
 }
 
 NotificationsImpl::~NotificationsImpl() {
@@ -80,10 +81,11 @@ void NotificationsImpl::didFailToRegisterForRemoteNotificationsWithError(error e
 
 void NotificationsImpl::sendSettingsIfNeeded() {
     string checkingString = generatePushSettingsString();
-    if (checkingString == sendedSettings_) {
+    string sended = serializer_->loadString("sendedPushSettings");
+    if (checkingString == sended) {
         return;
     }
-    sendedSettings_ = checkingString;
+    serializer_->saveString("sendedPushSettings", checkingString);
     sendSettings();
 }
 

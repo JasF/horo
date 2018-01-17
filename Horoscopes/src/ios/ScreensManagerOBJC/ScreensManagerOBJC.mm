@@ -96,7 +96,7 @@ namespace horo {
             }
         }
         
-        void showFeedViewController() override {
+        void showFeedbackViewController() override {
             [[FeedbackManager shared] showFeedbackController:[ScreensManagerOBJC shared].window.rootViewController];
         }
         
@@ -111,14 +111,6 @@ namespace horo {
             viewController.viewModel = impl_->viewModels()->pushTimeScreenViewModel();
             UINavigationController *navigationController =[ScreensManagerOBJC shared].navigationController;
             [navigationController pushViewController:viewController animated:YES];
-        }
-        
-        void showMenu() override {
-            
-        }
-        
-        void hideMenu() override {
-            
         }
         
     private:

@@ -13,6 +13,7 @@
 #include "screensmanager.h"
 #include "managers/viewmodelsimpl/viewmodelsimpl.h"
 #include "managers/notifications/notificationsimpl.h"
+#include "managers/analytics/analytics.h"
 
 namespace horo {
   
@@ -20,7 +21,7 @@ namespace horo {
     public:
         static void setPrivateInstance(ScreensManager *privateInstance);
     public:
-        ScreensManagerImpl(strong<Notifications> notifications);
+        ScreensManagerImpl(strong<Notifications> notifications, strong<Analytics> analytics);
         ~ScreensManagerImpl() override;
     public:
         void showPredictionViewController() override;
@@ -29,11 +30,9 @@ namespace horo {
         void showMenuViewController(bool animated) override;
         void showFriendsViewController() override;
         void showAccountViewController() override;
-        void showFeedViewController() override;
+        void showFeedbackViewController() override;
         void showNotificationsViewController() override;
         void showPushTimeViewController() override;
-        void showMenu() override;
-        void hideMenu() override;
         
     private:
         void initializeNotifications();
@@ -44,6 +43,7 @@ namespace horo {
         strong<ViewModels> viewModels_;
         strong<Notifications> notifications_;
         bool notificationsInitialized_;
+        strong<Analytics> analytics_;
     };
     
 };

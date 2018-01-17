@@ -17,6 +17,7 @@
 #import "NtpObjc.h"
 #import "TimerFactoryObjc.h"
 #import "UIViewControllerInjector.h"
+#import "AnalyticsObjc.h"
 
 @implementation ManualInitialization
 + (void)load {
@@ -24,6 +25,7 @@
 }
 + (void)doLoading {
     NSArray *array = @[[DatabaseObjc class], // Must be first
+                       [AnalyticsObjc class],
                        [SerializerObjc class],
                        [FirestoreObjc class],
                        [FacebookBanagerObjc class],

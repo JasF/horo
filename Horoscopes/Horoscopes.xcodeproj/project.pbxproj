@@ -668,6 +668,12 @@
 		C3DD104A20072D2800883328 /* TimerFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104820072D2800883328 /* TimerFactoryObjc.mm */; };
 		C3DD104E20072DAB00883328 /* TimerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104D20072DAB00883328 /* TimerObjc.mm */; };
 		C3DD104F20072DAB00883328 /* TimerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104D20072DAB00883328 /* TimerObjc.mm */; };
+		C3E3F6D3200F1A8300FA7F21 /* analyticsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */; };
+		C3E3F6D4200F1A8300FA7F21 /* analyticsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */; };
+		C3E3F6D8200F1E6000FA7F21 /* AnalyticsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D7200F1E6000FA7F21 /* AnalyticsObjc.mm */; };
+		C3E3F6D9200F1E6000FA7F21 /* AnalyticsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D7200F1E6000FA7F21 /* AnalyticsObjc.mm */; };
+		C3E3F6DD200F1F4A00FA7F21 /* AnalyticsProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6DC200F1F4A00FA7F21 /* AnalyticsProviders.m */; };
+		C3E3F6DE200F1F4A00FA7F21 /* AnalyticsProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6DC200F1F4A00FA7F21 /* AnalyticsProviders.m */; };
 		C3E602761FDFB1EB00E89115 /* FriendsBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */; };
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
@@ -1310,6 +1316,13 @@
 		C3DD104C20072DAB00883328 /* TimerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerObjc.h; sourceTree = "<group>"; };
 		C3DD104D20072DAB00883328 /* TimerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerObjc.mm; sourceTree = "<group>"; };
 		C3DD1051200732ED00883328 /* rungtimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rungtimer.h; sourceTree = "<group>"; };
+		C3E3F6CD200F1A5900FA7F21 /* analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = analytics.h; sourceTree = "<group>"; };
+		C3E3F6CE200F1A6500FA7F21 /* analyticsimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = analyticsimpl.h; sourceTree = "<group>"; };
+		C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = analyticsimpl.cc; sourceTree = "<group>"; };
+		C3E3F6D6200F1E6000FA7F21 /* AnalyticsObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsObjc.h; sourceTree = "<group>"; };
+		C3E3F6D7200F1E6000FA7F21 /* AnalyticsObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AnalyticsObjc.mm; sourceTree = "<group>"; };
+		C3E3F6DB200F1F4A00FA7F21 /* AnalyticsProviders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalyticsProviders.h; sourceTree = "<group>"; };
+		C3E3F6DC200F1F4A00FA7F21 /* AnalyticsProviders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalyticsProviders.m; sourceTree = "<group>"; };
 		C3E602741FDFB1EB00E89115 /* FriendsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsBaseViewController.h; sourceTree = "<group>"; };
 		C3E602751FDFB1EB00E89115 /* FriendsBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FriendsBaseViewController.mm; sourceTree = "<group>"; };
 		C3E857C71FDD389C002949D9 /* FriendsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsHeaderView.h; sourceTree = "<group>"; };
@@ -2265,6 +2278,8 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C3E3F6DA200F1F3000FA7F21 /* AnalyticsProviders */,
+				C3E3F6D5200F1E5200FA7F21 /* AnalyticsObjc */,
 				C3ECFF6E200A3D2F0034C096 /* UIViewControllerInjector */,
 				C3DD104B20072D9B00883328 /* TimerObjc */,
 				C3DD104620072D1B00883328 /* TimerFactoryObjc */,
@@ -3105,6 +3120,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3E3F6CC200F1A4800FA7F21 /* analytics */,
 				C3DD103D20072B7300883328 /* timerfactory */,
 				C3C03C422005E59B00DB82B8 /* themesmanager */,
 				C32331012001FD1F0027089E /* ntp */,
@@ -3205,6 +3221,34 @@
 				C3DD1051200732ED00883328 /* rungtimer.h */,
 			);
 			path = rungtimer;
+			sourceTree = "<group>";
+		};
+		C3E3F6CC200F1A4800FA7F21 /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				C3E3F6CD200F1A5900FA7F21 /* analytics.h */,
+				C3E3F6CE200F1A6500FA7F21 /* analyticsimpl.h */,
+				C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */,
+			);
+			path = analytics;
+			sourceTree = "<group>";
+		};
+		C3E3F6D5200F1E5200FA7F21 /* AnalyticsObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3E3F6D6200F1E6000FA7F21 /* AnalyticsObjc.h */,
+				C3E3F6D7200F1E6000FA7F21 /* AnalyticsObjc.mm */,
+			);
+			path = AnalyticsObjc;
+			sourceTree = "<group>";
+		};
+		C3E3F6DA200F1F3000FA7F21 /* AnalyticsProviders */ = {
+			isa = PBXGroup;
+			children = (
+				C3E3F6DB200F1F4A00FA7F21 /* AnalyticsProviders.h */,
+				C3E3F6DC200F1F4A00FA7F21 /* AnalyticsProviders.m */,
+			);
+			path = AnalyticsProviders;
 			sourceTree = "<group>";
 		};
 		C3E602731FDFB1C100E89115 /* FriendsBaseViewController */ = {
@@ -3612,6 +3656,7 @@
 				C373D4401FEBBDDB00D3BA16 /* asyncpacketsocket_forxcode.cc in Sources */,
 				C373D4841FEBBDDB00D3BA16 /* stringencode_forxcode.cc in Sources */,
 				C373D4F91FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */,
+				C3E3F6DE200F1F4A00FA7F21 /* AnalyticsProviders.m in Sources */,
 				C373D45B1FEBBDDB00D3BA16 /* logging_forxcode.cc in Sources */,
 				C3383FD81FAF253100CCE133 /* MenuViewController.mm in Sources */,
 				C373D47A1FEBBDDB00D3BA16 /* socketadapters_forxcode.cc in Sources */,
@@ -3642,6 +3687,7 @@
 				C3B3AA901FA83B7F00D74180 /* horoscopesserviceimpl.cc in Sources */,
 				C3B06E3E1FCAFDBC008E66CE /* BaseNavigationController.mm in Sources */,
 				C3B6018E1FA5F62B00AD4F6D /* facebookmanagerimpl.cc in Sources */,
+				C3E3F6D9200F1E6000FA7F21 /* AnalyticsObjc.mm in Sources */,
 				C373D4731FEBBDDB00D3BA16 /* rate_statistics_forxcode.cc in Sources */,
 				C31A13A31FAF5115001FABFE /* friendsproviderfactoryimpl.cc in Sources */,
 				C31A13B81FB05E48001FABFE /* htmlparserfactoryimpl.cc in Sources */,
@@ -3665,6 +3711,7 @@
 				C3C7ABAD20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				C323311E2002085D0027089E /* NetAssociation.m in Sources */,
 				C3C7ABD720022D5000CFDDD2 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
+				C3E3F6D4200F1A8300FA7F21 /* analyticsimpl.cc in Sources */,
 				C3B601921FA5F76C00AD4F6D /* FacebookBanagerObjc.mm in Sources */,
 				C3817DE61FA7055200447155 /* firestoreimpl.cc in Sources */,
 				C33F4ACA200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m in Sources */,
@@ -3892,6 +3939,7 @@
 				C315AC161FE5040C00CC9B67 /* FriendsViewController+Filtering.mm in Sources */,
 				C315AC171FE5040C00CC9B67 /* json_value.cpp in Sources */,
 				C373D4F81FED3B4A00D3BA16 /* NSError+Horo.mm in Sources */,
+				C3E3F6DD200F1F4A00FA7F21 /* AnalyticsProviders.m in Sources */,
 				C373D4291FEBBDD300D3BA16 /* location_forxcode.cc in Sources */,
 				C315AC181FE5040C00CC9B67 /* MenuViewController.mm in Sources */,
 				C373D3FA1FEBBDD300D3BA16 /* signalthread_forxcode.cc in Sources */,
@@ -3922,6 +3970,7 @@
 				C315AC221FE5040C00CC9B67 /* BaseNavigationController.mm in Sources */,
 				C373D3FC1FEBBDD300D3BA16 /* file_forxcode.cc in Sources */,
 				C315AC231FE5040C00CC9B67 /* facebookmanagerimpl.cc in Sources */,
+				C3E3F6D8200F1E6000FA7F21 /* AnalyticsObjc.mm in Sources */,
 				C373D42D1FEBBDD300D3BA16 /* bitbuffer_forxcode.cc in Sources */,
 				C373D4161FEBBDD300D3BA16 /* network_forxcode.cc in Sources */,
 				C315AC241FE5040C00CC9B67 /* friendsproviderfactoryimpl.cc in Sources */,
@@ -3945,6 +3994,7 @@
 				C3C7ABAC20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				C323311D2002085D0027089E /* NetAssociation.m in Sources */,
 				C3C7ABD620022D5000CFDDD2 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
+				C3E3F6D3200F1A8300FA7F21 /* analyticsimpl.cc in Sources */,
 				C315AC2E1FE5040C00CC9B67 /* main.m in Sources */,
 				C373D43E1FEBBDD300D3BA16 /* socketadapters_forxcode.cc in Sources */,
 				C33F4AC9200A31BF00ADFC4C /* LGSideMenuGesturesHandler.m in Sources */,

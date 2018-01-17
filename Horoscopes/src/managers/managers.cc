@@ -28,6 +28,7 @@
 #include "managers/ntp/ntpimpl.h"
 #include "managers/themesmanager/themesmanagerimpl.h"
 #include "managers/timerfactory/timerfactoryimpl.h"
+#include "managers/analytics/analyticsimpl.h"
 
 namespace horo {
 Managers &Managers::shared() {
@@ -82,7 +83,7 @@ Managers &Managers::shared() {
     strong<ScreensManager> Managers::screensManager() {
         static strong<ScreensManagerImpl> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new ScreensManagerImpl(notifications());
+            sharedInstance = new ScreensManagerImpl(notifications(), analytics());
             sharedInstance->setViewModels(viewModels());
         }
         return sharedInstance;
@@ -227,4 +228,11 @@ Managers &Managers::shared() {
         return sharedInstance;
     }
     
+    strong<Analytics> Managers::analytics() {
+        static strong<Analytics> sharedInstance = nullptr;
+        if (!sharedInstance) {
+            sharedInstance = new AnalyticsImpl();
+        }
+        return sharedInstance;
+    }
 };

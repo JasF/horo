@@ -23,11 +23,9 @@ public:
     virtual void showMenuViewController(bool animated) = 0;
     virtual void showFriendsViewController() = 0;
     virtual void showAccountViewController() = 0;
-    virtual void showFeedViewController() = 0;
+    virtual void showFeedbackViewController() = 0;
     virtual void showNotificationsViewController() = 0;
     virtual void showPushTimeViewController() = 0;
-    virtual void showMenu() = 0;
-    virtual void hideMenu() = 0;
 };
     
 typedef reff<_ScreensManager> ScreensManager;

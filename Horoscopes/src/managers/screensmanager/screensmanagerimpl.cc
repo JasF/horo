@@ -15,10 +15,12 @@ namespace horo {
         g_privateInstance = privateInstance;
     }
     
-    ScreensManagerImpl::ScreensManagerImpl(strong<Notifications> notifications)
+    ScreensManagerImpl::ScreensManagerImpl(strong<Notifications> notifications, strong<Analytics> analytics)
     : notifications_(notifications)
-    , notificationsInitialized_(false) {
+    , notificationsInitialized_(false)
+    , analytics_(analytics) {
         SCParameterAssert(notifications_.get());
+        SCParameterAssert(analytics_.get());
     }
     
     ScreensManagerImpl::~ScreensManagerImpl() {
@@ -26,6 +28,7 @@ namespace horo {
     
     void ScreensManagerImpl::showPredictionViewController() {
         initializeNotifications();
+        analytics_->predictionScreenShow(false, false);
         if (g_privateInstance) {
             g_privateInstance->showPredictionViewController();
         }
@@ -33,48 +36,56 @@ namespace horo {
     
     void ScreensManagerImpl::showPredictionViewController(strong<Person> person, bool push) {
         initializeNotifications();
+        analytics_->predictionScreenShow((person.get())?true:false, push);
         if (g_privateInstance) {
             g_privateInstance->showPredictionViewController(person, push);
         }
     }
     
     void ScreensManagerImpl::showWelcomeViewController() {
+        analytics_->welcomeScreenShow();
         if (g_privateInstance) {
             g_privateInstance->showWelcomeViewController();
         }
     }
     
     void ScreensManagerImpl::showMenuViewController(bool animated) {
+        analytics_->menuScreenShow();
         if (g_privateInstance) {
             g_privateInstance->showMenuViewController(animated);
         }
     }
     
     void ScreensManagerImpl::showFriendsViewController() {
+        analytics_->friendsScreenShow();
         if (g_privateInstance) {
             g_privateInstance->showFriendsViewController();
         }
     }
     
     void ScreensManagerImpl::showAccountViewController() {
+        analytics_->accountScreenShow();
         if (g_privateInstance) {
             g_privateInstance->showAccountViewController();
         }
     }
     
-    void ScreensManagerImpl::showFeedViewController() {
+    void ScreensManagerImpl::showFeedbackViewController() {
+        analytics_->feedbackScreenShow();
         if (g_privateInstance) {
-            g_privateInstance->showFeedViewController();
+            g_privateInstance->showFeedbackViewController();
         }
     }
     
     void ScreensManagerImpl::showNotificationsViewController() {
+        analytics_->notificationsScreenShow();
         if (g_privateInstance) {
             g_privateInstance->showNotificationsViewController();
         }
     }
     
     void ScreensManagerImpl::showPushTimeViewController() {
+        analytics_->pushTimeScreenShow();
         if (g_privateInstance) {
             g_privateInstance->showPushTimeViewController();
         }
@@ -84,18 +95,6 @@ namespace horo {
         if (!notificationsInitialized_) {
             notificationsInitialized_ = true;
             notifications_->initialize();
-        }
-    }
-    
-    void ScreensManagerImpl::showMenu() {
-        if (g_privateInstance) {
-            g_privateInstance->showMenu();
-        }
-    }
-    
-    void ScreensManagerImpl::hideMenu() {
-        if (g_privateInstance) {
-            g_privateInstance->hideMenu();
         }
     }
     

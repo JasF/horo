@@ -31,6 +31,7 @@
 #include "managers/ntp/ntp.h"
 #include "managers/themesmanager/themesmanager.h"
 #include "managers/timerfactory/timerfactory.h"
+#include "managers/analytics/analytics.h"
 
 namespace horo {
   
@@ -63,6 +64,7 @@ namespace horo {
         strong<Ntp> ntp();
         strong<ThemesManager> themesManager();
         strong<TimerFactory> timerFactory();
+        strong<Analytics> analytics();
     };
     
 };

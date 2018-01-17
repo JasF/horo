@@ -26,7 +26,6 @@ namespace horo {
         virtual void notificationsTapped()=0;
         virtual void feedbackTapped()=0;
         virtual void closeTapped()=0;
-        virtual void hideMenu()=0;
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
     };
     

@@ -8,6 +8,8 @@
 
 #import "MenuSimpleCell.h"
 
+static CGFloat const kSelectedCellBackgroundAlpha = 0.2f;
+
 @interface MenuSimpleCell ()
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) IBOutlet UILabel *leftLabel;
@@ -18,6 +20,13 @@
 @end
 
 @implementation MenuSimpleCell
+
+#pragma mark - Initialization
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.selectedBackgroundView = [UIView new];
+    self.selectedBackgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:kSelectedCellBackgroundAlpha];
+}
 
 #pragma mark - Public Methods
 - (void)setText:(NSString *)text {

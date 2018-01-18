@@ -33,7 +33,6 @@ static CGFloat const kHoroscopeCellBottomOffset = 8.f;
 static CGFloat const kRowHeight = 100;
 static CGFloat const kHeaderViewHeight = 100.f;
 static CGFloat const kSeparatorAlpha = 0.2f;
-static CGFloat const kSelectedCellBackgroundAlpha = 0.2f;
 
 static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 
@@ -81,8 +80,6 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuSimpleCell *cell =(MenuSimpleCell *)[tableView dequeueReusableCellWithIdentifier:kMenuSimpleCell];
-    cell.selectedBackgroundView = [UIView new];
-    cell.selectedBackgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:kSelectedCellBackgroundAlpha];
     NSCParameterAssert(cell);
     if (indexPath.row >= ZodiacsRow1 && indexPath.row <= ZodiacsRow6) {
         NSInteger zodiacRowIndex = indexPath.row - ZodiacsRow1;

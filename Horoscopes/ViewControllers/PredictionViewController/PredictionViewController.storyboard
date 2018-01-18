@@ -56,6 +56,8 @@
                         <outlet property="friendCell" destination="Nvh-Hf-mrW" id="gLM-ZQ-sns"/>
                         <outlet property="horoscopesCell" destination="6SW-3q-cZ9" id="xab-rb-RoA"/>
                         <outlet property="horoscopesContainerView" destination="oR9-Se-8O8" id="XnG-ex-daA"/>
+                        <outlet property="networkErrorButton" destination="9Sx-n0-0Tp" id="JtD-a0-BUe"/>
+                        <outlet property="networkErrorLabel" destination="Erz-a7-Bcb" id="k85-su-TA7"/>
                         <outlet property="noConnectionCell" destination="2jO-jC-Got" id="9rS-rE-uyF"/>
                         <outlet property="tabs" destination="CTT-aZ-ap4" id="Qdm-2N-fEE"/>
                         <outlet property="tabsCell" destination="C2W-in-l0u" id="2Wk-eF-amo"/>
@@ -203,6 +205,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="noConnectionTapped:" destination="4Ax-ex-6Gm" eventType="touchUpInside" id="ipT-6s-UTJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

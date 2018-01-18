@@ -54,7 +54,6 @@ static CGFloat const kActivityIndicatorSize = 50.f;
 static CGFloat const kFriendCellHeight = 65.f;
 
 @interface PredictionViewController () <UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @property (weak, nonatomic) IBOutlet UILabel *zodiacDateLabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *zodiacTitleCell;
@@ -184,7 +183,7 @@ static CGFloat const kFriendCellHeight = 65.f;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_showNoConnectionView) {
         switch (indexPath.row) {
-            case NoConnectionFriendRow: self.friendCell;
+            case NoConnectionFriendRow: return self.friendCell;
             case NoConnectionTitleRow: return self.zodiacTitleCell;
             case NoConnectionRow: return self.noConnectionCell;
         }
@@ -207,7 +206,8 @@ static CGFloat const kFriendCellHeight = 65.f;
                                  @(PredictionRow):^CGFloat{return [_horoscopesCell getHeight] + kPredictionRowAddedHeight;}};
     
     if (_showNoConnectionView) {
-        dictionary = @{@(NoConnectionTitleRow):^CGFloat{return kTitleRowHeight;},
+        dictionary = @{@(NoConnectionFriendRow):^CGFloat{return _viewModel->personExists() ? kFriendCellHeight : 0.f;},
+                       @(NoConnectionTitleRow):^CGFloat{return kTitleRowHeight;},
                        @(NoConnectionRow):^CGFloat{return kNoConnectionRowHeight;}};
     }
     

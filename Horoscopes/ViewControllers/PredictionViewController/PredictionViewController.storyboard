@@ -41,6 +41,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="LG0-9u-bD4">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="qts-T0-Xj9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yJc-yU-z6W">
                                 <rect key="frame" x="16" y="11" width="23" height="22"/>
@@ -51,6 +52,20 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="crx-tv-KOx">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jsw-kA-Xdw"/>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="jsw-kA-Xdw" firstAttribute="centerX" secondItem="crx-tv-KOx" secondAttribute="centerX" id="HfO-6c-VWP"/>
+                                <constraint firstItem="jsw-kA-Xdw" firstAttribute="width" secondItem="crx-tv-KOx" secondAttribute="width" id="XCL-ID-Hjn"/>
+                                <constraint firstItem="jsw-kA-Xdw" firstAttribute="height" secondItem="crx-tv-KOx" secondAttribute="height" id="n9h-Cw-WSR"/>
+                                <constraint firstItem="jsw-kA-Xdw" firstAttribute="centerY" secondItem="crx-tv-KOx" secondAttribute="centerY" id="yXI-ND-R5C"/>
+                            </constraints>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="friendCell" destination="Nvh-Hf-mrW" id="gLM-ZQ-sns"/>
@@ -61,6 +76,7 @@
                         <outlet property="noConnectionCell" destination="2jO-jC-Got" id="9rS-rE-uyF"/>
                         <outlet property="tabs" destination="CTT-aZ-ap4" id="Qdm-2N-fEE"/>
                         <outlet property="tabsCell" destination="C2W-in-l0u" id="2Wk-eF-amo"/>
+                        <outlet property="titleImageView" destination="jsw-kA-Xdw" id="0Bd-sj-YNg"/>
                         <outlet property="zodiacDateLabel" destination="Q40-4N-BbB" id="MCY-lB-Ijh"/>
                         <outlet property="zodiacLabel" destination="biU-dd-Dj3" id="RA6-u1-ELT"/>
                         <outlet property="zodiacTitleCell" destination="sIB-AL-2xv" id="a5T-KS-kd0"/>

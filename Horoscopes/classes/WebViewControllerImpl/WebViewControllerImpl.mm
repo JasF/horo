@@ -110,7 +110,8 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     DDLogDebug(@"didFinishNavigation: %@", webView.URL);
     if (navigation != _currentNavigationRequest) {
-        return;
+        DDLogDebug(@"request marked as obsolete");
+        //return;
     }
     
     [self handleResponseWithURL:webView.URL force:YES];
@@ -145,6 +146,7 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
     DDLogInfo(@"decidePolicyForNavigationResponse: %@", navigationResponse.response.URL);
     NSURL *url = navigationResponse.response.URL;
+    url = [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"#_=_" withString:@""]];
     [self handleResponseWithURL:url force:NO];
     decisionHandler(WKNavigationResponsePolicyAllow);
 }

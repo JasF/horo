@@ -30,13 +30,13 @@ using namespace std;
 static CGFloat const kGenericOffset = 8.f;
 static CGFloat const kHoroscopeCellBottomOffset = 8.f;
 
-static CGFloat const kRowHeight = 100;
-static CGFloat const kHeaderViewHeight = 100.f;
+static CGFloat const kRowHeight = 40.f;
+static CGFloat const kHeaderViewHeight = 20.f;
 static CGFloat const kSeparatorAlpha = 0.2f;
 
 static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 
-@interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MenuViewController () <UITableViewDelegate, UITableViewDataSource, MenuSimpleCellDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
@@ -54,8 +54,6 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = kRowHeight;
     self.tableView.contentInset = UIEdgeInsetsZero;
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorColor = [[UIColor whiteColor] colorWithAlphaComponent:kSeparatorAlpha];
@@ -83,9 +81,10 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
     NSCParameterAssert(cell);
     if (indexPath.row >= ZodiacsRow1 && indexPath.row <= ZodiacsRow6) {
         NSInteger zodiacRowIndex = indexPath.row - ZodiacsRow1;
+        DDLogDebug(@"zodiacRowIndex: %@", @(zodiacRowIndex));
         _viewModel->dataForZodiacRow((int)zodiacRowIndex, [cell](string leftZodiacName, string rightZodiacName){
-            [cell setLeftText:[NSString stringWithUTF8String:leftZodiacName.c_str()]
-                    rightText:[NSString stringWithUTF8String:rightZodiacName.c_str()]];
+            [cell setLeftText:L([NSString stringWithUTF8String:leftZodiacName.c_str()])
+                    rightText:L([NSString stringWithUTF8String:rightZodiacName.c_str()])];
         });
     }
     else {
@@ -114,7 +113,7 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+    return kRowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,6 +139,16 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 #pragma mark - Observers
 - (void)menuDidHide:(id)sender {
     [self.tableView reloadData];
+}
+
+#pragma mark - MenuSimpleCellDelegate
+- (void)menuSimpleCell:(MenuSimpleCell *)cell didTappedOnZodiacButton:(BOOL)leftButton {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSCAssert(indexPath, @"indexPath must be exists");
+    if (!indexPath) {
+        return;
+    }
+    _viewModel->didSelectZodiac(indexPath.row - ZodiacsRow1, leftButton);
 }
 
 @end

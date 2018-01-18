@@ -64,4 +64,8 @@ namespace horo {
         model_->dataForZodiacRow(zodiacRowIndex, callback);
     }
     
+    void MenuScreenViewModelImpl::didSelectZodiac(int zodiacRowIndex, bool isLeftZodiac) {
+        //ScreensManager
+    }
+    
 };

@@ -25,50 +25,64 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-y3-F1q">
-                        <rect key="frame" x="8" y="0.0" width="178.5" height="43.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-iU-Buu">
+                        <rect key="frame" x="20" y="6" width="166.5" height="37.5"/>
+                        <state key="highlighted">
+                            <color key="titleColor" white="1" alpha="0.398712588028169" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonPressed:" destination="B8S-KL-D91" eventType="touchDown" id="ViC-Mk-HFV"/>
+                            <action selector="buttonReleased:" destination="B8S-KL-D91" eventType="touchUpOutside" id="6Ro-gB-iI7"/>
+                            <action selector="buttonReleased:" destination="B8S-KL-D91" eventType="touchCancel" id="X1W-U0-yCo"/>
+                            <action selector="buttonReleased:" destination="B8S-KL-D91" eventType="touchDragExit" id="eEQ-VJ-Iln"/>
+                            <action selector="buttonTapped:" destination="B8S-KL-D91" eventType="touchUpInside" id="LGH-0u-9oE"/>
+                        </connections>
+                    </button>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-iT-Jp4">
-                        <rect key="frame" x="186.5" y="0.0" width="1" height="43.5"/>
+                        <rect key="frame" x="186.5" y="6" width="1" height="31.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="6e3-7x-YWC"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sir-cg-kLG">
-                        <rect key="frame" x="195.5" y="0.0" width="179.5" height="43.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALu-nF-vsK">
+                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="43.5"/>
+                        <state key="highlighted">
+                            <color key="titleColor" white="1" alpha="0.39810739436619719" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonPressed:" destination="B8S-KL-D91" eventType="touchDown" id="NwA-5w-u2Z"/>
+                            <action selector="buttonReleased:" destination="B8S-KL-D91" eventType="touchUpOutside" id="TWr-cw-7ye"/>
+                            <action selector="buttonReleased:" destination="B8S-KL-D91" eventType="touchDragExit" id="ony-fj-sj4"/>
+                            <action selector="buttonReleased:" destination="B8S-KL-D91" eventType="touchCancel" id="v6R-kG-yaH"/>
+                            <action selector="buttonTapped:" destination="B8S-KL-D91" eventType="touchUpInside" id="SbS-PW-sqo"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="sir-cg-kLG" firstAttribute="bottom" secondItem="bx2-TD-ljP" secondAttribute="bottom" id="Sbv-5l-LdN"/>
-                    <constraint firstItem="7vb-iT-Jp4" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" id="Vgp-1e-dCZ"/>
-                    <constraint firstItem="a2T-y3-F1q" firstAttribute="leading" secondItem="bx2-TD-ljP" secondAttribute="leading" constant="8" id="XWo-K9-FU5"/>
+                    <constraint firstItem="zA8-iU-Buu" firstAttribute="leading" secondItem="bx2-TD-ljP" secondAttribute="leading" constant="20" symbolic="YES" id="5Oy-y0-sQP"/>
+                    <constraint firstItem="zA8-iU-Buu" firstAttribute="trailing" secondItem="7vb-iT-Jp4" secondAttribute="leading" id="HwL-as-jys"/>
+                    <constraint firstItem="zA8-iU-Buu" firstAttribute="bottom" secondItem="bx2-TD-ljP" secondAttribute="bottom" id="IDX-wD-1qa"/>
+                    <constraint firstItem="ALu-nF-vsK" firstAttribute="bottom" secondItem="bx2-TD-ljP" secondAttribute="bottom" id="TZf-ME-uG6"/>
+                    <constraint firstItem="7vb-iT-Jp4" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" constant="6" id="Vgp-1e-dCZ"/>
+                    <constraint firstItem="ALu-nF-vsK" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" id="Vl7-9D-Ton"/>
+                    <constraint firstItem="zA8-iU-Buu" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" constant="6" id="YSY-Vl-exU"/>
+                    <constraint firstItem="ALu-nF-vsK" firstAttribute="trailing" secondItem="bx2-TD-ljP" secondAttribute="trailing" id="e1F-dD-hdS"/>
                     <constraint firstItem="7vb-iT-Jp4" firstAttribute="centerX" secondItem="bx2-TD-ljP" secondAttribute="centerX" id="fED-kJ-K4E"/>
-                    <constraint firstItem="a2T-y3-F1q" firstAttribute="bottom" secondItem="bx2-TD-ljP" secondAttribute="bottom" id="grG-R3-O2v"/>
-                    <constraint firstItem="sir-cg-kLG" firstAttribute="leading" secondItem="7vb-iT-Jp4" secondAttribute="trailing" constant="8" id="hXP-Su-oZy"/>
-                    <constraint firstItem="sir-cg-kLG" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" id="izB-x7-uqm"/>
                     <constraint firstItem="kmo-Wn-MRZ" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" constant="8" id="jB6-5s-IMk"/>
-                    <constraint firstItem="sir-cg-kLG" firstAttribute="trailing" secondItem="bx2-TD-ljP" secondAttribute="trailing" id="jy5-mm-Nqa"/>
                     <constraint firstAttribute="bottom" secondItem="kmo-Wn-MRZ" secondAttribute="bottom" constant="8" id="pad-p9-2E6"/>
-                    <constraint firstItem="a2T-y3-F1q" firstAttribute="top" secondItem="bx2-TD-ljP" secondAttribute="top" id="tXm-Gw-Vlm"/>
-                    <constraint firstAttribute="bottom" secondItem="7vb-iT-Jp4" secondAttribute="bottom" id="vwl-fv-g5C"/>
+                    <constraint firstItem="ALu-nF-vsK" firstAttribute="leading" secondItem="7vb-iT-Jp4" secondAttribute="trailing" id="rEo-Sh-MJR"/>
+                    <constraint firstItem="7vb-iT-Jp4" firstAttribute="bottom" secondItem="bx2-TD-ljP" secondAttribute="bottom" constant="-6" id="vwl-fv-g5C"/>
                     <constraint firstItem="kmo-Wn-MRZ" firstAttribute="leading" secondItem="bx2-TD-ljP" secondAttribute="leading" constant="20" id="xsy-yq-Y7a"/>
-                    <constraint firstItem="a2T-y3-F1q" firstAttribute="trailing" secondItem="7vb-iT-Jp4" secondAttribute="leading" id="zIS-iL-eHl"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="bottomConstraint" destination="pad-p9-2E6" id="T55-5Y-UY5"/>
                 <outlet property="label" destination="kmo-Wn-MRZ" id="RF8-sh-yni"/>
-                <outlet property="leftLabel" destination="a2T-y3-F1q" id="avt-DF-a9y"/>
-                <outlet property="rightLabel" destination="sir-cg-kLG" id="L5u-te-lxA"/>
+                <outlet property="leftButton" destination="zA8-iU-Buu" id="iyw-XL-Gfb"/>
+                <outlet property="rightButton" destination="ALu-nF-vsK" id="dQq-BU-ynN"/>
                 <outlet property="topConstraint" destination="jB6-5s-IMk" id="Jwf-wr-7bL"/>
                 <outlet property="verticalDelimeter" destination="7vb-iT-Jp4" id="ExO-eu-dBZ"/>
             </connections>

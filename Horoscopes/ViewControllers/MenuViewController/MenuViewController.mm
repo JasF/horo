@@ -12,6 +12,12 @@
 
 typedef NS_ENUM(NSInteger, MenuRows) {
     PredictionRow,
+    ZodiacsRow1,
+    ZodiacsRow2,
+    ZodiacsRow3,
+    ZodiacsRow4,
+    ZodiacsRow5,
+    ZodiacsRow6,
     FriendsRow,
     AccountRow,
     NotifcationsRow,
@@ -19,21 +25,19 @@ typedef NS_ENUM(NSInteger, MenuRows) {
     RowsCount
 };
 
+using namespace std;
+
 static CGFloat const kGenericOffset = 8.f;
+static CGFloat const kHoroscopeCellBottomOffset = 8.f;
+
 static CGFloat const kRowHeight = 100;
 static CGFloat const kHeaderViewHeight = 100.f;
-static CGFloat const kHoroscopeCellBottomOffset = 20.f;
 static CGFloat const kSeparatorAlpha = 0.2f;
 static CGFloat const kSelectedCellBackgroundAlpha = 0.2f;
 
 static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) MenuSimpleCell *predictionCell;
-@property (strong, nonatomic) MenuSimpleCell *friendsCell;
-@property (strong, nonatomic) MenuSimpleCell *accountCell;
-@property (strong, nonatomic) MenuSimpleCell *notificationsCell;
-@property (strong, nonatomic) MenuSimpleCell *feedbackCell;
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
@@ -80,15 +84,24 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
     cell.selectedBackgroundView = [UIView new];
     cell.selectedBackgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:kSelectedCellBackgroundAlpha];
     NSCParameterAssert(cell);
-    NSDictionary *titles = @{@(PredictionRow):@"menu_cell_prediction",
-                             @(FriendsRow):@"menu_cell_friends",
-                             @(AccountRow):@"menu_cell_account",
-                             @(NotifcationsRow):@"menu_cell_notifications",
-                             @(FeedbackRow):@"menu_cell_feedback"};
+    if (indexPath.row >= ZodiacsRow1 && indexPath.row <= ZodiacsRow6) {
+        NSInteger zodiacRowIndex = indexPath.row - ZodiacsRow1;
+        _viewModel->dataForZodiacRow((int)zodiacRowIndex, [cell](string leftZodiacName, string rightZodiacName){
+            [cell setLeftText:[NSString stringWithUTF8String:leftZodiacName.c_str()]
+                    rightText:[NSString stringWithUTF8String:rightZodiacName.c_str()]];
+        });
+    }
+    else {
+        NSDictionary *titles = @{@(PredictionRow):@"menu_cell_prediction",
+                                 @(FriendsRow):@"menu_cell_friends",
+                                 @(AccountRow):@"menu_cell_account",
+                                 @(NotifcationsRow):@"menu_cell_notifications",
+                                 @(FeedbackRow):@"menu_cell_feedback"};
+        NSString *title = L(titles[@(indexPath.row)]);
+        NSCParameterAssert(title.length);
+        [cell setText:title];
+    }
     NSDictionary *bottomOffsets = @{@(PredictionRow) : @(kHoroscopeCellBottomOffset)};
-    NSString *title = L(titles[@(indexPath.row)]);
-    NSCParameterAssert(title.length);
-    [cell setText:title];
     NSNumber *value = bottomOffsets[@(indexPath.row)];
     CGFloat offset = (value) ? value.floatValue : kGenericOffset;
     [cell setOffset:offset];

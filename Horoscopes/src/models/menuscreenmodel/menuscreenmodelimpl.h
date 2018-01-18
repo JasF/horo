@@ -25,6 +25,7 @@ namespace horo {
         ~MenuScreenModelImpl() override;
     public:
         void loginOnFacebook() override;
+        void dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)> callback) override;
         
     private:
         strong<CoreComponents> components_;

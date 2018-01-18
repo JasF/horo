@@ -26,6 +26,7 @@ namespace horo {
         virtual void notificationsTapped()=0;
         virtual void feedbackTapped()=0;
         virtual void closeTapped()=0;
+        virtual void dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)> callback)=0;
         std::function<void(bool success)> userLoggedInCallback_ = nullptr;
     };
     

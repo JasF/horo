@@ -10,6 +10,9 @@
 
 @interface MenuSimpleCell ()
 @property (strong, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UILabel *leftLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rightLabel;
+@property (strong, nonatomic) IBOutlet UIView *verticalDelimeter;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @end
@@ -19,6 +22,13 @@
 #pragma mark - Public Methods
 - (void)setText:(NSString *)text {
     _label.text = text;
+}
+
+- (void)setLeftText:(NSString *)leftText
+          rightText:(NSString *)rightText {
+    _leftLabel.text = leftText;
+    _rightLabel.text = rightText;
+    _verticalDelimeter.hidden = NO;
 }
 
 - (void)setOffset:(CGFloat)offset {

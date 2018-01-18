@@ -20,6 +20,7 @@ namespace horo {
     public:
         virtual void loginOnFacebook()=0;
         std::function<void(bool success)> personGatheredCallback_ = nullptr;
+        virtual void dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)> callback)=0;
     };
     
     typedef reff<_MenuScreenModel> MenuScreenModel;

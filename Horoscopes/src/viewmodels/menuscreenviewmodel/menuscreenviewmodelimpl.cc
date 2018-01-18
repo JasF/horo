@@ -59,4 +59,9 @@ namespace horo {
     void MenuScreenViewModelImpl::closeTapped() {
         screensManager_->showPredictionViewController();
     }
+    
+    void MenuScreenViewModelImpl::dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)> callback) {
+        model_->dataForZodiacRow(zodiacRowIndex, callback);
+    }
+    
 };

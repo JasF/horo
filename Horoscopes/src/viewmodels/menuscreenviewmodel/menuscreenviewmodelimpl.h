@@ -29,6 +29,7 @@ namespace horo {
         void notificationsTapped() override;
         void feedbackTapped() override;
         void closeTapped() override;
+        void dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)>) override;
         
     private:
         strong<MenuScreenModel> model_;

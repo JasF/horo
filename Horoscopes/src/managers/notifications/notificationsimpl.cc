@@ -16,11 +16,22 @@ void NotificationsImpl::setPrivateInstance(Notifications *instance) {
     privateInstance = instance;
 }
 
-NotificationsImpl::NotificationsImpl(strong<CoreComponents> components, strong<Settings> settings, strong<Serializer> serializer) : components_(components),
-    settings_(settings), serializer_(serializer) {
+NotificationsImpl::NotificationsImpl(strong<CoreComponents> components,
+                                     strong<Settings> settings,
+                                     strong<Serializer> serializer,
+                                     strong<NotificationCenter> notificationCenter) :
+    components_(components),
+    settings_(settings),
+    serializer_(serializer),
+    notificationCenter_(notificationCenter) {
     SCParameterAssert(components_.get());
     SCParameterAssert(settings_.get());
     SCParameterAssert(serializer_.get());
+    SCParameterAssert(notificationCenter_.get());
+        
+    notificationCenter_->addDidEnterBackgroundCallback(this, [this]{
+        sendSettingsIfNeeded();
+    });
 }
 
 NotificationsImpl::~NotificationsImpl() {

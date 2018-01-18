@@ -32,6 +32,7 @@
 #include "managers/themesmanager/themesmanager.h"
 #include "managers/timerfactory/timerfactory.h"
 #include "managers/analytics/analytics.h"
+#include "managers/notificationcenter/notificationcenter.h"
 
 namespace horo {
   
@@ -65,6 +66,7 @@ namespace horo {
         strong<ThemesManager> themesManager();
         strong<TimerFactory> timerFactory();
         strong<Analytics> analytics();
+        strong<NotificationCenter> notificationCenter();
     };
     
 };

@@ -691,6 +691,10 @@
 		C3ECFF74200A3F4C0034C096 /* JGMethodSwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */; };
 		C3ECFF75200A3F4C0034C096 /* JGMethodSwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */; };
 		C3F405251FE102C1004D1535 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F405241FE102C1004D1535 /* GradientView.m */; };
+		C3FA348220106A1700260E8F /* notificationcenterimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3FA348120106A1700260E8F /* notificationcenterimpl.cc */; };
+		C3FA348320106A1700260E8F /* notificationcenterimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3FA348120106A1700260E8F /* notificationcenterimpl.cc */; };
+		C3FA348720106B2C00260E8F /* NotificationCenterObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FA348620106B2C00260E8F /* NotificationCenterObjc.mm */; };
+		C3FA348820106B2C00260E8F /* NotificationCenterObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3FA348620106B2C00260E8F /* NotificationCenterObjc.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1341,6 +1345,11 @@
 		C3ECFF73200A3F4C0034C096 /* JGMethodSwizzler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JGMethodSwizzler.framework; sourceTree = "<group>"; };
 		C3F405231FE102C1004D1535 /* GradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		C3F405241FE102C1004D1535 /* GradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		C3FA347C201069F500260E8F /* notificationcenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationcenter.h; sourceTree = "<group>"; };
+		C3FA347D20106A0400260E8F /* notificationcenterimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notificationcenterimpl.h; sourceTree = "<group>"; };
+		C3FA348120106A1700260E8F /* notificationcenterimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = notificationcenterimpl.cc; sourceTree = "<group>"; };
+		C3FA348520106B2C00260E8F /* NotificationCenterObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenterObjc.h; sourceTree = "<group>"; };
+		C3FA348620106B2C00260E8F /* NotificationCenterObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NotificationCenterObjc.mm; sourceTree = "<group>"; };
 		D618E3602591BB28E8448185 /* Pods-Horoscopes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Horoscopes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Horoscopes/Pods-Horoscopes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2278,6 +2287,7 @@
 		C33B99B91FA370B500C0B1C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				C3FA348420106B1C00260E8F /* NotificationCenterObjc */,
 				C3E3F6DA200F1F3000FA7F21 /* AnalyticsProviders */,
 				C3E3F6D5200F1E5200FA7F21 /* AnalyticsObjc */,
 				C3ECFF6E200A3D2F0034C096 /* UIViewControllerInjector */,
@@ -3120,6 +3130,7 @@
 		C3D27C961FA309130094BF12 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3FA347B201069D200260E8F /* notificationcenter */,
 				C3E3F6CC200F1A4800FA7F21 /* analytics */,
 				C3DD103D20072B7300883328 /* timerfactory */,
 				C3C03C422005E59B00DB82B8 /* themesmanager */,
@@ -3294,6 +3305,25 @@
 				C3F405241FE102C1004D1535 /* GradientView.m */,
 			);
 			path = GradientView;
+			sourceTree = "<group>";
+		};
+		C3FA347B201069D200260E8F /* notificationcenter */ = {
+			isa = PBXGroup;
+			children = (
+				C3FA347C201069F500260E8F /* notificationcenter.h */,
+				C3FA347D20106A0400260E8F /* notificationcenterimpl.h */,
+				C3FA348120106A1700260E8F /* notificationcenterimpl.cc */,
+			);
+			path = notificationcenter;
+			sourceTree = "<group>";
+		};
+		C3FA348420106B1C00260E8F /* NotificationCenterObjc */ = {
+			isa = PBXGroup;
+			children = (
+				C3FA348520106B2C00260E8F /* NotificationCenterObjc.h */,
+				C3FA348620106B2C00260E8F /* NotificationCenterObjc.mm */,
+			);
+			path = NotificationCenterObjc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3603,6 +3633,7 @@
 				C31A13EB1FB06168001FABFE /* attribute.c in Sources */,
 				C38A62971FD291FF00012ECA /* UIView+Horo.m in Sources */,
 				C33B99DC1FA375E600C0B1C6 /* AFURLRequestSerialization.m in Sources */,
+				C3FA348320106A1700260E8F /* notificationcenterimpl.cc in Sources */,
 				C373D4431FEBBDDB00D3BA16 /* asynctcpsocket_forxcode.cc in Sources */,
 				C373D4741FEBBDDB00D3BA16 /* ratelimiter_forxcode.cc in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm in Sources */,
@@ -3731,6 +3762,7 @@
 				C373D4581FEBBDDB00D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */,
 				C373D48F1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
+				C3FA348820106B2C00260E8F /* NotificationCenterObjc.mm in Sources */,
 				C3C117001FCE8929007DA9FF /* Tabs.m in Sources */,
 				C33F4ACC200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
@@ -3886,6 +3918,7 @@
 				C315ABFC1FE5040C00CC9B67 /* UIView+Horo.m in Sources */,
 				C315ABFD1FE5040C00CC9B67 /* AFURLRequestSerialization.m in Sources */,
 				C315ABFE1FE5040C00CC9B67 /* WebViewServiceFactoryObjc.mm in Sources */,
+				C3FA348220106A1700260E8F /* notificationcenterimpl.cc in Sources */,
 				C373D3F71FEBBDD300D3BA16 /* flags_forxcode.cc in Sources */,
 				C373D4061FEBBDD300D3BA16 /* stream_forxcode.cc in Sources */,
 				C315ABFF1FE5040C00CC9B67 /* string_buffer.c in Sources */,
@@ -4014,6 +4047,7 @@
 				C315AC331FE5040C00CC9B67 /* modelsimpl.cc in Sources */,
 				C373D48E1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */,
 				C373D4361FEBBDD300D3BA16 /* asynctcpsocket_forxcode.cc in Sources */,
+				C3FA348720106B2C00260E8F /* NotificationCenterObjc.mm in Sources */,
 				C315AC341FE5040C00CC9B67 /* Tabs.m in Sources */,
 				C33F4ACB200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */,
 				C315AC351FE5040C00CC9B67 /* AFHTTPSessionManager.m in Sources */,

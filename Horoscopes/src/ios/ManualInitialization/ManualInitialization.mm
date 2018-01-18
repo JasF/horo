@@ -18,6 +18,7 @@
 #import "TimerFactoryObjc.h"
 #import "UIViewControllerInjector.h"
 #import "AnalyticsObjc.h"
+#import "NotificationCenterObjc.h"
 
 @implementation ManualInitialization
 + (void)load {
@@ -25,6 +26,7 @@
 }
 + (void)doLoading {
     NSArray *array = @[[DatabaseObjc class], // Must be first
+                       [NotificationCenterObjc class],
                        [AnalyticsObjc class],
                        [SerializerObjc class],
                        [FirestoreObjc class],

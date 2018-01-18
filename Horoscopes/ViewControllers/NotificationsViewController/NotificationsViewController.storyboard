@@ -53,6 +53,7 @@
                     <connections>
                         <outlet property="enablePushesCell" destination="yBO-Fl-WBV" id="ojm-P6-yCR"/>
                         <outlet property="pushTimeCell" destination="RWE-W7-ONP" id="UTv-xm-9Rw"/>
+                        <outlet property="swither" destination="caP-HG-AmD" id="37n-vc-Ng7"/>
                     </connections>
                 </tableViewController>
                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RWE-W7-ONP" customClass="SettingsCell">
@@ -113,6 +114,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caP-HG-AmD">
                                 <rect key="frame" x="328" y="6" width="49" height="31"/>
+                                <connections>
+                                    <action selector="enablePushSwitchChanged:" destination="4Ax-ex-6Gm" eventType="valueChanged" id="4wQ-O1-6Cc"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

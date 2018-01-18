@@ -13,6 +13,7 @@
 #include "models/corecomponents/corecomponents.h"
 #include "managers/settings/settings.h"
 #include "managers/serializer/serializer.h"
+#include "managers/notificationcenter/notificationcenter.h"
 
 namespace horo {
     
@@ -20,7 +21,10 @@ class NotificationsImpl : public Notifications {
 public:
     static void setPrivateInstance(Notifications *instance);
 public:
-    NotificationsImpl(strong<CoreComponents> components, strong<Settings> settings, strong<Serializer> serializer);
+    NotificationsImpl(strong<CoreComponents> components,
+                      strong<Settings> settings,
+                      strong<Serializer> serializer,
+                      strong<NotificationCenter> notificationCenter);
     ~NotificationsImpl() override;
     void initialize() override;
     void openSettings() override;
@@ -45,6 +49,7 @@ private:
     strong<CoreComponents> components_;
     strong<Settings> settings_;
     strong<Serializer> serializer_;
+    strong<NotificationCenter> notificationCenter_;
 };
     
 }

@@ -53,6 +53,7 @@ namespace horo {
         void executeUserInformationPageRequest(std::string path);
         void executeFriendsPageRequest(std::string path);
         void executeUserDetailPageRequest(string path);
+        void doExecuteUserDetailPageRequest(string path);
         void executeRequestFriendsNextPage();
         void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom=false, bool forceDidFinishNavigation=false);
         void executeRequest(bool swipeToBottom=false, bool forceDidFinishNavigation=false);

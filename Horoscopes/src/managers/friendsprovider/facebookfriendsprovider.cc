@@ -30,10 +30,14 @@ void FacebookFriendsProvider::cancelRequest() {
         request_->cancel();
     }
 }
+    
+vector<int> getTimeouts() {
+    vector<int> timeouts = {2,3,4,5,6,7,8,9,10,11,12};
+    return timeouts;
+}
 
 void FacebookFriendsProvider::executeHomePageRequest() {
-    vector<int> timeouts = {2,3,4,5,6,7,8,9,10,11,12};
-    responseTimeoutTimer_ = new RungTimer(timerFactory_, timeouts, [this]() {
+    responseTimeoutTimer_ = new RungTimer(timerFactory_, getTimeouts(), [this]() {
         LOG(LS_WARNING) << "\n\n\n*************** RESTARTING DUE INACTIVITY *********\n\n\n";
         if (request_) {
             request_->cancel();
@@ -91,8 +95,23 @@ void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
         return;
     }
     
+    responseTimeoutTimer_ = new RungTimer(timerFactory_, getTimeouts(), [this, path]() {
+        LOG(LS_WARNING) << "\n\n\n*************** RESTARTING USERDETAIL DUE INACTIVITY *********\n\n\n";
+        if (request_) {
+            request_->cancel();
+            request_ = nullptr;
+        }
+        doExecuteUserDetailPageRequest(path);
+        return true;
+    });
+    
+    doExecuteUserDetailPageRequest(path);
+}
+    
+void FacebookFriendsProvider::doExecuteUserDetailPageRequest(string path) {
     executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
-        this->parseUserDetailPage(json);
+        responseTimeoutTimer_ = nullptr;
+        parseUserDetailPage(json);
     }, false, true);
 }
 

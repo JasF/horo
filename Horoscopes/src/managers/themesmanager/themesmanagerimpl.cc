@@ -8,11 +8,12 @@
 
 #include "themesmanagerimpl.h"
 #include "themes/darkthemeimpl/darkthemeimpl.h"
+#include "themes/lightthemeimpl/lightthemeimpl.h"
 
 namespace horo {
     
 ThemesManagerImpl::ThemesManagerImpl() :
-    activeTheme_(new DarkThemeImpl()) {
+    activeTheme_(new LightThemeImpl()) {
     
 }
 

@@ -17,13 +17,5 @@ DarkThemeImpl::DarkThemeImpl() {
 DarkThemeImpl::~DarkThemeImpl() {
     
 }
-    
-bool DarkThemeImpl::needsCancelSearchBeforeSegue() {
-    return true;
-}
-
-bool DarkThemeImpl::nativeNavigationTransition() {
-    return false;
-}
 
 };

@@ -47,6 +47,12 @@ namespace horo {
             return model_;
         }
         
+        // themes
+        bool backgroundWithSolidColor() override { return theme()->backgroundWithSolidColor(); }
+        Color backgroundColor() override { return theme()->backgroundColor(); }
+        bool predictionsWithCurlEffect() override { return theme()->predictionsWithCurlEffect(); }
+        Color fontColor() override { return theme()->fontColor(); }
+        
     private:
         strong<Theme> theme() { return themesManager_->activeTheme(); }
         

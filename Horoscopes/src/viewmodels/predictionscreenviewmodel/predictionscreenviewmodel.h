@@ -35,6 +35,12 @@ namespace horo {
         virtual void personData(std::function<void(string imageUrl, string name, string birthday)> callback) = 0;
         virtual strong<PredictionScreenModel> model() = 0;
         virtual bool isCurrentModelEqualWithData(strong<Person> person, strong<Zodiac> zodiac) = 0;
+        
+        // themes
+        virtual bool backgroundWithSolidColor()=0;
+        virtual Color backgroundColor()=0;
+        virtual bool predictionsWithCurlEffect()=0;
+        virtual Color fontColor()=0;
     };
     
     typedef reff<_PredictionScreenViewModel> PredictionScreenViewModel;

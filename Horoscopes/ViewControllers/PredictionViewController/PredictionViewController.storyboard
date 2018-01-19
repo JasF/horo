@@ -280,8 +280,16 @@
         <!--Page View Controller-->
         <scene sceneID="Hrr-pY-uiH">
             <objects>
-                <pageViewController storyboardIdentifier="HoroscopesPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QN8-o8-ckb" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="HoroscopesPageViewControllerScroll" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QN8-o8-ckb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58l-sR-kVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="669" y="35"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="cnG-wC-eIV">
+            <objects>
+                <pageViewController storyboardIdentifier="HoroscopesPageViewControllerPageCurl" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="P2x-10-mnS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YA1-S1-Twk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="669" y="35"/>
         </scene>

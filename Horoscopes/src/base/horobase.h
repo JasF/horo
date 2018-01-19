@@ -23,6 +23,7 @@
 #include "rtc_base/scoped_ref_ptr.h"
 #include "rtc_base/logging.h"
 #include "base/horoasserts.h"
+#include "data/color.h"
 
 template<typename T>
 using strong = rtc::scoped_refptr<T>;

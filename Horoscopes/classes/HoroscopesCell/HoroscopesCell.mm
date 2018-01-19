@@ -16,6 +16,8 @@ static NSInteger const kTodayTabIndex = 1;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSMutableDictionary *viewControllers;
 @property (weak, nonatomic) PredictionContentViewController *selectedViewController;
+@property (strong, nonatomic) UIColor *textColor;
+@property (strong, nonatomic) UIColor *backgroundColor;
 @end
 
 @implementation HoroscopesCell
@@ -27,6 +29,14 @@ static NSInteger const kTodayTabIndex = 1;
 }
 
 #pragma mark - Accessors
+- (void)setTextColor:(UIColor *)color {
+    _textColor = color;
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    _backgroundColor = backgroundColor;
+}
+
 - (void)setPageViewController:(UIPageViewController *)pageViewController {
     // DDLogDebug(@"page setPageViewController");
     [[self scrollView] setDelegate:nil];
@@ -98,6 +108,8 @@ static NSInteger const kTodayTabIndex = 1;
         return nil;
     }
     PredictionContentViewController *viewController = [[PredictionContentViewController alloc] initWithNibName:@"PredictionContentViewController" bundle:nil];
+    [viewController setTextColor:_textColor];
+    [viewController setBackgroundColor:_backgroundColor];
     [viewController loadViewIfNeeded];
     viewController.index = index;
     NSString *text = _texts[index];

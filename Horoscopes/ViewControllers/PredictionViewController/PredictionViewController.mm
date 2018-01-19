@@ -11,6 +11,7 @@
 #import "UINavigationBar+Horo.h"
 #import "HoroscopesCell.h"
 #import "NSString+Horo.h"
+#import "UIColor+Horo.h"
 #import "UIView+Horo.h"
 #import "FriendCell.h"
 #import "Tabs.h"
@@ -118,6 +119,12 @@ static CGFloat const kFriendCellHeight = 65.f;
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
+    
+    if (_viewModel->backgroundWithSolidColor()) {
+        self.view.backgroundColor = [UIColor horo_fromColor:_viewModel->backgroundColor()];
+        [_horoscopesCell setBackgroundColor:[UIColor horo_fromColor:_viewModel->backgroundColor()]];
+    }
+    [_horoscopesCell setTextColor:[UIColor horo_fromColor:_viewModel->fontColor()]];
                                               
     @weakify(self);
     [self showProgressHUD];

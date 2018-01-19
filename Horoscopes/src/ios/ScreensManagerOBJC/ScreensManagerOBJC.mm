@@ -226,10 +226,11 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController" bundle:nil];
     UINavigationController *navigationController =(UINavigationController *)[storyboard
     instantiateViewControllerWithIdentifier:@"navigationController"];
-    UIPageViewController *pageViewController = (UIPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HoroscopesPageViewController"];
     PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
-    viewController.horoscopesPageViewController = pageViewController;
     viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person, zodiac);
+    NSString *pageControllerIdentifier = (viewController.viewModel->predictionsWithCurlEffect()) ? @"HoroscopesPageViewControllerPageCurl": @"HoroscopesPageViewControllerScroll";
+    UIPageViewController *pageViewController = (UIPageViewController *)[storyboard instantiateViewControllerWithIdentifier:pageControllerIdentifier];
+    viewController.horoscopesPageViewController = pageViewController;
     [self.navigationController setNavigationBarHidden:NO];
     if (push) {
         viewController.hideMenuButton = YES;

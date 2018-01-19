@@ -22,6 +22,12 @@ public:
 public:
     virtual bool needsCancelSearchBeforeSegue()=0;
     virtual bool nativeNavigationTransition()=0;
+    
+    virtual bool backgroundWithSolidColor()=0;
+    virtual Color backgroundColor()=0;
+    
+    virtual bool predictionsWithCurlEffect()=0;
+    virtual Color fontColor()=0;
 };
     
 typedef reff<_Theme> Theme;

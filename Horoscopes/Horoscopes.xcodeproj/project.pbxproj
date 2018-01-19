@@ -668,6 +668,12 @@
 		C3DD104A20072D2800883328 /* TimerFactoryObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104820072D2800883328 /* TimerFactoryObjc.mm */; };
 		C3DD104E20072DAB00883328 /* TimerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104D20072DAB00883328 /* TimerObjc.mm */; };
 		C3DD104F20072DAB00883328 /* TimerObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DD104D20072DAB00883328 /* TimerObjc.mm */; };
+		C3DFD54D2011D25A00B87F62 /* lightthemeimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3DFD54C2011D25A00B87F62 /* lightthemeimpl.cc */; };
+		C3DFD54E2011D25A00B87F62 /* lightthemeimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3DFD54C2011D25A00B87F62 /* lightthemeimpl.cc */; };
+		C3DFD5542011D2FE00B87F62 /* color.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3DFD5532011D2FE00B87F62 /* color.cc */; };
+		C3DFD5552011D2FE00B87F62 /* color.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3DFD5532011D2FE00B87F62 /* color.cc */; };
+		C3DFD5582011D57D00B87F62 /* UIColor+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DFD5572011D57D00B87F62 /* UIColor+Horo.mm */; };
+		C3DFD5592011D57D00B87F62 /* UIColor+Horo.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3DFD5572011D57D00B87F62 /* UIColor+Horo.mm */; };
 		C3E3F6D3200F1A8300FA7F21 /* analyticsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */; };
 		C3E3F6D4200F1A8300FA7F21 /* analyticsimpl.cc in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */; };
 		C3E3F6D8200F1E6000FA7F21 /* AnalyticsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3E3F6D7200F1E6000FA7F21 /* AnalyticsObjc.mm */; };
@@ -1320,6 +1326,12 @@
 		C3DD104C20072DAB00883328 /* TimerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerObjc.h; sourceTree = "<group>"; };
 		C3DD104D20072DAB00883328 /* TimerObjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerObjc.mm; sourceTree = "<group>"; };
 		C3DD1051200732ED00883328 /* rungtimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rungtimer.h; sourceTree = "<group>"; };
+		C3DFD5482011D24A00B87F62 /* lightthemeimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lightthemeimpl.h; sourceTree = "<group>"; };
+		C3DFD54C2011D25A00B87F62 /* lightthemeimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lightthemeimpl.cc; sourceTree = "<group>"; };
+		C3DFD54F2011D2F000B87F62 /* color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
+		C3DFD5532011D2FE00B87F62 /* color.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = color.cc; sourceTree = "<group>"; };
+		C3DFD5562011D57D00B87F62 /* UIColor+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Horo.h"; sourceTree = "<group>"; };
+		C3DFD5572011D57D00B87F62 /* UIColor+Horo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIColor+Horo.mm"; sourceTree = "<group>"; };
 		C3E3F6CD200F1A5900FA7F21 /* analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = analytics.h; sourceTree = "<group>"; };
 		C3E3F6CE200F1A6500FA7F21 /* analyticsimpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = analyticsimpl.h; sourceTree = "<group>"; };
 		C3E3F6D2200F1A8200FA7F21 /* analyticsimpl.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = analyticsimpl.cc; sourceTree = "<group>"; };
@@ -1749,6 +1761,8 @@
 				C30B18891FA4C2D9006DEDB7 /* zodiac.cc */,
 				C30B18A11FA5D14B006DEDB7 /* person.h */,
 				C30B18A41FA5D15F006DEDB7 /* person.cc */,
+				C3DFD54F2011D2F000B87F62 /* color.h */,
+				C3DFD5532011D2FE00B87F62 /* color.cc */,
 				C30409461FA77F5400A0FC33 /* horoscopedto.h */,
 				C30409491FA77F6600A0FC33 /* horoscopedto.cc */,
 				C31A13A41FB05290001FABFE /* datewrapper.h */,
@@ -2834,6 +2848,8 @@
 				C373D4FE1FED437F00D3BA16 /* NSData+Horo.m */,
 				C342BDBC2003627000BC0B95 /* NSBundle+Horo.h */,
 				C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */,
+				C3DFD5562011D57D00B87F62 /* UIColor+Horo.h */,
+				C3DFD5572011D57D00B87F62 /* UIColor+Horo.mm */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2887,6 +2903,7 @@
 		C3C03C402005E54900DB82B8 /* themes */ = {
 			isa = PBXGroup;
 			children = (
+				C3DFD5472011D23300B87F62 /* lightthemeimpl */,
 				C3C03C482005E7D600DB82B8 /* darkthemeimpl */,
 				C3C03C412005E55E00DB82B8 /* theme.h */,
 			);
@@ -3234,6 +3251,15 @@
 			path = rungtimer;
 			sourceTree = "<group>";
 		};
+		C3DFD5472011D23300B87F62 /* lightthemeimpl */ = {
+			isa = PBXGroup;
+			children = (
+				C3DFD5482011D24A00B87F62 /* lightthemeimpl.h */,
+				C3DFD54C2011D25A00B87F62 /* lightthemeimpl.cc */,
+			);
+			path = lightthemeimpl;
+			sourceTree = "<group>";
+		};
 		C3E3F6CC200F1A4800FA7F21 /* analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -3544,6 +3570,7 @@
 				C373D44B1FEBBDDB00D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */,
 				C3C7ABBF20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				C30B17EC1FA481C2006DEDB7 /* EXTADT.m in Sources */,
+				C3DFD5552011D2FE00B87F62 /* color.cc in Sources */,
 				C3C037A12004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
 				C373D4711FEBBDDB00D3BA16 /* random_forxcode.cc in Sources */,
@@ -3637,6 +3664,7 @@
 				C373D4431FEBBDDB00D3BA16 /* asynctcpsocket_forxcode.cc in Sources */,
 				C373D4741FEBBDDB00D3BA16 /* ratelimiter_forxcode.cc in Sources */,
 				C33B99C51FA3734B00C0B1C6 /* WebViewServiceFactoryObjc.mm in Sources */,
+				C3DFD54E2011D25A00B87F62 /* lightthemeimpl.cc in Sources */,
 				C31A13EA1FB06168001FABFE /* string_buffer.c in Sources */,
 				C373D44F1FEBBDDB00D3BA16 /* event_tracer_forxcode.cc in Sources */,
 				C30B167D1FA476CA006DEDB7 /* json_reader.cpp in Sources */,
@@ -3696,6 +3724,7 @@
 				C373D48A1FEBBDDB00D3BA16 /* timeutils_forxcode.cc in Sources */,
 				C3C7ABD320022D5000CFDDD2 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				C3C7ABE320022D5000CFDDD2 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
+				C3DFD5592011D57D00B87F62 /* UIColor+Horo.mm in Sources */,
 				C3C7ABA120022D5000CFDDD2 /* NVActivityIndicatorPresenter.swift in Sources */,
 				C373D47B1FEBBDDB00D3BA16 /* socketaddress_forxcode.cc in Sources */,
 				C30B18A51FA5D15F006DEDB7 /* person.cc in Sources */,
@@ -3829,6 +3858,7 @@
 				C315ABD01FE5040C00CC9B67 /* EXTADT.m in Sources */,
 				C3C7ABBE20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				C373D42E1FEBBDD300D3BA16 /* platform_file_forxcode.cc in Sources */,
+				C3DFD5542011D2FE00B87F62 /* color.cc in Sources */,
 				C3C037A02004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */,
 				C315ABD21FE5040C00CC9B67 /* EXTScope.m in Sources */,
@@ -3922,6 +3952,7 @@
 				C373D3F71FEBBDD300D3BA16 /* flags_forxcode.cc in Sources */,
 				C373D4061FEBBDD300D3BA16 /* stream_forxcode.cc in Sources */,
 				C315ABFF1FE5040C00CC9B67 /* string_buffer.c in Sources */,
+				C3DFD54D2011D25A00B87F62 /* lightthemeimpl.cc in Sources */,
 				C373D3F21FEBBDD300D3BA16 /* fileutils_forxcode.cc in Sources */,
 				C315AC001FE5040C00CC9B67 /* json_reader.cpp in Sources */,
 				C373D43C1FEBBDD300D3BA16 /* proxyinfo_forxcode.cc in Sources */,
@@ -3981,6 +4012,7 @@
 				C315AC191FE5040C00CC9B67 /* NSInvocation+EXT.m in Sources */,
 				C3C7ABD220022D5000CFDDD2 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				C3C7ABE220022D5000CFDDD2 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
+				C3DFD5582011D57D00B87F62 /* UIColor+Horo.mm in Sources */,
 				C3C7ABA020022D5000CFDDD2 /* NVActivityIndicatorPresenter.swift in Sources */,
 				C315AC1A1FE5040C00CC9B67 /* person.cc in Sources */,
 				C373D4251FEBBDD300D3BA16 /* unixfilesystem_forxcode.cc in Sources */,

@@ -12,4 +12,6 @@
 @property (assign, nonatomic) NSInteger index;
 - (void)setText:(NSString *)text width:(CGFloat)width;
 - (CGFloat)getHeight;
+- (void)setTextColor:(UIColor *)color;
+- (void)setBackgroundColor:(UIColor *)backgroundColor;
 @end

@@ -17,8 +17,14 @@ namespace horo {
     public:
         DarkThemeImpl();
         ~DarkThemeImpl() override;
-        bool needsCancelSearchBeforeSegue() override;
-        bool nativeNavigationTransition() override;
+        bool needsCancelSearchBeforeSegue() override { return true; }
+        bool nativeNavigationTransition() override { return false; }
+        
+        bool backgroundWithSolidColor() override { return false; }
+        Color backgroundColor() override { return Color(); }
+        
+        bool predictionsWithCurlEffect() override { return false; }
+        Color fontColor() override { return Color::whiteColor(); }
     };
     
 };

@@ -28,7 +28,9 @@ namespace horo {
         virtual void beginRequest(string path,
                                   function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                   function<void(error err)> failBlock,
-                                  function<void(WebViewServiceMessages message)> serviceBlock, void *webViewControllerUIDelegate) = 0;
+                                  function<void(WebViewServiceMessages message)> serviceBlock,
+                                  void *webViewControllerUIDelegate,
+                                  bool forceDidFinishNavigation) = 0;
         virtual void swipeToBottom(std::function<void(strong<HttpResponse> response, Json::Value value)> successBlock, std::function<void(error err)> failBlock) = 0;
         virtual void cancel()=0;
     };

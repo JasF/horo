@@ -31,7 +31,8 @@ void WebViewServiceObjc::beginRequest(string path,
                                       function<void(strong<HttpResponse> response, Json::Value value)> successBlock,
                                       function<void(error err)> failBlock,
                                       function<void(WebViewServiceMessages message)> serviceBlock,
-                                      void *webViewControllerUIDelegate) {
+                                      void *webViewControllerUIDelegate,
+                                      bool forceDidFinishNavigation) {
     
     NSString *pathString = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
     NSString *baseUrl = [HTTPSessionManager sharedClient].baseURL.absoluteString;
@@ -49,7 +50,8 @@ void WebViewServiceObjc::beginRequest(string path,
                                                    if (serviceBlock) {
                                                        serviceBlock(message);
                                                    }
-                                               }];
+                                               }
+              forceDidFinishNavigation:forceDidFinishNavigation];
 }
 
 void WebViewServiceObjc::swipeToBottom(function<void(strong<HttpResponse> response, Json::Value value)> successBlock, function<void(error err)> failBlock) {

@@ -25,6 +25,8 @@
 
 static NSInteger const kSlideMenuActivationMode = 8;
 
+using namespace horo;
+
 @interface ScreensManagerOBJC () {
 @public
     horo::ScreensManagerImpl *impl_;
@@ -34,7 +36,7 @@ static NSInteger const kSlideMenuActivationMode = 8;
 @property (nonatomic, strong) MainViewController *mainViewController;
 @property (nonatomic, strong) BaseNavigationController *navigationController;
 
-- (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push;
+- (void)showPredictionViewController:(strong<Person>)person push:(BOOL)push zodiac:(strong<Zodiac>)zodiac;
 - (void)showNotificationsViewController;
 - (void)showFriendsViewController;
 - (void)showAccountViewController;
@@ -56,7 +58,12 @@ namespace horo {
            if (person.get() && !person->zodiac().get()) {
                return;
            }
-           [[ScreensManagerOBJC shared] showPredictionViewController:person push:push];
+           [[ScreensManagerOBJC shared] showPredictionViewController:person push:push zodiac:nil];
+        }
+        
+        void showPredictionViewController(strong<Zodiac> zodiac) override {
+            SCParameterAssert( zodiac.get() );
+            [[ScreensManagerOBJC shared] showPredictionViewController:nil push:false zodiac:zodiac];
         }
         
         void showPredictionViewController() override {
@@ -148,7 +155,6 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
         [navigationController setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"]]];
         _mainViewController = [_storyboard instantiateInitialViewController];
         _mainViewController.rootViewController = navigationController;
-       // [_mainViewController.leftViewController.navigationController setNavigationBarHidden:YES animated:NO];
         [_mainViewController setupWithType:kSlideMenuActivationMode];
         self.window.rootViewController = _mainViewController;
     }
@@ -192,10 +198,10 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     [self pushViewController:viewController];
 }
 
-- (BOOL)canIgnorePushingViewController:(Class)cls person:(strong<horo::Person>)person {
+- (BOOL)canIgnorePushingViewController:(Class)cls person:(strong<Person>)person zodiac:(strong<Zodiac>)zodiac {
     if ([[self.navigationController.topViewController class] isEqual:[PredictionViewController class]] && [cls isEqual:[PredictionViewController class]]) {
         PredictionViewController *viewController =(PredictionViewController *)self.navigationController.topViewController;
-        if (viewController.viewModel->model()->zodiac()->type() == person->zodiac()->type()) {
+        if (viewController.viewModel->isCurrentModelEqualWithData(person, zodiac)) {
             if (self.mainViewController.isLeftViewVisible) {
                 [self closeMenu];
             }
@@ -209,12 +215,12 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (BOOL)canIgnorePushingViewController:(Class)cls {
-    return [self canIgnorePushingViewController:cls person:nil];
+    return [self canIgnorePushingViewController:cls person:nil zodiac:nil];
 }
 
-- (void)showPredictionViewController:(strong<horo::Person>)person push:(BOOL)push {
+- (void)showPredictionViewController:(strong<Person>)person push:(BOOL)push zodiac:(strong<Zodiac>)zodiac {
     [self closeMenu];
-    if ([self canIgnorePushingViewController:[PredictionViewController class] person:person]) {
+    if ([self canIgnorePushingViewController:[PredictionViewController class] person:person zodiac:zodiac]) {
         return;
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"PredictionViewController" bundle:nil];
@@ -223,7 +229,7 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
     UIPageViewController *pageViewController = (UIPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HoroscopesPageViewController"];
     PredictionViewController *viewController = (PredictionViewController *)navigationController.topViewController;
     viewController.horoscopesPageViewController = pageViewController;
-    viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person);
+    viewController.viewModel = impl_->viewModels()->predictionScreenViewModel(person, zodiac);
     [self.navigationController setNavigationBarHidden:NO];
     if (push) {
         viewController.hideMenuButton = YES;

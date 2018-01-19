@@ -50,11 +50,11 @@ namespace horo {
     }
     
     strong<PredictionScreenModel> ModelsImpl::predictionScreenModel() {
-        return predictionScreenModel(nullptr);
+        return predictionScreenModel(nullptr, nullptr);
     }
     
-    strong<PredictionScreenModel> ModelsImpl::predictionScreenModel(strong<Person> person) {
-        return new PredictionScreenModelImpl(components_, horoscopesService_, person, ntp_);
+    strong<PredictionScreenModel> ModelsImpl::predictionScreenModel(strong<Person> person, strong<Zodiac> zodiac) {
+        return new PredictionScreenModelImpl(components_, horoscopesService_, person, zodiac, ntp_);
     }
     
     strong<HelloScreenModel> ModelsImpl::helloScreenModel() {

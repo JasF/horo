@@ -25,7 +25,7 @@ namespace horo {
         virtual ~_ViewModels() {}
     public:
         virtual strong<PredictionScreenViewModel> predictionScreenViewModel()=0;
-        virtual strong<PredictionScreenViewModel> predictionScreenViewModel(strong<Person> person)=0;
+        virtual strong<PredictionScreenViewModel> predictionScreenViewModel(strong<Person> person, strong<Zodiac> zodiac)=0;
         virtual strong<HelloScreenViewModel> helloScreenViewModel()=0;
         virtual strong<MenuScreenViewModel> menuScreenViewModel()=0;
         virtual strong<FriendsScreenViewModel> friendsScreenViewModel()=0;

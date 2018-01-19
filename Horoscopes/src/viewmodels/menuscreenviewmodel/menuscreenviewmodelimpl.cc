@@ -65,7 +65,8 @@ namespace horo {
     }
     
     void MenuScreenViewModelImpl::didSelectZodiac(int zodiacRowIndex, bool isLeftZodiac) {
-        //ScreensManager
+        strong<Zodiac> zodiac = model_->zodiacForRow(zodiacRowIndex, isLeftZodiac);
+        screensManager_->showPredictionViewController(zodiac);
     }
     
 };

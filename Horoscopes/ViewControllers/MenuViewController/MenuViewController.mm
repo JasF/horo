@@ -40,7 +40,9 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
 @end
 
-@implementation MenuViewController
+@implementation MenuViewController {
+    NSIndexPath *_selectedIndexPath;
+}
 
 - (void)injectViewModel:(NSValue *)viewModelValue {
     strong<horo::MenuScreenViewModel> *viewModel =(strong<horo::MenuScreenViewModel> * )[viewModelValue pointerValue];
@@ -79,6 +81,7 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuSimpleCell *cell =(MenuSimpleCell *)[tableView dequeueReusableCellWithIdentifier:kMenuSimpleCell];
     NSCParameterAssert(cell);
+    cell.delegate = self;
     if (indexPath.row >= ZodiacsRow1 && indexPath.row <= ZodiacsRow6) {
         NSInteger zodiacRowIndex = indexPath.row - ZodiacsRow1;
         DDLogDebug(@"zodiacRowIndex: %@", @(zodiacRowIndex));
@@ -148,7 +151,8 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
     if (!indexPath) {
         return;
     }
-    _viewModel->didSelectZodiac(indexPath.row - ZodiacsRow1, leftButton);
+    _selectedIndexPath = indexPath;
+    _viewModel->didSelectZodiac((int)indexPath.row - ZodiacsRow1, leftButton);
 }
 
 @end

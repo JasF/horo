@@ -24,6 +24,7 @@ namespace horo {
         PredictionScreenModelImpl(strong<CoreComponents> components,
                                   strong<HoroscopesService> horoscopesService,
                                   strong<Person> person,
+                                  strong<Zodiac> zodiac,
                                   strong<Ntp> ntp);
         ~PredictionScreenModelImpl() override;
     public:
@@ -37,6 +38,7 @@ namespace horo {
         bool personExists() override;
         void personData(std::function<void(string imageUrl, string name, string birthday)> callback) override;
         strong<Zodiac> zodiac() override;
+        bool isCurrentModelEqualWithData(strong<Person> person, strong<Zodiac> zodiac) override;
     private:
         void processFetchedHoroscopes();
         void handleFetchedHoroscopes(strong<HoroscopeDTO> yesterday,
@@ -48,6 +50,7 @@ namespace horo {
     private:
         strong<CoreComponents> components_;
         strong<Person> person_;
+        strong<Zodiac> zodiac_;
         strong<HoroscopesService> horoscopesService_;
         strong<Ntp> ntp_;
         list<string> predictions_;

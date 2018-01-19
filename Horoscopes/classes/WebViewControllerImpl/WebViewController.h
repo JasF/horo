@@ -13,7 +13,8 @@
 @protocol WebViewController <NSObject>
 - (void)loadURLWithPath:(NSURL *)URL
              completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion
-           serviceBlock:(void(^)(horo::WebViewServiceMessages message))serviceBlock;
+           serviceBlock:(void(^)(horo::WebViewServiceMessages message))serviceBlock
+forceDidFinishNavigation:(BOOL)forceDidFinishNavigation;
 - (void)triggerSwipeToBottomWithCompletion:(void(^)(NSString *html, NSURL *url, NSError *error))completion;
 - (void)setUIDelegate:(id<WebViewControllerUIDelegate>)delegate;
 - (void)cancel;

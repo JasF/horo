@@ -58,4 +58,13 @@ namespace horo {
         callback(leftZodiac->name(), rightZodiac->name());
     }
     
+    strong<Zodiac> MenuScreenModelImpl::zodiacForRow(int zodiacRowIndex, bool isLeftZodiac) {
+        SCParameterAssert(zodiacRowIndex >= 0 && zodiacRowIndex <= 6);
+        int leftType = zodiacRowIndex*2 + static_cast<int>(Aquarius);
+        int rightType = leftType + 1;
+        strong<Zodiac> leftZodiac = new Zodiac(static_cast<ZodiacTypes>(leftType));
+        strong<Zodiac> rightZodiac = new Zodiac(static_cast<ZodiacTypes>(rightType));
+        return (isLeftZodiac) ? leftZodiac : rightZodiac;
+    }
+    
 };

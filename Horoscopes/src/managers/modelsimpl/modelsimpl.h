@@ -35,7 +35,7 @@ namespace horo {
         ~ModelsImpl() override;
     public:
         strong<PredictionScreenModel> predictionScreenModel() override;
-        strong<PredictionScreenModel> predictionScreenModel(strong<Person> person) override;
+        strong<PredictionScreenModel> predictionScreenModel(strong<Person> person, strong<Zodiac> zodiac) override;
         strong<HelloScreenModel> helloScreenModel() override;
         strong<MenuScreenModel> menuScreenModel() override;
         strong<FriendsScreenModel> friendsScreenModel() override;

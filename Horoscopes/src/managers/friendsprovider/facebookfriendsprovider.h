@@ -54,8 +54,8 @@ namespace horo {
         void executeFriendsPageRequest(std::string path);
         void executeUserDetailPageRequest(string path);
         void executeRequestFriendsNextPage();
-        void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom=false);
-        void executeRequest(bool swipeToBottom=false);
+        void executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom=false, bool forceDidFinishNavigation=false);
+        void executeRequest(bool swipeToBottom=false, bool forceDidFinishNavigation=false);
         
     public:
         bool isRequiredAuthorizationResponse(strong<HttpResponse> response);

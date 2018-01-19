@@ -42,6 +42,13 @@ namespace horo {
         }
     }
     
+    void ScreensManagerImpl::showPredictionViewController(strong<Zodiac> zodiac) {
+        analytics_->predictionScreenShow(false, false);
+        if (g_privateInstance) {
+            g_privateInstance->showPredictionViewController(zodiac);
+        }
+    }
+    
     void ScreensManagerImpl::showWelcomeViewController() {
         analytics_->welcomeScreenShow();
         if (g_privateInstance) {

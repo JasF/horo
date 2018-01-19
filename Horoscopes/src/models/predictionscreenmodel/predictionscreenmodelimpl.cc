@@ -14,10 +14,12 @@ namespace horo {
 PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> components,
                                                      strong<HoroscopesService> horoscopesService,
                                                      strong<Person> person,
+                                                     strong<Zodiac> zodiac,
                                                      strong<Ntp> ntp)
     : components_(components)
     , horoscopesService_(horoscopesService)
     , person_(person)
+    , zodiac_(zodiac)
     , ntp_(ntp)
     , yesterdayTimestamp_(0)
     , todayTimestamp_(0)
@@ -28,7 +30,7 @@ PredictionScreenModelImpl::PredictionScreenModelImpl(strong<CoreComponents> comp
         SCParameterAssert(components_.get());
         SCParameterAssert(horoscopesService_.get());
         SCParameterAssert(ntp_.get());
-        if (!person_.get()) {
+        if (!person_.get() && !zodiac_.get()) {
             person_ = components_->person_;
         }
         loadData();
@@ -173,11 +175,8 @@ void PredictionScreenModelImpl::handleFetchedHoroscopes(strong<HoroscopeDTO> yes
 }
 
 std::string PredictionScreenModelImpl::zodiacName() {
-    if (person_.get()) {
-        if (person_->zodiac().get()) {
-            return person_->zodiac()->name();
-        }
-        return "Unknown";
+    if (zodiac().get()) {
+        return zodiac()->name();
     }
     return nullptr;
 }
@@ -201,6 +200,9 @@ void PredictionScreenModelImpl::noConnectionTapped() {
 }
 
 strong<Zodiac> PredictionScreenModelImpl::zodiac() {
+    if (zodiac_.get()) {
+        return zodiac_;
+    }
     if (person_.get() && person_.get()->zodiac()) {
         return person_->zodiac();
     }
@@ -217,20 +219,37 @@ list<string> PredictionScreenModelImpl::horoscopesText() {
 }
 
 bool PredictionScreenModelImpl::personExists() {
-    return !(person_ == components_->person_);
+    return (person_.get() && !(person_ == components_->person_));
 }
     
 void PredictionScreenModelImpl::personData(std::function<void(string imageUrl, string name, string birthday)> callback) {
     SCParameterAssert(callback);
-    SCAssert(person_.get(), "Person must be initialized");
+    SCAssert(person_.get(), "Person must be initialized. Maybe personExists() method failed?");
     if (!person_.get()) {
+        callback("", "", "");
         return;
     }
     if (personExists()) {
         callback(person_->imageUrl(), person_->name(), person_->birthdayDate().toString());
         return;
     }
-    callback("", "", "");
+}
+
+bool PredictionScreenModelImpl::isCurrentModelEqualWithData(strong<Person> person, strong<Zodiac> zodiac) {
+    if (person_.get() && person.get()) {
+        return (person_.get() == person.get());
+    }
+    if (this->zodiac().get() && zodiac.get()) {
+        return (this->zodiac()->type() == zodiac->type());
+    }
+    if (this->zodiac().get() && person.get()) {
+        if (!person->zodiac().get()) {
+            return false;
+        }
+        return (this->zodiac()->type() == person->zodiac()->type());
+    }
+    SCAssert(false, "Unknown condition");
+    return false;
 }
 
 };

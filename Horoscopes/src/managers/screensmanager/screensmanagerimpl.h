@@ -26,6 +26,7 @@ namespace horo {
     public:
         void showPredictionViewController() override;
         void showPredictionViewController(strong<Person> person, bool push = false) override;
+        void showPredictionViewController(strong<Zodiac> zodiac) override;
         void showWelcomeViewController() override;
         void showMenuViewController(bool animated) override;
         void showFriendsViewController() override;

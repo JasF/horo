@@ -33,6 +33,7 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 @property (assign, nonatomic) BOOL dialogPresented;
 @property (strong, nonatomic) WKNavigation *currentNavigationRequest;
 @property (assign, nonatomic) WebViewResponseType responseType;
+@property (assign, nonatomic) BOOL forceDidFinishNavigation;
 @end
 
 @implementation WebViewControllerImpl
@@ -67,10 +68,12 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 #pragma mark - WebViewController overriden methods
 - (void)loadURLWithPath:(NSURL *)URL
              completion:(void(^)(NSString *html, NSURL *url, NSError *error))completion
-           serviceBlock:(void(^)(horo::WebViewServiceMessages message))serviceBlock {
+           serviceBlock:(void(^)(horo::WebViewServiceMessages message))serviceBlock
+forceDidFinishNavigation:(BOOL)forceDidFinishNavigation {
     DDLogInfo(@"URL: %@", URL);
     NSCParameterAssert(URL);
     NSCParameterAssert(completion);
+    _forceDidFinishNavigation = forceDidFinishNavigation;
     _workingURL = URL;
     self.webViewDidLoadCompletion = completion;
     self.serviceBlock = serviceBlock;
@@ -146,13 +149,12 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
     DDLogInfo(@"decidePolicyForNavigationResponse: %@", navigationResponse.response.URL);
     NSURL *url = navigationResponse.response.URL;
-    url = [NSURL URLWithString:[url.absoluteString stringByReplacingOccurrencesOfString:@"#_=_" withString:@""]];
     [self handleResponseWithURL:url force:NO];
     decisionHandler(WKNavigationResponsePolicyAllow);
 }
 
 - (void)handleResponseWithURL:(NSURL *)url force:(BOOL)force {
-    if (!force) {
+    if (!force && _forceDidFinishNavigation) {
         return;
     }
     BOOL needsShowDialog = NO;
@@ -160,6 +162,9 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
         needsShowDialog = [_delegate webViewController:self webViewDidLoad:url];
     }
     
+    if (!force && needsShowDialog) {
+        return; // AV: avaiting for FORCE flag == YES
+    }
     if (!_dialogPresented && needsShowDialog) {
         [self showDialog];
     }
@@ -184,6 +189,7 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
         auto cb = self.webViewDidLoadCompletion;
         self.webViewDidLoadCompletion = nil;
         self.serviceBlock = nil;
+        self.forceDidFinishNavigation = NO;
         cb(nil, webView.URL, error);
     }
 }
@@ -212,6 +218,7 @@ static CGFloat const kCyclicSwipeDuration = 0.8f;
             auto cb = self.webViewDidLoadCompletion;
             self.webViewDidLoadCompletion = nil;
             self.serviceBlock = nil;
+            self.forceDidFinishNavigation = NO;
             cb(object, self.webView.URL, error);
         }
     }];

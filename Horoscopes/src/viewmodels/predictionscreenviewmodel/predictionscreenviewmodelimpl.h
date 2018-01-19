@@ -40,6 +40,9 @@ namespace horo {
         void noConnectionTapped() override;
         bool personExists() override;
         void personData(std::function<void(string imageUrl, string name, string birthday)> callback) override;
+        bool isCurrentModelEqualWithData(strong<Person> person, strong<Zodiac> zodiac) override {
+            return model_->isCurrentModelEqualWithData(person, zodiac);
+        }
         strong<PredictionScreenModel> model() override {
             return model_;
         }

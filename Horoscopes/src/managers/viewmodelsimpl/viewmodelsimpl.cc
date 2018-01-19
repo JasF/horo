@@ -34,8 +34,8 @@ namespace horo {
         return viewModel;
     }
     
-    strong<PredictionScreenViewModel> ViewModelsImpl::predictionScreenViewModel(strong<Person> person) {
-        strong<PredictionScreenModel> model = models_->predictionScreenModel(person);
+    strong<PredictionScreenViewModel> ViewModelsImpl::predictionScreenViewModel(strong<Person> person, strong<Zodiac> zodiac) {
+        strong<PredictionScreenModel> model = models_->predictionScreenModel(person, zodiac);
         PredictionScreenViewModelImpl *viewModel = new PredictionScreenViewModelImpl(model, screensManager_, themesManager_);
         return viewModel;
     }

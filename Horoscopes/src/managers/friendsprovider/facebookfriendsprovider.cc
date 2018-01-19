@@ -91,10 +91,9 @@ void FacebookFriendsProvider::executeUserDetailPageRequest(string path) {
         return;
     }
     
-    
     executeRequest(path, [this](strong<HttpResponse> response, Json::Value json) {
         this->parseUserDetailPage(json);
-    });
+    }, false, true);
 }
 
 void FacebookFriendsProvider::executeRequestFriendsNextPage() {
@@ -103,7 +102,7 @@ void FacebookFriendsProvider::executeRequestFriendsNextPage() {
     }, true);
 }
 
-void FacebookFriendsProvider::executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom)
+void FacebookFriendsProvider::executeRequest(std::string path, std::function<void(strong<HttpResponse> response, Json::Value value)> callback, bool swipeToBottom, bool forceDidFinishNavigation)
 {
     if (path.find("http") != string::npos) {
         path = ReplaceAll(path, "https://m.facebook.com/", "");
@@ -113,10 +112,10 @@ void FacebookFriendsProvider::executeRequest(std::string path, std::function<voi
     }
     currentPath_ = path;
     currentCallback_ = callback;
-    executeRequest(swipeToBottom);
+    executeRequest(swipeToBottom, forceDidFinishNavigation);
 }
     
-void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
+void FacebookFriendsProvider::executeRequest(bool swipeToBottom, bool forceDidFinishNavigation) {
     request_ = factory_->createWebViewService();
     auto aCallback = currentCallback_;
     
@@ -141,7 +140,7 @@ void FacebookFriendsProvider::executeRequest(bool swipeToBottom) {
             if (serviceBlock_) {
                 serviceBlock_(message);
             }
-        }, webViewControllerUIDelegate_);
+        }, webViewControllerUIDelegate_, forceDidFinishNavigation);
     }
 }
 

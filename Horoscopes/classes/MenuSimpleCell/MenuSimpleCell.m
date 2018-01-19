@@ -70,4 +70,11 @@ static CGFloat const kSelectedCellBackgroundAlpha = 0.2f;
     }
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    for (UIButton *button in @[_leftButton, _rightButton]) {
+        button.backgroundColor = [UIColor clearColor];
+    }
+}
+
 @end

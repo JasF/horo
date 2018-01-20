@@ -14,6 +14,7 @@
 #import "base/platform.h"
 #import "NSString+Horo.h"
 #include "managers.h"
+#import "Logger.h"
 
 #ifdef CENSORED
 #import "Horoscopes_censored-Swift.h"
@@ -123,9 +124,12 @@ namespace horo {
             NSString *tokenString = [[NSString alloc] initWithUTF8String:token.c_str()];
             NSData *tokenData = [tokenString horo_dataFromHex];
             [pushNotificationsWrapper_ registeredWithDeviceToken:tokenData];
+            [[Logger shared] log:@"registered for remote notifications"];
         }
         
-        void didFailToRegisterForRemoteNotificationsWithError(error err) override {}
+        void didFailToRegisterForRemoteNotificationsWithError(error err) override {
+            [[Logger shared] log:@"registered for remote notifications"];
+        }
         
         int pushTime() override {
             return settings_->pushTime();

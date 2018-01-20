@@ -38,10 +38,18 @@
 - (void)log:(NSString *)format, ... {
     va_list ap;
     va_start(ap, format);
+    [self log:format args:ap];
+}
+
+- (void)log:(NSString *)format args:(va_list)ap {
     NSString *message = [[NSString alloc] initWithFormat:format arguments:ap];
     message = [[NSString alloc] initWithFormat:@"[%@]: %@", [_format stringFromDate:[NSDate date]], message];
     [_fileHandle writeData:[[message stringByAppendingString:@"\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     [_fileHandle synchronizeFile];
+}
+
+- (void)llog:(NSString *)format {
+    [self log:format];
 }
 
 - (NSString *)readAll {

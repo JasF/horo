@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define FeedbackLog(a, ...) [[Logger shared] log:a, ...];
 @interface Logger : NSObject
 + (instancetype)shared;
 - (void)log:(NSString *)format, ...;
+- (void)log:(NSString *)format args:(va_list)args;
+- (void)llog:(NSString *)format;
 - (NSString *)readAll;
 @end

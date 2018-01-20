@@ -1,7 +1,7 @@
-server/node_modules/*
-server/functions/node_modules/*
-server/updater/node_modules
-server/pusher/node_modules
-server/ttyupdater/node_modules
-server/needs-refactoring/node_modules
+node_modules/*
+functions/node_modules/*
+updater/node_modules
+pusher/node_modules
+ttyupdater/node_modules
+needs-refactoring/node_modules
 *node_modules*

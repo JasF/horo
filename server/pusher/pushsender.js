@@ -2,18 +2,27 @@ logs = require('../common/logger').getPusherLogger();
 var Curl = require('node-libcurl').Curl;
 var storage = require('../common/horostorage');
 
-function sendPushRequest(roomname, title, text) {
-    /*
-    newText = text.substring(0,Math.min(text.length, 128));
-    if (newText.length != text.length) {
-      newText += "..."
-      text = newText
-    }*/
+var kNumberOfSpacesCountFromEndOfDateBeforeLastWordInPushMessage = 5;
+var kNumberOfCharsWithDateInStartOfPushText = 18;
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function sendPushRequest(roomname, zodiacName, text) {
+    var currentIndex = kNumberOfCharsWithDateInStartOfPushText;
+    for (var i = 0 ; i < kNumberOfSpacesCountFromEndOfDateBeforeLastWordInPushMessage + 1; ++i) {
+        var newIndex = text.indexOf(' ', currentIndex)
+        if (newIndex >= currentIndex) {
+            currentIndex = newIndex + 1;
+        }
+    }
+    text = text.substring(0, currentIndex-1) + '...';
     
     var curl = new Curl();
     data = { //Data to send, inputName : value
-      'interests' : [roomname],
-      'apns' : {'aps' : {'alert':{'title':title,'body':text}}}
+      interests : [roomname],
+        apns : {aps : {alert:{title:capitalizeFirstLetter(zodiacName),body:text}, sound: "default", badge: 1, zodiacName: zodiacName}}
     };
     data = JSON.stringify( data );
     logs.debug('JSON payload: ' + data);

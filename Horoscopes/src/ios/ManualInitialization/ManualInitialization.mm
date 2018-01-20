@@ -27,13 +27,13 @@
 + (void)doLoading {
     NSArray *array = @[[DatabaseObjc class], // Must be first
                        [NotificationCenterObjc class],
+                       [NotificationsObjc class],
                        [AnalyticsObjc class],
                        [SerializerObjc class],
                        [FirestoreObjc class],
                        [FacebookBanagerObjc class],
                        [ScreensManagerOBJC class],
                        [WebViewServiceFactoryObjc class],
-                       [NotificationsObjc class],
                        [NtpObjc class],
                        [TimerFactoryObjc class],
                        [UIViewControllerInjector class],

@@ -19,19 +19,26 @@ void NotificationsImpl::setPrivateInstance(Notifications *instance) {
 NotificationsImpl::NotificationsImpl(strong<CoreComponents> components,
                                      strong<Settings> settings,
                                      strong<Serializer> serializer,
-                                     strong<NotificationCenter> notificationCenter) :
+                                     strong<NotificationCenter> notificationCenter,
+                                     strong<ScreensManager> screensManager) :
     components_(components),
     settings_(settings),
     serializer_(serializer),
-    notificationCenter_(notificationCenter) {
+    notificationCenter_(notificationCenter),
+    screensManager_(screensManager) {
     SCParameterAssert(components_.get());
     SCParameterAssert(settings_.get());
     SCParameterAssert(serializer_.get());
     SCParameterAssert(notificationCenter_.get());
-        
+    SCParameterAssert(screensManager_.get());
+    SCParameterAssert(privateInstance);
     notificationCenter_->addDidEnterBackgroundCallback(this, [this]{
         sendSettingsIfNeeded();
     });
+    notificationCenter_->addWillEnterForegroundCallback(this, []{
+        privateInstance->cleanBadgeNumber();
+    });
+    privateInstance->cleanBadgeNumber();
 }
 
 NotificationsImpl::~NotificationsImpl() {
@@ -40,53 +47,38 @@ NotificationsImpl::~NotificationsImpl() {
     
 void NotificationsImpl::initialize() {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        privateInstance->initialize();
-    }
+    privateInstance->initialize();
 }
 
 void NotificationsImpl::openSettings() {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        privateInstance->openSettings();
-    }
+    privateInstance->openSettings();
 }
 
 bool NotificationsImpl::isRegisteredForRemoteNotifications() {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        return privateInstance->isRegisteredForRemoteNotifications();
-    }
+    return privateInstance->isRegisteredForRemoteNotifications();
     return false;
 }
 
 string NotificationsImpl::deviceToken() {
-    if (privateInstance) {
-        return privateInstance->deviceToken();
-    }
-    return "";
+    return privateInstance->deviceToken();
 }
 
 void NotificationsImpl::didReceiveRemoteNotification(Json::Value userInfo) {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        privateInstance->didReceiveRemoteNotification(userInfo);
-    }
+    privateInstance->didReceiveRemoteNotification(userInfo);
 }
 
 void NotificationsImpl::didRegisterForRemoteNotificationsWithDeviceToken(string token) {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        privateInstance->didRegisterForRemoteNotificationsWithDeviceToken(token);
-    }
+    privateInstance->didRegisterForRemoteNotificationsWithDeviceToken(token);
     sendSettingsIfNeeded();
 }
 
 void NotificationsImpl::didFailToRegisterForRemoteNotificationsWithError(error err) {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        privateInstance->didFailToRegisterForRemoteNotificationsWithError(err);
-    }
+    privateInstance->didFailToRegisterForRemoteNotificationsWithError(err);
     sendSettingsIfNeeded();
 }
 
@@ -101,9 +93,7 @@ void NotificationsImpl::sendSettingsIfNeeded() {
 }
 
 void NotificationsImpl::sendSettingsForZodiacName(string zodiacName) {
-    if (privateInstance) {
-        privateInstance->sendSettingsForZodiacName(zodiacName);
-    }
+    privateInstance->sendSettingsForZodiacName(zodiacName);
 }
 
 bool NotificationsImpl::notificationsDisabled() {
@@ -137,9 +127,7 @@ int NotificationsImpl::pushTime() {
 
 void NotificationsImpl::setPushTime(int aPushTime) {
     SCParameterAssert(privateInstance);
-    if (privateInstance) {
-        return privateInstance->setPushTime(aPushTime);
-    }
+    return privateInstance->setPushTime(aPushTime);
 }
 
 string NotificationsImpl::generatePushSettingsString() {
@@ -153,6 +141,21 @@ string NotificationsImpl::generatePushSettingsString() {
     value["disabled"]=settings_->notificationsDisabled();
     string result = value.toStyledString();
     return result;
+}
+
+void NotificationsImpl::cleanBadgeNumber() {
+    privateInstance->cleanBadgeNumber();
+}
+
+void NotificationsImpl::handleReceivedRemoteNotification(dictionary userInfo) {
+    dictionary aps = userInfo["aps"];
+    string zodiacName = aps["zodiacName"].asString();
+    strong<Zodiac> zodiac = Zodiac::zodiacWithName(zodiacName);
+    SCAssert(zodiac.get(), "Cannot allocate zodiac with zodiacName: %s", zodiacName.c_str());
+    if (!zodiac.get()) {
+        return;
+    }
+    screensManager_->showPredictionViewController(zodiac);
 }
 
 };

@@ -13,7 +13,9 @@
 namespace horo {
     
 ThemesManagerImpl::ThemesManagerImpl() :
-    activeTheme_(new LightThemeImpl()) {
+    activeTheme_(new DarkThemeImpl())
+    // activeTheme_(new LightThemeImpl())
+    {
     
 }
 

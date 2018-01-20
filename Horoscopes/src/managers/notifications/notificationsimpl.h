@@ -14,6 +14,7 @@
 #include "managers/settings/settings.h"
 #include "managers/serializer/serializer.h"
 #include "managers/notificationcenter/notificationcenter.h"
+#include "managers/screensmanager/screensmanager.h"
 
 namespace horo {
     
@@ -24,7 +25,8 @@ public:
     NotificationsImpl(strong<CoreComponents> components,
                       strong<Settings> settings,
                       strong<Serializer> serializer,
-                      strong<NotificationCenter> notificationCenter);
+                      strong<NotificationCenter> notificationCenter,
+                      strong<ScreensManager> screensManager);
     ~NotificationsImpl() override;
     void initialize() override;
     void openSettings() override;
@@ -40,6 +42,10 @@ public:
     void sendSettingsForZodiacName(string zodiacName) override;
     bool notificationsDisabled() override;
     void setNotificationsDisabled(bool disabled) override;
+    void cleanBadgeNumber() override;
+    
+public: // NotificationsImplDelegate
+    void handleReceivedRemoteNotification(dictionary userInfo) override;
     
 private:
     string generatePushSettingsString();
@@ -50,6 +56,7 @@ private:
     strong<Settings> settings_;
     strong<Serializer> serializer_;
     strong<NotificationCenter> notificationCenter_;
+    strong<ScreensManager> screensManager_;
 };
     
 }

@@ -84,8 +84,9 @@ Managers &Managers::shared() {
     strong<ScreensManager> Managers::screensManager() {
         static strong<ScreensManagerImpl> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new ScreensManagerImpl(notifications(), analytics());
+            sharedInstance = new ScreensManagerImpl(analytics());
             sharedInstance->setViewModels(viewModels());
+            sharedInstance->setNotifications(notifications());
         }
         return sharedInstance;
     }
@@ -200,7 +201,7 @@ Managers &Managers::shared() {
     strong<Notifications> Managers::notifications() {
         static strong<Notifications> sharedInstance = nullptr;
         if (!sharedInstance) {
-            sharedInstance = new NotificationsImpl(coreComponents(), settings(), serializer(), notificationCenter());
+            sharedInstance = new NotificationsImpl(coreComponents(), settings(), serializer(), notificationCenter(), screensManager());
         }
         return sharedInstance;
     }

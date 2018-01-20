@@ -9,6 +9,7 @@
 #import "managers/notifications/notificationsimpl.h"
 #import <UserNotifications/UserNotifications.h>
 #import <libPusher/Pusher/Pusher.h>
+#import "NSDictionary+Horo.h"
 #import "NotificationsObjc.h"
 #import "base/platform.h"
 #import "NSString+Horo.h"
@@ -22,6 +23,8 @@
 
 @interface NotificationsObjc () <UNUserNotificationCenterDelegate>
 @end
+
+using namespace horo;
 
 namespace horo {
     class NotificationsCC : public Notifications {
@@ -44,13 +47,18 @@ namespace horo {
         ~NotificationsCC() override {}
     public:
         void initialize() override {
-            if (@available (iOS 10, *)) {
+            if (@available (iOS 11, *)) {
                 currentNotificationCenter().delegate = [NotificationsObjc shared];
+                registerForUserNotification();
             }
-            registerForRemoteNotifications();
+            else if (@available (iOS 10, *)) {
+                currentNotificationCenter().delegate = [NotificationsObjc shared];
+                registerForRemoteNotifications(); // ios10 ipad support
+                registerForUserNotification();
+            }
         }
         
-        void registerForRemoteNotifications() {
+        void weakMethodOfRegisterUserNotificationSettings() {
             UIApplication *application = [UIApplication sharedApplication];
             static dispatch_once_t onceToken;
             dispatch_once(&onceToken, ^{
@@ -58,25 +66,27 @@ namespace horo {
                 [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert
                                                   categories:nil];
                 [application registerUserNotificationSettings:settings];
+            });
+        }
+        
+        void registerForRemoteNotifications() {
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                UIApplication *application = [UIApplication sharedApplication];
                 [application registerForRemoteNotifications];
-                if (@available (iOS 10, *)) {
-                    registerForUserNotification();
-                }
             });
         }
 
         void registerForUserNotification() {
-            if (@available (iOS 10, *)) {
-                [currentNotificationCenter() requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound |
-                                                                              UNAuthorizationOptionAlert)
-                                                           completionHandler:^(BOOL granted, NSError *_Nullable error) {
-                                                               if (granted) {
-                                                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                                                       [[UIApplication sharedApplication] registerForRemoteNotifications];
-                                                                   });
-                                                               }
-                                                           }];
-            }
+            [currentNotificationCenter() requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound |
+                                                                          UNAuthorizationOptionAlert)
+                                                       completionHandler:^(BOOL granted, NSError *_Nullable error) {
+                                                           if (granted) {
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   registerForRemoteNotifications();
+                                                               });
+                                                           }
+                                                       }];
         }
         
         void openSettings() override {
@@ -148,6 +158,10 @@ namespace horo {
             }
         }
         
+        void cleanBadgeNumber() override {
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }
+        
         NSString *getRoomName(string zodiacName) {
             int time = pushTime() - timezoneOffset();
             NSString *roomName = [NSString stringWithFormat:@"%@%@", [NSString stringWithUTF8String:zodiacName.c_str()], @(time)];
@@ -182,7 +196,10 @@ namespace horo {
     };
 };
 
-@implementation NotificationsObjc
+@implementation NotificationsObjc {
+    Notifications *_impl;
+}
+
 + (void)doLoading {
     horo::NotificationsImpl::setPrivateInstance(horo::NotificationsCC::shared());
 }
@@ -192,23 +209,23 @@ namespace horo {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [NotificationsObjc new];
+        sharedInstance->_impl = Managers::shared().notifications();
     });
     return sharedInstance;
 }
 
 #pragma mark - Public Methods
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
-    
-}
-
 #pragma mark - UNUserNotificationCenterDelegate
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
        willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
-    
+    completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
+    NSDictionary *json = response.notification.request.content.userInfo;
+    dictionary dictionary = [json horo_jsonValue];
+    Managers::shared().notifications()->handleReceivedRemoteNotification(dictionary);
     
 }
 

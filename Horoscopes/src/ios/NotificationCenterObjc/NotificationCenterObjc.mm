@@ -53,7 +53,7 @@ public:
             willEnterForeground_();
         }
     }
-    
+        
 private:
     function<void()> willResignActive_;
     function<void()> didEnterBackground_;

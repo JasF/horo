@@ -49,12 +49,16 @@ enum Months {
     
 string stringByMonth(Months month);
     
+class _Zodiac;
+typedef reff<_Zodiac> Zodiac;
+    
 class _Zodiac {
 public:
     static ZodiacTypes zodiacTypeByDate(Months month, int day, int year); // start from 1 = first day
     static ZodiacTypes zodiacTypeByDate(DateWrapper wrapper);
     static DateWrapper startDateForType(ZodiacTypes type);
     static DateWrapper endDateForType(ZodiacTypes type);
+    static strong<Zodiac> zodiacWithName(string zodiacName);
 public:
     _Zodiac(int a):type_((ZodiacTypes)a){}
     _Zodiac():type_(Unknown){}
@@ -68,7 +72,6 @@ private:
     ZodiacTypes type_;
 };
     
-    typedef reff<_Zodiac> Zodiac;
     
 };
 

@@ -348,8 +348,8 @@
 		C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
 		C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
-		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
-		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; };
+		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
+		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		C373D3F11FEBBDD300D3BA16 /* ifaddrs_converter_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */; };
 		C373D3F21FEBBDD300D3BA16 /* fileutils_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A41FEBBDC300D3BA16 /* fileutils_forxcode.cc */; };
 		C373D3F31FEBBDD300D3BA16 /* copyonwritebuffer_forxcode.cc in Sources */ = {isa = PBXBuildFile; fileRef = C373D3A51FEBBDC300D3BA16 /* copyonwritebuffer_forxcode.cc */; };

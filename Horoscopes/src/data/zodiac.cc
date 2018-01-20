@@ -115,8 +115,8 @@ DateWrapper _Zodiac::endDateForType(ZodiacTypes aType) {
     }
     return DateWrapper();
 }
-     
-std::string _Zodiac::name() const {
+    
+dictionary zodiacsNamesAndTypes() {
     static dictionary dict;
     if (!dict.size()) {
         dict[Aquarius] = "aquarius";
@@ -132,9 +132,26 @@ std::string _Zodiac::name() const {
         dict[Sagittarius] = "sagittarius";
         dict[Capricorn] = "capricorn";
     }
-    std::string result = dict[type()].asString();
+    return dict;
+}
+     
+std::string _Zodiac::name() const {
+    auto dictionary = zodiacsNamesAndTypes();
+    std::string result = dictionary[type()].asString();
     SCAssert(result.length(), "unknown zodiac type");
     return result;
+}
+    
+strong<Zodiac> _Zodiac::zodiacWithName(string zodiacName) {
+    auto dictionary = zodiacsNamesAndTypes();
+    for(auto it = dictionary.begin() ; it != dictionary.end() ; it++) {
+        if (*it == zodiacName) {
+            ZodiacTypes type =(ZodiacTypes)it.key().asInt();
+            strong<Zodiac> zodiac = new Zodiac(type);
+            return zodiac;
+        }
+    }
+    return nullptr;
 }
     
 };

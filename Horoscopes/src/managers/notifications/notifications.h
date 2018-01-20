@@ -12,7 +12,9 @@
 #include "base/horobase.h"
 
 namespace horo {
+    class NotificationsImpl;
     class _Notifications {
+        friend class NotificationsImpl;
     public:
         virtual ~_Notifications(){}
         virtual void initialize()=0;
@@ -28,9 +30,10 @@ namespace horo {
         virtual void sendSettingsIfNeeded()=0;
         virtual bool notificationsDisabled()=0;
         virtual void setNotificationsDisabled(bool disabled)=0;
-        
+        virtual void cleanBadgeNumber()=0;
 // private methods
         virtual void sendSettingsForZodiacName(string zodiacName)=0;
+        virtual void handleReceivedRemoteNotification(dictionary userInfo) {}
     };
     typedef reff<_Notifications> Notifications;
 };

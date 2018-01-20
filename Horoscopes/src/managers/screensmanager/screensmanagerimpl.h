@@ -21,7 +21,7 @@ namespace horo {
     public:
         static void setPrivateInstance(ScreensManager *privateInstance);
     public:
-        ScreensManagerImpl(strong<Notifications> notifications, strong<Analytics> analytics);
+        ScreensManagerImpl(strong<Analytics> analytics);
         ~ScreensManagerImpl() override;
     public:
         void showPredictionViewController() override;
@@ -39,6 +39,7 @@ namespace horo {
         void initializeNotifications();
     public:
         void setViewModels(strong<ViewModels> viewModels) { viewModels_ = viewModels; }
+        void setNotifications(strong<Notifications> notifications) { notifications_ = notifications; }
         strong<ViewModels> viewModels() {return viewModels_;};
     private:
         strong<ViewModels> viewModels_;

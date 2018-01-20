@@ -1,4 +1,3 @@
 sender = require('./pushsender')
 
-
-sender.sendTodayPushToZodiacName(8, "aquarius")
+sender.sendTodayPushToZodiacName(9, "taurus")

@@ -20,17 +20,21 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHa-lf-XGK">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
+                        <rect key="frame" x="0.0" y="8" width="70" height="62"/>
                         <state key="normal">
                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="buttonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="D1h-wF-Q7X"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="bHa-lf-XGK" firstAttribute="trailing" secondItem="SEy-5g-ep8" secondAttribute="trailing" id="76L-ww-A8Z"/>
                 <constraint firstItem="bHa-lf-XGK" firstAttribute="leading" secondItem="SEy-5g-ep8" secondAttribute="leading" id="hfL-5t-V0T"/>
-                <constraint firstItem="bHa-lf-XGK" firstAttribute="top" secondItem="SEy-5g-ep8" secondAttribute="top" id="tyz-Uq-tLV"/>
+                <constraint firstItem="bHa-lf-XGK" firstAttribute="bottom" secondItem="SEy-5g-ep8" secondAttribute="bottom" id="mdC-9I-FLq"/>
+                <constraint firstItem="bHa-lf-XGK" firstAttribute="top" secondItem="SEy-5g-ep8" secondAttribute="top" constant="8" id="tyz-Uq-tLV"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="70" height="70"/>

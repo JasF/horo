@@ -116,6 +116,25 @@ DateWrapper _Zodiac::endDateForType(ZodiacTypes aType) {
     return DateWrapper();
 }
     
+vector<strong<Zodiac>> _Zodiac::allZodiacs() {
+    static vector<strong<Zodiac>> zodiacs;
+    if (!zodiacs.size()) {
+        zodiacs.push_back(new Zodiac(Aquarius));
+        zodiacs.push_back(new Zodiac(Pisces));
+        zodiacs.push_back(new Zodiac(Aries));
+        zodiacs.push_back(new Zodiac(Taurus));
+        zodiacs.push_back(new Zodiac(Gemini));
+        zodiacs.push_back(new Zodiac(Cancer));
+        zodiacs.push_back(new Zodiac(Leo));
+        zodiacs.push_back(new Zodiac(Virgo));
+        zodiacs.push_back(new Zodiac(Libra));
+        zodiacs.push_back(new Zodiac(Scorpio));
+        zodiacs.push_back(new Zodiac(Sagittarius));
+        zodiacs.push_back(new Zodiac(Capricorn));
+    }
+    return zodiacs;
+}
+    
 dictionary _Zodiac::zodiacsNamesAndTypes() {
     static dictionary dict;
     if (!dict.size()) {

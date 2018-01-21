@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuZodiacCell : UICollectionViewCell
-- (void)setImage:(UIImage *)image title:(NSString *)title;
+@property (copy, nonatomic) void (^tappedBlock)(NSString *zodiacName);
+- (void)setImage:(UIImage *)image zodiacName:(NSString *)zodiacName;
 @end

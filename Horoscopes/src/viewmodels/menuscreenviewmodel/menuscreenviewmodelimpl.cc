@@ -65,7 +65,15 @@ namespace horo {
     }
     
     void MenuScreenViewModelImpl::didSelectZodiac(int zodiacRowIndex, bool isLeftZodiac) {
-        strong<Zodiac> zodiac = model_->zodiacForRow(zodiacRowIndex, isLeftZodiac);
+    }
+    
+    void MenuScreenViewModelImpl::didSelectZodiacWithIndex(int zodiacIndex) {
+        auto zodiacs = Zodiac::allZodiacs();
+        SCAssert(zodiacIndex < zodiacs.size(), "index out of bounds");
+        if (zodiacIndex >= zodiacs.size()) {
+            return;
+        }
+        strong<Zodiac> zodiac = zodiacs.at(zodiacIndex);
         screensManager_->showPredictionViewController(zodiac);
     }
     

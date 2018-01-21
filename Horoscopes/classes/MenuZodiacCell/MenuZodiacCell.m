@@ -10,27 +10,37 @@
 
 @interface MenuZodiacCell ()
 @property (strong, nonatomic) IBOutlet UIButton *button;
+
 @end
 
-@implementation MenuZodiacCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-    NSArray *colors=@[[UIColor greenColor], [UIColor yellowColor], [UIColor blackColor], [UIColor blueColor], [UIColor cyanColor]];
-    int colorIndex = arc4random_uniform(5);
-    self.backgroundColor = [[colors objectAtIndex:colorIndex] colorWithAlphaComponent:(arc4random_uniform(2))?(arc4random_uniform(2))?0.2 : 0.4 : (arc4random_uniform(2))?0.6 : 1.f];
+@implementation MenuZodiacCell {
+    NSString *_originalZodiacName;
 }
 
 #pragma mark - Public Methods
-- (void)setImage:(UIImage *)image title:(NSString *)title {
+- (void)setImage:(UIImage *)image zodiacName:(NSString *)zodiacName {
+    _originalZodiacName = zodiacName;
+    if (zodiacName.length) {
+        zodiacName = [zodiacName stringByReplacingCharactersInRange:NSMakeRange(0,1)
+                                               withString:[[zodiacName substringToIndex:1] capitalizedString]];
+    }
     [_button setImage:image forState:UIControlStateNormal];
-    [_button setTitle:title forState:UIControlStateNormal];
+    [_button setTitle:zodiacName forState:UIControlStateNormal];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     [_button horo_centerVertically];
+}
+
+- (IBAction)buttonTapped:(id)sender {
+    NSCAssert(_originalZodiacName, @"originalZodiacName must be setted");
+    if (!_originalZodiacName) {
+        return;
+    }
+    if (_tappedBlock) {
+        _tappedBlock(_originalZodiacName);
+    }
 }
 
 @end

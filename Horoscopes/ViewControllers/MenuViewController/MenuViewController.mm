@@ -57,6 +57,15 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
+    _zodiacsLayoutController = [self.storyboard instantiateViewControllerWithIdentifier:@"ZodiacsLayoutController"];
+    NSCParameterAssert(_zodiacsLayoutController);
+    [self addChildViewController:_zodiacsLayoutController];
+    [_zodiacsLayoutController didMoveToParentViewController:self];
+    @weakify(self);
+    _zodiacsLayoutController.tappedBlock = ^(NSInteger index) {
+        @strongify(self);
+        self.viewModel->didSelectZodiacWithIndex(index);
+    };
     _friendsDescriptionLabel.text = L(@"begin_update");
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZodiacsCell" bundle:nil] forCellReuseIdentifier:kZodiacsCell];
@@ -82,6 +91,7 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     cell.delegate = self;
     if (indexPath.row == ZodiacsRow) {
         ZodiacsCell *zodiacsCell = [tableView dequeueReusableCellWithIdentifier:kZodiacsCell];
+        [zodiacsCell setZodiacsLayoutController:_zodiacsLayoutController];
         auto zodiacs = _viewModel->zodiacsTitlesAndImageNames();
         NSMutableArray *zodiacsArray = [NSMutableArray new];
         for (dictionary dict : zodiacs) {
@@ -126,7 +136,7 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ZodiacsRow) {
-        return kZodiacsRowHeight;
+        return [_zodiacsLayoutController numberOfLines] * [_zodiacsLayoutController preferredItemHeight];
     }
     return kRowHeight;
 }

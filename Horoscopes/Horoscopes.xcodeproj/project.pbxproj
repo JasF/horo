@@ -347,6 +347,8 @@
 		C342BDBB2003602A00BC0B95 /* MenuCellContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */; };
 		C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
 		C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
+		C3434EEB2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */; };
+		C3434EEC2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
@@ -1071,6 +1073,8 @@
 		C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCellContentView.xib; sourceTree = "<group>"; };
 		C342BDBC2003627000BC0B95 /* NSBundle+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Horo.h"; sourceTree = "<group>"; };
 		C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Horo.m"; sourceTree = "<group>"; };
+		C3434EE92014801C008BC2F3 /* ZodiacsLayoutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZodiacsLayoutController.h; sourceTree = "<group>"; };
+		C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZodiacsLayoutController.m; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ifaddrs_converter_forxcode.cc; path = webrtc/src/rtc_base/ifaddrs_converter_forxcode.cc; sourceTree = SOURCE_ROOT; };
@@ -2522,6 +2526,15 @@
 			path = accountscreenviewmodel;
 			sourceTree = "<group>";
 		};
+		C3434EE820147FFE008BC2F3 /* ZodiacsLayoutController */ = {
+			isa = PBXGroup;
+			children = (
+				C3434EE92014801C008BC2F3 /* ZodiacsLayoutController.h */,
+				C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */,
+			);
+			path = ZodiacsLayoutController;
+			sourceTree = "<group>";
+		};
 		C36F77F71FD2DCD300581631 /* MaskingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -3070,6 +3083,7 @@
 		C3C96E2B201356EF008387CC /* ZodiacsCell */ = {
 			isa = PBXGroup;
 			children = (
+				C3434EE820147FFE008BC2F3 /* ZodiacsLayoutController */,
 				C3C96E2C20135723008387CC /* ZodiacsCell.h */,
 				C3C96E2D20135723008387CC /* ZodiacsCell.m */,
 				C3C96E2E20135723008387CC /* ZodiacsCell.xib */,
@@ -3619,6 +3633,7 @@
 				C3DFD5552011D2FE00B87F62 /* color.cc in Sources */,
 				C3C037A12004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
+				C3434EEC2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */,
 				C373D4711FEBBDDB00D3BA16 /* random_forxcode.cc in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C373D48B1FEBBDDB00D3BA16 /* transformadapter_forxcode.cc in Sources */,
@@ -3910,6 +3925,7 @@
 				C3DFD5542011D2FE00B87F62 /* color.cc in Sources */,
 				C3C037A02004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */,
+				C3434EEB2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */,
 				C315ABD21FE5040C00CC9B67 /* EXTScope.m in Sources */,
 				C315ABD31FE5040C00CC9B67 /* MaskingView.m in Sources */,
 				C315ABD41FE5040C00CC9B67 /* MenuCell.m in Sources */,

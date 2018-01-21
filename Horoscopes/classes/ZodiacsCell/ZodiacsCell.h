@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "ZodiacsLayoutController.h"
 
 @interface ZodiacsCell : UITableViewCell
 - (void)setItems:(NSArray *)items;
+- (void)setZodiacsLayoutController:(ZodiacsLayoutController *)zodiacsLayoutController;
 @end

@@ -12,7 +12,7 @@
 
 using namespace horo;
 
-@interface MenuViewController : UITableViewController
+@interface MenuViewController : UIViewController
 @property (assign, nonatomic) strong<MenuScreenViewModel> viewModel;
 @property (strong, nonatomic) ZodiacsLayoutController *zodiacsLayoutController;
 @end

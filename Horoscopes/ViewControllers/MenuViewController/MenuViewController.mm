@@ -38,7 +38,7 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 static NSString * const kZodiacsCell = @"zodiacsCell";
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource, MenuSimpleCellDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation MenuViewController {
@@ -64,9 +64,8 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     @weakify(self);
     _zodiacsLayoutController.tappedBlock = ^(NSInteger index) {
         @strongify(self);
-        self.viewModel->didSelectZodiacWithIndex(index);
+        self.viewModel->didSelectZodiacWithIndex((int)index);
     };
-    _friendsDescriptionLabel.text = L(@"begin_update");
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZodiacsCell" bundle:nil] forCellReuseIdentifier:kZodiacsCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide:) name:LGSideMenuDidHideLeftViewNotification object:nil];

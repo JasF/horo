@@ -59,11 +59,11 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     if (!_animator) {
         @weakify(self);
         UIBlurEffect *blur = (UIBlurEffect *)self.backgroundEffectView.effect;
-        self.backgroundEffectView.effect = nil;
-        _animator = [[UIViewPropertyAnimator alloc] initWithDuration:0.5f curve:UIViewAnimationCurveLinear animations:^{
-            @strongify(self);
-            self.backgroundEffectView.effect = blur;
-        }];
+        //self.backgroundEffectView.effect = nil;
+       // _animator = [[UIViewPropertyAnimator alloc] initWithDuration:0.5f curve:UIViewAnimationCurveLinear animations:^{
+      //      @strongify(self);
+       //     self.backgroundEffectView.effect = blur;
+      //  }];
     }
     return _animator;
 }
@@ -73,7 +73,7 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         _backgroundEffectView = blurEffectView;
-        [self.view insertSubview:blurEffectView atIndex:0];
+       // [self.view insertSubview:blurEffectView atIndex:0];
     }
     return _backgroundEffectView;
 }

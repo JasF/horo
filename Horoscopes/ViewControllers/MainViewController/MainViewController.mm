@@ -62,6 +62,8 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
             @strongify(self);
             self.backgroundEffectView.effect = blur;
         }];
+        [_animator startAnimation];
+        
     }
     return _animator;
 }
@@ -71,6 +73,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         _backgroundEffectView = blurEffectView;
+        _backgroundEffectView.frame = [UIScreen mainScreen].bounds;
         [self.view insertSubview:blurEffectView atIndex:2];
     }
     return _backgroundEffectView;

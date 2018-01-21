@@ -1042,6 +1042,10 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
     [self setNeedsUpdateLayoutsAndStyles];
 }
 
+- (CGFloat)leftViewAnimationDuration {
+    return 5.f;
+}
+
 - (void)setLeftViewBackgroundImage:(UIImage *)leftViewBackgroundImage {
     if (_leftViewBackgroundImage == leftViewBackgroundImage) return;
 

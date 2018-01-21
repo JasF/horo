@@ -31,6 +31,8 @@ namespace horo {
         void closeTapped() override;
         void dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)>) override;
         void didSelectZodiac(int zodiacRowIndex, bool isLeftZodiac) override;
+        void didSelectZodiacWithIndex(int zodiacIndex) override;
+        vector<dictionary> zodiacsTitlesAndImageNames() override;
         
     private:
         strong<MenuScreenModel> model_;

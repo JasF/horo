@@ -26,7 +26,6 @@ namespace horo {
     public:
         void loginOnFacebook() override;
         void dataForZodiacRow(int zodiacRowIndex, function<void(string leftZodiacName, string rightZodiacName)> callback) override;
-        strong<Zodiac> zodiacForRow(int zodiacRowIndex, bool isLeftZodiac) override;
         
     private:
         strong<CoreComponents> components_;

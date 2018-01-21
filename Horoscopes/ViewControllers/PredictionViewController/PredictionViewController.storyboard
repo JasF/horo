@@ -43,8 +43,8 @@
                     <navigationItem key="navigationItem" id="LG0-9u-bD4">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="qts-T0-Xj9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yJc-yU-z6W">
-                                <rect key="frame" x="16" y="11" width="23" height="22"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yJc-yU-z6W">
+                                <rect key="frame" x="16" y="0.0" width="55" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="12" minY="12" maxX="20" maxY="12"/>

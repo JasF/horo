@@ -347,6 +347,8 @@
 		C342BDBB2003602A00BC0B95 /* MenuCellContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */; };
 		C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
 		C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */; };
+		C3434EEB2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */; };
+		C3434EEC2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */; };
 		C36F77FA1FD2DCF100581631 /* MaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36F77F91FD2DCF100581631 /* MaskingView.m */; };
 		C37020411FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		C37020421FEE795D00E39BBD /* NotificationsObjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = C373D4E71FECFCD400D3BA16 /* NotificationsObjc.mm */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
@@ -638,6 +640,16 @@
 		C3C7ABEB20022D5000CFDDD2 /* NVActivityIndicatorAnimationOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7AB9D20022D5000CFDDD2 /* NVActivityIndicatorAnimationOrbit.swift */; };
 		C3C7ABED2002369000CFDDD2 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C7ABEC2002369000CFDDD2 /* MBProgressHUD.framework */; };
 		C3C7ABEE2002369000CFDDD2 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C7ABEC2002369000CFDDD2 /* MBProgressHUD.framework */; };
+		C3C96E2F20135723008387CC /* ZodiacsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96E2D20135723008387CC /* ZodiacsCell.m */; };
+		C3C96E3020135723008387CC /* ZodiacsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96E2D20135723008387CC /* ZodiacsCell.m */; };
+		C3C96E3120135723008387CC /* ZodiacsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C96E2E20135723008387CC /* ZodiacsCell.xib */; };
+		C3C96E3220135723008387CC /* ZodiacsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C96E2E20135723008387CC /* ZodiacsCell.xib */; };
+		C3C96E3720136765008387CC /* MenuZodiacCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96E3520136765008387CC /* MenuZodiacCell.m */; };
+		C3C96E3820136765008387CC /* MenuZodiacCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96E3520136765008387CC /* MenuZodiacCell.m */; };
+		C3C96E3920136765008387CC /* MenuZodiacCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C96E3620136765008387CC /* MenuZodiacCell.xib */; };
+		C3C96E3A20136765008387CC /* MenuZodiacCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C96E3620136765008387CC /* MenuZodiacCell.xib */; };
+		C3C96E3E201372EC008387CC /* UIButton+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96E3D201372EC008387CC /* UIButton+Horo.m */; };
+		C3C96E3F201372EC008387CC /* UIButton+Horo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C96E3D201372EC008387CC /* UIButton+Horo.m */; };
 		C3CD7DD91FA6F19F00D2BFF3 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */; };
 		C3CD7DDA1FA6F19F00D2BFF3 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */; };
 		C3CD7DDB1FA6F19F00D2BFF3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */; };
@@ -1061,6 +1073,8 @@
 		C342BDB92003602A00BC0B95 /* MenuCellContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCellContentView.xib; sourceTree = "<group>"; };
 		C342BDBC2003627000BC0B95 /* NSBundle+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Horo.h"; sourceTree = "<group>"; };
 		C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Horo.m"; sourceTree = "<group>"; };
+		C3434EE92014801C008BC2F3 /* ZodiacsLayoutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZodiacsLayoutController.h; sourceTree = "<group>"; };
+		C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZodiacsLayoutController.m; sourceTree = "<group>"; };
 		C36F77F81FD2DCF100581631 /* MaskingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskingView.h; sourceTree = "<group>"; };
 		C36F77F91FD2DCF100581631 /* MaskingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskingView.m; sourceTree = "<group>"; };
 		C373D3A31FEBBDC300D3BA16 /* ifaddrs_converter_forxcode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ifaddrs_converter_forxcode.cc; path = webrtc/src/rtc_base/ifaddrs_converter_forxcode.cc; sourceTree = SOURCE_ROOT; };
@@ -1287,6 +1301,14 @@
 		C3C7AB9C20022D5000CFDDD2 /* NVActivityIndicatorAnimationBallPulseRise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallPulseRise.swift; sourceTree = "<group>"; };
 		C3C7AB9D20022D5000CFDDD2 /* NVActivityIndicatorAnimationOrbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationOrbit.swift; sourceTree = "<group>"; };
 		C3C7ABEC2002369000CFDDD2 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = "<group>"; };
+		C3C96E2C20135723008387CC /* ZodiacsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZodiacsCell.h; sourceTree = "<group>"; };
+		C3C96E2D20135723008387CC /* ZodiacsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZodiacsCell.m; sourceTree = "<group>"; };
+		C3C96E2E20135723008387CC /* ZodiacsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZodiacsCell.xib; sourceTree = "<group>"; };
+		C3C96E3420136765008387CC /* MenuZodiacCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuZodiacCell.h; sourceTree = "<group>"; };
+		C3C96E3520136765008387CC /* MenuZodiacCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuZodiacCell.m; sourceTree = "<group>"; };
+		C3C96E3620136765008387CC /* MenuZodiacCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuZodiacCell.xib; sourceTree = "<group>"; };
+		C3C96E3C201372EC008387CC /* UIButton+Horo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Horo.h"; sourceTree = "<group>"; };
+		C3C96E3D201372EC008387CC /* UIButton+Horo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Horo.m"; sourceTree = "<group>"; };
 		C3CD7DCD1FA6F19E00D2BFF3 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
 		C3CD7DCE1FA6F19E00D2BFF3 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		C3CD7DCF1FA6F19E00D2BFF3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
@@ -2504,6 +2526,15 @@
 			path = accountscreenviewmodel;
 			sourceTree = "<group>";
 		};
+		C3434EE820147FFE008BC2F3 /* ZodiacsLayoutController */ = {
+			isa = PBXGroup;
+			children = (
+				C3434EE92014801C008BC2F3 /* ZodiacsLayoutController.h */,
+				C3434EEA2014801C008BC2F3 /* ZodiacsLayoutController.m */,
+			);
+			path = ZodiacsLayoutController;
+			sourceTree = "<group>";
+		};
 		C36F77F71FD2DCD300581631 /* MaskingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2850,6 +2881,8 @@
 				C342BDBD2003627000BC0B95 /* NSBundle+Horo.m */,
 				C3DFD5562011D57D00B87F62 /* UIColor+Horo.h */,
 				C3DFD5572011D57D00B87F62 /* UIColor+Horo.mm */,
+				C3C96E3C201372EC008387CC /* UIButton+Horo.h */,
+				C3C96E3D201372EC008387CC /* UIButton+Horo.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2932,6 +2965,8 @@
 		C3C116FC1FCE86BE007DA9FF /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3C96E3320136748008387CC /* MenuZodiacCell */,
+				C3C96E2B201356EF008387CC /* ZodiacsCell */,
 				C3A50BF2200DA50700A178AC /* MenuSimpleCell */,
 				C3C037992004A6AC00DB82B8 /* PopAnimator */,
 				C3C037982004A6A400DB82B8 /* PushAnimator */,
@@ -3043,6 +3078,27 @@
 				C3C7AB9D20022D5000CFDDD2 /* NVActivityIndicatorAnimationOrbit.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		C3C96E2B201356EF008387CC /* ZodiacsCell */ = {
+			isa = PBXGroup;
+			children = (
+				C3434EE820147FFE008BC2F3 /* ZodiacsLayoutController */,
+				C3C96E2C20135723008387CC /* ZodiacsCell.h */,
+				C3C96E2D20135723008387CC /* ZodiacsCell.m */,
+				C3C96E2E20135723008387CC /* ZodiacsCell.xib */,
+			);
+			path = ZodiacsCell;
+			sourceTree = "<group>";
+		};
+		C3C96E3320136748008387CC /* MenuZodiacCell */ = {
+			isa = PBXGroup;
+			children = (
+				C3C96E3420136765008387CC /* MenuZodiacCell.h */,
+				C3C96E3520136765008387CC /* MenuZodiacCell.m */,
+				C3C96E3620136765008387CC /* MenuZodiacCell.xib */,
+			);
+			path = MenuZodiacCell;
 			sourceTree = "<group>";
 		};
 		C3CD7DCB1FA6F19E00D2BFF3 /* Firebase */ = {
@@ -3457,11 +3513,13 @@
 				C3ECFF65200A3BF80034C096 /* Main.storyboard in Resources */,
 				C3B8ABF01FB83B350083C201 /* locdates.json in Resources */,
 				C323311C2002085D0027089E /* Notes in Resources */,
+				C3C96E3A20136765008387CC /* MenuZodiacCell.xib in Resources */,
 				C32A5FFC1FDBD420003CF1CA /* FriendsCell.xib in Resources */,
 				C3CD7DDD1FA6F19F00D2BFF3 /* gRPCCertificates.bundle in Resources */,
 				C3383FDA1FAF255000CCE133 /* MenuViewController.storyboard in Resources */,
 				C32A60191FDBF493003CF1CA /* FriendsViewController.storyboard in Resources */,
 				C32A602C1FDC24BE003CF1CA /* WebViewDialogController.storyboard in Resources */,
+				C3C96E3220135723008387CC /* ZodiacsCell.xib in Resources */,
 				4B0FD37D1FA06C96006378B6 /* LaunchScreen.storyboard in Resources */,
 				4B0FD37A1FA06C96006378B6 /* Assets.xcassets in Resources */,
 				C315ACCF1FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */,
@@ -3493,11 +3551,13 @@
 				C3ECFF64200A3BF80034C096 /* Main.storyboard in Resources */,
 				C315ACB31FE5040C00CC9B67 /* locdates.json in Resources */,
 				C323311B2002085D0027089E /* Notes in Resources */,
+				C3C96E3920136765008387CC /* MenuZodiacCell.xib in Resources */,
 				C315ACB41FE5040C00CC9B67 /* FriendsCell.xib in Resources */,
 				C315ACB61FE5040C00CC9B67 /* gRPCCertificates.bundle in Resources */,
 				C315ACB71FE5040C00CC9B67 /* MenuViewController.storyboard in Resources */,
 				C315ACB81FE5040C00CC9B67 /* FriendsViewController.storyboard in Resources */,
 				C315ACB91FE5040C00CC9B67 /* WebViewDialogController.storyboard in Resources */,
+				C3C96E3120135723008387CC /* ZodiacsCell.xib in Resources */,
 				C315ACBA1FE5040C00CC9B67 /* LaunchScreen.storyboard in Resources */,
 				C315ACBB1FE5040C00CC9B67 /* Assets.xcassets in Resources */,
 				C315ACD01FE504FD00CC9B67 /* Horoscopes-censored-Info.plist in Resources */,
@@ -3573,6 +3633,7 @@
 				C3DFD5552011D2FE00B87F62 /* color.cc in Sources */,
 				C3C037A12004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C33B99E21FA376BD00C0B1C6 /* HTTPSessionManager.m in Sources */,
+				C3434EEC2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */,
 				C373D4711FEBBDDB00D3BA16 /* random_forxcode.cc in Sources */,
 				C30B17EA1FA481C2006DEDB7 /* EXTScope.m in Sources */,
 				C373D48B1FEBBDDB00D3BA16 /* transformadapter_forxcode.cc in Sources */,
@@ -3638,6 +3699,7 @@
 				C30B18A91FA5D590006DEDB7 /* WelcomeViewController.mm in Sources */,
 				C33B99DD1FA375E600C0B1C6 /* AFNetworkReachabilityManager.m in Sources */,
 				C373D4411FEBBDDB00D3BA16 /* asyncresolverinterface_forxcode.cc in Sources */,
+				C3C96E3020135723008387CC /* ZodiacsCell.m in Sources */,
 				C33B99D91FA375E600C0B1C6 /* AFURLResponseSerialization.m in Sources */,
 				C32A5FFF1FDBD560003CF1CA /* FriendsCell.m in Sources */,
 				C30B17F01FA481C2006DEDB7 /* EXTNil.m in Sources */,
@@ -3704,6 +3766,7 @@
 				C38D8CCB1FA8DD9500F5BAD2 /* Platform.mm in Sources */,
 				C3C117041FCE9542007DA9FF /* TabsItemView.m in Sources */,
 				C30B18801FA4AABC006DEDB7 /* PredictionViewController.mm in Sources */,
+				C3C96E3820136765008387CC /* MenuZodiacCell.m in Sources */,
 				C373D4561FEBBDDB00D3BA16 /* httpbase_forxcode.cc in Sources */,
 				C30B18A01FA5D0FB006DEDB7 /* corecomponents.cc in Sources */,
 				C3C7AB9F20022D5000CFDDD2 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
@@ -3792,6 +3855,7 @@
 				C373D48F1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */,
 				C30B18581FA498C9006DEDB7 /* modelsimpl.cc in Sources */,
 				C3FA348820106B2C00260E8F /* NotificationCenterObjc.mm in Sources */,
+				C3C96E3F201372EC008387CC /* UIButton+Horo.m in Sources */,
 				C3C117001FCE8929007DA9FF /* Tabs.m in Sources */,
 				C33F4ACC200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */,
 				C33B99DA1FA375E600C0B1C6 /* AFHTTPSessionManager.m in Sources */,
@@ -3861,6 +3925,7 @@
 				C3DFD5542011D2FE00B87F62 /* color.cc in Sources */,
 				C3C037A02004A6C200DB82B8 /* PopAnimator.m in Sources */,
 				C315ABD11FE5040C00CC9B67 /* HTTPSessionManager.m in Sources */,
+				C3434EEB2014801C008BC2F3 /* ZodiacsLayoutController.m in Sources */,
 				C315ABD21FE5040C00CC9B67 /* EXTScope.m in Sources */,
 				C315ABD31FE5040C00CC9B67 /* MaskingView.m in Sources */,
 				C315ABD41FE5040C00CC9B67 /* MenuCell.m in Sources */,
@@ -3926,6 +3991,7 @@
 				C315ABEF1FE5040C00CC9B67 /* AFNetworkReachabilityManager.m in Sources */,
 				C315ABF01FE5040C00CC9B67 /* AFURLResponseSerialization.m in Sources */,
 				C315ABF11FE5040C00CC9B67 /* FriendsCell.m in Sources */,
+				C3C96E2F20135723008387CC /* ZodiacsCell.m in Sources */,
 				C373D40B1FEBBDD300D3BA16 /* timestampaligner_forxcode.cc in Sources */,
 				C315ABF21FE5040C00CC9B67 /* EXTNil.m in Sources */,
 				C315ABF31FE5040C00CC9B67 /* FriendsHeaderView.m in Sources */,
@@ -3992,6 +4058,7 @@
 				C34233DE1FE8F64900428768 /* accountscreenmodelimpl.cc in Sources */,
 				C373D41C1FEBBDD300D3BA16 /* string_to_number_forxcode.cc in Sources */,
 				C315AC121FE5040C00CC9B67 /* Platform.mm in Sources */,
+				C3C96E3720136765008387CC /* MenuZodiacCell.m in Sources */,
 				C315AC131FE5040C00CC9B67 /* TabsItemView.m in Sources */,
 				C315AC141FE5040C00CC9B67 /* PredictionViewController.mm in Sources */,
 				C3C7AB9E20022D5000CFDDD2 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
@@ -4080,6 +4147,7 @@
 				C373D48E1FEBBFD600D3BA16 /* task_queue_gcd.cc in Sources */,
 				C373D4361FEBBDD300D3BA16 /* asynctcpsocket_forxcode.cc in Sources */,
 				C3FA348720106B2C00260E8F /* NotificationCenterObjc.mm in Sources */,
+				C3C96E3E201372EC008387CC /* UIButton+Horo.m in Sources */,
 				C315AC341FE5040C00CC9B67 /* Tabs.m in Sources */,
 				C33F4ACB200A31BF00ADFC4C /* UIViewController+LGSideMenuController.m in Sources */,
 				C315AC351FE5040C00CC9B67 /* AFHTTPSessionManager.m in Sources */,

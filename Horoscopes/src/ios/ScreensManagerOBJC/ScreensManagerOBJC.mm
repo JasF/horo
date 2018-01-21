@@ -81,9 +81,9 @@ namespace horo {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MenuViewController"
                                                                  bundle:nil];
             
-            UINavigationController *navigationController =(UINavigationController *)[storyboard
-                                                                                     instantiateViewControllerWithIdentifier:@"navigationController"];
+            UINavigationController *navigationController =(UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"navigationController"];
             MenuViewController *viewController = (MenuViewController *)navigationController.topViewController;
+            viewController.zodiacsLayoutController = (ZodiacsLayoutController *)[storyboard instantiateViewControllerWithIdentifier:@"ZodiacsLayoutController"];
             viewController.viewModel = impl_->viewModels()->menuScreenViewModel();
             return navigationController;
         }

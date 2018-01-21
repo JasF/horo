@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZodiacsLayoutController.h"
 #include "viewmodels/menuscreenviewmodel/menuscreenviewmodel.h"
 
+using namespace horo;
+
 @interface MenuViewController : UITableViewController
-@property (assign, nonatomic) strong<horo::MenuScreenViewModel> viewModel;
+@property (assign, nonatomic) strong<MenuScreenViewModel> viewModel;
+@property (strong, nonatomic) ZodiacsLayoutController *zodiacsLayoutController;
 @end

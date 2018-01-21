@@ -59,6 +59,8 @@ public:
     static DateWrapper startDateForType(ZodiacTypes type);
     static DateWrapper endDateForType(ZodiacTypes type);
     static strong<Zodiac> zodiacWithName(string zodiacName);
+    static dictionary zodiacsNamesAndTypes();
+    static vector<strong<Zodiac>> allZodiacs();
 public:
     _Zodiac(int a):type_((ZodiacTypes)a){}
     _Zodiac():type_(Unknown){}

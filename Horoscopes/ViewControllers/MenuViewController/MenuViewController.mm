@@ -7,17 +7,14 @@
 //
 
 #import "LGSideMenuController.h"
+#import "NSDictionary+Horo.h"
 #import "MenuViewController.h"
 #import "MenuSimpleCell.h"
+#import "ZodiacsCell.h"
 
 typedef NS_ENUM(NSInteger, MenuRows) {
     PredictionRow,
-    ZodiacsRow1,
-    ZodiacsRow2,
-    ZodiacsRow3,
-    ZodiacsRow4,
-    ZodiacsRow5,
-    ZodiacsRow6,
+    ZodiacsRow,
     FriendsRow,
     AccountRow,
     NotifcationsRow,
@@ -26,15 +23,19 @@ typedef NS_ENUM(NSInteger, MenuRows) {
 };
 
 using namespace std;
+using namespace horo;
 
 static CGFloat const kGenericOffset = 8.f;
 static CGFloat const kHoroscopeCellBottomOffset = 8.f;
 
 static CGFloat const kRowHeight = 40.f;
 static CGFloat const kHeaderViewHeight = 20.f;
-static CGFloat const kSeparatorAlpha = 0.2f;
+// static CGFloat const kSeparatorAlpha = 0.2f;
+
+static CGFloat const kZodiacsRowHeight = 200.f;
 
 static NSString * const kMenuSimpleCell = @"menuSimpleCell";
+static NSString * const kZodiacsCell = @"zodiacsCell";
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource, MenuSimpleCellDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
@@ -56,11 +57,9 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSCParameterAssert(_viewModel);
-    self.tableView.contentInset = UIEdgeInsetsZero;
-    self.tableView.separatorInset = UIEdgeInsetsZero;
-    self.tableView.separatorColor = [[UIColor whiteColor] colorWithAlphaComponent:kSeparatorAlpha];
     _friendsDescriptionLabel.text = L(@"begin_update");
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ZodiacsCell" bundle:nil] forCellReuseIdentifier:kZodiacsCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide:) name:LGSideMenuDidHideLeftViewNotification object:nil];
 }
 
@@ -79,18 +78,28 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MenuSimpleCell *cell =(MenuSimpleCell *)[tableView dequeueReusableCellWithIdentifier:kMenuSimpleCell];
-    NSCParameterAssert(cell);
+    MenuSimpleCell *cell = nil;
     cell.delegate = self;
-    if (indexPath.row >= ZodiacsRow1 && indexPath.row <= ZodiacsRow6) {
-        NSInteger zodiacRowIndex = indexPath.row - ZodiacsRow1;
-        DDLogDebug(@"zodiacRowIndex: %@", @(zodiacRowIndex));
+    if (indexPath.row == ZodiacsRow) {
+        ZodiacsCell *zodiacsCell = [tableView dequeueReusableCellWithIdentifier:kZodiacsCell];
+        auto zodiacs = _viewModel->zodiacsTitlesAndImageNames();
+        NSMutableArray *zodiacsArray = [NSMutableArray new];
+        for (dictionary dict : zodiacs) {
+            NSDictionary *dictionary = [NSDictionary horo_dictionaryFromJsonValue:dict];
+            [zodiacsArray addObject:dictionary];
+        }
+        [zodiacsCell setItems:[zodiacsArray copy]];
+        return zodiacsCell;
+        /*
         _viewModel->dataForZodiacRow((int)zodiacRowIndex, [cell](string leftZodiacName, string rightZodiacName){
             [cell setLeftText:L([NSString stringWithUTF8String:leftZodiacName.c_str()])
                     rightText:L([NSString stringWithUTF8String:rightZodiacName.c_str()])];
         });
+         */
     }
     else {
+        cell =(MenuSimpleCell *)[tableView dequeueReusableCellWithIdentifier:kMenuSimpleCell];
+        NSCParameterAssert(cell);
         NSDictionary *titles = @{@(PredictionRow):@"menu_cell_prediction",
                                  @(FriendsRow):@"menu_cell_friends",
                                  @(AccountRow):@"menu_cell_account",
@@ -116,6 +125,9 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == ZodiacsRow) {
+        return kZodiacsRowHeight;
+    }
     return kRowHeight;
 }
 
@@ -152,7 +164,7 @@ static NSString * const kMenuSimpleCell = @"menuSimpleCell";
         return;
     }
     _selectedIndexPath = indexPath;
-    _viewModel->didSelectZodiac((int)indexPath.row - ZodiacsRow1, leftButton);
+    //_viewModel->didSelectZodiac((int)indexPath.row - ZodiacsRow1, leftButton);
 }
 
 @end

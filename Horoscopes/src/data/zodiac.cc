@@ -116,7 +116,7 @@ DateWrapper _Zodiac::endDateForType(ZodiacTypes aType) {
     return DateWrapper();
 }
     
-dictionary zodiacsNamesAndTypes() {
+dictionary _Zodiac::zodiacsNamesAndTypes() {
     static dictionary dict;
     if (!dict.size()) {
         dict[Aquarius] = "aquarius";

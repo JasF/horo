@@ -14,6 +14,7 @@
     #import "UIImageView+Horo.h"
     #import "NSBundle+Horo.h"
     #import "UIDevice+Horo.h"
+    #import "UIButton+Horo.h"
     #import "UIImage+Horo.h"
     #import "UIView+Horo.h"
     #import "NSData+Horo.h"

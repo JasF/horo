@@ -116,7 +116,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
 }
 
 - (void)showAnimation {
-    CGFloat max = 250.f;
+    CGFloat max = [UIScreen mainScreen].bounds.size.width * 0.746f;
     @weakify(self);
     self.displayLinkBlock = ^{
         @strongify(self);
@@ -148,7 +148,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
 - (void)hideAnimation {
     @weakify(self);
     CGRect _frame = [[self.rootViewContainer.layer presentationLayer] frame];
-    CGFloat max = _frame.origin.x;
+    CGFloat max = [UIScreen mainScreen].bounds.size.width * 0.746f;
     self.displayLinkBlock = ^{
         @strongify(self);
         CGRect frame = [[self.rootViewContainer.layer presentationLayer] frame];

@@ -313,7 +313,9 @@ static horo::ScreensManagerObjc *sharedInstance = nullptr;
 }
 
 - (void)closeMenu {
-    [self.mainViewController hideLeftViewAnimated];
+    if (![self.mainViewController isLeftViewHidden]) {
+        [self.mainViewController hideLeftViewAnimated];
+    }
 }
 
 @end

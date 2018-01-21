@@ -7,12 +7,14 @@
 #import "ViewController.h"
 #import "ScreensManagerOBJC.h"
 #import "MenuViewController.h"
+#import "LGSideMenuHelper.h"
 
 @interface ViewPropertyAnimator : UIViewPropertyAnimator
 @end
 
 @implementation ViewPropertyAnimator
 - (void)setFractionComplete:(CGFloat)fractionComplete {
+    DDLogInfo(@"setFracomp: %f", fractionComplete);
     [super setFractionComplete:fractionComplete];
 }
 @end
@@ -33,7 +35,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
 
 @implementation MainViewController {
     UIVisualEffectView *_backgroundEffectView;
-    UIViewPropertyAnimator *_animator;
+    ViewPropertyAnimator *_animator;
 
 }
 
@@ -58,11 +60,10 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
         @weakify(self);
         UIBlurEffect *blur = (UIBlurEffect *)self.backgroundEffectView.effect;
         self.backgroundEffectView.effect = nil;
-        _animator = [[UIViewPropertyAnimator alloc] initWithDuration:0.5f curve:UIViewAnimationCurveLinear animations:^{
+        _animator = [[ViewPropertyAnimator alloc] initWithDuration:0.5f curve:UIViewAnimationCurveLinear animations:^{
             @strongify(self);
             self.backgroundEffectView.effect = blur;
         }];
-        [_animator startAnimation];
         
     }
     return _animator;
@@ -114,20 +115,26 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
     return percentage*kBlurMaximumFraction;
 }
 
-- (void)showLeftViewAnimated:(BOOL)animated completionHandler:(LGSideMenuCompletionHandler)completionHandler {
-    self.animationStartDate = [NSDate date];
+- (void)showAnimation {
+    CGFloat max = 250.f;
     @weakify(self);
     self.displayLinkBlock = ^{
         @strongify(self);
-        NSTimeInterval currentInterval = [[NSDate date] timeIntervalSinceDate:self.animationStartDate];
-        if (currentInterval > self.leftViewAnimationDuration) {
-            currentInterval = self.leftViewAnimationDuration;
-        }
-        CGFloat percentage = 1/self.leftViewAnimationDuration*currentInterval;
+        CGRect frame = [[self.rootViewContainer.layer presentationLayer] frame];
+        CGFloat percentage = frame.origin.x / max;//max/maxdur*;
         CGFloat value = [self blurFractionFromPercentage:percentage];
         [self animator].fractionComplete = value;
         DDLogInfo(@"show value: %f", value);
+        if (IsEqualFloat(value, kBlurMaximumFraction)) {
+            self.displayLinkBlock = nil;
+        }
     };
+}
+
+- (void)showLeftViewAnimated:(BOOL)animated completionHandler:(LGSideMenuCompletionHandler)completionHandler {
+    self.animationStartDate = [NSDate date];
+    [self showAnimation];
+    @weakify(self);
     [super showLeftViewAnimated:animated completionHandler:^{
         @strongify(self);
         [self animator].fractionComplete = kBlurMaximumFraction;
@@ -138,22 +145,27 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
     }];
 }
 
-- (void)hideLeftViewAnimated:(BOOL)animated completionHandler:(LGSideMenuCompletionHandler)completionHandler {
+- (void)hideAnimation {
     @weakify(self);
-    MenuViewController *menuViewController = (MenuViewController *)self.leftViewController;
-    [menuViewController resetBlur];
-    self.animationStartDate = [NSDate date];
+    CGRect _frame = [[self.rootViewContainer.layer presentationLayer] frame];
+    CGFloat max = _frame.origin.x;
     self.displayLinkBlock = ^{
         @strongify(self);
-        NSTimeInterval currentInterval = [[NSDate date] timeIntervalSinceDate:self.animationStartDate];
-        if (currentInterval > self.leftViewAnimationDuration) {
-            currentInterval = self.leftViewAnimationDuration;
-        }
-        CGFloat percentage = 1/self.leftViewAnimationDuration*currentInterval;
-        CGFloat value = kBlurMaximumFraction - [self blurFractionFromPercentage:percentage];
+        CGRect frame = [[self.rootViewContainer.layer presentationLayer] frame];
+        CGFloat percentage = frame.origin.x / max;//max/maxdur*;
+        CGFloat value = [self blurFractionFromPercentage:percentage];
         [self animator].fractionComplete = value;
+        if (IsEqualFloat(value, 0.f)) {
+            self.displayLinkBlock = nil;
+        }
         DDLogInfo(@"percentage: %f; hide value: %f", percentage, value);
     };
+    
+}
+
+- (void)hideLeftViewAnimated:(BOOL)animated completionHandler:(LGSideMenuCompletionHandler)completionHandler {
+    @weakify(self);
+    [self hideAnimation];
     [super hideLeftViewAnimated:animated completionHandler:^{
         @strongify(self);
         [self animator].fractionComplete = 0.f;
@@ -193,6 +205,21 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
      */
     
     @weakify(self);
+    
+    self.intCallback = ^(CGFloat percentage, BOOL animated) {
+        @strongify(self);
+        if (animated) {
+            if (IsEqualFloat(percentage, 0.f)) {
+                // closing after pan gesture
+                [self hideAnimation];
+            }
+            else if (IsEqualFloat(percentage, 1.f)) {
+                // opening after pan gesture
+                [self showAnimation];
+            }
+        }
+        DDLogInfo(@"ppperc:%f, anim: %@", percentage, @(animated));
+    };
     self.leftViewPercentageChanged = ^(CGFloat percentage, BOOL animated) {
         @strongify(self);
         if (IsEqualFloat(percentage, 0.f)) {

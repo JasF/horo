@@ -107,6 +107,7 @@ LGSideMenuSwipeGestureRange LGSideMenuSwipeGestureRangeMake(CGFloat left, CGFloa
 
 @interface LGSideMenuController : UIViewController
 
+@property (copy, nonatomic, nullable) void (^intCallback)(CGFloat percentage, BOOL animated);
 @property (copy, nonatomic, nullable) void (^leftViewPercentageChanged)(CGFloat percentage, BOOL animated);
  
 @property (strong, nonatomic, nullable) UIViewController *rootViewController;

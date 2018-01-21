@@ -43,6 +43,7 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 
 @implementation MenuViewController {
     NSIndexPath *_selectedIndexPath;
+    UIViewPropertyAnimator *_animator;
 }
 
 - (void)injectViewModel:(NSValue *)viewModelValue {
@@ -52,6 +53,38 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (UIViewPropertyAnimator *)animator {
+    if (!_animator) {
+        @weakify(self);
+        UIBlurEffect *blur = (UIBlurEffect *)self.backgroundEffectView.effect;
+        self.backgroundEffectView.effect = nil;
+        _animator = [[UIViewPropertyAnimator alloc] initWithDuration:0.5f curve:UIViewAnimationCurveLinear animations:^{
+            @strongify(self);
+            self.backgroundEffectView.effect = blur;
+        }];
+    }
+    return _animator;
+}
+
+- (UIVisualEffectView *)backgroundEffectView {
+    if (!_backgroundEffectView) {
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        _backgroundEffectView = blurEffectView;
+        [self.view insertSubview:blurEffectView atIndex:0];
+    }
+    return _backgroundEffectView;
+}
+
+
+- (void)resetBlur {
+    [_backgroundEffectView removeFromSuperview];
+    _backgroundEffectView = nil;
+    [_animator stopAnimation:YES];
+    _animator = nil;
+    [self animator];
 }
 
 - (void)viewDidLoad {
@@ -66,6 +99,9 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
         @strongify(self);
         self.viewModel->didSelectZodiacWithIndex((int)index);
     };
+    [self backgroundEffectView];
+    //self.tableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZodiacsCell" bundle:nil] forCellReuseIdentifier:kZodiacsCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide:) name:LGSideMenuDidHideLeftViewNotification object:nil];
@@ -74,6 +110,16 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.bounds;
+    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    frame.size.width = [UIScreen mainScreen].bounds.size.width;
+    frame.size.height += statusBarHeight;
+    frame.origin.y -= statusBarHeight;
+    self.backgroundEffectView.frame = frame;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

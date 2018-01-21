@@ -15,4 +15,8 @@ using namespace horo;
 @interface MenuViewController : UIViewController
 @property (assign, nonatomic) strong<MenuScreenViewModel> viewModel;
 @property (strong, nonatomic) ZodiacsLayoutController *zodiacsLayoutController;
+@property (strong, nonatomic) UIVisualEffectView *backgroundEffectView;
+
+- (UIViewPropertyAnimator *)animator;
+- (void)resetBlur;
 @end

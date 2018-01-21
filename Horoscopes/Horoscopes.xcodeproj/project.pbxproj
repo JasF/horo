@@ -696,8 +696,8 @@
 		C3E857C91FDD389C002949D9 /* FriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E857C81FDD389C002949D9 /* FriendsHeaderView.m */; };
 		C3E857CD1FDD73E0002949D9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */; };
 		C3EAE0281FD91D7E00EC9C3E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */; };
-		C3ECFF60200A38C00034C096 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.m */; };
-		C3ECFF61200A38C00034C096 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.m */; };
+		C3ECFF60200A38C00034C096 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.mm */; };
+		C3ECFF61200A38C00034C096 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF5E200A38C00034C096 /* MainViewController.mm */; };
 		C3ECFF64200A3BF80034C096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFF5F200A38C00034C096 /* Main.storyboard */; };
 		C3ECFF65200A3BF80034C096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ECFF5F200A38C00034C096 /* Main.storyboard */; };
 		C3ECFF6A200A3C5C0034C096 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECFF66200A3C5C0034C096 /* LeftViewController.m */; };
@@ -1368,7 +1368,7 @@
 		C3E857CC1FDD73E0002949D9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		C3EAE0261FD91D7E00EC9C3E /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C3EAE0271FD91D7E00EC9C3E /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
-		C3ECFF5E200A38C00034C096 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C3ECFF5E200A38C00034C096 /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
 		C3ECFF5F200A38C00034C096 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C3ECFF66200A3C5C0034C096 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		C3ECFF67200A3C5C0034C096 /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
@@ -2433,7 +2433,7 @@
 				C3ECFF68200A3C5C0034C096 /* LeftViewController.h */,
 				C3ECFF66200A3C5C0034C096 /* LeftViewController.m */,
 				C33F4AAB200A2C0900ADFC4C /* MainViewController.h */,
-				C3ECFF5E200A38C00034C096 /* MainViewController.m */,
+				C3ECFF5E200A38C00034C096 /* MainViewController.mm */,
 				C3ECFF5F200A38C00034C096 /* Main.storyboard */,
 			);
 			path = MainViewController;
@@ -3642,7 +3642,7 @@
 				C342BDBF2003627000BC0B95 /* NSBundle+Horo.m in Sources */,
 				C32A602A1FDC2490003CF1CA /* WebViewDialogController.mm in Sources */,
 				C31A13E71FB06168001FABFE /* tokenizer.c in Sources */,
-				C3ECFF61200A38C00034C096 /* MainViewController.m in Sources */,
+				C3ECFF61200A38C00034C096 /* MainViewController.mm in Sources */,
 				C373D4441FEBBDDB00D3BA16 /* asyncudpsocket_forxcode.cc in Sources */,
 				C373D4791FEBBDDB00D3BA16 /* sigslot_forxcode.cc in Sources */,
 				C3C7ABB320022D5000CFDDD2 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
@@ -3934,7 +3934,7 @@
 				C342BDBE2003627000BC0B95 /* NSBundle+Horo.m in Sources */,
 				C315ABD71FE5040C00CC9B67 /* horoscopesparserimpl.cc in Sources */,
 				C315ABD81FE5040C00CC9B67 /* WebViewControllerImpl.mm in Sources */,
-				C3ECFF60200A38C00034C096 /* MainViewController.m in Sources */,
+				C3ECFF60200A38C00034C096 /* MainViewController.mm in Sources */,
 				C315ABD91FE5040C00CC9B67 /* NSDictionary+Horo.mm in Sources */,
 				C315ABDA1FE5040C00CC9B67 /* predictionscreenmodelimpl.cc in Sources */,
 				C3C7ABB220022D5000CFDDD2 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,

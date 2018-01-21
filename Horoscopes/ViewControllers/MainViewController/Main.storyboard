@@ -51,6 +51,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="W26-8j-p1z" kind="custom" identifier="root" customClass="LGSideMenuSegue" id="m4g-GV-Irt"/>
+                        <segue destination="V8S-Cb-85a" kind="custom" identifier="left" customClass="LGSideMenuSegue" id="05k-Rg-HFJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZZ-Nl-Oxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,10 +207,14 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x1y-gB-bTx">
                                         <rect key="frame" x="-0.5" y="0.0" width="375" height="647"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="V8S-Cb-85a" id="OKQ-Sp-hJu"/>
+                                            <outlet property="delegate" destination="V8S-Cb-85a" id="wlA-eL-MhB"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="x1y-gB-bTx" firstAttribute="centerX" secondItem="RqY-Ai-FUA" secondAttribute="centerX" id="dzX-Pv-w0u"/>
                                     <constraint firstItem="x1y-gB-bTx" firstAttribute="width" secondItem="RqY-Ai-FUA" secondAttribute="width" id="ljz-RA-75B"/>
@@ -218,7 +223,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RqY-Ai-FUA" firstAttribute="leading" secondItem="qSD-B4-2T8" secondAttribute="leading" id="Mph-ey-YOM"/>
                             <constraint firstItem="RqY-Ai-FUA" firstAttribute="top" secondItem="qSD-B4-2T8" secondAttribute="top" id="QVh-Kz-ZYE"/>

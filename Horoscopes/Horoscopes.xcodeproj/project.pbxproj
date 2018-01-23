@@ -3415,7 +3415,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B0FD3831FA06C96006378B6 /* Build configuration list for PBXNativeTarget "Horoscopes" */;
 			buildPhases = (
-				C301ABD01FA24E12001A0ED7 /* ShellScript */,
 				4B0FD3691FA06C96006378B6 /* Sources */,
 				4B0FD36A1FA06C96006378B6 /* Frameworks */,
 				4B0FD36B1FA06C96006378B6 /* Resources */,
@@ -3434,7 +3433,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C315ACC31FE5040C00CC9B67 /* Build configuration list for PBXNativeTarget "Horoscopes-censored" */;
 			buildPhases = (
-				C315ABC81FE5040C00CC9B67 /* ShellScript */,
 				C315ABC91FE5040C00CC9B67 /* Sources */,
 				C315AC411FE5040C00CC9B67 /* Frameworks */,
 				C315ACAD1FE5040C00CC9B67 /* Resources */,
@@ -3576,35 +3574,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		C301ABD01FA24E12001A0ED7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=~/horo/depot_tools:$PATH\ncd webrtc/src\ngn gen out/ios_sim --args='target_os=\"ios\" target_cpu=\"x64\"'\nninja -C out/ios_sim rtc_base";
-		};
-		C315ABC81FE5040C00CC9B67 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=~/horo/depot_tools:$PATH\ncd webrtc/src\ngn gen out/ios_sim --args='target_os=\"ios\" target_cpu=\"x64\"'\nninja -C out/ios_sim rtc_base";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4B0FD3691FA06C96006378B6 /* Sources */ = {

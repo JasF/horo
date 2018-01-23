@@ -111,6 +111,14 @@ using namespace horo;
     [self.navigationController.navigationBar horo_makeWhite];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (_headerView.headerViewState != HeaderViewStateInvisible) {
+        [self setHeaderViewState:HeaderViewStateInvisible];
+        _viewModel->cancelOperation(CancelAllFriendsLoad);
+    }
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }

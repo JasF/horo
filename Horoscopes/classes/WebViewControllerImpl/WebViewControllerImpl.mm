@@ -165,6 +165,9 @@ forceDidFinishNavigation:(BOOL)forceDidFinishNavigation {
     if (!force && needsShowDialog) {
         return; // AV: avaiting for FORCE flag == YES
     }
+    if (needsShowDialog && ![_dialogNavigationController.view window]) {
+        _dialogPresented = NO;
+    }
     if (!_dialogPresented && needsShowDialog) {
         [self showDialog];
     }

@@ -24,6 +24,7 @@ namespace horo {
         virtual void userLoggedOut()=0;
         virtual void birthdayDateChanged(DateWrapper wrapper)=0;
         virtual void sendSettingsIfNeeded()=0;
+        virtual string zodiacNameWithDate(DateWrapper date)=0;
         std::function<void(bool success)> personGatheredCallback_ = nullptr;
     };
     

@@ -56,6 +56,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
 }
 
 - (UIViewPropertyAnimator *)animator {
+    /*
     if (!_animator) {
         @weakify(self);
         UIBlurEffect *blur = (UIBlurEffect *)self.backgroundEffectView.effect;
@@ -66,10 +67,12 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
         }];
         
     }
+     */
     return _animator;
 }
 
 - (UIVisualEffectView *)backgroundEffectView {
+    /*
     if (!_backgroundEffectView) {
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -77,6 +80,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
         _backgroundEffectView.frame = [UIScreen mainScreen].bounds;
         [self.view insertSubview:blurEffectView atIndex:2];
     }
+     */
     return _backgroundEffectView;
 }
 
@@ -116,6 +120,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
 }
 
 - (void)showAnimation {
+    /*
     CGFloat max = [UIScreen mainScreen].bounds.size.width * 0.746f;
     @weakify(self);
     self.displayLinkBlock = ^{
@@ -129,6 +134,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
             self.displayLinkBlock = nil;
         }
     };
+     */
 }
 
 - (void)showLeftViewAnimated:(BOOL)animated completionHandler:(LGSideMenuCompletionHandler)completionHandler {
@@ -146,6 +152,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
 }
 
 - (void)hideAnimation {
+    /*
     @weakify(self);
     CGRect _frame = [[self.rootViewContainer.layer presentationLayer] frame];
     CGFloat max = [UIScreen mainScreen].bounds.size.width * 0.746f;
@@ -160,7 +167,7 @@ static CGFloat const kBlurMaximumFraction = 0.4f;
         }
         DDLogInfo(@"percentage: %f; hide value: %f", percentage, value);
     };
-    
+    */
 }
 
 - (void)hideLeftViewAnimated:(BOOL)animated completionHandler:(LGSideMenuCompletionHandler)completionHandler {

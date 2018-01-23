@@ -14,6 +14,8 @@
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseFirestore/FirebaseFirestore.h>
 
+using namespace horo;
+
 typedef NS_ENUM(NSInteger, RowTypes) {
     TopSpaceRow,
     HiRow,
@@ -34,6 +36,7 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
 @property (strong, nonatomic) FBSDKLoginButton *loginButton;
 @property (strong, nonatomic) id selfLocker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *pickerView;
+@property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @end
 
 @implementation WelcomeViewController
@@ -51,7 +54,7 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
     
     _loginButton = [FBSDKLoginButton new];
     _loginButton.delegate = self;
-    _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
+    _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email"];
     [_facebookLoginCell.contentView addSubview:_loginButton];    
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -78,6 +81,7 @@ static CGFloat const kFacebookLoginCellHeight = 44.f;
     _pickerView.datePickerMode = UIDatePickerModeDate;
     [_pickerView setValue:[UIColor whiteColor] forKey:@"textColor"];
     _pickerView.maximumDate = [NSDate date];
+    [self updateZodiacLabel];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -133,19 +137,42 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     if (result.isCancelled) {
         return;
     }
-    NSCAssert(result.grantedPermissions.count, @"Granted permissions is empty. We are authorized?");
+    //NSCAssert(result.grantedPermissions.count, @"Granted permissions is empty. We are authorized?");
     if (!result.grantedPermissions.count || error) {
         return;
     }
     _viewModel->loggedInOverFacebook();
+    [self updateZodiacLabel];
 }
 
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    NSLog(@"DidLogout");
+    [self updateZodiacLabel];
 }
 
 #pragma mark - Private Methods
+- (DateWrapper)currentDate {
+    NSDate *date = _pickerView.date;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay |
+                                    NSCalendarUnitMonth |
+                                    NSCalendarUnitYear
+                                               fromDate:date];
+    horo::DateWrapper wrapper((int)components.day,
+                              (int)components.month,
+                              (int)components.year);
+    
+    return wrapper;
+}
+
+- (void)updateZodiacLabel {
+    DateWrapper date = [self currentDate];
+    string zodiacName = _viewModel->zodiacNameWithDate(date);
+    NSString *zodiacNameLocalized = L([NSString stringWithUTF8String:zodiacName.c_str()]);
+    NSString *zodiacLabelString = [NSString stringWithFormat:L(@"you_are_zodiacName"), zodiacNameLocalized];
+    _zodiacLabel.text = zodiacLabelString;
+}
+
 - (void)hideProgressHud {
     
 }
@@ -154,29 +181,18 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     
 }
 
-- (IBAction)testTapped:(id)sender {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.navigationController.navigationBar.frame = CGRectMake(0, 0, self.navigationController.navigationBar.size.width, 200);
-        [self.navigationController.navigationBar layoutIfNeeded];
-    });
-}
-
 - (void)lockSelf {
     self.selfLocker = self;
 }
 
 #pragma mark - Observers
 - (IBAction)continueTapped:(id)sender {
-    NSDate *date = _pickerView.date;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSCalendarUnitDay |
-    NSCalendarUnitMonth |
-    NSCalendarUnitYear
-                fromDate:date];
-    horo::DateWrapper wrapper((int)components.day,
-                              (int)components.month,
-                              (int)components.year);
-    _viewModel->continueTapped(wrapper);
+    DateWrapper date = [self currentDate];
+    _viewModel->continueTapped(date);
+}
+
+- (IBAction)dateChanged:(id)sender {
+    [self updateZodiacLabel];
 }
 
 - (void)hideWindow {

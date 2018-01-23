@@ -244,9 +244,12 @@ forceDidFinishNavigation:(BOOL)forceDidFinishNavigation {
     if (withNotify) {
         [self performSuccessCallback:YES];
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCyclicSwipeDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self doCyclic:YES];
-    });
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doCyclicCallback) object:nil];
+    [self performSelector:@selector(doCyclicCallback) withObject:nil afterDelay:kCyclicSwipeDuration];
+}
+
+- (void)doCyclicCallback {
+    [self doCyclic:YES];
 }
 
 - (void)swipeToBottom {

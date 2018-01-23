@@ -30,9 +30,7 @@ static CGFloat const kHoroscopeCellBottomOffset = 8.f;
 
 static CGFloat const kRowHeight = 40.f;
 static CGFloat const kHeaderViewHeight = 20.f;
-// static CGFloat const kSeparatorAlpha = 0.2f;
-
-static CGFloat const kZodiacsRowHeight = 200.f;
+static CGFloat const kSeparatorAlpha = 0.25f;
 
 static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 static NSString * const kZodiacsCell = @"zodiacsCell";
@@ -78,7 +76,6 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     return _backgroundEffectView;
 }
 
-
 - (void)resetBlur {
     [_backgroundEffectView removeFromSuperview];
     _backgroundEffectView = nil;
@@ -100,7 +97,7 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
         self.viewModel->didSelectZodiacWithIndex((int)index);
     };
     [self backgroundEffectView];
-    self.tableView.separatorEffect = [UIVibrancyEffect effectForBlurEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+    self.tableView.separatorColor = [[UIColor whiteColor] colorWithAlphaComponent:kSeparatorAlpha];
 
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZodiacsCell" bundle:nil] forCellReuseIdentifier:kZodiacsCell];
@@ -206,9 +203,14 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
 #pragma mark - Observers
 - (void)menuDidHide:(id)sender {
     [self.tableView reloadData];
+    self.tableView.contentOffset = CGPointZero;
 }
 
 #pragma mark - MenuSimpleCellDelegate

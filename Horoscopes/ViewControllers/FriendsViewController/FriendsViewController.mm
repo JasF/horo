@@ -265,6 +265,10 @@ using namespace horo;
 }
 
 - (void)didSelectPerson:(PersonObjc *)person {
+    if (_headerView.headerViewState != HeaderViewStateInvisible) {
+        [self showCancelFriendsLoadingAlertController:person];
+        return;
+    }
     [self cancelSearchIfNeeded:^{
         _viewModel->personSelected([person nativeRepresentation]);
     }];
@@ -332,6 +336,26 @@ using namespace horo;
     UIAlertAction *noAction = [UIAlertAction actionWithTitle:L(@"no")
                                                         style:UIAlertActionStyleCancel
                                                       handler:^(UIAlertAction *action) {}];
+    [_alertController addAction:yesAction];
+    [_alertController addAction:noAction];
+    [self presentViewController:self.alertController animated:YES completion:nil];
+}
+
+- (void)showCancelFriendsLoadingAlertController:(PersonObjc *)person {
+    NSString *text = [NSString stringWithFormat:L(@"cancel_friends_loading")];
+    _alertController = [UIAlertController alertControllerWithTitle:@"" message:text preferredStyle:UIAlertControllerStyleAlert];
+    @weakify(self);
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:L(@"yes")
+                                                        style:UIAlertActionStyleDestructive
+                                                      handler:^(UIAlertAction *action) {
+                                                          @strongify(self);
+                                                          self.viewModel->cancelOperation(CancelAllFriendsLoad);
+                                                          [self setHeaderViewState:HeaderViewStateInvisible];
+                                                          [self didSelectPerson:person];
+                                                      }];
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:L(@"no")
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:^(UIAlertAction *action) {}];
     [_alertController addAction:yesAction];
     [_alertController addAction:noAction];
     [self presentViewController:self.alertController animated:YES completion:nil];

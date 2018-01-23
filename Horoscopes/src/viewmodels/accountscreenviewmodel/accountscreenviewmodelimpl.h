@@ -26,6 +26,7 @@ namespace horo {
         void personRepresentation(function<void(std::string imageUrl, std::string name, horo::DateWrapper birthday)> callback) override;
         void userLoggedOut() override;
         void sendSettingsIfNeeded() override;
+        string zodiacNameWithDate(DateWrapper date) override;
         void birthdayDateChanged(DateWrapper wrapper) override;
         
     private:

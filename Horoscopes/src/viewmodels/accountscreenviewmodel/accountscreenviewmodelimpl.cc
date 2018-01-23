@@ -50,4 +50,9 @@ void AccountScreenViewModelImpl::birthdayDateChanged(DateWrapper wrapper) {
     model_->birthdayDateChanged(wrapper);
 }
 
+string AccountScreenViewModelImpl::zodiacNameWithDate(DateWrapper date) {
+    strong<Zodiac> zodiac = new Zodiac(Zodiac::zodiacTypeByDate(date));
+    return zodiac->name();
+}
+
 };

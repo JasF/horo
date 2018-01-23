@@ -69,6 +69,10 @@
     return nil;
 }
 
+- (NSString *)personUrl {
+    return [NSString stringWithUTF8String:_person->personUrl().c_str()];
+}
+
 - (ZodiacObjc *)zodiac {
     if (!_person->zodiac().get()) {
         return nil;
@@ -86,6 +90,13 @@
 
 - (BOOL)updating {
     return (BOOL) _person->updating();
+}
+
+- (BOOL)isEqual:(PersonObjc *)object {
+    if ([self personUrl].length && [object personUrl].length) {
+        return [[self personUrl] isEqualToString:[object personUrl]];
+    }
+    return [super isEqual:object];
 }
 
 @end

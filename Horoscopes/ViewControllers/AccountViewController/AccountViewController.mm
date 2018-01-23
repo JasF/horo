@@ -76,13 +76,11 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
         return;
     }
     _viewModel->loggedInOnFacebook();
-    [self updateZodiacLabel];
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
     _viewModel->userLoggedOut();
     [self updatePersonInfo];
-    [self updateZodiacLabel];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -132,6 +130,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                 return;
             }
             self.datePicker.date = date;
+            [self updateZodiacLabel];
         }
     });
 }

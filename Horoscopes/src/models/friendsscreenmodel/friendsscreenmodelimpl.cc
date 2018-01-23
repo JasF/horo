@@ -92,6 +92,7 @@ namespace horo {
             showPersonViewController(person);
         }
         else if (person->status() == StatusReadyForRequest) {
+            
             if (currentPerson_.get() && currentPerson_ != person) {
                 handleSerialRequestForPerson(currentPerson_);
                 return;

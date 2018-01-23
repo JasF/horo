@@ -11,8 +11,13 @@
 
 static NSInteger const kNumberOfSections = 6; // number of lines
 static NSInteger const kNumberOfItemsInSection = 2; // number of columns
+
+static NSInteger const kNumberOfSectionsPlus = 4;
+static NSInteger const kNumberOfItemsInSectionPlus = 3;
+
 static NSString * const kZodiacCellNibName = @"kZodiacCellNibName";
 static CGFloat const kItemHeight = 80.f;
+static CGFloat const kIphonePlusWidth = 375.f;
 
 @interface ZodiacsLayoutController () <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) NSArray *items;
@@ -24,7 +29,7 @@ static CGFloat const kItemHeight = 80.f;
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.view.width/kNumberOfItemsInSection, self.view.height/kNumberOfSections);
+    return CGSizeMake(self.view.width/[self numberOfZodiacsPerLine], self.view.height/[self numberOfLines]);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -44,11 +49,11 @@ static CGFloat const kItemHeight = 80.f;
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return kNumberOfSections;
+    return [self numberOfLines];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return kNumberOfItemsInSection;
+    return [self numberOfZodiacsPerLine];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,19 +82,19 @@ static CGFloat const kItemHeight = 80.f;
     _items = items;
 }
 
-- (NSInteger)numberOfZodiacsPerLine {
-    return kNumberOfItemsInSection;
-}
-
-- (NSInteger)numberOfLines {
-    return kNumberOfSections;
-}
-
 - (NSInteger)preferredItemHeight {
     return kItemHeight;
 }
 
 #pragma mark - Private Methods
+- (NSInteger)numberOfLines {
+    return ([self isPlus]) ? kNumberOfSectionsPlus : kNumberOfSections;
+}
+
+- (NSInteger)numberOfZodiacsPerLine {
+    return ([self isPlus]) ? kNumberOfItemsInSectionPlus : kNumberOfItemsInSection;
+}
+
 - (void)didSelectZodiacWithName:(NSString *)zodiacName {
     for (NSDictionary *dict in _items) {
         if ([dict[@"name"] isEqualToString:zodiacName]) {
@@ -100,6 +105,10 @@ static CGFloat const kItemHeight = 80.f;
             break;
         }
     }
+}
+
+- (BOOL)isPlus {
+    return !!([UIScreen mainScreen].bounds.size.width >= kIphonePlusWidth);
 }
 
 @end

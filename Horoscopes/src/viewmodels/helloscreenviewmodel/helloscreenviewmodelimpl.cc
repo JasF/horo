@@ -39,4 +39,10 @@ namespace horo {
     void HelloScreenViewModelImpl::setUserLoggedInCallback(std::function<void(bool success)> a) {
         userLoggedInCallback_ = a;
     }
+    
+    string HelloScreenViewModelImpl::zodiacNameWithDate(DateWrapper date) {
+        strong<Zodiac> zodiac = new Zodiac(Zodiac::zodiacTypeByDate(date));
+        return zodiac->name();
+    }
+    
 };

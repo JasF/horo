@@ -32,7 +32,7 @@ void FacebookFriendsProvider::cancelRequest() {
 }
     
 vector<int> getTimeouts() {
-    vector<int> timeouts = {2,3,4,5,6,7,8,9,10,11,12};
+    vector<int> timeouts = {2,2,3,3,4,5,6,7,8,9,10,11,12};
     return timeouts;
 }
 

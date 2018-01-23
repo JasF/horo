@@ -24,6 +24,7 @@ namespace horo {
         void continueTapped(DateWrapper date) override;
         void loggedInOverFacebook() override;
         void setUserLoggedInCallback(std::function<void(bool success)> a) override;
+        string zodiacNameWithDate(DateWrapper date) override;
         
     private:
         strong<HelloScreenModel> model_;

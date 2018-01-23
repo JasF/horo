@@ -10,6 +10,8 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
+using namespace horo;
+
 static CGFloat const kAvatarAlphaWithImage = 1.f;
 
 @interface AccountViewController () <FBSDKLoginButtonDelegate>
@@ -21,6 +23,7 @@ static CGFloat const kAvatarAlphaWithImage = 1.f;
 @property (weak, nonatomic) IBOutlet UIView *facebookLoginContainerView;
 @property (strong, nonatomic) UIImage *defaultImage;
 @property (assign, nonatomic) CGFloat defaultAlpha;
+@property (weak, nonatomic) IBOutlet UILabel *zodiacLabel;
 @end
 
 @implementation AccountViewController
@@ -32,7 +35,7 @@ static CGFloat const kAvatarAlphaWithImage = 1.f;
     _defaultAlpha = _avatarImageView.alpha;
     _loginButton = [FBSDKLoginButton new];
     _loginButton.delegate = self;
-    _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email", @"user_friends"];
+    _loginButton.readPermissions = @[@"public_profile", @"user_birthday", @"email"];
     [_facebookLoginContainerView addSubview:_loginButton];
     
     _youBirthdayDateLabel.text = L(_youBirthdayDateLabel.text);
@@ -50,6 +53,7 @@ static CGFloat const kAvatarAlphaWithImage = 1.f;
     if (@available (iOS 11, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = NO;
     }
+    [self updateZodiacLabel];
 }
 
 - (void)dealloc {
@@ -72,11 +76,13 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
         return;
     }
     _viewModel->loggedInOnFacebook();
+    [self updateZodiacLabel];
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
     _viewModel->userLoggedOut();
     [self updatePersonInfo];
+    [self updateZodiacLabel];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -92,6 +98,12 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 }
 
 #pragma mark - Private Methods
+- (void)updateZodiacLabel {
+    DateWrapper date = [self currentDate];
+    NSString *zodiacNameLocalized = L([NSString stringWithUTF8String:_viewModel->zodiacNameWithDate(date).c_str()]);
+    _zodiacLabel.text = [NSString stringWithFormat:L(@"you_are_zodiacName"), zodiacNameLocalized];
+}
+
 - (void)updatePersonInfo {
     @weakify(self);
     _viewModel->personRepresentation([self_weak_](std::string imageUrl, std::string name, horo::DateWrapper birthday) {
@@ -124,8 +136,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     });
 }
 
-#pragma mark - Observers
-- (IBAction)datePickerValueChanged:(id)sender {
+- (DateWrapper)currentDate {
     NSDate *date = self.datePicker.date;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitDay |
@@ -135,6 +146,14 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     horo::DateWrapper birthdayDate((int)components.day,
                                    (int)components.month,
                                    (int)components.year);
-    _viewModel->birthdayDateChanged(birthdayDate);
+    return birthdayDate;
 }
+
+#pragma mark - Observers
+- (IBAction)datePickerValueChanged:(id)sender {
+    DateWrapper date = [self currentDate];
+    _viewModel->birthdayDateChanged(date);
+    [self updateZodiacLabel];
+}
+
 @end

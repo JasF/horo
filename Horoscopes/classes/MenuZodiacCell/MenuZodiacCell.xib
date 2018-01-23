@@ -28,10 +28,20 @@
                             <action selector="buttonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="D1h-wF-Q7X"/>
                         </connections>
                     </button>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHM-cd-h6x">
+                        <rect key="frame" x="0.0" y="69" width="70" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="aC4-zW-8vV"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="bHa-lf-XGK" firstAttribute="trailing" secondItem="SEy-5g-ep8" secondAttribute="trailing" id="76L-ww-A8Z"/>
+                <constraint firstItem="tHM-cd-h6x" firstAttribute="trailing" secondItem="SEy-5g-ep8" secondAttribute="trailing" id="8g9-Zm-ndO"/>
+                <constraint firstItem="tHM-cd-h6x" firstAttribute="bottom" secondItem="SEy-5g-ep8" secondAttribute="bottom" id="GOb-Xw-wSg"/>
+                <constraint firstItem="tHM-cd-h6x" firstAttribute="leading" secondItem="SEy-5g-ep8" secondAttribute="leading" id="JVI-5L-SkU"/>
                 <constraint firstItem="bHa-lf-XGK" firstAttribute="leading" secondItem="SEy-5g-ep8" secondAttribute="leading" id="hfL-5t-V0T"/>
                 <constraint firstItem="bHa-lf-XGK" firstAttribute="bottom" secondItem="SEy-5g-ep8" secondAttribute="bottom" id="mdC-9I-FLq"/>
                 <constraint firstItem="bHa-lf-XGK" firstAttribute="top" secondItem="SEy-5g-ep8" secondAttribute="top" constant="8" id="tyz-Uq-tLV"/>

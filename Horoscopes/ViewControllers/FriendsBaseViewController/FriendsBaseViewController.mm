@@ -37,6 +37,16 @@ static CGFloat const kEstimatedRowHeight = 50.f;
     for (FriendsCell *cell in self.tableView.visibleCells) {
         if ([cell isKindOfClass:[FriendsCell class]] && [cell.datasource isEqual:person]) {
             neededCell = cell;
+            NSInteger index = [_friends indexOfObject:cell.datasource];
+            if (index != NSNotFound) {
+                NSMutableArray *firstArray = [[_friends subarrayWithRange:NSMakeRange(0, index)] mutableCopy];
+                index++;
+                NSArray *secondArray = [_friends subarrayWithRange:NSMakeRange(index, _friends.count - index)];
+                [firstArray addObject:person];
+                [firstArray addObjectsFromArray:secondArray];
+                _friends = [firstArray copy];
+                neededCell.datasource = person;
+            }
             break;
         }
     }

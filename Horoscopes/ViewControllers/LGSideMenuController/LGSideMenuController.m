@@ -1763,6 +1763,10 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
 }
 
 - (void)rootViewsTransformValidateWithPercentage:(CGFloat)percentage {
+    [self rootViewsTransformValidateWithPercentage:percentage animated:NO];
+}
+
+- (void)rootViewsTransformValidateWithPercentage:(CGFloat)percentage animated:(BOOL)animated {
     if (!self.rootView) return;
 
     // -----
@@ -1887,6 +1891,10 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
 }
 
 - (void)leftViewsTransformValidateWithPercentage:(CGFloat)percentage {
+    [self leftViewsTransformValidateWithPercentage:percentage animated:NO];
+}
+
+- (void)leftViewsTransformValidateWithPercentage:(CGFloat)percentage animated:(BOOL)animated {
     if (!self.leftView) return;
 
     // -----
@@ -1928,6 +1936,9 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
     self.leftViewContainer.transform = leftViewTransform;
     self.leftViewBackgroundView.transform = leftViewBackgroundViewTransform;
     self.leftViewStyleView.transform = leftViewTransform;
+    if (_intCallback) {
+        _intCallback(percentage, animated);
+    }
 }
 
 - (void)rightViewsFramesValidate {
@@ -2397,8 +2408,8 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
                                                   animation:self.leftViewStatusBarUpdateAnimation];
     }
     else {
-        [self rootViewsTransformValidateWithPercentage:0.0];
-        [self leftViewsTransformValidateWithPercentage:0.0];
+        [self rootViewsTransformValidateWithPercentage:0.0 animated:NO];
+        [self leftViewsTransformValidateWithPercentage:0.0 animated:NO];
     }
 }
 
@@ -2424,8 +2435,8 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
         [LGSideMenuHelper
          animateWithDuration:self.leftViewAnimationDuration
          animations:^(void) {
-             [self rootViewsTransformValidateWithPercentage:1.0];
-             [self leftViewsTransformValidateWithPercentage:1.0];
+             [self rootViewsTransformValidateWithPercentage:1.0 animated:YES];
+             [self leftViewsTransformValidateWithPercentage:1.0 animated:YES];
 
              // -----
 
@@ -2491,7 +2502,11 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
     [self.view endEditing:YES];
 
     if (self.rootViewController) {
-        [self addChildViewController:self.rootViewController];
+       // [self addChildViewController:self.rootViewController];
+    }
+    if (!withGesture) {
+      //  [self rootViewsTransformValidateWithPercentage:1.0];
+      //  [self leftViewsTransformValidateWithPercentage:1.0];
     }
 }
 
@@ -2517,8 +2532,8 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
         [LGSideMenuHelper
          animateWithDuration:self.leftViewAnimationDuration
          animations:^(void) {
-             [self rootViewsTransformValidateWithPercentage:0.0];
-             [self leftViewsTransformValidateWithPercentage:0.0];
+             [self rootViewsTransformValidateWithPercentage:0.0 animated:YES];
+             [self leftViewsTransformValidateWithPercentage:0.0 animated:YES];
 
              // -----
 
@@ -3075,6 +3090,9 @@ rightViewBackgroundImageFinalScale = _rightViewBackgroundImageFinalScale;
                 percentage = 1.0;
             }
 
+            if (_leftViewPercentageChanged) {
+                _leftViewPercentageChanged(percentage, NO);
+            }
             if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
                 [self rootViewsTransformValidateWithPercentage:percentage];
                 [self leftViewsTransformValidateWithPercentage:percentage];

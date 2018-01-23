@@ -30,19 +30,18 @@ static CGFloat const kHoroscopeCellBottomOffset = 8.f;
 
 static CGFloat const kRowHeight = 40.f;
 static CGFloat const kHeaderViewHeight = 20.f;
-// static CGFloat const kSeparatorAlpha = 0.2f;
-
-static CGFloat const kZodiacsRowHeight = 200.f;
+static CGFloat const kSeparatorAlpha = 0.25f;
 
 static NSString * const kMenuSimpleCell = @"menuSimpleCell";
 static NSString * const kZodiacsCell = @"zodiacsCell";
 
 @interface MenuViewController () <UITableViewDelegate, UITableViewDataSource, MenuSimpleCellDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *friendsDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation MenuViewController {
     NSIndexPath *_selectedIndexPath;
+    UIViewPropertyAnimator *_animator;
 }
 
 - (void)injectViewModel:(NSValue *)viewModelValue {
@@ -52,6 +51,37 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (UIViewPropertyAnimator *)animator {
+    if (!_animator) {
+        @weakify(self);
+        UIBlurEffect *blur = (UIBlurEffect *)self.backgroundEffectView.effect;
+        //self.backgroundEffectView.effect = nil;
+       // _animator = [[UIViewPropertyAnimator alloc] initWithDuration:0.5f curve:UIViewAnimationCurveLinear animations:^{
+      //      @strongify(self);
+       //     self.backgroundEffectView.effect = blur;
+      //  }];
+    }
+    return _animator;
+}
+
+- (UIVisualEffectView *)backgroundEffectView {
+    if (!_backgroundEffectView) {
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        _backgroundEffectView = blurEffectView;
+       // [self.view insertSubview:blurEffectView atIndex:0];
+    }
+    return _backgroundEffectView;
+}
+
+- (void)resetBlur {
+    [_backgroundEffectView removeFromSuperview];
+    _backgroundEffectView = nil;
+    [_animator stopAnimation:YES];
+    _animator = nil;
+    [self animator];
 }
 
 - (void)viewDidLoad {
@@ -64,9 +94,11 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     @weakify(self);
     _zodiacsLayoutController.tappedBlock = ^(NSInteger index) {
         @strongify(self);
-        self.viewModel->didSelectZodiacWithIndex(index);
+        self.viewModel->didSelectZodiacWithIndex((int)index);
     };
-    _friendsDescriptionLabel.text = L(@"begin_update");
+    [self backgroundEffectView];
+    self.tableView.separatorColor = [[UIColor whiteColor] colorWithAlphaComponent:kSeparatorAlpha];
+
     [self.tableView registerNib:[UINib nibWithNibName:@"MenuSimpleCell" bundle:nil] forCellReuseIdentifier:kMenuSimpleCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZodiacsCell" bundle:nil] forCellReuseIdentifier:kZodiacsCell];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide:) name:LGSideMenuDidHideLeftViewNotification object:nil];
@@ -75,6 +107,16 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.bounds;
+    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    frame.size.width = [UIScreen mainScreen].bounds.size.width;
+    frame.size.height += statusBarHeight;
+    frame.origin.y -= statusBarHeight;
+    self.backgroundEffectView.frame = frame;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -161,9 +203,14 @@ static NSString * const kZodiacsCell = @"zodiacsCell";
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
 #pragma mark - Observers
 - (void)menuDidHide:(id)sender {
     [self.tableView reloadData];
+    self.tableView.contentOffset = CGPointZero;
 }
 
 #pragma mark - MenuSimpleCellDelegate

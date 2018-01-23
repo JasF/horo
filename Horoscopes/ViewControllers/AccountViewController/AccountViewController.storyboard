@@ -86,18 +86,27 @@
                                     <action selector="datePickerValueChanged:" destination="0GB-8c-MA5" eventType="valueChanged" id="7cG-Ed-DKf"/>
                                 </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsQ-PC-x7X">
+                                <rect key="frame" x="0.0" y="493" width="375" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VsQ-PC-x7X" firstAttribute="trailing" secondItem="Kwl-Qz-tmq" secondAttribute="trailing" id="06u-WD-8UM"/>
                             <constraint firstItem="XzA-ih-R4s" firstAttribute="top" secondItem="dYf-zL-bVW" secondAttribute="top" constant="20" id="3WC-7A-x9d"/>
-                            <constraint firstItem="Kwl-Qz-tmq" firstAttribute="trailing" secondItem="dYf-zL-bVW" secondAttribute="trailing" id="4CJ-8q-Nck"/>
+                            <constraint firstItem="dYf-zL-bVW" firstAttribute="trailing" secondItem="Kwl-Qz-tmq" secondAttribute="trailing" id="4CJ-8q-Nck"/>
                             <constraint firstItem="oZW-PQ-nvQ" firstAttribute="leading" secondItem="Pit-Jp-Ql4" secondAttribute="leading" id="6fX-b1-OdM"/>
+                            <constraint firstItem="VsQ-PC-x7X" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="JWH-an-ABI"/>
                             <constraint firstItem="Pit-Jp-Ql4" firstAttribute="width" secondItem="v15-d5-6b2" secondAttribute="width" id="LSS-Iq-LGl"/>
                             <constraint firstItem="dYf-zL-bVW" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="NeI-C4-KUg"/>
                             <constraint firstItem="oZW-PQ-nvQ" firstAttribute="top" secondItem="Pit-Jp-Ql4" secondAttribute="bottom" id="UvL-5g-9if"/>
                             <constraint firstItem="Pit-Jp-Ql4" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="Z5x-4k-Bmq"/>
                             <constraint firstItem="Pit-Jp-Ql4" firstAttribute="top" secondItem="Kwl-Qz-tmq" secondAttribute="top" id="cbo-fz-AZU"/>
-                            <constraint firstItem="Kwl-Qz-tmq" firstAttribute="trailing" secondItem="XzA-ih-R4s" secondAttribute="trailing" id="dra-Np-cuC"/>
+                            <constraint firstItem="XzA-ih-R4s" firstAttribute="trailing" secondItem="Kwl-Qz-tmq" secondAttribute="trailing" id="dra-Np-cuC"/>
+                            <constraint firstItem="VsQ-PC-x7X" firstAttribute="top" secondItem="XzA-ih-R4s" secondAttribute="bottom" constant="10" id="iUc-nO-kNm"/>
                             <constraint firstItem="XzA-ih-R4s" firstAttribute="leading" secondItem="Kwl-Qz-tmq" secondAttribute="leading" id="pGi-Za-2Yr"/>
                             <constraint firstItem="oZW-PQ-nvQ" firstAttribute="width" secondItem="v15-d5-6b2" secondAttribute="width" id="yE4-wh-Cvj"/>
                             <constraint firstItem="dYf-zL-bVW" firstAttribute="top" secondItem="oZW-PQ-nvQ" secondAttribute="bottom" constant="24" id="zWu-Mt-DWU"/>
@@ -122,6 +131,7 @@
                         <outlet property="facebookLoginContainerView" destination="oZW-PQ-nvQ" id="2Nh-JN-PFn"/>
                         <outlet property="nameLabel" destination="4NC-J4-mzP" id="g9e-1y-O4o"/>
                         <outlet property="youBirthdayDateLabel" destination="dYf-zL-bVW" id="Bt6-N4-vsv"/>
+                        <outlet property="zodiacLabel" destination="VsQ-PC-x7X" id="K0Y-8j-STv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5I7-8c-09R" userLabel="First Responder" sceneMemberID="firstResponder"/>

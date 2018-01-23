@@ -8,12 +8,15 @@
 
 #import "UIButton+Horo.h"
 
-static CGFloat const kDefaultPadding = 6.f;
+static CGFloat const kDefaultPadding = 0.f;
+static CGFloat const kOffset = 3.f;
 
 @implementation UIButton (Horo)
 
 - (void)horo_centerVerticallyWithPadding:(float)padding {
     CGSize imageSize = self.imageView.frame.size;
+    imageSize.height = self.height/3+kOffset;
+    [self.titleLabel sizeToFit];
     CGSize titleSize = self.titleLabel.frame.size;
     CGFloat totalHeight = (imageSize.height + titleSize.height + padding);
     

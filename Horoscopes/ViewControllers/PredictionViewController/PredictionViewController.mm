@@ -155,7 +155,7 @@ static CGFloat const kFriendCellHeight = 65.f;
     NSString *zodiacName = L([NSString stringWithUTF8String:_viewModel->zodiacName().c_str()]);
     _zodiacLabel.text = zodiacName;
     _zodiacDateLabel.text = L([NSString stringWithUTF8String:_viewModel->zodiacDateString().c_str()]);
-    NSString *iconName = [zodiacName lowercaseString];
+    NSString *iconName = [NSString stringWithUTF8String:_viewModel->zodiacName().c_str()];
     UIImage *image = [UIImage imageNamed:iconName];
     NSCAssert(image, @"image cannot be nil");
     _titleImageView.image = image;

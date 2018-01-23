@@ -67,6 +67,6 @@
 "menu_cell_account"="Account";
 "menu_cell_notifications"="Notifications";
 "menu_cell_feedback"="Feedback";
-"menu_cell_prediction"="You horoscope";
+"menu_cell_prediction"="You Horoscope";
 "you_are_zodiacName"="You are %@";
 "cancel_friends_loading"="Cancel loading friends operation?";

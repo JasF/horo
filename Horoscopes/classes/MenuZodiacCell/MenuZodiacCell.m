@@ -20,10 +20,7 @@
 #pragma mark - Public Methods
 - (void)setImage:(UIImage *)image zodiacName:(NSString *)zodiacName {
     _originalZodiacName = zodiacName;
-    if (zodiacName.length) {
-        zodiacName = [zodiacName stringByReplacingCharactersInRange:NSMakeRange(0,1)
-                                               withString:[[zodiacName substringToIndex:1] capitalizedString]];
-    }
+    zodiacName = L(zodiacName);
     [_button setImage:image forState:UIControlStateNormal];
     [_button setTitle:zodiacName forState:UIControlStateNormal];
 }
